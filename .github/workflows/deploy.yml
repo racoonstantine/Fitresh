@@ -1,0 +1,38 @@
+name: Deploy to Namecheap
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: {}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up SSH key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.NAMECHEAP_SSH_KEY }}" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          ssh-keyscan -p "${{ secrets.NAMECHEAP_SSH_PORT }}" "${{ secrets.NAMECHEAP_SSH_HOST }}" >> ~/.ssh/known_hosts
+
+      # Ships the static frontend (public/) to the web root.
+      # --delete keeps the server in sync with the repo, so if REMOTE_PATH hosts
+      # anything else besides this app, point it at a dedicated subfolder instead.
+      - name: Deploy frontend
+        run: |
+          rsync -avz --delete \
+            -e "ssh -i ~/.ssh/deploy_key -p ${{ secrets.NAMECHEAP_SSH_PORT }}" \
+            public/ "${{ secrets.NAMECHEAP_SSH_USER }}@${{ secrets.NAMECHEAP_SSH_HOST }}:${{ secrets.NAMECHEAP_REMOTE_PATH }}/"
+
+      # Ships the PHP API. config.local.php lives only on the server (created
+      # once by hand) and is excluded here so a deploy never overwrites or deletes it.
+      - name: Deploy API
+        run: |
+          rsync -avz --delete \
+            --exclude 'config.local.php' \
+            -e "ssh -i ~/.ssh/deploy_key -p ${{ secrets.NAMECHEAP_SSH_PORT }}" \
+            api/ "${{ secrets.NAMECHEAP_SSH_USER }}@${{ secrets.NAMECHEAP_SSH_HOST }}:${{ secrets.NAMECHEAP_REMOTE_PATH }}/api/"
