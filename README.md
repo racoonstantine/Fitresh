@@ -11,16 +11,26 @@ on every push to `main`.
   framework. Talks to the API with `fetch()` for login/signup and for every
   read/write of workout, nutrition, weigh-in, etc. data.
 - **`api/`** — PHP endpoints:
-  - `auth.php` — register / login / logout / who-am-i, via PHP sessions
+  - `auth.php` — register / login / logout / who-am-i, via PHP sessions.
+    New signups are created with `status = 'pending'` and can't log in until
+    approved (see "Admin approval for new signups" below).
+  - `approve.php` — the link in the admin approval email hits this to
+    approve/reject a pending signup.
   - `data.php` — get/save one user's data for a given resource (nutrition,
     weighins, history, checked, weights, theme), scoped to whoever is logged in
-  - `config.local.php` — **not in git.** DB credentials, created once by hand
-    directly on the server.
-- **`db/schema.sql`** — the two tables (`users`, `user_data`). Run once.
+  - `config.local.php` — **not in git.** DB credentials + admin email, created
+    once by hand directly on the server.
+- **`db/schema.sql`** — the two tables (`users`, `user_data`). Run once, for a
+  fresh install.
+- **`db/migrations/`** — schema changes made after the initial install, run
+  once each against your live database (phpMyAdmin → SQL tab).
 - **`tools/seed-owner-data.js`** — a one-time console script to restore your
   own historical data (see below). Never deployed, never run by anyone else.
-- **`.github/workflows/deploy.yml`** — on every push to `main`, rsyncs
-  `public/` and `api/` to your Namecheap server over SSH.
+- **`.github/workflows/deploy.yml`** + **`.github/scripts/sftp_deploy.py`** —
+  on every push to `main`, uploads `public/` and `api/` to your Namecheap
+  server over SFTP (not rsync — Namecheap's SSH access here is SFTP/SCP-only,
+  no remote shell, so rsync-over-ssh doesn't work). `config.local.php` is
+  always excluded, so a deploy can never touch your DB credentials.
 
 ## One-time server setup (do this before the first deploy)
 
@@ -35,16 +45,25 @@ paste in the contents of [`db/schema.sql`](db/schema.sql) and run it.
 
 ### 2. Create `api/config.local.php` on the server
 Via cPanel **File Manager**, once the first deploy has run and `api/` exists
-on the server: copy `api/config.example.php` to `api/config.local.php` in the
-same folder, and fill in the DB name/user/password from step 1. This file is
-gitignored on purpose — it only ever exists on the server, never in the repo.
+on the server (find it at your domain's actual **Document Root** — check
+cPanel → **Domains** list, don't assume it's under `public_html`, addon
+domains aren't always nested there): copy `api/config.example.php` to
+`api/config.local.php` in the same folder, and fill in the DB name/user/
+password from step 1, plus `admin_email` (see "Admin approval for new
+signups" below). This file is gitignored on purpose — it only ever exists on
+the server, never in the repo.
 
 ### 3. Set up the deploy SSH key
 You already have SSH access (confirmed via cPanel → SSH Access). We'll make a
 **second**, dedicated keypair just for GitHub Actions — don't reuse your
 personal Mac key for this.
 
-On your own machine (not here):
+On your own machine (not here). Windows (PowerShell):
+```powershell
+New-Item -ItemType Directory -Force "$env:USERPROFILE\.ssh"
+ssh-keygen -t ed25519 -f "$env:USERPROFILE\.ssh\namecheap_deploy" -N '""' -C "github-actions-deploy"
+```
+Mac/Linux:
 ```bash
 ssh-keygen -t ed25519 -f ~/.ssh/namecheap_deploy -N "" -C "github-actions-deploy"
 ```
@@ -96,11 +115,31 @@ manually, logged in as yourself:
 3. Paste the entire contents of `tools/seed-owner-data.js`, press Enter.
 4. Reload once you see "Owner data import complete" in the console.
 
+## Admin approval for new signups
+
+Anyone can submit a signup, but new accounts start out `pending` and can't log
+in until you approve them. When someone signs up, the server emails
+`admin_email` (set in `api/config.local.php`) with **Approve** / **Reject**
+links — clicking one updates the account and, for approve, they can log in
+right away.
+
+This relies on PHP's built-in `mail()`, which uses the server's local mail
+setup — on Namecheap shared hosting this generally works out of the box, but
+check your spam folder the first time, and if nothing arrives at all, an
+authenticated SMTP method (e.g. PHPMailer through a real cPanel email account)
+is more reliable than `mail()` — worth switching to if delivery is flaky.
+
+If you're setting this up on an existing database that predates this feature,
+run [`db/migrations/001_add_signup_approval.sql`](db/migrations/001_add_signup_approval.sql)
+once — it defaults existing accounts to `approved` so nobody already using the
+app gets locked out; only new signups from that point on start `pending`.
+
 ## Inviting friends
 
-Signup is open (anyone with the link can create an account) but each account
-only ever sees its own data — the API scopes every read/write to the logged-in
-user's session. Just share the URL.
+Signup is open (anyone with the link can create an account) but every account
+needs your approval before it can be used, and each approved account only
+ever sees its own data. Share the URL, then check your email for the
+approval request when someone signs up.
 
 ## Local development
 

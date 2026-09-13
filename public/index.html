@@ -2128,12 +2128,21 @@ async function checkAuthAndStart(){
       });
       const data = await res.json();
       if(!res.ok){
+        errBox.style.color = '#B4472A';
         errBox.textContent = data.error || 'Something went wrong — try again.';
         errBox.style.display = 'block';
         return;
       }
+      if(data.pending){
+        errBox.style.color = 'var(--forest-dark)';
+        errBox.textContent = data.message || 'Your account needs admin approval before you can log in.';
+        errBox.style.display = 'block';
+        form.reset();
+        return;
+      }
       await showAppFor(data);
     }catch(err){
+      errBox.style.color = '#B4472A';
       errBox.textContent = 'Could not reach the server — check your connection and try again.';
       errBox.style.display = 'block';
     }finally{

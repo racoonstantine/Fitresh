@@ -10,4 +10,6 @@ return [
     'db_name' => 'cpanelusername_fitness',
     'db_user' => 'cpanelusername_fitness',
     'db_pass' => 'REPLACE_ME',
+    // New signups land here for approval before they can log in.
+    'admin_email' => 'you@example.com',
 ];

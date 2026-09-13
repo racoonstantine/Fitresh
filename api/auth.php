@@ -5,6 +5,28 @@ require __DIR__ . '/db.php';
 header('Content-Type: application/json');
 start_app_session();
 
+function send_approval_request_email(string $email, string $displayName, string $token): void
+{
+    $config = get_config();
+    $adminEmail = $config['admin_email'] ?? null;
+    if (!$adminEmail) {
+        return;
+    }
+    $host = $_SERVER['HTTP_HOST'] ?? '';
+    $approveUrl = "https://{$host}/api/approve.php?token={$token}&action=approve";
+    $rejectUrl = "https://{$host}/api/approve.php?token={$token}&action=reject";
+
+    $subject = "Full Circle: approve signup from {$displayName}";
+    $body = "New signup waiting on your approval:\n\n"
+        . "Name: {$displayName}\n"
+        . "Email: {$email}\n\n"
+        . "Approve: {$approveUrl}\n\n"
+        . "Reject: {$rejectUrl}\n";
+    $headers = "From: no-reply@{$host}\r\nContent-Type: text/plain; charset=utf-8";
+
+    @mail($adminEmail, $subject, $body, $headers);
+}
+
 $pdo = get_db();
 $action = $_GET['action'] ?? '';
 $input = json_decode(file_get_contents('php://input'), true) ?? [];
@@ -28,24 +50,36 @@ switch ($action) {
         }
 
         $hash = password_hash($password, PASSWORD_DEFAULT);
-        $stmt = $pdo->prepare('INSERT INTO users (email, password_hash, display_name, created_at) VALUES (?, ?, ?, NOW())');
-        $stmt->execute([$email, $hash, $displayName]);
-        $userId = (int)$pdo->lastInsertId();
+        $token = bin2hex(random_bytes(32));
+        $stmt = $pdo->prepare(
+            'INSERT INTO users (email, password_hash, display_name, status, approval_token, created_at)
+             VALUES (?, ?, ?, ?, ?, NOW())'
+        );
+        $stmt->execute([$email, $hash, $displayName, 'pending', $token]);
 
-        session_regenerate_id(true);
-        $_SESSION['user_id'] = $userId;
-        json_respond(['id' => $userId, 'email' => $email, 'display_name' => $displayName]);
+        send_approval_request_email($email, $displayName, $token);
+
+        json_respond([
+            'pending' => true,
+            'message' => "Thanks, {$displayName}! Your signup needs admin approval before you can log in — you'll be able to sign in once it's approved.",
+        ]);
     }
 
     case 'login': {
         $email = trim(strtolower((string)($input['email'] ?? '')));
         $password = (string)($input['password'] ?? '');
 
-        $stmt = $pdo->prepare('SELECT id, password_hash, display_name FROM users WHERE email = ?');
+        $stmt = $pdo->prepare('SELECT id, password_hash, display_name, status FROM users WHERE email = ?');
         $stmt->execute([$email]);
         $user = $stmt->fetch();
         if (!$user || !password_verify($password, $user['password_hash'])) {
             json_respond(['error' => 'Incorrect email or password.'], 401);
+        }
+        if ($user['status'] === 'pending') {
+            json_respond(['error' => 'Your account is still waiting on admin approval.'], 403);
+        }
+        if ($user['status'] === 'rejected') {
+            json_respond(['error' => 'This account was not approved.'], 403);
         }
 
         session_regenerate_id(true);

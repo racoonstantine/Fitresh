@@ -1,11 +1,20 @@
 <?php
 declare(strict_types=1);
 
+function get_config(): array
+{
+    static $config = null;
+    if ($config === null) {
+        $config = require __DIR__ . '/config.php';
+    }
+    return $config;
+}
+
 function get_db(): PDO
 {
     static $pdo = null;
     if ($pdo === null) {
-        $config = require __DIR__ . '/config.php';
+        $config = get_config();
         $dsn = "mysql:host={$config['db_host']};dbname={$config['db_name']};charset=utf8mb4";
         $pdo = new PDO($dsn, $config['db_user'], $config['db_pass'], [
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
