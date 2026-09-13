@@ -131,6 +131,98 @@
     background:var(--paper-raised);color:var(--ink-soft);cursor:pointer;
   }
   .main-tab.active{background:var(--ink);color:var(--paper);border-color:var(--ink);}
+
+  /* Hub app shell */
+  .app-shell{display:flex;height:100%;}
+  .sidebar{
+    width:200px;flex-shrink:0;background:var(--color-accent-2-800);color:var(--color-neutral-100);
+    display:flex;flex-direction:column;gap:22px;padding:20px 16px;overflow-y:auto;
+  }
+  html[data-theme="dark"] .sidebar{background:var(--color-accent-2-900);}
+  .sidebar-brand{display:flex;align-items:center;gap:9px;font-family:var(--font-heading);font-size:17px;color:#fff;flex-shrink:0;}
+  .sidebar-brand .ring{width:22px;height:22px;border-radius:50%;background:var(--color-accent-400);flex-shrink:0;}
+  .sidebar-nav{display:flex;flex-direction:column;gap:3px;}
+  .sidebar-link{
+    font-family:var(--font-body);font-weight:600;font-size:13.5px;text-align:left;white-space:nowrap;
+    padding:9px 13px;border-radius:999px;border:none;background:transparent;
+    color:var(--color-accent-2-200);cursor:pointer;
+  }
+  .sidebar-link.active{background:var(--color-accent-2-600);color:#fff;}
+  .sidebar-link:hover:not(.active){background:rgba(255,255,255,0.08);}
+  .sidebar-footer{margin-top:auto;display:flex;flex-direction:column;gap:10px;flex-shrink:0;}
+  .sidebar-device-card{
+    background:var(--color-accent-2-900);border-radius:var(--radius-md);padding:11px 12px;
+    font-size:11px;color:var(--color-accent-2-200);
+  }
+  .sidebar-device-card strong{display:block;font-family:var(--font-heading);font-size:11.5px;letter-spacing:.05em;color:#fff;margin-bottom:2px;}
+  .sidebar-user{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:11.5px;color:var(--color-accent-2-200);}
+  .sidebar-user a{color:var(--color-accent-300);text-decoration:none;}
+  .sidebar-user .theme-toggle{width:26px;height:26px;border-color:var(--color-accent-2-400);flex-shrink:0;}
+  .sidebar-user .theme-toggle svg{stroke:var(--color-accent-2-200);width:13px;height:13px;}
+
+  .app-main{flex:1;min-width:0;height:100%;overflow-y:auto;-webkit-overflow-scrolling:touch;padding-bottom:60px;}
+
+  @media (max-width: 860px){
+    .app-shell{flex-direction:column;}
+    .sidebar{
+      width:auto;flex-direction:row;align-items:center;padding:8px 10px;gap:8px;
+    }
+    .sidebar-brand{flex-shrink:0;font-size:0;}
+    .sidebar-brand .ring{width:20px;height:20px;}
+    .sidebar-nav{flex-direction:row;gap:2px;flex:1;min-width:0;overflow-x:auto;white-space:nowrap;}
+    .sidebar-link{padding:7px 11px;font-size:12px;flex-shrink:0;}
+    .sidebar-device-card{display:none;}
+    .sidebar-footer{margin-top:0;flex-direction:row;align-items:center;flex-shrink:0;gap:6px;}
+    .sidebar-user{gap:6px;}
+    .sidebar-user #userBadge{display:none;}
+    .app-main{height:auto;flex:1;min-height:0;}
+  }
+
+  .day-header-row{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin:16px 0 18px;flex-wrap:wrap;}
+  .day-header-sub{font-size:13px;color:var(--ink-soft);margin-top:2px;}
+
+  .hub-back{
+    display:inline-flex;align-items:center;gap:5px;font-family:var(--font-body);font-weight:600;
+    font-size:12.5px;color:var(--color-accent-700);background:none;border:none;cursor:pointer;
+    padding:0;margin-bottom:14px;
+  }
+  html[data-theme="dark"] .hub-back{color:var(--color-accent-300);}
+  .hub-back svg{width:14px;height:14px;stroke:currentColor;}
+
+  .hub-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:4px 0 18px;}
+  @media (max-width:760px){.hub-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
+  @media (max-width:460px){.hub-grid{grid-template-columns:1fr;}}
+  .hub-tile{
+    background:var(--color-surface);border-radius:var(--radius-lg);padding:18px;
+    min-height:150px;display:flex;flex-direction:column;gap:8px;cursor:pointer;
+    border:none;text-align:left;font-family:var(--font-body);color:var(--ink);
+  }
+  .hub-tile:hover{box-shadow:var(--shadow-sm);}
+  .hub-tile:disabled, .hub-tile.hub-tile-empty{cursor:default;}
+  .hub-tile-head{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;}
+  .hub-tile-label{font-size:11.5px;text-transform:uppercase;letter-spacing:.08em;font-weight:700;color:var(--color-neutral-700);}
+  html[data-theme="dark"] .hub-tile-label{color:var(--color-neutral-800);}
+  .hub-tile-value{font-family:var(--font-heading);font-size:28px;line-height:1;}
+  .hub-tile-sub{font-size:12.5px;color:var(--color-neutral-700);}
+  html[data-theme="dark"] .hub-tile-sub{color:var(--color-neutral-800);}
+  .hub-tile-empty .hub-tile-value{font-size:14px;font-family:var(--font-body);font-weight:600;color:var(--color-neutral-600);}
+  .hub-tile-footer{margin-top:auto;font-size:12px;color:var(--color-accent-700);font-weight:700;}
+  html[data-theme="dark"] .hub-tile-footer{color:var(--color-accent-300);}
+
+  .tag{display:inline-flex;align-items:center;font-size:11px;letter-spacing:.02em;padding:3px 10px;border-radius:12px;}
+  .tag-accent{background:var(--color-accent-100);color:var(--color-accent-800);}
+  .tag-accent-2{background:var(--color-accent-2-100);color:var(--color-accent-2-800);}
+  html[data-theme="dark"] .tag-accent{background:var(--color-accent-900);color:var(--color-accent-200);}
+  html[data-theme="dark"] .tag-accent-2{background:var(--color-accent-2-900);color:var(--color-accent-2-200);}
+
+  .placeholder-card{
+    background:var(--paper-raised);border:1px solid var(--line);border-radius:var(--radius-lg);
+    padding:28px 20px;text-align:center;color:var(--ink-soft);font-size:13.5px;
+  }
+  .hub-card{
+    background:var(--paper-raised);border:1px solid var(--line);border-radius:var(--radius-lg);
+    padding:20px;margin-bottom:18px;
+  }
   *{box-sizing:border-box;}
   html, body{
     height:100%;
@@ -469,39 +561,47 @@
 </div>
 
 <div id="appRoot" style="display:none;height:100%;">
-<div id="scrollArea">
-<div class="wrap">
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-brand"><span class="ring"></span> Full Circle</div>
+    <nav class="sidebar-nav" id="sidebarNav">
+      <button class="sidebar-link active" data-view="hub" type="button">Hub</button>
+      <button class="sidebar-link" data-view="log" type="button">Log</button>
+      <button class="sidebar-link" data-view="trends" type="button">Trends</button>
+      <button class="sidebar-link" data-view="insights" type="button">Insights</button>
+      <button class="sidebar-link" data-view="devices" type="button">Devices</button>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="sidebar-device-card"><strong>Watch</strong>Not connected yet</div>
+      <div class="sidebar-user">
+        <span id="userBadge"></span>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <button class="theme-toggle" id="themeToggle" title="Toggle dark/light">
+            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1111.2 3 7 7 0 0021 12.8z"/></svg>
+          </button>
+          <a href="#" id="logoutLink">Log out</a>
+        </div>
+      </div>
+    </div>
+  </aside>
 
-  <header style="display:flex;justify-content:space-between;align-items:flex-start;gap:10px;">
+  <div id="scrollArea" class="app-main">
+  <div class="wrap">
+
+  <div class="day-header-row">
     <div>
       <div class="eyebrow">Personal Health Program</div>
-      <h1>Full Circle</h1>
-      <div class="sub">Workouts, nutrition, fasting, and weight — one place for the full picture</div>
-      <div class="tally-row">
+      <h3 style="margin:2px 0 0;">Full Circle</h3>
+      <div class="day-header-sub tally-row">
         <span class="tally-label" id="tallyLabel">This week: 0/4 sessions</span>
         <div class="tally-marks" id="tallyMarks"></div>
       </div>
     </div>
-    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px;">
-      <button class="theme-toggle" id="themeToggle" title="Toggle dark/light">
-        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
-        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1111.2 3 7 7 0 0021 12.8z"/></svg>
-      </button>
-      <div style="font-size:11px;color:var(--ink-soft);text-align:right;white-space:nowrap;">
-        <span id="userBadge"></span> · <a href="#" id="logoutLink" style="color:var(--forest-dark);">Log out</a>
-      </div>
-    </div>
-  </header>
-
-  <div class="main-nav" id="mainNav">
-    <button class="main-tab active" data-panel="workout">Workout</button>
-    <button class="main-tab" data-panel="weight">Weight</button>
-    <button class="main-tab" data-panel="nutrition">Nutrition</button>
-    <button class="main-tab" data-panel="summary">Summary</button>
   </div>
 
-  <section class="block" style="margin:14px 0 4px;background:var(--paper-raised);border:1px solid var(--line);border-radius:8px;padding:12px;">
-    <div style="font-size:12.5px;color:var(--ink-soft);">Your data lives in this browser only. Download a backup now and then, so a cleared cache or a new device doesn't lose your history.</div>
+  <section class="block" style="margin:0 0 18px;background:var(--paper-raised);border:1px solid var(--line);border-radius:8px;padding:12px;">
+    <div style="font-size:12.5px;color:var(--ink-soft);">Your data is saved to your account on the server. Download a backup now and then anyway, just in case.</div>
     <div style="display:flex;gap:8px;margin-top:10px;">
       <button class="today-btn" id="exportBackupBtn" style="flex:1;">Download backup</button>
       <button class="today-btn" id="importBackupBtn" style="flex:1;background:transparent;color:var(--ink);border:1.5px solid var(--ink);">Restore backup</button>
@@ -510,7 +610,16 @@
     <div id="backupStatus" style="font-size:11px;color:var(--forest-dark);text-align:center;margin-top:8px;display:none;"></div>
   </section>
 
-  <div id="panelWorkout">
+  <div id="panelHub">
+    <div class="hub-grid" id="hubGrid"></div>
+    <div class="hub-card" id="hubWeightCard"></div>
+  </div>
+
+  <div id="panelWorkout" style="display:none;">
+    <button class="hub-back" type="button" data-back>
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      Hub
+    </button>
 
   <section class="block" style="margin-top:16px;margin-bottom:18px;">
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
@@ -624,6 +733,10 @@
   </div><!-- /panelWorkout -->
 
   <div id="panelWeight" style="display:none;">
+    <button class="hub-back" type="button" data-back>
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      Hub
+    </button>
     <section class="block" style="margin-top:16px;margin-bottom:18px;">
       <div class="block-title">Weight Loss Progress</div>
       <div class="dash" id="bodyWeightCards" style="grid-template-columns:repeat(3,1fr);"></div>
@@ -638,6 +751,10 @@
   </div><!-- /panelWeight -->
 
   <div id="panelNutrition" style="display:none;">
+    <button class="hub-back" type="button" data-back>
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      Hub
+    </button>
     <section class="block" style="margin-top:16px;margin-bottom:18px;">
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
         <div class="block-title" style="margin:0;flex:1;">Nutrition Dashboard</div>
@@ -695,6 +812,10 @@
   </div><!-- /panelNutrition -->
 
   <div id="panelSummary" style="display:none;">
+    <button class="hub-back" type="button" data-back>
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      Hub
+    </button>
     <section class="block" style="margin-top:16px;margin-bottom:18px;">
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
         <div class="block-title" style="margin:0;flex:1;">Overview</div>
@@ -713,9 +834,26 @@
     </section>
   </div><!-- /panelSummary -->
 
-  <footer>Tap a checkmark to log the exercise. Tap the card to see form cues. Progress is saved on this device.</footer>
-</div>
-</div>
+  <div id="panelInsights" style="display:none;">
+    <button class="hub-back" type="button" data-back>
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      Hub
+    </button>
+    <div class="placeholder-card">Insights — readiness score and recommendation cards — are being built. Check back in a future update.</div>
+  </div><!-- /panelInsights -->
+
+  <div id="panelDevices" style="display:none;">
+    <button class="hub-back" type="button" data-back>
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      Hub
+    </button>
+    <div class="placeholder-card">No devices connected yet. Every number in Full Circle is entered by hand for now — automatic watch sync is a possible future update.</div>
+  </div><!-- /panelDevices -->
+
+  <footer>Tap a checkmark to log the exercise. Tap the card to see form cues. Your data is saved to your account.</footer>
+  </div>
+  </div>
+</div><!-- /app-shell -->
 
 <div id="timerFab" title="Rest timer">
   <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2M9 2h6M12 2v2"/></svg>
@@ -1310,6 +1448,65 @@ function renderNutrition(){
         renderNutrition();
       });
     });
+  }
+}
+
+function renderHub(){
+  const grid = document.getElementById('hubGrid');
+  const wCard = document.getElementById('hubWeightCard');
+  if(!grid || !wCard) return;
+  const today = dateStrForOffset(0);
+
+  const todayIdx = new Date().getDay();
+  const todayPlan = weekPlan[todayIdx];
+  const trainingValue = todayPlan.day ? tabLabels[todayPlan.day] : 'Rest day';
+  const tallyEl = document.getElementById('tallyLabel');
+  const tallyText = tallyEl ? tallyEl.textContent : '';
+
+  const nutriToday = nutritionLog.find(e => e.date === today);
+  const nutriValue = nutriToday && nutriToday.calories ? `${nutriToday.calories} kcal` : 'No entry today';
+  const nutriSub = nutriToday && nutriToday.protein ? `${nutriToday.protein}g protein logged` : "Tap to log today's meals";
+
+  const tiles = [
+    {key:'training', label:'Training', value: trainingValue, sub: tallyText || 'Tap to open', footer:'Open workout →', empty:false},
+    {key:'nutrition', label:'Nutrition', value: nutriValue, sub: nutriSub, footer:'Open nutrition →', empty: !nutriToday},
+    {key:'vitals', label:'Vitals', value:'No entries yet', sub:'Blood pressure, glucose, HRV, resting HR', footer:'Coming soon', empty:true, disabled:true},
+    {key:'sleep', label:'Sleep', value:'No entries yet', sub:'Total, deep, REM, light', footer:'Coming soon', empty:true, disabled:true},
+    {key:'water', label:'Water', value:'No entries yet', sub:'Daily intake vs. target', footer:'Coming soon', empty:true, disabled:true},
+    {key:'mind', label:'Mind', value:'No entries yet', sub:'Minutes, kind, stress score', footer:'Coming soon', empty:true, disabled:true}
+  ];
+
+  grid.innerHTML = tiles.map(t => `
+    <button class="hub-tile${t.empty ? ' hub-tile-empty' : ''}" data-hub-tile="${t.key}" ${t.disabled ? 'disabled' : ''} type="button">
+      <div class="hub-tile-head"><span class="hub-tile-label">${t.label}</span></div>
+      <div class="hub-tile-value">${t.value}</div>
+      <div class="hub-tile-sub">${t.sub}</div>
+      <div class="hub-tile-footer">${t.footer}</div>
+    </button>
+  `).join('');
+
+  if(weighIns.length){
+    const current = weighIns[weighIns.length - 1];
+    let rateText = '—';
+    if(weighIns.length >= 2){
+      const first = weighIns[0];
+      const days = (new Date(current.date) - new Date(first.date)) / 86400000;
+      const weeks = days / 7;
+      if(weeks >= 1){
+        const rate = (current.kg - first.kg) / weeks;
+        rateText = `${rate > 0 ? '+' : ''}${rate.toFixed(2)}/wk`;
+      }
+    }
+    wCard.innerHTML = `
+      <div class="block-title" style="margin:0 0 10px;">Weight &amp; Fasting</div>
+      <div class="dash" style="grid-template-columns:repeat(3,1fr);">
+        <div class="dash-card"><div class="dash-num">${current.kg}</div><div class="dash-label">Current (kg)</div></div>
+        <div class="dash-card"><div class="dash-num">${rateText}</div><div class="dash-label">Trend</div></div>
+        <div class="dash-card"><div class="dash-num">${GOAL_WEIGHT}</div><div class="dash-label">Goal (kg)</div></div>
+      </div>
+    `;
+  } else {
+    wCard.innerHTML = `<div class="block-title" style="margin:0 0 10px;">Weight &amp; Fasting</div><div class="dash-empty">No weigh-ins yet — log your first one.</div>`;
   }
 }
 
@@ -1976,17 +2173,47 @@ async function startApp(){
     try{ await window.storage.set(STORAGE_PREFIX + 'theme', isDark ? 'light' : 'dark', false); }catch(e){}
   });
 
-  // Main nav: Workout / Weight / Nutrition
-  const panels = {workout: 'panelWorkout', weight: 'panelWeight', nutrition: 'panelNutrition', summary: 'panelSummary'};
-  document.getElementById('mainNav').addEventListener('click', (e)=>{
-    const btn = e.target.closest('.main-tab');
-    if(!btn) return;
-    document.querySelectorAll('.main-tab').forEach(t => t.classList.toggle('active', t === btn));
-    Object.entries(panels).forEach(([key, id])=>{
-      document.getElementById(id).style.display = (key === btn.dataset.panel) ? 'block' : 'none';
+  // Navigation: sidebar (Hub/Log/Trends/Insights/Devices) + hub tiles + back buttons.
+  // "hub" stays the active sidebar item while browsing a domain a hub tile opened
+  // (workout/weight/nutrition aren't sidebar destinations themselves).
+  const viewPanels = {
+    hub: 'panelHub', workout: 'panelWorkout', weight: 'panelWeight',
+    nutrition: 'panelNutrition', trends: 'panelSummary', insights: 'panelInsights', devices: 'panelDevices'
+  };
+  const sidebarViewFor = {hub:'hub', workout:'hub', weight:'hub', nutrition:'hub', trends:'trends', insights:'insights', devices:'devices'};
+  function showView(view){
+    Object.entries(viewPanels).forEach(([key, id])=>{
+      const el = document.getElementById(id);
+      if(el) el.style.display = (key === view) ? 'block' : 'none';
+    });
+    document.querySelectorAll('.sidebar-link').forEach(link=>{
+      link.classList.toggle('active', link.dataset.view === (sidebarViewFor[view] || view));
     });
     document.getElementById('scrollArea').scrollTop = 0;
-    if(btn.dataset.panel === 'summary') renderSummary();
+    if(view === 'hub') renderHub();
+    if(view === 'trends') renderSummary();
+  }
+  window.showView = showView;
+
+  document.getElementById('sidebarNav').addEventListener('click', (e)=>{
+    const btn = e.target.closest('.sidebar-link');
+    if(!btn) return;
+    const view = btn.dataset.view;
+    showView(view === 'log' ? 'hub' : view);
+  });
+
+  document.getElementById('hubGrid').addEventListener('click', (e)=>{
+    const tile = e.target.closest('[data-hub-tile]');
+    if(!tile || tile.disabled) return;
+    const key = tile.dataset.hubTile;
+    if(key === 'training') showView('workout');
+    else if(key === 'nutrition') showView('nutrition');
+  });
+
+  document.getElementById('hubWeightCard').addEventListener('click', ()=> showView('weight'));
+
+  document.getElementById('scrollArea').addEventListener('click', (e)=>{
+    if(e.target.closest('[data-back]')) showView('hub');
   });
 
   await loadState();
@@ -2006,6 +2233,7 @@ async function startApp(){
   document.querySelector(`.tab[data-day="${startDay}"]`).classList.add('active');
   setDay(startDay);
   renderTally();
+  renderHub();
   document.getElementById('exportBtn').addEventListener('click', exportLogCSV);
 
   const customForm = document.getElementById('customForm');
