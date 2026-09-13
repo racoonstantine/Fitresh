@@ -141,6 +141,26 @@ needs your approval before it can be used, and each approved account only
 ever sees its own data. Share the URL, then check your email for the
 approval request when someone signs up.
 
+## Profile, username, and personalized targets
+
+The first time someone logs in (no saved profile yet), they see a one-time
+setup screen: an optional unique username (6+ characters, rejected if already
+taken), plus gender/age/height/activity level/current & goal weight. This
+computes their BMI and personal calorie/protein/water targets (Mifflin-St
+Jeor BMR × activity multiplier, ± a deficit/surplus toward their goal weight)
+— shown on the Insights screen, and used everywhere the app shows a nutrition
+target. Skipping is always available; clicking your name in the sidebar
+reopens the same form to fill in or change any of it later.
+
+This replaced what used to be one person's own hardcoded diet targets
+(140-150g protein, ≤30g carbs) applied to every account — the same class of
+bug as the old hardcoded seed data. Generic, non-personal defaults are used
+for anyone who hasn't filled in a profile yet.
+
+If you're setting this up on an existing database, also run
+[`db/migrations/002_add_username.sql`](db/migrations/002_add_username.sql)
+once.
+
 ## Local development
 
 There's no build step. To preview the frontend against a local PHP server:

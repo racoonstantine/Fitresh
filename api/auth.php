@@ -69,7 +69,7 @@ switch ($action) {
         $email = trim(strtolower((string)($input['email'] ?? '')));
         $password = (string)($input['password'] ?? '');
 
-        $stmt = $pdo->prepare('SELECT id, password_hash, display_name, status FROM users WHERE email = ?');
+        $stmt = $pdo->prepare('SELECT id, password_hash, display_name, status, username FROM users WHERE email = ?');
         $stmt->execute([$email]);
         $user = $stmt->fetch();
         if (!$user || !password_verify($password, $user['password_hash'])) {
@@ -84,7 +84,7 @@ switch ($action) {
 
         session_regenerate_id(true);
         $_SESSION['user_id'] = (int)$user['id'];
-        json_respond(['id' => (int)$user['id'], 'email' => $email, 'display_name' => $user['display_name']]);
+        json_respond(['id' => (int)$user['id'], 'email' => $email, 'display_name' => $user['display_name'], 'username' => $user['username']]);
     }
 
     case 'logout': {
@@ -97,13 +97,39 @@ switch ($action) {
         if (empty($_SESSION['user_id'])) {
             json_respond(['error' => 'Not logged in'], 401);
         }
-        $stmt = $pdo->prepare('SELECT id, email, display_name FROM users WHERE id = ?');
+        $stmt = $pdo->prepare('SELECT id, email, display_name, username FROM users WHERE id = ?');
         $stmt->execute([$_SESSION['user_id']]);
         $user = $stmt->fetch();
         if (!$user) {
             json_respond(['error' => 'Not logged in'], 401);
         }
-        json_respond(['id' => (int)$user['id'], 'email' => $user['email'], 'display_name' => $user['display_name']]);
+        json_respond(['id' => (int)$user['id'], 'email' => $user['email'], 'display_name' => $user['display_name'], 'username' => $user['username']]);
+    }
+
+    case 'set_username': {
+        if (empty($_SESSION['user_id'])) {
+            json_respond(['error' => 'Not logged in'], 401);
+        }
+        $username = trim((string)($input['username'] ?? ''));
+        if ($username === '') {
+            json_respond(['error' => 'Username cannot be empty.'], 400);
+        }
+        if (strlen($username) < 6 || strlen($username) > 30) {
+            json_respond(['error' => 'Username must be 6-30 characters.'], 400);
+        }
+        if (!preg_match('/^[a-zA-Z0-9_]+$/', $username)) {
+            json_respond(['error' => 'Username can only contain letters, numbers, and underscores.'], 400);
+        }
+
+        $stmt = $pdo->prepare('SELECT id FROM users WHERE LOWER(username) = LOWER(?) AND id != ?');
+        $stmt->execute([$username, $_SESSION['user_id']]);
+        if ($stmt->fetch()) {
+            json_respond(['error' => 'That username is already taken.'], 409);
+        }
+
+        $stmt = $pdo->prepare('UPDATE users SET username = ? WHERE id = ?');
+        $stmt->execute([$username, $_SESSION['user_id']]);
+        json_respond(['ok' => true, 'username' => $username]);
     }
 
     default:

@@ -560,6 +560,66 @@
   </div>
 </div>
 
+<div id="onboardingScreen" style="display:none;min-height:100%;align-items:center;justify-content:center;padding:24px 16px;">
+  <div style="max-width:400px;width:100%;">
+    <div class="eyebrow" style="text-align:center;">A few quick details</div>
+    <h1 style="text-align:center;">Set up your profile</h1>
+    <div class="sub" style="text-align:center;margin-bottom:20px;">Used to calculate your BMI and personal calorie/protein targets — not shared with anyone. Skip any of this and fill it in later.</div>
+    <div style="background:var(--paper-raised);border:1px solid var(--line);border-radius:8px;padding:16px;">
+      <form id="onboardingForm">
+        <label style="font-size:11px;color:var(--ink-soft);">Username (optional, 6+ characters, must be unique)</label>
+        <input type="text" id="obUsername" autocomplete="username" minlength="6" maxlength="30" placeholder="e.g. winresh_fit" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;margin-bottom:10px;">
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px;">
+          <div>
+            <label style="font-size:11px;color:var(--ink-soft);">Gender</label>
+            <select id="obGender" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;">
+              <option value="">Prefer not to say</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+          </div>
+          <div>
+            <label style="font-size:11px;color:var(--ink-soft);">Age</label>
+            <input type="number" id="obAge" min="10" max="110" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;">
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px;">
+          <div>
+            <label style="font-size:11px;color:var(--ink-soft);">Height (cm)</label>
+            <input type="number" id="obHeight" min="100" max="250" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;">
+          </div>
+          <div>
+            <label style="font-size:11px;color:var(--ink-soft);">Activity level</label>
+            <select id="obActivity" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;">
+              <option value="sedentary">Sedentary</option>
+              <option value="light" selected>Light</option>
+              <option value="moderate">Moderate</option>
+              <option value="active">Active</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:6px;">
+          <div>
+            <label style="font-size:11px;color:var(--ink-soft);">Current weight (kg)</label>
+            <input type="number" step="0.1" id="obCurrentWeight" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;">
+          </div>
+          <div>
+            <label style="font-size:11px;color:var(--ink-soft);">Goal weight (kg)</label>
+            <input type="number" step="0.1" id="obGoalWeight" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;">
+          </div>
+        </div>
+
+        <div id="onboardingError" style="display:none;font-size:12px;color:#B4472A;margin-bottom:8px;"></div>
+        <button class="timer-btn start" id="onboardingSubmit" type="submit" style="width:100%;margin-top:6px;">Save &amp; continue</button>
+        <button class="timer-btn reset" id="onboardingSkip" type="button" style="width:100%;margin-top:8px;">Skip for now</button>
+      </form>
+    </div>
+  </div>
+</div>
+
 <div id="appRoot" style="display:none;height:100%;">
 <div class="app-shell">
   <aside class="sidebar">
@@ -839,7 +899,8 @@
       <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
       Hub
     </button>
-    <div class="placeholder-card">Insights — readiness score and recommendation cards — are being built. Check back in a future update.</div>
+    <div id="insightsContent"></div>
+    <div class="placeholder-card" style="margin-top:16px;">Readiness score and recommendation cards are being built. Check back in a future update.</div>
   </div><!-- /panelInsights -->
 
   <div id="panelDevices" style="display:none;">
@@ -1026,8 +1087,8 @@ let currentDay = 'A';
 let checkedState = {};
 let historyLog = [];
 let weighIns = []; // [{date:'YYYY-MM-DD', kg: number}]
-const START_WEIGHT = 101;
-const GOAL_WEIGHT = 85;
+// Generic fallback goal until a profile with its own goalWeightKg is set (see updateWeightGoalsFromProfile).
+let GOAL_WEIGHT = 85;
 
 let nutritionLog = []; // [{date, fastHours, meal, calories, protein, fat, carbs, notes}]
 
@@ -1055,6 +1116,74 @@ function saveNutritionDay(entry){
 function removeNutritionDay(dateStr){
   nutritionLog = nutritionLog.filter(e => e.date !== dateStr);
   saveNutrition();
+}
+
+let userProfile = null; // {gender, age, heightCm, goalWeightKg, activityLevel}
+let userHealthTargets = null; // computed by computeHealthTargets()
+
+async function loadProfile(){
+  try{
+    const res = await window.storage.get(STORAGE_PREFIX + 'profile', false);
+    userProfile = res && res.value ? JSON.parse(res.value) : null;
+  }catch(e){ userProfile = null; }
+  updateWeightGoalsFromProfile();
+  recomputeHealthTargets();
+}
+async function saveProfile(profile){
+  userProfile = profile;
+  try{ await window.storage.set(STORAGE_PREFIX + 'profile', JSON.stringify(profile), false); }catch(e){}
+  updateWeightGoalsFromProfile();
+  recomputeHealthTargets();
+}
+function updateWeightGoalsFromProfile(){
+  if(userProfile && userProfile.goalWeightKg){
+    GOAL_WEIGHT = userProfile.goalWeightKg;
+  }
+}
+function currentWeightKg(){
+  if(!weighIns.length) return userProfile && userProfile.currentWeightKg ? userProfile.currentWeightKg : null;
+  const sorted = [...weighIns].sort((a,b)=> a.date < b.date ? -1 : 1);
+  return sorted[sorted.length - 1].kg;
+}
+function computeHealthTargets(profile, weightKg){
+  if(!profile || !profile.heightCm || !profile.age || !weightKg) return null;
+  const heightM = profile.heightCm / 100;
+  const bmi = weightKg / (heightM * heightM);
+  let bmiCategory;
+  if(bmi < 18.5) bmiCategory = 'Underweight';
+  else if(bmi < 25) bmiCategory = 'Normal';
+  else if(bmi < 30) bmiCategory = 'Overweight';
+  else bmiCategory = 'Obese';
+
+  let bmr;
+  if(profile.gender === 'male') bmr = 10*weightKg + 6.25*profile.heightCm - 5*profile.age + 5;
+  else if(profile.gender === 'female') bmr = 10*weightKg + 6.25*profile.heightCm - 5*profile.age - 161;
+  else bmr = 10*weightKg + 6.25*profile.heightCm - 5*profile.age - 78;
+
+  const activityMultipliers = {sedentary:1.2, light:1.375, moderate:1.55, active:1.725};
+  const multiplier = activityMultipliers[profile.activityLevel] || 1.375;
+  const tdee = bmr * multiplier;
+
+  const goalWeight = profile.goalWeightKg || weightKg;
+  let calorieTarget = tdee, goalDirection = 'maintain';
+  if(goalWeight < weightKg - 0.5){ calorieTarget = tdee - 500; goalDirection = 'lose'; }
+  else if(goalWeight > weightKg + 0.5){ calorieTarget = tdee + 300; goalDirection = 'gain'; }
+  calorieTarget = Math.max(1200, calorieTarget);
+
+  return {
+    bmi: Math.round(bmi * 10) / 10,
+    bmiCategory,
+    bmr: Math.round(bmr),
+    tdee: Math.round(tdee),
+    calorieTarget: Math.round(calorieTarget),
+    goalDirection,
+    proteinTarget: Math.round(weightKg * 1.8),
+    waterTargetMl: Math.round(weightKg * 35)
+  };
+}
+function recomputeHealthTargets(){
+  userHealthTargets = computeHealthTargets(userProfile, currentWeightKg());
+  updateTargetsFromProfile();
 }
 
 async function loadWeighIns(){
@@ -1177,9 +1306,13 @@ function markSessionDone(dateStr, tabId){
   renderWeekPlan();
 }
 
-const TARGETS = {
-  workout:   {calMin:1900, calMax:2100, proteinMin:150, proteinMax:160, fatMin:80, fatMax:100, carbsMax:30},
-  sedentary: {calMin:1600, calMax:1800, proteinMin:140, proteinMax:150, fatMin:70, fatMax:90,  carbsMax:30}
+// Generic, sensible defaults for anyone who hasn't set up a health profile yet.
+// Once a profile exists, updateTargetsFromProfile() overwrites these with
+// numbers computed from that person's own weight/height/age/activity/goal —
+// these are deliberately NOT tuned to any one person's diet.
+let TARGETS = {
+  workout:   {calMin:1900, calMax:2200, proteinMin:110, proteinMax:160, fatMin:50, fatMax:90, carbsMax:180},
+  sedentary: {calMin:1600, calMax:1900, proteinMin:90,  proteinMax:140, fatMin:45, fatMax:80, carbsMax:180}
 };
 function isWorkoutDay(dateStr){
   return historyLog.some(e => e.date === dateStr && e.day !== 'custom');
@@ -1188,8 +1321,31 @@ function getTargets(dateStr){
   return isWorkoutDay(dateStr) ? TARGETS.workout : TARGETS.sedentary;
 }
 // Reference "floor" numbers used for chart lines and simple pass/fail checks — workout-day numbers (the higher bar)
-const CAL_TARGET_MIN = TARGETS.workout.calMin;
-const PROTEIN_TARGET_MIN = TARGETS.workout.proteinMin;
+let CAL_TARGET_MIN = TARGETS.workout.calMin;
+let PROTEIN_TARGET_MIN = TARGETS.workout.proteinMin;
+
+function updateTargetsFromProfile(){
+  if(!userHealthTargets) return;
+  const cal = userHealthTargets.calorieTarget;
+  const protein = userHealthTargets.proteinTarget;
+  const fatCals = cal * 0.3;
+  TARGETS = {
+    workout: {
+      calMin: cal, calMax: cal + 250,
+      proteinMin: protein, proteinMax: protein + 20,
+      fatMin: Math.round(fatCals * 0.7 / 9), fatMax: Math.round(fatCals * 1.2 / 9),
+      carbsMax: 180
+    },
+    sedentary: {
+      calMin: Math.max(1200, cal - 300), calMax: cal,
+      proteinMin: Math.max(60, protein - 20), proteinMax: protein,
+      fatMin: Math.round(fatCals * 0.6 / 9), fatMax: Math.round(fatCals * 1.0 / 9),
+      carbsMax: 150
+    }
+  };
+  CAL_TARGET_MIN = TARGETS.workout.calMin;
+  PROTEIN_TARGET_MIN = TARGETS.workout.proteinMin;
+}
 
 function macroBarRow(label, value, min, max, unit, mode){
   const scaleMax = mode === 'ceiling' ? max * 2 : max * 1.3;
@@ -1510,6 +1666,42 @@ function renderHub(){
   }
 }
 
+function renderInsights(){
+  const el = document.getElementById('insightsContent');
+  if(!el) return;
+  if(!userHealthTargets){
+    el.innerHTML = `
+      <div class="hub-card" style="text-align:center;">
+        <div class="block-title" style="margin:0 0 8px;">Your profile isn't set up yet</div>
+        <div style="font-size:13.5px;color:var(--ink-soft);margin-bottom:14px;">Add your age, height, and weight to see your BMI and personalized calorie/protein targets.</div>
+        <button class="timer-btn start" id="insightsSetupBtn" type="button" style="width:auto;padding-inline:24px;">Set up profile</button>
+      </div>
+    `;
+    document.getElementById('insightsSetupBtn').addEventListener('click', showOnboarding);
+    return;
+  }
+  const t = userHealthTargets;
+  const bmiTagClass = t.bmiCategory === 'Normal' ? 'tag-accent-2' : 'tag-accent';
+  const directionLabel = t.goalDirection === 'lose' ? 'Calorie deficit to reach your goal' : (t.goalDirection === 'gain' ? 'Calorie surplus to reach your goal' : 'Maintenance calories');
+  el.innerHTML = `
+    <div class="hub-card">
+      <div class="block-title" style="margin:0 0 12px;">Your numbers</div>
+      <div class="dash" style="grid-template-columns:repeat(3,1fr);">
+        <div class="dash-card"><div class="dash-num">${t.bmi}</div><div class="dash-label">BMI</div></div>
+        <div class="dash-card"><div class="dash-num">${t.calorieTarget}</div><div class="dash-label">Daily kcal target</div></div>
+        <div class="dash-card"><div class="dash-num">${t.proteinTarget}g</div><div class="dash-label">Protein target</div></div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;margin-top:14px;flex-wrap:wrap;">
+        <span class="tag ${bmiTagClass}">${t.bmiCategory}</span>
+        <span style="font-size:12.5px;color:var(--ink-soft);">${directionLabel}</span>
+      </div>
+      <div style="font-size:12px;color:var(--ink-soft);margin-top:10px;">Resting (BMR) ${t.bmr} kcal · Active (TDEE) ${t.tdee} kcal · Water target ${(t.waterTargetMl/1000).toFixed(1)} L</div>
+      <button class="timer-btn reset" id="insightsEditBtn" type="button" style="width:auto;padding-inline:18px;margin-top:14px;">Edit profile</button>
+    </div>
+  `;
+  document.getElementById('insightsEditBtn').addEventListener('click', showOnboarding);
+}
+
 function renderSummary(){
   const rangeSel = document.getElementById('summaryRange');
   const range = rangeSel ? rangeSel.value : 'week';
@@ -1583,9 +1775,10 @@ function renderSummary(){
 
 function renderWeightSection(){
   const sorted = [...weighIns].sort((a,b)=> a.date < b.date ? -1 : 1);
-  const current = sorted.length ? sorted[sorted.length-1].kg : START_WEIGHT;
-  const totalToLose = START_WEIGHT - GOAL_WEIGHT;
-  const lostSoFar = Math.max(0, START_WEIGHT - current);
+  const startWeight = sorted.length ? sorted[0].kg : GOAL_WEIGHT;
+  const current = sorted.length ? sorted[sorted.length-1].kg : GOAL_WEIGHT;
+  const totalToLose = startWeight - GOAL_WEIGHT;
+  const lostSoFar = Math.max(0, startWeight - current);
   const pct = totalToLose > 0 ? Math.min(100, Math.round((lostSoFar / totalToLose) * 100)) : 0;
   const remaining = Math.max(0, current - GOAL_WEIGHT);
 
@@ -1612,7 +1805,7 @@ function renderWeightSection(){
     const w = 300, h = 90, pad = 10;
     const vals = sorted.map(s=>s.kg);
     const minV = Math.min(...vals, GOAL_WEIGHT) - 1;
-    const maxV = Math.max(...vals, START_WEIGHT) + 1;
+    const maxV = Math.max(...vals, startWeight) + 1;
     const xStep = (w - pad*2) / (sorted.length - 1);
     const yFor = v => h - pad - ((v - minV) / (maxV - minV)) * (h - pad*2);
     const points = sorted.map((s,i)=> `${pad + i*xStep},${yFor(s.kg)}`).join(' ');
@@ -2192,6 +2385,7 @@ async function startApp(){
     document.getElementById('scrollArea').scrollTop = 0;
     if(view === 'hub') renderHub();
     if(view === 'trends') renderSummary();
+    if(view === 'insights') renderInsights();
   }
   window.showView = showView;
 
@@ -2220,6 +2414,7 @@ async function startApp(){
   await loadHistory();
   await loadWeighIns();
   await loadNutrition();
+  await loadProfile();
 
 
   renderDashboard();
@@ -2362,12 +2557,35 @@ function showLoginScreen(message){
   }
 }
 
+function revealApp(){
+  document.getElementById('onboardingScreen').style.display = 'none';
+  document.getElementById('appRoot').style.display = 'block';
+}
+
+function showOnboarding(){
+  document.getElementById('appRoot').style.display = 'none';
+  document.getElementById('onboardingScreen').style.display = 'flex';
+  const p = userProfile || {};
+  document.getElementById('obUsername').value = (currentUser && currentUser.username) || '';
+  document.getElementById('obGender').value = p.gender || '';
+  document.getElementById('obAge').value = p.age || '';
+  document.getElementById('obHeight').value = p.heightCm || '';
+  document.getElementById('obActivity').value = p.activityLevel || 'light';
+  document.getElementById('obCurrentWeight').value = p.currentWeightKg || currentWeightKg() || '';
+  document.getElementById('obGoalWeight').value = p.goalWeightKg || GOAL_WEIGHT || '';
+  document.getElementById('onboardingError').style.display = 'none';
+}
+
 async function showAppFor(user){
   currentUser = user;
   document.getElementById('loginScreen').style.display = 'none';
-  document.getElementById('appRoot').style.display = 'block';
   document.getElementById('userBadge').textContent = user.display_name || user.email;
   await startApp();
+  if(!userProfile){
+    showOnboarding();
+  } else {
+    revealApp();
+  }
 }
 
 async function checkAuthAndStart(){
@@ -2448,6 +2666,71 @@ async function checkAuthAndStart(){
     currentUser = null;
     location.reload();
   });
+})();
+
+/* ---------- Onboarding: username + health profile ---------- */
+(function(){
+  const form = document.getElementById('onboardingForm');
+  const errBox = document.getElementById('onboardingError');
+  const submitBtn = document.getElementById('onboardingSubmit');
+
+  form.addEventListener('submit', async (e)=>{
+    e.preventDefault();
+    errBox.style.display = 'none';
+    submitBtn.disabled = true;
+    const prevLabel = submitBtn.textContent;
+    submitBtn.textContent = 'Saving…';
+    try{
+      const username = document.getElementById('obUsername').value.trim();
+      if(username && username !== (currentUser.username || '')){
+        const res = await fetch('api/auth.php?action=set_username', {
+          method: 'POST', credentials: 'same-origin',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({ username })
+        });
+        const data = await res.json();
+        if(!res.ok){
+          errBox.textContent = data.error || 'Could not save that username.';
+          errBox.style.display = 'block';
+          return;
+        }
+        currentUser.username = data.username;
+      }
+
+      const profile = {
+        gender: document.getElementById('obGender').value || null,
+        age: parseInt(document.getElementById('obAge').value, 10) || null,
+        heightCm: parseFloat(document.getElementById('obHeight').value) || null,
+        activityLevel: document.getElementById('obActivity').value,
+        currentWeightKg: parseFloat(document.getElementById('obCurrentWeight').value) || null,
+        goalWeightKg: parseFloat(document.getElementById('obGoalWeight').value) || null
+      };
+      await saveProfile(profile);
+
+      if(profile.currentWeightKg && !weighIns.length){
+        addWeighIn(dateStrForOffset(0), profile.currentWeightKg);
+      }
+
+      revealApp();
+      renderHub();
+      renderDashboard();
+      renderNutrition();
+      renderWeightSection();
+    }catch(err){
+      errBox.textContent = 'Could not reach the server — check your connection and try again.';
+      errBox.style.display = 'block';
+    }finally{
+      submitBtn.disabled = false;
+      submitBtn.textContent = prevLabel;
+    }
+  });
+
+  document.getElementById('onboardingSkip').addEventListener('click', ()=>{
+    revealApp();
+  });
+
+  document.getElementById('userBadge').addEventListener('click', showOnboarding);
+  document.getElementById('userBadge').style.cursor = 'pointer';
 })();
 
 checkAuthAndStart();
