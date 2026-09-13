@@ -5,38 +5,101 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="light dark">
 <meta name="description" content="Full Circle — a personal workout, nutrition, fasting, and weight tracker.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='5' fill='%232F6F4E'/%3E%3Cpath d='M6 12c0 3.3 2.7 6 6 6s6-2.7 6-6M7 12l-2 5h4l1-3M17 12l2 5h-4l-1-3' fill='none' stroke='%23F7F5EF' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='5' fill='%23C67139'/%3E%3Cpath d='M6 12c0 3.3 2.7 6 6 6s6-2.7 6-6M7 12l-2 5h4l1-3M17 12l2 5h-4l-1-3' fill='none' stroke='%23F5EAD8' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 <title>Full Circle — Health &amp; Fitness Tracker</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Caprasimo&family=Figtree:wght@400;600;700&display=swap');
 
+  /* Organic design system — see design_handoff_full_circle_health/styles.css for the source tokens. */
   :root{
-    --paper:#F7F5EF;
-    --paper-raised:#FFFFFF;
-    --ink:#1F2A24;
-    --ink-soft:#5B6660;
-    --forest:#2F6F4E;
-    --forest-dark:#204E37;
-    --ochre:#C98A3A;
-    --line:#DCD7C9;
-    --done:#2F6F4E;
-    --card-shadow: 0 1px 0 rgba(31,42,36,0.06);
+    --color-bg:#f5ead8;
+    --color-surface:#ebddc5;
+    --color-text:#201e1d;
+    --color-accent:#c67139;
+    --color-accent-2:#7a8a5e;
+    --color-divider: color-mix(in srgb, #201e1d 16%, transparent);
+
+    --color-neutral-100:#f9f4ed;
+    --color-neutral-200:#eee7db;
+    --color-neutral-300:#dcd3c4;
+    --color-neutral-400:#c0b6a5;
+    --color-neutral-500:#a19786;
+    --color-neutral-600:#82796a;
+    --color-neutral-700:#645c50;
+    --color-neutral-800:#474238;
+    --color-neutral-900:#2e2b25;
+
+    --color-accent-100:#fff2eb;
+    --color-accent-200:#ffe1d0;
+    --color-accent-300:#ffc6a5;
+    --color-accent-400:#f6a06b;
+    --color-accent-500:#d67f48;
+    --color-accent-600:#b2622d;
+    --color-accent-700:#8c491a;
+    --color-accent-800:#643312;
+    --color-accent-900:#402310;
+
+    --color-accent-2-100:#f0fae1;
+    --color-accent-2-200:#e1eecc;
+    --color-accent-2-300:#ccdbb2;
+    --color-accent-2-400:#aebf92;
+    --color-accent-2-500:#8fa073;
+    --color-accent-2-600:#728157;
+    --color-accent-2-700:#56633f;
+    --color-accent-2-800:#3d472b;
+    --color-accent-2-900:#272e1b;
+
+    --font-heading:"Caprasimo", system-ui, sans-serif;
+    --font-body:"Figtree", system-ui, sans-serif;
+
+    --radius-sm:8px;
+    --radius-md:16px;
+    --radius-lg:28px;
+    --shadow-sm: 0 1px 2px color-mix(in srgb, #2e2b25 14%, transparent);
+    --shadow-md: 0 3px 10px color-mix(in srgb, #2e2b25 16%, transparent);
+    --shadow-lg: 0 12px 32px color-mix(in srgb, #2e2b25 22%, transparent);
+
+    /* App-level aliases used throughout the existing markup */
+    --paper:var(--color-bg);
+    --paper-raised:var(--color-neutral-100);
+    --ink:var(--color-text);
+    --ink-soft:var(--color-neutral-700);
+    --forest:var(--color-accent-2);
+    --forest-dark:var(--color-accent-2-700);
+    --ochre:var(--color-accent);
+    --line:var(--color-divider);
+    --done:var(--color-accent-2);
+    --card-shadow: var(--shadow-sm);
     color-scheme: light;
   }
   html[data-theme="dark"]{
-    --paper:#1B211D;
-    --paper-raised:#242B26;
-    --ink:#EDEAE1;
-    --ink-soft:#96A199;
-    --forest:#4C9A72;
-    --forest-dark:#6FBF95;
-    --ochre:#E0A25A;
-    --line:#3A423C;
-    --done:#4C9A72;
-    --card-shadow: 0 1px 0 rgba(0,0,0,0.2);
+    --color-bg:#211e1a;
+    --color-surface:#2e2b25;
+    --color-text:#f5ead8;
+    --color-accent:#f6a06b;
+    --color-accent-2:#aebf92;
+    --color-divider: color-mix(in srgb, #f5ead8 16%, transparent);
+
+    --color-neutral-100:#2b2822;
+    --color-neutral-200:#332f28;
+    --color-neutral-300:#453f35;
+    --color-neutral-400:#5c5548;
+    --color-neutral-700:#c0b6a5;
+    --color-neutral-800:#dcd3c4;
+
+    --paper:var(--color-bg);
+    --paper-raised:var(--color-neutral-100);
+    --ink:var(--color-text);
+    --ink-soft:var(--color-neutral-700);
+    --forest:var(--color-accent-2);
+    --forest-dark:var(--color-accent-2-400);
+    --ochre:var(--color-accent);
+    --line:var(--color-divider);
+    --done:var(--color-accent-2);
+    --card-shadow: 0 1px 0 rgba(0,0,0,0.3);
     color-scheme: dark;
   }
-  html, body{ transition:background .2s ease, color .2s ease; background:#1B211D; }
+  html, body{ transition:background .2s ease, color .2s ease; background:#211e1a; }
 
   /* Form elements don't inherit color/background from ancestors by default in most browsers —
      this is the fix for text disappearing depending on theme/device defaults. */
@@ -63,7 +126,7 @@
   .main-nav{display:flex;gap:6px;margin:14px 0 4px;}
   .main-tab{
     flex:1;text-align:center;
-    font-family:'Oswald',sans-serif;font-size:11.5px;font-weight:600;letter-spacing:.02em;text-transform:uppercase;
+    font-family:var(--font-heading);font-size:11.5px;font-weight:600;letter-spacing:.02em;text-transform:uppercase;
     padding:10px 2px;border-radius:6px;border:1.5px solid var(--line);
     background:var(--paper-raised);color:var(--ink-soft);cursor:pointer;
   }
@@ -77,7 +140,7 @@
   body{
     background:var(--paper);
     color:var(--ink);
-    font-family:'Inter',sans-serif;
+    font-family:var(--font-body);
     -webkit-tap-highlight-color: transparent;
   }
   #scrollArea{
@@ -91,7 +154,7 @@
   /* Header */
   header{padding:8px 0 18px;border-bottom:2px solid var(--ink);}
   .eyebrow{
-    font-family:'Oswald',sans-serif;
+    font-family:var(--font-heading);
     letter-spacing:.14em;
     text-transform:uppercase;
     font-size:11px;
@@ -99,7 +162,7 @@
     font-weight:600;
   }
   h1{
-    font-family:'Oswald',sans-serif;
+    font-family:var(--font-heading);
     font-weight:700;
     font-size:32px;
     margin:2px 0 4px;
@@ -124,7 +187,7 @@
     padding-bottom:2px;
   }
   .tab{
-    font-family:'Oswald',sans-serif;
+    font-family:var(--font-heading);
     font-size:13px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;
     padding:9px 14px;border:1.5px solid var(--ink);border-radius:3px;
     background:transparent;color:var(--ink);cursor:pointer;white-space:nowrap;
@@ -134,7 +197,7 @@
 
   section.block{margin-bottom:26px;}
   .block-title{
-    font-family:'Oswald',sans-serif;font-size:12px;font-weight:600;
+    font-family:var(--font-heading);font-size:12px;font-weight:600;
     letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);
     margin:0 0 10px;display:flex;align-items:center;gap:8px;
   }
@@ -203,7 +266,7 @@
   .weight-row label{font-size:12px;color:var(--ink-soft);}
   .weight-row input{
     width:70px;padding:6px 8px;border:1px solid var(--line);border-radius:4px;
-    font-size:13px;font-family:'Inter',sans-serif;background:var(--paper);
+    font-size:13px;font-family:var(--font-body);background:var(--paper);
   }
   .caret{width:16px;height:16px;stroke:var(--ink-soft);flex-shrink:0;transition:transform .2s;}
   .ex-head.expanded .caret{transform:rotate(180deg);}
@@ -217,7 +280,7 @@
   .cardio-row:last-child{border-bottom:none;}
   .cardio-phase{font-weight:600;font-size:14px;}
   .cardio-detail{font-size:12.5px;color:var(--ink-soft);}
-  .cardio-time{font-family:'Oswald',sans-serif;font-weight:600;color:var(--forest-dark);font-size:14px;white-space:nowrap;}
+  .cardio-time{font-family:var(--font-heading);font-weight:600;color:var(--forest-dark);font-size:14px;white-space:nowrap;}
 
   .note{
     font-size:12.5px;color:var(--ink-soft);background:rgba(201,138,58,0.12);
@@ -236,7 +299,7 @@
     background:var(--paper-raised);border:1px solid var(--line);border-radius:8px;
     padding:12px 10px;text-align:center;
   }
-  .dash-num{font-family:'Oswald',sans-serif;font-weight:700;font-size:22px;color:var(--forest-dark);line-height:1;}
+  .dash-num{font-family:var(--font-heading);font-weight:700;font-size:22px;color:var(--forest-dark);line-height:1;}
   .dash-label{font-size:10.5px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.06em;margin-top:4px;}
 
   .week-strip{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;margin:14px 0;}
@@ -256,10 +319,10 @@
     background:var(--ink);color:var(--paper);border-radius:8px;padding:12px 14px;margin-bottom:6px;
   }
   .today-callout-text{font-size:13px;}
-  .today-callout-text strong{display:block;font-family:'Oswald',sans-serif;font-size:15px;letter-spacing:.02em;}
+  .today-callout-text strong{display:block;font-family:var(--font-heading);font-size:15px;letter-spacing:.02em;}
   .today-btn{
     background:var(--ochre);color:#1F2A24;border:none;border-radius:6px;
-    font-family:'Oswald',sans-serif;font-weight:600;font-size:12px;text-transform:uppercase;
+    font-family:var(--font-heading);font-weight:600;font-size:12px;text-transform:uppercase;
     padding:8px 12px;cursor:pointer;white-space:nowrap;
   }
 
@@ -317,7 +380,7 @@
   .day-nav-btn:disabled{opacity:0.3;cursor:default;}
   .day-nav-btn svg{width:16px;height:16px;stroke:var(--ink);}
   .day-nav-label{flex:1;text-align:center;}
-  .day-nav-date{font-family:'Oswald',sans-serif;font-weight:600;font-size:14px;}
+  .day-nav-date{font-family:var(--font-heading);font-weight:600;font-size:14px;}
   .day-nav-today-link{font-size:11px;color:var(--forest-dark);cursor:pointer;text-decoration:underline;margin-top:1px;}
 
   /* Floating timer */
@@ -328,7 +391,7 @@
     display:flex;align-items:center;justify-content:center;
     box-shadow:0 4px 14px rgba(31,42,36,0.35);
     cursor:grab;touch-action:none;
-    font-family:'Oswald',sans-serif;font-weight:700;font-size:13px;
+    font-family:var(--font-heading);font-weight:700;font-size:13px;
     user-select:none;
     right:18px;bottom:24px;
     transition:background .2s;
@@ -347,7 +410,7 @@
   }
   #timerPanel.open{display:block;}
   .timer-display{
-    font-family:'Oswald',sans-serif;font-weight:700;font-size:36px;
+    font-family:var(--font-heading);font-weight:700;font-size:36px;
     text-align:center;letter-spacing:.03em;margin-bottom:10px;
     font-variant-numeric:tabular-nums;
   }
@@ -366,7 +429,7 @@
   .timer-btns{display:flex;gap:8px;}
   .timer-btn{
     flex:1;padding:9px 0;border-radius:6px;border:none;cursor:pointer;
-    font-family:'Oswald',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:.03em;
+    font-family:var(--font-heading);font-weight:600;font-size:12.5px;letter-spacing:.03em;
     text-transform:uppercase;
   }
   .timer-btn.start{background:var(--forest);color:#F5F3EC;}
@@ -471,9 +534,9 @@
 
     <div id="customForm" style="display:none;margin-top:10px;background:var(--paper-raised);border:1px solid var(--line);border-radius:8px;padding:12px;">
       <label style="font-size:11.5px;color:var(--ink-soft);display:block;margin-bottom:4px;">Date</label>
-      <input type="date" id="customDate" style="width:100%;padding:7px 8px;border:1px solid var(--line);border-radius:5px;font-family:'Inter',sans-serif;font-size:13px;background:var(--paper);margin-bottom:10px;">
+      <input type="date" id="customDate" style="width:100%;padding:7px 8px;border:1px solid var(--line);border-radius:5px;font-family:var(--font-body);font-size:13px;background:var(--paper);margin-bottom:10px;">
       <label style="font-size:11.5px;color:var(--ink-soft);display:block;margin-bottom:4px;">What did you do / notes on deviation</label>
-      <textarea id="customNotes" rows="3" placeholder="e.g. Did an outdoor run instead of treadmill, or swapped in extra ab work..." style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;font-family:'Inter',sans-serif;font-size:13px;background:var(--paper);resize:vertical;"></textarea>
+      <textarea id="customNotes" rows="3" placeholder="e.g. Did an outdoor run instead of treadmill, or swapped in extra ab work..." style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;font-family:var(--font-body);font-size:13px;background:var(--paper);resize:vertical;"></textarea>
       <div style="display:flex;gap:8px;margin-top:10px;">
         <button class="timer-btn start" id="saveCustomBtn" style="flex:1;">Save</button>
         <button class="timer-btn reset" id="cancelCustomBtn" style="flex:1;">Cancel</button>
@@ -566,8 +629,8 @@
       <div class="dash" id="bodyWeightCards" style="grid-template-columns:repeat(3,1fr);"></div>
       <div id="weightChart" style="margin:14px 0 4px;"></div>
       <div style="display:flex;gap:8px;margin-top:10px;">
-        <input type="date" id="weighInDate" style="flex:1;padding:8px;border:1px solid var(--line);border-radius:5px;font-family:'Inter',sans-serif;font-size:13px;background:var(--paper-raised);">
-        <input type="number" step="0.1" id="weighInKg" placeholder="kg" style="width:80px;padding:8px;border:1px solid var(--line);border-radius:5px;font-family:'Inter',sans-serif;font-size:13px;background:var(--paper-raised);">
+        <input type="date" id="weighInDate" style="flex:1;padding:8px;border:1px solid var(--line);border-radius:5px;font-family:var(--font-body);font-size:13px;background:var(--paper-raised);">
+        <input type="number" step="0.1" id="weighInKg" placeholder="kg" style="width:80px;padding:8px;border:1px solid var(--line);border-radius:5px;font-family:var(--font-body);font-size:13px;background:var(--paper-raised);">
         <button class="timer-btn start" id="addWeighInBtn" style="flex:0 0 70px;">Add</button>
       </div>
       <div id="weighInList" style="margin-top:8px;"></div>
@@ -601,7 +664,7 @@
         <input type="number" step="0.01" id="nutriFastHrs" placeholder="e.g. 19.72 for 19h43m" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;margin-bottom:10px;">
 
         <label style="font-size:11px;color:var(--ink-soft);">Meal description</label>
-        <textarea id="nutriMeal" rows="2" placeholder="e.g. Grilled chicken, ampalaya, egg — home" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;font-family:'Inter',sans-serif;font-size:13px;background:var(--paper);resize:vertical;margin-top:2px;margin-bottom:10px;"></textarea>
+        <textarea id="nutriMeal" rows="2" placeholder="e.g. Grilled chicken, ampalaya, egg — home" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;font-family:var(--font-body);font-size:13px;background:var(--paper);resize:vertical;margin-top:2px;margin-bottom:10px;"></textarea>
 
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px;">
           <div>
