@@ -1,3 +1,9 @@
 api/config.local.php
 .DS_Store
 Thumbs.db
+
+# Source reference images (icon grids, etc.) kept locally for cropping,
+# not part of the deployed app -- never auto-staged.
+/*.png
+/*.jpg
+/*.jpeg
