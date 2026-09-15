@@ -176,6 +176,18 @@
     #scrollArea{padding-bottom:76px;}
   }
 
+  .subnav{display:flex;gap:6px;flex-wrap:wrap;margin:16px 0 4px;}
+  .subnav-btn{
+    font-family:var(--font-body);font-weight:600;font-size:12.5px;
+    padding:7px 14px;border-radius:999px;border:1px solid var(--line);
+    background:var(--paper-raised);color:var(--ink-soft);cursor:pointer;
+  }
+  .subnav-btn.active{background:var(--color-accent);color:#fff;border-color:var(--color-accent);}
+
+  .feedback-cat{border:1px solid var(--line);cursor:pointer;background:var(--paper-raised);color:var(--ink-soft);}
+  .feedback-cat.active{background:var(--color-accent-100);color:var(--color-accent-800);border-color:var(--color-accent);}
+  html[data-theme="dark"] .feedback-cat.active{background:var(--color-accent-900);color:var(--color-accent-200);}
+
   .day-header-row{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin:16px 0 18px;flex-wrap:wrap;}
   .day-header-sub{font-size:13px;color:var(--ink-soft);margin-top:2px;}
 
@@ -603,6 +615,9 @@
           </div>
         </div>
 
+        <label style="font-size:11px;color:var(--ink-soft);">Notes for context (optional)</label>
+        <textarea id="obNotes" rows="2" placeholder="e.g. mild asthma, knee rehab finished Apr 2026" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;margin-bottom:6px;resize:vertical;"></textarea>
+
         <div id="onboardingError" style="display:none;font-size:12px;color:#B4472A;margin-bottom:8px;"></div>
         <button class="timer-btn start" id="onboardingSubmit" type="submit" style="width:100%;margin-top:6px;">Save &amp; continue</button>
         <button class="timer-btn reset" id="onboardingSkip" type="button" style="width:100%;margin-top:8px;">Skip for now</button>
@@ -621,6 +636,7 @@
       <button class="tab-nav-btn" data-view="food" type="button">Food</button>
       <button class="tab-nav-btn" data-view="train" type="button">Train</button>
       <button class="tab-nav-btn" data-view="insights" type="button">Insights</button>
+      <button class="tab-nav-btn" data-view="account" type="button">Account</button>
     </nav>
     <div class="topbar-user">
       <button class="theme-toggle" id="themeToggle" title="Toggle dark/light">
@@ -628,7 +644,6 @@
         <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1111.2 3 7 7 0 0021 12.8z"/></svg>
       </button>
       <span id="userBadge"></span>
-      <a href="#" id="logoutLink">Log out</a>
     </div>
   </header>
 
@@ -646,16 +661,6 @@
         </div>
       </div>
     </div>
-
-    <section class="block" style="margin:0 0 18px;background:var(--paper-raised);border:1px solid var(--line);border-radius:8px;padding:12px;">
-      <div style="font-size:12.5px;color:var(--ink-soft);">Your data is saved to your account on the server. Download a backup now and then anyway, just in case.</div>
-      <div style="display:flex;gap:8px;margin-top:10px;">
-        <button class="today-btn" id="exportBackupBtn" style="flex:1;">Download backup</button>
-        <button class="today-btn" id="importBackupBtn" style="flex:1;background:transparent;color:var(--ink);border:1.5px solid var(--ink);">Restore backup</button>
-        <input type="file" id="importBackupFile" accept="application/json" style="display:none;">
-      </div>
-      <div id="backupStatus" style="font-size:11px;color:var(--forest-dark);text-align:center;margin-top:8px;display:none;"></div>
-    </section>
 
     <section class="block" style="margin-top:16px;margin-bottom:18px;">
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
@@ -868,6 +873,131 @@
     </section>
   </div><!-- /panelInsights -->
 
+  <div id="panelAccount" style="display:none;">
+    <nav class="subnav" id="accountSubnav">
+      <button class="subnav-btn active" data-account-view="snapshot" type="button">Snapshot</button>
+      <button class="subnav-btn" data-account-view="mydata" type="button">My data</button>
+      <button class="subnav-btn" data-account-view="goals" type="button">Goals</button>
+      <button class="subnav-btn" data-account-view="settings" type="button">Account</button>
+      <button class="subnav-btn" data-account-view="feedback" type="button">Feedback</button>
+    </nav>
+
+    <div id="accountSnapshot">
+      <div class="hub-card" id="snapshotGreetingCard"></div>
+      <div class="hub-card" id="snapshotProfileCard"></div>
+    </div>
+
+    <div id="accountMyData" style="display:none;">
+      <section class="block" style="margin-top:16px;margin-bottom:18px;">
+        <div class="block-title">My data</div>
+        <div style="font-size:12.5px;color:var(--ink-soft);">Your data is saved to your account on the server. Download a backup now and then anyway, just in case.</div>
+        <div style="display:flex;gap:8px;margin-top:10px;">
+          <button class="today-btn" id="exportBackupBtn" style="flex:1;">Download backup</button>
+          <button class="today-btn" id="importBackupBtn" style="flex:1;background:transparent;color:var(--ink);border:1.5px solid var(--ink);">Restore backup</button>
+          <input type="file" id="importBackupFile" accept="application/json" style="display:none;">
+        </div>
+        <div id="backupStatus" style="font-size:11px;color:var(--forest-dark);text-align:center;margin-top:8px;display:none;"></div>
+      </section>
+      <section class="block" style="margin-bottom:18px;">
+        <div class="block-title">Connected sources</div>
+        <div class="placeholder-card">No devices or file imports connected yet. Importing from Apple Health, Google Fit, or a Garmin FIT file is a possible future update — for now, backup/restore above is the way to move your data.</div>
+      </section>
+    </div>
+
+    <div id="accountGoals" style="display:none;">
+      <section class="block" style="margin-top:16px;margin-bottom:18px;">
+        <div class="block-title">My goals</div>
+        <div class="hub-card">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;">
+            <div style="font-weight:700;font-family:var(--font-heading);">Daily energy</div>
+            <span class="tag tag-accent-2">Recommended</span>
+          </div>
+          <div style="font-size:12.5px;color:var(--ink-soft);margin-top:6px;" id="goalEnergyNote"></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px;">
+            <div>
+              <div class="hub-tile-label">Recommended</div>
+              <div class="hub-tile-value" id="goalEnergyRecommended" style="font-size:24px;">—</div>
+            </div>
+            <div>
+              <div class="hub-tile-label">Your target</div>
+              <input type="number" id="goalEnergyCustom" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:4px;font-family:var(--font-heading);font-size:18px;">
+            </div>
+          </div>
+        </div>
+
+        <div class="hub-card" style="margin-top:14px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;">
+            <div style="font-weight:700;font-family:var(--font-heading);">Protein</div>
+            <span class="tag tag-accent-2">Recommended</span>
+          </div>
+          <div style="font-size:12.5px;color:var(--ink-soft);margin-top:6px;" id="goalProteinNote"></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px;">
+            <div>
+              <div class="hub-tile-label">Recommended</div>
+              <div class="hub-tile-value" id="goalProteinRecommended" style="font-size:24px;">—</div>
+            </div>
+            <div>
+              <div class="hub-tile-label">Your target</div>
+              <input type="number" id="goalProteinCustom" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:4px;font-family:var(--font-heading);font-size:18px;">
+            </div>
+          </div>
+        </div>
+
+        <div class="hub-grid" style="margin-top:14px;">
+          <div class="hub-tile hub-tile-empty">
+            <div class="hub-tile-label">Steps</div>
+            <input type="number" id="goalSteps" style="width:100%;padding:6px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:6px;font-family:var(--font-heading);font-size:16px;">
+          </div>
+          <div class="hub-tile hub-tile-empty">
+            <div class="hub-tile-label">Water (ml)</div>
+            <input type="number" id="goalWater" style="width:100%;padding:6px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:6px;font-family:var(--font-heading);font-size:16px;">
+          </div>
+        </div>
+
+        <div id="goalsError" style="display:none;font-size:12px;color:#B4472A;margin-top:10px;"></div>
+        <button class="timer-btn start" id="saveGoalsBtn" style="width:100%;margin-top:14px;">Save goals</button>
+        <button class="timer-btn reset" id="useRecommendedBtn" style="width:100%;margin-top:8px;">Use recommended</button>
+      </section>
+    </div>
+
+    <div id="accountSettings" style="display:none;">
+      <section class="block" style="margin-top:16px;margin-bottom:18px;">
+        <div class="block-title">Account &amp; sign-in</div>
+        <div class="hub-card">
+          <label style="font-size:11px;color:var(--ink-soft);">Display name</label>
+          <input type="text" id="acctDisplayName" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;margin-bottom:10px;">
+
+          <label style="font-size:11px;color:var(--ink-soft);">Username</label>
+          <input type="text" id="acctUsername" minlength="6" maxlength="30" placeholder="6+ characters, letters/numbers/underscore" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;">
+          <div id="acctUsernameStatus" style="font-size:11.5px;margin-top:4px;min-height:16px;"></div>
+
+          <label style="font-size:11px;color:var(--ink-soft);margin-top:6px;display:block;">Email</label>
+          <input type="email" id="acctEmail" disabled style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);opacity:0.7;margin-top:2px;margin-bottom:10px;">
+
+          <div id="acctError" style="display:none;font-size:12px;color:#B4472A;margin-bottom:8px;"></div>
+          <button class="timer-btn start" id="acctSaveBtn" style="width:100%;">Save changes</button>
+          <a href="#" id="logoutLink" style="display:block;text-align:center;margin-top:14px;font-size:12.5px;color:var(--color-accent-700);">Log out</a>
+        </div>
+      </section>
+    </div>
+
+    <div id="accountFeedback" style="display:none;">
+      <section class="block" style="margin-top:16px;margin-bottom:18px;">
+        <div class="block-title">Share feedback</div>
+        <div class="hub-card">
+          <div style="display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap;" id="feedbackCategoryRow">
+            <button class="tag tag-accent feedback-cat active" data-cat="idea" type="button">An idea</button>
+            <button class="tag feedback-cat" data-cat="problem" type="button">A problem</button>
+            <button class="tag feedback-cat" data-cat="data" type="button">Data looks wrong</button>
+          </div>
+          <textarea id="feedbackMessage" rows="4" placeholder="Tell us what happened, and what you expected instead..." style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);resize:vertical;"></textarea>
+          <div id="feedbackStatus" style="font-size:11.5px;margin-top:8px;display:none;"></div>
+          <button class="timer-btn start" id="feedbackSubmitBtn" style="width:100%;margin-top:10px;">Send feedback</button>
+        </div>
+      </section>
+    </div>
+  </div><!-- /panelAccount -->
+
   <footer>Tap a checkmark to log the exercise. Tap the card to see form cues. Your data is saved to your account.</footer>
   </div>
   </div>
@@ -892,6 +1022,10 @@
     <button class="bottom-nav-btn" data-view="insights" type="button">
       <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M12 20V4M20 20v-7"/></svg>
       <span>Insights</span>
+    </button>
+    <button class="bottom-nav-btn" data-view="account" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-6 8-6s8 2 8 6"/></svg>
+      <span>Account</span>
     </button>
   </nav>
 </div><!-- /app-shell-v2 -->
@@ -1127,20 +1261,25 @@ function computeHealthTargets(profile, weightKg){
   const tdee = bmr * multiplier;
 
   const goalWeight = profile.goalWeightKg || weightKg;
-  let calorieTarget = tdee, goalDirection = 'maintain';
-  if(goalWeight < weightKg - 0.5){ calorieTarget = tdee - 500; goalDirection = 'lose'; }
-  else if(goalWeight > weightKg + 0.5){ calorieTarget = tdee + 300; goalDirection = 'gain'; }
-  calorieTarget = Math.max(1200, calorieTarget);
+  let recommendedCalorieTarget = tdee, goalDirection = 'maintain';
+  if(goalWeight < weightKg - 0.5){ recommendedCalorieTarget = tdee - 500; goalDirection = 'lose'; }
+  else if(goalWeight > weightKg + 0.5){ recommendedCalorieTarget = tdee + 300; goalDirection = 'gain'; }
+  recommendedCalorieTarget = Math.max(1200, recommendedCalorieTarget);
+  const recommendedProteinTarget = Math.round(weightKg * 1.8);
 
   return {
     bmi: Math.round(bmi * 10) / 10,
     bmiCategory,
     bmr: Math.round(bmr),
     tdee: Math.round(tdee),
-    calorieTarget: Math.round(calorieTarget),
     goalDirection,
-    proteinTarget: Math.round(weightKg * 1.8),
-    waterTargetMl: Math.round(weightKg * 35)
+    recommendedCalorieTarget: Math.round(recommendedCalorieTarget),
+    recommendedProteinTarget,
+    // "Your target" overrides from the Goals screen, falling back to the recommended number
+    calorieTarget: Math.round(profile.customCalorieTarget || recommendedCalorieTarget),
+    proteinTarget: Math.round(profile.customProteinTarget || recommendedProteinTarget),
+    stepsGoal: profile.stepsGoal || 10000,
+    waterGoalMl: profile.waterGoalMl || Math.round(weightKg * 35)
   };
 }
 function recomputeHealthTargets(){
@@ -1162,6 +1301,7 @@ function addWeighIn(dateStr, kg){
   weighIns.push({date: dateStr, kg: kg});
   weighIns.sort((a,b)=> a.date < b.date ? -1 : 1);
   saveWeighIns();
+  recomputeHealthTargets();
 }
 function removeWeighIn(dateStr){
   weighIns = weighIns.filter(w => w.date !== dateStr);
@@ -1588,6 +1728,108 @@ function renderBodyPlaceholders(){
   `).join('');
 }
 
+function renderAccountSnapshot(){
+  const greetingCard = document.getElementById('snapshotGreetingCard');
+  const profileCard = document.getElementById('snapshotProfileCard');
+  if(!greetingCard || !profileCard) return;
+
+  const hour = new Date().getHours();
+  const greeting = hour < 12 ? 'Good morning' : (hour < 18 ? 'Good afternoon' : 'Good evening');
+  const name = (currentUser && (currentUser.display_name || currentUser.email)) || 'there';
+  const realSessions = historyLog.filter(e => e.day !== 'custom').length;
+  const totalEntries = nutritionLog.length + weighIns.length + historyLog.length;
+  const tallyEl = document.getElementById('tallyLabel');
+  const tallyText = tallyEl ? tallyEl.textContent : '';
+
+  let weightChangeText = '—';
+  if(weighIns.length >= 2){
+    const sorted = [...weighIns].sort((a,b)=> a.date < b.date ? -1 : 1);
+    const change = sorted[sorted.length - 1].kg - sorted[0].kg;
+    weightChangeText = `${change > 0 ? '+' : ''}${change.toFixed(1)} kg`;
+  }
+
+  greetingCard.innerHTML = `
+    <div style="font-family:var(--font-heading);font-size:20px;">${greeting}, ${name}</div>
+    <div style="font-size:12.5px;color:var(--ink-soft);margin-top:4px;">${tallyText}</div>
+    <div class="dash" style="grid-template-columns:repeat(2,1fr);margin-top:14px;">
+      <div class="dash-card"><div class="dash-num">${weightChangeText}</div><div class="dash-label">Weight change</div></div>
+      <div class="dash-card"><div class="dash-num">${realSessions}</div><div class="dash-label">Sessions logged</div></div>
+      <div class="dash-card"><div class="dash-num">${totalEntries}</div><div class="dash-label">Total entries</div></div>
+      <div class="dash-card"><div class="dash-num">${userHealthTargets ? userHealthTargets.bmi : '—'}</div><div class="dash-label">BMI</div></div>
+    </div>
+  `;
+
+  const p = userProfile;
+  if(p){
+    const cap = s => s ? (s[0].toUpperCase() + s.slice(1)) : '—';
+    const weightNow = currentWeightKg();
+    profileCard.innerHTML = `
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+        <div class="block-title" style="margin:0;">Personal profile</div>
+        <button class="timer-btn reset" id="snapshotEditBtn" type="button" style="width:auto;padding-inline:16px;">Edit</button>
+      </div>
+      <div class="dash" style="grid-template-columns:repeat(2,1fr);">
+        <div><div class="hub-tile-label">Age</div><div style="font-weight:600;">${p.age || '—'}</div></div>
+        <div><div class="hub-tile-label">Gender</div><div style="font-weight:600;">${cap(p.gender)}</div></div>
+        <div><div class="hub-tile-label">Height</div><div style="font-weight:600;">${p.heightCm ? (p.heightCm/100).toFixed(2)+' m' : '—'}</div></div>
+        <div><div class="hub-tile-label">Weight</div><div style="font-weight:600;">${weightNow ? weightNow+' kg' : '—'}</div></div>
+        <div><div class="hub-tile-label">Activity level</div><div style="font-weight:600;">${cap(p.activityLevel)}</div></div>
+        <div><div class="hub-tile-label">Goal weight</div><div style="font-weight:600;">${p.goalWeightKg ? p.goalWeightKg+' kg' : '—'}</div></div>
+      </div>
+      ${p.notes ? `<div class="note" style="margin-top:12px;">${p.notes}</div>` : ''}
+    `;
+  } else {
+    profileCard.innerHTML = `
+      <div style="display:flex;justify-content:space-between;align-items:center;">
+        <div class="block-title" style="margin:0;">Personal profile</div>
+        <button class="timer-btn start" id="snapshotEditBtn" type="button" style="width:auto;padding-inline:16px;">Set up</button>
+      </div>
+      <div style="font-size:13px;color:var(--ink-soft);margin-top:10px;">Add your details to see BMI and personal targets.</div>
+    `;
+  }
+  const editBtn = document.getElementById('snapshotEditBtn');
+  if(editBtn) editBtn.addEventListener('click', showOnboarding);
+}
+
+function renderAccountGoals(){
+  const recEl = document.getElementById('goalEnergyRecommended');
+  if(!recEl) return;
+  recomputeHealthTargets();
+  const t = userHealthTargets;
+  const profile = userProfile || {};
+  if(!t){
+    document.getElementById('goalEnergyNote').textContent = 'Set up your profile (age, height, weight) to see recommended energy and protein targets.';
+    document.getElementById('goalProteinNote').textContent = '';
+    document.getElementById('goalEnergyRecommended').textContent = '—';
+    document.getElementById('goalProteinRecommended').textContent = '—';
+    document.getElementById('goalEnergyCustom').value = profile.customCalorieTarget || '';
+    document.getElementById('goalProteinCustom').value = profile.customProteinTarget || '';
+  } else {
+    const directionLabel = t.goalDirection === 'lose'
+      ? `${t.recommendedCalorieTarget} kcal maintenance, less a deficit toward your goal weight.`
+      : (t.goalDirection === 'gain'
+        ? `${t.recommendedCalorieTarget} kcal, a surplus toward your goal weight.`
+        : `${t.recommendedCalorieTarget} kcal maintenance.`);
+    document.getElementById('goalEnergyNote').textContent = directionLabel;
+    document.getElementById('goalProteinNote').textContent = '1.8g per kg of your current weight.';
+    document.getElementById('goalEnergyRecommended').textContent = t.recommendedCalorieTarget;
+    document.getElementById('goalProteinRecommended').textContent = t.recommendedProteinTarget + 'g';
+    document.getElementById('goalEnergyCustom').value = profile.customCalorieTarget || t.recommendedCalorieTarget;
+    document.getElementById('goalProteinCustom').value = profile.customProteinTarget || t.recommendedProteinTarget;
+  }
+  document.getElementById('goalSteps').value = profile.stepsGoal || 10000;
+  document.getElementById('goalWater').value = profile.waterGoalMl || 2500;
+  document.getElementById('goalsError').style.display = 'none';
+}
+
+function renderAccountSettings(){
+  document.getElementById('acctDisplayName').value = (currentUser && currentUser.display_name) || '';
+  document.getElementById('acctUsername').value = (currentUser && currentUser.username) || '';
+  document.getElementById('acctEmail').value = (currentUser && currentUser.email) || '';
+  document.getElementById('acctUsernameStatus').textContent = '';
+  document.getElementById('acctError').style.display = 'none';
+}
+
 function renderInsights(){
   const el = document.getElementById('insightsContent');
   if(!el) return;
@@ -1617,7 +1859,7 @@ function renderInsights(){
         <span class="tag ${bmiTagClass}">${t.bmiCategory}</span>
         <span style="font-size:12.5px;color:var(--ink-soft);">${directionLabel}</span>
       </div>
-      <div style="font-size:12px;color:var(--ink-soft);margin-top:10px;">Resting (BMR) ${t.bmr} kcal · Active (TDEE) ${t.tdee} kcal · Water target ${(t.waterTargetMl/1000).toFixed(1)} L</div>
+      <div style="font-size:12px;color:var(--ink-soft);margin-top:10px;">Resting (BMR) ${t.bmr} kcal · Active (TDEE) ${t.tdee} kcal · Water target ${(t.waterGoalMl/1000).toFixed(1)} L</div>
       <button class="timer-btn reset" id="insightsEditBtn" type="button" style="width:auto;padding-inline:18px;margin-top:14px;">Edit profile</button>
     </div>
   `;
@@ -2293,7 +2535,7 @@ async function startApp(){
   // Both bars are wired identically via the shared .tab-nav-btn/.bottom-nav-btn classes.
   const viewPanels = {
     today: 'panelToday', body: 'panelBody', food: 'panelNutrition',
-    train: 'panelTrain', insights: 'panelInsights'
+    train: 'panelTrain', insights: 'panelInsights', account: 'panelAccount'
   };
   function showView(view){
     Object.entries(viewPanels).forEach(([key, id])=>{
@@ -2306,6 +2548,7 @@ async function startApp(){
     document.getElementById('scrollArea').scrollTop = 0;
     if(view === 'body') renderBodyPlaceholders();
     if(view === 'insights'){ renderInsights(); renderSummary(); }
+    if(view === 'account') showAccountView(currentAccountView);
   }
   window.showView = showView;
 
@@ -2316,6 +2559,31 @@ async function startApp(){
   }
   document.getElementById('tabNavTop').addEventListener('click', onTabNavClick);
   document.getElementById('tabNavBottom').addEventListener('click', onTabNavClick);
+
+  // Account sub-nav: Snapshot / My data / Goals / Account / Feedback
+  const accountViewPanels = {
+    snapshot: 'accountSnapshot', mydata: 'accountMyData',
+    goals: 'accountGoals', settings: 'accountSettings', feedback: 'accountFeedback'
+  };
+  let currentAccountView = 'snapshot';
+  function showAccountView(view){
+    currentAccountView = view;
+    Object.entries(accountViewPanels).forEach(([key, id])=>{
+      const el = document.getElementById(id);
+      if(el) el.style.display = (key === view) ? 'block' : 'none';
+    });
+    document.querySelectorAll('.subnav-btn').forEach(btn=>{
+      btn.classList.toggle('active', btn.dataset.accountView === view);
+    });
+    if(view === 'snapshot') renderAccountSnapshot();
+    if(view === 'goals') renderAccountGoals();
+    if(view === 'settings') renderAccountSettings();
+  }
+  document.getElementById('accountSubnav').addEventListener('click', (e)=>{
+    const btn = e.target.closest('.subnav-btn');
+    if(!btn) return;
+    showAccountView(btn.dataset.accountView);
+  });
 
   await loadState();
   await loadHistory();
@@ -2480,6 +2748,7 @@ function showOnboarding(){
   document.getElementById('obActivity').value = p.activityLevel || 'light';
   document.getElementById('obCurrentWeight').value = p.currentWeightKg || currentWeightKg() || '';
   document.getElementById('obGoalWeight').value = p.goalWeightKg || GOAL_WEIGHT || '';
+  document.getElementById('obNotes').value = p.notes || '';
   document.getElementById('onboardingError').style.display = 'none';
 }
 
@@ -2605,12 +2874,14 @@ async function checkAuthAndStart(){
       }
 
       const profile = {
+        ...(userProfile || {}),
         gender: document.getElementById('obGender').value || null,
         age: parseInt(document.getElementById('obAge').value, 10) || null,
         heightCm: parseFloat(document.getElementById('obHeight').value) || null,
         activityLevel: document.getElementById('obActivity').value,
         currentWeightKg: parseFloat(document.getElementById('obCurrentWeight').value) || null,
-        goalWeightKg: parseFloat(document.getElementById('obGoalWeight').value) || null
+        goalWeightKg: parseFloat(document.getElementById('obGoalWeight').value) || null,
+        notes: document.getElementById('obNotes').value.trim() || null
       };
       await saveProfile(profile);
 
@@ -2636,8 +2907,124 @@ async function checkAuthAndStart(){
     revealApp();
   });
 
-  document.getElementById('userBadge').addEventListener('click', showOnboarding);
+  document.getElementById('userBadge').addEventListener('click', ()=> showView('account'));
   document.getElementById('userBadge').style.cursor = 'pointer';
+})();
+
+/* ---------- Account tab: Goals overrides, Account settings, Feedback ---------- */
+(function(){
+  document.getElementById('saveGoalsBtn').addEventListener('click', async ()=>{
+    const profile = {...(userProfile || {})};
+    profile.customCalorieTarget = parseFloat(document.getElementById('goalEnergyCustom').value) || null;
+    profile.customProteinTarget = parseFloat(document.getElementById('goalProteinCustom').value) || null;
+    profile.stepsGoal = parseInt(document.getElementById('goalSteps').value, 10) || null;
+    profile.waterGoalMl = parseInt(document.getElementById('goalWater').value, 10) || null;
+    if(!userProfile && (profile.customCalorieTarget || profile.customProteinTarget)){
+      const err = document.getElementById('goalsError');
+      err.textContent = 'Set up your personal profile first (age, height, weight) — energy and protein targets are calculated from it.';
+      err.style.display = 'block';
+      return;
+    }
+    await saveProfile(profile);
+    renderAccountGoals();
+    renderBodyPlaceholders();
+  });
+
+  document.getElementById('useRecommendedBtn').addEventListener('click', async ()=>{
+    const profile = {...(userProfile || {})};
+    profile.customCalorieTarget = null;
+    profile.customProteinTarget = null;
+    await saveProfile(profile);
+    renderAccountGoals();
+  });
+
+  let usernameCheckTimeout;
+  document.getElementById('acctUsername').addEventListener('input', (e)=>{
+    clearTimeout(usernameCheckTimeout);
+    const val = e.target.value.trim();
+    const statusEl = document.getElementById('acctUsernameStatus');
+    if(val === '' || val === (currentUser.username || '')){ statusEl.textContent = ''; return; }
+    if(val.length < 6){ statusEl.textContent = 'Must be 6+ characters'; statusEl.style.color = '#B4472A'; return; }
+    statusEl.textContent = 'Checking…';
+    statusEl.style.color = 'var(--ink-soft)';
+    usernameCheckTimeout = setTimeout(async ()=>{
+      try{
+        const res = await fetch(`api/auth.php?action=check_username&username=${encodeURIComponent(val)}`, {credentials:'same-origin'});
+        const data = await res.json();
+        if(data.available){ statusEl.textContent = 'Available'; statusEl.style.color = 'var(--forest-dark)'; }
+        else { statusEl.textContent = data.reason || 'Not available'; statusEl.style.color = '#B4472A'; }
+      }catch(err){ statusEl.textContent = ''; }
+    }, 500);
+  });
+
+  document.getElementById('acctSaveBtn').addEventListener('click', async ()=>{
+    const errBox = document.getElementById('acctError');
+    errBox.style.display = 'none';
+    const displayName = document.getElementById('acctDisplayName').value.trim();
+    const username = document.getElementById('acctUsername').value.trim();
+    try{
+      const res = await fetch('api/auth.php?action=update_account', {
+        method: 'POST', credentials: 'same-origin',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({display_name: displayName, username})
+      });
+      const data = await res.json();
+      if(!res.ok){
+        errBox.textContent = data.error || 'Could not save changes.';
+        errBox.style.display = 'block';
+        return;
+      }
+      currentUser.display_name = data.display_name;
+      currentUser.username = data.username;
+      document.getElementById('userBadge').textContent = data.display_name;
+      const statusEl = document.getElementById('acctUsernameStatus');
+      statusEl.textContent = 'Saved ✓';
+      statusEl.style.color = 'var(--forest-dark)';
+    }catch(err){
+      errBox.textContent = 'Could not reach the server — check your connection and try again.';
+      errBox.style.display = 'block';
+    }
+  });
+
+  let feedbackCategory = 'idea';
+  document.getElementById('feedbackCategoryRow').addEventListener('click', (e)=>{
+    const btn = e.target.closest('.feedback-cat');
+    if(!btn) return;
+    feedbackCategory = btn.dataset.cat;
+    document.querySelectorAll('.feedback-cat').forEach(b => b.classList.toggle('active', b === btn));
+  });
+
+  document.getElementById('feedbackSubmitBtn').addEventListener('click', async ()=>{
+    const statusEl = document.getElementById('feedbackStatus');
+    const message = document.getElementById('feedbackMessage').value.trim();
+    if(!message){
+      statusEl.textContent = 'Write a message first.';
+      statusEl.style.color = '#B4472A';
+      statusEl.style.display = 'block';
+      return;
+    }
+    try{
+      const res = await fetch('api/feedback.php', {
+        method: 'POST', credentials: 'same-origin',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({category: feedbackCategory, message})
+      });
+      const data = await res.json();
+      if(!res.ok){
+        statusEl.textContent = data.error || 'Could not send feedback.';
+        statusEl.style.color = '#B4472A';
+      } else {
+        statusEl.textContent = 'Thanks — feedback sent.';
+        statusEl.style.color = 'var(--forest-dark)';
+        document.getElementById('feedbackMessage').value = '';
+      }
+      statusEl.style.display = 'block';
+    }catch(err){
+      statusEl.textContent = 'Could not reach the server — check your connection and try again.';
+      statusEl.style.color = '#B4472A';
+      statusEl.style.display = 'block';
+    }
+  });
 })();
 
 checkAuthAndStart();

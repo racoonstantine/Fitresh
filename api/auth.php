@@ -27,6 +27,23 @@ function send_approval_request_email(string $email, string $displayName, string 
     @mail($adminEmail, $subject, $body, $headers);
 }
 
+// Returns an error message, or null if the username is valid and free to use by $userId.
+function validate_username(PDO $pdo, string $username, int $userId): ?string
+{
+    if (strlen($username) < 6 || strlen($username) > 30) {
+        return 'Username must be 6-30 characters.';
+    }
+    if (!preg_match('/^[a-zA-Z0-9_]+$/', $username)) {
+        return 'Username can only contain letters, numbers, and underscores.';
+    }
+    $stmt = $pdo->prepare('SELECT id FROM users WHERE LOWER(username) = LOWER(?) AND id != ?');
+    $stmt->execute([$username, $userId]);
+    if ($stmt->fetch()) {
+        return 'That username is already taken.';
+    }
+    return null;
+}
+
 $pdo = get_db();
 $action = $_GET['action'] ?? '';
 $input = json_decode(file_get_contents('php://input'), true) ?? [];
@@ -114,22 +131,48 @@ switch ($action) {
         if ($username === '') {
             json_respond(['error' => 'Username cannot be empty.'], 400);
         }
-        if (strlen($username) < 6 || strlen($username) > 30) {
-            json_respond(['error' => 'Username must be 6-30 characters.'], 400);
-        }
-        if (!preg_match('/^[a-zA-Z0-9_]+$/', $username)) {
-            json_respond(['error' => 'Username can only contain letters, numbers, and underscores.'], 400);
-        }
-
-        $stmt = $pdo->prepare('SELECT id FROM users WHERE LOWER(username) = LOWER(?) AND id != ?');
-        $stmt->execute([$username, $_SESSION['user_id']]);
-        if ($stmt->fetch()) {
-            json_respond(['error' => 'That username is already taken.'], 409);
+        $error = validate_username($pdo, $username, (int)$_SESSION['user_id']);
+        if ($error) {
+            json_respond(['error' => $error], 409);
         }
 
         $stmt = $pdo->prepare('UPDATE users SET username = ? WHERE id = ?');
         $stmt->execute([$username, $_SESSION['user_id']]);
         json_respond(['ok' => true, 'username' => $username]);
+    }
+
+    case 'check_username': {
+        if (empty($_SESSION['user_id'])) {
+            json_respond(['error' => 'Not logged in'], 401);
+        }
+        $username = trim((string)($_GET['username'] ?? ''));
+        if ($username === '') {
+            json_respond(['available' => false, 'reason' => 'Enter a username.']);
+        }
+        $error = validate_username($pdo, $username, (int)$_SESSION['user_id']);
+        json_respond(['available' => $error === null, 'reason' => $error]);
+    }
+
+    case 'update_account': {
+        if (empty($_SESSION['user_id'])) {
+            json_respond(['error' => 'Not logged in'], 401);
+        }
+        $userId = (int)$_SESSION['user_id'];
+        $displayName = trim((string)($input['display_name'] ?? ''));
+        if ($displayName === '' || strlen($displayName) > 100) {
+            json_respond(['error' => 'Display name must be 1-100 characters.'], 400);
+        }
+        $username = trim((string)($input['username'] ?? ''));
+        if ($username !== '') {
+            $error = validate_username($pdo, $username, $userId);
+            if ($error) {
+                json_respond(['error' => $error], 409);
+            }
+        }
+
+        $stmt = $pdo->prepare('UPDATE users SET display_name = ?, username = ? WHERE id = ?');
+        $stmt->execute([$displayName, $username !== '' ? $username : null, $userId]);
+        json_respond(['ok' => true, 'display_name' => $displayName, 'username' => $username !== '' ? $username : null]);
     }
 
     default:
