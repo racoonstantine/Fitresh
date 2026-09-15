@@ -161,6 +161,44 @@ If you're setting this up on an existing database, also run
 [`db/migrations/002_add_username.sql`](db/migrations/002_add_username.sql)
 once.
 
+## Nutrition engine (real food search + logging)
+
+Food's "Log a food" search box is backed by a proper normalized schema
+(`nutrients`, `foods`, `food_nutrients`, `food_servings`, `meal_entries`,
+`meal_components` — see [`docs/RandomHut_Nutrition_Tracking_Requirements_v1.0.docx`](docs/RandomHut_Nutrition_Tracking_Requirements_v1.0.docx)
+for the design this follows) instead of the old flat "one row per day"
+nutrition log. Both coexist: the old `nutritionLog` resource keeps showing in
+the Dashboard/History/Trends for anything logged before this, new logging
+goes through the tables below.
+
+Run [`db/migrations/003_nutrition_engine.sql`](db/migrations/003_nutrition_engine.sql)
+once against your database.
+
+Search hits [Open Food Facts](https://world.openfoodfacts.org) (free, no API
+key) server-side via `api/food_search.php`. Coverage skews toward
+packaged/branded products — home-cooked and regional dishes usually won't be
+there, which is what **+ Add a custom food** in the same screen is for.
+`api/foods.php` handles saving a search result into your own library the
+first time you log it (so it's instant and offline-searchable after that)
+and creating custom foods; `api/meals.php` handles logging/reading/deleting
+against a date.
+
+**USDA FoodData Central** (better coverage for generic/whole foods and US
+packaged items) isn't wired in yet — get a free instant API key at
+https://fdc.nal.usda.gov/api-key-signup.html when you want it added; the
+`http_get_with_fallback()` helper in `api/db.php` is already shaped to add a
+second provider alongside Open Food Facts without reworking the search
+endpoint.
+
+**Note for local Windows PHP dev environments specifically:** some PHP
+builds have the `curl` extension but no CA certificate bundle configured, so
+outbound HTTPS calls fail with a cryptic SSL error. `http_get_with_fallback()`
+already picks curl over `file_get_contents` for reliability, but if outbound
+requests fail entirely in local dev, point PHP at a CA bundle (e.g.
+`php -d curl.cainfo=/path/to/cacert.pem -d openssl.cafile=/path/to/cacert.pem -S localhost:8000`,
+bundle from https://curl.se/ca/cacert.pem). Namecheap's shared hosting has
+never shown this issue.
+
 ## Local development
 
 There's no build step. To preview the frontend against a local PHP server:

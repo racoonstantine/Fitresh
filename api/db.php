@@ -46,3 +46,37 @@ function json_respond(array $data, int $code = 200)
     echo json_encode($data);
     exit;
 }
+
+// GETs a URL server-side for calling external food-data APIs (Open Food
+// Facts, and USDA later). Prefers curl -- some PHP builds have curl but not
+// the openssl stream wrapper file_get_contents needs for https://, which
+// otherwise fails with a misleading "No such file or directory". Falls back
+// to file_get_contents so this still works wherever curl isn't available.
+function http_get_with_fallback(string $url, int $timeoutSeconds = 8)
+{
+    if (function_exists('curl_init')) {
+        $ch = curl_init($url);
+        curl_setopt_array($ch, [
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_TIMEOUT => $timeoutSeconds,
+            CURLOPT_USERAGENT => 'FullCircleHealth/1.0 (contact via app)',
+            CURLOPT_FOLLOWLOCATION => true,
+            // Some providers gzip-compress the response even without an explicit
+            // Accept-Encoding request; empty string = "advertise and auto-decode
+            // whatever curl supports" so we don't get raw compressed bytes back.
+            CURLOPT_ENCODING => '',
+        ]);
+        $body = curl_exec($ch);
+        $ok = $body !== false && curl_errno($ch) === 0;
+        curl_close($ch);
+        if ($ok) {
+            return $body;
+        }
+    }
+
+    $context = stream_context_create(['http' => [
+        'timeout' => $timeoutSeconds,
+        'header' => "User-Agent: FullCircleHealth/1.0 (contact via app)\r\n",
+    ]]);
+    return @file_get_contents($url, false, $context);
+}

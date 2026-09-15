@@ -747,7 +747,56 @@
     </section>
 
     <section class="block" style="margin-bottom:18px;">
-      <div class="block-title">Log a Day</div>
+      <div class="block-title">Log a food</div>
+      <div class="hub-card">
+        <div style="display:flex;gap:8px;margin-bottom:10px;">
+          <select id="mealLogType" style="flex:0 0 120px;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:13px;">
+            <option value="breakfast">Breakfast</option>
+            <option value="lunch">Lunch</option>
+            <option value="dinner">Dinner</option>
+            <option value="snack">Snack</option>
+          </select>
+          <input type="text" id="foodSearchInput" placeholder="Search a food — e.g. chicken breast" autocomplete="off" style="flex:1;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:13px;">
+        </div>
+        <div id="foodSearchResults"></div>
+        <div id="foodSearchStatus" style="font-size:12px;color:var(--ink-soft);display:none;margin-top:4px;"></div>
+        <button class="timer-btn reset" id="createCustomFoodBtn" type="button" style="width:100%;margin-top:10px;">+ Add a custom food</button>
+
+        <div id="customFoodForm" style="display:none;margin-top:12px;padding-top:12px;border-top:1px solid var(--line);">
+          <label style="font-size:11px;color:var(--ink-soft);">Food name</label>
+          <input type="text" id="cfName" placeholder="e.g. Mom's chicken adobo" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;margin-bottom:10px;">
+          <div style="display:flex;gap:8px;margin-bottom:10px;">
+            <div style="flex:1;">
+              <label style="font-size:11px;color:var(--ink-soft);">Per amount</label>
+              <input type="number" id="cfAmount" value="100" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;">
+            </div>
+            <div style="flex:1;">
+              <label style="font-size:11px;color:var(--ink-soft);">Unit</label>
+              <select id="cfUnit" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;">
+                <option value="g">grams</option>
+                <option value="ml">ml</option>
+                <option value="serving">serving</option>
+              </select>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px;">
+            <div><label style="font-size:11px;color:var(--ink-soft);">Calories</label><input type="number" id="cfCalories" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;"></div>
+            <div><label style="font-size:11px;color:var(--ink-soft);">Protein (g)</label><input type="number" id="cfProtein" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;"></div>
+            <div><label style="font-size:11px;color:var(--ink-soft);">Fat (g)</label><input type="number" id="cfFat" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;"></div>
+            <div><label style="font-size:11px;color:var(--ink-soft);">Carbs (g)</label><input type="number" id="cfCarbs" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;"></div>
+          </div>
+          <div style="display:flex;gap:8px;">
+            <button class="timer-btn start" id="cfSaveBtn" type="button" style="flex:1;">Save &amp; log</button>
+            <button class="timer-btn reset" id="cfCancelBtn" type="button" style="flex:1;">Cancel</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="hub-card" id="todayMealsCard" style="margin-top:14px;"></div>
+    </section>
+
+    <section class="block" style="margin-bottom:18px;">
+      <div class="block-title">Log a Day (quick totals)</div>
       <div style="background:var(--paper-raised);border:1px solid var(--line);border-radius:8px;padding:12px;">
         <label style="font-size:11px;color:var(--ink-soft);">Date</label>
         <input type="date" id="nutriDate" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;margin-bottom:10px;">
@@ -1471,8 +1520,119 @@ function macroBarRow(label, value, min, max, unit, mode){
   `;
 }
 
+let foodSearchResultsCache = [];
+
+async function searchFoodsCombined(query){
+  const statusEl = document.getElementById('foodSearchStatus');
+  const resultsEl = document.getElementById('foodSearchResults');
+  if(query.length < 2){ resultsEl.innerHTML = ''; statusEl.style.display = 'none'; return; }
+  statusEl.textContent = 'Searching…';
+  statusEl.style.display = 'block';
+  try{
+    const [libRes, offRes] = await Promise.all([
+      fetch(`api/foods.php?action=search_library&q=${encodeURIComponent(query)}`, {credentials:'same-origin'}).then(r=>r.json()).catch(()=>({results:[]})),
+      fetch(`api/food_search.php?q=${encodeURIComponent(query)}`, {credentials:'same-origin'}).then(r=>r.json()).catch(()=>({results:[]}))
+    ]);
+    const library = (libRes.results || []).map(r => ({...r, _origin: 'library'}));
+    const external = (offRes.results || []).map(r => ({...r, _origin: 'off'}));
+    foodSearchResultsCache = [...library, ...external];
+    renderFoodSearchResults();
+    if(offRes.error && !external.length){
+      statusEl.textContent = offRes.error;
+      statusEl.style.display = 'block';
+    } else {
+      statusEl.style.display = 'none';
+    }
+  }catch(e){
+    statusEl.textContent = 'Search failed — try again.';
+  }
+}
+
+function renderFoodSearchResults(){
+  const resultsEl = document.getElementById('foodSearchResults');
+  if(!resultsEl) return;
+  if(!foodSearchResultsCache.length){ resultsEl.innerHTML = ''; return; }
+  resultsEl.innerHTML = foodSearchResultsCache.map((r, i) => {
+    const kcal = r._origin === 'off' && r.nutrients ? Math.round(r.nutrients.ENERC_KCAL || 0) : null;
+    const sub = r._origin === 'library'
+      ? (r.brand || 'Your library')
+      : `${r.brand ? r.brand + ' · ' : ''}${kcal !== null ? kcal + ' kcal/100g' : 'no calorie data'}`;
+    return `
+      <div class="food-result-row" data-idx="${i}" style="padding:9px 4px;border-bottom:1px solid var(--line);cursor:pointer;">
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <div>
+            <div style="font-weight:600;font-size:13.5px;">${r.name}</div>
+            <div style="font-size:11.5px;color:var(--ink-soft);">${sub}</div>
+          </div>
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" style="width:16px;height:16px;stroke:var(--ink-soft);flex-shrink:0;"><path d="M9 18l6-6-6-6"/></svg>
+        </div>
+        <div class="food-result-amount" data-idx="${i}" style="display:none;margin-top:8px;gap:8px;align-items:center;">
+          <input type="number" class="food-amount-input" value="100" style="width:80px;padding:6px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:13px;">
+          <span style="font-size:12px;color:var(--ink-soft);">g</span>
+          <button class="timer-btn start food-log-confirm" data-idx="${i}" type="button" style="flex:1;padding:7px 0;">Log</button>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+async function renderTodayMeals(){
+  const card = document.getElementById('todayMealsCard');
+  if(!card) return;
+  const date = nutriSelectedDate || dateStrForOffset(0);
+  try{
+    const res = await fetch(`api/meals.php?action=day&date=${date}`, {credentials: 'same-origin'});
+    const data = await res.json();
+    if(!data.entries || !data.entries.length){
+      card.innerHTML = `<div class="block-title" style="margin:0 0 8px;">Logged via search</div><div class="dash-empty">Nothing logged this way yet for ${formatDateLabel(date)}.</div>`;
+      return;
+    }
+    const nonEmptyEntries = data.entries.filter(entry => entry.components.length);
+    if(!nonEmptyEntries.length){
+      card.innerHTML = `<div class="block-title" style="margin:0 0 8px;">Logged via search</div><div class="dash-empty">Nothing logged this way yet for ${formatDateLabel(date)}.</div>`;
+      return;
+    }
+    const typeLabels = {breakfast: 'Breakfast', lunch: 'Lunch', dinner: 'Dinner', snack: 'Snack', custom: 'Other'};
+    const rows = nonEmptyEntries.map(entry => `
+      <div style="margin-bottom:10px;">
+        <div style="font-size:11px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.06em;font-weight:700;margin-bottom:4px;">${typeLabels[entry.meal_type] || entry.meal_type}</div>
+        ${entry.components.map(c => `
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px dashed var(--line);">
+            <div style="font-size:13px;">${c.name} <span style="color:var(--ink-soft);font-size:11.5px;">(${c.amount}${c.unit})</span></div>
+            <div style="display:flex;align-items:center;gap:8px;">
+              <span style="font-size:12.5px;color:var(--ink-soft);">${Math.round(c.nutrients.ENERC_KCAL || 0)} kcal</span>
+              <button class="wi-del meal-delete" data-id="${c.id}" type="button" title="Remove">✕</button>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    `).join('');
+    const t = data.totals || {};
+    card.innerHTML = `
+      <div class="block-title" style="margin:0 0 10px;">Logged via search</div>
+      ${rows}
+      <div style="display:flex;justify-content:space-between;font-weight:700;padding-top:8px;font-size:13.5px;">
+        <span>Total</span>
+        <span>${Math.round(t.ENERC_KCAL || 0)} kcal · ${Math.round(t.PROCNT || 0)}g protein</span>
+      </div>
+    `;
+    card.querySelectorAll('.meal-delete').forEach(btn=>{
+      btn.addEventListener('click', async ()=>{
+        await fetch('api/meals.php?action=delete_component', {
+          method: 'POST', credentials: 'same-origin', headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({id: parseInt(btn.dataset.id, 10)})
+        });
+        renderTodayMeals();
+      });
+    });
+  }catch(e){
+    card.innerHTML = `<div class="dash-empty">Could not load today's search-logged foods.</div>`;
+  }
+}
+
 function renderNutrition(){
   if(nutriSelectedDate === null) nutriSelectedDate = dateStrForOffset(0);
+  renderTodayMeals();
   const rangeSel = document.getElementById('nutriRange');
   const range = rangeSel ? rangeSel.value : 'day';
   const sorted = [...nutritionLog].sort((a,b)=> a.date < b.date ? -1 : 1);
@@ -3023,6 +3183,104 @@ async function checkAuthAndStart(){
       statusEl.textContent = 'Could not reach the server — check your connection and try again.';
       statusEl.style.color = '#B4472A';
       statusEl.style.display = 'block';
+    }
+  });
+})();
+
+/* ---------- Food search-and-log (nutrition engine) ---------- */
+(function(){
+  let searchDebounce;
+  document.getElementById('foodSearchInput').addEventListener('input', (e)=>{
+    clearTimeout(searchDebounce);
+    const q = e.target.value.trim();
+    searchDebounce = setTimeout(()=> searchFoodsCombined(q), 350);
+  });
+
+  document.getElementById('foodSearchResults').addEventListener('click', async (e)=>{
+    const confirmBtn = e.target.closest('.food-log-confirm');
+    if(confirmBtn){
+      e.stopPropagation();
+      const idx = parseInt(confirmBtn.dataset.idx, 10);
+      const row = foodSearchResultsCache[idx];
+      const amountInput = confirmBtn.closest('.food-result-amount').querySelector('.food-amount-input');
+      const amount = parseFloat(amountInput.value) || 100;
+      confirmBtn.disabled = true;
+      confirmBtn.textContent = 'Logging…';
+      try{
+        let foodId = row.id;
+        if(row._origin === 'off'){
+          const res = await fetch('api/foods.php?action=save_external', {
+            method: 'POST', credentials: 'same-origin', headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({source: 'off', external_id: row.external_id, name: row.name, brand: row.brand, canonical_unit: row.canonical_unit, nutrients: row.nutrients})
+          });
+          const data = await res.json();
+          foodId = data.id;
+        }
+        await fetch('api/meals.php?action=log', {
+          method: 'POST', credentials: 'same-origin', headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({date: nutriSelectedDate || dateStrForOffset(0), meal_type: document.getElementById('mealLogType').value, component: {food_id: foodId, amount, unit: 'g'}})
+        });
+        document.getElementById('foodSearchInput').value = '';
+        foodSearchResultsCache = [];
+        renderFoodSearchResults();
+        renderTodayMeals();
+      }catch(err){
+        confirmBtn.textContent = 'Failed — try again';
+        confirmBtn.disabled = false;
+      }
+      return;
+    }
+    const row = e.target.closest('.food-result-row');
+    if(row){
+      const idx = row.dataset.idx;
+      document.querySelectorAll('.food-result-amount').forEach(el=>{
+        el.style.display = (el.dataset.idx === idx && el.style.display !== 'flex') ? 'flex' : 'none';
+      });
+    }
+  });
+
+  document.getElementById('createCustomFoodBtn').addEventListener('click', ()=>{
+    const form = document.getElementById('customFoodForm');
+    form.style.display = form.style.display === 'none' ? 'block' : 'none';
+  });
+  document.getElementById('cfCancelBtn').addEventListener('click', ()=>{
+    document.getElementById('customFoodForm').style.display = 'none';
+  });
+  document.getElementById('cfSaveBtn').addEventListener('click', async ()=>{
+    const name = document.getElementById('cfName').value.trim();
+    if(!name) return;
+    const btn = document.getElementById('cfSaveBtn');
+    btn.disabled = true;
+    btn.textContent = 'Saving…';
+    try{
+      const amount = parseFloat(document.getElementById('cfAmount').value) || 100;
+      const unit = document.getElementById('cfUnit').value;
+      const res = await fetch('api/foods.php?action=create_custom', {
+        method: 'POST', credentials: 'same-origin', headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+          name, canonical_amount: amount, canonical_unit: unit,
+          nutrients: {
+            ENERC_KCAL: parseFloat(document.getElementById('cfCalories').value) || 0,
+            PROCNT: parseFloat(document.getElementById('cfProtein').value) || 0,
+            FAT: parseFloat(document.getElementById('cfFat').value) || 0,
+            CHOCDF: parseFloat(document.getElementById('cfCarbs').value) || 0
+          }
+        })
+      });
+      const food = await res.json();
+      await fetch('api/meals.php?action=log', {
+        method: 'POST', credentials: 'same-origin', headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({date: nutriSelectedDate || dateStrForOffset(0), meal_type: document.getElementById('mealLogType').value, component: {food_id: food.id, amount, unit}})
+      });
+      document.getElementById('customFoodForm').style.display = 'none';
+      ['cfName', 'cfCalories', 'cfProtein', 'cfFat', 'cfCarbs'].forEach(id => document.getElementById(id).value = '');
+      document.getElementById('cfAmount').value = 100;
+      renderTodayMeals();
+    }catch(err){
+      alert('Could not save — try again.');
+    }finally{
+      btn.disabled = false;
+      btn.textContent = 'Save & log';
     }
   });
 })();

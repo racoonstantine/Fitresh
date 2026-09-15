@@ -7,3 +7,6 @@ Thumbs.db
 /*.png
 /*.jpg
 /*.jpeg
+
+# Uploaded reference docs land in the repo root; the real copy lives under docs/.
+/*.docx
