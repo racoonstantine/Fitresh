@@ -54,12 +54,15 @@ if ($method === 'GET' && $action === 'search_library') {
         json_respond(['results' => []]);
     }
     $stmt = $pdo->prepare(
-        'SELECT id, name, brand, source FROM foods
+        'SELECT id FROM foods
          WHERE (owner_user_id = ? OR owner_user_id IS NULL) AND name LIKE ?
          ORDER BY name LIMIT 20'
     );
     $stmt->execute([$userId, '%' . $query . '%']);
-    json_respond(['results' => $stmt->fetchAll()]);
+    // Include nutrients + canonical amount/unit so the frontend can show macros
+    // and scale them before the food is actually logged.
+    $results = array_map(fn($row) => food_with_nutrients($pdo, (int)$row['id']), $stmt->fetchAll());
+    json_respond(['results' => $results]);
 }
 
 if ($method === 'POST' && $action === 'save_external') {

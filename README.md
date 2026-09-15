@@ -190,6 +190,31 @@ https://fdc.nal.usda.gov/api-key-signup.html when you want it added; the
 second provider alongside Open Food Facts without reworking the search
 endpoint.
 
+Searching a food shows its macros (calories/protein/fat/carbs, live-scaled to
+the amount you type) and requires an explicit **Save**/**Cancel** before
+anything is logged — nothing commits on a single click anymore. Search-logged
+meals (`meal_entries`/`meal_components`) are merged into the Nutrition
+Dashboard's cards, banner, and macro split alongside anything logged the old
+way (`nutritionLog`), so the numbers you see there always reflect both. This
+merge is scoped to whatever date range the dashboard is currently showing
+(day/week/month) — the historical calorie trend chart and the "Log a Day"
+entry list below it still read from `nutritionLog` only.
+
+## Fasting timer
+
+A dedicated Start/End fasting timer lives above "Log a food" on the Food tab
+(separate from the legacy "Fast duration (hours)" free-text field, which it
+writes into when a fast ends). Pick a goal (12:12 through OMAD), start a fast,
+and it ticks live with a progress bar toward that goal; the start time can be
+edited directly (`<input type="datetime-local">` — chosen over a custom
+scroll-wheel picker since native date/time inputs already give a scrollable
+picker on mobile, for far less code). Ending a fast computes the elapsed hours
+and writes them onto that day's `nutritionLog` entry, so it shows up in the
+existing "Today's fast" dashboard card and history immediately. State (the
+active fast's start time and last-used goal) is stored via the same generic
+`api/data.php` resource mechanism as everything else (resource key
+`fasting`).
+
 **Note for local Windows PHP dev environments specifically:** some PHP
 builds have the `curl` extension but no CA certificate bundle configured, so
 outbound HTTPS calls fail with a cryptic SSL error. `http_get_with_fallback()`

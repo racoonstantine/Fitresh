@@ -101,6 +101,39 @@ if ($method === 'GET' && $action === 'day') {
     json_respond(['entries' => $result, 'totals' => $dayTotals]);
 }
 
+if ($method === 'GET' && $action === 'range_totals') {
+    // Per-date nutrient totals over a date range, for merging search-logged
+    // meals into the legacy nutritionLog-driven dashboard (cards/macro bar).
+    $start = (string)($_GET['start'] ?? '');
+    $end = (string)($_GET['end'] ?? '');
+    if (!preg_match('/^\d{4}-\d{2}-\d{2}$/', $start) || !preg_match('/^\d{4}-\d{2}-\d{2}$/', $end)) {
+        json_respond(['error' => 'Invalid date range.'], 400);
+    }
+
+    $stmt = $pdo->prepare('SELECT id, entry_date FROM meal_entries WHERE user_id = ? AND entry_date BETWEEN ? AND ?');
+    $stmt->execute([$userId, $start, $end]);
+    $entryDates = [];
+    foreach ($stmt->fetchAll() as $row) {
+        $entryDates[(int)$row['id']] = $row['entry_date'];
+    }
+
+    $totalsByDate = [];
+    if ($entryDates) {
+        $ids = array_keys($entryDates);
+        $placeholders = implode(',', array_fill(0, count($ids), '?'));
+        $compStmt = $pdo->prepare("SELECT * FROM meal_components WHERE meal_entry_id IN ($placeholders)");
+        $compStmt->execute($ids);
+        foreach ($compStmt->fetchAll() as $c) {
+            $date = $entryDates[(int)$c['meal_entry_id']];
+            $summary = component_summary($pdo, $c);
+            foreach ($summary['nutrients'] as $code => $val) {
+                $totalsByDate[$date][$code] = ($totalsByDate[$date][$code] ?? 0) + $val;
+            }
+        }
+    }
+    json_respond(['totals' => $totalsByDate]);
+}
+
 if ($method === 'POST' && $action === 'log') {
     $date = (string)($input['date'] ?? '');
     $mealType = (string)($input['meal_type'] ?? 'snack');

@@ -747,6 +747,10 @@
     </section>
 
     <section class="block" style="margin-bottom:18px;">
+      <div class="hub-card" id="fastingCard"></div>
+    </section>
+
+    <section class="block" style="margin-bottom:18px;">
       <div class="block-title">Log a food</div>
       <div class="hub-card">
         <div style="display:flex;gap:8px;margin-bottom:10px;">
@@ -1262,6 +1266,150 @@ function removeNutritionDay(dateStr){
   nutritionLog = nutritionLog.filter(e => e.date !== dateStr);
   saveNutrition();
 }
+// Merges fields into a day's nutritionLog entry without clobbering the rest
+// of it (unlike saveNutritionDay, which replaces the whole entry) -- used by
+// the fasting timer to write just fastHours onto whatever else is logged that day.
+function upsertNutritionFields(dateStr, fields){
+  const existing = nutritionLog.find(e => e.date === dateStr);
+  const merged = Object.assign({date: dateStr, fastHours:'', meal:'', calories:'', protein:'', fat:'', carbs:'', notes:''}, existing || {}, fields);
+  nutritionLog = nutritionLog.filter(e => e.date !== dateStr);
+  nutritionLog.push(merged);
+  nutritionLog.sort((a,b)=> a.date < b.date ? 1 : -1);
+  saveNutrition();
+}
+
+// ---------- Search-logged meal totals, merged into the nutritionLog-driven dashboard ----------
+let mealTotalsByDate = {};
+async function fetchMealTotals(dateList){
+  const uniq = [...new Set(dateList)];
+  if(!uniq.length){ mealTotalsByDate = {}; return; }
+  const start = uniq.reduce((a,b)=> a < b ? a : b);
+  const end = uniq.reduce((a,b)=> a > b ? a : b);
+  try{
+    const res = await fetch(`api/meals.php?action=range_totals&start=${start}&end=${end}`, {credentials:'same-origin'});
+    const data = await res.json();
+    mealTotalsByDate = data.totals || {};
+  }catch(e){
+    mealTotalsByDate = {};
+  }
+}
+function combinedDayTotals(dateStr, nutriEntry){
+  const m = mealTotalsByDate[dateStr] || {};
+  return {
+    calories: (nutriEntry ? (parseFloat(nutriEntry.calories) || 0) : 0) + (m.ENERC_KCAL || 0),
+    protein: (nutriEntry ? (parseFloat(nutriEntry.protein) || 0) : 0) + (m.PROCNT || 0),
+    fat: (nutriEntry ? (parseFloat(nutriEntry.fat) || 0) : 0) + (m.FAT || 0),
+    carbs: (nutriEntry ? (parseFloat(nutriEntry.carbs) || 0) : 0) + (m.CHOCDF || 0),
+    hasAny: !!nutriEntry || !!mealTotalsByDate[dateStr]
+  };
+}
+
+// ---------- Fasting timer ----------
+let fastingState = { startIso: null, goalHours: 16 };
+let fastingTickInterval = null;
+async function loadFasting(){
+  try{
+    const res = await window.storage.get(STORAGE_PREFIX + 'fasting', false);
+    fastingState = res && res.value ? JSON.parse(res.value) : { startIso: null, goalHours: 16 };
+  }catch(e){ fastingState = { startIso: null, goalHours: 16 }; }
+}
+async function saveFasting(){
+  try{ await window.storage.set(STORAGE_PREFIX + 'fasting', JSON.stringify(fastingState), false); }catch(e){}
+}
+function renderFasting(){
+  const card = document.getElementById('fastingCard');
+  if(!card) return;
+  clearInterval(fastingTickInterval);
+
+  if(!fastingState.startIso){
+    card.innerHTML = `
+      <div class="block-title" style="margin:0 0 10px;">Fasting Timer</div>
+      <div style="text-align:center;padding:6px 0;">
+        <div style="font-size:12.5px;color:var(--ink-soft);margin-bottom:12px;">Not fasting right now.</div>
+        <label style="font-size:11px;color:var(--ink-soft);">Goal</label>
+        <select id="fastGoalSelect" style="display:block;width:100%;margin:4px 0 14px;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);">
+          <option value="12">12:12</option>
+          <option value="14">14:10</option>
+          <option value="16">16:8</option>
+          <option value="18">18:6</option>
+          <option value="20">20:4</option>
+          <option value="24">24:0 (OMAD)</option>
+        </select>
+        <button class="timer-btn start" id="startFastBtn" type="button" style="width:100%;">Start Fasting</button>
+      </div>
+    `;
+    const sel = document.getElementById('fastGoalSelect');
+    sel.value = String(fastingState.goalHours || 16);
+    document.getElementById('startFastBtn').addEventListener('click', ()=>{
+      fastingState = { startIso: new Date().toISOString(), goalHours: parseFloat(sel.value) || 16 };
+      saveFasting();
+      renderFasting();
+    });
+    return;
+  }
+
+  card.innerHTML = `
+    <div class="block-title" style="margin:0 0 10px;">Fasting Timer</div>
+    <div style="text-align:center;">
+      <div id="fastElapsed" style="font-family:var(--font-heading);font-size:34px;letter-spacing:.02em;">00:00:00</div>
+      <div id="fastPct" style="font-size:12px;color:var(--ink-soft);margin-top:2px;">—</div>
+      <div style="height:10px;border-radius:5px;background:var(--paper-raised);border:1px solid var(--line);overflow:hidden;margin:12px 0;">
+        <div id="fastProgressBar" style="height:100%;width:0%;background:var(--forest);transition:width .3s;"></div>
+      </div>
+      <div style="font-size:11px;color:var(--ink-soft);margin-bottom:14px;">Started <span id="fastStartedLabel"></span></div>
+      <label style="font-size:11px;color:var(--ink-soft);display:block;text-align:left;">Edit start time</label>
+      <input type="datetime-local" id="fastStartEdit" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin:2px 0 14px;box-sizing:border-box;">
+      <button class="timer-btn reset" id="endFastBtn" type="button" style="width:100%;">End Fast</button>
+    </div>
+  `;
+
+  const pad = n => String(n).padStart(2,'0');
+  const startEditInput = document.getElementById('fastStartEdit');
+  const syncStartEditInput = ()=>{
+    const d = new Date(fastingState.startIso);
+    startEditInput.value = `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}T${pad(d.getHours())}:${pad(d.getMinutes())}`;
+    document.getElementById('fastStartedLabel').textContent = d.toLocaleString(undefined, {month:'short', day:'numeric', hour:'numeric', minute:'2-digit'});
+  };
+  syncStartEditInput();
+
+  const renderTick = ()=>{
+    const start = new Date(fastingState.startIso);
+    const now = new Date();
+    const elapsedMs = Math.max(0, now - start);
+    const elapsedHrs = elapsedMs / 3600000;
+    const goalHrs = fastingState.goalHours || 16;
+    const pct = Math.min(100, (elapsedHrs / goalHrs) * 100);
+    const h = Math.floor(elapsedMs / 3600000);
+    const m = Math.floor((elapsedMs % 3600000) / 60000);
+    const s = Math.floor((elapsedMs % 60000) / 1000);
+    document.getElementById('fastElapsed').textContent = `${pad(h)}:${pad(m)}:${pad(s)}`;
+    document.getElementById('fastProgressBar').style.width = pct + '%';
+    document.getElementById('fastPct').textContent = `${pct.toFixed(0)}% of ${goalHrs}h goal${pct >= 100 ? ' — goal reached!' : ''}`;
+  };
+  renderTick();
+  fastingTickInterval = setInterval(renderTick, 1000);
+
+  startEditInput.addEventListener('change', ()=>{
+    const v = startEditInput.value;
+    if(!v) return;
+    const d = new Date(v);
+    if(isNaN(d.getTime()) || d.getTime() > Date.now()) { syncStartEditInput(); return; }
+    fastingState.startIso = d.toISOString();
+    saveFasting();
+    syncStartEditInput();
+    renderTick();
+  });
+
+  document.getElementById('endFastBtn').addEventListener('click', ()=>{
+    const start = new Date(fastingState.startIso);
+    const elapsedHrs = (Date.now() - start.getTime()) / 3600000;
+    upsertNutritionFields(dateStrForOffset(0), { fastHours: elapsedHrs.toFixed(2) });
+    fastingState = { startIso: null, goalHours: fastingState.goalHours || 16 };
+    saveFasting();
+    renderFasting();
+    renderNutrition();
+  });
+}
 
 let userProfile = null; // {gender, age, heightCm, goalWeightKg, activityLevel}
 let userHealthTargets = null; // computed by computeHealthTargets()
@@ -1548,15 +1696,35 @@ async function searchFoodsCombined(query){
   }
 }
 
+// Scales a result's per-canonical-amount nutrients to a given amount, e.g.
+// 165 kcal/100g at amount=150 -> ~248 kcal.
+function scaledFoodMacros(r, amount){
+  const canonical = r.canonical_amount || 100;
+  const factor = canonical > 0 ? amount / canonical : 0;
+  const n = r.nutrients || {};
+  return {
+    kcal: Math.round((n.ENERC_KCAL || 0) * factor),
+    protein: +(((n.PROCNT || 0) * factor).toFixed(1)),
+    fat: +(((n.FAT || 0) * factor).toFixed(1)),
+    carbs: +(((n.CHOCDF || 0) * factor).toFixed(1))
+  };
+}
+function macroPreviewText(r, amount){
+  const m = scaledFoodMacros(r, amount);
+  return `${m.kcal} kcal · ${m.protein}g protein · ${m.fat}g fat · ${m.carbs}g carbs`;
+}
+
 function renderFoodSearchResults(){
   const resultsEl = document.getElementById('foodSearchResults');
   if(!resultsEl) return;
   if(!foodSearchResultsCache.length){ resultsEl.innerHTML = ''; return; }
   resultsEl.innerHTML = foodSearchResultsCache.map((r, i) => {
-    const kcal = r._origin === 'off' && r.nutrients ? Math.round(r.nutrients.ENERC_KCAL || 0) : null;
-    const sub = r._origin === 'library'
-      ? (r.brand || 'Your library')
-      : `${r.brand ? r.brand + ' · ' : ''}${kcal !== null ? kcal + ' kcal/100g' : 'no calorie data'}`;
+    const canonicalAmount = r.canonical_amount || 100;
+    const canonicalUnit = r.canonical_unit || 'g';
+    const hasNutrients = r.nutrients && r.nutrients.ENERC_KCAL !== undefined && r.nutrients.ENERC_KCAL !== null;
+    const sub = hasNutrients
+      ? `${r.brand ? r.brand + ' · ' : ''}${Math.round(r.nutrients.ENERC_KCAL)} kcal / ${canonicalAmount}${canonicalUnit}`
+      : (r.brand || (r._origin === 'library' ? 'Your library' : 'No calorie data'));
     return `
       <div class="food-result-row" data-idx="${i}" style="padding:9px 4px;border-bottom:1px solid var(--line);cursor:pointer;">
         <div style="display:flex;justify-content:space-between;align-items:center;">
@@ -1566,10 +1734,16 @@ function renderFoodSearchResults(){
           </div>
           <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" style="width:16px;height:16px;stroke:var(--ink-soft);flex-shrink:0;"><path d="M9 18l6-6-6-6"/></svg>
         </div>
-        <div class="food-result-amount" data-idx="${i}" style="display:none;margin-top:8px;gap:8px;align-items:center;">
-          <input type="number" class="food-amount-input" value="100" style="width:80px;padding:6px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:13px;">
-          <span style="font-size:12px;color:var(--ink-soft);">g</span>
-          <button class="timer-btn start food-log-confirm" data-idx="${i}" type="button" style="flex:1;padding:7px 0;">Log</button>
+        <div class="food-result-amount" data-idx="${i}" style="display:none;margin-top:8px;">
+          <div style="display:flex;gap:8px;align-items:center;">
+            <input type="number" class="food-amount-input" data-idx="${i}" value="${canonicalAmount}" style="width:80px;padding:6px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:13px;">
+            <span style="font-size:12px;color:var(--ink-soft);">${canonicalUnit}</span>
+          </div>
+          <div class="food-macro-preview" data-idx="${i}" style="font-size:11.5px;color:var(--ink-soft);margin-top:8px;">${macroPreviewText(r, canonicalAmount)}</div>
+          <div style="display:flex;gap:8px;margin-top:8px;">
+            <button class="timer-btn start food-log-confirm" data-idx="${i}" type="button" style="flex:1;padding:7px 0;">Save</button>
+            <button class="timer-btn reset food-log-cancel" data-idx="${i}" type="button" style="flex:1;padding:7px 0;">Cancel</button>
+          </div>
         </div>
       </div>
     `;
@@ -1623,6 +1797,7 @@ async function renderTodayMeals(){
           body: JSON.stringify({id: parseInt(btn.dataset.id, 10)})
         });
         renderTodayMeals();
+        renderNutrition();
       });
     });
   }catch(e){
@@ -1630,7 +1805,7 @@ async function renderTodayMeals(){
   }
 }
 
-function renderNutrition(){
+async function renderNutrition(){
   if(nutriSelectedDate === null) nutriSelectedDate = dateStrForOffset(0);
   renderTodayMeals();
   const rangeSel = document.getElementById('nutriRange');
@@ -1638,6 +1813,12 @@ function renderNutrition(){
   const sorted = [...nutritionLog].sort((a,b)=> a.date < b.date ? -1 : 1);
   const windowDays = range === 'month' ? 30 : 7;
   const dateList = range === 'day' ? [nutriSelectedDate] : (()=>{ const arr=[]; for(let i=0;i<windowDays;i++) arr.push(dateStrForOffset(-i)); return arr; })();
+  await fetchMealTotals(dateList);
+  // Per-date totals from nutritionLog (quick-log) merged with search-logged meals,
+  // for whichever dates are in view -- this feeds the cards/banner/macro bar below.
+  const combinedList = dateList
+    .map(d => ({date: d, ...combinedDayTotals(d, sorted.find(e => e.date === d))}))
+    .filter(e => e.hasAny);
   const recent = sorted.filter(e => dateList.includes(e.date));
 
   const navEl = document.getElementById('nutriDayNav');
@@ -1678,12 +1859,13 @@ function renderNutrition(){
   if(range === 'day'){
     const today = nutriSelectedDate;
     const todayEntry = sorted.find(e => e.date === today);
+    const combinedToday = combinedDayTotals(today, todayEntry);
     const t = getTargets(today);
     const workoutToday = isWorkoutDay(today);
-    const eatenCal = todayEntry ? parseFloat(todayEntry.calories) || 0 : 0;
-    const eatenProtein = todayEntry ? parseFloat(todayEntry.protein) || 0 : 0;
-    const eatenFat = todayEntry ? parseFloat(todayEntry.fat) || 0 : 0;
-    const eatenCarbs = todayEntry ? parseFloat(todayEntry.carbs) || 0 : 0;
+    const eatenCal = combinedToday.calories;
+    const eatenProtein = combinedToday.protein;
+    const eatenFat = combinedToday.fat;
+    const eatenCarbs = combinedToday.carbs;
     const remCal = t.calMin - eatenCal;
     const remProtein = t.proteinMin - eatenProtein;
     const calMet = remCal <= 0, proteinMet = remProtein <= 0;
@@ -1692,7 +1874,7 @@ function renderNutrition(){
     const dayWord = isTodaySel ? 'today' : 'that day';
     const dayTypeNote = `<div style="font-size:10.5px;color:var(--ink-soft);margin-top:8px;">Targets shown for a ${workoutToday ? 'workout' : 'sedentary/rest'} day.</div>`;
 
-    if(!todayEntry){
+    if(!combinedToday.hasAny){
       bannerEl.innerHTML = `
         <div style="background:var(--paper-raised);border:1px solid var(--line);border-radius:8px;padding:12px;text-align:center;">
           <div style="font-size:12.5px;color:var(--ink-soft);">No entry logged for ${dayWord}.</div>
@@ -1716,7 +1898,7 @@ function renderNutrition(){
           </div>
           ${dayTypeNote}
 
-          ${todayEntry.meal ? `
+          ${todayEntry && todayEntry.meal ? `
           <div style="margin-top:12px;background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:10px;">
             <div style="font-size:10.5px;font-weight:600;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.06em;margin-bottom:5px;">What was eaten</div>
             <div style="font-size:12.5px;color:var(--ink);line-height:1.5;">${todayEntry.meal}</div>
@@ -1752,12 +1934,14 @@ function renderNutrition(){
   }
 
   const avg = (key) => {
-    const vals = recent.map(e => parseFloat(e[key])).filter(v => !isNaN(v));
+    const vals = combinedList.map(e => e[key]).filter(v => !isNaN(v));
     return vals.length ? vals.reduce((a,b)=>a+b,0) / vals.length : null;
   };
-  const avgCal = avg('calories'), avgProtein = avg('protein'), avgFat = avg('fat'), avgCarbs = avg('carbs'), avgFast = avg('fastHours');
-  const daysMetProtein = recent.filter(e => parseFloat(e.protein) >= getTargets(e.date).proteinMin).length;
-  const daysMetCal = recent.filter(e => parseFloat(e.calories) >= getTargets(e.date).calMin).length;
+  const avgCal = avg('calories'), avgProtein = avg('protein'), avgFat = avg('fat'), avgCarbs = avg('carbs');
+  const fastVals = recent.map(e => parseFloat(e.fastHours)).filter(v => !isNaN(v));
+  const avgFast = fastVals.length ? fastVals.reduce((a,b)=>a+b,0) / fastVals.length : null;
+  const daysMetProtein = combinedList.filter(e => e.protein >= getTargets(e.date).proteinMin).length;
+  const daysMetCal = combinedList.filter(e => e.calories >= getTargets(e.date).calMin).length;
 
   const calColor = avgCal !== null ? (avgCal >= CAL_TARGET_MIN ? 'var(--forest-dark)' : '#B4472A') : 'var(--forest-dark)';
   const proteinColor = avgProtein !== null ? (avgProtein >= PROTEIN_TARGET_MIN ? 'var(--forest-dark)' : '#B4472A') : 'var(--forest-dark)';
@@ -1767,9 +1951,9 @@ function renderNutrition(){
     <div class="dash-card"><div class="dash-num" style="color:${calColor};">${avgCal !== null ? Math.round(avgCal) : '—'}</div><div class="dash-label">${range==='day' ? 'Kcal today' : 'Avg kcal'+cardLabel}</div></div>
     <div class="dash-card"><div class="dash-num" style="color:${proteinColor};">${avgProtein !== null ? avgProtein.toFixed(1) : '—'}</div><div class="dash-label">${range==='day' ? 'Protein today' : 'Avg protein'+cardLabel}</div></div>
     <div class="dash-card"><div class="dash-num">${avgFast !== null ? formatFastHours(avgFast) : '—'}</div><div class="dash-label">${range==='day' ? "Today's fast" : 'Avg fast'+cardLabel}</div></div>
-    <div class="dash-card"><div class="dash-num">${daysMetProtein}/${recent.length}</div><div class="dash-label">Days hit protein</div></div>
-    <div class="dash-card"><div class="dash-num">${daysMetCal}/${recent.length}</div><div class="dash-label">Days hit kcal floor</div></div>
-    <div class="dash-card"><div class="dash-num">${recent.length}</div><div class="dash-label">Days logged${cardLabel}</div></div>
+    <div class="dash-card"><div class="dash-num">${daysMetProtein}/${combinedList.length}</div><div class="dash-label">Days hit protein</div></div>
+    <div class="dash-card"><div class="dash-num">${daysMetCal}/${combinedList.length}</div><div class="dash-label">Days hit kcal floor</div></div>
+    <div class="dash-card"><div class="dash-num">${combinedList.length}</div><div class="dash-label">Days logged${cardLabel}</div></div>
   `;
 
   // Macro split bar (avg calorie contribution: protein 4kcal/g, fat 9kcal/g, carbs 4kcal/g)
@@ -2750,6 +2934,7 @@ async function startApp(){
   await loadWeighIns();
   await loadNutrition();
   await loadProfile();
+  await loadFasting();
 
 
   renderDashboard();
@@ -2757,6 +2942,7 @@ async function startApp(){
   renderWeekPlan();
   renderWeightSection();
   renderNutrition();
+  renderFasting();
   const todayIdx = new Date().getDay();
   const todayPlan = weekPlan[todayIdx];
   const startDay = todayPlan.day || 'A';
@@ -3196,16 +3382,35 @@ async function checkAuthAndStart(){
     searchDebounce = setTimeout(()=> searchFoodsCombined(q), 350);
   });
 
+  document.getElementById('foodSearchResults').addEventListener('input', (e)=>{
+    const amountInput = e.target.closest('.food-amount-input');
+    if(!amountInput) return;
+    const idx = parseInt(amountInput.dataset.idx, 10);
+    const row = foodSearchResultsCache[idx];
+    if(!row) return;
+    const amount = parseFloat(amountInput.value) || 0;
+    const previewEl = document.querySelector(`.food-macro-preview[data-idx="${idx}"]`);
+    if(previewEl) previewEl.textContent = macroPreviewText(row, amount);
+  });
+
   document.getElementById('foodSearchResults').addEventListener('click', async (e)=>{
+    const cancelBtn = e.target.closest('.food-log-cancel');
+    if(cancelBtn){
+      e.stopPropagation();
+      const idx = cancelBtn.dataset.idx;
+      const panel = document.querySelector(`.food-result-amount[data-idx="${idx}"]`);
+      if(panel) panel.style.display = 'none';
+      return;
+    }
     const confirmBtn = e.target.closest('.food-log-confirm');
     if(confirmBtn){
       e.stopPropagation();
       const idx = parseInt(confirmBtn.dataset.idx, 10);
       const row = foodSearchResultsCache[idx];
       const amountInput = confirmBtn.closest('.food-result-amount').querySelector('.food-amount-input');
-      const amount = parseFloat(amountInput.value) || 100;
+      const amount = parseFloat(amountInput.value) || row.canonical_amount || 100;
       confirmBtn.disabled = true;
-      confirmBtn.textContent = 'Logging…';
+      confirmBtn.textContent = 'Saving…';
       try{
         let foodId = row.id;
         if(row._origin === 'off'){
@@ -3218,23 +3423,25 @@ async function checkAuthAndStart(){
         }
         await fetch('api/meals.php?action=log', {
           method: 'POST', credentials: 'same-origin', headers: {'Content-Type': 'application/json'},
-          body: JSON.stringify({date: nutriSelectedDate || dateStrForOffset(0), meal_type: document.getElementById('mealLogType').value, component: {food_id: foodId, amount, unit: 'g'}})
+          body: JSON.stringify({date: nutriSelectedDate || dateStrForOffset(0), meal_type: document.getElementById('mealLogType').value, component: {food_id: foodId, amount, unit: row.canonical_unit || 'g'}})
         });
         document.getElementById('foodSearchInput').value = '';
         foodSearchResultsCache = [];
         renderFoodSearchResults();
         renderTodayMeals();
+        renderNutrition();
       }catch(err){
         confirmBtn.textContent = 'Failed — try again';
         confirmBtn.disabled = false;
       }
       return;
     }
+    if(e.target.closest('.food-result-amount')) return; // clicks inside the expanded amount/macro panel shouldn't re-toggle it
     const row = e.target.closest('.food-result-row');
     if(row){
       const idx = row.dataset.idx;
       document.querySelectorAll('.food-result-amount').forEach(el=>{
-        el.style.display = (el.dataset.idx === idx && el.style.display !== 'flex') ? 'flex' : 'none';
+        el.style.display = (el.dataset.idx === idx && el.style.display !== 'block') ? 'block' : 'none';
       });
     }
   });
@@ -3276,6 +3483,7 @@ async function checkAuthAndStart(){
       ['cfName', 'cfCalories', 'cfProtein', 'cfFat', 'cfCarbs'].forEach(id => document.getElementById(id).value = '');
       document.getElementById('cfAmount').value = 100;
       renderTodayMeals();
+      renderNutrition();
     }catch(err){
       alert('Could not save — try again.');
     }finally{
