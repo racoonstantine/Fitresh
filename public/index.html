@@ -472,6 +472,26 @@
   .today-log-sub{font-size:11px;color:var(--ink-soft);}
   .today-log-value{font-size:12.5px;font-weight:600;text-align:right;white-space:nowrap;margin-left:auto;}
 
+  .fullscreen-modal{
+    position:fixed;inset:0;z-index:200;background:var(--paper);
+    display:flex;flex-direction:column;
+  }
+  .fullscreen-modal-header{
+    display:flex;align-items:center;justify-content:space-between;gap:8px;
+    padding:14px 16px;border-bottom:1px solid var(--line);flex-shrink:0;
+  }
+  .fullscreen-modal-title{font-family:var(--font-heading);font-size:17px;}
+  .modal-close-btn{
+    width:32px;height:32px;border-radius:50%;border:1px solid var(--line);background:var(--paper-raised);
+    color:var(--ink);font-size:16px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  }
+  .fullscreen-modal-body{flex:1;overflow-y:auto;padding:16px;max-width:560px;width:100%;margin:0 auto;box-sizing:border-box;}
+
+  .lm-item-row{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:10px 0;border-bottom:1px dashed var(--line);}
+  .lm-item-name{font-size:13px;font-weight:600;}
+  .lm-item-sub{font-size:11.5px;color:var(--ink-soft);}
+  .lm-item-remove{background:none;border:none;color:#B4472A;font-size:15px;cursor:pointer;padding:4px 6px;flex-shrink:0;}
+
   .goals-category{margin-top:18px;}
   .goals-category:first-of-type{margin-top:0;}
   .goals-category-title{
@@ -808,6 +828,7 @@
 
     <section class="block" style="margin-bottom:18px;">
       <div class="block-title">Log a food</div>
+      <button type="button" id="openLogMealBtn" class="timer-btn start" style="width:100%;margin-bottom:12px;">+ Log a meal (full page)</button>
       <div class="hub-card">
         <div style="display:flex;gap:8px;margin-bottom:10px;">
           <select id="mealLogType" style="flex:0 0 120px;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:13px;">
@@ -867,9 +888,6 @@
       <div style="background:var(--paper-raised);border:1px solid var(--line);border-radius:8px;padding:12px;">
         <label style="font-size:11px;color:var(--ink-soft);">Date</label>
         <input type="date" id="nutriDate" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;margin-bottom:10px;">
-
-        <label style="font-size:11px;color:var(--ink-soft);">Fast duration (hours)</label>
-        <input type="number" step="0.01" id="nutriFastHrs" placeholder="e.g. 19.72 for 19h43m" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;margin-bottom:10px;">
 
         <label style="font-size:11px;color:var(--ink-soft);">Meal description</label>
         <textarea id="nutriMeal" rows="2" placeholder="e.g. Grilled chicken, ampalaya, egg — home" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;font-family:var(--font-body);font-size:13px;background:var(--paper);resize:vertical;margin-top:2px;margin-bottom:10px;"></textarea>
@@ -1309,6 +1327,112 @@
 </div>
 </div><!-- /appRoot -->
 
+<div id="logMealScreen" class="fullscreen-modal" style="display:none;">
+  <div class="fullscreen-modal-header">
+    <button type="button" id="logMealClose" class="modal-close-btn">✕</button>
+    <div class="fullscreen-modal-title">Log Meal</div>
+    <div style="width:32px;"></div>
+  </div>
+  <div class="fullscreen-modal-body">
+    <div style="display:flex;gap:8px;margin-bottom:12px;">
+      <select id="lmMealType" style="flex:0 0 130px;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:13px;">
+        <option value="breakfast">Breakfast</option>
+        <option value="lunch">Lunch</option>
+        <option value="dinner">Dinner</option>
+        <option value="snack">Snack</option>
+      </select>
+      <input type="date" id="lmDate" style="flex:1;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:13px;">
+    </div>
+
+    <div class="main-nav" id="lmModeTabs" style="margin-bottom:12px;">
+      <button class="main-tab active" data-lm-mode="search" type="button">Search Food</button>
+      <button class="main-tab" data-lm-mode="manual" type="button">Manual Log</button>
+    </div>
+
+    <div id="lmSearchMode">
+      <input type="text" id="lmSearchInput" placeholder="Search a food — e.g. chicken breast, rice, adobo" autocomplete="off" style="width:100%;padding:9px 10px;border:1px solid var(--line);border-radius:6px;background:var(--paper);font-size:13.5px;">
+      <div id="lmSearchStatus" style="font-size:12px;color:var(--ink-soft);display:none;margin-top:6px;"></div>
+      <div id="lmSearchResults"></div>
+    </div>
+
+    <div id="lmManualMode" style="display:none;">
+      <label style="font-size:11px;color:var(--ink-soft);">Food name</label>
+      <input type="text" id="lmManualName" placeholder="e.g. Mom's chicken adobo" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;margin-bottom:10px;">
+      <div style="display:flex;gap:8px;margin-bottom:10px;">
+        <div style="flex:1;">
+          <label style="font-size:11px;color:var(--ink-soft);">Amount</label>
+          <input type="number" id="lmManualAmount" value="100" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;">
+        </div>
+        <div style="flex:1;">
+          <label style="font-size:11px;color:var(--ink-soft);">Unit</label>
+          <select id="lmManualUnit" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;">
+            <option value="g">grams</option>
+            <option value="ml">ml</option>
+            <option value="serving">serving</option>
+          </select>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px;">
+        <div><label style="font-size:11px;color:var(--ink-soft);">Calories</label><input type="number" id="lmManualCal" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;"></div>
+        <div><label style="font-size:11px;color:var(--ink-soft);">Protein (g)</label><input type="number" id="lmManualProtein" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;"></div>
+        <div><label style="font-size:11px;color:var(--ink-soft);">Fat (g)</label><input type="number" id="lmManualFat" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;"></div>
+        <div><label style="font-size:11px;color:var(--ink-soft);">Carbs (g)</label><input type="number" id="lmManualCarbs" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;"></div>
+      </div>
+      <button type="button" id="lmManualAdd" class="timer-btn start" style="width:100%;">+ Add item</button>
+    </div>
+
+    <div class="block-title" style="margin-top:20px;margin-bottom:4px;">This meal</div>
+    <div id="lmMealItems"><div class="dash-empty">No items added yet.</div></div>
+    <div id="lmMealTotal" style="display:none;justify-content:space-between;font-weight:700;padding:10px 0;border-top:1px solid var(--line);margin-top:4px;font-size:13.5px;"></div>
+
+    <label style="font-size:11px;color:var(--ink-soft);display:block;margin-top:14px;">Notes (optional)</label>
+    <textarea id="lmNotes" rows="2" placeholder="e.g. home-cooked, extra rice" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;resize:vertical;font-family:var(--font-body);"></textarea>
+
+    <div id="lmSaveStatus" style="display:none;font-size:12px;color:#B4472A;margin-top:10px;"></div>
+    <button type="button" id="lmSaveBtn" class="timer-btn start" style="width:100%;margin-top:14px;" disabled>Save to Log</button>
+  </div>
+</div>
+
+<div id="fastingScreen" class="fullscreen-modal" style="display:none;">
+  <div class="fullscreen-modal-header">
+    <button type="button" id="fastingScreenClose" class="modal-close-btn">✕</button>
+    <div class="fullscreen-modal-title">Fasting</div>
+    <div style="width:32px;"></div>
+  </div>
+  <div class="fullscreen-modal-body">
+    <div id="fsMainCard" class="hub-card"></div>
+
+    <div class="hub-card" style="margin-top:14px;">
+      <div class="block-title" style="margin:0 0 10px;">Log a completed fast</div>
+      <div style="display:flex;gap:8px;">
+        <div style="flex:1;">
+          <label style="font-size:11px;color:var(--ink-soft);">Start</label>
+          <input type="datetime-local" id="fsPastStart" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;">
+        </div>
+        <div style="flex:1;">
+          <label style="font-size:11px;color:var(--ink-soft);">End</label>
+          <input type="datetime-local" id="fsPastEnd" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;">
+        </div>
+      </div>
+      <div id="fsPastError" style="display:none;font-size:11.5px;color:#B4472A;margin-top:8px;"></div>
+      <button type="button" id="fsPastSaveBtn" class="timer-btn reset" style="width:100%;margin-top:10px;">Save this fast</button>
+    </div>
+
+    <section style="margin-top:18px;">
+      <div class="log-head" data-fs-history-toggle="1" style="padding:0;cursor:pointer;">
+        <div class="block-title" style="margin:0;flex:1;">History</div>
+        <svg class="log-caret" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+      <div class="log-detail" data-fs-history-detail="1">
+        <div style="padding-top:10px;">
+          <div id="fsHistoryChart"></div>
+          <div id="fsHistoryList" style="margin-top:10px;"></div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
 <script>
 const STORAGE_PREFIX = 'log:';
 
@@ -1566,7 +1690,7 @@ function renderFasting(){
 
   if(!fastingState.startIso){
     card.innerHTML = `
-      <div class="block-title" style="margin:0 0 10px;">Fasting Timer</div>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin:0 0 10px;"><div class="block-title" style="margin:0;">Fasting Timer</div><button type="button" class="open-fasting-screen-link" style="background:none;border:none;color:var(--ochre);font-size:12px;font-weight:600;cursor:pointer;padding:0;">Details →</button></div>
       <div style="text-align:center;padding:6px 0;">
         <div style="font-size:12.5px;color:var(--ink-soft);margin-bottom:12px;">Not fasting right now.</div>
         <label style="font-size:11px;color:var(--ink-soft);">Goal</label>
@@ -1592,7 +1716,7 @@ function renderFasting(){
   }
 
   card.innerHTML = `
-    <div class="block-title" style="margin:0 0 10px;">Fasting Timer</div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin:0 0 10px;"><div class="block-title" style="margin:0;">Fasting Timer</div><button type="button" class="open-fasting-screen-link" style="background:none;border:none;color:var(--ochre);font-size:12px;font-weight:600;cursor:pointer;padding:0;">Details →</button></div>
     <div style="text-align:center;">
       <div id="fastElapsed" style="font-family:var(--font-heading);font-size:34px;letter-spacing:.02em;">00:00:00</div>
       <div id="fastPct" style="font-size:12px;color:var(--ink-soft);margin-top:2px;">—</div>
@@ -1742,7 +1866,7 @@ async function renderTodayGlance(){
         : `<div class="glance-card-sub">${latestW ? 'First weigh-in logged' : 'No weigh-ins yet'}</div>`}
       <div class="glance-card-sub">${latestW ? 'Last: ' + latestW.kg + ' kg (' + formatDateLabel(latestW.date) + ')' : ''}</div>
     </div>
-    <div class="glance-card">
+    <div class="glance-card open-fasting-screen-link" style="cursor:pointer;">
       <div class="glance-card-head"><span class="glance-card-label">⏱ Fasting</span></div>
       <div class="glance-card-value" id="glanceFastValue">—</div>
       <div class="glance-bar-track"><div class="glance-bar-fill" id="glanceFastBar" style="width:0%;background:var(--forest);"></div></div>
@@ -1897,7 +2021,7 @@ async function renderTodayGlance(){
   qaGrid.querySelectorAll('[data-qa]').forEach(btn=>{
     btn.addEventListener('click', ()=>{
       const kind = btn.dataset.qa;
-      if(kind === 'food'){ window.showView('food'); }
+      if(kind === 'food'){ window.openLogMealScreen(); }
       else if(kind === 'weight'){
         window.showView('body');
         setTimeout(()=>{ const el=document.getElementById('weighInKg'); if(el){ if(el.scrollIntoView) el.scrollIntoView({behavior:'smooth', block:'center'}); el.focus(); } }, 80);
@@ -2234,11 +2358,13 @@ function macroBarRow(label, value, min, max, unit, mode){
   const met = mode === 'ceiling' ? value <= max : value >= min;
   const fillColor = met ? 'var(--forest)' : '#B4472A';
   const rangeLabel = mode === 'ceiling' ? `under ${max}${unit}` : `${min}-${max}${unit}`;
+  // Round for display -- summed floats (e.g. 29.2 + 0.4) can otherwise print as 29.599999999999998.
+  const displayValue = Math.round(value * 10) / 10;
   return `
     <div class="macro-target-row">
       <div class="macro-target-label">
         <span>${label}</span>
-        <span style="font-weight:600;color:${met ? 'var(--forest-dark)' : '#B4472A'};">${value}${unit} <span style="color:var(--ink-soft);font-weight:400;">/ ${rangeLabel}</span></span>
+        <span style="font-weight:600;color:${met ? 'var(--forest-dark)' : '#B4472A'};">${displayValue}${unit} <span style="color:var(--ink-soft);font-weight:400;">/ ${rangeLabel}</span></span>
       </div>
       <div class="macro-target-track">
         <div class="macro-target-zone" style="left:${zoneLeftPct}%;width:${zoneWidthPct}%;"></div>
@@ -2500,11 +2626,11 @@ async function renderNutrition(){
           </div>
           <div style="display:flex;justify-content:space-between;font-size:12.5px;margin-bottom:4px;">
             <span style="color:var(--ink-soft);">Calories</span>
-            <span style="color:var(--ink);font-weight:600;">${eatenCal} / ${t.calMin}-${t.calMax} kcal ${calMet ? '' : `(${remCal} more needed)`}</span>
+            <span style="color:var(--ink);font-weight:600;">${Math.round(eatenCal)} / ${t.calMin}-${t.calMax} kcal ${calMet ? '' : `(${Math.round(remCal)} more needed)`}</span>
           </div>
           <div style="display:flex;justify-content:space-between;font-size:12.5px;">
             <span style="color:var(--ink-soft);">Protein</span>
-            <span style="color:var(--ink);font-weight:600;">${eatenProtein}g / ${t.proteinMin}-${t.proteinMax}g ${proteinMet ? '' : `(${remProtein.toFixed(0)}g more needed)`}</span>
+            <span style="color:var(--ink);font-weight:600;">${(Math.round(eatenProtein * 10) / 10)}g / ${t.proteinMin}-${t.proteinMax}g ${proteinMet ? '' : `(${remProtein.toFixed(0)}g more needed)`}</span>
           </div>
           ${dayTypeNote}
 
@@ -3705,9 +3831,12 @@ async function startApp(){
   document.getElementById('saveNutriBtn').addEventListener('click', ()=>{
     const dateInput = document.getElementById('nutriDate');
     const dateVal = dateInput.value || dateStrForOffset(0);
+    // Fasting is tracked separately (Fasting Timer / Fasting page) -- preserve whatever's
+    // already logged for this date instead of this quick form clobbering it with blank.
+    const existingEntry = nutritionLog.find(e => e.date === dateVal);
     const entry = {
       date: dateVal,
-      fastHours: document.getElementById('nutriFastHrs').value || '',
+      fastHours: existingEntry ? existingEntry.fastHours : '',
       meal: document.getElementById('nutriMeal').value.trim(),
       calories: document.getElementById('nutriCal').value || '',
       protein: document.getElementById('nutriProtein').value || '',
@@ -3715,9 +3844,8 @@ async function startApp(){
       carbs: document.getElementById('nutriCarbs').value || '',
       notes: document.getElementById('nutriNotes').value.trim()
     };
-    if(!entry.meal && !entry.calories && !entry.fastHours) return;
+    if(!entry.meal && !entry.calories) return;
     saveNutritionDay(entry);
-    document.getElementById('nutriFastHrs').value = '';
     document.getElementById('nutriMeal').value = '';
     document.getElementById('nutriCal').value = '';
     document.getElementById('nutriProtein').value = '';
@@ -4399,6 +4527,436 @@ async function checkAuthAndStart(){
       btn.disabled = false;
       btn.textContent = 'Save & log';
     }
+  });
+})();
+
+/* ---------- Log Meal (dedicated full-page logger) ---------- */
+(function(){
+  let lmItems = []; // {name, amount, unit, nutrients (already scaled to amount), source: 'catalog'|'off'|'library'|'manual', payload}
+  let lmSearchResultsCache = [];
+  let lmSearchGeneration = 0;
+
+  window.openLogMealScreen = function(mealType){
+    lmItems = [];
+    document.getElementById('lmDate').value = nutriSelectedDate || dateStrForOffset(0);
+    document.getElementById('lmMealType').value = mealType || document.getElementById('mealLogType').value || 'breakfast';
+    document.getElementById('lmSearchInput').value = '';
+    document.getElementById('lmSearchResults').innerHTML = '';
+    document.getElementById('lmSearchStatus').style.display = 'none';
+    document.getElementById('lmNotes').value = '';
+    document.getElementById('lmSaveStatus').style.display = 'none';
+    ['lmManualName','lmManualCal','lmManualProtein','lmManualFat','lmManualCarbs'].forEach(id => document.getElementById(id).value = '');
+    document.getElementById('lmManualAmount').value = 100;
+    lmSetMode('search');
+    renderLmMealItems();
+    document.getElementById('logMealScreen').style.display = 'flex';
+  };
+  function closeLogMealScreen(){
+    document.getElementById('logMealScreen').style.display = 'none';
+  }
+  document.getElementById('logMealClose').addEventListener('click', closeLogMealScreen);
+
+  function lmSetMode(mode){
+    document.querySelectorAll('#lmModeTabs .main-tab').forEach(btn=>{
+      btn.classList.toggle('active', btn.dataset.lmMode === mode);
+    });
+    document.getElementById('lmSearchMode').style.display = mode === 'search' ? 'block' : 'none';
+    document.getElementById('lmManualMode').style.display = mode === 'manual' ? 'block' : 'none';
+  }
+  document.getElementById('lmModeTabs').addEventListener('click', (e)=>{
+    const btn = e.target.closest('[data-lm-mode]');
+    if(!btn) return;
+    lmSetMode(btn.dataset.lmMode);
+  });
+
+  let lmSearchDebounce;
+  document.getElementById('lmSearchInput').addEventListener('input', (e)=>{
+    clearTimeout(lmSearchDebounce);
+    const q = e.target.value.trim();
+    lmSearchDebounce = setTimeout(()=> lmSearchFoods(q), 350);
+  });
+
+  async function lmSearchFoods(query){
+    const generation = ++lmSearchGeneration;
+    const statusEl = document.getElementById('lmSearchStatus');
+    const resultsEl = document.getElementById('lmSearchResults');
+    if(query.length < 2){ lmSearchResultsCache = []; resultsEl.innerHTML = ''; statusEl.style.display = 'none'; return; }
+    statusEl.textContent = 'Searching…';
+    statusEl.style.display = 'block';
+    try{
+      const localRes = await fetch(`api/food_catalog.php?q=${encodeURIComponent(query)}`, {credentials:'same-origin'}).then(r=>r.json()).catch(()=>({results:[]}));
+      if(generation !== lmSearchGeneration) return;
+      const local = (localRes.results || []).map(r => ({...r, _origin:'catalog'}));
+      lmSearchResultsCache = local;
+      renderLmSearchResults();
+      const [libRes, offRes] = await Promise.all([
+        fetch(`api/foods.php?action=search_library&q=${encodeURIComponent(query)}`, {credentials:'same-origin'}).then(r=>r.json()).catch(()=>({results:[]})),
+        fetch(`api/food_search.php?q=${encodeURIComponent(query)}`, {credentials:'same-origin'}).then(r=>r.json()).catch(()=>({results:[]}))
+      ]);
+      if(generation !== lmSearchGeneration) return;
+      const library = (libRes.results || []).map(r => ({...r, _origin:'library'}));
+      const external = (offRes.results || []).map(r => ({...r, _origin:'off'}));
+      const localIds = new Set(local.map(r => r.external_id));
+      lmSearchResultsCache = [...local, ...library.filter(r => !(r.source === 'catalog' && localIds.has(r.external_id))), ...external];
+      renderLmSearchResults();
+      statusEl.style.display = 'none';
+    }catch(e){
+      if(generation !== lmSearchGeneration) return;
+      statusEl.textContent = 'Search failed — try again.';
+    }
+  }
+
+  function renderLmSearchResults(){
+    const resultsEl = document.getElementById('lmSearchResults');
+    if(!lmSearchResultsCache.length){ resultsEl.innerHTML = ''; return; }
+    resultsEl.innerHTML = lmSearchResultsCache.map((r, i) => {
+      const canonicalAmount = r.canonical_amount || 100;
+      const canonicalUnit = r.canonical_unit || 'g';
+      const hasNutrients = r.nutrients && r.nutrients.ENERC_KCAL !== undefined && r.nutrients.ENERC_KCAL !== null;
+      const sub = hasNutrients
+        ? `${r.label ? r.label + ' · ' : (r.brand ? r.brand + ' · ' : '')}${Math.round(r.nutrients.ENERC_KCAL)} kcal / ${canonicalAmount}${canonicalUnit}`
+        : (r.brand || (r._origin === 'library' ? 'Your library' : 'No calorie data'));
+      return `
+        <div class="food-result-row" data-idx="${i}" style="padding:9px 4px;border-bottom:1px solid var(--line);cursor:pointer;">
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <div>
+              <div style="font-weight:600;font-size:13.5px;">${foodSearchEscape(r.name)}</div>
+              <div style="font-size:11.5px;color:var(--ink-soft);">${foodSearchEscape(sub)}</div>
+            </div>
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" style="width:16px;height:16px;stroke:var(--ink-soft);flex-shrink:0;"><path d="M9 18l6-6-6-6"/></svg>
+          </div>
+          <div class="food-result-amount" data-idx="${i}" style="display:none;margin-top:8px;">
+            <div style="display:flex;gap:8px;align-items:center;">
+              <input type="number" class="food-amount-input" data-idx="${i}" value="${canonicalAmount}" style="width:80px;padding:6px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:13px;">
+              <span style="font-size:12px;color:var(--ink-soft);">${canonicalUnit}</span>
+            </div>
+            <div class="food-macro-preview" data-idx="${i}" style="font-size:11.5px;color:var(--ink-soft);margin-top:8px;">${macroPreviewText(r, canonicalAmount)}</div>
+            <button class="timer-btn start lm-add-search-item" data-idx="${i}" type="button" style="width:100%;margin-top:8px;padding:7px 0;">+ Add to meal</button>
+          </div>
+        </div>
+      `;
+    }).join('');
+  }
+
+  document.getElementById('lmSearchResults').addEventListener('input', (e)=>{
+    const amountInput = e.target.closest('.food-amount-input');
+    if(!amountInput) return;
+    const idx = parseInt(amountInput.dataset.idx, 10);
+    const row = lmSearchResultsCache[idx];
+    if(!row) return;
+    const amount = parseFloat(amountInput.value) || 0;
+    const previewEl = document.querySelector(`#lmSearchResults .food-macro-preview[data-idx="${idx}"]`);
+    if(previewEl) previewEl.textContent = macroPreviewText(row, amount);
+  });
+  document.getElementById('lmSearchResults').addEventListener('click', async (e)=>{
+    const addBtn = e.target.closest('.lm-add-search-item');
+    if(addBtn){
+      e.stopPropagation();
+      const idx = parseInt(addBtn.dataset.idx, 10);
+      const row = lmSearchResultsCache[idx];
+      const amountInput = addBtn.closest('.food-result-amount').querySelector('.food-amount-input');
+      const amount = parseFloat(amountInput.value) || row.canonical_amount || 100;
+      const macros = scaledFoodMacros(row, amount);
+      lmItems.push({
+        name: row.name, amount, unit: row.canonical_unit || 'g',
+        kcal: macros.kcal, protein: macros.protein, fat: macros.fat, carbs: macros.carbs,
+        source: row._origin, payload: row
+      });
+      document.getElementById('lmSearchInput').value = '';
+      lmSearchResultsCache = [];
+      renderLmSearchResults();
+      document.getElementById('lmSearchStatus').style.display = 'none';
+      renderLmMealItems();
+      return;
+    }
+    if(e.target.closest('.food-result-amount')) return;
+    const row = e.target.closest('.food-result-row');
+    if(row){
+      const idx = row.dataset.idx;
+      document.querySelectorAll('#lmSearchResults .food-result-amount').forEach(el=>{
+        el.style.display = (el.dataset.idx === idx && el.style.display !== 'block') ? 'block' : 'none';
+      });
+    }
+  });
+
+  document.getElementById('lmManualAdd').addEventListener('click', ()=>{
+    const name = document.getElementById('lmManualName').value.trim();
+    if(!name) return;
+    const amount = parseFloat(document.getElementById('lmManualAmount').value) || 100;
+    const unit = document.getElementById('lmManualUnit').value;
+    lmItems.push({
+      name, amount, unit,
+      kcal: parseFloat(document.getElementById('lmManualCal').value) || 0,
+      protein: parseFloat(document.getElementById('lmManualProtein').value) || 0,
+      fat: parseFloat(document.getElementById('lmManualFat').value) || 0,
+      carbs: parseFloat(document.getElementById('lmManualCarbs').value) || 0,
+      source: 'manual'
+    });
+    ['lmManualName','lmManualCal','lmManualProtein','lmManualFat','lmManualCarbs'].forEach(id => document.getElementById(id).value = '');
+    document.getElementById('lmManualAmount').value = 100;
+    renderLmMealItems();
+  });
+
+  function renderLmMealItems(){
+    const el = document.getElementById('lmMealItems');
+    const totalEl = document.getElementById('lmMealTotal');
+    const saveBtn = document.getElementById('lmSaveBtn');
+    if(!lmItems.length){
+      el.innerHTML = `<div class="dash-empty">No items added yet.</div>`;
+      totalEl.style.display = 'none';
+      saveBtn.disabled = true;
+      return;
+    }
+    el.innerHTML = lmItems.map((it, i) => `
+      <div class="lm-item-row">
+        <div>
+          <div class="lm-item-name">${foodSearchEscape(it.name)}</div>
+          <div class="lm-item-sub">${it.amount}${it.unit} · ${Math.round(it.kcal)} kcal · ${it.protein}g P / ${it.fat}g F / ${it.carbs}g C</div>
+        </div>
+        <button type="button" class="lm-item-remove" data-remove-idx="${i}" title="Remove">✕</button>
+      </div>
+    `).join('');
+    el.querySelectorAll('[data-remove-idx]').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        lmItems.splice(parseInt(btn.dataset.removeIdx, 10), 1);
+        renderLmMealItems();
+      });
+    });
+    const totals = lmItems.reduce((acc, it)=>({
+      kcal: acc.kcal + it.kcal, protein: acc.protein + it.protein, fat: acc.fat + it.fat, carbs: acc.carbs + it.carbs
+    }), {kcal:0, protein:0, fat:0, carbs:0});
+    totalEl.style.display = 'flex';
+    totalEl.innerHTML = `<span>Meal total</span><span>${Math.round(totals.kcal)} kcal · ${totals.protein.toFixed(1)}g P / ${totals.fat.toFixed(1)}g F / ${totals.carbs.toFixed(1)}g C</span>`;
+    saveBtn.disabled = false;
+  }
+
+  document.getElementById('lmSaveBtn').addEventListener('click', async ()=>{
+    if(!lmItems.length) return;
+    const btn = document.getElementById('lmSaveBtn');
+    const statusEl = document.getElementById('lmSaveStatus');
+    const date = document.getElementById('lmDate').value || dateStrForOffset(0);
+    const mealType = document.getElementById('lmMealType').value;
+    btn.disabled = true;
+    btn.textContent = 'Saving…';
+    statusEl.style.display = 'none';
+    try{
+      for(const it of lmItems){
+        let foodId = null;
+        if(it.source === 'library'){
+          foodId = it.payload.id;
+        } else if(it.source === 'catalog' || it.source === 'off'){
+          const res = await fetch('api/foods.php?action=save_external', {
+            method: 'POST', credentials: 'same-origin', headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({source: it.source, external_id: it.payload.external_id, name: it.payload.name, brand: it.payload.brand, canonical_unit: it.payload.canonical_unit, nutrients: it.payload.nutrients})
+          });
+          const food = await res.json();
+          foodId = food.id;
+        } else {
+          const res = await fetch('api/foods.php?action=create_custom', {
+            method: 'POST', credentials: 'same-origin', headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+              name: it.name, canonical_amount: it.amount, canonical_unit: it.unit,
+              nutrients: {ENERC_KCAL: it.kcal, PROCNT: it.protein, FAT: it.fat, CHOCDF: it.carbs}
+            })
+          });
+          const food = await res.json();
+          foodId = food.id;
+        }
+        if(!foodId) continue;
+        await fetch('api/meals.php?action=log', {
+          method: 'POST', credentials: 'same-origin', headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({date, meal_type: mealType, component: {food_id: foodId, amount: it.amount, unit: it.unit}})
+        });
+      }
+      const notes = document.getElementById('lmNotes').value.trim();
+      if(notes) upsertNutritionFields(date, {notes});
+      closeLogMealScreen();
+      nutriSelectedDate = date;
+      renderTodayMeals();
+      renderNutrition();
+      renderTodayGlance();
+    }catch(err){
+      statusEl.textContent = 'Something went wrong saving this meal — try again.';
+      statusEl.style.display = 'block';
+    }finally{
+      btn.disabled = false;
+      btn.textContent = 'Save to Log';
+    }
+  });
+
+  document.getElementById('openLogMealBtn').addEventListener('click', ()=> window.openLogMealScreen());
+})();
+
+/* ---------- Fasting (dedicated full-page timer + history) ---------- */
+(function(){
+  window.openFastingScreen = function(){
+    renderFastingScreenMain();
+    renderFastingHistory();
+    const pad2 = n => String(n).padStart(2,'0');
+    const toLocalInput = d => `${d.getFullYear()}-${pad2(d.getMonth()+1)}-${pad2(d.getDate())}T${pad2(d.getHours())}:${pad2(d.getMinutes())}`;
+    const start = new Date(); start.setHours(start.getHours() - 16);
+    document.getElementById('fsPastStart').value = toLocalInput(start);
+    document.getElementById('fsPastEnd').value = toLocalInput(new Date());
+    document.getElementById('fsPastError').style.display = 'none';
+    document.getElementById('fastingScreen').style.display = 'flex';
+  };
+  function closeFastingScreen(){
+    document.getElementById('fastingScreen').style.display = 'none';
+  }
+  document.getElementById('fastingScreenClose').addEventListener('click', closeFastingScreen);
+
+  document.body.addEventListener('click', (e)=>{
+    if(e.target.closest('.open-fasting-screen-link')) window.openFastingScreen();
+  });
+
+  let fsScreenTickInterval = null;
+  function renderFastingScreenMain(){
+    const card = document.getElementById('fsMainCard');
+    clearInterval(fsScreenTickInterval);
+    if(!fastingState.startIso){
+      card.innerHTML = `
+        <div style="text-align:center;padding:6px 0;">
+          <div style="font-size:12.5px;color:var(--ink-soft);margin-bottom:12px;">Not fasting right now.</div>
+          <label style="font-size:11px;color:var(--ink-soft);">Goal</label>
+          <select id="fsGoalSelect" style="display:block;width:100%;margin:4px 0 14px;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);">
+            <option value="12">12:12</option>
+            <option value="14">14:10</option>
+            <option value="16">16:8</option>
+            <option value="18">18:6</option>
+            <option value="20">20:4</option>
+            <option value="24">24:0 (OMAD)</option>
+          </select>
+          <button class="timer-btn start" id="fsStartFastBtn" type="button" style="width:100%;">Start Fasting</button>
+        </div>
+      `;
+      document.getElementById('fsGoalSelect').value = String(fastingState.goalHours || 16);
+      document.getElementById('fsStartFastBtn').addEventListener('click', ()=>{
+        fastingState = { startIso: new Date().toISOString(), goalHours: parseFloat(document.getElementById('fsGoalSelect').value) || 16 };
+        saveFasting();
+        renderFasting();
+        renderTodayGlance();
+        renderFastingScreenMain();
+      });
+      return;
+    }
+    card.innerHTML = `
+      <div style="text-align:center;">
+        <div id="fsElapsed" style="font-family:var(--font-heading);font-size:38px;letter-spacing:.02em;">00:00:00</div>
+        <div id="fsPct" style="font-size:12px;color:var(--ink-soft);margin-top:2px;">—</div>
+        <div style="height:10px;border-radius:5px;background:var(--paper-raised);border:1px solid var(--line);overflow:hidden;margin:12px 0;">
+          <div id="fsProgressBar" style="height:100%;width:0%;background:var(--forest);transition:width .3s;"></div>
+        </div>
+        <label style="font-size:11px;color:var(--ink-soft);display:block;text-align:left;">Start time</label>
+        <input type="datetime-local" id="fsActiveStartInput" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin:2px 0 14px;box-sizing:border-box;">
+        <button class="timer-btn reset" id="fsEndFastBtn" type="button" style="width:100%;">End Fast</button>
+      </div>
+    `;
+    const pad2 = n => String(n).padStart(2,'0');
+    const toLocalInput = d => `${d.getFullYear()}-${pad2(d.getMonth()+1)}-${pad2(d.getDate())}T${pad2(d.getHours())}:${pad2(d.getMinutes())}`;
+    const startInput = document.getElementById('fsActiveStartInput');
+    startInput.value = toLocalInput(new Date(fastingState.startIso));
+    startInput.addEventListener('change', ()=>{
+      const d = new Date(startInput.value);
+      if(isNaN(d.getTime()) || d.getTime() > Date.now()){ startInput.value = toLocalInput(new Date(fastingState.startIso)); return; }
+      fastingState.startIso = d.toISOString();
+      saveFasting();
+      renderTick();
+      renderFasting();
+      renderTodayGlance();
+    });
+    const renderTick = ()=>{
+      const start = new Date(fastingState.startIso);
+      const elapsedMs = Math.max(0, Date.now() - start.getTime());
+      const elapsedHrs = elapsedMs / 3600000;
+      const goalHrs = fastingState.goalHours || 16;
+      const h = Math.floor(elapsedMs/3600000), m = Math.floor((elapsedMs%3600000)/60000), s = Math.floor((elapsedMs%60000)/1000);
+      document.getElementById('fsElapsed').textContent = `${pad2(h)}:${pad2(m)}:${pad2(s)}`;
+      document.getElementById('fsProgressBar').style.width = Math.min(100, elapsedHrs/goalHrs*100) + '%';
+      document.getElementById('fsPct').textContent = `${Math.min(100, elapsedHrs/goalHrs*100).toFixed(0)}% of ${goalHrs}h goal${elapsedHrs>=goalHrs ? ' — reached!' : ''}`;
+    };
+    renderTick();
+    fsScreenTickInterval = setInterval(renderTick, 1000);
+    document.getElementById('fsEndFastBtn').addEventListener('click', ()=>{
+      const start = new Date(fastingState.startIso);
+      const elapsedHrs = (Date.now() - start.getTime()) / 3600000;
+      upsertNutritionFields(dateStrForOffset(0), { fastHours: elapsedHrs.toFixed(2) });
+      fastingState = { startIso: null, goalHours: fastingState.goalHours || 16 };
+      saveFasting();
+      renderFasting();
+      renderTodayGlance();
+      renderFastingScreenMain();
+      renderFastingHistory();
+    });
+  }
+
+  document.getElementById('fsPastSaveBtn').addEventListener('click', ()=>{
+    const errEl = document.getElementById('fsPastError');
+    errEl.style.display = 'none';
+    const startD = new Date(document.getElementById('fsPastStart').value);
+    const endD = new Date(document.getElementById('fsPastEnd').value);
+    if(isNaN(startD.getTime()) || isNaN(endD.getTime()) || endD <= startD){
+      errEl.textContent = 'End time must be after start time.';
+      errEl.style.display = 'block';
+      return;
+    }
+    const hours = (endD - startD) / 3600000;
+    const dateKey = toLocalDateStr(endD);
+    upsertNutritionFields(dateKey, { fastHours: hours.toFixed(2) });
+    renderNutrition();
+    renderTodayGlance();
+    renderFastingHistory();
+    errEl.style.color = 'var(--forest-dark)';
+    errEl.textContent = `Saved — ${formatFastHours(hours)} logged for ${formatDateLabel(dateKey)}.`;
+    errEl.style.display = 'block';
+  });
+
+  function renderFastingHistory(){
+    const fasts = nutritionLog
+      .filter(e => e.fastHours && parseFloat(e.fastHours) > 0)
+      .map(e => ({date: e.date, hours: parseFloat(e.fastHours)}))
+      .sort((a,b)=> a.date < b.date ? 1 : -1);
+
+    const chartEl = document.getElementById('fsHistoryChart');
+    const recent = [...fasts].reverse().slice(-14);
+    if(recent.length < 2){
+      chartEl.innerHTML = `<div class="dash-empty">Log a couple of fasts to see your trend.</div>`;
+    } else {
+      const w = 300, h = 80, pad = 8;
+      const vals = recent.map(f => f.hours);
+      const maxV = Math.max(...vals, 16) + 2;
+      const barW = (w - pad*2) / recent.length;
+      const bars = recent.map((f, i) => {
+        const barH = (f.hours / maxV) * (h - pad*2);
+        const x = pad + i*barW;
+        const y = h - pad - barH;
+        return `<rect x="${x + barW*0.15}" y="${y}" width="${barW*0.7}" height="${barH}" rx="2" fill="var(--forest)"/>`;
+      }).join('');
+      chartEl.innerHTML = `
+        <svg viewBox="0 0 ${w} ${h}" style="width:100%;height:${h}px;overflow:visible;">${bars}</svg>
+        <div style="display:flex;justify-content:space-between;font-size:10.5px;color:var(--ink-soft);margin-top:2px;">
+          <span>${formatDateLabel(recent[0].date)}</span>
+          <span>${formatDateLabel(recent[recent.length-1].date)}</span>
+        </div>
+      `;
+    }
+
+    const listEl = document.getElementById('fsHistoryList');
+    if(!fasts.length){
+      listEl.innerHTML = `<div class="dash-empty">No fasts logged yet.</div>`;
+    } else {
+      listEl.innerHTML = fasts.slice(0, 20).map(f => `
+        <div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px dashed var(--line);font-size:12.5px;">
+          <span style="color:var(--ink-soft);">${formatDateLabel(f.date)}</span>
+          <span style="font-weight:600;">${formatFastHours(f.hours)}</span>
+        </div>
+      `).join('');
+    }
+  }
+
+  document.querySelector('[data-fs-history-toggle="1"]').addEventListener('click', function(){
+    const detail = document.querySelector('[data-fs-history-detail="1"]');
+    const open = detail.classList.toggle('open');
+    this.classList.toggle('expanded', open);
   });
 })();
 

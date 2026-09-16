@@ -335,6 +335,33 @@ Fiber/Sugar rows now (shown only once you've logged something with that
 data) — itemized food-search logging already captured these per food, they
 just weren't surfaced as day-level targets/progress before.
 
+## Dedicated Log Meal and Fasting pages
+
+Two full-page overlays (`#logMealScreen`, `#fastingScreen` in
+`public/index.html` — fixed-position panels layered on top of the app,
+opened/closed by JS rather than the tab router):
+
+- **Log Meal** — opened from the Today tab's "Log Food" quick action or the
+  Food tab's "+ Log a meal (full page)" button. Search (hits the local food
+  catalog, your own library, then Open Food Facts, same as the inline Food
+  tab search) or manual entry, either way items go into a running "This
+  meal" list with a live total before anything is saved — add several
+  items, review, then commit them all at once via Save to Log. This is
+  additive; the existing inline search on the Food tab still works as
+  before, unchanged.
+- **Fasting** — opened from the Fasting Timer widget's "Details" link or the
+  Today glance Fasting card. Same live timer as the compact widget (they
+  share `fastingState`, so starting/ending/editing in one updates the
+  other), plus a "Log a completed fast" form for entering a start and end
+  time directly (for a fast you didn't time live), and a collapsible
+  History section with a bar-chart trend and list, both built from
+  `nutritionLog` entries that have `fastHours` set — no new storage needed.
+
+The legacy "Log a Day (quick totals)" form's "Fast duration (hours)" field
+was removed — fasting has its own tracking now, and the quick form was
+overwriting it with blank on every save. It preserves whatever fastHours
+is already on that date instead.
+
 ## Local development
 
 There's no build step. To preview the frontend against a local PHP server:
