@@ -293,6 +293,48 @@ round-trips this app's own raw internal storage format 1:1 (now including
 use backup/restore for a full snapshot of your own account, and structured
 import for pulling in history that lived somewhere else first.
 
+## Today/Train tab layout
+
+The Today tab is now purely the daily glance view (Today at a Glance, Quick
+Actions, Today's Log, a collapsed-by-default History Log). The per-range
+Workout Dashboard and Weekly Plan moved to the Train tab, right below the
+exercise list, so everything training-related lives in one place. On mobile,
+Fasting and Food Intake swapped positions in the glance grid so Food Intake
+sits directly above Macronutrients (same column) instead of two cards away.
+
+## Goals page: categories, diet-style presets, full macro targets
+
+Account → Goals is now grouped into **Nutrition / Body / Train / Misc**.
+Nutrition gained a diet-style preset selector (Balanced, Low-Carb, Keto,
+High-Protein, Mediterranean, Vegetarian, Vegan, Custom, or no specific diet)
+that fills in Protein/Carbs/Fat from that style's illustrative macro split
+(`DIET_PRESETS` in `public/index.html`) × your calorie target — filled in
+for you to accept or edit, never saved until you hit Save. Sodium/fiber/
+sugar targets live under a collapsed "More macros" toggle. Body/Train/Misc
+add target weight, sleep hours, calorie-burn goal, and fasting goal (the
+last one writes straight to the same `fastingState.goalHours` the Fasting
+Timer already uses, so it's one source of truth, not a duplicate setting).
+
+Saving shows a "✓ Goals saved" confirmation and immediately re-renders the
+Food tab, Today glance, and Fasting Timer so new targets are visible right
+away, without a reload. All the new overrides are additive fields on the
+existing `profile` resource (`customCarbTarget`, `customFatTarget`,
+`customSodiumTarget`, `customFiberTarget`, `customSugarTarget`,
+`dietPreset`, `goalWeightKg` now also editable here, `sleepGoalHours`,
+`calorieBurnGoal`) — `updateTargetsFromProfile()` uses them when present and
+falls back to the existing calorie-percentage-derived defaults otherwise, so
+nobody who hasn't touched Goals sees any change in behavior.
+
+Diet-preset macro splits are illustrative starting points authored for this
+prototype, explicitly not medical or clinical guidance — the UI says so in
+the note under the selector, matching how the rest of the app treats
+generic defaults.
+
+The Nutrition Dashboard's macro breakdown also picks up optional Sodium/
+Fiber/Sugar rows now (shown only once you've logged something with that
+data) — itemized food-search logging already captured these per food, they
+just weren't surfaced as day-level targets/progress before.
+
 ## Local development
 
 There's no build step. To preview the frontend against a local PHP server:

@@ -472,6 +472,13 @@
   .today-log-sub{font-size:11px;color:var(--ink-soft);}
   .today-log-value{font-size:12.5px;font-weight:600;text-align:right;white-space:nowrap;margin-left:auto;}
 
+  .goals-category{margin-top:18px;}
+  .goals-category:first-of-type{margin-top:0;}
+  .goals-category-title{
+    font-family:var(--font-heading);font-size:13px;font-weight:700;text-transform:uppercase;
+    letter-spacing:.06em;color:var(--ochre);margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid var(--line);
+  }
+
   .hist-row{
     display:flex;justify-content:space-between;align-items:center;
     padding:9px 4px;border-bottom:1px solid var(--line);font-size:12.5px;
@@ -499,6 +506,7 @@
   .log-head.expanded .log-caret{transform:rotate(180deg);}
   .log-detail{max-height:0;overflow:hidden;transition:max-height .25s ease;}
   .log-detail.open{max-height:400px;}
+  [data-history-detail="1"].open{max-height:4000px;}
   .log-detail-inner{padding:2px 4px 10px 4px;font-size:12px;color:var(--ink-soft);line-height:1.5;}
   .log-detail-inner .log-line{margin-bottom:2px;}
   .log-detail-inner .log-note{font-style:italic;margin-top:4px;}
@@ -730,50 +738,30 @@
       <div id="todayLogFeed"></div>
     </section>
 
-    <section class="block" style="margin-top:16px;margin-bottom:18px;">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
-        <div class="block-title" style="margin:0;flex:1;">Workout Dashboard</div>
-        <select id="dashRange" style="padding:7px 10px;border:1px solid var(--line);border-radius:6px;font-size:12.5px;font-weight:600;">
-          <option value="day" selected>Today</option>
-          <option value="week">This Week (7d)</option>
-          <option value="month">This Month (30d)</option>
-        </select>
-      </div>
-      <div id="dashDayNav" style="display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:10px;"></div>
-      <div id="dashDayDetail" style="margin-bottom:10px;"></div>
-      <div class="dash" id="dashCards"></div>
-      <div class="weight-progress" id="weightProgress"></div>
-    </section>
-
     <section class="block" style="margin-bottom:18px;">
-      <div class="block-title">History Log</div>
-      <div id="historyList"></div>
-      <button class="today-btn" id="addCustomBtn" style="width:100%;margin-top:10px;padding:11px 0;background:var(--ochre);color:#1F2A24;font-size:13px;">+ Log custom entry / note</button>
+      <div class="log-head" data-history-toggle="1" style="padding:0;cursor:pointer;">
+        <div class="block-title" style="margin:0;flex:1;">History Log</div>
+        <svg class="log-caret" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+      <div class="log-detail" data-history-detail="1">
+        <div style="padding-top:12px;">
+          <div id="historyList"></div>
+          <button class="today-btn" id="addCustomBtn" style="width:100%;margin-top:10px;padding:11px 0;background:var(--ochre);color:#1F2A24;font-size:13px;">+ Log custom entry / note</button>
 
-      <div id="customForm" style="display:none;margin-top:10px;background:var(--paper-raised);border:1px solid var(--line);border-radius:8px;padding:12px;">
-        <label style="font-size:11.5px;color:var(--ink-soft);display:block;margin-bottom:4px;">Date</label>
-        <input type="date" id="customDate" style="width:100%;padding:7px 8px;border:1px solid var(--line);border-radius:5px;font-family:var(--font-body);font-size:13px;background:var(--paper);margin-bottom:10px;">
-        <label style="font-size:11.5px;color:var(--ink-soft);display:block;margin-bottom:4px;">What did you do / notes on deviation</label>
-        <textarea id="customNotes" rows="3" placeholder="e.g. Did an outdoor run instead of treadmill, or swapped in extra ab work..." style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;font-family:var(--font-body);font-size:13px;background:var(--paper);resize:vertical;"></textarea>
-        <div style="display:flex;gap:8px;margin-top:10px;">
-          <button class="timer-btn start" id="saveCustomBtn" style="flex:1;">Save</button>
-          <button class="timer-btn reset" id="cancelCustomBtn" style="flex:1;">Cancel</button>
+          <div id="customForm" style="display:none;margin-top:10px;background:var(--paper-raised);border:1px solid var(--line);border-radius:8px;padding:12px;">
+            <label style="font-size:11.5px;color:var(--ink-soft);display:block;margin-bottom:4px;">Date</label>
+            <input type="date" id="customDate" style="width:100%;padding:7px 8px;border:1px solid var(--line);border-radius:5px;font-family:var(--font-body);font-size:13px;background:var(--paper);margin-bottom:10px;">
+            <label style="font-size:11.5px;color:var(--ink-soft);display:block;margin-bottom:4px;">What did you do / notes on deviation</label>
+            <textarea id="customNotes" rows="3" placeholder="e.g. Did an outdoor run instead of treadmill, or swapped in extra ab work..." style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;font-family:var(--font-body);font-size:13px;background:var(--paper);resize:vertical;"></textarea>
+            <div style="display:flex;gap:8px;margin-top:10px;">
+              <button class="timer-btn start" id="saveCustomBtn" style="flex:1;">Save</button>
+              <button class="timer-btn reset" id="cancelCustomBtn" style="flex:1;">Cancel</button>
+            </div>
+          </div>
+
+          <button class="today-btn" id="exportBtn" style="width:100%;margin-top:8px;padding:10px 0;">Export log (.csv)</button>
         </div>
       </div>
-
-      <button class="today-btn" id="exportBtn" style="width:100%;margin-top:8px;padding:10px 0;">Export log (.csv)</button>
-    </section>
-
-    <section class="block" style="margin-bottom:18px;">
-      <div class="block-title">Weekly Plan</div>
-      <div class="today-callout" id="todayCallout">
-        <div class="today-callout-text">
-          <span id="todayLabel">Today</span>
-          <strong id="todayPlanText">—</strong>
-        </div>
-        <button class="today-btn" id="todayBtn">Start</button>
-      </div>
-      <div class="week-strip" id="weekStrip"></div>
     </section>
   </div><!-- /panelToday -->
 
@@ -1005,6 +993,33 @@
         <button class="timer-btn start" id="saveStatsBtn" style="width:100%;margin-top:10px;">Save stats</button>
       </div>
     </section>
+
+    <section class="block" style="margin-top:16px;margin-bottom:18px;">
+      <div class="block-title">Weekly Plan</div>
+      <div class="today-callout" id="todayCallout">
+        <div class="today-callout-text">
+          <span id="todayLabel">Today</span>
+          <strong id="todayPlanText">—</strong>
+        </div>
+        <button class="today-btn" id="todayBtn">Start</button>
+      </div>
+      <div class="week-strip" id="weekStrip"></div>
+    </section>
+
+    <section class="block" style="margin-bottom:18px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+        <div class="block-title" style="margin:0;flex:1;">Workout Dashboard</div>
+        <select id="dashRange" style="padding:7px 10px;border:1px solid var(--line);border-radius:6px;font-size:12.5px;font-weight:600;">
+          <option value="day" selected>Today</option>
+          <option value="week">This Week (7d)</option>
+          <option value="month">This Month (30d)</option>
+        </select>
+      </div>
+      <div id="dashDayNav" style="display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:10px;"></div>
+      <div id="dashDayDetail" style="margin-bottom:10px;"></div>
+      <div class="dash" id="dashCards"></div>
+      <div class="weight-progress" id="weightProgress"></div>
+    </section>
   </div><!-- /panelTrain -->
 
   <div id="panelInsights" style="display:none;">
@@ -1078,54 +1093,122 @@
     <div id="accountGoals" style="display:none;">
       <section class="block" style="margin-top:16px;margin-bottom:18px;">
         <div class="block-title">My goals</div>
-        <div class="hub-card">
-          <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;">
-            <div style="font-weight:700;font-family:var(--font-heading);">Daily energy</div>
-            <span class="tag tag-accent-2">Recommended</span>
+        <div style="font-size:12.5px;color:var(--ink-soft);margin-bottom:12px;">Recommended values come from your profile on My data. Anything below is optional — set your own target wherever you'd like to override it.</div>
+
+        <div class="goals-category">
+          <div class="goals-category-title">Nutrition</div>
+
+          <div class="hub-card">
+            <label style="font-size:11px;color:var(--ink-soft);">Diet style</label>
+            <select id="goalDietPreset" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:4px;font-size:13.5px;">
+              <option value="open">No specific diet</option>
+              <option value="balanced">Balanced</option>
+              <option value="lowcarb">Low-Carb</option>
+              <option value="keto">Keto</option>
+              <option value="highprotein">High-Protein</option>
+              <option value="mediterranean">Mediterranean</option>
+              <option value="vegetarian">Vegetarian</option>
+              <option value="vegan">Vegan</option>
+              <option value="custom">Custom split</option>
+            </select>
+            <div id="goalDietPresetNote" style="font-size:11.5px;color:var(--ink-soft);margin-top:6px;line-height:1.5;"></div>
           </div>
-          <div style="font-size:12.5px;color:var(--ink-soft);margin-top:6px;" id="goalEnergyNote"></div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px;">
-            <div>
-              <div class="hub-tile-label">Recommended</div>
-              <div class="hub-tile-value" id="goalEnergyRecommended" style="font-size:24px;">—</div>
+
+          <div class="hub-card" style="margin-top:10px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;">
+              <div style="font-weight:700;font-family:var(--font-heading);">Daily energy</div>
+              <span class="tag tag-accent-2">Recommended</span>
             </div>
-            <div>
-              <div class="hub-tile-label">Your target</div>
-              <input type="number" id="goalEnergyCustom" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:4px;font-family:var(--font-heading);font-size:18px;">
+            <div style="font-size:12.5px;color:var(--ink-soft);margin-top:6px;" id="goalEnergyNote"></div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px;">
+              <div>
+                <div class="hub-tile-label">Recommended</div>
+                <div class="hub-tile-value" id="goalEnergyRecommended" style="font-size:24px;">—</div>
+              </div>
+              <div>
+                <div class="hub-tile-label">Your target</div>
+                <input type="number" id="goalEnergyCustom" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:4px;font-family:var(--font-heading);font-size:18px;">
+              </div>
+            </div>
+          </div>
+
+          <div style="font-size:11px;color:var(--ink-soft);margin:12px 0 4px;" id="goalProteinNote"></div>
+          <div class="hub-grid">
+            <div class="hub-tile hub-tile-empty">
+              <div class="hub-tile-label">Protein (g)</div>
+              <input type="number" id="goalProteinCustom" style="width:100%;padding:6px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:6px;font-family:var(--font-heading);font-size:16px;">
+            </div>
+            <div class="hub-tile hub-tile-empty">
+              <div class="hub-tile-label">Carbs (g)</div>
+              <input type="number" id="goalCarbsCustom" style="width:100%;padding:6px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:6px;font-family:var(--font-heading);font-size:16px;">
+            </div>
+            <div class="hub-tile hub-tile-empty">
+              <div class="hub-tile-label">Fat (g)</div>
+              <input type="number" id="goalFatCustom" style="width:100%;padding:6px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:6px;font-family:var(--font-heading);font-size:16px;">
+            </div>
+          </div>
+
+          <button type="button" id="toggleMoreMacros" class="img-link" style="margin-top:10px;cursor:pointer;">More macros (sodium, fiber, sugar)</button>
+          <div class="hub-grid" id="moreMacrosGrid" style="margin-top:10px;display:none;">
+            <div class="hub-tile hub-tile-empty">
+              <div class="hub-tile-label">Sodium (mg)</div>
+              <input type="number" id="goalSodiumCustom" style="width:100%;padding:6px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:6px;font-family:var(--font-heading);font-size:16px;">
+            </div>
+            <div class="hub-tile hub-tile-empty">
+              <div class="hub-tile-label">Fiber (g)</div>
+              <input type="number" id="goalFiberCustom" style="width:100%;padding:6px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:6px;font-family:var(--font-heading);font-size:16px;">
+            </div>
+            <div class="hub-tile hub-tile-empty">
+              <div class="hub-tile-label">Sugar (g)</div>
+              <input type="number" id="goalSugarCustom" style="width:100%;padding:6px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:6px;font-family:var(--font-heading);font-size:16px;">
             </div>
           </div>
         </div>
 
-        <div class="hub-card" style="margin-top:14px;">
-          <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;">
-            <div style="font-weight:700;font-family:var(--font-heading);">Protein</div>
-            <span class="tag tag-accent-2">Recommended</span>
-          </div>
-          <div style="font-size:12.5px;color:var(--ink-soft);margin-top:6px;" id="goalProteinNote"></div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px;">
-            <div>
-              <div class="hub-tile-label">Recommended</div>
-              <div class="hub-tile-value" id="goalProteinRecommended" style="font-size:24px;">—</div>
+        <div class="goals-category">
+          <div class="goals-category-title">Body</div>
+          <div class="hub-grid">
+            <div class="hub-tile hub-tile-empty">
+              <div class="hub-tile-label">Target weight (kg)</div>
+              <input type="number" step="0.1" id="goalTargetWeight" style="width:100%;padding:6px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:6px;font-family:var(--font-heading);font-size:16px;">
             </div>
-            <div>
-              <div class="hub-tile-label">Your target</div>
-              <input type="number" id="goalProteinCustom" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:4px;font-family:var(--font-heading);font-size:18px;">
+            <div class="hub-tile hub-tile-empty">
+              <div class="hub-tile-label">Sleep (hours)</div>
+              <input type="number" step="0.5" id="goalSleepHours" style="width:100%;padding:6px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:6px;font-family:var(--font-heading);font-size:16px;">
             </div>
           </div>
         </div>
 
-        <div class="hub-grid" style="margin-top:14px;">
-          <div class="hub-tile hub-tile-empty">
-            <div class="hub-tile-label">Steps</div>
-            <input type="number" id="goalSteps" style="width:100%;padding:6px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:6px;font-family:var(--font-heading);font-size:16px;">
+        <div class="goals-category">
+          <div class="goals-category-title">Train</div>
+          <div class="hub-grid">
+            <div class="hub-tile hub-tile-empty">
+              <div class="hub-tile-label">Steps</div>
+              <input type="number" id="goalSteps" style="width:100%;padding:6px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:6px;font-family:var(--font-heading);font-size:16px;">
+            </div>
+            <div class="hub-tile hub-tile-empty">
+              <div class="hub-tile-label">Calories burned</div>
+              <input type="number" id="goalCalorieBurn" style="width:100%;padding:6px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:6px;font-family:var(--font-heading);font-size:16px;">
+            </div>
           </div>
-          <div class="hub-tile hub-tile-empty">
-            <div class="hub-tile-label">Water (ml)</div>
-            <input type="number" id="goalWater" style="width:100%;padding:6px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:6px;font-family:var(--font-heading);font-size:16px;">
+        </div>
+
+        <div class="goals-category">
+          <div class="goals-category-title">Misc</div>
+          <div class="hub-grid">
+            <div class="hub-tile hub-tile-empty">
+              <div class="hub-tile-label">Water (ml)</div>
+              <input type="number" id="goalWater" style="width:100%;padding:6px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:6px;font-family:var(--font-heading);font-size:16px;">
+            </div>
+            <div class="hub-tile hub-tile-empty">
+              <div class="hub-tile-label">Fasting goal (hours)</div>
+              <input type="number" step="0.5" id="goalFastingHours" style="width:100%;padding:6px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:6px;font-family:var(--font-heading);font-size:16px;">
+            </div>
           </div>
         </div>
 
         <div id="goalsError" style="display:none;font-size:12px;color:#B4472A;margin-top:10px;"></div>
+        <div id="goalsSavedMsg" style="display:none;font-size:12.5px;font-weight:600;color:var(--forest-dark);text-align:center;margin-top:10px;">✓ Goals saved</div>
         <button class="timer-btn start" id="saveGoalsBtn" style="width:100%;margin-top:14px;">Save goals</button>
         <button class="timer-btn reset" id="useRecommendedBtn" style="width:100%;margin-top:8px;">Use recommended</button>
       </section>
@@ -1418,6 +1501,11 @@ function combinedDayTotals(dateStr, nutriEntry){
     protein: (nutriEntry ? (parseFloat(nutriEntry.protein) || 0) : 0) + (m.PROCNT || 0),
     fat: (nutriEntry ? (parseFloat(nutriEntry.fat) || 0) : 0) + (m.FAT || 0),
     carbs: (nutriEntry ? (parseFloat(nutriEntry.carbs) || 0) : 0) + (m.CHOCDF || 0),
+    // Sodium/fiber/sugar only ever come from itemized food-search logging (m.*) --
+    // the legacy quick-log day entry never captured these.
+    sodium: m.NA || 0,
+    fiber: m.FIBTG || 0,
+    sugar: m.SUGAR || 0,
     hasAny: !!nutriEntry || !!mealTotalsByDate[dateStr]
   };
 }
@@ -1593,8 +1681,6 @@ function glanceRing(pct, colorVar, size, centerHtml){
   `;
 }
 let glanceFastTickInterval = null;
-// No user-configurable exercise-calorie goal exists yet; this is a reasonable visual reference only.
-const CALORIE_BURN_TARGET = 400;
 
 async function renderTodayGlance(){
   const grid = document.getElementById('glanceGridTop');
@@ -1641,6 +1727,8 @@ async function renderTodayGlance(){
 
   const caloriesBurned = historyLog.filter(e => e.date === today)
     .reduce((sum,e)=> sum + (e.stats && e.stats.calories ? parseFloat(e.stats.calories) || 0 : 0), 0);
+  const calorieBurnTarget = (userProfile && userProfile.calorieBurnGoal) || 400;
+  const sleepGoalHours = (userProfile && userProfile.sleepGoalHours) || 8;
 
   const sleepEntry = sleepLog[today] || null;
   const fmtClock = iso => new Date(iso).toLocaleTimeString(undefined, {hour: 'numeric', minute: '2-digit'});
@@ -1655,16 +1743,16 @@ async function renderTodayGlance(){
       <div class="glance-card-sub">${latestW ? 'Last: ' + latestW.kg + ' kg (' + formatDateLabel(latestW.date) + ')' : ''}</div>
     </div>
     <div class="glance-card">
-      <div class="glance-card-head"><span class="glance-card-label">\u{1F37D} Food Intake</span></div>
-      <div class="glance-card-value">${Math.round(combined.calories)} kcal</div>
-      <div class="glance-bar-track"><div class="glance-bar-fill" style="width:${Math.min(100, calTarget ? combined.calories/calTarget*100 : 0)}%;background:var(--ochre);"></div></div>
-      <div class="glance-card-sub">Target: ${Math.round(calTarget).toLocaleString()} kcal</div>
-    </div>
-    <div class="glance-card">
       <div class="glance-card-head"><span class="glance-card-label">⏱ Fasting</span></div>
       <div class="glance-card-value" id="glanceFastValue">—</div>
       <div class="glance-bar-track"><div class="glance-bar-fill" id="glanceFastBar" style="width:0%;background:var(--forest);"></div></div>
       <div class="glance-card-sub" id="glanceFastSub">Goal: ${fastingState.goalHours || 16} hours</div>
+    </div>
+    <div class="glance-card">
+      <div class="glance-card-head"><span class="glance-card-label">\u{1F37D} Food Intake</span></div>
+      <div class="glance-card-value">${Math.round(combined.calories)} kcal</div>
+      <div class="glance-bar-track"><div class="glance-bar-fill" style="width:${Math.min(100, calTarget ? combined.calories/calTarget*100 : 0)}%;background:var(--ochre);"></div></div>
+      <div class="glance-card-sub">Target: ${Math.round(calTarget).toLocaleString()} kcal</div>
     </div>
     <div class="glance-card">
       <div class="glance-card-head">
@@ -1741,14 +1829,15 @@ async function renderTodayGlance(){
     </div>
     <div class="glance-card" style="align-items:center;">
       <div class="glance-card-label" style="align-self:flex-start;">\u{1F525} Calories Burned</div>
-      ${glanceRing(Math.min(100, caloriesBurned/CALORIE_BURN_TARGET*100), '#B4472A', 84, `<div style="font-family:var(--font-heading);font-size:20px;">${Math.round(caloriesBurned)}</div><div style="font-size:9.5px;color:var(--ink-soft);">kcal</div>`)}
-      <div class="glance-card-sub">Target: ${CALORIE_BURN_TARGET} kcal</div>
+      ${glanceRing(Math.min(100, caloriesBurned/calorieBurnTarget*100), '#B4472A', 84, `<div style="font-family:var(--font-heading);font-size:20px;">${Math.round(caloriesBurned)}</div><div style="font-size:9.5px;color:var(--ink-soft);">kcal</div>`)}
+      <div class="glance-card-sub">Target: ${calorieBurnTarget} kcal</div>
     </div>
     <div class="glance-card" id="sleepCard">
       <div class="glance-card-head"><span class="glance-card-label">\u{1F634} Sleep</span></div>
       ${sleepEntry && !sleepFormOpen ? `
         <div class="glance-card-value">${formatSleepHours(sleepEntry.hours)}</div>
         <div class="glance-card-sub">${sleepEntry.startIso && sleepEntry.endIso ? `${fmtClock(sleepEntry.startIso)} – ${fmtClock(sleepEntry.endIso)}` : 'Logged'}</div>
+        <div class="glance-card-sub">Goal: ${sleepGoalHours}h${sleepEntry.hours >= sleepGoalHours ? ' ✓' : ''}</div>
         <button class="img-link" id="editSleepBtn" type="button" style="cursor:pointer;margin-top:4px;padding:4px 10px;font-size:11px;align-self:flex-start;">Edit</button>
       ` : `
         <div style="display:flex;gap:6px;">
@@ -2052,8 +2141,8 @@ function markSessionDone(dateStr, tabId){
 // numbers computed from that person's own weight/height/age/activity/goal —
 // these are deliberately NOT tuned to any one person's diet.
 let TARGETS = {
-  workout:   {calMin:1900, calMax:2200, proteinMin:110, proteinMax:160, fatMin:50, fatMax:90, carbsMax:180},
-  sedentary: {calMin:1600, calMax:1900, proteinMin:90,  proteinMax:140, fatMin:45, fatMax:80, carbsMax:180}
+  workout:   {calMin:1900, calMax:2200, proteinMin:110, proteinMax:160, fatMin:50, fatMax:90, carbsMax:180, sodiumMax:2300, fiberTarget:30, sugarMax:50},
+  sedentary: {calMin:1600, calMax:1900, proteinMin:90,  proteinMax:140, fatMin:45, fatMax:80, carbsMax:180, sodiumMax:2300, fiberTarget:30, sugarMax:50}
 };
 function isWorkoutDay(dateStr){
   return historyLog.some(e => e.date === dateStr && e.day !== 'custom');
@@ -2067,25 +2156,74 @@ let PROTEIN_TARGET_MIN = TARGETS.workout.proteinMin;
 
 function updateTargetsFromProfile(){
   if(!userHealthTargets) return;
+  const profile = userProfile || {};
   const cal = userHealthTargets.calorieTarget;
   const protein = userHealthTargets.proteinTarget;
   const fatCals = cal * 0.3;
+  const sodium = profile.customSodiumTarget || 2300;
+  const fiber = profile.customFiberTarget || 30;
+  const sugar = profile.customSugarTarget || 50;
+  // A custom carb/fat target (manual, or filled in from a diet-style preset on the
+  // Goals page) applies to both day types alike -- only the min band scales down
+  // for a "less to hit" feel, rather than asking for four separate numbers.
+  const workoutFatMax = profile.customFatTarget || Math.round(fatCals * 1.2 / 9);
+  const workoutFatMin = profile.customFatTarget ? Math.round(profile.customFatTarget * 0.8) : Math.round(fatCals * 0.7 / 9);
+  const sedentaryFatMax = profile.customFatTarget || Math.round(fatCals * 1.0 / 9);
+  const sedentaryFatMin = profile.customFatTarget ? Math.round(profile.customFatTarget * 0.8) : Math.round(fatCals * 0.6 / 9);
+  const workoutCarbsMax = profile.customCarbTarget || 180;
+  const sedentaryCarbsMax = profile.customCarbTarget || 150;
   TARGETS = {
     workout: {
       calMin: cal, calMax: cal + 250,
       proteinMin: protein, proteinMax: protein + 20,
-      fatMin: Math.round(fatCals * 0.7 / 9), fatMax: Math.round(fatCals * 1.2 / 9),
-      carbsMax: 180
+      fatMin: workoutFatMin, fatMax: workoutFatMax,
+      carbsMax: workoutCarbsMax,
+      sodiumMax: sodium, fiberTarget: fiber, sugarMax: sugar
     },
     sedentary: {
       calMin: Math.max(1200, cal - 300), calMax: cal,
       proteinMin: Math.max(60, protein - 20), proteinMax: protein,
-      fatMin: Math.round(fatCals * 0.6 / 9), fatMax: Math.round(fatCals * 1.0 / 9),
-      carbsMax: 150
+      fatMin: sedentaryFatMin, fatMax: sedentaryFatMax,
+      carbsMax: sedentaryCarbsMax,
+      sodiumMax: sodium, fiberTarget: fiber, sugarMax: sugar
     }
   };
   CAL_TARGET_MIN = TARGETS.workout.calMin;
   PROTEIN_TARGET_MIN = TARGETS.workout.proteinMin;
+}
+
+// Illustrative macro splits (% of daily energy) for common eating styles, offered as an
+// editable starting point on the Goals page -- not medical prescriptions. carbsPct/proteinPct/
+// fatPct null means "no inherent split" (Open/Custom): leave whatever's already in the fields.
+const DIET_PRESETS = {
+  open:          {label: 'No specific diet', carbsPct: null, proteinPct: null, fatPct: null, note: 'No macro split is assigned automatically. Set your own targets below if you’d like, or leave them at the general recommendation.'},
+  balanced:      {label: 'Balanced', carbsPct: 0.45, proteinPct: 0.25, fatPct: 0.30, note: 'A flexible starting point: 45% carbs / 25% protein / 30% fat of your daily energy. Illustrative default, not a medical prescription -- adjust below as you like.'},
+  lowcarb:       {label: 'Low-Carb', carbsPct: 0.25, proteinPct: 0.35, fatPct: 0.40, note: 'Fewer carbs, more protein and fat: 25% / 35% / 40%. Low-carb definitions vary -- this is one example, not a universal threshold.'},
+  keto:          {label: 'Keto', carbsPct: 0.05, proteinPct: 0.25, fatPct: 0.70, note: 'Very low-carb, high-fat: 5% / 25% / 70%. A percentage split alone doesn’t guarantee ketosis.'},
+  highprotein:   {label: 'High-Protein', carbsPct: 0.35, proteinPct: 0.35, fatPct: 0.30, note: 'Protein-forward: 35% / 35% / 30%. Protein needs vary by person -- not a universal target.'},
+  mediterranean: {label: 'Mediterranean', carbsPct: 0.45, proteinPct: 0.20, fatPct: 0.35, note: 'Vegetables, legumes, whole grains, olive oil, nuts and fish: 45% / 20% / 35%. Food choices define this style more than the macro split does.'},
+  vegetarian:    {label: 'Vegetarian', carbsPct: 0.50, proteinPct: 0.20, fatPct: 0.30, note: 'Plant-forward, eggs and dairy optional: 50% / 20% / 30%, an authored example -- macros vary widely in practice.'},
+  vegan:         {label: 'Vegan', carbsPct: 0.50, proteinPct: 0.20, fatPct: 0.30, note: 'Plant foods only, no animal-derived ingredients: 50% / 20% / 30%, an authored example.'},
+  custom:        {label: 'Custom split', carbsPct: null, proteinPct: null, fatPct: null, note: 'Set your own protein, carb, and fat targets below -- nothing is filled in for you.'}
+};
+function renderDietPresetNote(key){
+  const el = document.getElementById('goalDietPresetNote');
+  if(!el) return;
+  const preset = DIET_PRESETS[key] || DIET_PRESETS.open;
+  el.textContent = preset.note;
+}
+// Fills Protein/Carbs/Fat fields from the preset's % split x the current calorie target --
+// only on an explicit style change (never silently on page render), matching "preview the
+// example, require acceptance or customization" rather than overwriting a manual entry.
+function applyDietPreset(key){
+  renderDietPresetNote(key);
+  const preset = DIET_PRESETS[key] || DIET_PRESETS.open;
+  if(preset.carbsPct == null) return;
+  const calEl = document.getElementById('goalEnergyCustom');
+  const cal = parseFloat(calEl.value) || (userHealthTargets ? userHealthTargets.recommendedCalorieTarget : 2000);
+  document.getElementById('goalProteinCustom').value = Math.round(cal * preset.proteinPct / 4);
+  document.getElementById('goalCarbsCustom').value = Math.round(cal * preset.carbsPct / 4);
+  document.getElementById('goalFatCustom').value = Math.round(cal * preset.fatPct / 9);
 }
 
 function macroBarRow(label, value, min, max, unit, mode){
@@ -2111,29 +2249,55 @@ function macroBarRow(label, value, min, max, unit, mode){
 }
 
 let foodSearchResultsCache = [];
+let foodSearchGeneration = 0;
+function foodSearchEscape(value){
+  return String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
 
 async function searchFoodsCombined(query){
+  const generation = ++foodSearchGeneration;
   const statusEl = document.getElementById('foodSearchStatus');
   const resultsEl = document.getElementById('foodSearchResults');
-  if(query.length < 2){ resultsEl.innerHTML = ''; statusEl.style.display = 'none'; return; }
+  if(query.trim().length < 2){ foodSearchResultsCache = []; resultsEl.innerHTML = ''; statusEl.style.display = 'none'; return; }
+  foodSearchResultsCache = [];
+  resultsEl.innerHTML = '';
   statusEl.textContent = 'Searching…';
   statusEl.style.display = 'block';
   try{
-    const [libRes, offRes] = await Promise.all([
+    const remoteSearch = Promise.all([
       fetch(`api/foods.php?action=search_library&q=${encodeURIComponent(query)}`, {credentials:'same-origin'}).then(r=>r.json()).catch(()=>({results:[]})),
       fetch(`api/food_search.php?q=${encodeURIComponent(query)}`, {credentials:'same-origin'}).then(r=>r.json()).catch(()=>({results:[]}))
     ]);
+    const localRes = await fetch(`api/food_catalog.php?q=${encodeURIComponent(query)}`, {credentials:'same-origin'}).then(r=>r.json()).catch(()=>({results:[], error:'Local food search is temporarily unavailable.'}));
+    if(generation !== foodSearchGeneration) return;
+    const local = (localRes.results || []).map(r => ({...r, _origin:'catalog'}));
+    foodSearchResultsCache = local;
+    renderFoodSearchResults();
+    const suggestions = (localRes.suggestions || []).map(word => `<button type="button" class="timer-btn" data-food-suggestion="${foodSearchEscape(word)}">${foodSearchEscape(word)}</button>`).join(' ');
+    statusEl.innerHTML = localRes.error ? foodSearchEscape(localRes.error) : (suggestions ? `Did you mean ${suggestions}?` : (local.length ? 'Choose the preparation and edible part that match your food.' : 'Checking other sources…'));
+    statusEl.style.display = 'block';
+    const [libRes, offRes] = await remoteSearch;
+    if(generation !== foodSearchGeneration) return;
+    // Do not reset a selected portion while slower external searches finish.
+    if([...resultsEl.querySelectorAll('.food-result-amount')].some(el => el.style.display === 'block')) return;
     const library = (libRes.results || []).map(r => ({...r, _origin: 'library'}));
     const external = (offRes.results || []).map(r => ({...r, _origin: 'off'}));
-    foodSearchResultsCache = [...library, ...external];
+    const localIds = new Set(local.map(r => r.external_id));
+    foodSearchResultsCache = [...local, ...library.filter(r => !(r.source === 'catalog' && localIds.has(r.external_id))), ...external];
     renderFoodSearchResults();
-    if(offRes.error && !external.length){
+    if(localRes.error){
+      statusEl.textContent = localRes.error;
+      statusEl.style.display = 'block';
+    } else if(local.length || suggestions){
+      statusEl.style.display = 'block';
+    } else if(offRes.error && !external.length){
       statusEl.textContent = offRes.error;
       statusEl.style.display = 'block';
     } else {
       statusEl.style.display = 'none';
     }
   }catch(e){
+    if(generation !== foodSearchGeneration) return;
     statusEl.textContent = 'Search failed — try again.';
   }
 }
@@ -2171,15 +2335,16 @@ function renderFoodSearchResults(){
       <div class="food-result-row" data-idx="${i}" style="padding:9px 4px;border-bottom:1px solid var(--line);cursor:pointer;">
         <div style="display:flex;justify-content:space-between;align-items:center;">
           <div>
-            <div style="font-weight:600;font-size:13.5px;">${r.name}</div>
-            <div style="font-size:11.5px;color:var(--ink-soft);">${sub}</div>
+            <div style="font-weight:600;font-size:13.5px;">${foodSearchEscape(r.name)}</div>
+            <div style="font-size:11.5px;color:var(--ink-soft);">${foodSearchEscape(sub)}</div>
+            ${r.label ? `<div style="font-size:11.5px;color:var(--ink-soft);">${foodSearchEscape(r.label)}${r.complete === false ? ' · Some nutrients unavailable' : ''}</div>` : ''}
           </div>
           <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" style="width:16px;height:16px;stroke:var(--ink-soft);flex-shrink:0;"><path d="M9 18l6-6-6-6"/></svg>
         </div>
         <div class="food-result-amount" data-idx="${i}" style="display:none;margin-top:8px;">
           <div style="display:flex;gap:8px;align-items:center;">
             <input type="number" class="food-amount-input" data-idx="${i}" value="${canonicalAmount}" style="width:80px;padding:6px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:13px;">
-            <span style="font-size:12px;color:var(--ink-soft);">${canonicalUnit}</span>
+            <span style="font-size:12px;color:var(--ink-soft);">${foodSearchEscape(canonicalUnit)}</span>
           </div>
           <div class="food-macro-preview" data-idx="${i}" style="font-size:11.5px;color:var(--ink-soft);margin-top:8px;">${macroPreviewText(r, canonicalAmount)}</div>
           <div style="display:flex;gap:8px;margin-top:8px;">
@@ -2308,6 +2473,9 @@ async function renderNutrition(){
     const eatenProtein = combinedToday.protein;
     const eatenFat = combinedToday.fat;
     const eatenCarbs = combinedToday.carbs;
+    const eatenSodium = combinedToday.sodium;
+    const eatenFiber = combinedToday.fiber;
+    const eatenSugar = combinedToday.sugar;
     const remCal = t.calMin - eatenCal;
     const remProtein = t.proteinMin - eatenProtein;
     const calMet = remCal <= 0, proteinMet = remProtein <= 0;
@@ -2359,6 +2527,12 @@ async function renderNutrition(){
                 ${macroBarRow('Protein', eatenProtein, t.proteinMin, t.proteinMax, 'g', 'range')}
                 ${macroBarRow('Fat', eatenFat, t.fatMin, t.fatMax, 'g', 'range')}
                 ${macroBarRow('Carbs', eatenCarbs, 0, t.carbsMax, 'g', 'ceiling')}
+                ${(eatenSodium || eatenFiber || eatenSugar) ? `
+                  <div style="font-size:10px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.06em;margin:10px 0 4px;">From itemized food logging</div>
+                  ${macroBarRow('Sodium', eatenSodium, 0, t.sodiumMax, 'mg', 'ceiling')}
+                  ${macroBarRow('Fiber', eatenFiber, t.fiberTarget, t.fiberTarget * 1.5, 'g', 'range')}
+                  ${macroBarRow('Sugar', eatenSugar, 0, t.sugarMax, 'g', 'ceiling')}
+                ` : ''}
               </div>
             </div>
           </div>
@@ -2583,13 +2757,19 @@ function renderAccountGoals(){
   recomputeHealthTargets();
   const t = userHealthTargets;
   const profile = userProfile || {};
+  const presetKey = profile.dietPreset || 'open';
+  document.getElementById('goalDietPreset').value = presetKey;
+  renderDietPresetNote(presetKey);
+  const preset = DIET_PRESETS[presetKey] || DIET_PRESETS.open;
+
   if(!t){
-    document.getElementById('goalEnergyNote').textContent = 'Set up your profile (age, height, weight) to see recommended energy and protein targets.';
+    document.getElementById('goalEnergyNote').textContent = 'Set up your profile (age, height, weight) to see recommended targets.';
     document.getElementById('goalProteinNote').textContent = '';
     document.getElementById('goalEnergyRecommended').textContent = '—';
-    document.getElementById('goalProteinRecommended').textContent = '—';
     document.getElementById('goalEnergyCustom').value = profile.customCalorieTarget || '';
     document.getElementById('goalProteinCustom').value = profile.customProteinTarget || '';
+    document.getElementById('goalCarbsCustom').value = profile.customCarbTarget || '';
+    document.getElementById('goalFatCustom').value = profile.customFatTarget || '';
   } else {
     const directionLabel = t.goalDirection === 'lose'
       ? `${t.recommendedCalorieTarget} kcal maintenance, less a deficit toward your goal weight.`
@@ -2597,15 +2777,34 @@ function renderAccountGoals(){
         ? `${t.recommendedCalorieTarget} kcal, a surplus toward your goal weight.`
         : `${t.recommendedCalorieTarget} kcal maintenance.`);
     document.getElementById('goalEnergyNote').textContent = directionLabel;
-    document.getElementById('goalProteinNote').textContent = '1.8g per kg of your current weight.';
     document.getElementById('goalEnergyRecommended').textContent = t.recommendedCalorieTarget;
-    document.getElementById('goalProteinRecommended').textContent = t.recommendedProteinTarget + 'g';
     document.getElementById('goalEnergyCustom').value = profile.customCalorieTarget || t.recommendedCalorieTarget;
-    document.getElementById('goalProteinCustom').value = profile.customProteinTarget || t.recommendedProteinTarget;
+
+    const cal = profile.customCalorieTarget || t.recommendedCalorieTarget;
+    const recProtein = preset.proteinPct != null ? Math.round(cal * preset.proteinPct / 4) : t.recommendedProteinTarget;
+    const recCarbs = preset.carbsPct != null ? Math.round(cal * preset.carbsPct / 4) : 180;
+    const recFat = preset.fatPct != null ? Math.round(cal * preset.fatPct / 9) : Math.round(cal * 0.3 / 9);
+    document.getElementById('goalProteinNote').textContent = preset.proteinPct != null
+      ? `Recommended from your ${preset.label} split: ${recProtein}g protein / ${recCarbs}g carbs / ${recFat}g fat.`
+      : `Recommended: ${recProtein}g protein (1.8g/kg), ${recCarbs}g carbs, ${recFat}g fat (~30% of energy).`;
+    document.getElementById('goalProteinCustom').value = profile.customProteinTarget || recProtein;
+    document.getElementById('goalCarbsCustom').value = profile.customCarbTarget || recCarbs;
+    document.getElementById('goalFatCustom').value = profile.customFatTarget || recFat;
   }
+
+  document.getElementById('goalSodiumCustom').value = profile.customSodiumTarget || 2300;
+  document.getElementById('goalFiberCustom').value = profile.customFiberTarget || 30;
+  document.getElementById('goalSugarCustom').value = profile.customSugarTarget || 50;
+
+  document.getElementById('goalTargetWeight').value = profile.goalWeightKg || '';
+  document.getElementById('goalSleepHours').value = profile.sleepGoalHours || 8;
   document.getElementById('goalSteps').value = profile.stepsGoal || 10000;
+  document.getElementById('goalCalorieBurn').value = profile.calorieBurnGoal || 400;
   document.getElementById('goalWater').value = profile.waterGoalMl || 2500;
+  document.getElementById('goalFastingHours').value = fastingState.goalHours || 16;
+
   document.getElementById('goalsError').style.display = 'none';
+  document.getElementById('goalsSavedMsg').style.display = 'none';
 }
 
 function renderAccountSettings(){
@@ -3361,6 +3560,12 @@ document.getElementById('tabs').addEventListener('click', (e)=>{
   setDay(btn.dataset.day);
 });
 
+document.querySelector('[data-history-toggle="1"]').addEventListener('click', function(){
+  const detail = document.querySelector('[data-history-detail="1"]');
+  const open = detail.classList.toggle('open');
+  this.classList.toggle('expanded', open);
+});
+
 async function startApp(){
   // Theme: load saved preference (defaults to dark if none saved yet)
   try{
@@ -3913,7 +4118,16 @@ async function checkAuthAndStart(){
     const profile = {...(userProfile || {})};
     profile.customCalorieTarget = parseFloat(document.getElementById('goalEnergyCustom').value) || null;
     profile.customProteinTarget = parseFloat(document.getElementById('goalProteinCustom').value) || null;
+    profile.customCarbTarget = parseFloat(document.getElementById('goalCarbsCustom').value) || null;
+    profile.customFatTarget = parseFloat(document.getElementById('goalFatCustom').value) || null;
+    profile.customSodiumTarget = parseFloat(document.getElementById('goalSodiumCustom').value) || null;
+    profile.customFiberTarget = parseFloat(document.getElementById('goalFiberCustom').value) || null;
+    profile.customSugarTarget = parseFloat(document.getElementById('goalSugarCustom').value) || null;
+    profile.dietPreset = document.getElementById('goalDietPreset').value;
+    profile.goalWeightKg = parseFloat(document.getElementById('goalTargetWeight').value) || null;
+    profile.sleepGoalHours = parseFloat(document.getElementById('goalSleepHours').value) || null;
     profile.stepsGoal = parseInt(document.getElementById('goalSteps').value, 10) || null;
+    profile.calorieBurnGoal = parseFloat(document.getElementById('goalCalorieBurn').value) || null;
     profile.waterGoalMl = parseInt(document.getElementById('goalWater').value, 10) || null;
     if(!userProfile && (profile.customCalorieTarget || profile.customProteinTarget)){
       const err = document.getElementById('goalsError');
@@ -3922,20 +4136,45 @@ async function checkAuthAndStart(){
       return;
     }
     await saveProfile(profile);
+
+    const fastingHoursVal = parseFloat(document.getElementById('goalFastingHours').value) || 16;
+    fastingState.goalHours = fastingHoursVal;
+    await saveFasting();
+
     renderAccountGoals();
     renderBodyPlaceholders();
     renderNutrition();
     renderTodayGlance();
+    renderFasting();
+
+    const savedMsg = document.getElementById('goalsSavedMsg');
+    savedMsg.style.display = 'block';
+    clearTimeout(window.__goalsSavedTimeout);
+    window.__goalsSavedTimeout = setTimeout(()=>{ savedMsg.style.display = 'none'; }, 2500);
   });
 
   document.getElementById('useRecommendedBtn').addEventListener('click', async ()=>{
     const profile = {...(userProfile || {})};
     profile.customCalorieTarget = null;
     profile.customProteinTarget = null;
+    profile.customCarbTarget = null;
+    profile.customFatTarget = null;
+    profile.customSodiumTarget = null;
+    profile.customFiberTarget = null;
+    profile.customSugarTarget = null;
+    profile.dietPreset = 'open';
     await saveProfile(profile);
     renderAccountGoals();
     renderNutrition();
     renderTodayGlance();
+  });
+
+  document.getElementById('goalDietPreset').addEventListener('change', (e)=>{
+    applyDietPreset(e.target.value);
+  });
+  document.getElementById('toggleMoreMacros').addEventListener('click', ()=>{
+    const grid = document.getElementById('moreMacrosGrid');
+    grid.style.display = grid.style.display === 'none' ? 'grid' : 'none';
   });
 
   let usernameCheckTimeout;
@@ -4047,6 +4286,13 @@ async function checkAuthAndStart(){
     if(previewEl) previewEl.textContent = macroPreviewText(row, amount);
   });
 
+  document.getElementById('foodSearchStatus').addEventListener('click', e=>{
+    const suggestion = e.target.closest('[data-food-suggestion]');
+    if(!suggestion) return;
+    const query = suggestion.dataset.foodSuggestion;
+    document.getElementById('foodSearchInput').value = query;
+    searchFoodsCombined(query);
+  });
   document.getElementById('foodSearchResults').addEventListener('click', async (e)=>{
     const cancelBtn = e.target.closest('.food-log-cancel');
     if(cancelBtn){
@@ -4062,23 +4308,28 @@ async function checkAuthAndStart(){
       const idx = parseInt(confirmBtn.dataset.idx, 10);
       const row = foodSearchResultsCache[idx];
       const amountInput = confirmBtn.closest('.food-result-amount').querySelector('.food-amount-input');
-      const amount = parseFloat(amountInput.value) || row.canonical_amount || 100;
+      const amount = parseFloat(amountInput.value);
+      if(!Number.isFinite(amount) || amount <= 0){ amountInput.focus(); return; }
       confirmBtn.disabled = true;
       confirmBtn.textContent = 'Saving…';
       try{
         let foodId = row.id;
-        if(row._origin === 'off'){
+        if(row._origin === 'off' || row._origin === 'catalog'){
           const res = await fetch('api/foods.php?action=save_external', {
             method: 'POST', credentials: 'same-origin', headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({source: 'off', external_id: row.external_id, name: row.name, brand: row.brand, canonical_unit: row.canonical_unit, nutrients: row.nutrients})
+            body: JSON.stringify({source: row._origin === 'catalog' ? 'catalog' : 'off', external_id: row.external_id, name: row.name, brand: row.brand, canonical_unit: row.canonical_unit, nutrients: row.nutrients})
           });
           const data = await res.json();
+          if(!res.ok || data.error || !data.id) throw new Error(data.error || 'Food could not be saved');
           foodId = data.id;
         }
-        await fetch('api/meals.php?action=log', {
+        const logResponse = await fetch('api/meals.php?action=log', {
           method: 'POST', credentials: 'same-origin', headers: {'Content-Type': 'application/json'},
           body: JSON.stringify({date: nutriSelectedDate || dateStrForOffset(0), meal_type: document.getElementById('mealLogType').value, component: {food_id: foodId, amount, unit: row.canonical_unit || 'g'}})
         });
+        const logged = await logResponse.json();
+        if(!logResponse.ok || logged.error) throw new Error(logged.error || 'Meal could not be logged');
+        ++foodSearchGeneration;
         document.getElementById('foodSearchInput').value = '';
         foodSearchResultsCache = [];
         renderFoodSearchResults();
