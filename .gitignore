@@ -10,3 +10,10 @@ Thumbs.db
 
 # Uploaded reference docs land in the repo root; the real copy lives under docs/.
 /*.docx
+
+# Early food-DB research staging (100-food starter + raw scrape evidence).
+# Superseded by the curated 647-food data/food-db/ tree -- keep locally for
+# reference but never commit; the 17MB HTML snapshot and 5.8MB source zip in
+# here especially don't belong in git history.
+/Food_DB/
+__pycache__/

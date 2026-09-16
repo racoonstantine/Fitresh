@@ -1,0 +1,49 @@
+{
+  "expansion_id": "2026-09-16-expand-500",
+  "added_foods": 500,
+  "total_foods": 647,
+  "source": "DOST-FNRI PhilFCT",
+  "source_snapshot_sha256": "aa8ee0b6e7a248ed37dfc86528d7924d9994eb6690ec7a6b1c8f2d677bda8333",
+  "original_records_preserved": 147,
+  "household_portions_added": 0,
+  "edible_reference_portions_added": 500,
+  "estimates_added": 0,
+  "batches": [
+    {
+      "batch_id": "01-staples",
+      "added": 100,
+      "full": 95,
+      "partial": 5,
+      "checks": "PASS: original rows preserved; distinct IDs/descriptions; all 4 core macros present; 8 fields reconciled to primary HTML."
+    },
+    {
+      "batch_id": "02-vegetables",
+      "added": 100,
+      "full": 85,
+      "partial": 15,
+      "checks": "PASS: original rows preserved; distinct IDs/descriptions; all 4 core macros present; 8 fields reconciled to primary HTML."
+    },
+    {
+      "batch_id": "03-meat-eggs",
+      "added": 100,
+      "full": 74,
+      "partial": 26,
+      "checks": "PASS: original rows preserved; distinct IDs/descriptions; all 4 core macros present; 8 fields reconciled to primary HTML."
+    },
+    {
+      "batch_id": "04-seafood",
+      "added": 100,
+      "full": 54,
+      "partial": 46,
+      "checks": "PASS: original rows preserved; distinct IDs/descriptions; all 4 core macros present; 8 fields reconciled to primary HTML."
+    },
+    {
+      "batch_id": "05-fruit-dairy-prepared",
+      "added": 100,
+      "full": 78,
+      "partial": 22,
+      "checks": "PASS: original rows preserved; distinct IDs/descriptions; all 4 core macros present; 8 fields reconciled to primary HTML."
+    }
+  ],
+  "excluded_candidates": 12
+}

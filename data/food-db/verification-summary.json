@@ -1,0 +1,15 @@
+{
+  "date": "2026-09-16",
+  "foods": 100,
+  "status_counts": {
+    "VERIFIED_FNRI": 67,
+    "PARTIAL_VERIFIED_FNRI": 14,
+    "NEEDS_FOOD_IDENTITY_VERIFICATION": 19
+  },
+  "nutrient_blanks_filled": 559,
+  "portions": 81,
+  "aliases": 312,
+  "existing_nutrient_values_changed": 0,
+  "baseline_sha256": "35714c104956646b1a99ddc5cbfd138f581a15e9f2d792106f3ec91e2123f8ed",
+  "official_snapshot_sha256": "aa8ee0b6e7a248ed37dfc86528d7924d9994eb6690ec7a6b1c8f2d677bda8333"
+}

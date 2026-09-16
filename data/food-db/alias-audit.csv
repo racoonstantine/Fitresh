@@ -1,0 +1,648 @@
+food_id,name,alias_count,official_common_names,common_name_status,review_note
+FC000001,"Rice, well-milled, boiled",5,"Bigas, maputi, sinaing",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000002,"Rice, well-milled, fried",4,"Bigas, maputi, sinangag",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000003,"Rice, undermilled",3,Brown rice/Pinawa,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000004,"Rice, glutinous",4,"Bigas, malagkit",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000005,"Corn on cob, yellow, boiled",3,"Mais sa busal, dilaw, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000006,"Bread, pan de sal",3,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000007,"Bread, pan de monay",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000008,"Bread, sweet roll",2,Ensaymada,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000009,"Bread, pan de coco",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000010,"Bread, white loaf",6,American loaf/Pan Amerikano,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000011,"Bread, toasted",4,"Toast/Tinapay, tostado",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000012,"Bread, Spanish bread",3,Spanish bread,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000013,"Cake, mamon",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000014,"Rice noodles, cooked",5,"Bihon, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000015,"Egg noodles, cooked",3,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000016,"Egg, chicken, whole, boiled",4,"Itlog, manok, buo, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000017,"Egg, chicken, whole",4,"Itlog, manok, buo",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000018,"Egg, duck, whole",3,"Itlog, pato, buo",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000019,"Soybean cheese, hard curd",3,Tokwa,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000020,"Soybean cheese, soft curd",3,Tofu,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000021,"Mung bean seed, green, dried, boiled",6,"Munggo buto, berde, tuyo, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000022,"Peanut, roasted",5,"Mani, walang balok, binusa",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000023,Pili nut,3,Pili bunga,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000024,Chicken breast,2,Manok pitso,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000025,Chicken thigh,2,Manok hita,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000026,Chicken leg/drumstick,3,Manok binti,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000027,Chicken wing,2,Manok pakpak,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000028,Chicken liver,3,Manok atay,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000029,"Chicken, whole meat",3,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000030,Beef lean meat,3,Baka laman,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000031,"Beef lean meat, boiled",4,"Baka laman, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000032,"Beef lean meat, fried",4,"Baka laman, prito",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000033,Beef liver,3,Baka atay,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000034,Ground beef,2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000035,Pork belly,3,Baboy liempo,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000036,"Pork belly, broiled",3,"Baboy liempo, inihaw",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000037,"Pork belly, fried",3,"Baboy liempo, prito",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000038,Pork Boston butt / shoulder,4,Baboy paypay,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000039,Pork lean meat,3,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000040,Ground pork,2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000041,Pork liver,3,Baboy atay,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000042,Pork skin,3,Baboy balat,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000043,Longganisa,3,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000044,Tocino,4,"Tocino, baboy",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000045,Beef tapa,4,"Tapa, baka",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000046,Milkfish,2,Bangus,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000047,"Milkfish, broiled",3,"Bangus, inihaw",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000048,"Milkfish, dried",3,"Bangus, daing",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000049,Tilapia,1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000050,Round scad,3,Galunggong,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000051,Indian mackerel,3,Alumahan,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000052,Skipjack tuna,2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000053,Yellowfin tuna,4,Tambakol,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000054,Sardines,2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000055,"Anchovy, dried",5,"Dilis, tuyo",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000056,"Herring, dried",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000057,Shrimp,2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000058,Squid,2,Pusit,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000059,Crab,3,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000060,Mussels,3,Tahong,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000061,Tomato,2,Kamatis,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000062,Eggplant,3,Talong/Aubergine,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000063,Bitter melon/gourd fruit,3,Ampalaya bunga,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000064,Squash fruit,3,Kalabasa bunga,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000065,Chinese cabbage,3,Pechay Baguio/Napa cabbage,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000066,Bok choy / pechay,2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000067,Carrot,2,Karot,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000068,"Onion, Bombay bulb",4,"Sibuyas, Bombay ulo",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000069,"Onion, garden shallot bulb",4,"Sibuyas, Tagalog ulo",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000070,Garlic bulb,3,Bawang ulo,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000071,String beans,2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000072,Yardlong bean,2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000073,Water spinach,2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000074,Moringa leaves,7,Malunggay dahon/Drumstick tree lvs,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000075,Chayote,5,Sayote bunga/Vegetable pear fruit,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000076,"Banana, lakatan",5,"Saging, lakatan",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000077,"Banana, latundan",4,"Saging, latundan",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000078,"Banana, saba",4,"Saging, saba",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000079,"Banana, saba, boiled",3,"Saging, saba, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000080,"Mango, ripe",3,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000081,"Papaya, ripe",3,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000082,Pineapple,2,Pinya,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000083,Watermelon,3,Pakwan,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000084,Guava,2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000085,Calamansi,4,Kalamansi/Calamondin,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000086,Pomelo,3,Suha/Lukban,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000087,Avocado,2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000088,"Sweet potato, white, boiled",4,"Kamote, puti, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000089,"Sweet potato, yellow, boiled",4,"Kamote, dilaw, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000090,Cassava,3,Kamoteng kahoy/Balinghoy,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000091,Taro corm,3,Gabi,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000092,Purple yam,4,Ubi/Ube,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000093,Fresh cow's milk,5,"Gatas, baka",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000094,Evaporated milk,4,"Gatas, evaporada",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000095,Powdered milk,2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000096,Butter,2,Mantekilya,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000097,Coconut milk,3,"Niyog, gata",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000098,Coconut oil,4,"Langis, niyog",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000099,Soy sauce,2,Toyo,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000100,Fish sauce,2,Patis,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000101,"Chicken, whole",5,Manok buo,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000102,"Pork Boston butt, lean",5,"Baboy paypay, laman",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000103,"Sausage, chicken",5,"Longanisa, manok",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000104,"Sausage, pork",5,"Longanisa, baboy",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000105,"Sausage, pork & beef",5,"Longanisa, baboy at baka",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000106,"Sardine, Indian",6,"Tamban/Sardine, Indian oil",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000107,"Sardines, in spiced oil, cnd",5,"Sardinas, Spanish style, de lata",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000108,"Sardines, in tomato sce, cnd",5,"Sardinas, sa tomato sce, de lata",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000109,"Shrimp, banana prawn",4,"Hipon, puti",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000110,"Shrimp, giant tiger prawn",4,Sugpo,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000111,"Shrimp, greasy back",4,"Hipon, suwahe",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000112,"Crab, blue swimming, w/o fat",5,Alimasag laman,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000113,"Crab, mud/mangrove, w/o fat",5,Alimango laman,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000114,Pechay lvs,5,Petsay dahon,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000115,Pechay petioles,4,Petsay tangkay,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000116,"String/Yard long bean pod, green",5,"Sitaw bunga, berde",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000117,"String/Yard long bean pod, red",5,"Sitaw bunga, pula",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000118,"String/Yard long bean pod, white",5,"Sitaw bunga, puti",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000119,Swamp cabbage lvs,9,Kangkong dahon/Water spinach lvs,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000120,"Mango, Manila super, ripe",5,"Mangga, kalabaw, hinog",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000121,"Mango, piko, ripe",5,"Mangga, piko, hinog",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000122,"Mango, supsupin, ripe",5,"Mangga, supsupin, hinog",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000123,"Guava, red",4,"Bayabas, pula",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000124,"Guava, white",4,"Bayabas, puti",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000125,"Avocado, green",4,"Abokado, berde",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000126,"Avocado, red",4,"Abokado, murado",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000127,"Milk, pwdr, filled, inst",6,"Gatas, pulbos, filled, inst",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000128,"Milk, pwdr, full cream",5,"Gatas, pulbos, full cream",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000129,"Milk, pwdr, non-fat, inst",6,"Gatas, pulbos, non-fat, inst",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000130,"Milk, pwdr, skim",5,"Gatas, pulbos, skim",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000131,"Noodles, wheat, canton, dry",4,Canton,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000132,"Noodles, egg, cooked, enriched, with added salt",4,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000133,"Noodles, egg, cooked, unenriched, with added salt",4,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000134,"Beef, ground, 90% lean meat / 10% fat, raw",3,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000135,"Beef, ground, 80% lean meat / 20% fat, raw",3,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000136,"Beef, ground, 90% lean meat / 10% fat, crumbles, cooked, pan-browned",3,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000137,"Beef, ground, 80% lean meat / 20% fat, crumbles, cooked, pan-browned",3,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000138,"Pork, fresh, ground, raw",3,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000139,"Pork, fresh, ground, cooked",3,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000140,"Fish, tuna, fresh, skipjack, raw",3,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000141,"Fish, tuna, skipjack, fresh, cooked, dry heat",3,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000142,"Cabbage, chinese (pak-choi), raw",3,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000143,"Cabbage, chinese (pak-choi), cooked, boiled, drained, without salt",3,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000144,"Nuts, coconut milk, raw (liquid expressed from grated meat and water)",4,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000145,"Nuts, coconut milk, canned (liquid expressed from grated meat and water)",4,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000146,"Sauce, fish, ready-to-serve",3,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000147,"Canton noodles, cooked in water, 2.5x dry-weight yield (estimate)",4,Canton,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000148,"Noodles, mung bean starch, boiled",2,"Sotanghon, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000149,"Noodles, wheat, thin, boiled",4,"Misua/Miswa, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000150,"Noodles, wheat, miki, dry, boiled",2,"Miki, tuyo, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000151,"Oats, quick-cooking, ckd",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000152,"Pasta, spaghetti, boiled",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000153,Hopyang baboy,1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000154,Hopyang Hapon,1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000155,Hopyang munggo,2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000156,"Noodles, mung bean starch",2,Sotanghon,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000157,"Oatmeal, instant",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000158,"Oats, quick-cooking",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000159,"Pasta, macaroni",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000160,"Pasta, spaghetti",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000161,"Rice cake (glutinous), bibingka",2,"Bibingka, malagkit",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000162,"Rice cake (glutinous), biko",4,Biko/Sinukmani,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000163,"Rice cake, bibingka",2,Bibingkang galapong,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000164,"Rice cake, puto bumbong, purple",2,Puto bumbong,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000165,"Rice cake, puto, white",2,Puto puti,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000166,"Rice cake, cuchinta",4,Cuchinta/Kutsinta,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000167,"Rice prep (glutinous), palitaw",2,Palitaw,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000168,"Rice prep (glutinous), sapin-sapin",2,Sapin-sapin,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000169,"Rice prep (glutinous), suman sa ibos",2,Suman sa ibos,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000170,"Rice prep (glutinous), suman, lye-treated",2,Suman sa lihiya,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000171,"Spring roll wrapper, plain",4,Balat ng lumpia/Lumpia wrapper,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000172,"Wheat flour, all-purpose",2,"Arina, trigo, all-purpose",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000173,"Bread, brown",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000174,"Bread, cheese roll",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000175,"Bread, pan de leche",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000176,"Cake, banana",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000177,"Cake, kababayan",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000178,"Cookies, otap",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000179,"Rice, glutinous, parboiled, flattened",2,Pinipig,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000180,"Rice, undermilled, glutinous, purple, boiled",2,"Bigas, malagkit, pirurutong, sinaing",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000181,"Rice-corn mixture (1:1), boiled",2,"Bigas-mais pinaghalo (1:1), sinaing",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000182,"Rice water, ckd, thin",3,"Am, malabnaw",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000183,"Corn grits, white",2,"Mais, durog, puti",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000184,"Corn grits, yellow",2,"Mais, durog, dilaw",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000185,"Corn on cob, white",2,"Mais sa busal, puti",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000186,"Corn on cob, yellow",2,"Mais sa busal, dilaw",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000187,"Cornmeal, white",2,"Mais, giniling, puti",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000188,"Cornmeal, yellow",2,"Mais, giniling, dilaw",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000189,Rice bran,2,Darak,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000190,"Rice, milled, glutinous, milled w/ water",2,"Bigas, malagkit, galapong",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000191,"Rice, undermilled, glutinous, purple",2,"Bigas, malagkit, pirurutong",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000192,"Rice, undermilled, red",2,"Bigas, mapula",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000193,"Rice, well-milled",2,"Bigas, maputi",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000194,Rice-corn mixture (1:1),2,Bigas-mais pinaghalo (1:1),SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000195,Bicho-bicho,2,Bitsu-bitso,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000196,Karyoka,2,Carioca,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000197,"Noodles, rice, fideos",2,Fideos,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000198,"Cassava, boiled",4,"Kamoteng kahoy/Balinghoy, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000199,"Potato, boiled",2,"Patatas, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000200,"Sweet potato, purple, boiled",2,"Kamote, murado, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000201,"Taro, boiled",2,"Gabi, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000202,"Yam, purple, boiled",4,"Ubi/Ube, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000203,"Potato, French-fried",2,French fries,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000204,"Tapioca starch ball, boiled",4,"Sago, nilaga/Tapioca pearl, boiled",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000205,"Sweet potato, w/ sugar, fried",2,Kamote cue,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000206,"Cassava, yellow",4,"Kamoteng kahoy/Balinghoy, dilaw",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000207,Potato,2,Patatas,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000208,"Sweet potato, purple",2,"Kamote, murado",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000209,"Sweet potato, white",2,"Kamote, puti",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000210,"Sweet potato, yellow",2,"Kamote, dilaw",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000211,"Cassava cake, bibingka",2,"Kamoteng kahoy, bibingka",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000212,Cassava flour,2,"Kamoteng kahoy, arina",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000213,Cassava fritter,2,"Kamoteng kahoy, maruya",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000214,Cassava pudding,2,"Kamoteng kahoy, budin",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000215,"Cassava, mashed, w/ sugar & marg",2,"Kamoteng kahoy, linupak",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000216,"Cassava, suman",2,"Kamoteng kahoy, suman",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000217,"Potato chips, cheese flvr",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000218,Tapioca starch ball,4,Sago/Tapioca pearl,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000219,"Yam, purple, pudding",2,"Ubi, maja",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000220,"Yam, purple, pudding,w/ grtd coconut topping",2,"Ubi, maja, may niyog",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000221,"Sweet potato, orange",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000222,"East Indian arrowroot, boiled",2,"Yabyaban, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000223,"Cashew nut, roasted",2,"Kasuy, binusa",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000224,"Chickpea, dried, boiled",4,"Garbansos/Garbanzo, tuyo, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000225,"Kidney bean seed, red, dried, boiled",2,"Abitsuwelas buto, pula, tuyo, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000226,"Peanut w/ shell, boiled",2,"Mani, may balat, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000227,"Peanut w/ skin, roasted",2,"Mani, may balok, binusa",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000228,"Soybean seed, yellow, dried, boiled",2,"Utaw buto, dilaw, tuyo, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000229,"Chickpea, dried",4,"Garbansos/Garbanzo, tuyo",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000230,"Coconut meat, mature",2,"Niyog, magulang",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000231,"Coconut meat, very young",2,"Buko, malauhog",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000232,"Coconut meat, young",2,"Buko, malakanin",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000233,"Kidney bean seed, red, dried",2,"Abitsuwelas buto, pula, tuyo",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000234,"Mung bean seed, green, dried",3,"Munggo buto, berde, tuyo",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000235,"Sesame seed, dried",2,"Linga, tuyo",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000236,"Soybean seed, dried",2,"Utaw buto, tuyo",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000237,"Chickpea, cnd",3,"Garbansos, de lata",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000238,"Green pea, in brine, cnd",3,"Gisantes, de lata",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000239,Peanut butter,1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000240,"Soybean cheese, salted",2,Tahure,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000241,"Soybean seed, black, fermented",2,Tausi,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000242,Soybean pudding/ Geerlig's cheese,4,Taho/Tahu,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000243,Soybean pudding/Geerlig's cheese w/ syrup & tapioca starch ball,4,"Taho/Tahu, may arnibal at sago",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000244,"Soybean paste, miso",2,Miso,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000245,"Soybean seed, yellow, cnd, drnd",3,"Utaw, dilaw, de lata",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000246,"Watermelon seed, dried, salted",2,Butong pakwan,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000247,"Kidney bean seed, black, dried, boiled",2,"Abitsuwelas buto, itim, tuyo, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000248,"Bamboo shoot, boiled",2,"Labong, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000249,"Banana heart, butuan, boiled",2,"Puso, saging, butuan, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000250,"Bitter melon/gourd fruit, boiled",2,"Ampalaya bunga, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000251,"Bottle gourd fruit, boiled",2,"Upo bunga, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000252,"Cabbage, green, boiled",2,"Repolyo, berde, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000253,"Cauliflower, boiled",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000254,"Chayote fruit, boiled",4,"Sayote bunga, nilaga/Vegetable pear fruit, boiled",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000255,"Chinese cabbage, boiled",4,"Pechay Baguio, nilaga/Napa cabbage, boiled",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000256,"Eggplant, boiled",4,"Talong, nilaga/Aubergine, boiled",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000257,"Horseradish tree lvs, boiled",7,"Malunggay dahon, nilaga/ Drumstick tree lvs, boiled",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000258,"Hyacinth bean pod, boiled",2,"Bataw bunga, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000259,"Jute lvs, boiled",5,"Saluyot/Pasaw dahon, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000260,"Mung bean sprout, boiled",2,"Toge, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000261,"Mustard lvs, boiled",3,"Mustasa dahon, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000262,"Okra, boiled",2,"Ladyfinger, boiled",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000263,"Pako fern lvs, boiled",4,"Fiddlehead fern lvs, boiled",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000264,"Pechay lvs, boiled",3,"Petsay dahon, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000265,"Pechay petioles, boiled",2,"Petsay tangkay, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000266,"Radish, boiled",4,"Labanos/Rabanos, lamang ugat, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000267,"Snap bean pod, green, boiled",4,"Abitsuwelas/Baguio beans bunga, berde, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000268,"Snow/Sugar pea pod, boiled",2,"Sitsaro, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000269,"Sponge gourd fruit, boiled",2,"Patola bunga, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000270,"Squash fruit, boiled",2,"Kalabasa bunga, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000271,"Squash lvs, boiled",3,"Kalabasa dahon, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000272,"String/Yard long bean pod, green, boiled",2,"Sitaw bunga, berde, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000273,"String/Yard long bean pod, red, boiled",2,"Sitaw bunga, pula, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000274,"String/Yard long bean pod, white, boiled",2,"Sitaw bunga, puti, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000275,"Swamp cabbage lvs, boiled",7,"Kangkong dahon, nilaga/Water spinach lvs, boiled",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000276,"Sweet potato lvs, boiled",3,"Kamote dahon, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000277,"Sweet potato lvs, purple, boiled",3,"Kamote dahon, murado, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000278,"Taro lvs, boiled",3,"Gabi dahon, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000279,"Taro petioles, boiled",2,"Gabi tangkay, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000280,"Tomato, boiled",2,"Kamatis, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000281,"Winged bean pod, boiled",4,"Sigarilyas/Kalamismis bunga, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000282,Bamboo shoot,2,Labong,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000283,"Banana heart, butuan",2,"Puso, saging, butuan",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000284,Bottle gourd fruit,2,Upo bunga,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000285,"Cabbage, green",2,"Repolyo, berde",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000286,Cauliflower,1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000287,Cucumber,2,Pipino,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000288,Hyacinth bean pod,2,Bataw bunga,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000289,"Jackfruit fruit, unripe",2,"Langka bunga, hilaw",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000290,Jute lvs,5,Saluyot/Pasaw dahon,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000291,Lettuce lvs & petioles,3,Letsugas dahon at tangkay,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000292,Mung bean sprout,2,Toge,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000293,"Mushroom, fresh",2,"Kabuti, sariwa",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000294,Mustard lvs,3,Mustasa dahon,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000295,Okra,2,Ladyfinger,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000296,"Onion, spring",2,"Sibuyas, mura",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000297,Pako fern lvs,8,Fiddlehead fern lvs/Vegetable fern lvs,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000298,"Papaya fruit, unripe",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000299,"Pepper, chili fruit",2,"Sili, labuyo, bunga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000300,"Pepper, sweet/bell long, green",4,"Sili, sweet/bell, mahaba, berde",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000301,"Pepper, sweet/bell, long, red",4,"Sili, sweet/bell, mahaba, pula",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000302,Radish,4,"Labanos/Rabanos, lamang ugat",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000303,"Snap bean pod, green",4,"Abitsuwelas/Baguio beans bunga, berde",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000304,Snow/Sugar pea pod,2,Sitsaro,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000305,Sponge gourd fruit,2,Patola bunga,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000306,Squash flower,2,Kalabasa bulaklak,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000307,Squash lvs,3,Kalabasa dahon,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000308,Sweet potato lvs,3,Kamote dahon,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000309,"Sweet potato lvs, purple",3,"Kamote dahon, murado",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000310,Taro lvs,3,Gabi dahon,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000311,Taro petioles,2,Gabi tangkay,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000312,Yam bean,4,Singkamas lamang-ugat/Jicama,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000313,Winged bean pod,4,"Sigarilyas/Kalamismis, bunga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000314,"Mushroom, cnd",3,"Kabuti, de lata",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000315,"Taro lvs, dried",3,"Gabi dahon, tuyo",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000316,"Basil, sweet, fresh",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000317,Ginger,2,Luya,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000318,Turmeric,2,Luyang dilaw,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000319,"Seaweed, lato",2,Lato,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000320,"Pickles, papaya",2,"Atsara, papaya",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000321,"Bitter melon/gourd lvs, boiled",3,"Ampalaya dahon, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000322,"Bottle gourd lvs, boiled",3,"Upo dahon, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000323,"Cabbage, red, boiled",2,"Repolyo, pula, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000324,"Carrot, boiled",2,"Karot, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000325,"Celery, Chinese, lvs & petioles, boiled",5,"Kinchay dahon at tangkay, nilaga/Leaf celery, boiled",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000326,"Chayote lvs, boiled",7,"Sayote dahon, nilaga/Vegetable pear lvs, boiled",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000327,"Garlic lvs, boiled",3,"Bawang dahon, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000328,"Horseradish tree lvs, dwarf, boiled",3,"Malunggay dahon, unano, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000329,"Horseradish tree lvs, Japanese, boiled",3,"Malunggay dahon, Hapon, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000330,"Horseradish tree pod, boiled",2,"Malunggay bunga, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000331,"Jackfruit seed, boiled",2,"Langka buto, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000332,"Chinese leek lvs, boiled",7,"Kutsay dahon, nilaga/Chinese chives lvs, boiled",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000333,"Onion, Bombay bulb, boiled",2,"Sibuyas, Bombay ulo, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000334,"Onion, garden shallot bulb, boiled",2,"Sibuyas, Tagalog ulo, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000335,"Onion, garden shallot lvs, boiled",3,"Sibuyas, Tagalog, dahon, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000336,"Onion, spring, boiled",2,"Sibuyas, mura, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000337,"Pepper, chili lvs, boiled",3,"Sili, labuyo, dahon, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000338,"Pepper, sweet/bell, long, green, boiled",4,"Sili, sweet/bell, mahaba, berde, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000339,"Pepper, sweet/bell, round, green, boiled",4,"Sili, sweet/bell, bilog, berde, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000340,"Snap bean pod, white, boiled",4,"Abitsuwelas/Baguio beans bunga, puti, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000341,"Sponge gourd lvs, boiled",3,"Patola dahon, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000342,"Squash flower, boiled",2,"Kalabasa bulaklak, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000343,"String/Yard long bean lvs, boiled",3,"Sitaw talbos, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000344,"String/Yard long bean seed, green, fresh, boiled",2,"Sitaw buto, berde, sariwa, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000345,Bitter melon/gourd lvs,3,Ampalaya dahon,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000346,Bottle gourd lvs,3,Upo dahon,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000347,"Cabbage, red",2,"Repolyo, pula",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000348,"Chicken, whole, seasoned, roasted",2,Lechon manok,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000349,"Chicken, whole, seasoned, roasted, skin and visible fat removed",2,"Lechon manok, walang balat",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000350,"Pork belly, seasoned, roasted",2,"Baboy liempo, litson",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000351,"Pork belly, seasoned, roasted, skin and visible fat removed",2,"Baboy liempo, litson, walang balat at taba",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000352,Bacon,1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000353,Chicken nugget,1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000354,"Corned beef, cnd",3,Karne norte,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000355,Embotido,1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000356,Ham,2,Hamon,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000357,Hamburger patty,1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000358,"Luncheon meat, cnd",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000359,Meat loaf,1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000360,"Pork crackling, skin",4,"Chicharon/Sitsaron baboy, balat",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000361,"Pork, sweet cured, Pampanga",2,"Tocino, baboy, Pampanga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000362,"Sausage, chorizo",2,"Longanisa, chorizo",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000363,"Sausage, chorizo, Bilbao style",2,"Longanisa, chorizo de Bilbao",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000364,"Sausage, hotdog",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000365,"Sausage, hotdog, smoked",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000366,"Sausage, hotdog, w/ cheese",2,Cheese dog,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000367,"Sausage, pork, Chinese",4,"Longanisa, baboy, Chinese/Chorizo de Macau",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000368,"Sausage, Vienna",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000369,"Pork, bbq",2,Barbekyung baboy,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000370,"Beef chuck, lean, boiled",2,"Baka paypay, laman, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000371,"Beef lean meat, broiled",2,"Baka laman, inihaw",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000372,"Beef liver, boiled",2,"Baka atay, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000373,"Beef round, boiled",2,"Baka pierna corta at pierna larga, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000374,"Beef round, broiled",2,"Baka pierna corta at pierna larga, inihaw",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000375,"Beef round, fried",2,"Baka pierna corta at pierna larga, prito",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000376,"Beef shank, boiled",2,"Baka kenchi, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000377,"Beef sirloin, boiled",2,"Baka tagiliran, hulihan, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000378,"Beef sirloin, broiled",2,"Baka tagiliran, hulihan, inihaw",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000379,"Beef sirloin, fried",2,"Baka tagiliran, hulihan, prito",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000380,"Beef tongue, boiled",2,"Baka dila, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000381,"Beef tripe, boiled",2,"Baka goto, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000382,"Chicken, white meat, boiled",2,"Manok laman, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000383,"Chicken, white meat, fried",2,"Manok laman, prito",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000384,"Pork belly, boiled",2,"Baboy liempo, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000385,"Pork Boston butt, boiled",2,"Baboy paypay, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000386,"Pork Boston butt, broiled",2,"Baboy paypay, inihaw",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000387,"Pork Boston butt, fried",2,"Baboy paypay, prito",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000388,"Pork Boston butt, lean, boiled",2,"Baboy paypay, laman, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000389,"Pork Boston butt, lean, broiled",2,"Baboy paypay, laman, inihaw",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000390,"Pork Boston butt, lean, fried",2,"Baboy paypay, laman, prito",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000391,"Pork kidney, boiled",2,"Baboy bato, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000392,"Pork liver, boiled",2,"Baboy atay, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000393,"Pork liver, broiled",2,"Baboy atay, inihaw",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000394,"Pork liver, fried",2,"Baboy atay, prito",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000395,"Pork picnic, boiled",2,"Baboy kasim, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000396,"Pork back, seasoned, roasted, skin and visible fat removed",2,"Baboy likod, laman, litson",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000397,Beef brisket,2,Baka punta y pecho,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000398,Beef chuck,2,Baka paypay,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000399,Beef club steak,2,"Baka tagiliran, unahan",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000400,Beef flank,2,Baka camto,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000401,Beef heart,2,Baka puso,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000402,Beef kidney,2,Baka bato,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000403,Beef plate,2,Baka tadyang,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000404,Beef porterhouse steak,2,"Baka tagiliran, gitna",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000405,Beef rib roast,2,Baka kadera,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000406,Beef round,2,Baka pierna corta at pierna larga,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000407,Beef rump,2,Baka tapadera,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000408,Beef shank,2,Baka kenchi,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000409,Beef short rib,2,Baka tadyang,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000410,Beef sirloin,2,"Baka tagiliran, hulihan",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000411,Beef stomach,2,Baka sikmura,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000412,Beef tail,2,Baka buntot,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000413,Beef tenderloin,2,Baka solomilyo,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000414,Beef tongue,2,Baka dila,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000415,Beef tripe,2,Baka goto,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000416,Chicken back,2,Manok likod,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000417,Chicken feet,2,Manok paa,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000418,"Chicken feet, bbq",4,"Manok paa, bbq/""adidas""",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000419,Chicken gizzard,2,Manok balun-balunan,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000420,Chicken heart,2,Manok puso,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000421,Chicken neck,2,Manok leeg,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000422,Chicken thigh & leg,2,Manok hita at binti,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000423,Chicken white meat,2,Manok laman,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000424,Pork back fat,2,Baboy taba sa likod,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000425,Pork center loin,2,"Baboy tagiliran, laman",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000426,Pork chop,2,Baboy kostillas,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000427,Pork ear,2,Baboy tenga,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000428,"Pork ear, bbq",2,"Baboy tenga, bbq/",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000429,Pork ham,4,Baboy pigi/pigue,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000430,Pork heart,2,Baboy puso,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000431,Pork kidney,2,Baboy bato,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000432,Pork leg,2,Baboy pata,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000433,Pork picnic,2,Baboy kasim,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000434,Pork spare rib,2,Baboy tadyang,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000435,Pork stomach,2,Baboy sikmura,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000436,Pork tail,2,Baboy buntot,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000437,Pork tenderloin,2,Baboy lomo,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000438,"Egg, quail, boiled",2,"Itlog, pugo, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000439,"Egg, duck, fertilized, boiled",2,"Balut, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000440,"Egg, duck, infertile, boiled",2,"Penoy, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000441,"Egg, chicken, white",2,"Itlog, manok, puti",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000442,"Egg, chicken, yolk",2,"Itlog, manok, pula",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000443,"Egg, quail",2,"Itlog, pugo",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000444,"Egg, duck, century",4,Century egg/Pidan,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000445,"Egg, duck, whole, salted",2,"Itlog, pato, maalat",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000446,"Egg, duck, white",2,"Itlog, pato, puti",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000447,"Egg, duck, yolk",2,"Itlog, pato, pula",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000448,"Clam, halaan, boiled",2,"Halaan, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000449,"Crab, blue swimming, w/o fat, boiled",2,"Alimasag laman, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000450,"Crab, mud/mangrove, w/o fat, boiled",2,"Alimango laman, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000451,"Mackerel, short-bodied, fried",2,"Hasa-hasa, prito",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000452,"Milkfish, fried",2,"Bangus, prito",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000453,"Mussel, green, boiled",2,"Tahong, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000454,"Shrimp, banana prawn, boiled",2,"Hipon, puti, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000455,"Shrimp, greasy back, boiled",2,"Hipon, suwahe, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000456,"Squid, boiled",2,"Pusit, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000457,"Fish ball, fried",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000458,"Catfish, freshwater",2,Hito,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000459,"Catfish, saltwater",2,Kanduli,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000460,"Clam, halaan",2,Halaan,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000461,"Grouper, whitespotted",2,Lapu-lapu,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000462,"Mackerel, short-bodied",2,Hasa-hasa,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000463,"Mackerel, Spanish",2,Tangigi,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000464,Oyster,2,Talaba,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000465,Red snapper/Malabar,2,Maya-maya,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000466,"Sardine, bombon",4,Tawilis/Freshwater sardinella,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000467,"Scad, big-eye",2,Matang baka,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000468,Sea bass,2,Apahap,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000469,"Shrimp, freshwater",2,Ulang,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000470,"Tuna, frigate",2,Tulingan,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000471,Fish ball,1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000472,"Fish preparation, quekiam",2,Kikyam,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000473,"Milkfish, smoked",2,"Bangus, tinapa",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000474,"Scad, round, dried",2,"Galunggong, daing",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000475,"Scad, round, smoked",2,"Galunggong, tinapa",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000476,"Squid, dried",2,"Pusit, tuyo",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000477,"Tilapia, dried",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000478,"Tuna flakes, in brine, cnd",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000479,"Tuna flakes, in veg oil, cnd",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000480,"Mudfish/Murrel, striated, boiled",2,"Dalag, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000481,"Mudfish/Murrel, striated",2,Dalag,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000482,Octopus,2,Pugita,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000483,"Pomfret, black",2,Pampano,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000484,Swordfish,2,Malasugi,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000485,"Clam, freshwater, tulya, boiled",2,"Tulya, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000486,"Clam, imbao, boiled",2,"Imbao, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000487,"Anchovy, Indian (adult)",2,Tuakang,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000488,"Anchovy, long-jawed, whole",2,"Dilis, buo",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000489,"Clam, freshwater, tulya",2,Tulya,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000490,"Clam, imbao",2,Imbao,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000491,"Crab, blue swimming, fat",2,Alimasag alige,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000492,"Crab, mud/mangrove, fat",2,Alimango alige,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000493,"Crab, shore",2,Talangka,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000494,"Oyster, window pane, meat",2,"Kapis, laman",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000495,"Sardine, fimbriated",2,Tabagak,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000496,"Sardine, fimbriated, fry",2,Silinyasi,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000497,"Shrimp, freshwater (small)",2,"Hipon, tagunton",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000498,"Shrimp, sergestid",2,Alamang,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000499,"Anchovy, long-jawed, dried, ground",2,"Dilis, giniling",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000500,"Catfish, freshwater, dried",2,"Hito, daing",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000501,"Catfish, saltwater, dried",2,"Kanduli, daing",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000502,"Crab, mud/mangrove, meat, cnd",3,"Alimango laman, de lata",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000503,"Grouper, whitespotted, dried",2,"Lapu-lapu, daing",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000504,"Mackerel scad, in tomato sce, cnd",3,"Bakutut, sa tomato sce, de lata",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000505,"Mackerel, short-bodied, dried",2,"Hasa-hasa, tuyo",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000506,"Mackerel, short-bodied, smoked",2,"Hasa-hasa, tinapa",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000507,"Mackerel, Spanish, dried",2,"Tangigi, daing",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000508,"Mackerel, Indian, dried",2,"Alumahan, daing",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000509,"Mackerel, Indian, in tomato sce",2,"Alumahan, sa tomato sce",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000510,"Milkfish, in natural oil, cnd",3,"Bangus, salmon style, de lata",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000511,"Milkfish, in spiced oil, cnd",3,"Bangus, Spanish style, de lata",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000512,"Oyster, dried",2,"Talaba, tuyo",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000513,"Red snapper/Malabar, dried",2,"Maya-maya, daing",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000514,"Sardine, bombon, dried",2,"Tawilis, tuyo",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000515,"Sardine, bombon, smoked",2,"Tawilis, tinapa",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000516,"Sardine, fimbriated, smoked",2,"Tabagak, tinapa",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000517,"Sardine, Indian, smoked",2,"Tamban, tinapa",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000518,"Sardines, smoked, cnd",3,"Sardinas, tinapa, de lata",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000519,"Scad, big-eye, dried",2,"Matang baka, daing",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000520,"Scad, big-eye, smoked",2,"Matang baka, tinapa",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000521,"Sea bass, dried",2,"Apahap, daing",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000522,"Shrimp, freshwater (small), dried",2,"Tagunton, tuyo",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000523,"Shrimp, sergestid, dried",2,"Alamang, tuyo",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000524,"Shrimp, small marine, dried",2,Hibe,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000525,"Tuna adobo, cnd",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000526,"Tuna fillet, in soya oil, cnd",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000527,"Tuna fillet, in veg oil, cnd",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000528,"Tuna mechado, cnd",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000529,"Tuna sardines, in oil, cnd",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000530,"Tuna, frigate, dried",2,"Tulingan, daing",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000531,"Tuna, yellow-fin, dried",2,"Tambakol, daing",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000532,"Anchovy, long-jawed, w/o head",2,"Dilis, walang ulo",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000533,"Sea catfish, smooth-headed",4,Bunguan/Bongoan,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000534,"Shrimp, giant tiger prawn, head",2,"Sugpo, ulo",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000535,"Cavalla, banded, fried",2,"Talakitok, prito",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000536,"Cavalla, banded, steamed",2,"Talakitok, pinasingawan",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000537,Abalone,4,Lapas/Kapinan,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000538,Abalone juice,4,Lapas/Kapinan katas,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000539,Amber fish,2,Tonto,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000540,Sinarapan,2,Tabios,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000541,"Barracuda, striped",2,Turcillo,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000542,"Butterfly fish, threadfin",2,Paru-paro,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000543,"Fusilier, goldband",2,Dalagang bukid,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000544,Cardinal fish,2,Dangat,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000545,Carp,2,Karpa,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000546,"Cavalla, banded",4,Talakitok/Maliputo,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000547,"Clam, bilakong",2,Bilakong,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000548,"Tamarind, unripe, boiled",2,"Sampalok, hilaw, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000549,"Banana, saba, w/ sugar, fried",2,Banana cue,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000550,"Banana, saba, w/ sugar, wrapped, fried",2,"Turon, saging saba",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000551,"Apple, green",2,"Mansanas, berde",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000552,"Apple, red",2,"Mansanas, pula",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000553,"Banana, bungulan",2,"Saging, bungulan",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000554,"Banana, butuan",2,"Saging, butuan",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000555,"Banana, cavendish, ripe",2,"Saging, cavendish, hinog",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000556,"Banana, cavendish, unripe",2,"Saging, cavendish, hilaw",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000557,"Banana, gloria",2,"Saging, gloria",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000558,"Banana, murado",2,"Saging, murado",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000559,"Banana, ternate",2,"Saging, ternate",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000560,"Banana, tuldok",5,"Saging, tuldok/tindok/tandok",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000561,Java apple,5,Makopa/Wax jambu/Wax apple,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000562,Custard apple,4,Anonas/Bullock's heart,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000563,Velvet apple,2,Mabolo,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000564,Grape,2,Ubas,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000565,Jackfruit,4,Langka/Nangka,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000566,Lanzon,4,Lansones/Langsat,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000567,Lychee/Litchi,4,Lechiyas/Litsiyas,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000568,Malay apple,2,Yambo,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000569,"Mango, Indian, unripe",2,"Mangga, Indiyan, hilaw",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000570,"Mango, Manila super, medium ripe",2,"Mangga, kalabaw, manibalang",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000571,"Mango, Manila super, unripe",2,"Mangga, kalabaw, hilaw",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000572,"Mango, paho, unripe",4,"Mangga, paho/pahutan, hilaw",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000573,"Mango, piko, medium ripe",2,"Mangga, piko, manibalang",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000574,"Mango, piko, unripe",2,"Mangga, piko, hilaw",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000575,Mangosteen,1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000576,Melon,2,Milon,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000577,"Melon, honey dew",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000578,"Orange, Ladu",2,"Dalandan, Ladu",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000579,"Orange, Szinkom",2,"Dalandan, Szinkom",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000580,"Papaya fruit, medium ripe",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000581,Pear,2,Peras,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000582,Rambutan,1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000583,Santol,2,Cotton fruit,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000584,Stinking passion flower fruit,2,Pasionaryang mabaho,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000585,Stinking passion flower juice,2,"Pasionaryang mabaho, katas",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000586,Soursop,2,Guyabano,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000587,"Star apple, green",2,"Kaymito, berde",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000588,"Star apple, purple",2,"Kaymito, murado",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000589,Strawberry,1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000590,Sugar apple/Sweetsop,2,Atis,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000591,"Tamarind, ripe",2,"Sampalok, hinog",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000592,"Tamarind, unripe",2,"Sampalok, hilaw",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000593,"Cheese, cheddar, pasteurized, processed",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000594,"Cheese, cottage",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000595,"Cheese, filled",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000596,"Cheese, native",2,Kesong puti,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000597,"Cheese, pimiento",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000598,"Cheese, spread",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000599,Cream,2,Krema,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000600,Ice cream,4,Sorbetes/Street ice cream,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000601,"Ice cream, strawberry flvr",3,"Sorbetes, lasang strawberry",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000602,"Milk drink, cultured",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000603,"Milk, evaporated, filled",2,"Gatas, evaporada, filled",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000604,"Milk, recombined",2,"Gatas, recombined",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000605,"Milk, sweetn, cond, filled",2,"Gatas, kondensada, filled",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000606,"Milk drink, recon, strawberry, UHT",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000607,"Milk, buttermilk",2,"Gatas, buttermilk",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000608,"Catsup, banana",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000609,"Catsup, tomato",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000610,"Fish paste, anchovy",2,Bagoong dilis,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000611,Lechon sauce,2,Litson sarsa,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000612,"Salt, coarse",2,"Asin, magaspang",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000613,Shrimp paste,2,Bagoong hipon,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000614,"Shrimp paste, alamang",2,"Bagoong hipon, alamang",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000615,"Vinegar, coconut",2,"Suka, niyog",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000616,Tomato paste,1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000617,Tomato sauce,1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000618,"Steamed bun, mung bean filling",3,"Siopao, munggo",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000619,"Steamed bun, pork filling",2,"Siopao, baboy",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000620,"Spring roll, Shanghai, unckd",3,"Lumpia, Shanghai, hindi luto",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000621,"Soup, mungbean w/ shrimp, ckd",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000622,Cheese sandwich,1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000623,Cheeseburger sandwich,1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000624,Rice gruel w/ chicken,2,Arroz caldo,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000625,Rice gruel w/ choc & milk,2,"Champorado, may gatas",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000626,Rice gruel w/ tripe,2,"Lugaw, may goto",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000627,Buko pie,1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000628,Egg pie,1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000629,"Halu-halo, cnd",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000630,"Halu-halo, w/ ice",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000631,"Beef caldereta, cnd",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000632,"Beef kare-kare, cnd",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000633,"Pork & chicken adobo, cnd",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000634,"Pork adobo, cnd",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000635,"Pork adobo, w/ egg, cnd",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000636,"Pork & beans, cnd",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000637,"Pork blood stew, cnd",3,"Dinuguan baboy, de lata",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000638,"Fat, pork",2,"Mantika, baboy",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000639,Margarine,2,Margarina,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000640,"Margarine, fortified",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000641,Mayonnaise,1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000642,"Oil, corn",2,"Langis, mais",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000643,"Coffee, roasted",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000644,Coconut water,2,"Niyog, tubig",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000645,"Coffee, creamer & sugar (3 in 1)",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000646,"Coffee, inst, 100% pure",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000647,"Cocoa, pwdr, imported",3,"Kakaw, pulbos, imported",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.

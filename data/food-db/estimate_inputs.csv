@@ -1,0 +1,13 @@
+estimate_id,input_name,input_value,unit,source_food_id,source_url,input_status,notes
+EST_PEANUT_SUGAR_V1,sugar_g_100g,4.9,g per 100 g,173806,https://fdc.nal.usda.gov/food-details/173806/nutrients,USDA_COMPARABLE_FOOD,Direct proxy; not an exact preparation match.
+EST_CANTON_YIELD_V1,kcal_100g,487,per 100 g dry edible noodles,A140,https://i.fnri.dost.gov.ph/fct/library/report/3102,VERIFIED_FNRI,"Energy, calculated (kcal)"
+EST_CANTON_YIELD_V1,protein_g_100g,12.8,per 100 g dry edible noodles,A140,https://i.fnri.dost.gov.ph/fct/library/report/3102,VERIFIED_FNRI,Protein (g)
+EST_CANTON_YIELD_V1,carbs_g_100g,56.8,per 100 g dry edible noodles,A140,https://i.fnri.dost.gov.ph/fct/library/report/3102,VERIFIED_FNRI,"Carbohydrate, total (g)"
+EST_CANTON_YIELD_V1,fat_g_100g,23.2,per 100 g dry edible noodles,A140,https://i.fnri.dost.gov.ph/fct/library/report/3102,VERIFIED_FNRI,Total Fat (g)
+EST_CANTON_YIELD_V1,fiber_g_100g,3.6,per 100 g dry edible noodles,A140,https://i.fnri.dost.gov.ph/fct/library/report/3102,VERIFIED_FNRI,"Fiber, total dietary (g)"
+EST_CANTON_YIELD_V1,sugar_g_100g,5.5,per 100 g dry edible noodles,A140,https://i.fnri.dost.gov.ph/fct/library/report/3102,VERIFIED_FNRI,"Sugars, total (g)"
+EST_CANTON_YIELD_V1,sodium_mg_100g,676,per 100 g dry edible noodles,A140,https://i.fnri.dost.gov.ph/fct/library/report/3102,VERIFIED_FNRI,"Sodium, Na (mg)"
+EST_CANTON_YIELD_V1,cholesterol_mg_100g,0,per 100 g dry edible noodles,A140,https://i.fnri.dost.gov.ph/fct/library/report/3102,VERIFIED_FNRI,Cholesterol (mg)
+EST_CANTON_YIELD_V1,dry_edible_weight,100,g,,,AI_ASSUMPTION,Not a measured or externally verified yield/retention.
+EST_CANTON_YIELD_V1,final_cooked_edible_weight,250,g,,,AI_ASSUMPTION,Not a measured or externally verified yield/retention.
+EST_CANTON_YIELD_V1,nutrient_retention,1,fraction,,,AI_ASSUMPTION,Not a measured or externally verified yield/retention.

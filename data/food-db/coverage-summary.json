@@ -1,0 +1,18 @@
+{
+  "foods": 647,
+  "default_labels": {
+    "Verified": 610,
+    "Unavailable": 20,
+    "Other source": 17
+  },
+  "default_complete": 490,
+  "explicit_estimates": 2,
+  "household_portions": 23,
+  "source_status_counts": {
+    "VERIFIED_FNRI": 477,
+    "PARTIAL_VERIFIED_FNRI": 135,
+    "NEEDS_FOOD_IDENTITY_VERIFICATION": 19,
+    "OTHER_SOURCE_AVAILABLE": 15,
+    "ESTIMATE_ONLY": 1
+  }
+}

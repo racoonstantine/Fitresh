@@ -1,0 +1,3 @@
+source_id,source_name,source_url,accessed_date,release,local_snapshot,sha256
+FNRI_20260916,DOST-FNRI PhilFCT,https://i.fnri.dost.gov.ph/fct/library/search_item,2026-09-16,PhilFCT official catalog snapshot,Food_DB/research/fnri-search-2026-09-16.html,aa8ee0b6e7a248ed37dfc86528d7924d9994eb6690ec7a6b1c8f2d677bda8333
+USDA_SR_2018,USDA FoodData Central SR Legacy,https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip,2026-09-16,April 2018 SR Legacy,Food_DB/research/usda-sr-legacy-2018.zip,b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0

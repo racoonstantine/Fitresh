@@ -1,0 +1,13 @@
+{
+  "batch": "2026-09-16-variants-v1",
+  "original_foods_preserved": 100,
+  "new_foods": 47,
+  "fnri_variants": 31,
+  "usda_variants": 15,
+  "estimates": 2,
+  "other_source_rows": 17,
+  "variant_links": 50,
+  "household_portions": 23,
+  "automatic_nutrient_gaps_filled": 2,
+  "broad_foods_left_unresolved": 19
+}

@@ -1,0 +1,13 @@
+source_food_id,name,reason
+F271,"Pork skin, seasoned, roasted",Source sugar exceeds total carbohydrate; requires review.
+G164,"Flatfish/Brill, rough-scaled, dried",Duplicate official descriptions; identity needs disambiguation.
+G165,"Flatfish/Brill, rough-scaled, dried",Duplicate official descriptions; identity needs disambiguation.
+G196,"Sardine, fimbriated, fry, dried",Duplicate official descriptions; identity needs disambiguation.
+G197,"Sardine, fimbriated, fry, dried",Duplicate official descriptions; identity needs disambiguation.
+G199,"Sardine, Indian, dried",Duplicate official descriptions; identity needs disambiguation.
+G200,"Sardine, Indian, dried",Duplicate official descriptions; identity needs disambiguation.
+G215,"Slipmouth, common, dried",Duplicate official descriptions; identity needs disambiguation.
+G216,"Slipmouth, common, dried",Duplicate official descriptions; identity needs disambiguation.
+G230,"Tuna spread, cnd",Source sugar exceeds total carbohydrate; requires review.
+R036,"Beef w/ gravy, cnd",Source sugar exceeds total carbohydrate; requires review.
+R090,"Gelatin drink, w/ MLP",Source sugar exceeds total carbohydrate; requires review.

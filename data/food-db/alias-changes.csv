@@ -1,0 +1,324 @@
+food_id,alias,source_url,reason,date
+FC000106,Tamban,https://i.fnri.dost.gov.ph/fct/library/report/4083,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000106,"Sardine, Indian oil",https://i.fnri.dost.gov.ph/fct/library/report/4083,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000119,Kangkong dahon,https://i.fnri.dost.gov.ph/fct/library/report/3521,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000119,Water spinach lvs,https://i.fnri.dost.gov.ph/fct/library/report/3521,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000147,Canton,https://i.fnri.dost.gov.ph/fct/library/report/3102,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000149,Misua,https://i.fnri.dost.gov.ph/fct/library/report/3107,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000149,"Miswa, nilaga",https://i.fnri.dost.gov.ph/fct/library/report/3107,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000162,Biko,https://i.fnri.dost.gov.ph/fct/library/report/3130,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000162,Sinukmani,https://i.fnri.dost.gov.ph/fct/library/report/3130,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000166,Cuchinta,https://i.fnri.dost.gov.ph/fct/library/report/3141,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000166,Kutsinta,https://i.fnri.dost.gov.ph/fct/library/report/3141,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000171,Balat ng lumpia,https://i.fnri.dost.gov.ph/fct/library/report/3162,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000171,Lumpia wrapper,https://i.fnri.dost.gov.ph/fct/library/report/3162,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000198,Kamoteng kahoy,https://i.fnri.dost.gov.ph/fct/library/report/3169,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000198,"Balinghoy, nilaga",https://i.fnri.dost.gov.ph/fct/library/report/3169,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000202,Ubi,https://i.fnri.dost.gov.ph/fct/library/report/3188,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000202,"Ube, nilaga",https://i.fnri.dost.gov.ph/fct/library/report/3188,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000204,"Sago, nilaga",https://i.fnri.dost.gov.ph/fct/library/report/3203,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000204,"Tapioca pearl, boiled",https://i.fnri.dost.gov.ph/fct/library/report/3203,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000206,Kamoteng kahoy,https://i.fnri.dost.gov.ph/fct/library/report/3170,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000206,"Balinghoy, dilaw",https://i.fnri.dost.gov.ph/fct/library/report/3170,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000218,Sago,https://i.fnri.dost.gov.ph/fct/library/report/3202,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000218,Tapioca pearl,https://i.fnri.dost.gov.ph/fct/library/report/3202,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000224,Garbansos,https://i.fnri.dost.gov.ph/fct/library/report/3215,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000224,"Garbanzo, tuyo, nilaga",https://i.fnri.dost.gov.ph/fct/library/report/3215,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000229,Garbansos,https://i.fnri.dost.gov.ph/fct/library/report/3214,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000229,"Garbanzo, tuyo",https://i.fnri.dost.gov.ph/fct/library/report/3214,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000242,Taho,https://i.fnri.dost.gov.ph/fct/library/report/3275,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000242,Tahu,https://i.fnri.dost.gov.ph/fct/library/report/3275,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000243,Taho,https://i.fnri.dost.gov.ph/fct/library/report/3276,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000243,"Tahu, may arnibal at sago",https://i.fnri.dost.gov.ph/fct/library/report/3276,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000254,"Sayote bunga, nilaga",https://i.fnri.dost.gov.ph/fct/library/report/3330,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000254,"Vegetable pear fruit, boiled",https://i.fnri.dost.gov.ph/fct/library/report/3330,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000255,"Pechay Baguio, nilaga",https://i.fnri.dost.gov.ph/fct/library/report/3334,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000255,"Napa cabbage, boiled",https://i.fnri.dost.gov.ph/fct/library/report/3334,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000256,"Talong, nilaga",https://i.fnri.dost.gov.ph/fct/library/report/3353,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000256,"Aubergine, boiled",https://i.fnri.dost.gov.ph/fct/library/report/3353,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000257,"Malunggay dahon, nilaga",https://i.fnri.dost.gov.ph/fct/library/report/3374,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000257,"Drumstick tree lvs, boiled",https://i.fnri.dost.gov.ph/fct/library/report/3374,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000259,Saluyot,https://i.fnri.dost.gov.ph/fct/library/report/3387,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000259,"Pasaw dahon, nilaga",https://i.fnri.dost.gov.ph/fct/library/report/3387,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000266,Labanos,https://i.fnri.dost.gov.ph/fct/library/report/3463,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000266,"Rabanos, lamang ugat, nilaga",https://i.fnri.dost.gov.ph/fct/library/report/3463,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000267,Abitsuwelas,https://i.fnri.dost.gov.ph/fct/library/report/3486,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000267,"Baguio beans bunga, berde, nilaga",https://i.fnri.dost.gov.ph/fct/library/report/3486,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000275,"Kangkong dahon, nilaga",https://i.fnri.dost.gov.ph/fct/library/report/3522,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000275,"Water spinach lvs, boiled",https://i.fnri.dost.gov.ph/fct/library/report/3522,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000281,Sigarilyas,https://i.fnri.dost.gov.ph/fct/library/report/3552,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000281,"Kalamismis bunga, nilaga",https://i.fnri.dost.gov.ph/fct/library/report/3552,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000290,Saluyot,https://i.fnri.dost.gov.ph/fct/library/report/3386,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000290,Pasaw dahon,https://i.fnri.dost.gov.ph/fct/library/report/3386,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000297,Fiddlehead fern lvs,https://i.fnri.dost.gov.ph/fct/library/report/3428,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000297,Vegetable fern lvs,https://i.fnri.dost.gov.ph/fct/library/report/3428,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000300,"Sili, sweet",https://i.fnri.dost.gov.ph/fct/library/report/3446,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000300,"bell, mahaba, berde",https://i.fnri.dost.gov.ph/fct/library/report/3446,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000301,"Sili, sweet",https://i.fnri.dost.gov.ph/fct/library/report/3448,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000301,"bell, mahaba, pula",https://i.fnri.dost.gov.ph/fct/library/report/3448,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000302,Labanos,https://i.fnri.dost.gov.ph/fct/library/report/3462,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000302,"Rabanos, lamang ugat",https://i.fnri.dost.gov.ph/fct/library/report/3462,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000303,Abitsuwelas,https://i.fnri.dost.gov.ph/fct/library/report/3485,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000303,"Baguio beans bunga, berde",https://i.fnri.dost.gov.ph/fct/library/report/3485,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000312,Singkamas lamang-ugat,https://i.fnri.dost.gov.ph/fct/library/report/3539,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000312,Jicama,https://i.fnri.dost.gov.ph/fct/library/report/3539,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000313,Sigarilyas,https://i.fnri.dost.gov.ph/fct/library/report/3551,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000313,"Kalamismis, bunga",https://i.fnri.dost.gov.ph/fct/library/report/3551,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000325,"Kinchay dahon at tangkay, nilaga",https://i.fnri.dost.gov.ph/fct/library/report/3328,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000325,"Leaf celery, boiled",https://i.fnri.dost.gov.ph/fct/library/report/3328,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000326,"Sayote dahon, nilaga",https://i.fnri.dost.gov.ph/fct/library/report/3332,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000326,"Vegetable pear lvs, boiled",https://i.fnri.dost.gov.ph/fct/library/report/3332,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000332,"Kutsay dahon, nilaga",https://i.fnri.dost.gov.ph/fct/library/report/3393,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000332,"Chinese chives lvs, boiled",https://i.fnri.dost.gov.ph/fct/library/report/3393,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000338,"Sili, sweet",https://i.fnri.dost.gov.ph/fct/library/report/3447,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000338,"bell, mahaba, berde, nilaga",https://i.fnri.dost.gov.ph/fct/library/report/3447,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000339,"Sili, sweet",https://i.fnri.dost.gov.ph/fct/library/report/3450,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000339,"bell, bilog, berde, nilaga",https://i.fnri.dost.gov.ph/fct/library/report/3450,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000340,Abitsuwelas,https://i.fnri.dost.gov.ph/fct/library/report/3488,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000340,"Baguio beans bunga, puti, nilaga",https://i.fnri.dost.gov.ph/fct/library/report/3488,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000360,Chicharon,https://i.fnri.dost.gov.ph/fct/library/report/3949,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000360,"Sitsaron baboy, balat",https://i.fnri.dost.gov.ph/fct/library/report/3949,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000367,"Longanisa, baboy, Chinese",https://i.fnri.dost.gov.ph/fct/library/report/3966,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000367,Chorizo de Macau,https://i.fnri.dost.gov.ph/fct/library/report/3966,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000418,"Manok paa, bbq",https://i.fnri.dost.gov.ph/fct/library/report/3802,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000418,"""adidas""",https://i.fnri.dost.gov.ph/fct/library/report/3802,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000429,Baboy pigi,https://i.fnri.dost.gov.ph/fct/library/report/3872,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000429,pigue,https://i.fnri.dost.gov.ph/fct/library/report/3872,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000444,Century egg,https://i.fnri.dost.gov.ph/fct/library/report/4227,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000444,Pidan,https://i.fnri.dost.gov.ph/fct/library/report/4227,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000466,Tawilis,https://i.fnri.dost.gov.ph/fct/library/report/4080,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000466,Freshwater sardinella,https://i.fnri.dost.gov.ph/fct/library/report/4080,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000533,Bunguan,https://i.fnri.dost.gov.ph/fct/library/report/4087,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000533,Bongoan,https://i.fnri.dost.gov.ph/fct/library/report/4087,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000537,Lapas,https://i.fnri.dost.gov.ph/fct/library/report/3981,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000537,Kapinan,https://i.fnri.dost.gov.ph/fct/library/report/3981,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000538,Lapas,https://i.fnri.dost.gov.ph/fct/library/report/3982,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000538,Kapinan katas,https://i.fnri.dost.gov.ph/fct/library/report/3982,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000546,Talakitok,https://i.fnri.dost.gov.ph/fct/library/report/3995,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000546,Maliputo,https://i.fnri.dost.gov.ph/fct/library/report/3995,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000560,"Saging, tuldok",https://i.fnri.dost.gov.ph/fct/library/report/3599,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000560,tindok,https://i.fnri.dost.gov.ph/fct/library/report/3599,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000560,tandok,https://i.fnri.dost.gov.ph/fct/library/report/3599,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000561,Makopa,https://i.fnri.dost.gov.ph/fct/library/report/3608,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000561,Wax jambu,https://i.fnri.dost.gov.ph/fct/library/report/3608,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000561,Wax apple,https://i.fnri.dost.gov.ph/fct/library/report/3608,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000562,Anonas,https://i.fnri.dost.gov.ph/fct/library/report/3609,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000562,Bullock's heart,https://i.fnri.dost.gov.ph/fct/library/report/3609,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000565,Langka,https://i.fnri.dost.gov.ph/fct/library/report/3615,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000565,Nangka,https://i.fnri.dost.gov.ph/fct/library/report/3615,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000566,Lansones,https://i.fnri.dost.gov.ph/fct/library/report/3621,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000566,Langsat,https://i.fnri.dost.gov.ph/fct/library/report/3621,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000567,Lechiyas,https://i.fnri.dost.gov.ph/fct/library/report/3627,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000567,Litsiyas,https://i.fnri.dost.gov.ph/fct/library/report/3627,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000572,"Mangga, paho",https://i.fnri.dost.gov.ph/fct/library/report/3635,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000572,"pahutan, hilaw",https://i.fnri.dost.gov.ph/fct/library/report/3635,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000600,Sorbetes,https://i.fnri.dost.gov.ph/fct/library/report/4242,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000600,Street ice cream,https://i.fnri.dost.gov.ph/fct/library/report/4242,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.,2026-09-16
+FC000021,"Monggo buto, berde, tuyo, nilaga",https://i.fnri.dost.gov.ph/fct/library/report/3238,Munggo/monggo spelling pair already documented in starter aliases; preserve qualifiers.,2026-09-16
+FC000074,Horseradish tree leaves,https://i.fnri.dost.gov.ph/fct/library/report/3373,Expand source abbreviations for search only.,2026-09-16
+FC000074,Drumstick tree leaves,https://i.fnri.dost.gov.ph/fct/library/report/3373,Expand source abbreviations for search only.,2026-09-16
+FC000107,"Sardines, in spiced oil, canned",https://i.fnri.dost.gov.ph/fct/library/report/4182,Expand source abbreviations for search only.,2026-09-16
+FC000108,"Sardines, in tomato sce, canned",https://i.fnri.dost.gov.ph/fct/library/report/4183,Expand source abbreviations for search only.,2026-09-16
+FC000114,Pechay leaves,https://i.fnri.dost.gov.ph/fct/library/report/3439,Expand source abbreviations for search only.,2026-09-16
+FC000119,Swamp cabbage leaves,https://i.fnri.dost.gov.ph/fct/library/report/3521,Expand source abbreviations for search only.,2026-09-16
+FC000119,Kangkong dahon/Water spinach leaves,https://i.fnri.dost.gov.ph/fct/library/report/3521,Expand source abbreviations for search only.,2026-09-16
+FC000127,"Milk, powder, filled, instant",https://i.fnri.dost.gov.ph/fct/library/report/4253,Expand source abbreviations for search only.,2026-09-16
+FC000127,"Gatas, pulbos, filled, instant",https://i.fnri.dost.gov.ph/fct/library/report/4253,Expand source abbreviations for search only.,2026-09-16
+FC000128,"Milk, powder, full cream",https://i.fnri.dost.gov.ph/fct/library/report/4254,Expand source abbreviations for search only.,2026-09-16
+FC000129,"Milk, powder, non-fat, instant",https://i.fnri.dost.gov.ph/fct/library/report/4256,Expand source abbreviations for search only.,2026-09-16
+FC000129,"Gatas, pulbos, non-fat, instant",https://i.fnri.dost.gov.ph/fct/library/report/4256,Expand source abbreviations for search only.,2026-09-16
+FC000130,"Milk, powder, skim",https://i.fnri.dost.gov.ph/fct/library/report/4257,Expand source abbreviations for search only.,2026-09-16
+FC000151,"Oats, quick-cooking, cooked",https://i.fnri.dost.gov.ph/fct/library/report/3112,Expand source abbreviations for search only.,2026-09-16
+FC000155,Hopyang Monggo,https://i.fnri.dost.gov.ph/fct/library/report/3091,Munggo/monggo spelling pair already documented in starter aliases; preserve qualifiers.,2026-09-16
+FC000182,"Rice water, cooked, thin",https://i.fnri.dost.gov.ph/fct/library/report/3158,Expand source abbreviations for search only.,2026-09-16
+FC000217,"Potato chips, cheese flavor",https://i.fnri.dost.gov.ph/fct/library/report/3200,Expand source abbreviations for search only.,2026-09-16
+FC000234,"Monggo buto, berde, tuyo",https://i.fnri.dost.gov.ph/fct/library/report/3237,Munggo/monggo spelling pair already documented in starter aliases; preserve qualifiers.,2026-09-16
+FC000237,"Chickpea, canned",https://i.fnri.dost.gov.ph/fct/library/report/3261,Expand source abbreviations for search only.,2026-09-16
+FC000238,"Green pea, in brine, canned",https://i.fnri.dost.gov.ph/fct/library/report/3265,Expand source abbreviations for search only.,2026-09-16
+FC000245,"Soybean seed, yellow, canned, drained",https://i.fnri.dost.gov.ph/fct/library/report/3278,Expand source abbreviations for search only.,2026-09-16
+FC000257,"Horseradish tree leaves, boiled",https://i.fnri.dost.gov.ph/fct/library/report/3374,Expand source abbreviations for search only.,2026-09-16
+FC000257,"Malunggay dahon, nilaga/ Drumstick tree leaves, boiled",https://i.fnri.dost.gov.ph/fct/library/report/3374,Expand source abbreviations for search only.,2026-09-16
+FC000259,"Jute leaves, boiled",https://i.fnri.dost.gov.ph/fct/library/report/3387,Expand source abbreviations for search only.,2026-09-16
+FC000261,"Mustard leaves, boiled",https://i.fnri.dost.gov.ph/fct/library/report/3414,Expand source abbreviations for search only.,2026-09-16
+FC000263,"Pako fern leaves, boiled",https://i.fnri.dost.gov.ph/fct/library/report/3429,Expand source abbreviations for search only.,2026-09-16
+FC000263,"Fiddlehead fern leaves, boiled",https://i.fnri.dost.gov.ph/fct/library/report/3429,Expand source abbreviations for search only.,2026-09-16
+FC000264,"Pechay leaves, boiled",https://i.fnri.dost.gov.ph/fct/library/report/3440,Expand source abbreviations for search only.,2026-09-16
+FC000271,"Squash leaves, boiled",https://i.fnri.dost.gov.ph/fct/library/report/3507,Expand source abbreviations for search only.,2026-09-16
+FC000275,"Swamp cabbage leaves, boiled",https://i.fnri.dost.gov.ph/fct/library/report/3522,Expand source abbreviations for search only.,2026-09-16
+FC000275,"Kangkong dahon, nilaga/Water spinach leaves, boiled",https://i.fnri.dost.gov.ph/fct/library/report/3522,Expand source abbreviations for search only.,2026-09-16
+FC000276,"Sweet potato leaves, boiled",https://i.fnri.dost.gov.ph/fct/library/report/3524,Expand source abbreviations for search only.,2026-09-16
+FC000277,"Sweet potato leaves, purple, boiled",https://i.fnri.dost.gov.ph/fct/library/report/3526,Expand source abbreviations for search only.,2026-09-16
+FC000278,"Taro leaves, boiled",https://i.fnri.dost.gov.ph/fct/library/report/3533,Expand source abbreviations for search only.,2026-09-16
+FC000290,Jute leaves,https://i.fnri.dost.gov.ph/fct/library/report/3386,Expand source abbreviations for search only.,2026-09-16
+FC000291,Lettuce leaves & petioles,https://i.fnri.dost.gov.ph/fct/library/report/3394,Expand source abbreviations for search only.,2026-09-16
+FC000294,Mustard leaves,https://i.fnri.dost.gov.ph/fct/library/report/3413,Expand source abbreviations for search only.,2026-09-16
+FC000297,Pako fern leaves,https://i.fnri.dost.gov.ph/fct/library/report/3428,Expand source abbreviations for search only.,2026-09-16
+FC000297,Fiddlehead fern leaves/Vegetable fern leaves,https://i.fnri.dost.gov.ph/fct/library/report/3428,Expand source abbreviations for search only.,2026-09-16
+FC000307,Squash leaves,https://i.fnri.dost.gov.ph/fct/library/report/3506,Expand source abbreviations for search only.,2026-09-16
+FC000308,Sweet potato leaves,https://i.fnri.dost.gov.ph/fct/library/report/3523,Expand source abbreviations for search only.,2026-09-16
+FC000309,"Sweet potato leaves, purple",https://i.fnri.dost.gov.ph/fct/library/report/3525,Expand source abbreviations for search only.,2026-09-16
+FC000310,Taro leaves,https://i.fnri.dost.gov.ph/fct/library/report/3532,Expand source abbreviations for search only.,2026-09-16
+FC000314,"Mushroom, canned",https://i.fnri.dost.gov.ph/fct/library/report/3558,Expand source abbreviations for search only.,2026-09-16
+FC000315,"Taro leaves, dried",https://i.fnri.dost.gov.ph/fct/library/report/3572,Expand source abbreviations for search only.,2026-09-16
+FC000321,"Bitter melon/gourd leaves, boiled",https://i.fnri.dost.gov.ph/fct/library/report/3300,Expand source abbreviations for search only.,2026-09-16
+FC000322,"Bottle gourd leaves, boiled",https://i.fnri.dost.gov.ph/fct/library/report/3307,Expand source abbreviations for search only.,2026-09-16
+FC000325,"Celery, Chinese, leaves & petioles, boiled",https://i.fnri.dost.gov.ph/fct/library/report/3328,Expand source abbreviations for search only.,2026-09-16
+FC000326,"Chayote leaves, boiled",https://i.fnri.dost.gov.ph/fct/library/report/3332,Expand source abbreviations for search only.,2026-09-16
+FC000326,"Sayote dahon, nilaga/Vegetable pear leaves, boiled",https://i.fnri.dost.gov.ph/fct/library/report/3332,Expand source abbreviations for search only.,2026-09-16
+FC000327,"Garlic leaves, boiled",https://i.fnri.dost.gov.ph/fct/library/report/3365,Expand source abbreviations for search only.,2026-09-16
+FC000328,"Horseradish tree leaves, dwarf, boiled",https://i.fnri.dost.gov.ph/fct/library/report/3376,Expand source abbreviations for search only.,2026-09-16
+FC000329,"Horseradish tree leaves, Japanese, boiled",https://i.fnri.dost.gov.ph/fct/library/report/3378,Expand source abbreviations for search only.,2026-09-16
+FC000332,"Chinese leek leaves, boiled",https://i.fnri.dost.gov.ph/fct/library/report/3393,Expand source abbreviations for search only.,2026-09-16
+FC000332,"Kutsay dahon, nilaga/Chinese chives leaves, boiled",https://i.fnri.dost.gov.ph/fct/library/report/3393,Expand source abbreviations for search only.,2026-09-16
+FC000335,"Onion, garden shallot leaves, boiled",https://i.fnri.dost.gov.ph/fct/library/report/3425,Expand source abbreviations for search only.,2026-09-16
+FC000337,"Pepper, chili leaves, boiled",https://i.fnri.dost.gov.ph/fct/library/report/3445,Expand source abbreviations for search only.,2026-09-16
+FC000341,"Sponge gourd leaves, boiled",https://i.fnri.dost.gov.ph/fct/library/report/3501,Expand source abbreviations for search only.,2026-09-16
+FC000343,"String/Yard long bean leaves, boiled",https://i.fnri.dost.gov.ph/fct/library/report/3510,Expand source abbreviations for search only.,2026-09-16
+FC000345,Bitter melon/gourd leaves,https://i.fnri.dost.gov.ph/fct/library/report/3299,Expand source abbreviations for search only.,2026-09-16
+FC000346,Bottle gourd leaves,https://i.fnri.dost.gov.ph/fct/library/report/3306,Expand source abbreviations for search only.,2026-09-16
+FC000354,"Corned beef, canned",https://i.fnri.dost.gov.ph/fct/library/report/3933,Expand source abbreviations for search only.,2026-09-16
+FC000358,"Luncheon meat, canned",https://i.fnri.dost.gov.ph/fct/library/report/3942,Expand source abbreviations for search only.,2026-09-16
+FC000478,"Tuna flakes, in brine, canned",https://i.fnri.dost.gov.ph/fct/library/report/4206,Expand source abbreviations for search only.,2026-09-16
+FC000479,"Tuna flakes, in veg oil, canned",https://i.fnri.dost.gov.ph/fct/library/report/4207,Expand source abbreviations for search only.,2026-09-16
+FC000502,"Crab, mud/mangrove, meat, canned",https://i.fnri.dost.gov.ph/fct/library/report/4137,Expand source abbreviations for search only.,2026-09-16
+FC000504,"Mackerel scad, in tomato sce, canned",https://i.fnri.dost.gov.ph/fct/library/report/4154,Expand source abbreviations for search only.,2026-09-16
+FC000510,"Milkfish, in natural oil, canned",https://i.fnri.dost.gov.ph/fct/library/report/4161,Expand source abbreviations for search only.,2026-09-16
+FC000511,"Milkfish, in spiced oil, canned",https://i.fnri.dost.gov.ph/fct/library/report/4162,Expand source abbreviations for search only.,2026-09-16
+FC000518,"Sardines, smoked, canned",https://i.fnri.dost.gov.ph/fct/library/report/4184,Expand source abbreviations for search only.,2026-09-16
+FC000525,"Tuna adobo, canned",https://i.fnri.dost.gov.ph/fct/library/report/4203,Expand source abbreviations for search only.,2026-09-16
+FC000526,"Tuna fillet, in soya oil, canned",https://i.fnri.dost.gov.ph/fct/library/report/4204,Expand source abbreviations for search only.,2026-09-16
+FC000527,"Tuna fillet, in veg oil, canned",https://i.fnri.dost.gov.ph/fct/library/report/4205,Expand source abbreviations for search only.,2026-09-16
+FC000528,"Tuna mechado, canned",https://i.fnri.dost.gov.ph/fct/library/report/4208,Expand source abbreviations for search only.,2026-09-16
+FC000529,"Tuna sardines, in oil, canned",https://i.fnri.dost.gov.ph/fct/library/report/4209,Expand source abbreviations for search only.,2026-09-16
+FC000601,"Ice cream, strawberry flavor",https://i.fnri.dost.gov.ph/fct/library/report/4243,Expand source abbreviations for search only.,2026-09-16
+FC000618,"Siopao, Monggo",https://i.fnri.dost.gov.ph/fct/library/report/4424,Munggo/monggo spelling pair already documented in starter aliases; preserve qualifiers.,2026-09-16
+FC000620,"Spring roll, Shanghai, uncooked",https://i.fnri.dost.gov.ph/fct/library/report/4484,Expand source abbreviations for search only.,2026-09-16
+FC000621,"Soup, mungbean w/ shrimp, cooked",https://i.fnri.dost.gov.ph/fct/library/report/4497,Expand source abbreviations for search only.,2026-09-16
+FC000629,"Halu-halo, canned",https://i.fnri.dost.gov.ph/fct/library/report/4438,Expand source abbreviations for search only.,2026-09-16
+FC000631,"Beef caldereta, canned",https://i.fnri.dost.gov.ph/fct/library/report/4447,Expand source abbreviations for search only.,2026-09-16
+FC000632,"Beef kare-kare, canned",https://i.fnri.dost.gov.ph/fct/library/report/4451,Expand source abbreviations for search only.,2026-09-16
+FC000633,"Pork & chicken adobo, canned",https://i.fnri.dost.gov.ph/fct/library/report/4467,Expand source abbreviations for search only.,2026-09-16
+FC000634,"Pork adobo, canned",https://i.fnri.dost.gov.ph/fct/library/report/4470,Expand source abbreviations for search only.,2026-09-16
+FC000635,"Pork adobo, w/ egg, canned",https://i.fnri.dost.gov.ph/fct/library/report/4471,Expand source abbreviations for search only.,2026-09-16
+FC000636,"Pork & beans, canned",https://i.fnri.dost.gov.ph/fct/library/report/4506,Expand source abbreviations for search only.,2026-09-16
+FC000637,"Pork blood stew, canned",https://i.fnri.dost.gov.ph/fct/library/report/4473,Expand source abbreviations for search only.,2026-09-16
+FC000646,"Coffee, instant, 100% pure",https://i.fnri.dost.gov.ph/fct/library/report/4371,Expand source abbreviations for search only.,2026-09-16
+FC000647,"Cocoa, powder, imported",https://i.fnri.dost.gov.ph/fct/library/report/4367,Expand source abbreviations for search only.,2026-09-16
+FC000119,Water spinach leaves,https://i.fnri.dost.gov.ph/fct/library/report/3521,Expand source abbreviations for search only.,2026-09-16
+FC000257,"Drumstick tree leaves, boiled",https://i.fnri.dost.gov.ph/fct/library/report/3374,Expand source abbreviations for search only.,2026-09-16
+FC000275,"Water spinach leaves, boiled",https://i.fnri.dost.gov.ph/fct/library/report/3522,Expand source abbreviations for search only.,2026-09-16
+FC000297,Fiddlehead fern leaves,https://i.fnri.dost.gov.ph/fct/library/report/3428,Expand source abbreviations for search only.,2026-09-16
+FC000297,Vegetable fern leaves,https://i.fnri.dost.gov.ph/fct/library/report/3428,Expand source abbreviations for search only.,2026-09-16
+FC000326,"Vegetable pear leaves, boiled",https://i.fnri.dost.gov.ph/fct/library/report/3332,Expand source abbreviations for search only.,2026-09-16
+FC000332,"Chinese chives leaves, boiled",https://i.fnri.dost.gov.ph/fct/library/report/3393,Expand source abbreviations for search only.,2026-09-16
+FC000101,"Chicken, whole meat",https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000029. Display the exact variant; never choose it automatically.,2026-09-16
+FC000101,Manok,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000029. Display the exact variant; never choose it automatically.,2026-09-16
+FC000101,chicken meat,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000029. Display the exact variant; never choose it automatically.,2026-09-16
+FC000102,Pork lean meat,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000039. Display the exact variant; never choose it automatically.,2026-09-16
+FC000102,Laman ng baboy,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000039. Display the exact variant; never choose it automatically.,2026-09-16
+FC000102,lean pork,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000039. Display the exact variant; never choose it automatically.,2026-09-16
+FC000103,Longganisa,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000043. Display the exact variant; never choose it automatically.,2026-09-16
+FC000103,Filipino sausage,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000043. Display the exact variant; never choose it automatically.,2026-09-16
+FC000103,longanisa,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000043. Display the exact variant; never choose it automatically.,2026-09-16
+FC000104,Longganisa,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000043. Display the exact variant; never choose it automatically.,2026-09-16
+FC000104,Filipino sausage,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000043. Display the exact variant; never choose it automatically.,2026-09-16
+FC000104,longanisa,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000043. Display the exact variant; never choose it automatically.,2026-09-16
+FC000105,Longganisa,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000043. Display the exact variant; never choose it automatically.,2026-09-16
+FC000105,Filipino sausage,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000043. Display the exact variant; never choose it automatically.,2026-09-16
+FC000105,longanisa,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000043. Display the exact variant; never choose it automatically.,2026-09-16
+FC000106,Sardines,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000054. Display the exact variant; never choose it automatically.,2026-09-16
+FC000106,Sardinas,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000054. Display the exact variant; never choose it automatically.,2026-09-16
+FC000107,Sardines,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000054. Display the exact variant; never choose it automatically.,2026-09-16
+FC000107,Sardinas,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000054. Display the exact variant; never choose it automatically.,2026-09-16
+FC000108,Sardines,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000054. Display the exact variant; never choose it automatically.,2026-09-16
+FC000108,Sardinas,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000054. Display the exact variant; never choose it automatically.,2026-09-16
+FC000109,Shrimp,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000057. Display the exact variant; never choose it automatically.,2026-09-16
+FC000109,Hipon,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000057. Display the exact variant; never choose it automatically.,2026-09-16
+FC000110,Shrimp,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000057. Display the exact variant; never choose it automatically.,2026-09-16
+FC000110,Hipon,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000057. Display the exact variant; never choose it automatically.,2026-09-16
+FC000111,Shrimp,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000057. Display the exact variant; never choose it automatically.,2026-09-16
+FC000111,Hipon,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000057. Display the exact variant; never choose it automatically.,2026-09-16
+FC000112,Crab,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000059. Display the exact variant; never choose it automatically.,2026-09-16
+FC000112,Alimango,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000059. Display the exact variant; never choose it automatically.,2026-09-16
+FC000112,alimasag,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000059. Display the exact variant; never choose it automatically.,2026-09-16
+FC000113,Crab,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000059. Display the exact variant; never choose it automatically.,2026-09-16
+FC000113,Alimango,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000059. Display the exact variant; never choose it automatically.,2026-09-16
+FC000113,alimasag,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000059. Display the exact variant; never choose it automatically.,2026-09-16
+FC000114,Bok choy / pechay,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000066. Display the exact variant; never choose it automatically.,2026-09-16
+FC000114,Pechay,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000066. Display the exact variant; never choose it automatically.,2026-09-16
+FC000115,Bok choy / pechay,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000066. Display the exact variant; never choose it automatically.,2026-09-16
+FC000115,Pechay,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000066. Display the exact variant; never choose it automatically.,2026-09-16
+FC000116,String beans,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000071. Display the exact variant; never choose it automatically.,2026-09-16
+FC000116,Sitaw,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000071. Display the exact variant; never choose it automatically.,2026-09-16
+FC000117,String beans,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000071. Display the exact variant; never choose it automatically.,2026-09-16
+FC000117,Sitaw,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000071. Display the exact variant; never choose it automatically.,2026-09-16
+FC000118,String beans,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000071. Display the exact variant; never choose it automatically.,2026-09-16
+FC000118,Sitaw,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000071. Display the exact variant; never choose it automatically.,2026-09-16
+FC000116,Yardlong bean,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000072. Display the exact variant; never choose it automatically.,2026-09-16
+FC000117,Yardlong bean,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000072. Display the exact variant; never choose it automatically.,2026-09-16
+FC000118,Yardlong bean,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000072. Display the exact variant; never choose it automatically.,2026-09-16
+FC000119,Water spinach,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000073. Display the exact variant; never choose it automatically.,2026-09-16
+FC000119,Kangkong,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000073. Display the exact variant; never choose it automatically.,2026-09-16
+FC000120,"Mango, ripe",https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000080. Display the exact variant; never choose it automatically.,2026-09-16
+FC000120,Mangga,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000080. Display the exact variant; never choose it automatically.,2026-09-16
+FC000120,ripe mango,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000080. Display the exact variant; never choose it automatically.,2026-09-16
+FC000121,"Mango, ripe",https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000080. Display the exact variant; never choose it automatically.,2026-09-16
+FC000121,Mangga,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000080. Display the exact variant; never choose it automatically.,2026-09-16
+FC000121,ripe mango,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000080. Display the exact variant; never choose it automatically.,2026-09-16
+FC000122,"Mango, ripe",https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000080. Display the exact variant; never choose it automatically.,2026-09-16
+FC000122,Mangga,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000080. Display the exact variant; never choose it automatically.,2026-09-16
+FC000122,ripe mango,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000080. Display the exact variant; never choose it automatically.,2026-09-16
+FC000123,Guava,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000084. Display the exact variant; never choose it automatically.,2026-09-16
+FC000123,Bayabas,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000084. Display the exact variant; never choose it automatically.,2026-09-16
+FC000124,Guava,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000084. Display the exact variant; never choose it automatically.,2026-09-16
+FC000124,Bayabas,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000084. Display the exact variant; never choose it automatically.,2026-09-16
+FC000125,Avocado,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000087. Display the exact variant; never choose it automatically.,2026-09-16
+FC000125,Abukado,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000087. Display the exact variant; never choose it automatically.,2026-09-16
+FC000126,Avocado,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000087. Display the exact variant; never choose it automatically.,2026-09-16
+FC000126,Abukado,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000087. Display the exact variant; never choose it automatically.,2026-09-16
+FC000127,Powdered milk,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000095. Display the exact variant; never choose it automatically.,2026-09-16
+FC000127,Gatas na pulbos,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000095. Display the exact variant; never choose it automatically.,2026-09-16
+FC000128,Powdered milk,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000095. Display the exact variant; never choose it automatically.,2026-09-16
+FC000128,Gatas na pulbos,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000095. Display the exact variant; never choose it automatically.,2026-09-16
+FC000129,Powdered milk,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000095. Display the exact variant; never choose it automatically.,2026-09-16
+FC000129,Gatas na pulbos,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000095. Display the exact variant; never choose it automatically.,2026-09-16
+FC000130,Powdered milk,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000095. Display the exact variant; never choose it automatically.,2026-09-16
+FC000130,Gatas na pulbos,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000095. Display the exact variant; never choose it automatically.,2026-09-16
+FC000131,"Egg noodles, cooked",https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000015. Display the exact variant; never choose it automatically.,2026-09-16
+FC000131,Pancit canton noodles,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000015. Display the exact variant; never choose it automatically.,2026-09-16
+FC000132,"Egg noodles, cooked",https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000015. Display the exact variant; never choose it automatically.,2026-09-16
+FC000132,Pancit canton noodles,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000015. Display the exact variant; never choose it automatically.,2026-09-16
+FC000132,canton,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000015. Display the exact variant; never choose it automatically.,2026-09-16
+FC000133,"Egg noodles, cooked",https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000015. Display the exact variant; never choose it automatically.,2026-09-16
+FC000133,Pancit canton noodles,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000015. Display the exact variant; never choose it automatically.,2026-09-16
+FC000133,canton,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000015. Display the exact variant; never choose it automatically.,2026-09-16
+FC000134,Ground beef,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000034. Display the exact variant; never choose it automatically.,2026-09-16
+FC000134,Giniling na baka,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000034. Display the exact variant; never choose it automatically.,2026-09-16
+FC000135,Ground beef,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000034. Display the exact variant; never choose it automatically.,2026-09-16
+FC000135,Giniling na baka,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000034. Display the exact variant; never choose it automatically.,2026-09-16
+FC000136,Ground beef,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000034. Display the exact variant; never choose it automatically.,2026-09-16
+FC000136,Giniling na baka,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000034. Display the exact variant; never choose it automatically.,2026-09-16
+FC000137,Ground beef,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000034. Display the exact variant; never choose it automatically.,2026-09-16
+FC000137,Giniling na baka,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000034. Display the exact variant; never choose it automatically.,2026-09-16
+FC000138,Ground pork,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000040. Display the exact variant; never choose it automatically.,2026-09-16
+FC000138,Giniling na baboy,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000040. Display the exact variant; never choose it automatically.,2026-09-16
+FC000139,Ground pork,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000040. Display the exact variant; never choose it automatically.,2026-09-16
+FC000139,Giniling na baboy,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000040. Display the exact variant; never choose it automatically.,2026-09-16
+FC000140,Skipjack tuna,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000052. Display the exact variant; never choose it automatically.,2026-09-16
+FC000140,Skipjack,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000052. Display the exact variant; never choose it automatically.,2026-09-16
+FC000141,Skipjack tuna,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000052. Display the exact variant; never choose it automatically.,2026-09-16
+FC000141,Skipjack,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000052. Display the exact variant; never choose it automatically.,2026-09-16
+FC000142,Bok choy / pechay,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000066. Display the exact variant; never choose it automatically.,2026-09-16
+FC000142,Pechay,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000066. Display the exact variant; never choose it automatically.,2026-09-16
+FC000143,Bok choy / pechay,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000066. Display the exact variant; never choose it automatically.,2026-09-16
+FC000143,Pechay,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000066. Display the exact variant; never choose it automatically.,2026-09-16
+FC000144,Coconut milk,https://i.fnri.dost.gov.ph/fct/library/report/4262,Discovery alias inherited from broad parent FC000097. Display the exact variant; never choose it automatically.,2026-09-16
+FC000144,Gata,https://i.fnri.dost.gov.ph/fct/library/report/4262,Discovery alias inherited from broad parent FC000097. Display the exact variant; never choose it automatically.,2026-09-16
+FC000144,"Niyog, gata",https://i.fnri.dost.gov.ph/fct/library/report/4262,Discovery alias inherited from broad parent FC000097. Display the exact variant; never choose it automatically.,2026-09-16
+FC000145,Coconut milk,https://i.fnri.dost.gov.ph/fct/library/report/4262,Discovery alias inherited from broad parent FC000097. Display the exact variant; never choose it automatically.,2026-09-16
+FC000145,Gata,https://i.fnri.dost.gov.ph/fct/library/report/4262,Discovery alias inherited from broad parent FC000097. Display the exact variant; never choose it automatically.,2026-09-16
+FC000145,"Niyog, gata",https://i.fnri.dost.gov.ph/fct/library/report/4262,Discovery alias inherited from broad parent FC000097. Display the exact variant; never choose it automatically.,2026-09-16
+FC000146,Fish sauce,https://i.fnri.dost.gov.ph/fct/library/report/4334,Discovery alias inherited from broad parent FC000100. Display the exact variant; never choose it automatically.,2026-09-16
+FC000146,Patis,https://i.fnri.dost.gov.ph/fct/library/report/4334,Discovery alias inherited from broad parent FC000100. Display the exact variant; never choose it automatically.,2026-09-16
+FC000147,"Egg noodles, cooked",https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000015. Display the exact variant; never choose it automatically.,2026-09-16
+FC000147,Pancit canton noodles,https://i.fnri.dost.gov.ph/fct/library,Discovery alias inherited from broad parent FC000015. Display the exact variant; never choose it automatically.,2026-09-16

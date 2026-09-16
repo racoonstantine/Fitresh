@@ -1,6 +1,7 @@
 <?php
 declare(strict_types=1);
 require __DIR__ . '/db.php';
+require_once __DIR__ . '/catalog.php';
 
 header('Content-Type: application/json');
 start_app_session();
@@ -39,6 +40,16 @@ function food_with_nutrients(PDO $pdo, int $foodId): array
         $nutrients[$row['code']] = (float)$row['value_per_canonical'];
     }
     $food['nutrients'] = $nutrients;
+    if (($food['source'] ?? '') === 'catalog') {
+        try {
+            $snapshot = catalog_food((string)$food['external_id']);
+            $food['label'] = $snapshot['label'];
+            $food['complete'] = $snapshot['complete'];
+            $food['nutrient_provenance'] = $snapshot['nutrient_provenance'];
+        } catch (Throwable $e) {
+            $food['label'] = 'Catalog — source details unavailable';
+        }
+    }
     return $food;
 }
 
@@ -72,6 +83,20 @@ if ($method === 'POST' && $action === 'save_external') {
     $name = trim((string)($input['name'] ?? ''));
     $brand = trim((string)($input['brand'] ?? '')) ?: null;
     $nutrients = $input['nutrients'] ?? [];
+    if ($source === 'catalog') {
+        try {
+            // Only trust the selected immutable server snapshot, never client nutrient values.
+            $selected = catalog_food($externalId);
+            $name = $selected['name'];
+            $brand = $selected['label'] . ' · Local food catalog';
+            $nutrients = $selected['nutrients'];
+            $input['canonical_unit'] = 'g';
+        } catch (Throwable $e) {
+            json_respond(['error' => 'Food source unavailable. Search again and select a food.'], 400);
+        }
+    } elseif ($source !== 'off') {
+        json_respond(['error' => 'Unsupported food source'], 400);
+    }
     if ($externalId === '' || $name === '') {
         json_respond(['error' => 'Missing food data.'], 400);
     }
@@ -83,6 +108,7 @@ if ($method === 'POST' && $action === 'save_external') {
         json_respond(food_with_nutrients($pdo, (int)$existing['id']));
     }
 
+    $pdo->beginTransaction();
     $stmt = $pdo->prepare(
         'INSERT INTO foods (owner_user_id, source, external_id, name, brand, canonical_amount, canonical_unit, created_at, updated_at)
          VALUES (NULL, ?, ?, ?, ?, 100, ?, NOW(), NOW())'
@@ -101,6 +127,7 @@ if ($method === 'POST' && $action === 'save_external') {
         $insertNutrient->execute([$foodId, $ids[$code], (float)$value]);
     }
 
+    $pdo->commit();
     json_respond(food_with_nutrients($pdo, $foodId));
 }
 
