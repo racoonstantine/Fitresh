@@ -425,6 +425,53 @@
   .wp-val{font-size:12px;color:var(--ink-soft);flex:0 0 44px;text-align:right;font-variant-numeric:tabular-nums;}
   .dash-empty{font-size:12.5px;color:var(--ink-soft);padding:8px 2px;}
 
+  .glance-quote{
+    background:rgba(198,113,57,0.1);border-radius:var(--radius-lg);padding:14px 16px;
+    font-style:italic;font-size:13.5px;color:var(--ink);margin-top:14px;line-height:1.5;
+  }
+  .glance-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;}
+  .glance-grid-3{grid-template-columns:repeat(3,1fr);}
+  @media (max-width:760px){
+    .glance-grid{grid-template-columns:repeat(2,1fr);}
+    .glance-grid-3{grid-template-columns:repeat(1,1fr);}
+  }
+  .glance-card{
+    background:var(--paper-raised);border:1px solid var(--line);border-radius:var(--radius-lg);
+    padding:14px;display:flex;flex-direction:column;gap:6px;
+  }
+  .glance-card-head{display:flex;align-items:center;justify-content:space-between;gap:6px;}
+  .glance-card-label{font-size:11px;font-weight:700;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.04em;}
+  .glance-card-value{font-family:var(--font-heading);font-size:21px;line-height:1;}
+  .glance-card-sub{font-size:11px;color:var(--ink-soft);}
+  .glance-bar-track{height:7px;border-radius:4px;background:var(--line);overflow:hidden;margin-top:2px;}
+  .glance-bar-fill{height:100%;border-radius:4px;transition:width .3s;}
+  .glance-water-btn{
+    width:24px;height:24px;border-radius:50%;border:1px solid var(--line);background:var(--paper);
+    color:var(--ink);font-size:14px;font-weight:700;line-height:1;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  }
+  .glance-water-btn:disabled{opacity:.4;cursor:default;}
+  .glance-ring-row{display:flex;flex-direction:column;align-items:center;gap:6px;}
+
+  .qa-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;}
+  @media (max-width:900px){ .qa-grid{grid-template-columns:repeat(2,1fr);} }
+  .qa-tile{
+    background:var(--paper-raised);border:1px solid var(--line);border-radius:var(--radius-lg);
+    padding:14px;text-align:left;cursor:pointer;display:flex;flex-direction:column;gap:8px;
+    font-family:var(--font-body);color:var(--ink);width:100%;
+  }
+  .qa-tile:hover{box-shadow:var(--shadow-sm);}
+  .qa-tile-icon{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;background:rgba(198,113,57,0.15);}
+  .qa-tile-title{font-weight:700;font-size:13px;}
+  .qa-tile-sub{font-size:11px;color:var(--ink-soft);}
+
+  .today-log-row{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px dashed var(--line);}
+  .today-log-row:last-child{border-bottom:none;}
+  .today-log-icon{width:30px;height:30px;border-radius:50%;background:var(--paper);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px;}
+  .today-log-title{font-size:13px;font-weight:600;}
+  .today-log-sub{font-size:11px;color:var(--ink-soft);}
+  .today-log-value{font-size:12.5px;font-weight:600;text-align:right;white-space:nowrap;margin-left:auto;}
+
   .hist-row{
     display:flex;justify-content:space-between;align-items:center;
     padding:9px 4px;border-bottom:1px solid var(--line);font-size:12.5px;
@@ -662,12 +709,33 @@
       </div>
     </div>
 
+    <div class="glance-quote" id="glanceQuote"></div>
+
     <section class="block" style="margin-top:16px;margin-bottom:18px;">
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
-        <div class="block-title" style="margin:0;flex:1;">Dashboard</div>
+        <div class="block-title" style="margin:0;flex:1;">Today at a Glance</div>
+        <a href="#" id="glanceViewDetails" style="font-size:12.5px;font-weight:600;color:var(--ochre);text-decoration:none;">View Details →</a>
+      </div>
+      <div class="glance-grid" id="glanceGridTop"></div>
+      <div class="glance-grid glance-grid-3" id="glanceGridMid" style="margin-top:10px;"></div>
+    </section>
+
+    <section class="block" style="margin-bottom:18px;">
+      <div class="block-title">Quick Actions</div>
+      <div class="qa-grid" id="quickActionsGrid"></div>
+    </section>
+
+    <section class="block" style="margin-bottom:18px;">
+      <div class="block-title">Today's Log</div>
+      <div id="todayLogFeed"></div>
+    </section>
+
+    <section class="block" style="margin-top:16px;margin-bottom:18px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+        <div class="block-title" style="margin:0;flex:1;">Workout Dashboard</div>
         <select id="dashRange" style="padding:7px 10px;border:1px solid var(--line);border-radius:6px;font-size:12.5px;font-weight:600;">
-          <option value="day">Today</option>
-          <option value="week" selected>This Week (7d)</option>
+          <option value="day" selected>Today</option>
+          <option value="week">This Week (7d)</option>
           <option value="month">This Month (30d)</option>
         </select>
       </div>
@@ -1316,6 +1384,25 @@ async function loadFasting(){
 async function saveFasting(){
   try{ await window.storage.set(STORAGE_PREFIX + 'fasting', JSON.stringify(fastingState), false); }catch(e){}
 }
+
+// ---------- Water intake (running ml total per day) ----------
+let waterLog = {}; // {dateStr: ml}
+async function loadWater(){
+  try{
+    const res = await window.storage.get(STORAGE_PREFIX + 'water', false);
+    waterLog = res && res.value ? JSON.parse(res.value) : {};
+  }catch(e){ waterLog = {}; }
+}
+async function saveWater(){
+  try{ await window.storage.set(STORAGE_PREFIX + 'water', JSON.stringify(waterLog), false); }catch(e){}
+}
+function addWaterMl(deltaMl){
+  const d = dateStrForOffset(0);
+  waterLog[d] = Math.max(0, (waterLog[d] || 0) + deltaMl);
+  saveWater();
+  renderTodayGlance();
+}
+
 function renderFasting(){
   const card = document.getElementById('fastingCard');
   if(!card) return;
@@ -1408,7 +1495,239 @@ function renderFasting(){
     saveFasting();
     renderFasting();
     renderNutrition();
+    renderTodayGlance();
   });
+
+  renderTodayGlance();
+}
+
+// ---------- Today at a Glance (Today tab summary dashboard) ----------
+const DAILY_QUOTES = [
+  'Discipline today builds the healthier you tomorrow.',
+  'Small steps, repeated daily, add up to big change.',
+  'Consistency beats intensity.',
+  "You don't have to be extreme, just consistent.",
+  'Progress, not perfection.',
+  'Every healthy choice today is a vote for who you want to become.'
+];
+function dayOfYear(d){
+  const start = new Date(d.getFullYear(), 0, 0);
+  return Math.floor((d - start) / 86400000);
+}
+function glanceRing(pct, colorVar, size, centerHtml){
+  const clamped = Math.max(0, Math.min(100, pct || 0));
+  return `
+    <div style="width:${size}px;height:${size}px;border-radius:50%;background:conic-gradient(${colorVar} ${clamped * 3.6}deg, var(--line) 0deg);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+      <div style="width:${size - 12}px;height:${size - 12}px;border-radius:50%;background:var(--paper-raised);display:flex;flex-direction:column;align-items:center;justify-content:center;">
+        ${centerHtml}
+      </div>
+    </div>
+  `;
+}
+let glanceFastTickInterval = null;
+// No user-configurable exercise-calorie goal exists yet; this is a reasonable visual reference only.
+const CALORIE_BURN_TARGET = 400;
+
+async function renderTodayGlance(){
+  const grid = document.getElementById('glanceGridTop');
+  if(!grid) return;
+  clearInterval(glanceFastTickInterval);
+
+  const quoteEl = document.getElementById('glanceQuote');
+  if(quoteEl) quoteEl.textContent = '“' + DAILY_QUOTES[dayOfYear(new Date()) % DAILY_QUOTES.length] + '”';
+
+  const today = dateStrForOffset(0);
+  const nutriEntry = nutritionLog.find(e => e.date === today);
+  let dayRes = {entries: [], totals: {}};
+  try{
+    const res = await fetch(`api/meals.php?action=day&date=${today}`, {credentials: 'same-origin'});
+    dayRes = await res.json();
+  }catch(e){}
+  const mealTotals = dayRes.totals || {};
+  const combined = {
+    calories: (nutriEntry ? parseFloat(nutriEntry.calories) || 0 : 0) + (mealTotals.ENERC_KCAL || 0),
+    protein: (nutriEntry ? parseFloat(nutriEntry.protein) || 0 : 0) + (mealTotals.PROCNT || 0),
+    fat: (nutriEntry ? parseFloat(nutriEntry.fat) || 0 : 0) + (mealTotals.FAT || 0),
+    carbs: (nutriEntry ? parseFloat(nutriEntry.carbs) || 0 : 0) + (mealTotals.CHOCDF || 0)
+  };
+  const hasFoodToday = !!nutriEntry || (dayRes.entries || []).some(e => e.components.length);
+
+  const t = getTargets(today);
+  const calTarget = (userHealthTargets && userHealthTargets.calorieTarget) || t.calMax;
+  const proteinTarget = (userHealthTargets && userHealthTargets.proteinTarget) || t.proteinMax;
+  const fatTarget = t.fatMax;
+  const carbsTarget = t.carbsMax;
+  const waterTarget = (userHealthTargets && userHealthTargets.waterGoalMl) || 2500;
+  const waterMl = waterLog[today] || 0;
+  const fmtL = ml => (ml / 1000).toFixed(2).replace(/\.?0+$/, '') || '0';
+
+  const sortedWeighs = [...weighIns].sort((a,b)=> a.date < b.date ? -1 : 1);
+  const latestW = sortedWeighs.length ? sortedWeighs[sortedWeighs.length - 1] : null;
+  const prevW = sortedWeighs.length > 1 ? sortedWeighs[sortedWeighs.length - 2] : null;
+  const weightDelta = (latestW && prevW) ? (latestW.kg - prevW.kg) : null;
+
+  const todayIdx = new Date().getDay();
+  const plannedType = weekPlan[todayIdx].day;
+  const exerciseDone = plannedType ? !!checkedState[today + '_' + plannedType + '_done'] : null;
+  const planLabel = plannedType ? tabLabels[plannedType] : 'Rest day';
+
+  const caloriesBurned = historyLog.filter(e => e.date === today)
+    .reduce((sum,e)=> sum + (e.stats && e.stats.calories ? parseFloat(e.stats.calories) || 0 : 0), 0);
+
+  grid.innerHTML = `
+    <div class="glance-card">
+      <div class="glance-card-head"><span class="glance-card-label">\u{1F4E6} Weight</span></div>
+      <div class="glance-card-value">${latestW ? latestW.kg + ' kg' : '—'}</div>
+      ${weightDelta !== null
+        ? `<div class="glance-card-sub" style="color:${weightDelta<=0?'var(--forest-dark)':'#B4472A'};">${weightDelta<=0?'▼':'▲'} ${Math.abs(weightDelta).toFixed(1)} kg</div>`
+        : `<div class="glance-card-sub">No weigh-ins yet</div>`}
+      <div class="glance-card-sub">${latestW ? 'Last: ' + latestW.kg + ' kg (' + formatDateLabel(latestW.date) + ')' : ''}</div>
+    </div>
+    <div class="glance-card">
+      <div class="glance-card-head"><span class="glance-card-label">\u{1F37D} Food Intake</span></div>
+      <div class="glance-card-value">${Math.round(combined.calories)} kcal</div>
+      <div class="glance-bar-track"><div class="glance-bar-fill" style="width:${Math.min(100, calTarget ? combined.calories/calTarget*100 : 0)}%;background:var(--ochre);"></div></div>
+      <div class="glance-card-sub">Target: ${Math.round(calTarget).toLocaleString()} kcal</div>
+    </div>
+    <div class="glance-card">
+      <div class="glance-card-head"><span class="glance-card-label">⏱ Fasting</span></div>
+      <div class="glance-card-value" id="glanceFastValue">—</div>
+      <div class="glance-bar-track"><div class="glance-bar-fill" id="glanceFastBar" style="width:0%;background:var(--forest);"></div></div>
+      <div class="glance-card-sub" id="glanceFastSub">Goal: ${fastingState.goalHours || 16} hours</div>
+    </div>
+    <div class="glance-card">
+      <div class="glance-card-head">
+        <span class="glance-card-label">\u{1F4A7} Water</span>
+        <div style="display:flex;gap:5px;">
+          <button class="glance-water-btn" id="glanceWaterMinus" type="button" ${waterMl<=0?'disabled':''}>−</button>
+          <button class="glance-water-btn" id="glanceWaterPlus" type="button">+</button>
+        </div>
+      </div>
+      <div class="glance-card-value">${fmtL(waterMl)} L</div>
+      <div class="glance-bar-track"><div class="glance-bar-fill" style="width:${Math.min(100, waterTarget ? waterMl/waterTarget*100 : 0)}%;background:#4A90D9;"></div></div>
+      <div class="glance-card-sub">Target: ${(waterTarget/1000).toFixed(1)} L · +/− adds a glass (250ml)</div>
+    </div>
+  `;
+  document.getElementById('glanceWaterPlus').addEventListener('click', ()=> addWaterMl(250));
+  document.getElementById('glanceWaterMinus').addEventListener('click', ()=> addWaterMl(-250));
+
+  const updateGlanceFast = ()=>{
+    const valEl = document.getElementById('glanceFastValue');
+    const barEl = document.getElementById('glanceFastBar');
+    const subEl = document.getElementById('glanceFastSub');
+    const feedValEl = document.getElementById('todayLogFastValue');
+    if(!valEl) return;
+    if(fastingState.startIso){
+      const elapsedMs = Math.max(0, Date.now() - new Date(fastingState.startIso).getTime());
+      const elapsedHrs = elapsedMs / 3600000;
+      const goalHrs = fastingState.goalHours || 16;
+      const h = Math.floor(elapsedMs/3600000), m = Math.floor((elapsedMs%3600000)/60000), s = Math.floor((elapsedMs%60000)/1000);
+      const timeStr = `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+      valEl.textContent = timeStr;
+      if(feedValEl) feedValEl.textContent = timeStr;
+      barEl.style.width = Math.min(100, elapsedHrs/goalHrs*100) + '%';
+      subEl.textContent = `Goal: ${goalHrs}h${elapsedHrs>=goalHrs ? ' — reached!' : ''}`;
+    } else {
+      const lastFast = nutriEntry && nutriEntry.fastHours ? parseFloat(nutriEntry.fastHours) : null;
+      const displayVal = lastFast ? formatFastHours(lastFast) : 'Not started';
+      valEl.textContent = displayVal;
+      if(feedValEl) feedValEl.textContent = displayVal;
+      barEl.style.width = lastFast ? Math.min(100, lastFast/(fastingState.goalHours||16)*100) + '%' : '0%';
+      subEl.textContent = `Goal: ${fastingState.goalHours || 16} hours`;
+    }
+  };
+
+  const midGrid = document.getElementById('glanceGridMid');
+  midGrid.innerHTML = `
+    <div class="glance-card">
+      <div class="glance-card-label" style="margin-bottom:4px;">\u{1F3AF} Macronutrients</div>
+      <div style="display:flex;justify-content:space-around;">
+        <div class="glance-ring-row">
+          ${glanceRing(carbsTarget ? combined.carbs/carbsTarget*100 : 0, 'var(--ochre)', 64, `<div style="font-weight:700;font-size:13px;">${Math.round(combined.carbs)}g</div>`)}
+          <div class="glance-card-sub">Carbs / ${carbsTarget}g</div>
+        </div>
+        <div class="glance-ring-row">
+          ${glanceRing(proteinTarget ? combined.protein/proteinTarget*100 : 0, 'var(--forest)', 64, `<div style="font-weight:700;font-size:13px;">${Math.round(combined.protein)}g</div>`)}
+          <div class="glance-card-sub">Protein / ${proteinTarget}g</div>
+        </div>
+        <div class="glance-ring-row">
+          ${glanceRing(fatTarget ? combined.fat/fatTarget*100 : 0, '#B4472A', 64, `<div style="font-weight:700;font-size:13px;">${Math.round(combined.fat)}g</div>`)}
+          <div class="glance-card-sub">Fat / ${fatTarget}g</div>
+        </div>
+      </div>
+    </div>
+    <div class="glance-card">
+      <div class="glance-card-head"><span class="glance-card-label">\u{1F3C3} Exercise</span></div>
+      ${plannedType ? `
+        <div style="background:${exerciseDone?'rgba(47,111,78,0.12)':'var(--paper)'};border:1px solid ${exerciseDone?'var(--forest)':'var(--line)'};border-radius:8px;padding:10px;display:flex;align-items:center;gap:8px;">
+          <span style="font-size:16px;">${exerciseDone?'✅':'⭕'}</span>
+          <div>
+            <div style="font-weight:700;font-size:13px;">${planLabel}</div>
+            <div class="glance-card-sub">${exerciseDone ? 'Completed' : 'Not done yet'}</div>
+          </div>
+        </div>
+      ` : `<div class="glance-card-sub" style="padding:10px 0;">Rest day — nothing planned.</div>`}
+    </div>
+    <div class="glance-card" style="align-items:center;">
+      <div class="glance-card-label" style="align-self:flex-start;">\u{1F525} Calories Burned</div>
+      ${glanceRing(Math.min(100, caloriesBurned/CALORIE_BURN_TARGET*100), '#B4472A', 84, `<div style="font-family:var(--font-heading);font-size:20px;">${Math.round(caloriesBurned)}</div><div style="font-size:9.5px;color:var(--ink-soft);">kcal</div>`)}
+      <div class="glance-card-sub">Target: ${CALORIE_BURN_TARGET} kcal</div>
+    </div>
+  `;
+
+  const qaGrid = document.getElementById('quickActionsGrid');
+  qaGrid.innerHTML = `
+    <button class="qa-tile" data-qa="food" type="button"><span class="qa-tile-icon">\u{1F37D}</span><span class="qa-tile-title">Log Food</span><span class="qa-tile-sub">Track your meals and nutrients</span></button>
+    <button class="qa-tile" data-qa="weight" type="button"><span class="qa-tile-icon">\u{1F4CB}</span><span class="qa-tile-title">Log Weight</span><span class="qa-tile-sub">Update your weight today</span></button>
+    <button class="qa-tile" data-qa="workout" type="button"><span class="qa-tile-icon">\u{1F3C3}</span><span class="qa-tile-title">Start Workout</span><span class="qa-tile-sub">Follow your plan or log activity</span></button>
+    <button class="qa-tile" data-qa="about" type="button"><span class="qa-tile-icon">\u{1F464}</span><span class="qa-tile-title">About Me</span><span class="qa-tile-sub">Update your profile and health info</span></button>
+    <button class="qa-tile" data-qa="goals" type="button"><span class="qa-tile-icon">\u{1F3AF}</span><span class="qa-tile-title">My Goals</span><span class="qa-tile-sub">Set and track your goals</span></button>
+  `;
+  qaGrid.querySelectorAll('[data-qa]').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const kind = btn.dataset.qa;
+      if(kind === 'food'){ window.showView('food'); }
+      else if(kind === 'weight'){
+        window.showView('body');
+        setTimeout(()=>{ const el=document.getElementById('weighInKg'); if(el){ if(el.scrollIntoView) el.scrollIntoView({behavior:'smooth', block:'center'}); el.focus(); } }, 80);
+      }
+      else if(kind === 'workout'){ window.showView('train'); setTimeout(scrollToWorkout, 80); }
+      else if(kind === 'about'){ window.showView('account'); window.showAccountView('snapshot'); }
+      else if(kind === 'goals'){ window.showView('account'); window.showAccountView('goals'); }
+    });
+  });
+
+  const viewDetailsLink = document.getElementById('glanceViewDetails');
+  if(viewDetailsLink && !viewDetailsLink._wired){
+    viewDetailsLink._wired = true;
+    viewDetailsLink.addEventListener('click', (e)=>{ e.preventDefault(); window.showView('insights'); });
+  }
+
+  const feedEl = document.getElementById('todayLogFeed');
+  const todaysWeighIn = weighIns.find(w => w.date === today);
+  const mealItemCount = (dayRes.entries || []).reduce((sum,e)=> sum + e.components.length, 0) + (nutriEntry && nutriEntry.meal ? 1 : 0);
+  const rows = [
+    {icon: '\u{1F37D}', title: 'Food', sub: mealItemCount ? `${mealItemCount} item${mealItemCount===1?'':'s'} logged` : 'Not logged yet', value: hasFoodToday ? `${Math.round(combined.calories)} kcal` : '—'},
+    {icon: '\u{1F4A7}', title: 'Water', sub: waterMl ? `${waterMl}ml logged` : 'Not logged yet', value: `${fmtL(waterMl)} L`},
+    {icon: '\u{1F4CB}', title: 'Weight', sub: todaysWeighIn ? 'Logged' : 'Not logged today', value: todaysWeighIn ? `${todaysWeighIn.kg} kg` : '—'},
+    {icon: '\u{1F3C3}', title: 'Exercise', sub: plannedType ? planLabel : 'Rest day', value: plannedType ? (exerciseDone ? 'Completed' : 'Not done') : '—'},
+    {icon: '⏱', title: 'Fasting', sub: fastingState.startIso ? 'In progress' : (nutriEntry && nutriEntry.fastHours ? 'Logged' : 'Not started'), value: '', liveId: 'todayLogFastValue'}
+  ];
+  feedEl.innerHTML = rows.map(r => `
+    <div class="today-log-row">
+      <div class="today-log-icon">${r.icon}</div>
+      <div style="flex:1;">
+        <div class="today-log-title">${r.title}</div>
+        <div class="today-log-sub">${r.sub}</div>
+      </div>
+      <div class="today-log-value" ${r.liveId ? `id="${r.liveId}"` : ''}>${r.value}</div>
+    </div>
+  `).join('');
+
+  updateGlanceFast();
+  if(fastingState.startIso){
+    glanceFastTickInterval = setInterval(updateGlanceFast, 1000);
+  }
 }
 
 let userProfile = null; // {gender, age, heightCm, goalWeightKg, activityLevel}
@@ -2051,6 +2370,7 @@ async function renderNutrition(){
       });
     });
   }
+  renderTodayGlance();
 }
 
 function renderBodyPlaceholders(){
@@ -2059,7 +2379,6 @@ function renderBodyPlaceholders(){
   const tiles = [
     {key:'vitals', label:'Vitals', sub:'Blood pressure, glucose, HRV, resting HR'},
     {key:'sleep', label:'Sleep', sub:'Total, deep, REM, light'},
-    {key:'water', label:'Water', sub:'Daily intake vs. target'},
     {key:'mind', label:'Mind', sub:'Minutes, kind, stress score'}
   ];
   grid.innerHTML = tiles.map(t => `
@@ -2360,6 +2679,7 @@ function renderWeightSection(){
       btn.addEventListener('click', ()=>{
         removeWeighIn(btn.dataset.delWeight);
         renderWeightSection();
+        renderTodayGlance();
       });
     });
   }
@@ -2448,6 +2768,7 @@ function renderDashboard(){
     }
 
     document.getElementById('weightProgress').innerHTML = '';
+    renderTodayGlance();
     return;
   }
 
@@ -2547,6 +2868,7 @@ function renderDashboard(){
       `;
     }).join('');
   }
+  renderTodayGlance();
 }
 
 function renderWeekPlan(){
@@ -2923,6 +3245,7 @@ async function startApp(){
     if(view === 'goals') renderAccountGoals();
     if(view === 'settings') renderAccountSettings();
   }
+  window.showAccountView = showAccountView;
   document.getElementById('accountSubnav').addEventListener('click', (e)=>{
     const btn = e.target.closest('.subnav-btn');
     if(!btn) return;
@@ -2935,6 +3258,7 @@ async function startApp(){
   await loadNutrition();
   await loadProfile();
   await loadFasting();
+  await loadWater();
 
 
   renderDashboard();
@@ -2981,6 +3305,7 @@ async function startApp(){
     kgInput.value = '';
     dateInput.value = dateStrForOffset(0);
     renderWeightSection();
+    renderTodayGlance();
   });
 
   document.getElementById('nutriDate').value = dateStrForOffset(0);

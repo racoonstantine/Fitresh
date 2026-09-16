@@ -224,6 +224,28 @@ requests fail entirely in local dev, point PHP at a CA bundle (e.g.
 bundle from https://curl.se/ca/cacert.pem). Namecheap's shared hosting has
 never shown this issue.
 
+## Today at a Glance
+
+The Today tab leads with a summary dashboard — weight (with delta from your
+last weigh-in), food intake vs. target, a live fasting readout, water intake,
+macronutrient rings, today's planned exercise, and calories burned — plus a
+Quick Actions row (Log Food, Log Weight, Start Workout, About Me, My Goals)
+and a unified "Today's Log" feed listing all of today's activity in one
+place. It pulls from the same data as the rest of the app (nutritionLog +
+meal_entries, weighins, checkedState/historyLog, the fasting timer) — nothing
+new to maintain there. The original per-range workout dashboard (day/week/
+month, session history, weekly plan) still lives below it, now defaulted to
+"Today" instead of "This Week."
+
+Water intake is a new lightweight resource (`water`, a `{date: ml}` map,
+same generic `api/data.php` mechanism as everything else) — the +/− buttons
+on the Water card log a glass (250ml) at a time. There's no dedicated water
+logging screen yet; it's only editable from the Today card.
+
+The "Calories Burned" ring's target (400 kcal) is a fixed placeholder —
+there's no user-configurable exercise-calorie goal yet, unlike the food/
+water/protein targets which all come from the health profile.
+
 ## Local development
 
 There's no build step. To preview the frontend against a local PHP server:

@@ -10,7 +10,7 @@ if (empty($_SESSION['user_id'])) {
 }
 $userId = (int)$_SESSION['user_id'];
 
-$ALLOWED_RESOURCES = ['nutrition', 'weighins', 'history', 'checked', 'weights', 'theme', 'profile', 'fasting'];
+$ALLOWED_RESOURCES = ['nutrition', 'weighins', 'history', 'checked', 'weights', 'theme', 'profile', 'fasting', 'water'];
 
 $pdo = get_db();
 $method = $_SERVER['REQUEST_METHOD'];
