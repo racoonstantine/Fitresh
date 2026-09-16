@@ -730,6 +730,7 @@
       <div>
         <div class="eyebrow">Personal Health Program</div>
         <h3 style="margin:2px 0 0;">Full Circle</h3>
+        <div id="todayClock" style="font-size:12.5px;color:var(--ink-soft);margin-top:4px;"></div>
         <div class="day-header-sub tally-row">
           <span class="tally-label" id="tallyLabel">This week: 0/4 sessions</span>
           <div class="tally-marks" id="tallyMarks"></div>
@@ -795,6 +796,7 @@
         <input type="number" step="0.1" id="weighInKg" placeholder="kg" style="width:80px;padding:8px;border:1px solid var(--line);border-radius:5px;font-family:var(--font-body);font-size:13px;background:var(--paper-raised);">
         <button class="timer-btn start" id="addWeighInBtn" style="flex:0 0 70px;">Add</button>
       </div>
+      <div style="font-size:11px;color:var(--ink-soft);margin-top:6px;">Tap a past entry below to edit it, or ✕ to remove it.</div>
       <div id="weighInList" style="margin-top:8px;"></div>
     </section>
 
@@ -921,6 +923,33 @@
   </div><!-- /panelNutrition -->
 
   <div id="panelTrain" style="display:none;">
+    <section class="block" style="margin-top:16px;margin-bottom:18px;">
+      <div class="block-title">Weekly Plan</div>
+      <div class="today-callout" id="todayCallout">
+        <div class="today-callout-text">
+          <span id="todayLabel">Today</span>
+          <strong id="todayPlanText">—</strong>
+        </div>
+        <button class="today-btn" id="todayBtn">Start</button>
+      </div>
+      <div class="week-strip" id="weekStrip"></div>
+    </section>
+
+    <section class="block" style="margin-bottom:18px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+        <div class="block-title" style="margin:0;flex:1;">Workout Dashboard</div>
+        <select id="dashRange" style="padding:7px 10px;border:1px solid var(--line);border-radius:6px;font-size:12.5px;font-weight:600;">
+          <option value="day" selected>Today</option>
+          <option value="week">This Week (7d)</option>
+          <option value="month">This Month (30d)</option>
+        </select>
+      </div>
+      <div id="dashDayNav" style="display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:10px;"></div>
+      <div id="dashDayDetail" style="margin-bottom:10px;"></div>
+      <div class="dash" id="dashCards"></div>
+      <div class="weight-progress" id="weightProgress"></div>
+    </section>
+
     <div class="tabs" id="tabs" style="scroll-margin-top:12px;margin-top:16px;">
       <button class="tab" data-day="A">Strength A</button>
       <button class="tab" data-day="B">Strength B</button>
@@ -1010,33 +1039,6 @@
         </div>
         <button class="timer-btn start" id="saveStatsBtn" style="width:100%;margin-top:10px;">Save stats</button>
       </div>
-    </section>
-
-    <section class="block" style="margin-top:16px;margin-bottom:18px;">
-      <div class="block-title">Weekly Plan</div>
-      <div class="today-callout" id="todayCallout">
-        <div class="today-callout-text">
-          <span id="todayLabel">Today</span>
-          <strong id="todayPlanText">—</strong>
-        </div>
-        <button class="today-btn" id="todayBtn">Start</button>
-      </div>
-      <div class="week-strip" id="weekStrip"></div>
-    </section>
-
-    <section class="block" style="margin-bottom:18px;">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
-        <div class="block-title" style="margin:0;flex:1;">Workout Dashboard</div>
-        <select id="dashRange" style="padding:7px 10px;border:1px solid var(--line);border-radius:6px;font-size:12.5px;font-weight:600;">
-          <option value="day" selected>Today</option>
-          <option value="week">This Week (7d)</option>
-          <option value="month">This Month (30d)</option>
-        </select>
-      </div>
-      <div id="dashDayNav" style="display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:10px;"></div>
-      <div id="dashDayDetail" style="margin-bottom:10px;"></div>
-      <div class="dash" id="dashCards"></div>
-      <div class="weight-progress" id="weightProgress"></div>
     </section>
   </div><!-- /panelTrain -->
 
@@ -1403,7 +1405,8 @@
     <div id="fsMainCard" class="hub-card"></div>
 
     <div class="hub-card" style="margin-top:14px;">
-      <div class="block-title" style="margin:0 0 10px;">Log a completed fast</div>
+      <div class="block-title" style="margin:0 0 10px;">Log or edit a fast</div>
+      <div id="fsPastDayNav" style="display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:12px;"></div>
       <div style="display:flex;gap:8px;">
         <div style="flex:1;">
           <label style="font-size:11px;color:var(--ink-soft);">Start</label>
@@ -1788,8 +1791,22 @@ const DAILY_QUOTES = [
   'Consistency beats intensity.',
   "You don't have to be extreme, just consistent.",
   'Progress, not perfection.',
-  'Every healthy choice today is a vote for who you want to become.'
+  'Every healthy choice today is a vote for who you want to become.',
+  'Kaya mo yan, isang araw lang muna.', // "You can do it, one day at a time."
+  'Maliit na hakbang, malaking pagbabago.', // "Small steps, big change."
+  'Huwag kang sumuko, konti na lang.', // "Don't give up, you're almost there."
+  'Ang pagbabago ay nagsisimula sa iyo.', // "Change begins with you."
+  'Bawat araw, isang pagkakataon para umayos.', // "Every day is a chance to improve."
+  'Sama-sama nating abutin ang goal mo.' // "Together, let's reach your goal."
 ];
+function updateTodayClock(){
+  const el = document.getElementById('todayClock');
+  if(!el) return;
+  el.textContent = new Date().toLocaleString(undefined, {
+    weekday: 'long', month: 'long', day: 'numeric', hour: 'numeric', minute: '2-digit'
+  });
+}
+setInterval(updateTodayClock, 30000);
 function dayOfYear(d){
   const start = new Date(d.getFullYear(), 0, 0);
   return Math.floor((d - start) / 86400000);
@@ -1811,6 +1828,7 @@ async function renderTodayGlance(){
   if(!grid) return;
   clearInterval(glanceFastTickInterval);
 
+  updateTodayClock();
   const quoteEl = document.getElementById('glanceQuote');
   if(quoteEl) quoteEl.textContent = '“' + DAILY_QUOTES[dayOfYear(new Date()) % DAILY_QUOTES.length] + '”';
 
@@ -2374,6 +2392,19 @@ function macroBarRow(label, value, min, max, unit, mode){
   `;
 }
 
+// Compact one-line stat chip (value / target), for secondary macros where a full
+// progress bar per nutrient (as macroBarRow draws) would take up too much space.
+function macroChip(label, value, target, unit, mode){
+  const displayValue = Math.round(value * 10) / 10;
+  const met = mode === 'ceiling' ? value <= target : value >= target;
+  return `
+    <div style="flex:1;background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:6px 4px;text-align:center;">
+      <div style="font-size:9.5px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.04em;">${label}</div>
+      <div style="font-size:12px;font-weight:600;color:${met ? 'var(--forest-dark)' : '#B4472A'};">${displayValue}<span style="font-weight:400;color:var(--ink-soft);">/${target}${unit}</span></div>
+    </div>
+  `;
+}
+
 let foodSearchResultsCache = [];
 let foodSearchGeneration = 0;
 function foodSearchEscape(value){
@@ -2504,11 +2535,18 @@ async function renderTodayMeals(){
       <div style="margin-bottom:10px;">
         <div style="font-size:11px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.06em;font-weight:700;margin-bottom:4px;">${typeLabels[entry.meal_type] || entry.meal_type}</div>
         ${entry.components.map(c => `
-          <div style="display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px dashed var(--line);">
-            <div style="font-size:13px;">${c.name} <span style="color:var(--ink-soft);font-size:11.5px;">(${c.amount}${c.unit})</span></div>
-            <div style="display:flex;align-items:center;gap:8px;">
-              <span style="font-size:12.5px;color:var(--ink-soft);">${Math.round(c.nutrients.ENERC_KCAL || 0)} kcal</span>
-              <button class="wi-del meal-delete" data-id="${c.id}" type="button" title="Remove">✕</button>
+          <div class="meal-component-row" data-id="${c.id}" style="padding:6px 0;border-bottom:1px dashed var(--line);cursor:pointer;">
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <div style="font-size:13px;">${c.name} <span style="color:var(--ink-soft);font-size:11.5px;">(${c.amount}${c.unit})</span></div>
+              <div style="display:flex;align-items:center;gap:8px;">
+                <span style="font-size:12.5px;color:var(--ink-soft);">${Math.round(c.nutrients.ENERC_KCAL || 0)} kcal</span>
+                <button class="wi-del meal-delete" data-id="${c.id}" type="button" title="Remove">✕</button>
+              </div>
+            </div>
+            <div class="meal-component-edit" data-edit-id="${c.id}" style="display:none;margin-top:6px;gap:8px;align-items:center;">
+              <input type="number" class="meal-edit-amount" data-edit-id="${c.id}" value="${c.amount}" style="width:80px;padding:6px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:12.5px;">
+              <span style="font-size:11.5px;color:var(--ink-soft);">${c.unit}</span>
+              <button class="timer-btn start meal-save-amount" data-id="${c.id}" data-unit="${c.unit}" type="button" style="flex:1;padding:6px 0;font-size:12px;">Save</button>
             </div>
           </div>
         `).join('')}
@@ -2524,10 +2562,37 @@ async function renderTodayMeals(){
       </div>
     `;
     card.querySelectorAll('.meal-delete').forEach(btn=>{
-      btn.addEventListener('click', async ()=>{
+      btn.addEventListener('click', async (e)=>{
+        e.stopPropagation();
         await fetch('api/meals.php?action=delete_component', {
           method: 'POST', credentials: 'same-origin', headers: {'Content-Type': 'application/json'},
           body: JSON.stringify({id: parseInt(btn.dataset.id, 10)})
+        });
+        renderTodayMeals();
+        renderNutrition();
+      });
+    });
+    card.querySelectorAll('.meal-component-row').forEach(row=>{
+      row.addEventListener('click', (e)=>{
+        if(e.target.closest('.meal-delete') || e.target.closest('.meal-component-edit')) return;
+        const id = row.dataset.id;
+        card.querySelectorAll('.meal-component-edit').forEach(el=>{
+          el.style.display = (el.dataset.editId === id && el.style.display !== 'flex') ? 'flex' : 'none';
+        });
+      });
+    });
+    card.querySelectorAll('.meal-save-amount').forEach(btn=>{
+      btn.addEventListener('click', async (e)=>{
+        e.stopPropagation();
+        const id = btn.dataset.id;
+        const input = card.querySelector(`.meal-edit-amount[data-edit-id="${id}"]`);
+        const amount = parseFloat(input.value);
+        if(!amount || amount <= 0) return;
+        btn.disabled = true;
+        btn.textContent = 'Saving…';
+        await fetch('api/meals.php?action=update_component', {
+          method: 'POST', credentials: 'same-origin', headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({id: parseInt(id, 10), amount, unit: btn.dataset.unit || 'g'})
         });
         renderTodayMeals();
         renderNutrition();
@@ -2654,10 +2719,12 @@ async function renderNutrition(){
                 ${macroBarRow('Fat', eatenFat, t.fatMin, t.fatMax, 'g', 'range')}
                 ${macroBarRow('Carbs', eatenCarbs, 0, t.carbsMax, 'g', 'ceiling')}
                 ${(eatenSodium || eatenFiber || eatenSugar) ? `
-                  <div style="font-size:10px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.06em;margin:10px 0 4px;">From itemized food logging</div>
-                  ${macroBarRow('Sodium', eatenSodium, 0, t.sodiumMax, 'mg', 'ceiling')}
-                  ${macroBarRow('Fiber', eatenFiber, t.fiberTarget, t.fiberTarget * 1.5, 'g', 'range')}
-                  ${macroBarRow('Sugar', eatenSugar, 0, t.sugarMax, 'g', 'ceiling')}
+                  <div style="font-size:10px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.06em;margin:10px 0 6px;">From itemized food logging</div>
+                  <div style="display:flex;gap:6px;">
+                    ${macroChip('Sodium', eatenSodium, t.sodiumMax, 'mg', 'ceiling')}
+                    ${macroChip('Fiber', eatenFiber, t.fiberTarget, 'g', 'floor')}
+                    ${macroChip('Sugar', eatenSugar, t.sugarMax, 'g', 'ceiling')}
+                  </div>
                 ` : ''}
               </div>
             </div>
@@ -2763,7 +2830,7 @@ async function renderNutrition(){
       <div class="log-row">
         <div class="log-head" data-nutri-toggle="${idx}">
           <div class="hist-date">${e.date}</div>
-          <div class="hist-type">${e.calories ? e.calories+' kcal' : ''}${e.fastHours ? ' · fast ' + formatFastHours(parseFloat(e.fastHours)) : ''}${belowTarget ? ' <span style="color:#B4472A;font-weight:600;">· below target</span>' : ''}</div>
+          <div class="hist-type">${e.calories ? e.calories+' kcal' : ''}${belowTarget ? ' <span style="color:#B4472A;font-weight:600;">· below target</span>' : ''}</div>
           <svg class="log-caret" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
         </div>
         <div class="log-detail" data-nutri-detail="${idx}">
@@ -3115,7 +3182,7 @@ function renderWeightSection(){
         deltaHtml = `<span class="wi-delta ${cls}">${d === 0 ? '' : (d > 0 ? '+' : '') + d.toFixed(1)}</span>`;
       }
       return `
-        <div class="wi-row">
+        <div class="wi-row wi-row-edit" data-edit-weight="${entry.date}" data-edit-kg="${entry.kg}" style="cursor:pointer;">
           <div class="wi-date">${entry.date}</div>
           <div class="wi-kg">${entry.kg.toFixed(1)} kg</div>
           ${deltaHtml}
@@ -3123,8 +3190,19 @@ function renderWeightSection(){
         </div>
       `;
     }).join('');
+    listEl.querySelectorAll('[data-edit-weight]').forEach(row=>{
+      row.addEventListener('click', (e)=>{
+        if(e.target.closest('[data-del-weight]')) return;
+        document.getElementById('weighInDate').value = row.dataset.editWeight;
+        const kgInput = document.getElementById('weighInKg');
+        kgInput.value = row.dataset.editKg;
+        kgInput.focus();
+        if(kgInput.scrollIntoView) kgInput.scrollIntoView({behavior:'smooth', block:'center'});
+      });
+    });
     listEl.querySelectorAll('[data-del-weight]').forEach(btn=>{
-      btn.addEventListener('click', ()=>{
+      btn.addEventListener('click', (e)=>{
+        e.stopPropagation();
         removeWeighIn(btn.dataset.delWeight);
         renderWeightSection();
         renderTodayGlance();
@@ -3363,7 +3441,8 @@ function renderHistory(){
     el.innerHTML = `<div class="dash-empty">No sessions logged yet — mark a day done and it'll show up here.</div>`;
     return;
   }
-  el.innerHTML = historyLog.slice(0,10).map((entry, idx) => {
+  const shown = historyLog.slice(0,10);
+  el.innerHTML = shown.map((entry, idx) => {
     const s = entry.stats;
     const quickStat = s ? [s.distance ? s.distance+'km':'', s.calories ? s.calories+'kcal':'', s.hr ? s.hr+'bpm':''].filter(Boolean).join(' · ') : '';
     const exList = entry.exercises && entry.exercises.length
@@ -3377,6 +3456,12 @@ function renderHistory(){
       s.pace ? `Pace: ${s.pace}/km` : '',
       s.steps ? `Steps: ${s.steps}` : ''
     ].filter(Boolean).map(l => `<div class="log-line">${l}</div>`).join('') : '';
+    const editExRows = (entry.exercises || []).map((ex, exi) => `
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;padding:4px 0;">
+        <span style="font-size:12.5px;flex:1;">${foodSearchEscape(ex.name)}</span>
+        <input type="text" data-hist-weight="${idx}:${exi}" value="${foodSearchEscape(ex.weight || '')}" placeholder="e.g. 8 (kg)" style="width:90px;padding:5px 6px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:12px;">
+      </div>
+    `).join('');
     return `
     <div class="log-row">
       <div class="log-head" data-hist-toggle="${idx}">
@@ -3389,6 +3474,19 @@ function renderHistory(){
           ${exList || '<div class="log-line">(no exercises listed)</div>'}
           ${statLines}
           ${entry.notes ? `<div class="log-note">${entry.notes}</div>` : ''}
+          <div style="display:flex;gap:8px;margin-top:8px;">
+            <button class="img-link" data-hist-edit-toggle="${idx}" type="button" style="cursor:pointer;flex:1;">Edit</button>
+            <button class="wi-del" data-hist-delete="${idx}" type="button" title="Delete session">✕ Delete</button>
+          </div>
+          <div data-hist-edit-form="${idx}" style="display:none;margin-top:10px;padding-top:10px;border-top:1px solid var(--line);">
+            ${editExRows}
+            <label style="font-size:11px;color:var(--ink-soft);display:block;margin-top:8px;">Notes</label>
+            <textarea data-hist-notes="${idx}" rows="2" style="width:100%;padding:6px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:12.5px;font-family:var(--font-body);margin-top:2px;">${entry.notes || ''}</textarea>
+            <div style="display:flex;gap:8px;margin-top:8px;">
+              <button class="timer-btn start" data-hist-save="${idx}" type="button" style="flex:1;">Save changes</button>
+              <button class="timer-btn reset" data-hist-edit-stats="${idx}" type="button" style="flex:1;">Edit watch stats</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -3400,6 +3498,75 @@ function renderHistory(){
       const detail = el.querySelector(`[data-hist-detail="${idx}"]`);
       const open = detail.classList.toggle('open');
       head.classList.toggle('expanded', open);
+    });
+  });
+  el.querySelectorAll('[data-hist-edit-toggle]').forEach(btn=>{
+    btn.addEventListener('click', (e)=>{
+      e.stopPropagation();
+      const idx = btn.dataset.histEditToggle;
+      const form = el.querySelector(`[data-hist-edit-form="${idx}"]`);
+      form.style.display = form.style.display === 'none' ? 'block' : 'none';
+    });
+  });
+  el.querySelectorAll('[data-hist-delete]').forEach(btn=>{
+    btn.addEventListener('click', (e)=>{
+      e.stopPropagation();
+      const entry = shown[parseInt(btn.dataset.histDelete, 10)];
+      if(!entry) return;
+      // Two-tap confirm instead of a native confirm() dialog -- more reliable in a
+      // standalone/home-screen web app, and consistent with the rest of the app
+      // (every other delete here is a single, undo-free tap).
+      if(btn.dataset.confirming !== 'true'){
+        btn.dataset.confirming = 'true';
+        btn.textContent = 'Tap again to delete';
+        btn.style.background = '#B4472A';
+        btn.style.color = '#fff';
+        clearTimeout(btn._confirmTimeout);
+        btn._confirmTimeout = setTimeout(()=>{
+          btn.dataset.confirming = 'false';
+          btn.textContent = '✕ Delete';
+          btn.style.background = '';
+          btn.style.color = '';
+        }, 3000);
+        return;
+      }
+      clearTimeout(btn._confirmTimeout);
+      removeSessionLog(entry.date, entry.day);
+      delete checkedState[entry.date + '_' + entry.day + '_done'];
+      saveChecked();
+      renderTally();
+      renderDashboard();
+      renderHistory();
+      renderWeekPlan();
+    });
+  });
+  el.querySelectorAll('[data-hist-save]').forEach(btn=>{
+    btn.addEventListener('click', (e)=>{
+      e.stopPropagation();
+      const idx = parseInt(btn.dataset.histSave, 10);
+      const entry = shown[idx];
+      if(!entry) return;
+      const updatedExercises = (entry.exercises || []).map((ex, exi) => {
+        const input = el.querySelector(`[data-hist-weight="${idx}:${exi}"]`);
+        return {name: ex.name, weight: input ? input.value : ex.weight};
+      });
+      const notesInput = el.querySelector(`[data-hist-notes="${idx}"]`);
+      const notes = notesInput ? notesInput.value.trim() : entry.notes;
+      upsertSessionLog(entry.date, entry.day, updatedExercises, notes, entry.stats);
+      renderHistory();
+      renderDashboard();
+    });
+  });
+  el.querySelectorAll('[data-hist-edit-stats]').forEach(btn=>{
+    btn.addEventListener('click', (e)=>{
+      e.stopPropagation();
+      const idx = parseInt(btn.dataset.histEditStats, 10);
+      const entry = shown[idx];
+      if(!entry) return;
+      window.showView('train');
+      setTimeout(()=>{
+        openStatsForm(entry.day, entry.date);
+      }, 80);
     });
   });
 }
@@ -3600,9 +3767,11 @@ function renderCardio(kind){
 
 // ---------- Shared "log stats from watch" form (used by both strength and cardio days) ----------
 let activeStatsContext = null; // 'A'|'B'|'steady'|'interval' -- which session the shared form is currently editing
-function openStatsForm(contextId){
+let activeStatsDate = null; // defaults to today; set when editing a past day's stats from History Log
+function openStatsForm(contextId, dateOverride){
   activeStatsContext = contextId;
-  const existing = historyLog.find(e => e.date === dateStrForOffset(0) && e.day === contextId);
+  activeStatsDate = dateOverride || dateStrForOffset(0);
+  const existing = historyLog.find(e => e.date === activeStatsDate && e.day === contextId);
   const stats = existing ? existing.stats : null;
   document.getElementById('statDistance').value = stats ? (stats.distance || '') : '';
   document.getElementById('statDuration').value = stats ? (stats.duration || '') : '';
@@ -3626,7 +3795,8 @@ function openStatsForm(contextId){
 document.getElementById('saveStatsBtn').onclick = ()=>{
   const contextId = activeStatsContext;
   if(!contextId) return;
-  const todayStr = dateStrForOffset(0);
+  const targetDate = activeStatsDate || dateStrForOffset(0);
+  const isToday = targetDate === dateStrForOffset(0);
   const hrZones = {
     warmup: document.getElementById('statHrZoneWarmup').value,
     fatBurn: document.getElementById('statHrZoneFatBurn').value,
@@ -3646,24 +3816,33 @@ document.getElementById('saveStatsBtn').onclick = ()=>{
     recoveryHr: document.getElementById('statRecoveryHr').value,
     hrZones
   };
-  checkedState[todayStr + '_' + contextId + '_done'] = true;
-  let snapshot = [];
+  checkedState[targetDate + '_' + contextId + '_done'] = true;
   const isStrengthDay = !!dayData[contextId];
-  if(isStrengthDay){
+  const existingEntry = historyLog.find(e => e.date === targetDate && e.day === contextId);
+  let snapshot;
+  if(isStrengthDay && isToday){
     dayData[contextId].exercises.forEach(ex=>{ checkedState[ex.id] = true; });
     snapshot = dayData[contextId].exercises.map(ex => ({
       name: ex.name,
       weight: (window.savedWeights && window.savedWeights[ex.id]) || ''
     }));
+  } else {
+    // Editing a past day -- keep whatever exercises/weights are already on that
+    // entry (possibly just adjusted via the History Log edit form) rather than
+    // overwriting them with today's live template.
+    snapshot = existingEntry ? existingEntry.exercises : [];
   }
   saveChecked();
-  upsertSessionLog(todayStr, contextId, snapshot, undefined, newStats);
+  upsertSessionLog(targetDate, contextId, snapshot, undefined, newStats);
   document.getElementById('cardioStatsForm').style.display = 'none';
+  activeStatsDate = null;
   renderTally();
   renderDashboard();
   renderHistory();
   renderWeekPlan();
-  if(isStrengthDay) renderStrength(contextId); else renderCardio(contextId);
+  if(isToday){
+    if(isStrengthDay) renderStrength(contextId); else renderCardio(contextId);
+  }
 };
 
 function setDay(day){
@@ -4789,21 +4968,72 @@ async function checkAuthAndStart(){
 
 /* ---------- Fasting (dedicated full-page timer + history) ---------- */
 (function(){
+  let fsSelectedDate = null;
+
   window.openFastingScreen = function(){
+    fsSelectedDate = dateStrForOffset(0);
     renderFastingScreenMain();
     renderFastingHistory();
-    const pad2 = n => String(n).padStart(2,'0');
-    const toLocalInput = d => `${d.getFullYear()}-${pad2(d.getMonth()+1)}-${pad2(d.getDate())}T${pad2(d.getHours())}:${pad2(d.getMinutes())}`;
-    const start = new Date(); start.setHours(start.getHours() - 16);
-    document.getElementById('fsPastStart').value = toLocalInput(start);
-    document.getElementById('fsPastEnd').value = toLocalInput(new Date());
-    document.getElementById('fsPastError').style.display = 'none';
+    renderFsPastDayNav();
     document.getElementById('fastingScreen').style.display = 'flex';
   };
   function closeFastingScreen(){
     document.getElementById('fastingScreen').style.display = 'none';
   }
   document.getElementById('fastingScreenClose').addEventListener('click', closeFastingScreen);
+
+  function renderFsPastDayNav(){
+    const navEl = document.getElementById('fsPastDayNav');
+    const todayStr = dateStrForOffset(0);
+    const isToday = fsSelectedDate === todayStr;
+    navEl.innerHTML = `
+      <button class="day-nav-btn" id="fsPastPrevDay" type="button"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+      <div class="day-nav-label">
+        <div class="day-nav-date">${isToday ? 'Today' : formatDateLabel(fsSelectedDate)}</div>
+        ${!isToday ? `<div class="day-nav-today-link" id="fsPastJumpToday">Jump to today</div>` : `<div style="font-size:11px;color:var(--ink-soft);">${formatDateLabel(fsSelectedDate)}</div>`}
+      </div>
+      <button class="day-nav-btn" id="fsPastNextDay" type="button" ${isToday ? 'disabled' : ''}><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></button>
+    `;
+    document.getElementById('fsPastPrevDay').addEventListener('click', ()=>{
+      fsSelectedDate = addDaysToDate(fsSelectedDate, -1);
+      renderFsPastDayNav();
+      renderFsPastForm();
+    });
+    if(!isToday){
+      document.getElementById('fsPastNextDay').addEventListener('click', ()=>{
+        fsSelectedDate = addDaysToDate(fsSelectedDate, 1);
+        renderFsPastDayNav();
+        renderFsPastForm();
+      });
+      document.getElementById('fsPastJumpToday').addEventListener('click', ()=>{
+        fsSelectedDate = todayStr;
+        renderFsPastDayNav();
+        renderFsPastForm();
+      });
+    }
+    renderFsPastForm();
+  }
+
+  function renderFsPastForm(){
+    const pad2 = n => String(n).padStart(2,'0');
+    const toLocalInput = d => `${d.getFullYear()}-${pad2(d.getMonth()+1)}-${pad2(d.getDate())}T${pad2(d.getHours())}:${pad2(d.getMinutes())}`;
+    document.getElementById('fsPastError').style.display = 'none';
+    const existing = nutritionLog.find(e => e.date === fsSelectedDate && e.fastHours);
+    const todayStr = dateStrForOffset(0);
+    let end, hours;
+    if(existing){
+      hours = parseFloat(existing.fastHours);
+      // Exact start/end aren't stored for a plain duration -- reconstruct a
+      // reasonable window (still freely editable) rather than leaving it blank.
+      end = fsSelectedDate === todayStr ? new Date() : new Date(fsSelectedDate + 'T08:00:00');
+    } else {
+      hours = 16;
+      end = fsSelectedDate === todayStr ? new Date() : new Date(fsSelectedDate + 'T08:00:00');
+    }
+    const start = new Date(end.getTime() - hours * 3600000);
+    document.getElementById('fsPastStart').value = toLocalInput(start);
+    document.getElementById('fsPastEnd').value = toLocalInput(end);
+  }
 
   document.body.addEventListener('click', (e)=>{
     if(e.target.closest('.open-fasting-screen-link')) window.openFastingScreen();
@@ -4905,6 +5135,7 @@ async function checkAuthAndStart(){
     renderNutrition();
     renderTodayGlance();
     renderFastingHistory();
+    renderFasting();
     errEl.style.color = 'var(--forest-dark)';
     errEl.textContent = `Saved — ${formatFastHours(hours)} logged for ${formatDateLabel(dateKey)}.`;
     errEl.style.display = 'block';
@@ -4944,7 +5175,7 @@ async function checkAuthAndStart(){
     if(!fasts.length){
       listEl.innerHTML = `<div class="dash-empty">No fasts logged yet.</div>`;
     } else {
-      listEl.innerHTML = fasts.slice(0, 20).map(f => `
+      listEl.innerHTML = fasts.slice(0, 10).map(f => `
         <div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px dashed var(--line);font-size:12.5px;">
           <span style="color:var(--ink-soft);">${formatDateLabel(f.date)}</span>
           <span style="font-weight:600;">${formatFastHours(f.hours)}</span>

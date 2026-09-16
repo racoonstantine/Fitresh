@@ -195,4 +195,21 @@ if ($method === 'POST' && $action === 'delete_component') {
     json_respond(['ok' => true]);
 }
 
+if ($method === 'POST' && $action === 'update_component') {
+    // Correcting a logged amount -- only the amount/unit change; the food itself
+    // (and its nutrient record) is untouched, so nutrients continue to scale from it.
+    $componentId = (int)($input['id'] ?? 0);
+    $amount = (float)($input['amount'] ?? 0);
+    if ($componentId <= 0 || $amount <= 0) {
+        json_respond(['error' => 'Invalid amount.'], 400);
+    }
+    $unit = (string)($input['unit'] ?? 'g');
+    $stmt = $pdo->prepare(
+        'UPDATE meal_components SET amount = ?, unit = ?
+         WHERE id = ? AND meal_entry_id IN (SELECT id FROM meal_entries WHERE user_id = ?)'
+    );
+    $stmt->execute([$amount, $unit, $componentId, $userId]);
+    json_respond(['ok' => true]);
+}
+
 json_respond(['error' => 'Unknown action'], 400);

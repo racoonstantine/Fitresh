@@ -362,6 +362,45 @@ was removed — fasting has its own tracking now, and the quick form was
 overwriting it with blank on every save. It preserves whatever fastHours
 is already on that date instead.
 
+## Editing and deleting past entries
+
+Every kind of entry can now be corrected after the fact, using the same
+day-navigation pattern already used to browse history, rather than a
+separate "edit mode":
+
+- **Meals** — on the Nutrition Dashboard, navigate to the day, tap an item
+  under "Logged via search" to reveal an amount field and Save (backed by a
+  new `meals.php?action=update_component`; only the amount/unit changes, so
+  nutrients keep scaling from the same food record).
+- **Weight** — tap a past entry in the Body tab's weigh-in list; it
+  populates the Date/kg fields above for editing, and Add overwrites that
+  date (it already worked this way for same-day entries — this just makes
+  it discoverable for past ones too).
+- **Workouts** — expand an entry in History Log for Edit / Delete. Edit
+  lets you correct each exercise's weight and the notes, plus an "Edit
+  watch stats" shortcut that opens the shared stats form (Train tab)
+  pre-filled for that specific past date rather than today's live session
+  (`openStatsForm` now takes an optional date argument). Delete uses a
+  two-tap "tap again to confirm" button instead of a native `confirm()`
+  dialog, which can be unreliable in a standalone/home-screen web app.
+- **Fasting** — the dedicated Fasting page's "Log or edit a fast" card now
+  has day-nav (prev/next/jump-to-today), so you're not limited to
+  freehand-picking a date in the datetime inputs.
+
+## UI tidy-ups
+
+- Train tab now leads with Weekly Plan and the Workout Dashboard, with the
+  exercise tabs/warm-up/exercise list below them, so planning and reviewing
+  come before the workout itself.
+- The Nutrition Dashboard's secondary macros (sodium/fiber/sugar) are now
+  three compact chips in one row instead of three full progress bars.
+- Fasting history moved fully to the dedicated Fasting page (the Food tab's
+  day-log list no longer shows a "fast Xh" badge) and is capped at the 10
+  most recent fasts.
+- Today's header now shows the current day and time (updates every 30s),
+  and the daily quote pool includes Tagalog lines alongside the English
+  ones.
+
 ## Local development
 
 There's no build step. To preview the frontend against a local PHP server:
