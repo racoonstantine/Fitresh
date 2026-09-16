@@ -246,6 +246,53 @@ The "Calories Burned" ring's target (400 kcal) is a fixed placeholder —
 there's no user-configurable exercise-calorie goal yet, unlike the food/
 water/protein targets which all come from the health profile.
 
+## Sleep tracking
+
+A Sleep card on Today at a Glance takes last night's bedtime and wake time
+(defaults to 10pm-7am the first time) and shows the computed hours; click
+Edit to change it. Stored as a new `sleep` resource (`{date: {startIso,
+endIso, hours}}`, keyed by the wake date) via the same generic mechanism as
+everything else.
+
+## Richer workout stats
+
+"Log stats from watch" (now available on strength days too, not just
+cardio) captures max heart rate, elevation gain, a training-stress score,
+HR recovery drop, and HR zone minutes (warm-up/fat-burn/aerobic/anaerobic),
+alongside the original distance/duration/calories/HR/pace/steps. All
+optional, all just extra keys on the same `stats` object already in each
+`history` entry — nothing here needed a schema migration. The two "Log
+stats" flows (strength and cardio) now share one form (`#cardioStatsForm`,
+despite the id) instead of duplicating it.
+
+Custom foods (in the food search's "+ Add a custom food" flow) also
+optionally capture fiber, sugar, sodium, and cholesterol now — the
+underlying `food_nutrients` table already supported these codes
+(`FIBTG`/`SUGAR`/`NA`/`CHOLE`), they just weren't exposed in that form yet.
+
+## Migrating data from elsewhere
+
+**Account → My data → "Import structured data (.json)"** reads a JSON file
+matching [`public/data-import-schema.md`](public/data-import-schema.md) —
+weigh-ins, sleep, fasting, water, day-by-day itemized food (with full
+macros, not just day totals), and workouts with watch stats, all in one
+file. That doc also has a ready-to-use prompt template for asking another
+app/chat that already has your history to export it in this shape.
+
+Food items import through the same real search/log engine as manual
+logging (each becomes its own food-library entry + logged component) rather
+than the legacy flat `nutritionLog` — deliberately not deduplicated by name
+across days, since home-cooked meals vary day to day and reusing one
+food record across different actual portions/macros would misrepresent
+some of them. Expect it to take a while for a lot of history: it's one
+food-creation call plus one log call per item, sequentially.
+
+This is separate from **Download/Restore backup** just above it, which
+round-trips this app's own raw internal storage format 1:1 (now including
+`profile`, `fasting`, `water`, and `sleep`, which it was missing before) —
+use backup/restore for a full snapshot of your own account, and structured
+import for pulling in history that lived somewhere else first.
+
 ## Local development
 
 There's no build step. To preview the frontend against a local PHP server:

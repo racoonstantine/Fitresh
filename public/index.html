@@ -717,7 +717,7 @@
         <a href="#" id="glanceViewDetails" style="font-size:12.5px;font-weight:600;color:var(--ochre);text-decoration:none;">View Details →</a>
       </div>
       <div class="glance-grid" id="glanceGridTop"></div>
-      <div class="glance-grid glance-grid-3" id="glanceGridMid" style="margin-top:10px;"></div>
+      <div class="glance-grid" id="glanceGridMid" style="margin-top:10px;"></div>
     </section>
 
     <section class="block" style="margin-bottom:18px;">
@@ -857,6 +857,13 @@
             <div><label style="font-size:11px;color:var(--ink-soft);">Fat (g)</label><input type="number" id="cfFat" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;"></div>
             <div><label style="font-size:11px;color:var(--ink-soft);">Carbs (g)</label><input type="number" id="cfCarbs" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;"></div>
           </div>
+          <div style="font-size:11px;color:var(--ink-soft);margin-bottom:6px;">More nutrients (optional)</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px;">
+            <div><label style="font-size:11px;color:var(--ink-soft);">Fiber (g)</label><input type="number" id="cfFiber" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;"></div>
+            <div><label style="font-size:11px;color:var(--ink-soft);">Sugar (g)</label><input type="number" id="cfSugar" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;"></div>
+            <div><label style="font-size:11px;color:var(--ink-soft);">Sodium (mg)</label><input type="number" id="cfSodium" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;"></div>
+            <div><label style="font-size:11px;color:var(--ink-soft);">Cholesterol (mg)</label><input type="number" id="cfCholesterol" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;"></div>
+          </div>
           <div style="display:flex;gap:8px;">
             <button class="timer-btn start" id="cfSaveBtn" type="button" style="flex:1;">Save &amp; log</button>
             <button class="timer-btn reset" id="cfCancelBtn" type="button" style="flex:1;">Cancel</button>
@@ -933,12 +940,15 @@
       <div class="block-title" id="strengthTitle">Strength A · 3 sets × 12–15 reps</div>
       <div id="exerciseList"></div>
       <div class="note">Rest 45–60 sec between sets. Pick a weight where the last 2–3 reps feel hard but your form stays clean.</div>
+      <div id="strengthStatsBlock" style="margin-top:12px;"></div>
     </section>
 
     <section class="block" id="cardioBlock" style="display:none;">
       <div class="block-title" id="cardioTitle">Cardio</div>
       <div class="cardio-card" id="cardioContent"></div>
+    </section>
 
+    <section class="block">
       <div id="cardioStatsForm" style="display:none;margin-top:10px;background:var(--paper-raised);border:1px solid var(--line);border-radius:8px;padding:12px;">
         <div style="font-size:12px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.06em;font-weight:600;margin-bottom:10px;">From your watch / fitness app</div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
@@ -965,6 +975,31 @@
           <div>
             <label style="font-size:11px;color:var(--ink-soft);">Steps</label>
             <input type="number" id="statSteps" placeholder="3537" style="width:100%;padding:7px 8px;border:1px solid var(--line);border-radius:5px;font-size:13px;background:var(--paper);margin-top:2px;">
+          </div>
+          <div>
+            <label style="font-size:11px;color:var(--ink-soft);">Max heart rate</label>
+            <input type="number" id="statMaxHR" placeholder="144" style="width:100%;padding:7px 8px;border:1px solid var(--line);border-radius:5px;font-size:13px;background:var(--paper);margin-top:2px;">
+          </div>
+          <div>
+            <label style="font-size:11px;color:var(--ink-soft);">Elevation gain (m)</label>
+            <input type="number" id="statElevation" placeholder="0" style="width:100%;padding:7px 8px;border:1px solid var(--line);border-radius:5px;font-size:13px;background:var(--paper);margin-top:2px;">
+          </div>
+          <div>
+            <label style="font-size:11px;color:var(--ink-soft);">Training stress (0-10)</label>
+            <input type="number" step="0.1" id="statTrainingStress" placeholder="2.4" style="width:100%;padding:7px 8px;border:1px solid var(--line);border-radius:5px;font-size:13px;background:var(--paper);margin-top:2px;">
+          </div>
+          <div>
+            <label style="font-size:11px;color:var(--ink-soft);">HR recovery drop (bpm)</label>
+            <input type="number" id="statRecoveryHr" placeholder="7" style="width:100%;padding:7px 8px;border:1px solid var(--line);border-radius:5px;font-size:13px;background:var(--paper);margin-top:2px;">
+          </div>
+        </div>
+        <div style="margin-top:10px;">
+          <label style="font-size:11px;color:var(--ink-soft);">HR zone minutes — warm-up / fat-burning / aerobic / anaerobic</label>
+          <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:2px;">
+            <input type="number" id="statHrZoneWarmup" placeholder="warm-up" style="width:100%;padding:7px 6px;border:1px solid var(--line);border-radius:5px;font-size:12.5px;background:var(--paper);">
+            <input type="number" id="statHrZoneFatBurn" placeholder="fat-burn" style="width:100%;padding:7px 6px;border:1px solid var(--line);border-radius:5px;font-size:12.5px;background:var(--paper);">
+            <input type="number" id="statHrZoneAerobic" placeholder="aerobic" style="width:100%;padding:7px 6px;border:1px solid var(--line);border-radius:5px;font-size:12.5px;background:var(--paper);">
+            <input type="number" id="statHrZoneAnaerobic" placeholder="anaerobic" style="width:100%;padding:7px 6px;border:1px solid var(--line);border-radius:5px;font-size:12.5px;background:var(--paper);">
           </div>
         </div>
         <button class="timer-btn start" id="saveStatsBtn" style="width:100%;margin-top:10px;">Save stats</button>
@@ -1020,8 +1055,23 @@
         <div id="backupStatus" style="font-size:11px;color:var(--forest-dark);text-align:center;margin-top:8px;display:none;"></div>
       </section>
       <section class="block" style="margin-bottom:18px;">
+        <div class="block-title">Import data from elsewhere</div>
+        <div style="font-size:12.5px;color:var(--ink-soft);">
+          Migrating history from another log or app? Upload a JSON file matching the
+          <a href="data-import-schema.md" target="_blank" rel="noopener noreferrer">Full Circle import schema</a>
+          — weigh-ins, sleep, fasting, water, day-by-day food (itemized, with macros), and workouts with stats
+          all import at once. This can take a little while for a lot of history since each food item is logged
+          one at a time.
+        </div>
+        <div style="display:flex;gap:8px;margin-top:10px;">
+          <button class="today-btn" id="importStructuredBtn" style="flex:1;">Import structured data (.json)</button>
+          <input type="file" id="importStructuredFile" accept="application/json" style="display:none;">
+        </div>
+        <div id="importStructuredStatus" style="font-size:11px;color:var(--forest-dark);text-align:center;margin-top:8px;display:none;white-space:pre-line;"></div>
+      </section>
+      <section class="block" style="margin-bottom:18px;">
         <div class="block-title">Connected sources</div>
-        <div class="placeholder-card">No devices or file imports connected yet. Importing from Apple Health, Google Fit, or a Garmin FIT file is a possible future update — for now, backup/restore above is the way to move your data.</div>
+        <div class="placeholder-card">No devices connected yet. Importing from Apple Health, Google Fit, or a Garmin FIT file is a possible future update — for now, the structured import and backup/restore above are the way to move your data.</div>
       </section>
     </div>
 
@@ -1403,6 +1453,24 @@ function addWaterMl(deltaMl){
   renderTodayGlance();
 }
 
+// ---------- Sleep (manual last-night bedtime/wake-time entry) ----------
+let sleepLog = {}; // {dateStr (wake date): {startIso, endIso, hours}}
+let sleepFormOpen = false;
+async function loadSleep(){
+  try{
+    const res = await window.storage.get(STORAGE_PREFIX + 'sleep', false);
+    sleepLog = res && res.value ? JSON.parse(res.value) : {};
+  }catch(e){ sleepLog = {}; }
+}
+async function saveSleepLog(){
+  try{ await window.storage.set(STORAGE_PREFIX + 'sleep', JSON.stringify(sleepLog), false); }catch(e){}
+}
+function formatSleepHours(hrs){
+  const h = Math.floor(hrs);
+  const m = Math.round((hrs - h) * 60);
+  return `${h}h${m > 0 ? ' ' + m + 'm' : ''}`;
+}
+
 function renderFasting(){
   const card = document.getElementById('fastingCard');
   if(!card) return;
@@ -1574,13 +1642,16 @@ async function renderTodayGlance(){
   const caloriesBurned = historyLog.filter(e => e.date === today)
     .reduce((sum,e)=> sum + (e.stats && e.stats.calories ? parseFloat(e.stats.calories) || 0 : 0), 0);
 
+  const sleepEntry = sleepLog[today] || null;
+  const fmtClock = iso => new Date(iso).toLocaleTimeString(undefined, {hour: 'numeric', minute: '2-digit'});
+
   grid.innerHTML = `
     <div class="glance-card">
       <div class="glance-card-head"><span class="glance-card-label">\u{1F4E6} Weight</span></div>
       <div class="glance-card-value">${latestW ? latestW.kg + ' kg' : '—'}</div>
       ${weightDelta !== null
         ? `<div class="glance-card-sub" style="color:${weightDelta<=0?'var(--forest-dark)':'#B4472A'};">${weightDelta<=0?'▼':'▲'} ${Math.abs(weightDelta).toFixed(1)} kg</div>`
-        : `<div class="glance-card-sub">No weigh-ins yet</div>`}
+        : `<div class="glance-card-sub">${latestW ? 'First weigh-in logged' : 'No weigh-ins yet'}</div>`}
       <div class="glance-card-sub">${latestW ? 'Last: ' + latestW.kg + ' kg (' + formatDateLabel(latestW.date) + ')' : ''}</div>
     </div>
     <div class="glance-card">
@@ -1673,7 +1744,58 @@ async function renderTodayGlance(){
       ${glanceRing(Math.min(100, caloriesBurned/CALORIE_BURN_TARGET*100), '#B4472A', 84, `<div style="font-family:var(--font-heading);font-size:20px;">${Math.round(caloriesBurned)}</div><div style="font-size:9.5px;color:var(--ink-soft);">kcal</div>`)}
       <div class="glance-card-sub">Target: ${CALORIE_BURN_TARGET} kcal</div>
     </div>
+    <div class="glance-card" id="sleepCard">
+      <div class="glance-card-head"><span class="glance-card-label">\u{1F634} Sleep</span></div>
+      ${sleepEntry && !sleepFormOpen ? `
+        <div class="glance-card-value">${formatSleepHours(sleepEntry.hours)}</div>
+        <div class="glance-card-sub">${sleepEntry.startIso && sleepEntry.endIso ? `${fmtClock(sleepEntry.startIso)} – ${fmtClock(sleepEntry.endIso)}` : 'Logged'}</div>
+        <button class="img-link" id="editSleepBtn" type="button" style="cursor:pointer;margin-top:4px;padding:4px 10px;font-size:11px;align-self:flex-start;">Edit</button>
+      ` : `
+        <div style="display:flex;gap:6px;">
+          <div style="flex:1;">
+            <label style="font-size:10px;color:var(--ink-soft);">Bedtime</label>
+            <input type="datetime-local" id="sleepStartInput" style="width:100%;padding:6px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:11px;">
+          </div>
+          <div style="flex:1;">
+            <label style="font-size:10px;color:var(--ink-soft);">Wake time</label>
+            <input type="datetime-local" id="sleepEndInput" style="width:100%;padding:6px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:11px;">
+          </div>
+        </div>
+        <button class="timer-btn start" id="saveSleepBtn" type="button" style="width:100%;margin-top:6px;padding:7px 0;font-size:12px;">Save sleep</button>
+      `}
+    </div>
   `;
+
+  if(!(sleepEntry && !sleepFormOpen)){
+    const pad2 = n => String(n).padStart(2,'0');
+    const toLocalInput = d => `${d.getFullYear()}-${pad2(d.getMonth()+1)}-${pad2(d.getDate())}T${pad2(d.getHours())}:${pad2(d.getMinutes())}`;
+    const startInput = document.getElementById('sleepStartInput');
+    const endInput = document.getElementById('sleepEndInput');
+    if(sleepEntry && sleepEntry.startIso && sleepEntry.endIso){
+      startInput.value = toLocalInput(new Date(sleepEntry.startIso));
+      endInput.value = toLocalInput(new Date(sleepEntry.endIso));
+    } else {
+      const bed = new Date(); bed.setDate(bed.getDate() - 1); bed.setHours(22,0,0,0);
+      const wake = new Date(); wake.setHours(7,0,0,0);
+      startInput.value = toLocalInput(bed);
+      endInput.value = toLocalInput(wake);
+    }
+    document.getElementById('saveSleepBtn').addEventListener('click', ()=>{
+      const startD = new Date(startInput.value);
+      const endD = new Date(endInput.value);
+      if(isNaN(startD.getTime()) || isNaN(endD.getTime()) || endD <= startD) return;
+      const hours = (endD - startD) / 3600000;
+      sleepLog[today] = {startIso: startD.toISOString(), endIso: endD.toISOString(), hours};
+      sleepFormOpen = false;
+      saveSleepLog();
+      renderTodayGlance();
+    });
+  } else {
+    document.getElementById('editSleepBtn').addEventListener('click', ()=>{
+      sleepFormOpen = true;
+      renderTodayGlance();
+    });
+  }
 
   const qaGrid = document.getElementById('quickActionsGrid');
   qaGrid.innerHTML = `
@@ -1711,7 +1833,8 @@ async function renderTodayGlance(){
     {icon: '\u{1F4A7}', title: 'Water', sub: waterMl ? `${waterMl}ml logged` : 'Not logged yet', value: `${fmtL(waterMl)} L`},
     {icon: '\u{1F4CB}', title: 'Weight', sub: todaysWeighIn ? 'Logged' : 'Not logged today', value: todaysWeighIn ? `${todaysWeighIn.kg} kg` : '—'},
     {icon: '\u{1F3C3}', title: 'Exercise', sub: plannedType ? planLabel : 'Rest day', value: plannedType ? (exerciseDone ? 'Completed' : 'Not done') : '—'},
-    {icon: '⏱', title: 'Fasting', sub: fastingState.startIso ? 'In progress' : (nutriEntry && nutriEntry.fastHours ? 'Logged' : 'Not started'), value: '', liveId: 'todayLogFastValue'}
+    {icon: '⏱', title: 'Fasting', sub: fastingState.startIso ? 'In progress' : (nutriEntry && nutriEntry.fastHours ? 'Logged' : 'Not started'), value: '', liveId: 'todayLogFastValue'},
+    {icon: '\u{1F634}', title: 'Sleep', sub: sleepEntry ? (sleepEntry.startIso && sleepEntry.endIso ? `${fmtClock(sleepEntry.startIso)} – ${fmtClock(sleepEntry.endIso)}` : 'Logged') : 'Not logged yet', value: sleepEntry ? formatSleepHours(sleepEntry.hours) : '—'}
   ];
   feedEl.innerHTML = rows.map(r => `
     <div class="today-log-row">
@@ -3059,6 +3182,26 @@ function renderStrength(day){
       renderHistory();
     });
   });
+
+  const strengthExisting = historyLog.find(e => e.date === dateStrForOffset(0) && e.day === day);
+  const strengthStats = strengthExisting ? strengthExisting.stats : null;
+  const strengthStatsEl = document.getElementById('strengthStatsBlock');
+  strengthStatsEl.innerHTML = `
+    ${strengthStats ? `
+    <div class="cardio-row" style="border-bottom:none;flex-wrap:wrap;gap:6px 14px;padding-bottom:8px;">
+      ${strengthStats.duration ? `<span style="font-size:12px;color:var(--ink-soft);">⏱ ${strengthStats.duration}</span>` : ''}
+      ${strengthStats.calories ? `<span style="font-size:12px;color:var(--ink-soft);">🔥 ${strengthStats.calories} kcal</span>` : ''}
+      ${strengthStats.hr ? `<span style="font-size:12px;color:var(--ink-soft);">♥ ${strengthStats.hr} bpm</span>` : ''}
+      ${strengthStats.maxHr ? `<span style="font-size:12px;color:var(--ink-soft);">♥ max ${strengthStats.maxHr} bpm</span>` : ''}
+      ${strengthStats.trainingStress ? `<span style="font-size:12px;color:var(--ink-soft);">📈 TSS ${strengthStats.trainingStress}</span>` : ''}
+      ${strengthStats.recoveryHr ? `<span style="font-size:12px;color:var(--ink-soft);">↘ HR recovery ${strengthStats.recoveryHr} bpm</span>` : ''}
+    </div>` : ''}
+    <button class="img-link" id="logStrengthStatsBtn" style="cursor:pointer;">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+      ${strengthStats ? 'Edit watch stats' : 'Log stats from watch'}
+    </button>
+  `;
+  document.getElementById('logStrengthStatsBtn').addEventListener('click', ()=> openStatsForm(day));
 }
 
 function renderCardio(kind){
@@ -3079,6 +3222,11 @@ function renderCardio(kind){
       ${stats.hr ? `<span style="font-size:12px;color:var(--ink-soft);">♥ ${stats.hr} bpm</span>` : ''}
       ${stats.pace ? `<span style="font-size:12px;color:var(--ink-soft);">⚡ ${stats.pace}/km</span>` : ''}
       ${stats.steps ? `<span style="font-size:12px;color:var(--ink-soft);">👟 ${stats.steps} steps</span>` : ''}
+      ${stats.maxHr ? `<span style="font-size:12px;color:var(--ink-soft);">♥ max ${stats.maxHr} bpm</span>` : ''}
+      ${stats.elevation ? `<span style="font-size:12px;color:var(--ink-soft);">⛰ ${stats.elevation} m</span>` : ''}
+      ${stats.trainingStress ? `<span style="font-size:12px;color:var(--ink-soft);">📈 TSS ${stats.trainingStress}</span>` : ''}
+      ${stats.recoveryHr ? `<span style="font-size:12px;color:var(--ink-soft);">↘ HR recovery ${stats.recoveryHr} bpm</span>` : ''}
+      ${(stats.hrZones && (stats.hrZones.warmup || stats.hrZones.fatBurn || stats.hrZones.aerobic || stats.hrZones.anaerobic)) ? `<span style="font-size:12px;color:var(--ink-soft);">🎯 zones ${stats.hrZones.warmup||0}/${stats.hrZones.fatBurn||0}/${stats.hrZones.aerobic||0}/${stats.hrZones.anaerobic||0} min</span>` : ''}
     </div>` : '';
 
   el.innerHTML = `<div class="ex-icon-large" style="height:90px;"><svg viewBox="0 0 24 24" style="width:44px;height:44px;stroke:var(--forest-dark);"><path d="M3 19h18M6 19V9a2 2 0 012-2h8a2 2 0 012 2v10M9 19v-3M15 19v-3" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>` +
@@ -3122,37 +3270,76 @@ function renderCardio(kind){
     renderCardio(kind);
   });
 
-  const statsForm = document.getElementById('cardioStatsForm');
-  document.getElementById('logStatsBtn').addEventListener('click', ()=>{
-    document.getElementById('statDistance').value = stats ? (stats.distance || '') : '';
-    document.getElementById('statDuration').value = stats ? (stats.duration || '') : '';
-    document.getElementById('statCalories').value = stats ? (stats.calories || '') : '';
-    document.getElementById('statHR').value = stats ? (stats.hr || '') : '';
-    document.getElementById('statPace').value = stats ? (stats.pace || '') : '';
-    document.getElementById('statSteps').value = stats ? (stats.steps || '') : '';
-    statsForm.style.display = statsForm.style.display === 'none' ? 'block' : 'none';
-    if(statsForm.style.display === 'block' && statsForm.scrollIntoView) statsForm.scrollIntoView({behavior:'smooth', block:'center'});
-  });
-  document.getElementById('saveStatsBtn').onclick = ()=>{
-    const newStats = {
-      distance: document.getElementById('statDistance').value,
-      duration: document.getElementById('statDuration').value,
-      calories: document.getElementById('statCalories').value,
-      hr: document.getElementById('statHR').value,
-      pace: document.getElementById('statPace').value,
-      steps: document.getElementById('statSteps').value
-    };
-    checkedState[todayStr + '_' + kind + '_done'] = true;
-    saveChecked();
-    upsertSessionLog(todayStr, kind, [], undefined, newStats);
-    statsForm.style.display = 'none';
-    renderTally();
-    renderDashboard();
-    renderHistory();
-    renderWeekPlan();
-    renderCardio(kind);
-  };
+  document.getElementById('logStatsBtn').addEventListener('click', ()=> openStatsForm(kind));
 }
+
+// ---------- Shared "log stats from watch" form (used by both strength and cardio days) ----------
+let activeStatsContext = null; // 'A'|'B'|'steady'|'interval' -- which session the shared form is currently editing
+function openStatsForm(contextId){
+  activeStatsContext = contextId;
+  const existing = historyLog.find(e => e.date === dateStrForOffset(0) && e.day === contextId);
+  const stats = existing ? existing.stats : null;
+  document.getElementById('statDistance').value = stats ? (stats.distance || '') : '';
+  document.getElementById('statDuration').value = stats ? (stats.duration || '') : '';
+  document.getElementById('statCalories').value = stats ? (stats.calories || '') : '';
+  document.getElementById('statHR').value = stats ? (stats.hr || '') : '';
+  document.getElementById('statPace').value = stats ? (stats.pace || '') : '';
+  document.getElementById('statSteps').value = stats ? (stats.steps || '') : '';
+  document.getElementById('statMaxHR').value = stats ? (stats.maxHr || '') : '';
+  document.getElementById('statElevation').value = stats ? (stats.elevation || '') : '';
+  document.getElementById('statTrainingStress').value = stats ? (stats.trainingStress || '') : '';
+  document.getElementById('statRecoveryHr').value = stats ? (stats.recoveryHr || '') : '';
+  const hz = (stats && stats.hrZones) || {};
+  document.getElementById('statHrZoneWarmup').value = hz.warmup || '';
+  document.getElementById('statHrZoneFatBurn').value = hz.fatBurn || '';
+  document.getElementById('statHrZoneAerobic').value = hz.aerobic || '';
+  document.getElementById('statHrZoneAnaerobic').value = hz.anaerobic || '';
+  const statsForm = document.getElementById('cardioStatsForm');
+  statsForm.style.display = statsForm.style.display === 'none' ? 'block' : 'none';
+  if(statsForm.style.display === 'block' && statsForm.scrollIntoView) statsForm.scrollIntoView({behavior:'smooth', block:'center'});
+}
+document.getElementById('saveStatsBtn').onclick = ()=>{
+  const contextId = activeStatsContext;
+  if(!contextId) return;
+  const todayStr = dateStrForOffset(0);
+  const hrZones = {
+    warmup: document.getElementById('statHrZoneWarmup').value,
+    fatBurn: document.getElementById('statHrZoneFatBurn').value,
+    aerobic: document.getElementById('statHrZoneAerobic').value,
+    anaerobic: document.getElementById('statHrZoneAnaerobic').value
+  };
+  const newStats = {
+    distance: document.getElementById('statDistance').value,
+    duration: document.getElementById('statDuration').value,
+    calories: document.getElementById('statCalories').value,
+    hr: document.getElementById('statHR').value,
+    pace: document.getElementById('statPace').value,
+    steps: document.getElementById('statSteps').value,
+    maxHr: document.getElementById('statMaxHR').value,
+    elevation: document.getElementById('statElevation').value,
+    trainingStress: document.getElementById('statTrainingStress').value,
+    recoveryHr: document.getElementById('statRecoveryHr').value,
+    hrZones
+  };
+  checkedState[todayStr + '_' + contextId + '_done'] = true;
+  let snapshot = [];
+  const isStrengthDay = !!dayData[contextId];
+  if(isStrengthDay){
+    dayData[contextId].exercises.forEach(ex=>{ checkedState[ex.id] = true; });
+    snapshot = dayData[contextId].exercises.map(ex => ({
+      name: ex.name,
+      weight: (window.savedWeights && window.savedWeights[ex.id]) || ''
+    }));
+  }
+  saveChecked();
+  upsertSessionLog(todayStr, contextId, snapshot, undefined, newStats);
+  document.getElementById('cardioStatsForm').style.display = 'none';
+  renderTally();
+  renderDashboard();
+  renderHistory();
+  renderWeekPlan();
+  if(isStrengthDay) renderStrength(contextId); else renderCardio(contextId);
+};
 
 function setDay(day){
   currentDay = day;
@@ -3259,6 +3446,7 @@ async function startApp(){
   await loadProfile();
   await loadFasting();
   await loadWater();
+  await loadSleep();
 
 
   renderDashboard();
@@ -3339,7 +3527,7 @@ async function startApp(){
   document.getElementById('nutriRange').addEventListener('change', renderNutrition);
   document.getElementById('dashRange').addEventListener('change', renderDashboard);
 
-  const BACKUP_RESOURCES = ['nutrition', 'weighins', 'history', 'checked', 'weights', 'theme'];
+  const BACKUP_RESOURCES = ['nutrition', 'weighins', 'history', 'checked', 'weights', 'theme', 'profile', 'fasting', 'water', 'sleep'];
 
   document.getElementById('exportBackupBtn').addEventListener('click', async ()=>{
     const backup = {};
@@ -3386,6 +3574,143 @@ async function startApp(){
     reader.readAsText(file);
     e.target.value = '';
   });
+
+  document.getElementById('importStructuredBtn').addEventListener('click', ()=>{
+    document.getElementById('importStructuredFile').click();
+  });
+  document.getElementById('importStructuredFile').addEventListener('change', (e)=>{
+    const file = e.target.files[0];
+    if(!file) return;
+    const status = document.getElementById('importStructuredStatus');
+    const reader = new FileReader();
+    reader.onload = async ()=>{
+      try{
+        const data = JSON.parse(reader.result);
+        status.style.color = 'var(--forest-dark)';
+        status.style.display = 'block';
+        await importStructuredData(data, status);
+      }catch(err){
+        status.style.color = '#B4472A';
+        status.textContent = 'Could not read that file — check it matches the import schema (data-import-schema.md).';
+        status.style.display = 'block';
+      }
+    };
+    reader.readAsText(file);
+    e.target.value = '';
+  });
+}
+
+// ---------- Structured import: weigh-ins, sleep, fasting, water, itemized food days, workouts ----------
+// See data-import-schema.md for the JSON shape this expects.
+async function importStructuredData(data, statusEl){
+  const setStatus = (msg)=>{ if(statusEl){ statusEl.textContent = msg; statusEl.style.display = 'block'; } };
+
+  if(Array.isArray(data.weighIns)){
+    data.weighIns.forEach(w=>{
+      if(!w || !w.date || w.kg === undefined || w.kg === null) return;
+      weighIns = weighIns.filter(e => e.date !== w.date);
+      weighIns.push({date: w.date, kg: parseFloat(w.kg)});
+    });
+    weighIns.sort((a,b)=> a.date < b.date ? -1 : 1);
+    await saveWeighIns();
+  }
+
+  if(Array.isArray(data.sleep)){
+    data.sleep.forEach(s=>{
+      if(!s || !s.date) return;
+      let hours = s.hours, startIso = null, endIso = null;
+      if(s.bedtime && s.waketime){
+        const bd = new Date(s.bedtime), wd = new Date(s.waketime);
+        if(!isNaN(bd.getTime()) && !isNaN(wd.getTime())){
+          startIso = bd.toISOString();
+          endIso = wd.toISOString();
+          if(hours === undefined || hours === null) hours = (wd - bd) / 3600000;
+        }
+      }
+      if(hours !== undefined && hours !== null){
+        sleepLog[s.date] = {startIso, endIso, hours: parseFloat(hours)};
+      }
+    });
+    await saveSleepLog();
+  }
+
+  if(Array.isArray(data.fasting)){
+    data.fasting.forEach(f=>{
+      if(f && f.date && f.hours !== undefined && f.hours !== null){
+        upsertNutritionFields(f.date, {fastHours: String(f.hours)});
+      }
+    });
+  }
+
+  if(Array.isArray(data.water)){
+    data.water.forEach(w=>{
+      if(w && w.date && w.ml !== undefined && w.ml !== null){
+        waterLog[w.date] = parseInt(w.ml, 10);
+      }
+    });
+    await saveWater();
+  }
+
+  if(Array.isArray(data.workouts)){
+    data.workouts.forEach(w=>{
+      if(!w || !w.date || !w.type) return;
+      const exercises = Array.isArray(w.exercises) ? w.exercises : [];
+      upsertSessionLog(w.date, w.type, exercises, w.notes || '', w.stats || null);
+      checkedState[w.date + '_' + w.type + '_done'] = true;
+    });
+    await saveChecked();
+  }
+
+  if(Array.isArray(data.nutritionDays)){
+    const MEAL_TYPES = ['breakfast', 'lunch', 'dinner', 'snack', 'custom'];
+    for(let dayIdx = 0; dayIdx < data.nutritionDays.length; dayIdx++){
+      const day = data.nutritionDays[dayIdx];
+      if(!day || !day.date || !Array.isArray(day.meals)) continue;
+      for(let mealIdx = 0; mealIdx < day.meals.length; mealIdx++){
+        const meal = day.meals[mealIdx];
+        const mealType = MEAL_TYPES.includes(meal.mealType) ? meal.mealType : 'custom';
+        const items = Array.isArray(meal.items) ? meal.items : [];
+        for(let itemIdx = 0; itemIdx < items.length; itemIdx++){
+          const item = items[itemIdx];
+          if(!item || !item.name) continue;
+          setStatus(`Importing food — day ${dayIdx + 1}/${data.nutritionDays.length} (${day.date}), item ${itemIdx + 1}/${items.length}: ${item.name}`);
+          const amount = parseFloat(item.amount) || 100;
+          const unit = item.unit || 'g';
+          try{
+            const createRes = await fetch('api/foods.php?action=create_custom', {
+              method: 'POST', credentials: 'same-origin', headers: {'Content-Type': 'application/json'},
+              body: JSON.stringify({
+                name: item.name, canonical_amount: amount, canonical_unit: unit,
+                nutrients: {
+                  ENERC_KCAL: parseFloat(item.calories) || 0,
+                  PROCNT: parseFloat(item.protein) || 0,
+                  FAT: parseFloat(item.fat) || 0,
+                  CHOCDF: parseFloat(item.carbs) || 0,
+                  FIBTG: (item.fiber !== undefined && item.fiber !== null) ? parseFloat(item.fiber) : null,
+                  SUGAR: (item.sugar !== undefined && item.sugar !== null) ? parseFloat(item.sugar) : null,
+                  NA: (item.sodiumMg !== undefined && item.sodiumMg !== null) ? parseFloat(item.sodiumMg) : null,
+                  CHOLE: (item.cholesterolMg !== undefined && item.cholesterolMg !== null) ? parseFloat(item.cholesterolMg) : null
+                }
+              })
+            });
+            const food = await createRes.json();
+            if(food && food.id){
+              await fetch('api/meals.php?action=log', {
+                method: 'POST', credentials: 'same-origin', headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({date: day.date, meal_type: mealType, component: {food_id: food.id, amount, unit}})
+              });
+            }
+          }catch(e){ /* one bad item shouldn't stop the whole import -- keep going */ }
+        }
+      }
+      if(day.notes){
+        upsertNutritionFields(day.date, {notes: day.notes});
+      }
+    }
+  }
+
+  setStatus('Import complete ✓ — reloading...');
+  setTimeout(()=> location.reload(), 1200);
 }
 
 /* ---------- Auth: gate the app behind login/signup ---------- */
@@ -3599,6 +3924,8 @@ async function checkAuthAndStart(){
     await saveProfile(profile);
     renderAccountGoals();
     renderBodyPlaceholders();
+    renderNutrition();
+    renderTodayGlance();
   });
 
   document.getElementById('useRecommendedBtn').addEventListener('click', async ()=>{
@@ -3607,6 +3934,8 @@ async function checkAuthAndStart(){
     profile.customProteinTarget = null;
     await saveProfile(profile);
     renderAccountGoals();
+    renderNutrition();
+    renderTodayGlance();
   });
 
   let usernameCheckTimeout;
@@ -3795,7 +4124,11 @@ async function checkAuthAndStart(){
             ENERC_KCAL: parseFloat(document.getElementById('cfCalories').value) || 0,
             PROCNT: parseFloat(document.getElementById('cfProtein').value) || 0,
             FAT: parseFloat(document.getElementById('cfFat').value) || 0,
-            CHOCDF: parseFloat(document.getElementById('cfCarbs').value) || 0
+            CHOCDF: parseFloat(document.getElementById('cfCarbs').value) || 0,
+            FIBTG: parseFloat(document.getElementById('cfFiber').value) || null,
+            SUGAR: parseFloat(document.getElementById('cfSugar').value) || null,
+            NA: parseFloat(document.getElementById('cfSodium').value) || null,
+            CHOLE: parseFloat(document.getElementById('cfCholesterol').value) || null
           }
         })
       });
@@ -3805,7 +4138,7 @@ async function checkAuthAndStart(){
         body: JSON.stringify({date: nutriSelectedDate || dateStrForOffset(0), meal_type: document.getElementById('mealLogType').value, component: {food_id: food.id, amount, unit}})
       });
       document.getElementById('customFoodForm').style.display = 'none';
-      ['cfName', 'cfCalories', 'cfProtein', 'cfFat', 'cfCarbs'].forEach(id => document.getElementById(id).value = '');
+      ['cfName', 'cfCalories', 'cfProtein', 'cfFat', 'cfCarbs', 'cfFiber', 'cfSugar', 'cfSodium', 'cfCholesterol'].forEach(id => document.getElementById(id).value = '');
       document.getElementById('cfAmount').value = 100;
       renderTodayMeals();
       renderNutrition();
