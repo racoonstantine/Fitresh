@@ -1,6 +1,7 @@
 <?php
 declare(strict_types=1);
 require __DIR__ . '/db.php';
+require_once __DIR__ . '/food_measurements.php';
 
 header('Content-Type: application/json');
 start_app_session();
@@ -143,6 +144,18 @@ if ($method === 'POST' && $action === 'log') {
     $component = $input['component'] ?? [];
     $foodId = isset($component['food_id']) ? (int)$component['food_id'] : null;
     $amount = (float)($component['amount'] ?? 100);
+    $unit = (string)($component['unit'] ?? 'g');
+    try {
+        if ($foodId) {
+            $measurement = meal_food_measurement($pdo, $foodId, $userId, $component);
+            $amount = $measurement['amount'];
+            $unit = $measurement['unit'];
+        } elseif (!is_finite($amount) || $amount <= 0 || $amount > 99999999.99 || strlen($unit) > 8) {
+            throw new InvalidArgumentException('Invalid amount or unit.');
+        }
+    } catch (InvalidArgumentException $e) {
+        json_respond(['error' => $e->getMessage()], 400);
+    }
 
     // One meal entry per user/date/type/display_name group -- reuse an existing one so
     // logging several foods under "Lunch" today groups them together.
@@ -173,7 +186,7 @@ if ($method === 'POST' && $action === 'log') {
         $foodId,
         $foodId ? null : trim((string)($component['custom_name'] ?? 'Item')),
         $amount,
-        (string)($component['unit'] ?? 'g'),
+        $unit,
         $foodId ? null : ($component['manual_calories'] ?? null),
         $foodId ? null : ($component['manual_protein'] ?? null),
         $foodId ? null : ($component['manual_fat'] ?? null),
@@ -204,6 +217,21 @@ if ($method === 'POST' && $action === 'update_component') {
         json_respond(['error' => 'Invalid amount.'], 400);
     }
     $unit = (string)($input['unit'] ?? 'g');
+    $owned = $pdo->prepare('SELECT food_id FROM meal_components WHERE id = ? AND meal_entry_id IN (SELECT id FROM meal_entries WHERE user_id = ?)');
+    $owned->execute([$componentId, $userId]);
+    $existing = $owned->fetch();
+    if (!$existing) json_respond(['error' => 'Meal component unavailable.'], 404);
+    try {
+        if ($existing['food_id']) {
+            $measurement = meal_food_measurement($pdo, (int)$existing['food_id'], $userId, $input);
+            $amount = $measurement['amount'];
+            $unit = $measurement['unit'];
+        } elseif (!is_finite($amount) || $amount > 99999999.99 || strlen($unit) > 8) {
+            throw new InvalidArgumentException('Invalid amount or unit.');
+        }
+    } catch (InvalidArgumentException $e) {
+        json_respond(['error' => $e->getMessage()], 400);
+    }
     $stmt = $pdo->prepare(
         'UPDATE meal_components SET amount = ?, unit = ?
          WHERE id = ? AND meal_entry_id IN (SELECT id FROM meal_entries WHERE user_id = ?)'

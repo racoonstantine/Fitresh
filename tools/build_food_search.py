@@ -81,6 +81,7 @@ def main():
         foods[fid]=dict(food_id=fid,name=resolved['name'],source='catalog',brand=None,canonical_amount=100,canonical_unit='g',
             label=resolved['label'],complete=resolved['complete'],
             aliases=list(dict.fromkeys(by_food[fid])),
+            portions=[p for p in catalog.portions if p['food_id']==fid and p['data_status']=='OTHER_SOURCE_PORTION' and float(p['edible_weight_g'] or 0)>0],
             nutrients={code:resolved['nutrients'][field]['value_per_100g'] for field,code in codes.items()},
             nutrient_provenance={code:resolved['nutrients'][field] for field,code in codes.items()})
     payload=dict(schema_version=1,foods=foods)

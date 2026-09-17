@@ -2663,6 +2663,49 @@ async function searchFoodsCombined(query){
 
 // Scales a result's per-canonical-amount nutrients to a given amount, e.g.
 // 165 kcal/100g at amount=150 -> ~248 kcal.
+function foodMeasureOptions(r){
+  const base = r.canonical_unit || 'g';
+  const options = [{value:base, label:base, factor:1}];
+  if(base === 'g'){
+    options.push({value:'oz', label:'oz (weight)', factor:28.349523125});
+    (r.portions || []).forEach(p => options.push({value:'portion:' + p.portion_id, label:'Serving: ' + p.description, factor:Number(p.edible_weight_g), portion:p}));
+    options.push({value:'personal_piece',label:'Pieces — my measured weight',factor:null}, {value:'personal_ml',label:'ml — my measured weight',factor:null});
+  } else if(base === 'oz') options.push({value:'g',label:'g',factor:1/28.349523125});
+  return options;
+}
+function foodMeasureControls(r, i){
+  return `<div style="margin-top:6px;min-width:0;flex:1;">
+    <label>Measure <select class="food-unit-input" data-idx="${i}" aria-label="Food measure" style="max-width:100%;">${foodMeasureOptions(r).map(o=>`<option value="${foodSearchEscape(o.value)}">${foodSearchEscape(o.label)}</option>`).join('')}</select></label>
+    <label class="food-personal-weight" style="display:none;margin-top:6px;">My measured edible grams per piece / ml <input type="number" class="food-weight-input" min="0.000001" step="any" aria-label="Measured grams per piece or ml" style="width:90px;"></label>
+    <div class="food-measure-note" style="font-size:11.5px;color:var(--ink-soft);margin-top:5px;">Saved in ${foodSearchEscape(r.canonical_unit || 'g')}. Use edible weight.</div>
+  </div>`;
+}
+function foodMeasurement(r, panel){
+  const amount = Number(panel.querySelector('.food-amount-input').value);
+  const option = foodMeasureOptions(r).find(o=>o.value === panel.querySelector('.food-unit-input').value);
+  if(!option || !Number.isFinite(amount) || amount <= 0) throw new Error('Enter a positive amount.');
+  const factor = option.factor === null ? Number(panel.querySelector('.food-weight-input').value) : option.factor;
+  const converted = amount * factor;
+  if(!Number.isFinite(factor) || factor <= 0) throw new Error('Enter your measured edible grams per piece or ml.');
+  if(!Number.isFinite(converted) || converted < 0.01 || converted > 99999999.99) throw new Error('Converted amount is outside the supported range.');
+  const request = {amount, unit:option.portion ? 'portion' : option.value};
+  if(option.portion) request.portion_id = option.portion.portion_id;
+  if(option.factor === null) request.grams_per_unit = factor;
+  return {amount: Math.round((converted + Number.EPSILON)*100)/100, request};
+}
+function updateFoodMeasurement(r, panel){
+  const option = foodMeasureOptions(r).find(o=>o.value === panel.querySelector('.food-unit-input').value);
+  panel.querySelector('.food-personal-weight').style.display = option?.factor === null ? 'block' : 'none';
+  const note = panel.querySelector('.food-measure-note');
+  note.textContent = option?.portion ? `${option.portion.description} = ${option.portion.edible_weight_g} g edible · ${option.portion.data_status}. Saved in grams.` : option?.factor === null ? 'Personal measurement, not a verified database portion. Saved in grams.' : `Saved in ${r.canonical_unit || 'g'}. Use edible weight.`;
+  if(option?.portion){
+    const link = document.createElement('a'); link.textContent = ' Source'; link.href = option.portion.source_url; link.target = '_blank'; link.rel = 'noopener noreferrer'; note.appendChild(link);
+  }
+  try{
+    const measurement = foodMeasurement(r, panel);
+    panel.querySelector('.food-macro-preview').textContent = `${measurement.amount} ${r.canonical_unit || 'g'} · ${macroPreviewText(r, measurement.amount)}`;
+  }catch(err){ panel.querySelector('.food-macro-preview').textContent = err.message; }
+}
 function scaledFoodMacros(r, amount){
   const canonical = r.canonical_amount || 100;
   const factor = canonical > 0 ? amount / canonical : 0;
@@ -2702,8 +2745,8 @@ function renderFoodSearchResults(){
         </div>
         <div class="food-result-amount" data-idx="${i}" style="display:none;margin-top:8px;">
           <div style="display:flex;gap:8px;align-items:center;">
-            <input type="number" class="food-amount-input" data-idx="${i}" value="${canonicalAmount}" style="width:80px;padding:6px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:13px;">
-            <span style="font-size:12px;color:var(--ink-soft);">${foodSearchEscape(canonicalUnit)}</span>
+            <input type="number" min="0.000001" step="any" aria-label="Food amount" class="food-amount-input" data-idx="${i}" value="${canonicalAmount}" style="width:80px;padding:6px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:13px;">
+            ${foodMeasureControls(r, i)}
           </div>
           <div class="food-macro-preview" data-idx="${i}" style="font-size:11.5px;color:var(--ink-soft);margin-top:8px;">${macroPreviewText(r, canonicalAmount)}</div>
           <div style="display:flex;gap:8px;margin-top:8px;">
@@ -5102,16 +5145,12 @@ async function checkAuthAndStart(){
     searchDebounce = setTimeout(()=> searchFoodsCombined(q), 350);
   });
 
-  document.getElementById('foodSearchResults').addEventListener('input', (e)=>{
-    const amountInput = e.target.closest('.food-amount-input');
-    if(!amountInput) return;
-    const idx = parseInt(amountInput.dataset.idx, 10);
-    const row = foodSearchResultsCache[idx];
-    if(!row) return;
-    const amount = parseFloat(amountInput.value) || 0;
-    const previewEl = document.querySelector(`.food-macro-preview[data-idx="${idx}"]`);
-    if(previewEl) previewEl.textContent = macroPreviewText(row, amount);
-  });
+  ['input','change'].forEach(eventName => document.getElementById('foodSearchResults').addEventListener(eventName, e=>{
+    const panel = e.target.closest('.food-result-amount');
+    if(!panel) return;
+    const row = foodSearchResultsCache[Number(panel.dataset.idx)];
+    if(row) updateFoodMeasurement(row, panel);
+  }));
 
   document.getElementById('foodSearchStatus').addEventListener('click', e=>{
     const suggestion = e.target.closest('[data-food-suggestion]');
@@ -5135,8 +5174,9 @@ async function checkAuthAndStart(){
       const idx = parseInt(confirmBtn.dataset.idx, 10);
       const row = foodSearchResultsCache[idx];
       const amountInput = confirmBtn.closest('.food-result-amount').querySelector('.food-amount-input');
-      const amount = parseFloat(amountInput.value);
-      if(!Number.isFinite(amount) || amount <= 0){ amountInput.focus(); return; }
+      let measurement;
+      try { measurement = foodMeasurement(row, confirmBtn.closest('.food-result-amount')); }
+      catch(err){ alert(err.message); amountInput.focus(); return; }
       confirmBtn.disabled = true;
       confirmBtn.textContent = 'Saving…';
       try{
@@ -5152,7 +5192,7 @@ async function checkAuthAndStart(){
         }
         const logResponse = await fetch('api/meals.php?action=log', {
           method: 'POST', credentials: 'same-origin', headers: {'Content-Type': 'application/json'},
-          body: JSON.stringify({date: nutriSelectedDate || dateStrForOffset(0), meal_type: document.getElementById('mealLogType').value, component: {food_id: foodId, amount, unit: row.canonical_unit || 'g'}})
+          body: JSON.stringify({date: nutriSelectedDate || dateStrForOffset(0), meal_type: document.getElementById('mealLogType').value, component: {food_id: foodId, ...measurement.request}})
         });
         const logged = await logResponse.json();
         if(!logResponse.ok || logged.error) throw new Error(logged.error || 'Meal could not be logged');
@@ -5343,8 +5383,8 @@ async function checkAuthAndStart(){
           </div>
           <div class="food-result-amount" data-idx="${i}" style="display:none;margin-top:8px;">
             <div style="display:flex;gap:8px;align-items:center;">
-              <input type="number" class="food-amount-input" data-idx="${i}" value="${canonicalAmount}" style="width:80px;padding:6px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:13px;">
-              <span style="font-size:12px;color:var(--ink-soft);">${canonicalUnit}</span>
+              <input type="number" min="0.000001" step="any" aria-label="Food amount" class="food-amount-input" data-idx="${i}" value="${canonicalAmount}" style="width:80px;padding:6px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:13px;">
+              ${foodMeasureControls(r, i)}
             </div>
             <div class="food-macro-preview" data-idx="${i}" style="font-size:11.5px;color:var(--ink-soft);margin-top:8px;">${macroPreviewText(r, canonicalAmount)}</div>
             <button class="timer-btn start lm-add-search-item" data-idx="${i}" type="button" style="width:100%;margin-top:8px;padding:7px 0;">+ Add to meal</button>
@@ -5354,16 +5394,12 @@ async function checkAuthAndStart(){
     }).join('');
   }
 
-  document.getElementById('lmSearchResults').addEventListener('input', (e)=>{
-    const amountInput = e.target.closest('.food-amount-input');
-    if(!amountInput) return;
-    const idx = parseInt(amountInput.dataset.idx, 10);
-    const row = lmSearchResultsCache[idx];
-    if(!row) return;
-    const amount = parseFloat(amountInput.value) || 0;
-    const previewEl = document.querySelector(`#lmSearchResults .food-macro-preview[data-idx="${idx}"]`);
-    if(previewEl) previewEl.textContent = macroPreviewText(row, amount);
-  });
+  ['input','change'].forEach(eventName => document.getElementById('lmSearchResults').addEventListener(eventName, e=>{
+    const panel = e.target.closest('.food-result-amount');
+    if(!panel) return;
+    const row = lmSearchResultsCache[Number(panel.dataset.idx)];
+    if(row) updateFoodMeasurement(row, panel);
+  }));
   document.getElementById('lmSearchResults').addEventListener('click', async (e)=>{
     const addBtn = e.target.closest('.lm-add-search-item');
     if(addBtn){
@@ -5371,10 +5407,13 @@ async function checkAuthAndStart(){
       const idx = parseInt(addBtn.dataset.idx, 10);
       const row = lmSearchResultsCache[idx];
       const amountInput = addBtn.closest('.food-result-amount').querySelector('.food-amount-input');
-      const amount = parseFloat(amountInput.value) || row.canonical_amount || 100;
+      let measurement;
+      try { measurement = foodMeasurement(row, addBtn.closest('.food-result-amount')); }
+      catch(err){ alert(err.message); return; }
+      const amount = measurement.amount;
       const macros = scaledFoodMacros(row, amount);
       lmItems.push({
-        name: row.name, amount, unit: row.canonical_unit || 'g',
+        name: row.name, amount, unit: row.canonical_unit || 'g', measurement: measurement.request,
         kcal: macros.kcal, protein: macros.protein, fat: macros.fat, carbs: macros.carbs,
         source: row._origin, payload: row
       });
@@ -5456,7 +5495,7 @@ async function checkAuthAndStart(){
     btn.textContent = 'Saving…';
     statusEl.style.display = 'none';
     try{
-      for(const it of lmItems){
+      for(const it of [...lmItems]){
         let foodId = null;
         if(it.source === 'library'){
           foodId = it.payload.id;
@@ -5478,11 +5517,14 @@ async function checkAuthAndStart(){
           const food = await res.json();
           foodId = food.id;
         }
-        if(!foodId) continue;
-        await fetch('api/meals.php?action=log', {
+        if(!foodId) throw new Error('Could not save this food. Please retry.');
+        const logResponse = await fetch('api/meals.php?action=log', {
           method: 'POST', credentials: 'same-origin', headers: {'Content-Type': 'application/json'},
-          body: JSON.stringify({date, meal_type: mealType, component: {food_id: foodId, amount: it.amount, unit: it.unit}})
+          body: JSON.stringify({date, meal_type: mealType, component: {food_id: foodId, ...(it.measurement || {amount: it.amount, unit: it.unit})}})
         });
+        const logged = await logResponse.json();
+        if(!logResponse.ok || logged.error) throw new Error(logged.error || 'Meal could not be logged');
+        lmItems.splice(lmItems.indexOf(it), 1);
       }
       const notes = document.getElementById('lmNotes').value.trim();
       if(notes) upsertNutritionFields(date, {notes});
@@ -5492,10 +5534,11 @@ async function checkAuthAndStart(){
       renderNutrition();
       renderTodayGlance();
     }catch(err){
-      statusEl.textContent = 'Something went wrong saving this meal — try again.';
+      renderLmMealItems();
+      statusEl.textContent = err.message || 'Something went wrong saving this meal — try again.';
       statusEl.style.display = 'block';
     }finally{
-      btn.disabled = false;
+      btn.disabled = lmItems.length === 0;
       btn.textContent = 'Save to Log';
     }
   });
