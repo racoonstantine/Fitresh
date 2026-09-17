@@ -759,31 +759,6 @@
       <div id="todayLogFeed"></div>
     </section>
 
-    <section class="block" style="margin-bottom:18px;">
-      <div class="log-head" data-history-toggle="1" style="padding:0;cursor:pointer;">
-        <div class="block-title" style="margin:0;flex:1;">History Log</div>
-        <svg class="log-caret" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
-      </div>
-      <div class="log-detail" data-history-detail="1">
-        <div style="padding-top:12px;">
-          <div id="historyList"></div>
-          <button class="today-btn" id="addCustomBtn" style="width:100%;margin-top:10px;padding:11px 0;background:var(--ochre);color:#1F2A24;font-size:13px;">+ Log custom entry / note</button>
-
-          <div id="customForm" style="display:none;margin-top:10px;background:var(--paper-raised);border:1px solid var(--line);border-radius:8px;padding:12px;">
-            <label style="font-size:11.5px;color:var(--ink-soft);display:block;margin-bottom:4px;">Date</label>
-            <input type="date" id="customDate" style="width:100%;padding:7px 8px;border:1px solid var(--line);border-radius:5px;font-family:var(--font-body);font-size:13px;background:var(--paper);margin-bottom:10px;">
-            <label style="font-size:11.5px;color:var(--ink-soft);display:block;margin-bottom:4px;">What did you do / notes on deviation</label>
-            <textarea id="customNotes" rows="3" placeholder="e.g. Did an outdoor run instead of treadmill, or swapped in extra ab work..." style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;font-family:var(--font-body);font-size:13px;background:var(--paper);resize:vertical;"></textarea>
-            <div style="display:flex;gap:8px;margin-top:10px;">
-              <button class="timer-btn start" id="saveCustomBtn" style="flex:1;">Save</button>
-              <button class="timer-btn reset" id="cancelCustomBtn" style="flex:1;">Cancel</button>
-            </div>
-          </div>
-
-          <button class="today-btn" id="exportBtn" style="width:100%;margin-top:8px;padding:10px 0;">Export log (.csv)</button>
-        </div>
-      </div>
-    </section>
   </div><!-- /panelToday -->
 
   <div id="panelBody" style="display:none;">
@@ -798,6 +773,38 @@
       </div>
       <div style="font-size:11px;color:var(--ink-soft);margin-top:6px;">Tap a past entry below to edit it, or ✕ to remove it.</div>
       <div id="weighInList" style="margin-top:8px;"></div>
+    </section>
+
+    <section class="block" style="margin-bottom:18px;">
+      <div class="block-title">Sleep</div>
+      <div class="hub-card">
+        <div id="bodySleepDayNav" style="display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:12px;"></div>
+        <div style="display:flex;gap:8px;">
+          <div style="flex:1;">
+            <label style="font-size:11px;color:var(--ink-soft);">Bedtime</label>
+            <input type="datetime-local" id="bodySleepStart" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;">
+          </div>
+          <div style="flex:1;">
+            <label style="font-size:11px;color:var(--ink-soft);">Wake time</label>
+            <input type="datetime-local" id="bodySleepEnd" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;">
+          </div>
+        </div>
+        <div id="bodySleepError" style="display:none;font-size:11.5px;color:#B4472A;margin-top:8px;"></div>
+        <button type="button" id="bodySleepSaveBtn" class="timer-btn start" style="width:100%;margin-top:10px;">Save sleep</button>
+      </div>
+
+      <div class="hub-card" style="margin-top:12px;">
+        <div id="bodySleepChart"></div>
+      </div>
+
+      <section style="margin-top:12px;">
+        <div class="log-head" data-sleep-history-toggle="1" style="padding:0;cursor:pointer;">
+          <div class="block-title" style="margin:0;">Sleep History</div>
+        </div>
+        <div class="log-detail" data-sleep-history-detail="1">
+          <div id="bodySleepHistoryList" style="margin-top:10px;"></div>
+        </div>
+      </section>
     </section>
 
     <section class="block" style="margin-bottom:18px;">
@@ -822,10 +829,6 @@
       <div class="dash" id="nutriCards" style="grid-template-columns:repeat(3,1fr);"></div>
       <div id="macroBar" style="margin-top:12px;"></div>
       <div id="calorieChart" style="margin:14px 0 4px;"></div>
-    </section>
-
-    <section class="block" style="margin-bottom:18px;">
-      <div class="hub-card" id="fastingCard"></div>
     </section>
 
     <section class="block" style="margin-bottom:18px;">
@@ -936,6 +939,16 @@
     </section>
 
     <section class="block" style="margin-bottom:18px;">
+      <div class="hub-card open-steps-screen-link" id="trainStepsCard" style="cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;">
+        <div>
+          <div class="block-title" style="margin:0;">👣 Steps</div>
+          <div class="glance-card-sub" id="trainStepsSub" style="margin-top:2px;">—</div>
+        </div>
+        <div style="font-family:var(--font-heading);font-size:22px;" id="trainStepsValue">—</div>
+      </div>
+    </section>
+
+    <section class="block" style="margin-bottom:18px;">
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
         <div class="block-title" style="margin:0;flex:1;">Workout Dashboard</div>
         <select id="dashRange" style="padding:7px 10px;border:1px solid var(--line);border-radius:6px;font-size:12.5px;font-weight:600;">
@@ -1038,6 +1051,32 @@
           </div>
         </div>
         <button class="timer-btn start" id="saveStatsBtn" style="width:100%;margin-top:10px;">Save stats</button>
+      </div>
+    </section>
+
+    <section class="block" style="margin-bottom:18px;">
+      <div class="log-head" data-history-toggle="1" style="padding:0;cursor:pointer;">
+        <div class="block-title" style="margin:0;flex:1;">Workout History Log</div>
+        <svg class="log-caret" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+      <div class="log-detail" data-history-detail="1">
+        <div style="padding-top:12px;">
+          <div id="historyList"></div>
+          <button class="today-btn" id="addCustomBtn" style="width:100%;margin-top:10px;padding:11px 0;background:var(--ochre);color:#1F2A24;font-size:13px;">+ Log custom entry / note</button>
+
+          <div id="customForm" style="display:none;margin-top:10px;background:var(--paper-raised);border:1px solid var(--line);border-radius:8px;padding:12px;">
+            <label style="font-size:11.5px;color:var(--ink-soft);display:block;margin-bottom:4px;">Date</label>
+            <input type="date" id="customDate" style="width:100%;padding:7px 8px;border:1px solid var(--line);border-radius:5px;font-family:var(--font-body);font-size:13px;background:var(--paper);margin-bottom:10px;">
+            <label style="font-size:11.5px;color:var(--ink-soft);display:block;margin-bottom:4px;">What did you do / notes on deviation</label>
+            <textarea id="customNotes" rows="3" placeholder="e.g. Did an outdoor run instead of treadmill, or swapped in extra ab work..." style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;font-family:var(--font-body);font-size:13px;background:var(--paper);resize:vertical;"></textarea>
+            <div style="display:flex;gap:8px;margin-top:10px;">
+              <button class="timer-btn start" id="saveCustomBtn" style="flex:1;">Save</button>
+              <button class="timer-btn reset" id="cancelCustomBtn" style="flex:1;">Cancel</button>
+            </div>
+          </div>
+
+          <button class="today-btn" id="exportBtn" style="width:100%;margin-top:8px;padding:10px 0;">Export log (.csv)</button>
+        </div>
       </div>
     </section>
   </div><!-- /panelTrain -->
@@ -1419,6 +1458,7 @@
       </div>
       <div id="fsPastError" style="display:none;font-size:11.5px;color:#B4472A;margin-top:8px;"></div>
       <button type="button" id="fsPastSaveBtn" class="timer-btn reset" style="width:100%;margin-top:10px;">Save this fast</button>
+      <div id="fsPrevFastSummary" style="display:none;margin-top:12px;padding-top:12px;border-top:1px solid var(--line);"></div>
     </div>
 
     <section style="margin-top:18px;">
@@ -1430,6 +1470,40 @@
         <div style="padding-top:10px;">
           <div id="fsHistoryChart"></div>
           <div id="fsHistoryList" style="margin-top:10px;"></div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<div id="stepsScreen" class="fullscreen-modal" style="display:none;">
+  <div class="fullscreen-modal-header">
+    <button type="button" id="stepsScreenClose" class="modal-close-btn">✕</button>
+    <div class="fullscreen-modal-title">Steps</div>
+    <div style="width:32px;"></div>
+  </div>
+  <div class="fullscreen-modal-body">
+    <div class="hub-card">
+      <div id="stepsDayNav" style="display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:12px;"></div>
+      <label style="font-size:11px;color:var(--ink-soft);">Step count</label>
+      <input type="number" id="stepsCountInput" min="0" step="1" placeholder="e.g. 8500" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;font-family:var(--font-heading);font-size:18px;">
+      <div id="stepsError" style="display:none;font-size:11.5px;color:#B4472A;margin-top:8px;"></div>
+      <button type="button" id="stepsSaveBtn" class="timer-btn start" style="width:100%;margin-top:10px;">Save steps</button>
+      <div class="note" style="margin-top:8px;">Manual entry for now — automatic watch sync is a possible future update.</div>
+    </div>
+
+    <div class="hub-card" style="margin-top:14px;">
+      <div id="stepsChart"></div>
+    </div>
+
+    <section style="margin-top:18px;">
+      <div class="log-head" data-steps-history-toggle="1" style="padding:0;cursor:pointer;">
+        <div class="block-title" style="margin:0;flex:1;">History</div>
+        <svg class="log-caret" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+      <div class="log-detail" data-steps-history-detail="1">
+        <div style="padding-top:10px;">
+          <div id="stepsHistoryList"></div>
         </div>
       </div>
     </section>
@@ -1584,6 +1658,40 @@ function formatFastHours(hrs){
   const m = Math.round((hrs - h) * 60);
   return `${h}h${m > 0 ? m + 'm' : ''}`;
 }
+function formatClockTime(d){
+  return d.toLocaleTimeString(undefined, {hour: 'numeric', minute: '2-digit'});
+}
+// Shared elapsed/target-end/percent text for the fasting tiles on Today at a Glance
+// and the Nutrition Dashboard's "Today's fast" card -- both tick live off the same
+// fastingState, so this keeps their wording and math in one place.
+function fastingSummaryText(lastLoggedHours){
+  if(fastingState.startIso){
+    const start = new Date(fastingState.startIso);
+    const elapsedMs = Math.max(0, Date.now() - start.getTime());
+    const elapsedHrs = elapsedMs / 3600000;
+    const goalHrs = fastingState.goalHours || 16;
+    const targetEnd = new Date(start.getTime() + goalHrs * 3600000);
+    const h = Math.floor(elapsedMs/3600000), m = Math.floor((elapsedMs%3600000)/60000), s = Math.floor((elapsedMs%60000)/1000);
+    const pct = elapsedHrs / goalHrs * 100;
+    return {
+      active: true,
+      value: `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`,
+      sub: `${pct.toFixed(0)}% of ${goalHrs}h · ends ~${formatClockTime(targetEnd)}`,
+      pct: Math.min(100, pct)
+    };
+  }
+  const goalHrs = fastingState.goalHours || 16;
+  if(lastLoggedHours){
+    const pct = lastLoggedHours / goalHrs * 100;
+    return {
+      active: false,
+      value: formatFastHours(lastLoggedHours),
+      sub: `${pct.toFixed(0)}% of ${goalHrs}h goal`,
+      pct: Math.min(100, pct)
+    };
+  }
+  return {active: false, value: 'Not started', sub: `Goal: ${goalHrs} hours`, pct: 0};
+}
 function saveNutritionDay(entry){
   nutritionLog = nutritionLog.filter(e => e.date !== entry.date);
   nutritionLog.push(entry);
@@ -1684,6 +1792,18 @@ function formatSleepHours(hrs){
   const h = Math.floor(hrs);
   const m = Math.round((hrs - h) * 60);
   return `${h}h${m > 0 ? ' ' + m + 'm' : ''}`;
+}
+
+// ---------- Steps (manual daily entry; watch sync is a future improvement) ----------
+let stepsLog = {}; // {dateStr: count}
+async function loadSteps(){
+  try{
+    const res = await window.storage.get(STORAGE_PREFIX + 'steps', false);
+    stepsLog = res && res.value ? JSON.parse(res.value) : {};
+  }catch(e){ stepsLog = {}; }
+}
+async function saveStepsLog(){
+  try{ await window.storage.set(STORAGE_PREFIX + 'steps', JSON.stringify(stepsLog), false); }catch(e){}
 }
 
 function renderFasting(){
@@ -1792,13 +1912,27 @@ const DAILY_QUOTES = [
   "You don't have to be extreme, just consistent.",
   'Progress, not perfection.',
   'Every healthy choice today is a vote for who you want to become.',
+  "Showing up is half the battle — you already did that.",
+  'Your only competition is who you were yesterday.',
+  "Rest when you need to, just don't quit.",
+  'Strong is a daily practice, not a destination.',
+  'One good habit at a time builds a whole new life.',
+  "You won't always be motivated — that's why discipline matters.",
+  'The best time to start was earlier. The next best time is now.',
+  'Slow progress is still progress.',
+  'Take care of your body — it’s the only place you have to live.',
   'Kaya mo yan, isang araw lang muna.', // "You can do it, one day at a time."
   'Maliit na hakbang, malaking pagbabago.', // "Small steps, big change."
   'Huwag kang sumuko, konti na lang.', // "Don't give up, you're almost there."
   'Ang pagbabago ay nagsisimula sa iyo.', // "Change begins with you."
   'Bawat araw, isang pagkakataon para umayos.', // "Every day is a chance to improve."
-  'Sama-sama nating abutin ang goal mo.' // "Together, let's reach your goal."
+  'Sama-sama nating abutin ang goal mo.', // "Together, let's reach your goal."
+  'Tuloy lang, malapit ka na.', // "Keep going, you're getting close."
+  'Ang tagumpay ay sa taong hindi sumusuko.' // "Success belongs to those who don't give up."
 ];
+// Chosen once per session (page load) rather than daily, so it's a fresh
+// pick each time you open the app instead of the same quote all day.
+const SESSION_QUOTE = DAILY_QUOTES[Math.floor(Math.random() * DAILY_QUOTES.length)];
 function updateTodayClock(){
   const el = document.getElementById('todayClock');
   if(!el) return;
@@ -1807,10 +1941,6 @@ function updateTodayClock(){
   });
 }
 setInterval(updateTodayClock, 30000);
-function dayOfYear(d){
-  const start = new Date(d.getFullYear(), 0, 0);
-  return Math.floor((d - start) / 86400000);
-}
 function glanceRing(pct, colorVar, size, centerHtml){
   const clamped = Math.max(0, Math.min(100, pct || 0));
   return `
@@ -1822,6 +1952,7 @@ function glanceRing(pct, colorVar, size, centerHtml){
   `;
 }
 let glanceFastTickInterval = null;
+let nutriFastTickInterval = null;
 
 async function renderTodayGlance(){
   const grid = document.getElementById('glanceGridTop');
@@ -1830,7 +1961,7 @@ async function renderTodayGlance(){
 
   updateTodayClock();
   const quoteEl = document.getElementById('glanceQuote');
-  if(quoteEl) quoteEl.textContent = '“' + DAILY_QUOTES[dayOfYear(new Date()) % DAILY_QUOTES.length] + '”';
+  if(quoteEl) quoteEl.textContent = '“' + SESSION_QUOTE + '”';
 
   const today = dateStrForOffset(0);
   const nutriEntry = nutritionLog.find(e => e.date === today);
@@ -1874,9 +2005,11 @@ async function renderTodayGlance(){
 
   const sleepEntry = sleepLog[today] || null;
   const fmtClock = iso => new Date(iso).toLocaleTimeString(undefined, {hour: 'numeric', minute: '2-digit'});
+  const stepsToday = stepsLog[today] || 0;
+  const stepsTarget = (userHealthTargets && userHealthTargets.stepsGoal) || 10000;
 
   grid.innerHTML = `
-    <div class="glance-card">
+    <div class="glance-card" data-nav-view="body" style="cursor:pointer;">
       <div class="glance-card-head"><span class="glance-card-label">\u{1F4E6} Weight</span></div>
       <div class="glance-card-value">${latestW ? latestW.kg + ' kg' : '—'}</div>
       ${weightDelta !== null
@@ -1890,13 +2023,13 @@ async function renderTodayGlance(){
       <div class="glance-bar-track"><div class="glance-bar-fill" id="glanceFastBar" style="width:0%;background:var(--forest);"></div></div>
       <div class="glance-card-sub" id="glanceFastSub">Goal: ${fastingState.goalHours || 16} hours</div>
     </div>
-    <div class="glance-card">
+    <div class="glance-card" data-nav-view="food" style="cursor:pointer;">
       <div class="glance-card-head"><span class="glance-card-label">\u{1F37D} Food Intake</span></div>
       <div class="glance-card-value">${Math.round(combined.calories)} kcal</div>
       <div class="glance-bar-track"><div class="glance-bar-fill" style="width:${Math.min(100, calTarget ? combined.calories/calTarget*100 : 0)}%;background:var(--ochre);"></div></div>
       <div class="glance-card-sub">Target: ${Math.round(calTarget).toLocaleString()} kcal</div>
     </div>
-    <div class="glance-card">
+    <div class="glance-card" data-nav-view="food" style="cursor:pointer;">
       <div class="glance-card-head">
         <span class="glance-card-label">\u{1F4A7} Water</span>
         <div style="display:flex;gap:5px;">
@@ -1918,29 +2051,17 @@ async function renderTodayGlance(){
     const subEl = document.getElementById('glanceFastSub');
     const feedValEl = document.getElementById('todayLogFastValue');
     if(!valEl) return;
-    if(fastingState.startIso){
-      const elapsedMs = Math.max(0, Date.now() - new Date(fastingState.startIso).getTime());
-      const elapsedHrs = elapsedMs / 3600000;
-      const goalHrs = fastingState.goalHours || 16;
-      const h = Math.floor(elapsedMs/3600000), m = Math.floor((elapsedMs%3600000)/60000), s = Math.floor((elapsedMs%60000)/1000);
-      const timeStr = `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
-      valEl.textContent = timeStr;
-      if(feedValEl) feedValEl.textContent = timeStr;
-      barEl.style.width = Math.min(100, elapsedHrs/goalHrs*100) + '%';
-      subEl.textContent = `Goal: ${goalHrs}h${elapsedHrs>=goalHrs ? ' — reached!' : ''}`;
-    } else {
-      const lastFast = nutriEntry && nutriEntry.fastHours ? parseFloat(nutriEntry.fastHours) : null;
-      const displayVal = lastFast ? formatFastHours(lastFast) : 'Not started';
-      valEl.textContent = displayVal;
-      if(feedValEl) feedValEl.textContent = displayVal;
-      barEl.style.width = lastFast ? Math.min(100, lastFast/(fastingState.goalHours||16)*100) + '%' : '0%';
-      subEl.textContent = `Goal: ${fastingState.goalHours || 16} hours`;
-    }
+    const lastFast = nutriEntry && nutriEntry.fastHours ? parseFloat(nutriEntry.fastHours) : null;
+    const info = fastingSummaryText(lastFast);
+    valEl.textContent = info.value;
+    if(feedValEl) feedValEl.textContent = info.value;
+    barEl.style.width = info.pct + '%';
+    subEl.textContent = info.sub;
   };
 
   const midGrid = document.getElementById('glanceGridMid');
   midGrid.innerHTML = `
-    <div class="glance-card">
+    <div class="glance-card" data-nav-view="food" style="cursor:pointer;">
       <div class="glance-card-label" style="margin-bottom:4px;">\u{1F3AF} Macronutrients</div>
       <div style="display:flex;justify-content:space-around;">
         <div class="glance-ring-row">
@@ -1957,7 +2078,7 @@ async function renderTodayGlance(){
         </div>
       </div>
     </div>
-    <div class="glance-card">
+    <div class="glance-card" data-nav-view="train" style="cursor:pointer;">
       <div class="glance-card-head"><span class="glance-card-label">\u{1F3C3} Exercise</span></div>
       ${plannedType ? `
         <div style="background:${exerciseDone?'rgba(47,111,78,0.12)':'var(--paper)'};border:1px solid ${exerciseDone?'var(--forest)':'var(--line)'};border-radius:8px;padding:10px;display:flex;align-items:center;gap:8px;">
@@ -1969,12 +2090,12 @@ async function renderTodayGlance(){
         </div>
       ` : `<div class="glance-card-sub" style="padding:10px 0;">Rest day — nothing planned.</div>`}
     </div>
-    <div class="glance-card" style="align-items:center;">
+    <div class="glance-card" data-nav-view="train" style="align-items:center;cursor:pointer;">
       <div class="glance-card-label" style="align-self:flex-start;">\u{1F525} Calories Burned</div>
       ${glanceRing(Math.min(100, caloriesBurned/calorieBurnTarget*100), '#B4472A', 84, `<div style="font-family:var(--font-heading);font-size:20px;">${Math.round(caloriesBurned)}</div><div style="font-size:9.5px;color:var(--ink-soft);">kcal</div>`)}
       <div class="glance-card-sub">Target: ${calorieBurnTarget} kcal</div>
     </div>
-    <div class="glance-card" id="sleepCard">
+    <div class="glance-card" id="sleepCard" data-nav-view="body" style="cursor:pointer;">
       <div class="glance-card-head"><span class="glance-card-label">\u{1F634} Sleep</span></div>
       ${sleepEntry && !sleepFormOpen ? `
         <div class="glance-card-value">${formatSleepHours(sleepEntry.hours)}</div>
@@ -1994,6 +2115,11 @@ async function renderTodayGlance(){
         </div>
         <button class="timer-btn start" id="saveSleepBtn" type="button" style="width:100%;margin-top:6px;padding:7px 0;font-size:12px;">Save sleep</button>
       `}
+    </div>
+    <div class="glance-card open-steps-screen-link" style="align-items:center;cursor:pointer;">
+      <div class="glance-card-label" style="align-self:flex-start;">\u{1F463} Steps</div>
+      ${glanceRing(Math.min(100, stepsTarget ? stepsToday/stepsTarget*100 : 0), '#4A90D9', 84, `<div style="font-family:var(--font-heading);font-size:18px;">${stepsToday.toLocaleString()}</div><div style="font-size:9.5px;color:var(--ink-soft);">steps</div>`)}
+      <div class="glance-card-sub">Target: ${stepsTarget.toLocaleString()}</div>
     </div>
   `;
 
@@ -2020,6 +2146,7 @@ async function renderTodayGlance(){
       sleepFormOpen = false;
       saveSleepLog();
       renderTodayGlance();
+      renderBodySleep();
     });
   } else {
     document.getElementById('editSleepBtn').addEventListener('click', ()=>{
@@ -2756,14 +2883,36 @@ async function renderNutrition(){
   const proteinColor = avgProtein !== null ? (avgProtein >= PROTEIN_TARGET_MIN ? 'var(--forest-dark)' : '#B4472A') : 'var(--forest-dark)';
   const cardLabel = range === 'day' ? '' : (range === 'month' ? ' (30d)' : ' (7d)');
 
+  clearInterval(nutriFastTickInterval);
+  const isTodaySelected = range === 'day' && nutriSelectedDate === dateStrForOffset(0);
   document.getElementById('nutriCards').innerHTML = `
     <div class="dash-card"><div class="dash-num" style="color:${calColor};">${avgCal !== null ? Math.round(avgCal) : '—'}</div><div class="dash-label">${range==='day' ? 'Kcal today' : 'Avg kcal'+cardLabel}</div></div>
     <div class="dash-card"><div class="dash-num" style="color:${proteinColor};">${avgProtein !== null ? avgProtein.toFixed(1) : '—'}</div><div class="dash-label">${range==='day' ? 'Protein today' : 'Avg protein'+cardLabel}</div></div>
-    <div class="dash-card"><div class="dash-num">${avgFast !== null ? formatFastHours(avgFast) : '—'}</div><div class="dash-label">${range==='day' ? "Today's fast" : 'Avg fast'+cardLabel}</div></div>
+    <div class="dash-card ${isTodaySelected ? 'open-fasting-screen-link' : ''}" ${isTodaySelected ? 'style="cursor:pointer;"' : ''}>
+      <div class="dash-num" id="nutriFastValue">${avgFast !== null ? formatFastHours(avgFast) : '—'}</div>
+      <div class="dash-label">${range==='day' ? "Today's fast" : 'Avg fast'+cardLabel}</div>
+      ${isTodaySelected ? `<div style="font-size:9.5px;color:var(--ink-soft);margin-top:2px;" id="nutriFastSub"></div>` : ''}
+    </div>
     <div class="dash-card"><div class="dash-num">${daysMetProtein}/${combinedList.length}</div><div class="dash-label">Days hit protein</div></div>
     <div class="dash-card"><div class="dash-num">${daysMetCal}/${combinedList.length}</div><div class="dash-label">Days hit kcal floor</div></div>
     <div class="dash-card"><div class="dash-num">${combinedList.length}</div><div class="dash-label">Days logged${cardLabel}</div></div>
   `;
+  if(isTodaySelected){
+    const todayEntryForFast = sorted.find(e => e.date === nutriSelectedDate);
+    const lastFast = todayEntryForFast && todayEntryForFast.fastHours ? parseFloat(todayEntryForFast.fastHours) : null;
+    const updateNutriFast = ()=>{
+      const valEl = document.getElementById('nutriFastValue');
+      const subEl = document.getElementById('nutriFastSub');
+      if(!valEl) return;
+      const info = fastingSummaryText(lastFast);
+      valEl.textContent = info.value;
+      if(subEl) subEl.textContent = info.sub;
+    };
+    updateNutriFast();
+    if(fastingState.startIso){
+      nutriFastTickInterval = setInterval(updateNutriFast, 1000);
+    }
+  }
 
   // Macro split bar (avg calorie contribution: protein 4kcal/g, fat 9kcal/g, carbs 4kcal/g)
   const macroEl = document.getElementById('macroBar');
@@ -2868,7 +3017,6 @@ function renderBodyPlaceholders(){
   if(!grid) return;
   const tiles = [
     {key:'vitals', label:'Vitals', sub:'Blood pressure, glucose, HRV, resting HR'},
-    {key:'sleep', label:'Sleep', sub:'Total, deep, REM, light'},
     {key:'mind', label:'Mind', sub:'Minutes, kind, stress score'}
   ];
   grid.innerHTML = tiles.map(t => `
@@ -2880,6 +3028,147 @@ function renderBodyPlaceholders(){
     </div>
   `).join('');
 }
+
+// ---------- Body tab: Sleep (day-nav edit + history + trend chart) ----------
+let bodySleepSelectedDate = null;
+function renderBodySleepDayNav(){
+  const navEl = document.getElementById('bodySleepDayNav');
+  if(!navEl) return;
+  const todayStr = dateStrForOffset(0);
+  if(!bodySleepSelectedDate) bodySleepSelectedDate = todayStr;
+  const isToday = bodySleepSelectedDate === todayStr;
+  navEl.innerHTML = `
+    <button class="day-nav-btn" id="bodySleepPrevDay" type="button"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+    <div class="day-nav-label">
+      <div class="day-nav-date">${isToday ? 'Today' : formatDateLabel(bodySleepSelectedDate)}</div>
+      ${!isToday ? `<div class="day-nav-today-link" id="bodySleepJumpToday">Jump to today</div>` : `<div style="font-size:11px;color:var(--ink-soft);">${formatDateLabel(bodySleepSelectedDate)}</div>`}
+    </div>
+    <button class="day-nav-btn" id="bodySleepNextDay" type="button" ${isToday ? 'disabled' : ''}><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></button>
+  `;
+  document.getElementById('bodySleepPrevDay').addEventListener('click', ()=>{
+    bodySleepSelectedDate = addDaysToDate(bodySleepSelectedDate, -1);
+    renderBodySleepDayNav();
+    renderBodySleepForm();
+  });
+  if(!isToday){
+    document.getElementById('bodySleepNextDay').addEventListener('click', ()=>{
+      bodySleepSelectedDate = addDaysToDate(bodySleepSelectedDate, 1);
+      renderBodySleepDayNav();
+      renderBodySleepForm();
+    });
+    document.getElementById('bodySleepJumpToday').addEventListener('click', ()=>{
+      bodySleepSelectedDate = todayStr;
+      renderBodySleepDayNav();
+      renderBodySleepForm();
+    });
+  }
+  renderBodySleepForm();
+}
+function renderBodySleepForm(){
+  const errEl = document.getElementById('bodySleepError');
+  if(!errEl) return;
+  errEl.style.display = 'none';
+  const pad2 = n => String(n).padStart(2,'0');
+  const toLocalInput = d => `${d.getFullYear()}-${pad2(d.getMonth()+1)}-${pad2(d.getDate())}T${pad2(d.getHours())}:${pad2(d.getMinutes())}`;
+  const existing = sleepLog[bodySleepSelectedDate];
+  let start, end;
+  if(existing && existing.startIso && existing.endIso){
+    start = new Date(existing.startIso);
+    end = new Date(existing.endIso);
+  } else {
+    end = new Date(bodySleepSelectedDate + 'T07:00:00');
+    start = new Date(end.getTime() - 8 * 3600000);
+  }
+  document.getElementById('bodySleepStart').value = toLocalInput(start);
+  document.getElementById('bodySleepEnd').value = toLocalInput(end);
+}
+function renderBodySleepHistory(){
+  const entries = Object.entries(sleepLog)
+    .map(([date, s]) => ({date, hours: s.hours}))
+    .sort((a,b)=> a.date < b.date ? 1 : -1);
+
+  const chartEl = document.getElementById('bodySleepChart');
+  const recent = [...entries].reverse().slice(-14);
+  if(!chartEl){
+    // panel not built yet
+  } else if(recent.length < 2){
+    chartEl.innerHTML = `<div class="dash-empty">Log a couple of nights to see your trend.</div>`;
+  } else {
+    const w = 300, h = 80, pad = 8;
+    const vals = recent.map(s => s.hours);
+    const maxV = Math.max(...vals, 8) + 2;
+    const barW = (w - pad*2) / recent.length;
+    const bars = recent.map((s, i) => {
+      const barH = (s.hours / maxV) * (h - pad*2);
+      const x = pad + i*barW;
+      const y = h - pad - barH;
+      return `<rect x="${x + barW*0.15}" y="${y}" width="${barW*0.7}" height="${barH}" rx="2" fill="var(--forest)"/>`;
+    }).join('');
+    chartEl.innerHTML = `
+      <svg viewBox="0 0 ${w} ${h}" style="width:100%;height:${h}px;overflow:visible;">${bars}</svg>
+      <div style="display:flex;justify-content:space-between;font-size:10.5px;color:var(--ink-soft);margin-top:2px;">
+        <span>${formatDateLabel(recent[0].date)}</span>
+        <span>${formatDateLabel(recent[recent.length-1].date)}</span>
+      </div>
+    `;
+  }
+
+  const listEl = document.getElementById('bodySleepHistoryList');
+  if(!listEl) return;
+  if(!entries.length){
+    listEl.innerHTML = `<div class="dash-empty">No sleep logged yet.</div>`;
+  } else {
+    listEl.innerHTML = entries.slice(0, 10).map(s => `
+      <div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px dashed var(--line);font-size:12.5px;">
+        <span style="color:var(--ink-soft);">${formatDateLabel(s.date)}</span>
+        <span style="font-weight:600;">${formatSleepHours(s.hours)}</span>
+      </div>
+    `).join('');
+  }
+}
+function renderBodySleep(){
+  renderBodySleepDayNav();
+  renderBodySleepHistory();
+}
+
+function renderTrainStepsCard(){
+  const valEl = document.getElementById('trainStepsValue');
+  const subEl = document.getElementById('trainStepsSub');
+  if(!valEl) return;
+  const today = dateStrForOffset(0);
+  const stepsToday = stepsLog[today] || 0;
+  const stepsTarget = (userHealthTargets && userHealthTargets.stepsGoal) || 10000;
+  valEl.textContent = stepsToday.toLocaleString();
+  subEl.textContent = `Target: ${stepsTarget.toLocaleString()}${stepsToday >= stepsTarget ? ' ✓' : ''}`;
+}
+(function(){
+  const toggle = document.querySelector('[data-sleep-history-toggle="1"]');
+  if(!toggle) return;
+  toggle.addEventListener('click', function(){
+    const detail = document.querySelector('[data-sleep-history-detail="1"]');
+    const open = detail.classList.toggle('open');
+    this.classList.toggle('expanded', open);
+  });
+  document.getElementById('bodySleepSaveBtn').addEventListener('click', ()=>{
+    const errEl = document.getElementById('bodySleepError');
+    errEl.style.display = 'none';
+    const startD = new Date(document.getElementById('bodySleepStart').value);
+    const endD = new Date(document.getElementById('bodySleepEnd').value);
+    if(isNaN(startD.getTime()) || isNaN(endD.getTime()) || endD <= startD){
+      errEl.textContent = 'Wake time must be after bedtime.';
+      errEl.style.display = 'block';
+      return;
+    }
+    const hours = (endD - startD) / 3600000;
+    sleepLog[bodySleepSelectedDate] = { startIso: startD.toISOString(), endIso: endD.toISOString(), hours };
+    saveSleepLog();
+    renderBodySleepHistory();
+    renderTodayGlance();
+    errEl.style.color = 'var(--forest-dark)';
+    errEl.textContent = `Saved — ${formatSleepHours(hours)} logged for ${formatDateLabel(bodySleepSelectedDate)}.`;
+    errEl.style.display = 'block';
+  });
+})();
 
 function renderAccountSnapshot(){
   const greetingCard = document.getElementById('snapshotGreetingCard');
@@ -3068,6 +3357,12 @@ function renderSummary(){
   };
   const avgCal = avg('calories'), avgProtein = avg('protein'), avgFast = avg('fastHours');
 
+  // Sleep & steps in range
+  const sleepVals = dateList.map(d => sleepLog[d] ? sleepLog[d].hours : null).filter(v => v !== null);
+  const avgSleep = sleepVals.length ? sleepVals.reduce((a,b)=>a+b,0)/sleepVals.length : null;
+  const stepsVals = dateList.map(d => stepsLog[d]).filter(v => v !== undefined && v !== null);
+  const avgSteps = stepsVals.length ? Math.round(stepsVals.reduce((a,b)=>a+b,0)/stepsVals.length) : null;
+
   // Weight change in range
   const weightsInRange = weighIns.filter(w => dateList.includes(w.date)).sort((a,b)=> a.date < b.date ? -1 : 1);
   let weightChange = null;
@@ -3087,6 +3382,8 @@ function renderSummary(){
     <div class="dash-card"><div class="dash-num">${avgFast !== null ? formatFastHours(avgFast) : '—'}</div><div class="dash-label">Avg fast</div></div>
     <div class="dash-card"><div class="dash-num">${weightChange !== null ? (weightChange > 0 ? '+' : '') + weightChange.toFixed(1) : '—'}</div><div class="dash-label">Weight change (kg)</div></div>
     <div class="dash-card"><div class="dash-num">${nutriEntries.length}</div><div class="dash-label">Days nutrition logged</div></div>
+    <div class="dash-card"><div class="dash-num">${avgSleep !== null ? formatSleepHours(avgSleep) : '—'}</div><div class="dash-label">Avg sleep</div></div>
+    <div class="dash-card"><div class="dash-num">${avgSteps !== null ? avgSteps.toLocaleString() : '—'}</div><div class="dash-label">Avg steps</div></div>
   `;
 
   // Day-by-day table
@@ -3095,23 +3392,33 @@ function renderSummary(){
     const w = historyLog.find(e => e.date === d && e.day !== 'custom');
     const n = nutritionLog.find(e => e.date === d);
     const wt = weighIns.find(e => e.date === d);
+    const sl = sleepLog[d];
+    const st = stepsLog[d];
     return `
       <div style="display:flex;gap:6px;padding:7px 4px;border-bottom:1px solid var(--line);align-items:center;">
-        <div style="flex:0 0 76px;color:var(--ink-soft);">${d}</div>
-        <div style="flex:1;color:${w ? 'var(--forest-dark)' : 'var(--ink-soft)'};">${w ? w.label : '—'}</div>
-        <div style="flex:0 0 60px;text-align:right;color:${n && n.calories ? (parseFloat(n.calories) >= getTargets(d).calMin ? 'var(--forest-dark)' : '#B4472A') : 'var(--ink-soft)'};">${n && n.calories ? n.calories+'k' : '—'}</div>
-        <div style="flex:0 0 55px;text-align:right;color:var(--ink);">${wt ? wt.kg.toFixed(1)+'kg' : '—'}</div>
+        <div style="flex:0 0 76px;flex-shrink:0;color:var(--ink-soft);">${d}</div>
+        <div style="flex:1 0 100px;color:${w ? 'var(--forest-dark)' : 'var(--ink-soft)'};">${w ? w.label : '—'}</div>
+        <div style="flex:0 0 60px;flex-shrink:0;text-align:right;color:${n && n.calories ? (parseFloat(n.calories) >= getTargets(d).calMin ? 'var(--forest-dark)' : '#B4472A') : 'var(--ink-soft)'};">${n && n.calories ? n.calories+'k' : '—'}</div>
+        <div style="flex:0 0 55px;flex-shrink:0;text-align:right;color:var(--ink);">${wt ? wt.kg.toFixed(1)+'kg' : '—'}</div>
+        <div style="flex:0 0 50px;flex-shrink:0;text-align:right;color:var(--ink-soft);">${n && n.fastHours ? formatFastHours(parseFloat(n.fastHours)) : '—'}</div>
+        <div style="flex:0 0 55px;flex-shrink:0;text-align:right;color:var(--ink-soft);">${sl ? formatSleepHours(sl.hours) : '—'}</div>
+        <div style="flex:0 0 55px;flex-shrink:0;text-align:right;color:var(--ink-soft);">${st !== undefined ? st.toLocaleString() : '—'}</div>
       </div>
     `;
   }).join('');
   tableEl.innerHTML = `
-    <div style="display:flex;gap:6px;padding:6px 4px;font-weight:600;color:var(--ink-soft);font-size:10.5px;text-transform:uppercase;letter-spacing:.04em;border-bottom:1.5px solid var(--ink);">
-      <div style="flex:0 0 76px;">Date</div>
-      <div style="flex:1;">Workout</div>
-      <div style="flex:0 0 60px;text-align:right;">Kcal</div>
-      <div style="flex:0 0 55px;text-align:right;">Weight</div>
+    <div style="min-width:480px;">
+      <div style="display:flex;gap:6px;padding:6px 4px;font-weight:600;color:var(--ink-soft);font-size:10.5px;text-transform:uppercase;letter-spacing:.04em;border-bottom:1.5px solid var(--ink);">
+        <div style="flex:0 0 76px;flex-shrink:0;">Date</div>
+        <div style="flex:1 0 100px;">Workout</div>
+        <div style="flex:0 0 60px;flex-shrink:0;text-align:right;">Kcal</div>
+        <div style="flex:0 0 55px;flex-shrink:0;text-align:right;">Weight</div>
+        <div style="flex:0 0 50px;flex-shrink:0;text-align:right;">Fast</div>
+        <div style="flex:0 0 55px;flex-shrink:0;text-align:right;">Sleep</div>
+        <div style="flex:0 0 55px;flex-shrink:0;text-align:right;">Steps</div>
+      </div>
+      ${rows}
     </div>
-    ${rows}
   `;
 }
 
@@ -3871,6 +4178,22 @@ document.querySelector('[data-history-toggle="1"]').addEventListener('click', fu
   this.classList.toggle('expanded', open);
 });
 
+// Today at a Glance cards navigate to their tab on click -- delegated on the grid
+// containers (whose innerHTML gets rebuilt on every render) rather than per-card,
+// and skipped when the click actually landed on an interactive control inside the
+// card (Water's +/-, Sleep's inputs/Edit/Save buttons).
+function wireGlanceCardNav(gridEl){
+  if(!gridEl) return;
+  gridEl.addEventListener('click', (e)=>{
+    if(e.target.closest('button, input, select, a, textarea')) return;
+    const card = e.target.closest('[data-nav-view]');
+    if(!card) return;
+    window.showView(card.dataset.navView);
+  });
+}
+wireGlanceCardNav(document.getElementById('glanceGridTop'));
+wireGlanceCardNav(document.getElementById('glanceGridMid'));
+
 async function startApp(){
   // Theme: load saved preference (defaults to dark if none saved yet)
   try{
@@ -3909,7 +4232,8 @@ async function startApp(){
       btn.classList.toggle('active', btn.dataset.view === view);
     });
     document.getElementById('scrollArea').scrollTop = 0;
-    if(view === 'body') renderBodyPlaceholders();
+    if(view === 'body'){ renderBodyPlaceholders(); renderBodySleep(); }
+    if(view === 'train'){ renderTrainStepsCard(); }
     if(view === 'insights'){ renderInsights(); renderSummary(); }
     if(view === 'account') showAccountView(currentAccountView);
   }
@@ -3957,6 +4281,7 @@ async function startApp(){
   await loadFasting();
   await loadWater();
   await loadSleep();
+  await loadSteps();
 
 
   renderDashboard();
@@ -3972,6 +4297,8 @@ async function startApp(){
   setDay(startDay);
   renderTally();
   renderBodyPlaceholders();
+  renderBodySleep();
+  renderTrainStepsCard();
   document.getElementById('exportBtn').addEventListener('click', exportLogCSV);
 
   const customForm = document.getElementById('customForm');
@@ -4039,7 +4366,7 @@ async function startApp(){
   document.getElementById('nutriRange').addEventListener('change', renderNutrition);
   document.getElementById('dashRange').addEventListener('change', renderDashboard);
 
-  const BACKUP_RESOURCES = ['nutrition', 'weighins', 'history', 'checked', 'weights', 'theme', 'profile', 'fasting', 'water', 'sleep'];
+  const BACKUP_RESOURCES = ['nutrition', 'weighins', 'history', 'checked', 'weights', 'theme', 'profile', 'fasting', 'water', 'sleep', 'steps'];
 
   document.getElementById('exportBackupBtn').addEventListener('click', async ()=>{
     const backup = {};
@@ -4399,6 +4726,7 @@ async function checkAuthAndStart(){
 
       revealApp();
       renderBodyPlaceholders();
+      renderBodySleep();
       renderDashboard();
       renderNutrition();
       renderWeightSection();
@@ -4450,6 +4778,7 @@ async function checkAuthAndStart(){
 
     renderAccountGoals();
     renderBodyPlaceholders();
+    renderBodySleep();
     renderNutrition();
     renderTodayGlance();
     renderFasting();
@@ -4749,6 +5078,13 @@ async function checkAuthAndStart(){
   });
 
   let lmSearchDebounce;
+  document.getElementById('lmSearchStatus').addEventListener('click', e=>{
+    const suggestion = e.target.closest('[data-food-suggestion]');
+    if(!suggestion) return;
+    clearTimeout(lmSearchDebounce);
+    document.getElementById('lmSearchInput').value = suggestion.dataset.foodSuggestion;
+    lmSearchFoods(suggestion.dataset.foodSuggestion);
+  });
   document.getElementById('lmSearchInput').addEventListener('input', (e)=>{
     clearTimeout(lmSearchDebounce);
     const q = e.target.value.trim();
@@ -4763,22 +5099,32 @@ async function checkAuthAndStart(){
     statusEl.textContent = 'Searching…';
     statusEl.style.display = 'block';
     try{
-      const localRes = await fetch(`api/food_catalog.php?q=${encodeURIComponent(query)}`, {credentials:'same-origin'}).then(r=>r.json()).catch(()=>({results:[]}));
+      const localRes = await fetch(`api/food_catalog.php?q=${encodeURIComponent(query)}`, {credentials:'same-origin'}).then(r=>r.json()).catch(()=>({results:[],error:'Local food search is temporarily unavailable.'}));
       if(generation !== lmSearchGeneration) return;
       const local = (localRes.results || []).map(r => ({...r, _origin:'catalog'}));
       lmSearchResultsCache = local;
       renderLmSearchResults();
+      const suggestions = (localRes.suggestions || []).map(word => `<button type="button" class="timer-btn" data-food-suggestion="${foodSearchEscape(word)}">${foodSearchEscape(word)}</button>`).join(' ');
+      statusEl.innerHTML = localRes.error ? foodSearchEscape(localRes.error) : (suggestions ? `Did you mean ${suggestions}?` : (local.length ? 'Choose the preparation and edible part that match your food.' : 'Checking other sources…'));
       const [libRes, offRes] = await Promise.all([
         fetch(`api/foods.php?action=search_library&q=${encodeURIComponent(query)}`, {credentials:'same-origin'}).then(r=>r.json()).catch(()=>({results:[]})),
         fetch(`api/food_search.php?q=${encodeURIComponent(query)}`, {credentials:'same-origin'}).then(r=>r.json()).catch(()=>({results:[]}))
       ]);
       if(generation !== lmSearchGeneration) return;
+      if([...resultsEl.querySelectorAll('.food-result-amount')].some(el => el.style.display === 'block')) return;
       const library = (libRes.results || []).map(r => ({...r, _origin:'library'}));
       const external = (offRes.results || []).map(r => ({...r, _origin:'off'}));
       const localIds = new Set(local.map(r => r.external_id));
       lmSearchResultsCache = [...local, ...library.filter(r => !(r.source === 'catalog' && localIds.has(r.external_id))), ...external];
       renderLmSearchResults();
-      statusEl.style.display = 'none';
+      if(localRes.error || local.length || suggestions){
+        statusEl.style.display = 'block';
+      } else if(offRes.error){
+        statusEl.textContent = offRes.error;
+      } else {
+        statusEl.textContent = lmSearchResultsCache.length ? '' : 'No matching foods. Try another name or a more specific preparation.';
+        statusEl.style.display = lmSearchResultsCache.length ? 'none' : 'block';
+      }
     }catch(e){
       if(generation !== lmSearchGeneration) return;
       statusEl.textContent = 'Search failed — try again.';
@@ -4800,7 +5146,7 @@ async function checkAuthAndStart(){
           <div style="display:flex;justify-content:space-between;align-items:center;">
             <div>
               <div style="font-weight:600;font-size:13.5px;">${foodSearchEscape(r.name)}</div>
-              <div style="font-size:11.5px;color:var(--ink-soft);">${foodSearchEscape(sub)}</div>
+              <div style="font-size:11.5px;color:var(--ink-soft);">${foodSearchEscape(sub)}${r.complete === false ? ' · Some nutrients unavailable' : ''}</div>
             </div>
             <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" style="width:16px;height:16px;stroke:var(--ink-soft);flex-shrink:0;"><path d="M9 18l6-6-6-6"/></svg>
           </div>
@@ -4975,6 +5321,7 @@ async function checkAuthAndStart(){
     renderFastingScreenMain();
     renderFastingHistory();
     renderFsPastDayNav();
+    renderPrevFastSummary();
     document.getElementById('fastingScreen').style.display = 'flex';
   };
   function closeFastingScreen(){
@@ -5012,6 +5359,32 @@ async function checkAuthAndStart(){
       });
     }
     renderFsPastForm();
+  }
+
+  function renderPrevFastSummary(){
+    const el = document.getElementById('fsPrevFastSummary');
+    if(!el) return;
+    const fasts = nutritionLog
+      .filter(e => e.fastHours && parseFloat(e.fastHours) > 0)
+      .sort((a,b)=> a.date < b.date ? 1 : -1);
+    if(!fasts.length){ el.style.display = 'none'; return; }
+    const last = fasts[0];
+    const hours = parseFloat(last.fastHours);
+    const goalHrs = fastingState.goalHours || 16;
+    const pct = hours / goalHrs * 100;
+    let commentary, color;
+    if(pct >= 100 + 5){ commentary = 'Exceeded target'; color = 'var(--forest-dark)'; }
+    else if(pct >= 100){ commentary = 'Goal Met'; color = 'var(--forest-dark)'; }
+    else { commentary = 'Not Met'; color = '#B4472A'; }
+    el.style.display = 'block';
+    el.innerHTML = `
+      <div style="font-size:11px;color:var(--ink-soft);margin-bottom:4px;">Previous fast · ${formatDateLabel(last.date)}</div>
+      <div style="display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;">
+        <div style="font-family:var(--font-heading);font-size:20px;">${formatFastHours(hours)}</div>
+        <div style="font-size:12px;color:var(--ink-soft);">${pct.toFixed(0)}% of ${goalHrs}h goal</div>
+        <div style="font-size:12px;font-weight:600;color:${color};">${commentary}</div>
+      </div>
+    `;
   }
 
   function renderFsPastForm(){
@@ -5100,9 +5473,10 @@ async function checkAuthAndStart(){
       const elapsedHrs = elapsedMs / 3600000;
       const goalHrs = fastingState.goalHours || 16;
       const h = Math.floor(elapsedMs/3600000), m = Math.floor((elapsedMs%3600000)/60000), s = Math.floor((elapsedMs%60000)/1000);
+      const targetEnd = new Date(start.getTime() + goalHrs * 3600000);
       document.getElementById('fsElapsed').textContent = `${pad2(h)}:${pad2(m)}:${pad2(s)}`;
       document.getElementById('fsProgressBar').style.width = Math.min(100, elapsedHrs/goalHrs*100) + '%';
-      document.getElementById('fsPct').textContent = `${Math.min(100, elapsedHrs/goalHrs*100).toFixed(0)}% of ${goalHrs}h goal${elapsedHrs>=goalHrs ? ' — reached!' : ''}`;
+      document.getElementById('fsPct').textContent = `${Math.min(100, elapsedHrs/goalHrs*100).toFixed(0)}% of ${goalHrs}h goal · ends ~${formatClockTime(targetEnd)}${elapsedHrs>=goalHrs ? ' — reached!' : ''}`;
     };
     renderTick();
     fsScreenTickInterval = setInterval(renderTick, 1000);
@@ -5116,6 +5490,7 @@ async function checkAuthAndStart(){
       renderTodayGlance();
       renderFastingScreenMain();
       renderFastingHistory();
+      renderPrevFastSummary();
     });
   }
 
@@ -5136,6 +5511,7 @@ async function checkAuthAndStart(){
     renderTodayGlance();
     renderFastingHistory();
     renderFasting();
+    renderPrevFastSummary();
     errEl.style.color = 'var(--forest-dark)';
     errEl.textContent = `Saved — ${formatFastHours(hours)} logged for ${formatDateLabel(dateKey)}.`;
     errEl.style.display = 'block';
@@ -5186,6 +5562,126 @@ async function checkAuthAndStart(){
 
   document.querySelector('[data-fs-history-toggle="1"]').addEventListener('click', function(){
     const detail = document.querySelector('[data-fs-history-detail="1"]');
+    const open = detail.classList.toggle('open');
+    this.classList.toggle('expanded', open);
+  });
+})();
+
+/* ---------- Steps (dedicated full-page manual entry + history) ---------- */
+(function(){
+  let stepsSelectedDate = null;
+
+  window.openStepsScreen = function(){
+    stepsSelectedDate = dateStrForOffset(0);
+    renderStepsDayNav();
+    renderStepsHistory();
+    document.getElementById('stepsScreen').style.display = 'flex';
+  };
+  function closeStepsScreen(){
+    document.getElementById('stepsScreen').style.display = 'none';
+  }
+  document.getElementById('stepsScreenClose').addEventListener('click', closeStepsScreen);
+  document.body.addEventListener('click', (e)=>{
+    if(e.target.closest('.open-steps-screen-link')) window.openStepsScreen();
+  });
+
+  function renderStepsDayNav(){
+    const navEl = document.getElementById('stepsDayNav');
+    const todayStr = dateStrForOffset(0);
+    const isToday = stepsSelectedDate === todayStr;
+    navEl.innerHTML = `
+      <button class="day-nav-btn" id="stepsPrevDay" type="button"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+      <div class="day-nav-label">
+        <div class="day-nav-date">${isToday ? 'Today' : formatDateLabel(stepsSelectedDate)}</div>
+        ${!isToday ? `<div class="day-nav-today-link" id="stepsJumpToday">Jump to today</div>` : `<div style="font-size:11px;color:var(--ink-soft);">${formatDateLabel(stepsSelectedDate)}</div>`}
+      </div>
+      <button class="day-nav-btn" id="stepsNextDay" type="button" ${isToday ? 'disabled' : ''}><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></button>
+    `;
+    document.getElementById('stepsPrevDay').addEventListener('click', ()=>{
+      stepsSelectedDate = addDaysToDate(stepsSelectedDate, -1);
+      renderStepsDayNav();
+    });
+    if(!isToday){
+      document.getElementById('stepsNextDay').addEventListener('click', ()=>{
+        stepsSelectedDate = addDaysToDate(stepsSelectedDate, 1);
+        renderStepsDayNav();
+      });
+      document.getElementById('stepsJumpToday').addEventListener('click', ()=>{
+        stepsSelectedDate = todayStr;
+        renderStepsDayNav();
+      });
+    }
+    renderStepsForm();
+  }
+
+  function renderStepsForm(){
+    document.getElementById('stepsError').style.display = 'none';
+    document.getElementById('stepsCountInput').value = stepsLog[stepsSelectedDate] || '';
+  }
+
+  document.getElementById('stepsSaveBtn').addEventListener('click', ()=>{
+    const errEl = document.getElementById('stepsError');
+    errEl.style.display = 'none';
+    const count = parseInt(document.getElementById('stepsCountInput').value, 10);
+    if(isNaN(count) || count < 0){
+      errEl.textContent = 'Enter a valid step count.';
+      errEl.style.display = 'block';
+      return;
+    }
+    stepsLog[stepsSelectedDate] = count;
+    saveStepsLog();
+    renderStepsHistory();
+    renderTodayGlance();
+    renderTrainStepsCard();
+    errEl.style.color = 'var(--forest-dark)';
+    errEl.textContent = `Saved — ${count.toLocaleString()} steps logged for ${formatDateLabel(stepsSelectedDate)}.`;
+    errEl.style.display = 'block';
+  });
+
+  function renderStepsHistory(){
+    const entries = Object.entries(stepsLog)
+      .map(([date, count]) => ({date, count}))
+      .sort((a,b)=> a.date < b.date ? 1 : -1);
+
+    const chartEl = document.getElementById('stepsChart');
+    const recent = [...entries].reverse().slice(-14);
+    if(recent.length < 2){
+      chartEl.innerHTML = `<div class="dash-empty">Log a couple of days to see your trend.</div>`;
+    } else {
+      const w = 300, h = 80, pad = 8;
+      const vals = recent.map(s => s.count);
+      const maxV = Math.max(...vals, 10000) * 1.1;
+      const barW = (w - pad*2) / recent.length;
+      const bars = recent.map((s, i) => {
+        const barH = (s.count / maxV) * (h - pad*2);
+        const x = pad + i*barW;
+        const y = h - pad - barH;
+        return `<rect x="${x + barW*0.15}" y="${y}" width="${barW*0.7}" height="${barH}" rx="2" fill="#4A90D9"/>`;
+      }).join('');
+      chartEl.innerHTML = `
+        <svg viewBox="0 0 ${w} ${h}" style="width:100%;height:${h}px;overflow:visible;">${bars}</svg>
+        <div style="display:flex;justify-content:space-between;font-size:10.5px;color:var(--ink-soft);margin-top:2px;">
+          <span>${formatDateLabel(recent[0].date)}</span>
+          <span>${formatDateLabel(recent[recent.length-1].date)}</span>
+        </div>
+      `;
+    }
+
+    const listEl = document.getElementById('stepsHistoryList');
+    if(!entries.length){
+      listEl.innerHTML = `<div class="dash-empty">No steps logged yet.</div>`;
+    } else {
+      listEl.innerHTML = entries.slice(0, 10).map(s => `
+        <div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px dashed var(--line);font-size:12.5px;">
+          <span style="color:var(--ink-soft);">${formatDateLabel(s.date)}</span>
+          <span style="font-weight:600;">${s.count.toLocaleString()}</span>
+        </div>
+      `).join('');
+    }
+  }
+
+  document.querySelector('[data-steps-history-toggle="1"]').addEventListener('click', function(){
+    const detail = document.querySelector('[data-steps-history-detail="1"]');
     const open = detail.classList.toggle('open');
     this.classList.toggle('expanded', open);
   });

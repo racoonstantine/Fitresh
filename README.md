@@ -401,6 +401,66 @@ separate "edit mode":
   and the daily quote pool includes Tagalog lines alongside the English
   ones.
 
+## Today tab: tap-through navigation, fasting detail, and rotating quotes
+
+- The workout History Log moved off the Today tab entirely — it now lives on
+  the Train tab (retitled "Workout History Log"), right after the exercise
+  list, since it's workout data rather than a Today-at-a-glance summary.
+- Every Today at a Glance card except Fasting now navigates to its home tab
+  on tap (Weight/Sleep → Body, Food Intake/Water/Macronutrients → Food,
+  Exercise/Calories Burned → Train). Fasting keeps its existing behavior of
+  opening the dedicated Fasting page. The tap target is a delegated click
+  listener on each grid container (`data-nav-view` attributes on the cards),
+  so it survives the grid's frequent re-renders without rebinding.
+- The Fasting card (Today tab), the Nutrition Dashboard's "Today's Fast"
+  card, and the dedicated Fasting page's live timer all share one helper
+  (`fastingSummaryText()`) for their elapsed-time/percent/target-end-time
+  text, so all three stay in sync. Both tile versions now open the dedicated
+  Fasting page on tap.
+- The daily quote pool grew to 23 phrases (was 12) mixing English and
+  Tagalog; one is picked at random per session (not per day) so it changes
+  every time the app is opened rather than once every 24 hours.
+
+## Fasting page: target end time and a previous-fast summary
+
+The live timer on the dedicated Fasting page now shows the target end
+clock-time alongside the percent-complete text (e.g. "43% of 16h goal · ends
+~1:05 PM"). Below "Log or edit a fast," a "Previous fast" summary shows the
+most recently logged fast's total hours, percent of goal, and a verdict —
+Goal Met, Not Met, or Exceeded target (>105% of goal) — so you can see at a
+glance how the last fast went without opening History.
+
+## Sleep tracking on the Body tab
+
+Sleep now has a full home on the Body tab (previously only editable from the
+Today card): day-nav (prev/next/jump-to-today) to log or correct any past
+night, a 14-day trend chart, and a collapsible history list (most recent 10).
+It reads/writes the same `sleep` resource as the Today card, so logging from
+either place shows up in both immediately. The "coming soon" Sleep
+placeholder tile was removed from Body now that it's a real feature.
+
+## Steps (manual entry)
+
+A new `steps` resource (`{date: count}`, same generic `api/data.php`
+mechanism as everything else — added to the allow-list in both the backend
+and the frontend's local-backup resource list) tracks daily step counts.
+Manual entry only for now, same as sleep; a note on the page says automatic
+watch sync is a possible future update. It shows up as a tile on both the
+Today glance grid and the Train tab (using the profile's step goal, same
+`userHealthTargets.stepsGoal` used elsewhere), and both tiles open a
+dedicated Steps page with day-nav, a 14-day trend chart, and collapsible
+history — mirroring the Sleep and Fasting page patterns.
+
+## Expanded Insights summary
+
+The Trends Overview cards and the Day-by-Day Breakdown table on the Insights
+tab now include sleep and steps alongside the existing workout/kcal/protein/
+weight/fasting figures, so "Today," "This Week," and "This Month" all give a
+full picture in one place. The day-by-day table's row layout got explicit
+`flex-shrink:0` column widths and a `min-width` wrapper so the extra columns
+scroll horizontally on narrow screens instead of getting squeezed unreadably
+thin.
+
 ## Local development
 
 There's no build step. To preview the frontend against a local PHP server:
