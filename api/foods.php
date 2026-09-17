@@ -2,9 +2,11 @@
 declare(strict_types=1);
 require __DIR__ . '/db.php';
 require_once __DIR__ . '/catalog.php';
+require_once __DIR__ . '/personal_foods_store.php';
 
 header('Content-Type: application/json');
 start_app_session();
+require_json_request();
 
 if (empty($_SESSION['user_id'])) {
     json_respond(['error' => 'Not logged in'], 401);
@@ -40,6 +42,11 @@ function food_with_nutrients(PDO $pdo, int $foodId): array
         $nutrients[$row['code']] = (float)$row['value_per_canonical'];
     }
     $food['nutrients'] = $nutrients;
+    if (($food['source'] ?? '') === 'personal') {
+        $food['personal_food'] = personal_food_metadata($pdo,$foodId);
+        $food['label'] = 'User entered · Private';
+        $food['complete'] = count(array_intersect(['ENERC_KCAL','PROCNT','CHOCDF','FAT','FIBTG','SUGAR','NA','CHOLE'],array_keys($nutrients))) === 8;
+    }
     if (($food['source'] ?? '') === 'catalog') {
         try {
             $snapshot = catalog_food((string)$food['external_id']);
@@ -66,9 +73,10 @@ if ($method === 'GET' && $action === 'search_library') {
     if ($query === '') {
         json_respond(['results' => []]);
     }
+    $currentFilter = personal_foods_available($pdo) ? ' AND NOT EXISTS (SELECT 1 FROM personal_food_versions v WHERE v.food_id=foods.id AND v.is_current=0)' : '';
     $stmt = $pdo->prepare(
         'SELECT id FROM foods
-         WHERE (owner_user_id = ? OR owner_user_id IS NULL) AND name LIKE ?
+         WHERE (owner_user_id = ? OR owner_user_id IS NULL) AND name LIKE ?' . $currentFilter . '
          ORDER BY name LIMIT 20'
     );
     $stmt->execute([$userId, '%' . $query . '%']);
@@ -170,6 +178,9 @@ if ($method === 'GET' && $action === 'get') {
     if (!$foodId) {
         json_respond(['error' => 'Missing id.'], 400);
     }
+    $visible=$pdo->prepare('SELECT id FROM foods WHERE id=? AND (owner_user_id IS NULL OR owner_user_id=?)');
+    $visible->execute([$foodId,$userId]);
+    if (!$visible->fetchColumn()) json_respond(['error'=>'Food unavailable'],404);
     json_respond(food_with_nutrients($pdo, $foodId));
 }
 

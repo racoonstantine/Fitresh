@@ -4,6 +4,7 @@ require __DIR__ . '/db.php';
 
 header('Content-Type: application/json');
 start_app_session();
+require_json_request();
 
 if (empty($_SESSION['user_id'])) {
     json_respond(['error' => 'Not logged in'], 401);
@@ -36,9 +37,13 @@ if (strlen($message) > 4000) {
 $config = get_config();
 $adminEmail = $config['admin_email'] ?? null;
 if ($adminEmail) {
-    $host = $_SERVER['HTTP_HOST'] ?? '';
+    // See auth.php's send_approval_request_email for why the Host header
+    // isn't trusted directly, and why header-bound values are stripped of
+    // CR/LF (mail() header/subject injection, CWE-93).
+    $host = mail_header_safe((string)($config['app_host'] ?? ($_SERVER['HTTP_HOST'] ?? '')));
+    $safeName = mail_header_safe($user['display_name']);
     $labels = ['idea' => 'An idea', 'problem' => 'A problem', 'data' => 'Data looks wrong'];
-    $subject = "Full Circle feedback ({$labels[$category]}) from {$user['display_name']}";
+    $subject = "Full Circle feedback ({$labels[$category]}) from {$safeName}";
     $body = "From: {$user['display_name']} <{$user['email']}>\n"
         . "Category: {$labels[$category]}\n\n"
         . $message . "\n";

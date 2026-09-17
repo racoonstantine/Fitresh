@@ -3260,8 +3260,8 @@ async function renderTodayMeals(){
   const diaryHtml = (diaryEntry && (diaryEntry.meal || diaryEntry.notes)) ? `
     <div style="margin-top:14px;padding-top:12px;border-top:1px solid var(--line);">
       <div style="font-size:10.5px;font-weight:600;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.06em;margin-bottom:5px;">Notes for ${formatDateLabel(date)}</div>
-      ${diaryEntry.meal ? `<div style="font-size:12.5px;color:var(--ink);line-height:1.5;">${diaryEntry.meal}</div>` : ''}
-      ${diaryEntry.notes ? `<div style="font-size:12px;color:var(--ink-soft);font-style:italic;margin-top:4px;">${diaryEntry.notes}</div>` : ''}
+      ${diaryEntry.meal ? `<div style="font-size:12.5px;color:var(--ink);line-height:1.5;">${foodSearchEscape(diaryEntry.meal)}</div>` : ''}
+      ${diaryEntry.notes ? `<div style="font-size:12px;color:var(--ink-soft);font-style:italic;margin-top:4px;">${foodSearchEscape(diaryEntry.notes)}</div>` : ''}
     </div>
   ` : '';
   try{
@@ -3284,7 +3284,7 @@ async function renderTodayMeals(){
             <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;">
               <div style="display:flex;align-items:center;gap:8px;min-width:0;">
                 <span style="color:var(--ink-soft);">${renderFoodIconSvg(getFoodIcon({name: c.name}), 18)}</span>
-                <div style="font-size:13px;min-width:0;">${c.name} <span style="color:var(--ink-soft);font-size:11.5px;">(${c.amount}${c.unit})</span></div>
+                <div style="font-size:13px;min-width:0;">${foodSearchEscape(c.name)} <span style="color:var(--ink-soft);font-size:11.5px;">(${foodSearchEscape(c.amount)}${foodSearchEscape(c.unit)})</span></div>
               </div>
               <div style="display:flex;align-items:center;gap:8px;flex-shrink:0;">
                 <span style="font-size:12.5px;color:var(--ink-soft);">${Math.round(c.nutrients.ENERC_KCAL || 0)} kcal</span>
@@ -3470,8 +3470,8 @@ async function renderNutrition(){
           ${todayEntry && todayEntry.meal ? `
           <div style="margin-top:12px;background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:10px;">
             <div style="font-size:10.5px;font-weight:600;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.06em;margin-bottom:5px;">What was eaten</div>
-            <div style="font-size:12.5px;color:var(--ink);line-height:1.5;">${todayEntry.meal}</div>
-            ${todayEntry.notes ? `<div style="font-size:11.5px;color:var(--ink-soft);font-style:italic;margin-top:6px;">${todayEntry.notes}</div>` : ''}
+            <div style="font-size:12.5px;color:var(--ink);line-height:1.5;">${foodSearchEscape(todayEntry.meal)}</div>
+            ${todayEntry.notes ? `<div style="font-size:11.5px;color:var(--ink-soft);font-style:italic;margin-top:6px;">${foodSearchEscape(todayEntry.notes)}</div>` : ''}
           </div>
           ` : ''}
 
@@ -3734,7 +3734,7 @@ function renderAccountSnapshot(){
         <div><div class="hub-tile-label">Activity level</div><div style="font-weight:600;">${cap(p.activityLevel)}</div></div>
         <div><div class="hub-tile-label">Goal weight</div><div style="font-weight:600;">${formatWeightKg(p.goalWeightKg)}</div></div>
       </div>
-      ${p.notes ? `<div class="note" style="margin-top:12px;">${p.notes}</div>` : ''}
+      ${p.notes ? `<div class="note" style="margin-top:12px;">${foodSearchEscape(p.notes)}</div>` : ''}
     `;
   } else {
     profileCard.innerHTML = `
@@ -4146,10 +4146,10 @@ function renderDashboard(){
           <div class="log-detail open" data-dashdetail-detail="1">
             <div style="padding-top:4px;">
               ${dayEntries.map(e => {
-                const exList = e.exercises && e.exercises.length ? e.exercises.map(ex=>`<div class="log-line">- ${ex.name}${ex.weight ? ' — ' + ex.weight + (typeof ex.weight === 'string' && ex.weight.includes('kg') ? '' : 'kg') : ''}</div>`).join('') : '';
+                const exList = e.exercises && e.exercises.length ? e.exercises.map(ex=>`<div class="log-line">- ${foodSearchEscape(ex.name)}${ex.weight ? ' — ' + foodSearchEscape(ex.weight) + (typeof ex.weight === 'string' && ex.weight.includes('kg') ? '' : 'kg') : ''}</div>`).join('') : '';
                 const s = e.stats;
                 const statLine = s ? [s.distance?s.distance+'km':'', s.duration?s.duration:'', s.calories?s.calories+'kcal':'', s.hr?s.hr+'bpm':''].filter(Boolean).join(' · ') : '';
-                return `<div style="margin-bottom:8px;"><strong style="font-size:12.5px;color:var(--ink);">${e.label}</strong>${statLine ? `<div style="font-size:11.5px;color:var(--ink-soft);">${statLine}</div>` : ''}${exList}${e.notes ? `<div class="log-note" style="font-size:11.5px;">${e.notes}</div>` : ''}</div>`;
+                return `<div style="margin-bottom:8px;"><strong style="font-size:12.5px;color:var(--ink);">${foodSearchEscape(e.label)}</strong>${statLine ? `<div style="font-size:11.5px;color:var(--ink-soft);">${statLine}</div>` : ''}${exList}${e.notes ? `<div class="log-note" style="font-size:11.5px;">${foodSearchEscape(e.notes)}</div>` : ''}</div>`;
               }).join('')}
             </div>
           </div>
@@ -4339,15 +4339,15 @@ function renderHistory(){
     return `
     <div class="log-row">
       <div class="log-head" data-hist-toggle="${idx}">
-        <div class="hist-date">${entry.date}</div>
-        <div class="hist-type">${entry.label}${quickStat ? ' · ' + quickStat : ''}</div>
+        <div class="hist-date">${foodSearchEscape(entry.date)}</div>
+        <div class="hist-type">${foodSearchEscape(entry.label)}${quickStat ? ' · ' + foodSearchEscape(quickStat) : ''}</div>
         <svg class="log-caret" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
       </div>
       <div class="log-detail" data-hist-detail="${idx}">
         <div class="log-detail-inner">
           ${exList || '<div class="log-line">(no exercises listed)</div>'}
           ${statLines}
-          ${entry.notes ? `<div class="log-note">${entry.notes}</div>` : ''}
+          ${entry.notes ? `<div class="log-note">${foodSearchEscape(entry.notes)}</div>` : ''}
           <div style="display:flex;gap:8px;margin-top:8px;">
             <button class="img-link" data-hist-edit-toggle="${idx}" type="button" style="cursor:pointer;flex:1;">Edit</button>
             <button class="wi-del" data-hist-delete="${idx}" type="button" title="Delete session">✕ Delete</button>

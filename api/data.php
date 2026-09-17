@@ -4,6 +4,7 @@ require __DIR__ . '/db.php';
 
 header('Content-Type: application/json');
 start_app_session();
+require_json_request();
 
 if (empty($_SESSION['user_id'])) {
     json_respond(['error' => 'Not logged in'], 401);
@@ -27,7 +28,14 @@ if ($method === 'GET') {
 }
 
 if ($method === 'POST') {
-    $input = json_decode(file_get_contents('php://input'), true) ?? [];
+    // Cap the read like the other endpoints do, so a bloated body can't tie
+    // up the request indefinitely or bypass what a legitimate resource
+    // payload should ever need.
+    $raw = file_get_contents('php://input', false, null, 0, 8388609);
+    if (strlen($raw) > 8388608) {
+        json_respond(['error' => 'Request too large'], 413);
+    }
+    $input = json_decode($raw, true) ?? [];
     $resource = (string)($input['resource'] ?? '');
     $value = (string)($input['value'] ?? '');
     if (!in_array($resource, $ALLOWED_RESOURCES, true)) {

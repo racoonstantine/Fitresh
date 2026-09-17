@@ -12,4 +12,10 @@ return [
     'db_pass' => 'REPLACE_ME',
     // New signups land here for approval before they can log in.
     'admin_email' => 'you@example.com',
+    // Your real domain, used to build the approve/reject links in that
+    // email. Set this instead of trusting the request's Host header, which
+    // a client can send as anything it wants -- an unset/wrong value here
+    // would let a forged Host header redirect your approval token to an
+    // attacker's domain instead of this one.
+    'app_host' => 'gedli.com',
 ];

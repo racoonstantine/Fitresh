@@ -4,6 +4,7 @@ require __DIR__ . '/db.php';
 
 header('Content-Type: application/json');
 start_app_session();
+require_json_request();
 
 function send_approval_request_email(string $email, string $displayName, string $token): void
 {
@@ -12,11 +13,18 @@ function send_approval_request_email(string $email, string $displayName, string 
     if (!$adminEmail) {
         return;
     }
-    $host = $_SERVER['HTTP_HOST'] ?? '';
+    // The client-supplied Host header is NOT trustworthy for building a link
+    // an admin will click -- a forged Host would poison the approve/reject
+    // URLs in this email, handing the approval token to an attacker's
+    // domain instead of ours. Prefer a fixed, server-configured hostname;
+    // only fall back to the request Host (still stripped of CR/LF) if the
+    // admin hasn't set one yet.
+    $host = mail_header_safe((string)($config['app_host'] ?? ($_SERVER['HTTP_HOST'] ?? '')));
     $approveUrl = "https://{$host}/api/approve.php?token={$token}&action=approve";
     $rejectUrl = "https://{$host}/api/approve.php?token={$token}&action=reject";
 
-    $subject = "Full Circle: approve signup from {$displayName}";
+    $safeName = mail_header_safe($displayName);
+    $subject = "Full Circle: approve signup from {$safeName}";
     $body = "New signup waiting on your approval:\n\n"
         . "Name: {$displayName}\n"
         . "Email: {$email}\n\n"

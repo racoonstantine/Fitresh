@@ -47,6 +47,33 @@ function json_respond(array $data, int $code = 200)
     exit;
 }
 
+// Cheap but real CSRF mitigation for our session-cookie-authenticated JSON
+// API: a cross-site <form> (the classic CSRF vector) cannot set an
+// application/json Content-Type without JavaScript, and a cross-origin
+// fetch/XHR that tries to fake one triggers a CORS preflight this server
+// never answers with permissive headers -- so it never reaches here. Call
+// this at the top of every state-changing POST action, right after
+// start_app_session(). GET requests are unaffected (nothing state-changing
+// should ever happen on GET anyway).
+function require_json_request(): void
+{
+    if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
+        return;
+    }
+    if (stripos($_SERVER['CONTENT_TYPE'] ?? '', 'application/json') !== 0) {
+        json_respond(['error' => 'JSON required'], 415);
+    }
+}
+
+// Strips characters that could inject extra headers or lines into an email
+// built by hand for PHP's mail() -- CWE-93. Apply to anything
+// attacker-influenced (display name, request Host, etc.) before it goes
+// into a header or a Subject line.
+function mail_header_safe(string $value): string
+{
+    return trim(str_replace(["\r", "\n"], '', $value));
+}
+
 // GETs a URL server-side for calling external food-data APIs (Open Food
 // Facts, and USDA later). Prefers curl -- some PHP builds have curl but not
 // the openssl stream wrapper file_get_contents needs for https://, which

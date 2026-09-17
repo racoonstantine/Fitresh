@@ -5,6 +5,7 @@ require_once __DIR__ . '/food_measurements.php';
 
 header('Content-Type: application/json');
 start_app_session();
+require_json_request();
 
 if (empty($_SESSION['user_id'])) {
     json_respond(['error' => 'Not logged in'], 401);

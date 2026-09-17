@@ -721,6 +721,65 @@ for the new type and re-links the component to it (mirroring the same
 grouping rule the `log` action already uses), since meal type lives on the
 meal entry, not the individual food component.
 
+## Security review and fixes
+
+An app-wide review (not just the recent diff) found and fixed four real
+issues, verified in a local SQLite harness before deploying:
+
+1. **CSRF on write endpoints.** `api/workouts.php` and `api/personal_foods.php`
+   already rejected any POST whose `Content-Type` wasn't `application/json`
+   — a real, cheap CSRF mitigation, since a plain cross-site `<form>` can't
+   set that header, and a `fetch`/XHR that tries to fake it triggers a CORS
+   preflight this server never answers permissively. `api/auth.php`,
+   `api/data.php`, `api/meals.php`, and `api/foods.php` didn't have this
+   check, which mattered most for `data.php` — its `save` action will
+   overwrite an entire resource (profile, nutrition log, weigh-ins, etc.)
+   for whoever's session cookie is attached, no other confirmation. All four
+   now call the same `require_json_request()` helper (in `api/db.php`).
+   Verified: legitimate JSON requests still succeed; `text/plain`,
+   `application/x-www-form-urlencoded`, and missing-Content-Type POSTs are
+   all now rejected with `415` and never touch the data.
+2. **Stored XSS.** Several free-text fields the user can save
+   (logged-food/custom-food names, the legacy day-log meal description and
+   notes, profile notes, workout history custom notes) were inserted into
+   `innerHTML` without escaping. Combined with issue 1 (before its fix),
+   this chained into a real risk: a forged cross-site request could have
+   overwritten a resource with an HTML/script payload, which would then run
+   in the victim's own session the next time they viewed it. All of these
+   now go through the existing `foodSearchEscape()` HTML-escaping helper
+   (same one already used for food-search results) before being rendered.
+3. **Host-header injection.** The admin approval email's approve/reject
+   links, and the `From:` header on both that email and the feedback email,
+   were built from the request's `Host` header — fully attacker-controlled.
+   A forged signup request could have pointed the approval link at an
+   attacker's domain, handing over the approval token when the admin
+   clicked it. Fixed by preferring a new, fixed `app_host` config value
+   (see `api/config.example.php`) over the request's `Host`, with the old
+   behavior only as a fallback if `app_host` isn't set. **Action needed:**
+   add `'app_host' => 'gedli.com'` (or your real domain) to the live
+   `api/config.local.php` on the server for this fix to fully take effect.
+4. **Email header injection (CWE-93).** Display names and the request Host
+   were interpolated into `mail()` subjects/headers without stripping
+   `\r\n`, which some mail transports treat as a new header line. Added
+   `mail_header_safe()` (in `api/db.php`) and applied it everywhere a
+   user-influenced value reaches an email header or subject.
+
+Also reviewed and found already solid: password hashing
+(`password_hash`/`password_verify`), session fixation (`session_regenerate_id`
+on login), session cookie flags (`HttpOnly`, `SameSite=Lax`, `Secure` when
+on HTTPS), SQL injection (all queries are parameterized; the one dynamic
+`IN (...)` placeholder string in `meals.php` is built from a count, never
+from request data), and cross-account authorization (every read/write is
+scoped by `user_id`, verified directly with a two-account attack test:
+account B could not delete or overwrite account A's data even by
+submitting A's own IDs).
+
+Not fixed here, flagged for later: there's no login rate-limiting/brute-force
+throttle, and the registration endpoint's "an account with that email
+already exists" response allows email enumeration. Both are low-severity
+on an invite-only, admin-approved signup flow, but worth a follow-up if the
+app ever opens to public signup.
+
 ## Local development
 
 There's no build step. To preview the frontend against a local PHP server:
