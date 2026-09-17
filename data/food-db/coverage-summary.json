@@ -1,18 +1,18 @@
 {
-  "foods": 647,
+  "foods": 1147,
   "default_labels": {
-    "Verified": 610,
+    "Verified": 1010,
     "Unavailable": 20,
-    "Other source": 17
+    "Other source": 117
   },
-  "default_complete": 490,
+  "default_complete": 861,
   "explicit_estimates": 2,
-  "household_portions": 23,
+  "household_portions": 245,
   "source_status_counts": {
-    "VERIFIED_FNRI": 477,
-    "PARTIAL_VERIFIED_FNRI": 135,
+    "VERIFIED_FNRI": 762,
+    "PARTIAL_VERIFIED_FNRI": 250,
     "NEEDS_FOOD_IDENTITY_VERIFICATION": 19,
-    "OTHER_SOURCE_AVAILABLE": 15,
+    "OTHER_SOURCE_AVAILABLE": 115,
     "ESTIMATE_ONLY": 1
   }
 }

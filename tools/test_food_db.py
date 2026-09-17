@@ -113,4 +113,41 @@ class FoodDatabaseTests(unittest.TestCase):
             self.assertTrue(any(a['food_id']==fid and a['alias']==entry['name'] for a in aliases))
             self.assertTrue(any(p['food_id']==fid and p['edible_weight_g']=='100' for p in self.catalog.portions))
 
+    def test_round2_preservation_and_distinct_sources(self):
+        from collections import Counter
+        from expand_food_db import normal
+        before=read_csv(RESEARCH/'2026-09-17-expand-500/foods.csv')
+        self.assertEqual(len(before),647)
+        for row in before:self.assertEqual(row,self.catalog.foods[row['food_id']])
+        additions=read_csv(DB/'expansion-round2.csv')
+        self.assertEqual(len(additions),500)
+        self.assertEqual(Counter(r['source'] for r in additions),{'FNRI':400,'USDA':100})
+        self.assertEqual(sorted(Counter(r['batch_id'] for r in additions).values()),[100]*5)
+        self.assertEqual(len({(r['source'],r['source_food_id']) for r in additions}),500)
+        old_names={normal(n) for r in before for n in [r['name'],r['source_food_name']] if n}
+        old_fnri={r['source_food_id'] for r in before if 'FNRI' in r['source_name']}
+        old_usda={r['source_food_id'] for r in read_csv(RESEARCH/'2026-09-17-expand-500/other_food_values.csv')}
+        for entry in additions:
+            self.assertNotIn(normal(entry['name']),old_names)
+            self.assertNotIn(entry['source_food_id'],old_fnri if entry['source']=='FNRI' else old_usda)
+            result=self.catalog.resolve(entry['food_id'])
+            for f in list(FIELDS)[:4]:self.assertIsNotNone(result['nutrients'][f]['value_per_100g'])
+            self.assertNotEqual(result['label'],'Estimated')
+        for name in ['aliases.csv','portions.csv','changes.csv','verification-evidence.csv','other_food_values.csv']:
+            old=read_csv(RESEARCH/'2026-09-17-expand-500'/name)
+            self.assertEqual(read_csv(DB/name)[:len(old)],old)
+
+    def test_round2_usda_portions_match_original_quantity_and_weight(self):
+        additions=[r for r in read_csv(DB/'expansion-round2.csv') if r['source']=='USDA']
+        actual=0
+        for entry in additions:
+            original={p['id']:p for p in self.usda[entry['source_food_id']]['portions']}
+            for p in self.catalog.portions:
+                if p['food_id']==entry['food_id'] and p['data_status']=='OTHER_SOURCE_PORTION':
+                    source=original[p['portion_id'].split('_USDA_')[1]]
+                    self.assertEqual(p['quantity'],source['amount'])
+                    self.assertEqual(p['edible_weight_g'],source['gram_weight'])
+                    actual+=1
+        self.assertEqual(actual,222)
+
 if __name__=='__main__': unittest.main()

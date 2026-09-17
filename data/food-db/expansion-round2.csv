@@ -1,0 +1,501 @@
+food_id,batch_id,source,source_food_id,name,category,source_url
+FC000648,batch-1,FNRI,A033,"Bread, cinnamon roll","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/2995
+FC000649,batch-1,FNRI,A034,"Bread, hotdog roll","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/2996
+FC000650,batch-1,FNRI,A035,"Bread, toasted, w/ margarine-sugar topping","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/2997
+FC000651,batch-1,FNRI,A036,"Bread, mung bean loaf","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/2998
+FC000652,batch-1,FNRI,A037,"Bread, pan de bonete","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/2999
+FC000653,batch-1,FNRI,A040,"Bread, pan de limon","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3002
+FC000654,batch-1,FNRI,A043,"Bread, raisin","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3005
+FC000655,batch-1,FNRI,A044,"Bread, rye","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3006
+FC000656,batch-1,FNRI,A046,"Bread, sweet roll w/ mung bean filling","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3008
+FC000657,batch-1,FNRI,A050,"Cake, angel food","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3012
+FC000658,batch-1,FNRI,A052,"Cake, butter","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3014
+FC000659,batch-1,FNRI,A053,"Cake, cheese cupcake","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3015
+FC000660,batch-1,FNRI,A054,"Cake, chiffon","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3016
+FC000661,batch-1,FNRI,A055,"Cake, chocolate","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3017
+FC000662,batch-1,FNRI,A057,"Cake, fruit","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3019
+FC000663,batch-1,FNRI,A061,"Cake, mamon, toasted","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3023
+FC000664,batch-1,FNRI,A065,"Cake, sponge","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3027
+FC000665,batch-1,FNRI,A083,"Cookies, apas","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3045
+FC000666,batch-1,FNRI,A084,"Cookies, arrowroot","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3046
+FC000667,batch-1,FNRI,A086,"Cookies, brownies","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3048
+FC000668,batch-1,FNRI,A087,"Cookies, butter","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3049
+FC000669,batch-1,FNRI,A090,"Cookies, jacobina special","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3052
+FC000670,batch-1,FNRI,A091,"Cookies, lady finger","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3053
+FC000671,batch-1,FNRI,A092,"Cookies, marie","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3054
+FC000672,batch-1,FNRI,A093,"Cookies, ogoy-ogoy","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3055
+FC000673,batch-1,FNRI,A095,"Cookies, pasencia","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3057
+FC000674,batch-1,FNRI,A097,"Cookies, pilipit","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3059
+FC000675,batch-1,FNRI,A098,"Cookies, polvoron","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3060
+FC000676,batch-1,FNRI,A103,"Corn flakes, enr","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3065
+FC000677,batch-1,FNRI,A104,Corn pudding,"Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3066
+FC000678,batch-1,FNRI,A106,"Corn pudding, maja, yellow","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3068
+FC000679,batch-1,FNRI,A108,"Corn, fried, seasoned","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3070
+FC000680,batch-1,FNRI,A109,"Corn, whole kernel, cnd","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3071
+FC000681,batch-1,FNRI,A110,Cornstarch,"Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3072
+FC000682,batch-1,FNRI,A111,"Cracker, egg","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3073
+FC000683,batch-1,FNRI,A112,"Cracker, graham, honey-flvr","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3074
+FC000684,batch-1,FNRI,A113,"Cracker, plain","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3075
+FC000685,batch-1,FNRI,A114,"Cracker, salted","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3076
+FC000686,batch-1,FNRI,A115,"Cracker, salted, round","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3077
+FC000687,batch-1,FNRI,A116,Cream puff,"Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3078
+FC000688,batch-1,FNRI,A124,"Doughnut, fried, w/ sugar","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3086
+FC000689,batch-1,FNRI,A137,"Noodles, rice","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3099
+FC000690,batch-1,FNRI,A141,"Noodles, wheat, mami, fresh","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3103
+FC000691,batch-1,FNRI,A142,"Noodles, wheat, inst, w/ flvr","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3104
+FC000692,batch-1,FNRI,A144,"Noodles, wheat, thin","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3106
+FC000693,batch-1,FNRI,A146,"Noodles, wheat, miki, dry","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3108
+FC000694,batch-1,FNRI,A151,Pancake,"Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3113
+FC000695,batch-1,FNRI,A156,"Popcorn, salted","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3118
+FC000696,batch-1,FNRI,A157,"Popcorn, sweetn","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3119
+FC000697,batch-1,FNRI,A169,"Rice cake (glutinous), biko, w/ grtd coconut topping","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3131
+FC000698,batch-1,FNRI,A170,"Rice cake (glutinous), biko, w/ purple rice","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3132
+FC000699,batch-1,FNRI,A171,"Rice cake (glutinous), Chinese, tikoy","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3133
+FC000700,batch-1,FNRI,A172,"Rice cake (glutinous), Chinese, tikoy, w/ peanut","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3134
+FC000701,batch-1,FNRI,A174,"Rice cake, bibingka, w/ cheese & coconut topping","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3136
+FC000702,batch-1,FNRI,A176,"Rice cake, puto, brown","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3138
+FC000703,batch-1,FNRI,A178,"Rice cake, puto, white, w/ grtd coconut topping","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3140
+FC000704,batch-1,FNRI,A180,"Rice cake, cuchinta, w/ grtd coconut topping","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3142
+FC000705,batch-1,FNRI,A181,Rice flour,"Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3143
+FC000706,batch-1,FNRI,A182,"Rice flour prep, tamales","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3144
+FC000707,batch-1,FNRI,A183,"Rice gruel, thin","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3145
+FC000708,batch-1,FNRI,A184,"Rice prep (glutinous), butse, w/ mung bean filling","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3146
+FC000709,batch-1,FNRI,A185,"Rice prep (glutinous), butse, w/ sweet potato filling","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3147
+FC000710,batch-1,FNRI,A186,"Rice prep (glutinous), kalamay, w/ coconut curd topping","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3148
+FC000711,batch-1,FNRI,A187,"Rice prep (glutinous), kalamay, w/ yam","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3149
+FC000712,batch-1,FNRI,A189,"Rice prep (glutinous), palitaw, w/ grtd  coconut & sugar","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3151
+FC000713,batch-1,FNRI,A193,"Rice prep (glutinous), suman, w/ grtd coconut topping","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3155
+FC000714,batch-1,FNRI,A194,"Rice prep (glutinous), tupig","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3156
+FC000715,batch-1,FNRI,A195,"Rice prep, espasol","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3157
+FC000716,batch-1,FNRI,A197,"Rice, crispies","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3159
+FC000717,batch-1,FNRI,A198,"Rice-bread prep, toasted, puto seko","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3160
+FC000718,batch-1,FNRI,A202,"Wheat flour, all-purpose, enr, bleached","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3164
+FC000719,batch-1,FNRI,A203,"Wheat flour, cake flour, enr, bleached","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3165
+FC000720,batch-1,FNRI,A204,"Instant noodles, chicken flvr, raw","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3166
+FC000721,batch-1,FNRI,A205,"Instant noodles, chicken flvr, ckd","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3167
+FC000722,batch-1,FNRI,A008,Job's tears grain,"Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/2970
+FC000723,batch-1,FNRI,B018,"Yam, Luzon",Root Crops,https://i.fnri.dost.gov.ph/fct/library/report/3185
+FC000724,batch-1,FNRI,B022,"Yam, spiny",Root Crops,https://i.fnri.dost.gov.ph/fct/library/report/3189
+FC000725,batch-1,FNRI,B023,"Yam, spiny, boiled",Root Crops,https://i.fnri.dost.gov.ph/fct/library/report/3190
+FC000726,batch-1,FNRI,B025,Arrowroot starch,Root Crops,https://i.fnri.dost.gov.ph/fct/library/report/3192
+FC000727,batch-1,FNRI,B032,East Indian arrowroot starch,Root Crops,https://i.fnri.dost.gov.ph/fct/library/report/3199
+FC000728,batch-1,FNRI,B042,"Yacon tuber, raw",Root Crops,https://i.fnri.dost.gov.ph/fct/library/report/3209
+FC000729,batch-1,FNRI,B004,East Indian arrowroot,Root Crops,https://i.fnri.dost.gov.ph/fct/library/report/3171
+FC000730,batch-1,FNRI,B006,Palauan,Root Crops,https://i.fnri.dost.gov.ph/fct/library/report/3173
+FC000731,batch-1,FNRI,C003,"Chestnut, roasted","Legumes, Nuts & Seeds",https://i.fnri.dost.gov.ph/fct/library/report/3213
+FC000732,batch-1,FNRI,C009,Coconut sport,"Legumes, Nuts & Seeds",https://i.fnri.dost.gov.ph/fct/library/report/3219
+FC000733,batch-1,FNRI,C010,"Cowpea seed, dried","Legumes, Nuts & Seeds",https://i.fnri.dost.gov.ph/fct/library/report/3220
+FC000734,batch-1,FNRI,C018,"Kidney bean seed, black, dried","Legumes, Nuts & Seeds",https://i.fnri.dost.gov.ph/fct/library/report/3228
+FC000735,batch-1,FNRI,C022,"Kidney bean seed, white, dried","Legumes, Nuts & Seeds",https://i.fnri.dost.gov.ph/fct/library/report/3232
+FC000736,batch-1,FNRI,C023,"Kidney bean seed, white, dried, boiled","Legumes, Nuts & Seeds",https://i.fnri.dost.gov.ph/fct/library/report/3233
+FC000737,batch-1,FNRI,C024,"Lima bean seed, dried","Legumes, Nuts & Seeds",https://i.fnri.dost.gov.ph/fct/library/report/3234
+FC000738,batch-1,FNRI,C029,"Mung bean seed, red, dried","Legumes, Nuts & Seeds",https://i.fnri.dost.gov.ph/fct/library/report/3239
+FC000739,batch-1,FNRI,C030,"Mung bean seed, red, dried, boiled","Legumes, Nuts & Seeds",https://i.fnri.dost.gov.ph/fct/library/report/3240
+FC000740,batch-1,FNRI,C031,"Mung bean seed, yellow, dried","Legumes, Nuts & Seeds",https://i.fnri.dost.gov.ph/fct/library/report/3241
+FC000741,batch-1,FNRI,C032,"Mung bean seed, yellow, dried, boiled","Legumes, Nuts & Seeds",https://i.fnri.dost.gov.ph/fct/library/report/3242
+FC000742,batch-1,FNRI,C034,Peanut w/ shell,"Legumes, Nuts & Seeds",https://i.fnri.dost.gov.ph/fct/library/report/3244
+FC000743,batch-1,FNRI,C037,Peanut w/o skin,"Legumes, Nuts & Seeds",https://i.fnri.dost.gov.ph/fct/library/report/3247
+FC000744,batch-1,FNRI,C039,"Pigeon pea seed, dried","Legumes, Nuts & Seeds",https://i.fnri.dost.gov.ph/fct/library/report/3249
+FC000745,batch-1,FNRI,C040,"Pigeon pea seed, dried, boiled","Legumes, Nuts & Seeds",https://i.fnri.dost.gov.ph/fct/library/report/3250
+FC000746,batch-1,FNRI,C042,"Rice bean seed, dried","Legumes, Nuts & Seeds",https://i.fnri.dost.gov.ph/fct/library/report/3252
+FC000747,batch-1,FNRI,C045,"Soybean seed, black, dried","Legumes, Nuts & Seeds",https://i.fnri.dost.gov.ph/fct/library/report/3255
+FC000748,batch-2,FNRI,C046,"Soybean seed, black, dried, boiled","Legumes, Nuts & Seeds",https://i.fnri.dost.gov.ph/fct/library/report/3256
+FC000749,batch-2,FNRI,C047,"Soybean seed, yellow, dried","Legumes, Nuts & Seeds",https://i.fnri.dost.gov.ph/fct/library/report/3257
+FC000750,batch-2,FNRI,C049,"String/Yard long bean seed, dried","Legumes, Nuts & Seeds",https://i.fnri.dost.gov.ph/fct/library/report/3259
+FC000751,batch-2,FNRI,C052,"Coconut chip, toasted, sweetn","Legumes, Nuts & Seeds",https://i.fnri.dost.gov.ph/fct/library/report/3262
+FC000752,batch-2,FNRI,C053,"Coconut, cream curd","Legumes, Nuts & Seeds",https://i.fnri.dost.gov.ph/fct/library/report/3263
+FC000753,batch-2,FNRI,C054,"Green pea, dried, fried & seasoned","Legumes, Nuts & Seeds",https://i.fnri.dost.gov.ph/fct/library/report/3264
+FC000754,batch-2,FNRI,C056,"Green pea-corn-peanut mixture, fried","Legumes, Nuts & Seeds",https://i.fnri.dost.gov.ph/fct/library/report/3266
+FC000755,batch-2,FNRI,C057,"Lima bean, fried & seasoned","Legumes, Nuts & Seeds",https://i.fnri.dost.gov.ph/fct/library/report/3267
+FC000756,batch-2,FNRI,D016,Beet,Vegetables,https://i.fnri.dost.gov.ph/fct/library/report/3295
+FC000757,batch-2,FNRI,D017,"Beet, boiled",Vegetables,https://i.fnri.dost.gov.ph/fct/library/report/3296
+FC000758,batch-2,FNRI,D029,Breadfruit fruit,Vegetables,https://i.fnri.dost.gov.ph/fct/library/report/3308
+FC000759,batch-2,FNRI,D047,Celery lvs & petioles,Vegetables,https://i.fnri.dost.gov.ph/fct/library/report/3326
+FC000760,batch-2,FNRI,D048,"Celery, Chinese, lvs & petioles",Vegetables,https://i.fnri.dost.gov.ph/fct/library/report/3327
+FC000761,batch-2,FNRI,D052,Chayote lvs,Vegetables,https://i.fnri.dost.gov.ph/fct/library/report/3331
+FC000762,batch-2,FNRI,D060,Coriander lvs,Vegetables,https://i.fnri.dost.gov.ph/fct/library/report/3339
+FC000763,batch-2,FNRI,D063,Cowpea pod,Vegetables,https://i.fnri.dost.gov.ph/fct/library/report/3342
+FC000764,batch-2,FNRI,D064,"Cowpea pod, boiled",Vegetables,https://i.fnri.dost.gov.ph/fct/library/report/3343
+FC000765,batch-2,FNRI,D065,"Cowpea seed, fresh",Vegetables,https://i.fnri.dost.gov.ph/fct/library/report/3344
+FC000766,batch-2,FNRI,D075,Endive lvs,Vegetables,https://i.fnri.dost.gov.ph/fct/library/report/3354
+FC000767,batch-2,FNRI,D085,Garlic lvs,Vegetables,https://i.fnri.dost.gov.ph/fct/library/report/3364
+FC000768,batch-2,FNRI,D087,Garlic lvs & bulb,Vegetables,https://i.fnri.dost.gov.ph/fct/library/report/3366
+FC000769,batch-2,FNRI,D096,"Horseradish tree lvs, dwarf",Vegetables,https://i.fnri.dost.gov.ph/fct/library/report/3375
+FC000770,batch-2,FNRI,D098,"Horseradish tree lvs, Japanese",Vegetables,https://i.fnri.dost.gov.ph/fct/library/report/3377
+FC000771,batch-2,FNRI,D100,Horseradish tree pod,Vegetables,https://i.fnri.dost.gov.ph/fct/library/report/3379
+FC000772,batch-2,FNRI,D105,Jackfruit seed,Vegetables,https://i.fnri.dost.gov.ph/fct/library/report/3384
+FC000773,batch-2,FNRI,D113,Chinese leek lvs,Vegetables,https://i.fnri.dost.gov.ph/fct/library/report/3392
+FC000774,batch-2,FNRI,D118,Lima bean pod,Vegetables,https://i.fnri.dost.gov.ph/fct/library/report/3397
+FC000775,batch-2,FNRI,D119,"Lima bean pod, boiled",Vegetables,https://i.fnri.dost.gov.ph/fct/library/report/3398
+FC000776,batch-2,FNRI,D121,Malabar nightshade lvs,Vegetables,https://i.fnri.dost.gov.ph/fct/library/report/3400
+FC000777,batch-2,FNRI,D122,"Malabar nightshade lvs, boiled",Vegetables,https://i.fnri.dost.gov.ph/fct/library/report/3401
+FC000778,batch-2,FNRI,D126,Marrow-stem kale lvs and stems,Vegetables,https://i.fnri.dost.gov.ph/fct/library/report/3405
+FC000779,batch-2,FNRI,D130,"Mung bean seed, fresh",Vegetables,https://i.fnri.dost.gov.ph/fct/library/report/3409
+FC000780,batch-2,FNRI,D137,New Zealand spinach lvs,Vegetables,https://i.fnri.dost.gov.ph/fct/library/report/3416
+FC000781,batch-2,FNRI,D138,"New Zealand spinach lvs, boiled",Vegetables,https://i.fnri.dost.gov.ph/fct/library/report/3417
+FC000782,batch-2,FNRI,D145,"Onion, garden shallot lvs",Vegetables,https://i.fnri.dost.gov.ph/fct/library/report/3424
+FC000783,batch-2,FNRI,D159,Parsley lvs,Vegetables,https://i.fnri.dost.gov.ph/fct/library/report/3438
+FC000784,batch-2,FNRI,D165,"Pepper, chili lvs",Vegetables,https://i.fnri.dost.gov.ph/fct/library/report/3444
+FC000785,batch-2,FNRI,D170,"Pepper, sweet/bell, round, green",Vegetables,https://i.fnri.dost.gov.ph/fct/library/report/3449
+FC000786,batch-2,FNRI,D172,"Pepper, sweet/bell, round, red",Vegetables,https://i.fnri.dost.gov.ph/fct/library/report/3451
+FC000787,batch-2,FNRI,D173,Philippine spinach lvs,Vegetables,https://i.fnri.dost.gov.ph/fct/library/report/3452
+FC000788,batch-2,FNRI,D174,"Philippine spinach lvs, boiled",Vegetables,https://i.fnri.dost.gov.ph/fct/library/report/3453
+FC000789,batch-2,FNRI,D175,Pigeon pea pod,Vegetables,https://i.fnri.dost.gov.ph/fct/library/report/3454
+FC000790,batch-2,FNRI,D176,"Pigeon pea pod, boiled",Vegetables,https://i.fnri.dost.gov.ph/fct/library/report/3455
+FC000791,batch-2,FNRI,D177,"Pigeon pea seed, fresh",Vegetables,https://i.fnri.dost.gov.ph/fct/library/report/3456
+FC000792,batch-2,FNRI,D180,Purslane lvs,Vegetables,https://i.fnri.dost.gov.ph/fct/library/report/3459
+FC000793,batch-2,FNRI,D181,"Purslane lvs, boiled",Vegetables,https://i.fnri.dost.gov.ph/fct/library/report/3460
+FC000794,batch-2,FNRI,D185,"Radish, pod",Vegetables,https://i.fnri.dost.gov.ph/fct/library/report/3464
+FC000795,batch-2,FNRI,D193,"Seaweed, gamet, dried",Vegetables,https://i.fnri.dost.gov.ph/fct/library/report/3472
+FC000796,batch-2,FNRI,D198,"Seaweed, pokpoklo",Vegetables,https://i.fnri.dost.gov.ph/fct/library/report/3477
+FC000797,batch-2,FNRI,D199,Sesbania flower,Vegetables,https://i.fnri.dost.gov.ph/fct/library/report/3478
+FC000798,batch-2,FNRI,D200,"Sesbania flower, boiled",Vegetables,https://i.fnri.dost.gov.ph/fct/library/report/3479
+FC000799,batch-2,FNRI,D203,Slender/Spineless amaranth lvs,Vegetables,https://i.fnri.dost.gov.ph/fct/library/report/3482
+FC000800,batch-2,FNRI,D204,"Slender/Spineless amaranth lvs, boiled",Vegetables,https://i.fnri.dost.gov.ph/fct/library/report/3483
+FC000801,batch-2,FNRI,D205,Snake gourd fruit,Vegetables,https://i.fnri.dost.gov.ph/fct/library/report/3484
+FC000802,batch-2,FNRI,D208,"Snap bean pod, white",Vegetables,https://i.fnri.dost.gov.ph/fct/library/report/3487
+FC000803,batch-2,FNRI,D213,"Soybean seed, fresh",Vegetables,https://i.fnri.dost.gov.ph/fct/library/report/3492
+FC000804,batch-2,FNRI,D214,"Soybean seed, fresh, boiled",Vegetables,https://i.fnri.dost.gov.ph/fct/library/report/3493
+FC000805,batch-2,FNRI,D221,Sponge gourd lvs,Vegetables,https://i.fnri.dost.gov.ph/fct/library/report/3500
+FC000806,batch-2,FNRI,D229,"Squash, summer fruit",Vegetables,https://i.fnri.dost.gov.ph/fct/library/report/3508
+FC000807,batch-2,FNRI,D230,String/Yard long bean lvs,Vegetables,https://i.fnri.dost.gov.ph/fct/library/report/3509
+FC000808,batch-2,FNRI,D238,"String/Yard long bean seed, green, fresh",Vegetables,https://i.fnri.dost.gov.ph/fct/library/report/3517
+FC000809,batch-2,FNRI,D259,"Tomato, Spanish, ripe",Vegetables,https://i.fnri.dost.gov.ph/fct/library/report/3538
+FC000810,batch-2,FNRI,D264,Water chestnut,Vegetables,https://i.fnri.dost.gov.ph/fct/library/report/3543
+FC000811,batch-2,FNRI,D265,"Water chestnut, boiled",Vegetables,https://i.fnri.dost.gov.ph/fct/library/report/3544
+FC000812,batch-2,FNRI,D268,Watercress,Vegetables,https://i.fnri.dost.gov.ph/fct/library/report/3547
+FC000813,batch-2,FNRI,D269,Wax gourd fruit,Vegetables,https://i.fnri.dost.gov.ph/fct/library/report/3548
+FC000814,batch-2,FNRI,D270,"Wax gourd fruit, boiled",Vegetables,https://i.fnri.dost.gov.ph/fct/library/report/3549
+FC000815,batch-2,FNRI,D274,"Asparagus, cnd",Vegetables,https://i.fnri.dost.gov.ph/fct/library/report/3553
+FC000816,batch-2,FNRI,D275,"Bamboo shoot, cnd",Vegetables,https://i.fnri.dost.gov.ph/fct/library/report/3554
+FC000817,batch-2,FNRI,D276,"Bamboo shoot, dried",Vegetables,https://i.fnri.dost.gov.ph/fct/library/report/3555
+FC000818,batch-2,FNRI,D277,"Black wood ear mushroom, dried",Vegetables,https://i.fnri.dost.gov.ph/fct/library/report/3556
+FC000819,batch-2,FNRI,D278,"Cucumber, salted, cnd",Vegetables,https://i.fnri.dost.gov.ph/fct/library/report/3557
+FC000820,batch-2,FNRI,D280,"Mushroom, dried",Vegetables,https://i.fnri.dost.gov.ph/fct/library/report/3559
+FC000821,batch-2,FNRI,E018,Bignay,Fruits,https://i.fnri.dost.gov.ph/fct/library/report/3600
+FC000822,batch-2,FNRI,E019,Bilimbi,Fruits,https://i.fnri.dost.gov.ph/fct/library/report/3601
+FC000823,batch-2,FNRI,E020,Black/Java plum,Fruits,https://i.fnri.dost.gov.ph/fct/library/report/3602
+FC000824,batch-2,FNRI,E024,Canistel,Fruits,https://i.fnri.dost.gov.ph/fct/library/report/3606
+FC000825,batch-2,FNRI,E025,Cashew fruit,Fruits,https://i.fnri.dost.gov.ph/fct/library/report/3607
+FC000826,batch-2,FNRI,E028,Durian,Fruits,https://i.fnri.dost.gov.ph/fct/library/report/3610
+FC000827,batch-2,FNRI,E035,Jamaica cherry,Fruits,https://i.fnri.dost.gov.ph/fct/library/report/3617
+FC000828,batch-2,FNRI,E036,Jujube Indian/Chinese date,Fruits,https://i.fnri.dost.gov.ph/fct/library/report/3618
+FC000829,batch-2,FNRI,E037,Kaffir lime,Fruits,https://i.fnri.dost.gov.ph/fct/library/report/3619
+FC000830,batch-2,FNRI,E040,Lemon,Fruits,https://i.fnri.dost.gov.ph/fct/library/report/3622
+FC000831,batch-2,FNRI,E042,Lime,Fruits,https://i.fnri.dost.gov.ph/fct/library/report/3624
+FC000832,batch-2,FNRI,E071,"Persimmon, kaki",Fruits,https://i.fnri.dost.gov.ph/fct/library/report/3653
+FC000833,batch-2,FNRI,E074,Pomegranate,Fruits,https://i.fnri.dost.gov.ph/fct/library/report/3656
+FC000834,batch-2,FNRI,E079,Sapodilla,Fruits,https://i.fnri.dost.gov.ph/fct/library/report/3661
+FC000835,batch-2,FNRI,E080,Sapote,Fruits,https://i.fnri.dost.gov.ph/fct/library/report/3662
+FC000836,batch-2,FNRI,E084,Spanish plum,Fruits,https://i.fnri.dost.gov.ph/fct/library/report/3666
+FC000837,batch-2,FNRI,E087,Starfruit,Fruits,https://i.fnri.dost.gov.ph/fct/library/report/3669
+FC000838,batch-2,FNRI,E090,Sugar palm,Fruits,https://i.fnri.dost.gov.ph/fct/library/report/3672
+FC000839,batch-2,FNRI,E091,"Sugar palm, boiled",Fruits,https://i.fnri.dost.gov.ph/fct/library/report/3673
+FC000840,batch-2,FNRI,E096,"Banana chips, salted",Fruits,https://i.fnri.dost.gov.ph/fct/library/report/3678
+FC000841,batch-2,FNRI,E097,"Banana chips, sweetn",Fruits,https://i.fnri.dost.gov.ph/fct/library/report/3679
+FC000842,batch-2,FNRI,E099,Banana fritter,Fruits,https://i.fnri.dost.gov.ph/fct/library/report/3681
+FC000843,batch-2,FNRI,E100,"Banana, saba, mashed, w/ sugar & marg",Fruits,https://i.fnri.dost.gov.ph/fct/library/report/3682
+FC000844,batch-2,FNRI,E103,"Bilimbi, pickled",Fruits,https://i.fnri.dost.gov.ph/fct/library/report/3685
+FC000845,batch-2,FNRI,E104,"Cherry, in syrup, drnd",Fruits,https://i.fnri.dost.gov.ph/fct/library/report/3686
+FC000846,batch-2,FNRI,E105,"Date, dried",Fruits,https://i.fnri.dost.gov.ph/fct/library/report/3687
+FC000847,batch-2,FNRI,E107,"Fruit cocktail, tropical, in syrup, cnd",Fruits,https://i.fnri.dost.gov.ph/fct/library/report/3689
+FC000848,batch-3,FNRI,E108,"Jujube Indian/Chinese date, dried",Fruits,https://i.fnri.dost.gov.ph/fct/library/report/3690
+FC000849,batch-3,FNRI,E109,"Mango chips, dried",Fruits,https://i.fnri.dost.gov.ph/fct/library/report/3691
+FC000850,batch-3,FNRI,E110,"Peach, in heavy syrup, cnd",Fruits,https://i.fnri.dost.gov.ph/fct/library/report/3692
+FC000851,batch-3,FNRI,E113,"Pineapple, crushed, cnd",Fruits,https://i.fnri.dost.gov.ph/fct/library/report/3695
+FC000852,batch-3,FNRI,E114,"Pineapple, slice, cnd",Fruits,https://i.fnri.dost.gov.ph/fct/library/report/3696
+FC000853,batch-3,FNRI,E115,Prune,Fruits,https://i.fnri.dost.gov.ph/fct/library/report/3697
+FC000854,batch-3,FNRI,E116,Raisin,Fruits,https://i.fnri.dost.gov.ph/fct/library/report/3698
+FC000855,batch-3,FNRI,E117,Dragon fruit,Fruits,https://i.fnri.dost.gov.ph/fct/library/report/3699
+FC000856,batch-3,FNRI,F054,Carabeef chuck,Meat & Poultry,https://i.fnri.dost.gov.ph/fct/library/report/3761
+FC000857,batch-3,FNRI,F059,Carabeef lean meat,Meat & Poultry,https://i.fnri.dost.gov.ph/fct/library/report/3766
+FC000858,batch-3,FNRI,F060,"Carabeef lean meat, boiled",Meat & Poultry,https://i.fnri.dost.gov.ph/fct/library/report/3767
+FC000859,batch-3,FNRI,F065,Carabeef round,Meat & Poultry,https://i.fnri.dost.gov.ph/fct/library/report/3772
+FC000860,batch-3,FNRI,F066,Carabeef round steak,Meat & Poultry,https://i.fnri.dost.gov.ph/fct/library/report/3773
+FC000861,batch-3,FNRI,F067,Carabeef rump,Meat & Poultry,https://i.fnri.dost.gov.ph/fct/library/report/3774
+FC000862,batch-3,FNRI,F068,Carabeef shank,Meat & Poultry,https://i.fnri.dost.gov.ph/fct/library/report/3775
+FC000863,batch-3,FNRI,F071,Carabeef w/ fat,Meat & Poultry,https://i.fnri.dost.gov.ph/fct/library/report/3778
+FC000864,batch-3,FNRI,F072,"Carabeef w/ fat, boiled",Meat & Poultry,https://i.fnri.dost.gov.ph/fct/library/report/3779
+FC000865,batch-3,FNRI,F075,Chevon back,Meat & Poultry,https://i.fnri.dost.gov.ph/fct/library/report/3782
+FC000866,batch-3,FNRI,F076,Chevon breast,Meat & Poultry,https://i.fnri.dost.gov.ph/fct/library/report/3783
+FC000867,batch-3,FNRI,F077,Chevon flank,Meat & Poultry,https://i.fnri.dost.gov.ph/fct/library/report/3784
+FC000868,batch-3,FNRI,F081,Chevon leg,Meat & Poultry,https://i.fnri.dost.gov.ph/fct/library/report/3788
+FC000869,batch-3,FNRI,F082,Chevon liver,Meat & Poultry,https://i.fnri.dost.gov.ph/fct/library/report/3789
+FC000870,batch-3,FNRI,F083,Chevon loin,Meat & Poultry,https://i.fnri.dost.gov.ph/fct/library/report/3790
+FC000871,batch-3,FNRI,F085,Chevon neck,Meat & Poultry,https://i.fnri.dost.gov.ph/fct/library/report/3792
+FC000872,batch-3,FNRI,F086,Chevon rib,Meat & Poultry,https://i.fnri.dost.gov.ph/fct/library/report/3793
+FC000873,batch-3,FNRI,F087,Chevon shank,Meat & Poultry,https://i.fnri.dost.gov.ph/fct/library/report/3794
+FC000874,batch-3,FNRI,F088,Chevon shoulder,Meat & Poultry,https://i.fnri.dost.gov.ph/fct/library/report/3795
+FC000875,batch-3,FNRI,F090,"Chick, one-day old, fried",Meat & Poultry,https://i.fnri.dost.gov.ph/fct/library/report/3797
+FC000876,batch-3,FNRI,F100,Chicken intestine,Meat & Poultry,https://i.fnri.dost.gov.ph/fct/library/report/3807
+FC000877,batch-3,FNRI,F101,"Chicken intestine, bbq",Meat & Poultry,https://i.fnri.dost.gov.ph/fct/library/report/3808
+FC000878,batch-3,FNRI,F116,Duck back,Meat & Poultry,https://i.fnri.dost.gov.ph/fct/library/report/3823
+FC000879,batch-3,FNRI,F118,Duck breast,Meat & Poultry,https://i.fnri.dost.gov.ph/fct/library/report/3825
+FC000880,batch-3,FNRI,F119,Duck gizzard,Meat & Poultry,https://i.fnri.dost.gov.ph/fct/library/report/3826
+FC000881,batch-3,FNRI,F120,Duck liver,Meat & Poultry,https://i.fnri.dost.gov.ph/fct/library/report/3827
+FC000882,batch-3,FNRI,F121,Duck thigh,Meat & Poultry,https://i.fnri.dost.gov.ph/fct/library/report/3828
+FC000883,batch-3,FNRI,F122,Duck wing,Meat & Poultry,https://i.fnri.dost.gov.ph/fct/library/report/3829
+FC000884,batch-3,FNRI,F128,Lamb flank,Meat & Poultry,https://i.fnri.dost.gov.ph/fct/library/report/3835
+FC000885,batch-3,FNRI,F129,Lamb foreshank,Meat & Poultry,https://i.fnri.dost.gov.ph/fct/library/report/3836
+FC000886,batch-3,FNRI,F130,Lamb hind shank,Meat & Poultry,https://i.fnri.dost.gov.ph/fct/library/report/3837
+FC000887,batch-3,FNRI,F132,Lamb loin,Meat & Poultry,https://i.fnri.dost.gov.ph/fct/library/report/3839
+FC000888,batch-3,FNRI,F134,Lamb neck,Meat & Poultry,https://i.fnri.dost.gov.ph/fct/library/report/3841
+FC000889,batch-3,FNRI,F135,Lamb riblet,Meat & Poultry,https://i.fnri.dost.gov.ph/fct/library/report/3842
+FC000890,batch-3,FNRI,F136,Lamb roast/back,Meat & Poultry,https://i.fnri.dost.gov.ph/fct/library/report/3843
+FC000891,batch-3,FNRI,F137,Lamb shoulder,Meat & Poultry,https://i.fnri.dost.gov.ph/fct/library/report/3844
+FC000892,batch-3,FNRI,F168,"Pork intestine, large",Meat & Poultry,https://i.fnri.dost.gov.ph/fct/library/report/3875
+FC000893,batch-3,FNRI,F169,"Pork intestine, small",Meat & Poultry,https://i.fnri.dost.gov.ph/fct/library/report/3876
+FC000894,batch-3,FNRI,F170,"Pork intestine, small, bbq",Meat & Poultry,https://i.fnri.dost.gov.ph/fct/library/report/3877
+FC000895,batch-3,FNRI,F188,Pork tongue,Meat & Poultry,https://i.fnri.dost.gov.ph/fct/library/report/3895
+FC000896,batch-3,FNRI,F203,Quail meat,Meat & Poultry,https://i.fnri.dost.gov.ph/fct/library/report/3910
+FC000897,batch-3,FNRI,F208,Turkey breast,Meat & Poultry,https://i.fnri.dost.gov.ph/fct/library/report/3915
+FC000898,batch-3,FNRI,F210,Turkey thigh,Meat & Poultry,https://i.fnri.dost.gov.ph/fct/library/report/3917
+FC000899,batch-3,FNRI,F219,Carabeef jerky,Meat & Poultry,https://i.fnri.dost.gov.ph/fct/library/report/3926
+FC000900,batch-3,FNRI,F220,Chicken liver spread,Meat & Poultry,https://i.fnri.dost.gov.ph/fct/library/report/3927
+FC000901,batch-3,FNRI,F221,Chicken meat ball,Meat & Poultry,https://i.fnri.dost.gov.ph/fct/library/report/3928
+FC000902,batch-3,FNRI,F224,Chicken spread,Meat & Poultry,https://i.fnri.dost.gov.ph/fct/library/report/3931
+FC000903,batch-3,FNRI,F225,Corned beef loaf,Meat & Poultry,https://i.fnri.dost.gov.ph/fct/library/report/3932
+FC000904,batch-3,FNRI,F229,"Ham, chopped, cnd",Meat & Poultry,https://i.fnri.dost.gov.ph/fct/library/report/3936
+FC000905,batch-3,FNRI,F231,"Ham, pork, sweet, chopped",Meat & Poultry,https://i.fnri.dost.gov.ph/fct/library/report/3938
+FC000906,batch-3,FNRI,F233,"Liver pate, cnd",Meat & Poultry,https://i.fnri.dost.gov.ph/fct/library/report/3940
+FC000907,batch-3,FNRI,F234,Liver spread,Meat & Poultry,https://i.fnri.dost.gov.ph/fct/library/report/3941
+FC000908,batch-3,FNRI,F237,"Luncheon meat, pork & ham",Meat & Poultry,https://i.fnri.dost.gov.ph/fct/library/report/3944
+FC000909,batch-3,FNRI,F238,"Luncheon meat, pork, Chinese style",Meat & Poultry,https://i.fnri.dost.gov.ph/fct/library/report/3945
+FC000910,batch-3,FNRI,F241,"Pork crackling, internal organ",Meat & Poultry,https://i.fnri.dost.gov.ph/fct/library/report/3948
+FC000911,batch-3,FNRI,G025,"Clam, kabibi",Fish & Seafood,https://i.fnri.dost.gov.ph/fct/library/report/4005
+FC000912,batch-3,FNRI,G026,"Clam, kanturi",Fish & Seafood,https://i.fnri.dost.gov.ph/fct/library/report/4006
+FC000913,batch-3,FNRI,G027,"Clam, lukan",Fish & Seafood,https://i.fnri.dost.gov.ph/fct/library/report/4007
+FC000914,batch-3,FNRI,G029,"Clam, razor shell",Fish & Seafood,https://i.fnri.dost.gov.ph/fct/library/report/4009
+FC000915,batch-3,FNRI,G033,"Clam, venus",Fish & Seafood,https://i.fnri.dost.gov.ph/fct/library/report/4013
+FC000916,batch-3,FNRI,G035,"Climbing perch, common",Fish & Seafood,https://i.fnri.dost.gov.ph/fct/library/report/4015
+FC000917,batch-3,FNRI,G043,"Crevalle, deep-bellied",Fish & Seafood,https://i.fnri.dost.gov.ph/fct/library/report/4023
+FC000918,batch-3,FNRI,G044,"Crevalle, even-bellied",Fish & Seafood,https://i.fnri.dost.gov.ph/fct/library/report/4024
+FC000919,batch-3,FNRI,G049,"Eel, silver pike",Fish & Seafood,https://i.fnri.dost.gov.ph/fct/library/report/4029
+FC000920,batch-3,FNRI,G050,"Eel, swamp",Fish & Seafood,https://i.fnri.dost.gov.ph/fct/library/report/4030
+FC000921,batch-3,FNRI,G051,Fish roe,Fish & Seafood,https://i.fnri.dost.gov.ph/fct/library/report/4031
+FC000922,batch-3,FNRI,G056,Flying fish,Fish & Seafood,https://i.fnri.dost.gov.ph/fct/library/report/4036
+FC000923,batch-3,FNRI,G057,"Garfish, common",Fish & Seafood,https://i.fnri.dost.gov.ph/fct/library/report/4037
+FC000924,batch-3,FNRI,G058,"Gizzard shad, short-finned",Fish & Seafood,https://i.fnri.dost.gov.ph/fct/library/report/4038
+FC000925,batch-3,FNRI,G059,"Goatfish, ochrebanded",Fish & Seafood,https://i.fnri.dost.gov.ph/fct/library/report/4039
+FC000926,batch-3,FNRI,G060,"Goby, flat-headed",Fish & Seafood,https://i.fnri.dost.gov.ph/fct/library/report/4040
+FC000927,batch-3,FNRI,G061,"Goby, long-tailed",Fish & Seafood,https://i.fnri.dost.gov.ph/fct/library/report/4041
+FC000928,batch-3,FNRI,G062,Gouramy,Fish & Seafood,https://i.fnri.dost.gov.ph/fct/library/report/4042
+FC000929,batch-3,FNRI,G064,"Hair tail, largehead",Fish & Seafood,https://i.fnri.dost.gov.ph/fct/library/report/4044
+FC000930,batch-3,FNRI,G066,Hard-tail,Fish & Seafood,https://i.fnri.dost.gov.ph/fct/library/report/4046
+FC000931,batch-3,FNRI,G067,"Herring, big-eyed",Fish & Seafood,https://i.fnri.dost.gov.ph/fct/library/report/4047
+FC000932,batch-3,FNRI,G068,"Herring, deep-bodied",Fish & Seafood,https://i.fnri.dost.gov.ph/fct/library/report/4048
+FC000933,batch-3,FNRI,G069,"Lizard fish, common",Fish & Seafood,https://i.fnri.dost.gov.ph/fct/library/report/4049
+FC000934,batch-3,FNRI,G079,"Moonfish, spotted",Fish & Seafood,https://i.fnri.dost.gov.ph/fct/library/report/4059
+FC000935,batch-3,FNRI,G083,"Mullet, black-finned",Fish & Seafood,https://i.fnri.dost.gov.ph/fct/library/report/4063
+FC000936,batch-3,FNRI,G084,"Mullet, large-scaled",Fish & Seafood,https://i.fnri.dost.gov.ph/fct/library/report/4064
+FC000937,batch-3,FNRI,G087,"Bream, doublewhip threadfin",Fish & Seafood,https://i.fnri.dost.gov.ph/fct/library/report/4067
+FC000938,batch-3,FNRI,G095,"Bream, humpnose big-eye",Fish & Seafood,https://i.fnri.dost.gov.ph/fct/library/report/4075
+FC000939,batch-3,FNRI,G097,"Seabream, goldsilk",Fish & Seafood,https://i.fnri.dost.gov.ph/fct/library/report/4077
+FC000940,batch-3,FNRI,G108,Sea cucumber,Fish & Seafood,https://i.fnri.dost.gov.ph/fct/library/report/4088
+FC000941,batch-3,FNRI,G122,"Siganid, javan",Fish & Seafood,https://i.fnri.dost.gov.ph/fct/library/report/4102
+FC000942,batch-3,FNRI,G126,"Slipmouth, common",Fish & Seafood,https://i.fnri.dost.gov.ph/fct/library/report/4106
+FC000943,batch-3,FNRI,G128,"Snail, freshwater",Fish & Seafood,https://i.fnri.dost.gov.ph/fct/library/report/4108
+FC000944,batch-3,FNRI,G129,"Snail, golden",Fish & Seafood,https://i.fnri.dost.gov.ph/fct/library/report/4109
+FC000945,batch-3,FNRI,G148,"Whiting, common",Fish & Seafood,https://i.fnri.dost.gov.ph/fct/library/report/4128
+FC000946,batch-3,FNRI,G156,"Cod, dried",Fish & Seafood,https://i.fnri.dost.gov.ph/fct/library/report/4136
+FC000947,batch-3,FNRI,G184,"Mudfish/Murrel, striated, dried",Fish & Seafood,https://i.fnri.dost.gov.ph/fct/library/report/4164
+FC000948,batch-4,FNRI,H022,"Egg, quail, pickled",Eggs,https://i.fnri.dost.gov.ph/fct/library/report/4234
+FC000949,batch-4,FNRI,J013,"Milk, carabao",Milk & Dairy,https://i.fnri.dost.gov.ph/fct/library/report/4247
+FC000950,batch-4,FNRI,J017,"Milk, goat",Milk & Dairy,https://i.fnri.dost.gov.ph/fct/library/report/4251
+FC000951,batch-4,FNRI,J026,Yoghurt,Milk & Dairy,https://i.fnri.dost.gov.ph/fct/library/report/4260
+FC000952,batch-4,FNRI,K011,Sandwich spread,Fats & Oils,https://i.fnri.dost.gov.ph/fct/library/report/4271
+FC000953,batch-4,FNRI,M013,"Chocolate, tablea",Sweets & Sweeteners,https://i.fnri.dost.gov.ph/fct/library/report/4284
+FC000954,batch-4,FNRI,M014,Coco jam,Sweets & Sweeteners,https://i.fnri.dost.gov.ph/fct/library/report/4285
+FC000955,batch-4,FNRI,M016,Creme custard,Sweets & Sweeteners,https://i.fnri.dost.gov.ph/fct/library/report/4287
+FC000956,batch-4,FNRI,M019,"Fudge, milk",Sweets & Sweeteners,https://i.fnri.dost.gov.ph/fct/library/report/4290
+FC000957,batch-4,FNRI,M020,"Fudge, yam",Sweets & Sweeteners,https://i.fnri.dost.gov.ph/fct/library/report/4291
+FC000958,batch-4,FNRI,M021,Honey,Sweets & Sweeteners,https://i.fnri.dost.gov.ph/fct/library/report/4292
+FC000959,batch-4,FNRI,M022,Ice candy,Sweets & Sweeteners,https://i.fnri.dost.gov.ph/fct/library/report/4293
+FC000960,batch-4,FNRI,M023,Ice drop,Sweets & Sweeteners,https://i.fnri.dost.gov.ph/fct/library/report/4294
+FC000961,batch-4,FNRI,M025,"Jam, mango, cnd",Sweets & Sweeteners,https://i.fnri.dost.gov.ph/fct/library/report/4296
+FC000962,batch-4,FNRI,M026,"Jam, pineapple",Sweets & Sweeteners,https://i.fnri.dost.gov.ph/fct/library/report/4297
+FC000963,batch-4,FNRI,M027,"Jam, yam",Sweets & Sweeteners,https://i.fnri.dost.gov.ph/fct/library/report/4298
+FC000964,batch-4,FNRI,M028,"Jelly, guava",Sweets & Sweeteners,https://i.fnri.dost.gov.ph/fct/library/report/4299
+FC000965,batch-4,FNRI,M031,"Jelly, strawberry",Sweets & Sweeteners,https://i.fnri.dost.gov.ph/fct/library/report/4302
+FC000966,batch-4,FNRI,M035,"Nata de coco, sweetn",Sweets & Sweeteners,https://i.fnri.dost.gov.ph/fct/library/report/4306
+FC000967,batch-4,FNRI,M037,Peanut brittle,Sweets & Sweeteners,https://i.fnri.dost.gov.ph/fct/library/report/4308
+FC000968,batch-4,FNRI,M040,Polvoron,Sweets & Sweeteners,https://i.fnri.dost.gov.ph/fct/library/report/4311
+FC000969,batch-4,FNRI,M042,"Sugar, brown",Sweets & Sweeteners,https://i.fnri.dost.gov.ph/fct/library/report/4313
+FC000970,batch-4,FNRI,M043,"Sugar, crude, pakaskas",Sweets & Sweeteners,https://i.fnri.dost.gov.ph/fct/library/report/4314
+FC000971,batch-4,FNRI,M044,"Sugar, crude, panocha",Sweets & Sweeteners,https://i.fnri.dost.gov.ph/fct/library/report/4315
+FC000972,batch-4,FNRI,M045,"Sugar, pwdr",Sweets & Sweeteners,https://i.fnri.dost.gov.ph/fct/library/report/4316
+FC000973,batch-4,FNRI,M046,"Sugar, white, refined",Sweets & Sweeteners,https://i.fnri.dost.gov.ph/fct/library/report/4317
+FC000974,batch-4,FNRI,M048,"Syrup, molasses, cane",Sweets & Sweeteners,https://i.fnri.dost.gov.ph/fct/library/report/4319
+FC000975,batch-4,FNRI,M049,"Tamarind, candied",Sweets & Sweeteners,https://i.fnri.dost.gov.ph/fct/library/report/4320
+FC000976,batch-4,FNRI,M051,"Sugar, coconut sap",Sweets & Sweeteners,https://i.fnri.dost.gov.ph/fct/library/report/4322
+FC000977,batch-4,FNRI,M052,"Syrup, coconut sap",Sweets & Sweeteners,https://i.fnri.dost.gov.ph/fct/library/report/4323
+FC000978,batch-4,FNRI,N001,"Bilimbi, dried",Condiments,https://i.fnri.dost.gov.ph/fct/library/report/4324
+FC000979,batch-4,FNRI,N002,"Bouillon cube, beef",Condiments,https://i.fnri.dost.gov.ph/fct/library/report/4325
+FC000980,batch-4,FNRI,N003,"Bouillon cube, chicken",Condiments,https://i.fnri.dost.gov.ph/fct/library/report/4326
+FC000981,batch-4,FNRI,N006,"Clam paste, ginamos",Condiments,https://i.fnri.dost.gov.ph/fct/library/report/4329
+FC000982,batch-4,FNRI,N008,"Fish paste, balatohan",Condiments,https://i.fnri.dost.gov.ph/fct/library/report/4331
+FC000983,batch-4,FNRI,N009,"Fish paste, ginamos",Condiments,https://i.fnri.dost.gov.ph/fct/library/report/4332
+FC000984,batch-4,FNRI,N010,"Fish paste, siganid fry",Condiments,https://i.fnri.dost.gov.ph/fct/library/report/4333
+FC000985,batch-4,FNRI,N014,Lemon grass lvs,Condiments,https://i.fnri.dost.gov.ph/fct/library/report/4337
+FC000986,batch-4,FNRI,N015,"Lemon grass lvs, boiled",Condiments,https://i.fnri.dost.gov.ph/fct/library/report/4338
+FC000987,batch-4,FNRI,N016,"Banana, flowers, dried",Condiments,https://i.fnri.dost.gov.ph/fct/library/report/4339
+FC000988,batch-4,FNRI,N017,Oyster paste,Condiments,https://i.fnri.dost.gov.ph/fct/library/report/4340
+FC000989,batch-4,FNRI,N018,"Safflower, flowers, dried",Condiments,https://i.fnri.dost.gov.ph/fct/library/report/4341
+FC000990,batch-4,FNRI,N022,"Shrimp paste, bastos",Condiments,https://i.fnri.dost.gov.ph/fct/library/report/4345
+FC000991,batch-4,FNRI,N028,"Vinegar, palm",Condiments,https://i.fnri.dost.gov.ph/fct/library/report/4351
+FC000992,batch-4,FNRI,N029,"Vinegar, pineapple",Condiments,https://i.fnri.dost.gov.ph/fct/library/report/4352
+FC000993,batch-4,FNRI,P001,"Beer, lager type",Alcoholic Beverages,https://i.fnri.dost.gov.ph/fct/library/report/4355
+FC000994,batch-4,FNRI,P002,"Palm sap, fermented",Alcoholic Beverages,https://i.fnri.dost.gov.ph/fct/library/report/4356
+FC000995,batch-4,FNRI,P003,Rum,Alcoholic Beverages,https://i.fnri.dost.gov.ph/fct/library/report/4357
+FC000996,batch-4,FNRI,P004,"Sugarcane, fermented",Alcoholic Beverages,https://i.fnri.dost.gov.ph/fct/library/report/4358
+FC000997,batch-4,FNRI,P005,"Wine, Chinese",Alcoholic Beverages,https://i.fnri.dost.gov.ph/fct/library/report/4359
+FC000998,batch-4,FNRI,Q002,"Choc-flvr drink, prep",Beverages,https://i.fnri.dost.gov.ph/fct/library/report/4361
+FC000999,batch-4,FNRI,Q003,"Choc-flvr drink, pwdr",Beverages,https://i.fnri.dost.gov.ph/fct/library/report/4362
+FC001000,batch-4,FNRI,Q004,"Choc-flvr drink, UHT",Beverages,https://i.fnri.dost.gov.ph/fct/library/report/4363
+FC001001,batch-4,FNRI,Q009,"Cocoa, pwdr, local",Beverages,https://i.fnri.dost.gov.ph/fct/library/report/4368
+FC001002,batch-4,FNRI,Q016,"Fruit jce drnk conc, calamansi",Beverages,https://i.fnri.dost.gov.ph/fct/library/report/4375
+FC001003,batch-4,FNRI,Q019,"Fruit jce drnk conc, guyabano",Beverages,https://i.fnri.dost.gov.ph/fct/library/report/4378
+FC001004,batch-4,FNRI,Q020,"Fruit jce drnk conc, mango",Beverages,https://i.fnri.dost.gov.ph/fct/library/report/4379
+FC001005,batch-4,FNRI,Q021,"Fruit jce drnk conc, orange",Beverages,https://i.fnri.dost.gov.ph/fct/library/report/4380
+FC001006,batch-4,FNRI,Q043,"Juice, apple, cnd",Beverages,https://i.fnri.dost.gov.ph/fct/library/report/4402
+FC001007,batch-4,FNRI,Q044,"Juice, calamansi (nectar)",Beverages,https://i.fnri.dost.gov.ph/fct/library/report/4403
+FC001008,batch-4,FNRI,Q045,"Juice, mango",Beverages,https://i.fnri.dost.gov.ph/fct/library/report/4404
+FC001009,batch-4,FNRI,Q046,"Juice, orange, unsweetn, cnd",Beverages,https://i.fnri.dost.gov.ph/fct/library/report/4405
+FC001010,batch-4,FNRI,Q048,"Juice, pineapple, cnd",Beverages,https://i.fnri.dost.gov.ph/fct/library/report/4407
+FC001011,batch-4,FNRI,Q049,"Juice, sugarcane",Beverages,https://i.fnri.dost.gov.ph/fct/library/report/4408
+FC001012,batch-4,FNRI,Q050,"Juice, tomato, cnd",Beverages,https://i.fnri.dost.gov.ph/fct/library/report/4409
+FC001013,batch-4,FNRI,Q051,"Lemon tea drink, ttb",Beverages,https://i.fnri.dost.gov.ph/fct/library/report/4410
+FC001014,batch-4,FNRI,Q053,"Softdrink, cola",Beverages,https://i.fnri.dost.gov.ph/fct/library/report/4412
+FC001015,batch-4,FNRI,Q054,"Softdrink, orange flvr",Beverages,https://i.fnri.dost.gov.ph/fct/library/report/4413
+FC001016,batch-4,FNRI,Q059,Soybean milk drnk,Beverages,https://i.fnri.dost.gov.ph/fct/library/report/4418
+FC001017,batch-4,FNRI,Q062,"Tea, prep w/ water, no sugar",Beverages,https://i.fnri.dost.gov.ph/fct/library/report/5008
+FC001018,batch-4,FNRI,R001,Cheese pimiento sandwich,Prepared Foods,https://i.fnri.dost.gov.ph/fct/library/report/4421
+FC001019,batch-4,FNRI,R006,Glutinous rice w/ mung bean & cocomilk,Prepared Foods,https://i.fnri.dost.gov.ph/fct/library/report/4426
+FC001020,batch-4,FNRI,R007,Hamburger sandwich w/ coleslaw,Prepared Foods,https://i.fnri.dost.gov.ph/fct/library/report/4427
+FC001021,batch-4,FNRI,R008,"Hamburger sandwich, reg",Prepared Foods,https://i.fnri.dost.gov.ph/fct/library/report/4428
+FC001022,batch-4,FNRI,R009,Meat pie,Prepared Foods,https://i.fnri.dost.gov.ph/fct/library/report/4429
+FC001023,batch-4,FNRI,R010,Meat roll,Prepared Foods,https://i.fnri.dost.gov.ph/fct/library/report/4430
+FC001024,batch-4,FNRI,R014,"Spaghetti, meat balls & tomato sce, cnd",Prepared Foods,https://i.fnri.dost.gov.ph/fct/library/report/4434
+FC001025,batch-4,FNRI,R015,"Spaghetti, Vienna sausage & tomato sce, cnd",Prepared Foods,https://i.fnri.dost.gov.ph/fct/library/report/4435
+FC001026,batch-4,FNRI,R020,Pineapple pie,Prepared Foods,https://i.fnri.dost.gov.ph/fct/library/report/4440
+FC001027,batch-4,FNRI,R021,Pizza pie,Prepared Foods,https://i.fnri.dost.gov.ph/fct/library/report/4441
+FC001028,batch-4,FNRI,R022,"Milk fish, w/ black beans, cnd",Prepared Foods,https://i.fnri.dost.gov.ph/fct/library/report/4442
+FC001029,batch-4,FNRI,R023,"Spring roll, crab, unckd",Prepared Foods,https://i.fnri.dost.gov.ph/fct/library/report/4443
+FC001030,batch-4,FNRI,R024,"Spring roll, fish, unckd",Prepared Foods,https://i.fnri.dost.gov.ph/fct/library/report/4444
+FC001031,batch-4,FNRI,R025,"Spring roll, shrimp, unckd",Prepared Foods,https://i.fnri.dost.gov.ph/fct/library/report/4445
+FC001032,batch-4,FNRI,R028,"Beef callos, cnd",Prepared Foods,https://i.fnri.dost.gov.ph/fct/library/report/4448
+FC001033,batch-4,FNRI,R029,"Beef curry, cnd",Prepared Foods,https://i.fnri.dost.gov.ph/fct/library/report/4449
+FC001034,batch-4,FNRI,R032,"Beef roll, mechado, cnd",Prepared Foods,https://i.fnri.dost.gov.ph/fct/library/report/4452
+FC001035,batch-4,FNRI,R033,"Beef roll, morcon, cnd",Prepared Foods,https://i.fnri.dost.gov.ph/fct/library/report/4453
+FC001036,batch-4,FNRI,R034,"Beef steak, cnd",Prepared Foods,https://i.fnri.dost.gov.ph/fct/library/report/4454
+FC001037,batch-4,FNRI,R035,"Beef stew, cnd",Prepared Foods,https://i.fnri.dost.gov.ph/fct/library/report/4455
+FC001038,batch-4,FNRI,R040,"Chicken stew, cnd",Prepared Foods,https://i.fnri.dost.gov.ph/fct/library/report/4460
+FC001039,batch-4,FNRI,R042,"Duck meat, pato tim, cnd",Prepared Foods,https://i.fnri.dost.gov.ph/fct/library/report/4462
+FC001040,batch-4,FNRI,R052,"Pork afritada, cnd",Prepared Foods,https://i.fnri.dost.gov.ph/fct/library/report/4472
+FC001041,batch-4,FNRI,R054,"Pork humba, cnd",Prepared Foods,https://i.fnri.dost.gov.ph/fct/library/report/4474
+FC001042,batch-4,FNRI,R057,"Pork leg, pinaksiw, cnd",Prepared Foods,https://i.fnri.dost.gov.ph/fct/library/report/4477
+FC001043,batch-4,FNRI,R058,"Pork pastel, cnd",Prepared Foods,https://i.fnri.dost.gov.ph/fct/library/report/4478
+FC001044,batch-4,FNRI,R060,"Pork, roasted, pinaksiw, cnd",Prepared Foods,https://i.fnri.dost.gov.ph/fct/library/report/4480
+FC001045,batch-4,FNRI,R062,"Spring roll, beef, unckd",Prepared Foods,https://i.fnri.dost.gov.ph/fct/library/report/4482
+FC001046,batch-4,FNRI,R063,"Spring roll, chicken, unckd",Prepared Foods,https://i.fnri.dost.gov.ph/fct/library/report/4483
+FC001047,batch-4,FNRI,R072,"Soup, chicken noodle, cnd",Prepared Foods,https://i.fnri.dost.gov.ph/fct/library/report/4492
+FC001048,batch-5,USDA,175167,"Fish, salmon, Atlantic, farmed, raw",Fish & Seafood,https://fdc.nal.usda.gov/food-details/175167/nutrients
+FC001049,batch-5,USDA,175168,"Fish, salmon, Atlantic, farmed, cooked, dry heat",Fish & Seafood,https://fdc.nal.usda.gov/food-details/175168/nutrients
+FC001050,batch-5,USDA,173686,"Fish, salmon, Atlantic, wild, raw",Fish & Seafood,https://fdc.nal.usda.gov/food-details/173686/nutrients
+FC001051,batch-5,USDA,171998,"Fish, salmon, Atlantic, wild, cooked, dry heat",Fish & Seafood,https://fdc.nal.usda.gov/food-details/171998/nutrients
+FC001052,batch-5,USDA,175136,"Fish, salmon, coho, wild, raw",Fish & Seafood,https://fdc.nal.usda.gov/food-details/175136/nutrients
+FC001053,batch-5,USDA,173719,"Fish, salmon, coho, wild, cooked, dry heat",Fish & Seafood,https://fdc.nal.usda.gov/food-details/173719/nutrients
+FC001054,batch-5,USDA,173691,"Fish, salmon, sockeye, raw",Fish & Seafood,https://fdc.nal.usda.gov/food-details/173691/nutrients
+FC001055,batch-5,USDA,173692,"Fish, salmon, sockeye, cooked, dry heat",Fish & Seafood,https://fdc.nal.usda.gov/food-details/173692/nutrients
+FC001056,batch-5,USDA,175138,"Fish, salmon, pink, raw",Fish & Seafood,https://fdc.nal.usda.gov/food-details/175138/nutrients
+FC001057,batch-5,USDA,172001,"Fish, salmon, pink, cooked, dry heat",Fish & Seafood,https://fdc.nal.usda.gov/food-details/172001/nutrients
+FC001058,batch-5,USDA,173690,"Fish, salmon, pink, canned, total can contents",Fish & Seafood,https://fdc.nal.usda.gov/food-details/173690/nutrients
+FC001059,batch-5,USDA,173693,"Fish, salmon, sockeye, canned, drained solids",Fish & Seafood,https://fdc.nal.usda.gov/food-details/173693/nutrients
+FC001060,batch-5,USDA,173717,"Fish, trout, rainbow, farmed, raw",Fish & Seafood,https://fdc.nal.usda.gov/food-details/173717/nutrients
+FC001061,batch-5,USDA,173718,"Fish, trout, rainbow, farmed, cooked, dry heat",Fish & Seafood,https://fdc.nal.usda.gov/food-details/173718/nutrients
+FC001062,batch-5,USDA,175154,"Fish, trout, rainbow, wild, raw",Fish & Seafood,https://fdc.nal.usda.gov/food-details/175154/nutrients
+FC001063,batch-5,USDA,175155,"Fish, trout, rainbow, wild, cooked, dry heat",Fish & Seafood,https://fdc.nal.usda.gov/food-details/175155/nutrients
+FC001064,batch-5,USDA,171955,"Fish, cod, Atlantic, raw",Fish & Seafood,https://fdc.nal.usda.gov/food-details/171955/nutrients
+FC001065,batch-5,USDA,171956,"Fish, cod, Atlantic, cooked, dry heat",Fish & Seafood,https://fdc.nal.usda.gov/food-details/171956/nutrients
+FC001066,batch-5,USDA,174191,"Fish, cod, Pacific, raw (may have been previously frozen)",Fish & Seafood,https://fdc.nal.usda.gov/food-details/174191/nutrients
+FC001067,batch-5,USDA,175178,"Fish, cod, Pacific, cooked",Fish & Seafood,https://fdc.nal.usda.gov/food-details/175178/nutrients
+FC001068,batch-5,USDA,171964,"Fish, haddock, raw",Fish & Seafood,https://fdc.nal.usda.gov/food-details/171964/nutrients
+FC001069,batch-5,USDA,174198,"Fish, haddock, cooked, dry heat",Fish & Seafood,https://fdc.nal.usda.gov/food-details/174198/nutrients
+FC001070,batch-5,USDA,174199,"Fish, haddock, smoked",Fish & Seafood,https://fdc.nal.usda.gov/food-details/174199/nutrients
+FC001071,batch-5,USDA,173725,"Fish, pollock, Alaska, raw",Fish & Seafood,https://fdc.nal.usda.gov/food-details/173725/nutrients
+FC001072,batch-5,USDA,173726,"Fish, pollock, Alaska, cooked",Fish & Seafood,https://fdc.nal.usda.gov/food-details/173726/nutrients
+FC001073,batch-5,USDA,174200,"Fish, halibut, Atlantic and Pacific, raw",Fish & Seafood,https://fdc.nal.usda.gov/food-details/174200/nutrients
+FC001074,batch-5,USDA,174201,"Fish, halibut, Atlantic and Pacific, cooked, dry heat",Fish & Seafood,https://fdc.nal.usda.gov/food-details/174201/nutrients
+FC001075,batch-5,USDA,174220,"Mollusks, scallop, mixed species, raw",Fish & Seafood,https://fdc.nal.usda.gov/food-details/174220/nutrients
+FC001076,batch-5,USDA,167742,"Mollusks, scallop, (bay and sea), cooked, steamed",Fish & Seafood,https://fdc.nal.usda.gov/food-details/167742/nutrients
+FC001077,batch-5,USDA,174221,"Mollusks, scallop, mixed species, cooked, breaded and fried",Fish & Seafood,https://fdc.nal.usda.gov/food-details/174221/nutrients
+FC001078,batch-5,USDA,174208,"Crustaceans, lobster, northern, raw",Fish & Seafood,https://fdc.nal.usda.gov/food-details/174208/nutrients
+FC001079,batch-5,USDA,174209,"Crustaceans, lobster, northern, cooked, moist heat",Fish & Seafood,https://fdc.nal.usda.gov/food-details/174209/nutrients
+FC001080,batch-5,USDA,170379,"Broccoli, raw",Vegetables,https://fdc.nal.usda.gov/food-details/170379/nutrients
+FC001081,batch-5,USDA,169967,"Broccoli, cooked, boiled, drained, without salt",Vegetables,https://fdc.nal.usda.gov/food-details/169967/nutrients
+FC001082,batch-5,USDA,169969,"Broccoli, frozen, chopped, cooked, boiled, drained, without salt",Vegetables,https://fdc.nal.usda.gov/food-details/169969/nutrients
+FC001083,batch-5,USDA,169404,"Broccoli, chinese, raw",Vegetables,https://fdc.nal.usda.gov/food-details/169404/nutrients
+FC001084,batch-5,USDA,168462,"Spinach, raw",Vegetables,https://fdc.nal.usda.gov/food-details/168462/nutrients
+FC001085,batch-5,USDA,168463,"Spinach, cooked, boiled, drained, without salt",Vegetables,https://fdc.nal.usda.gov/food-details/168463/nutrients
+FC001086,batch-5,USDA,169288,"Spinach, frozen, chopped or leaf, cooked, boiled, drained, without salt",Vegetables,https://fdc.nal.usda.gov/food-details/169288/nutrients
+FC001087,batch-5,USDA,170383,"Brussels sprouts, raw",Vegetables,https://fdc.nal.usda.gov/food-details/170383/nutrients
+FC001088,batch-5,USDA,169971,"Brussels sprouts, cooked, boiled, drained, without salt",Vegetables,https://fdc.nal.usda.gov/food-details/169971/nutrients
+FC001089,batch-5,USDA,169973,"Brussels sprouts, frozen, cooked, boiled, drained, without salt",Vegetables,https://fdc.nal.usda.gov/food-details/169973/nutrients
+FC001090,batch-5,USDA,169205,"Artichokes, (globe or french), raw",Vegetables,https://fdc.nal.usda.gov/food-details/169205/nutrients
+FC001091,batch-5,USDA,168386,"Artichokes, (globe or french), cooked, boiled, drained, without salt",Vegetables,https://fdc.nal.usda.gov/food-details/168386/nutrients
+FC001092,batch-5,USDA,168388,"Artichokes, (globe or french), frozen, cooked, boiled, drained, without salt",Vegetables,https://fdc.nal.usda.gov/food-details/168388/nutrients
+FC001093,batch-5,USDA,168389,"Asparagus, raw",Vegetables,https://fdc.nal.usda.gov/food-details/168389/nutrients
+FC001094,batch-5,USDA,168390,"Asparagus, cooked, boiled, drained",Vegetables,https://fdc.nal.usda.gov/food-details/168390/nutrients
+FC001095,batch-5,USDA,169209,"Asparagus, frozen, cooked, boiled, drained, without salt",Vegetables,https://fdc.nal.usda.gov/food-details/169209/nutrients
+FC001096,batch-5,USDA,169387,"Arugula, raw",Vegetables,https://fdc.nal.usda.gov/food-details/169387/nutrients
+FC001097,batch-5,USDA,169246,"Leeks, (bulb and lower leaf-portion), raw",Vegetables,https://fdc.nal.usda.gov/food-details/169246/nutrients
+FC001098,batch-5,USDA,168426,"Leeks, (bulb and lower leaf-portion), cooked, boiled, drained, without salt",Vegetables,https://fdc.nal.usda.gov/food-details/168426/nutrients
+FC001099,batch-5,USDA,169385,"Fennel, bulb, raw",Vegetables,https://fdc.nal.usda.gov/food-details/169385/nutrients
+FC001100,batch-5,USDA,171711,"Blueberries, raw",Fruits,https://fdc.nal.usda.gov/food-details/171711/nutrients
+FC001101,batch-5,USDA,173950,"Blueberries, frozen, unsweetened (Includes foods for USDA's Food Distribution Program)",Fruits,https://fdc.nal.usda.gov/food-details/173950/nutrients
+FC001102,batch-5,USDA,167755,"Raspberries, raw",Fruits,https://fdc.nal.usda.gov/food-details/167755/nutrients
+FC001103,batch-5,USDA,168209,"Raspberries, frozen, red, unsweetened",Fruits,https://fdc.nal.usda.gov/food-details/168209/nutrients
+FC001104,batch-5,USDA,173946,"Blackberries, raw",Fruits,https://fdc.nal.usda.gov/food-details/173946/nutrients
+FC001105,batch-5,USDA,171710,"Blackberries, frozen, unsweetened",Fruits,https://fdc.nal.usda.gov/food-details/171710/nutrients
+FC001106,batch-5,USDA,171722,"Cranberries, raw",Fruits,https://fdc.nal.usda.gov/food-details/171722/nutrients
+FC001107,batch-5,USDA,171723,"Cranberries, dried, sweetened (Includes foods for USDA's Food Distribution Program)",Fruits,https://fdc.nal.usda.gov/food-details/171723/nutrients
+FC001108,batch-5,USDA,171697,"Apricots, raw",Fruits,https://fdc.nal.usda.gov/food-details/171697/nutrients
+FC001109,batch-5,USDA,173941,"Apricots, dried, sulfured, uncooked",Fruits,https://fdc.nal.usda.gov/food-details/173941/nutrients
+FC001110,batch-5,USDA,168153,"Kiwifruit, green, raw",Fruits,https://fdc.nal.usda.gov/food-details/168153/nutrients
+FC001111,batch-5,USDA,174673,"Grapefruit, raw, pink and red, all areas",Fruits,https://fdc.nal.usda.gov/food-details/174673/nutrients
+FC001112,batch-5,USDA,174676,"Grapefruit, raw, white, all areas",Fruits,https://fdc.nal.usda.gov/food-details/174676/nutrients
+FC001113,batch-5,USDA,171719,"Cherries, sweet, raw",Fruits,https://fdc.nal.usda.gov/food-details/171719/nutrients
+FC001114,batch-5,USDA,173954,"Cherries, sour, red, raw",Fruits,https://fdc.nal.usda.gov/food-details/173954/nutrients
+FC001115,batch-5,USDA,169949,"Plums, raw",Fruits,https://fdc.nal.usda.gov/food-details/169949/nutrients
+FC001116,batch-5,USDA,168874,"Quinoa, uncooked","Grains, Legumes & Nuts",https://fdc.nal.usda.gov/food-details/168874/nutrients
+FC001117,batch-5,USDA,168917,"Quinoa, cooked","Grains, Legumes & Nuts",https://fdc.nal.usda.gov/food-details/168917/nutrients
+FC001118,batch-5,USDA,170688,"Bulgur, dry","Grains, Legumes & Nuts",https://fdc.nal.usda.gov/food-details/170688/nutrients
+FC001119,batch-5,USDA,170287,"Bulgur, cooked","Grains, Legumes & Nuts",https://fdc.nal.usda.gov/food-details/170287/nutrients
+FC001120,batch-5,USDA,169699,"Couscous, dry","Grains, Legumes & Nuts",https://fdc.nal.usda.gov/food-details/169699/nutrients
+FC001121,batch-5,USDA,169700,"Couscous, cooked","Grains, Legumes & Nuts",https://fdc.nal.usda.gov/food-details/169700/nutrients
+FC001122,batch-5,USDA,170284,"Barley, pearled, raw","Grains, Legumes & Nuts",https://fdc.nal.usda.gov/food-details/170284/nutrients
+FC001123,batch-5,USDA,170285,"Barley, pearled, cooked","Grains, Legumes & Nuts",https://fdc.nal.usda.gov/food-details/170285/nutrients
+FC001124,batch-5,USDA,172420,"Lentils, raw","Grains, Legumes & Nuts",https://fdc.nal.usda.gov/food-details/172420/nutrients
+FC001125,batch-5,USDA,172421,"Lentils, mature seeds, cooked, boiled, without salt","Grains, Legumes & Nuts",https://fdc.nal.usda.gov/food-details/172421/nutrients
+FC001126,batch-5,USDA,174284,"Lentils, pink or red, raw","Grains, Legumes & Nuts",https://fdc.nal.usda.gov/food-details/174284/nutrients
+FC001127,batch-5,USDA,170567,"Nuts, almonds","Grains, Legumes & Nuts",https://fdc.nal.usda.gov/food-details/170567/nutrients
+FC001128,batch-5,USDA,170158,"Nuts, almonds, dry roasted, without salt added","Grains, Legumes & Nuts",https://fdc.nal.usda.gov/food-details/170158/nutrients
+FC001129,batch-5,USDA,170568,"Nuts, almonds, blanched","Grains, Legumes & Nuts",https://fdc.nal.usda.gov/food-details/170568/nutrients
+FC001130,batch-5,USDA,170186,"Nuts, walnuts, black, dried","Grains, Legumes & Nuts",https://fdc.nal.usda.gov/food-details/170186/nutrients
+FC001131,batch-5,USDA,170187,"Nuts, walnuts, english","Grains, Legumes & Nuts",https://fdc.nal.usda.gov/food-details/170187/nutrients
+FC001132,batch-5,USDA,170184,"Nuts, pistachio nuts, raw","Grains, Legumes & Nuts",https://fdc.nal.usda.gov/food-details/170184/nutrients
+FC001133,batch-5,USDA,170185,"Nuts, pistachio nuts, dry roasted, without salt added","Grains, Legumes & Nuts",https://fdc.nal.usda.gov/food-details/170185/nutrients
+FC001134,batch-5,USDA,170182,"Nuts, pecans","Grains, Legumes & Nuts",https://fdc.nal.usda.gov/food-details/170182/nutrients
+FC001135,batch-5,USDA,170183,"Nuts, pecans, dry roasted, without salt added","Grains, Legumes & Nuts",https://fdc.nal.usda.gov/food-details/170183/nutrients
+FC001136,batch-5,USDA,170581,"Nuts, hazelnuts or filberts","Grains, Legumes & Nuts",https://fdc.nal.usda.gov/food-details/170581/nutrients
+FC001137,batch-5,USDA,170583,"Nuts, hazelnuts or filberts, dry roasted, without salt added","Grains, Legumes & Nuts",https://fdc.nal.usda.gov/food-details/170583/nutrients
+FC001138,batch-5,USDA,170554,"Seeds, chia seeds, dried","Grains, Legumes & Nuts",https://fdc.nal.usda.gov/food-details/170554/nutrients
+FC001139,batch-5,USDA,169414,"Seeds, flaxseed","Grains, Legumes & Nuts",https://fdc.nal.usda.gov/food-details/169414/nutrients
+FC001140,batch-5,USDA,169330,"Broccoli, flower clusters, raw",Vegetables,https://fdc.nal.usda.gov/food-details/169330/nutrients
+FC001141,batch-5,USDA,169331,"Broccoli, stalks, raw",Vegetables,https://fdc.nal.usda.gov/food-details/169331/nutrients
+FC001142,batch-5,USDA,168510,"Broccoli, cooked, boiled, drained, with salt",Vegetables,https://fdc.nal.usda.gov/food-details/168510/nutrients
+FC001143,batch-5,USDA,168513,"Brussels sprouts, cooked, boiled, drained, with salt",Vegetables,https://fdc.nal.usda.gov/food-details/168513/nutrients
+FC001144,batch-5,USDA,173957,"Cherries, sweet, canned, water pack, solids and liquids",Fruits,https://fdc.nal.usda.gov/food-details/173957/nutrients
+FC001145,batch-5,USDA,173955,"Cherries, sour, red, canned, water pack, solids and liquids",Fruits,https://fdc.nal.usda.gov/food-details/173955/nutrients
+FC001146,batch-5,USDA,169968,"Broccoli, frozen, chopped, unprepared",Vegetables,https://fdc.nal.usda.gov/food-details/169968/nutrients
+FC001147,batch-5,USDA,169208,"Asparagus, frozen, unprepared",Vegetables,https://fdc.nal.usda.gov/food-details/169208/nutrients

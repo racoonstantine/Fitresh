@@ -1,0 +1,51 @@
+{
+  "expansion_id": "2026-09-17-expand-500",
+  "added": 500,
+  "fnri": 400,
+  "usda": 100,
+  "total": 1147,
+  "original_records_preserved": 647,
+  "household_portions_added": 222,
+  "estimates_added": 0,
+  "batches": [
+    {
+      "batch_id": "batch-1",
+      "added": 100,
+      "source": "FNRI",
+      "preservation": "PASS",
+      "distinct_ids": "PASS"
+    },
+    {
+      "batch_id": "batch-2",
+      "added": 100,
+      "source": "FNRI",
+      "preservation": "PASS",
+      "distinct_ids": "PASS"
+    },
+    {
+      "batch_id": "batch-3",
+      "added": 100,
+      "source": "FNRI",
+      "preservation": "PASS",
+      "distinct_ids": "PASS"
+    },
+    {
+      "batch_id": "batch-4",
+      "added": 100,
+      "source": "FNRI",
+      "preservation": "PASS",
+      "distinct_ids": "PASS"
+    },
+    {
+      "batch_id": "batch-5",
+      "added": 100,
+      "source": "USDA",
+      "preservation": "PASS",
+      "distinct_ids": "PASS"
+    }
+  ],
+  "added_fnri_statuses": {
+    "VERIFIED_FNRI": 285,
+    "PARTIAL_VERIFIED_FNRI": 115
+  }
+}

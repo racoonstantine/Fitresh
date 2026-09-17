@@ -9,6 +9,38 @@ The workbook is a historical starter, not a synchronized view of this directory.
 
 ## Current coverage
 
+The second 500-food expansion is complete: **1,147 food identities**. It adds
+400 FNRI records and 100 USDA records, preserving every field in the existing
+647 food records. No AI estimates or duplicate source IDs count toward the 500.
+
+All 500 additions have calories, protein, carbohydrates and fat. Of the new
+foods, 371 have all eight tracked nutrients and 129 retain source-missing blanks.
+Overall there are 762 fully verified FNRI records, 250 partial FNRI records,
+115 identities with other-source values, 19 unresolved identities and one
+estimate-only identity. Default resolution is complete for 861 foods, with some
+known nutrients for 1,127. The two existing estimates remain explicitly opt-in.
+
+The USDA additions fill ingredient/preparation gaps: salmon, trout, broccoli,
+spinach, berries, quinoa, lentils, nuts and related foods. Species, preparation,
+salt, skin, bones and drained-weight qualifiers remain in the source names.
+The batch adds 222 documented USDA portion weights, giving 245 total household
+reference portions. The other 500 added portions are 100 g edible reference
+weights; they are not invented cups or pieces.
+
+`expansion-round2.csv` lists the new foods in five batches of 100.
+`expansion-round2-exclusions.csv` records excluded FNRI candidates.
+`2026-09-17-expand-500.json` records counts and preservation checks.
+The batch uses the retained official FNRI and USDA snapshots listed in
+`sources.csv`, with input hashes verified before import. Review date is
+2026-09-17; snapshot access remains 2026-09-16. This is not a new source release.
+Original pre-batch inputs are retained under `Food_DB/research/2026-09-17-expand-500/`.
+
+`tools/expand_food_db_round2.py` applies this batch only once. Catalog, coverage,
+alias audit and local app search releases have been rebuilt. Historical search
+releases are retained so existing saved-food provenance stays available.
+
+## First 500-food expansion history
+
 The 500-food expansion is complete: **647 food identities total**. All 147
 pre-expansion records are preserved, along with their aliases, portions,
 change history and nutrient evidence. No AI estimates count toward the 500.
@@ -189,7 +221,48 @@ and invalid-input checks. `tools/export_food_catalog.py` rebuilds only derived
 catalog/coverage files from the curated CSVs. `tools/extend_food_db.py` applies
 this append-only batch once, then exits without changes on subsequent runs.
 
-The JSON is prepared for application integration. This batch does not change
-the current PHP food search, logging screens or live database. Any integration
-must preserve per-nutrient provenance and require explicit variant/estimate
-selection; do not flatten a mixed result into a fully verified record.
+## Alias audit and application search
+
+The alias audit covers all 1,147 identities. There are 2,619 alias rows, including
+189 new audit additions in the second expansion from official common names, expanded abbreviations, documented
+munggo/monggo spellings, and explicitly linked broad-parent discovery names.
+824 records have FNRI common names. No unsupported regional translations were
+invented for the others. `aliases.csv` is the search authority; the original
+embedded aliases in `foods.csv` remain preserved.
+
+- `alias-audit.csv` records coverage for every food.
+- `alias-changes.csv` records each addition and its basis.
+- `alias-collisions.csv` lists 65 shared normalized names and their food IDs.
+- `alias-audit-summary.json` records counts and the deployed-artifact version.
+- `tools/build_food_search.py` rebuilds the audit and app search snapshot. Repeat
+  runs do not add duplicate aliases. The pre-audit aliases are retained in research.
+
+The PHP endpoint `api/food_catalog.php` searches exact normalized tokens across
+canonical and alias names. Case, whitespace, punctuation and accented Latin
+letters are normalized. Queries can combine a Filipino name with an English
+preparation, such as `sayote boiled`. A short one-word misspelling can produce
+suggestions only when no token match exists; the user must choose the suggestion
+and then a specific food. Shared aliases never merge food IDs or auto-select one.
+
+1,127 foods with known core macros are searchable. Unresolved parents and the
+estimate-only identity are excluded from logging through this endpoint. Broad
+parent aliases can discover linked, explicitly named variants. No AI estimate
+is silently activated by searching or logging a food.
+
+Both food-entry search screens call the local endpoint and retain library and
+Open Food Facts results. Canonical names, preparation distinctions, source
+labels and missing-nutrient notices appear in results. Local results are shown
+before slower external results; stale responses cannot replace a newer search.
+
+Deployable assets are `api/catalog-active.json` and the immutable JSON releases
+in `api/catalog-history/`. Keep historical releases: saved food IDs include their
+release hash so older logs retain the original per-nutrient provenance. The
+server resolves catalog names and nutrients from the selected release, ignoring
+client-submitted nutrient values. No database migration is required. These
+assets are included by the existing API deployment rules; generating them does
+not itself deploy the app.
+
+Run `php tools/test_food_search.php` and `node tools/test_food_search_ui.cjs` for
+source lookup, spelling/qualifier/collision behavior, immutable provenance,
+frontend parsing and simulated asynchronous search checks. The tests do not
+replace a signed-in production meal-save check.

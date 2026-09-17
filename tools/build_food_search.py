@@ -29,7 +29,7 @@ def main():
         if not key[1] or key in seen:return
         seen.add(key)
         aliases.append(dict(food_id=fid,alias=alias,source_url=url,data_status='SEARCH_ALIAS_REVIEWED',notes=reason))
-        additions.append(dict(food_id=fid,alias=alias,source_url=url,reason=reason,date='2026-09-16'))
+        additions.append(dict(food_id=fid,alias=alias,source_url=url,reason=reason,date='2026-09-17'))
     fnri=json.loads((RESEARCH/'catalog.json').read_text(encoding='utf-8'))
     official_names={}
     for fid,row in catalog.foods.items():

@@ -1637,3 +1637,984 @@ FC000146,Fish sauce,https://i.fnri.dost.gov.ph/fct/library/report/4334,SEARCH_AL
 FC000146,Patis,https://i.fnri.dost.gov.ph/fct/library/report/4334,SEARCH_ALIAS_REVIEWED,Discovery alias inherited from broad parent FC000100. Display the exact variant; never choose it automatically.
 FC000147,"Egg noodles, cooked",https://i.fnri.dost.gov.ph/fct/library,SEARCH_ALIAS_REVIEWED,Discovery alias inherited from broad parent FC000015. Display the exact variant; never choose it automatically.
 FC000147,Pancit canton noodles,https://i.fnri.dost.gov.ph/fct/library,SEARCH_ALIAS_REVIEWED,Discovery alias inherited from broad parent FC000015. Display the exact variant; never choose it automatically.
+FC000648,"Bread, cinnamon roll",https://i.fnri.dost.gov.ph/fct/library/report/2995,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000649,"Bread, hotdog roll",https://i.fnri.dost.gov.ph/fct/library/report/2996,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000650,"Bread, toasted, w/ margarine-sugar topping",https://i.fnri.dost.gov.ph/fct/library/report/2997,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000650,Biscocho,https://i.fnri.dost.gov.ph/fct/library/report/2997,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000651,"Bread, mung bean loaf",https://i.fnri.dost.gov.ph/fct/library/report/2998,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000651,Munggo bread,https://i.fnri.dost.gov.ph/fct/library/report/2998,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000652,"Bread, pan de bonete",https://i.fnri.dost.gov.ph/fct/library/report/2999,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000653,"Bread, pan de limon",https://i.fnri.dost.gov.ph/fct/library/report/3002,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000654,"Bread, raisin",https://i.fnri.dost.gov.ph/fct/library/report/3005,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000655,"Bread, rye",https://i.fnri.dost.gov.ph/fct/library/report/3006,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000656,"Bread, sweet roll w/ mung bean filling",https://i.fnri.dost.gov.ph/fct/library/report/3008,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000656,"Ensaymada, may munggo",https://i.fnri.dost.gov.ph/fct/library/report/3008,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000657,"Cake, angel food",https://i.fnri.dost.gov.ph/fct/library/report/3012,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000658,"Cake, butter",https://i.fnri.dost.gov.ph/fct/library/report/3014,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000659,"Cake, cheese cupcake",https://i.fnri.dost.gov.ph/fct/library/report/3015,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000660,"Cake, chiffon",https://i.fnri.dost.gov.ph/fct/library/report/3016,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000661,"Cake, chocolate",https://i.fnri.dost.gov.ph/fct/library/report/3017,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000662,"Cake, fruit",https://i.fnri.dost.gov.ph/fct/library/report/3019,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000663,"Cake, mamon, toasted",https://i.fnri.dost.gov.ph/fct/library/report/3023,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000664,"Cake, sponge",https://i.fnri.dost.gov.ph/fct/library/report/3027,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000665,"Cookies, apas",https://i.fnri.dost.gov.ph/fct/library/report/3045,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000666,"Cookies, arrowroot",https://i.fnri.dost.gov.ph/fct/library/report/3046,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000666,Uraro/Araro cookies,https://i.fnri.dost.gov.ph/fct/library/report/3046,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000667,"Cookies, brownies",https://i.fnri.dost.gov.ph/fct/library/report/3048,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000668,"Cookies, butter",https://i.fnri.dost.gov.ph/fct/library/report/3049,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000669,"Cookies, jacobina special",https://i.fnri.dost.gov.ph/fct/library/report/3052,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000670,"Cookies, lady finger",https://i.fnri.dost.gov.ph/fct/library/report/3053,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000670,Brohas,https://i.fnri.dost.gov.ph/fct/library/report/3053,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000671,"Cookies, marie",https://i.fnri.dost.gov.ph/fct/library/report/3054,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000672,"Cookies, ogoy-ogoy",https://i.fnri.dost.gov.ph/fct/library/report/3055,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000673,"Cookies, pasencia",https://i.fnri.dost.gov.ph/fct/library/report/3057,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000673,Pacencia/Paciencia,https://i.fnri.dost.gov.ph/fct/library/report/3057,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000674,"Cookies, pilipit",https://i.fnri.dost.gov.ph/fct/library/report/3059,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000675,"Cookies, polvoron",https://i.fnri.dost.gov.ph/fct/library/report/3060,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000676,"Corn flakes, enr",https://i.fnri.dost.gov.ph/fct/library/report/3065,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000677,Corn pudding,https://i.fnri.dost.gov.ph/fct/library/report/3066,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000677,Maja blanca,https://i.fnri.dost.gov.ph/fct/library/report/3066,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000678,"Corn pudding, maja, yellow",https://i.fnri.dost.gov.ph/fct/library/report/3068,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000678,"Maja, mais",https://i.fnri.dost.gov.ph/fct/library/report/3068,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000679,"Corn, fried, seasoned",https://i.fnri.dost.gov.ph/fct/library/report/3070,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000679,Kornik,https://i.fnri.dost.gov.ph/fct/library/report/3070,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000680,"Corn, whole kernel, cnd",https://i.fnri.dost.gov.ph/fct/library/report/3071,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000680,"Mais butil, de lata",https://i.fnri.dost.gov.ph/fct/library/report/3071,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000681,Cornstarch,https://i.fnri.dost.gov.ph/fct/library/report/3072,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000682,"Cracker, egg",https://i.fnri.dost.gov.ph/fct/library/report/3073,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000682,Galyetas de patatas,https://i.fnri.dost.gov.ph/fct/library/report/3073,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000683,"Cracker, graham, honey-flvr",https://i.fnri.dost.gov.ph/fct/library/report/3074,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000684,"Cracker, plain",https://i.fnri.dost.gov.ph/fct/library/report/3075,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000685,"Cracker, salted",https://i.fnri.dost.gov.ph/fct/library/report/3076,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000686,"Cracker, salted, round",https://i.fnri.dost.gov.ph/fct/library/report/3077,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000687,Cream puff,https://i.fnri.dost.gov.ph/fct/library/report/3078,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000688,"Doughnut, fried, w/ sugar",https://i.fnri.dost.gov.ph/fct/library/report/3086,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000688,"Donut, prito, may asukal",https://i.fnri.dost.gov.ph/fct/library/report/3086,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000689,"Noodles, rice",https://i.fnri.dost.gov.ph/fct/library/report/3099,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000689,Bihon,https://i.fnri.dost.gov.ph/fct/library/report/3099,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000690,"Noodles, wheat, mami, fresh",https://i.fnri.dost.gov.ph/fct/library/report/3103,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000690,"Mami, sariwa",https://i.fnri.dost.gov.ph/fct/library/report/3103,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000691,"Noodles, wheat, inst, w/ flvr",https://i.fnri.dost.gov.ph/fct/library/report/3104,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000691,"Mami, inst, may pampalasa",https://i.fnri.dost.gov.ph/fct/library/report/3104,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000692,"Noodles, wheat, thin",https://i.fnri.dost.gov.ph/fct/library/report/3106,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000692,Misua/Miswa,https://i.fnri.dost.gov.ph/fct/library/report/3106,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000693,"Noodles, wheat, miki, dry",https://i.fnri.dost.gov.ph/fct/library/report/3108,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000693,"Miki, tuyo",https://i.fnri.dost.gov.ph/fct/library/report/3108,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000694,Pancake,https://i.fnri.dost.gov.ph/fct/library/report/3113,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000694,Hotcake,https://i.fnri.dost.gov.ph/fct/library/report/3113,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000695,"Popcorn, salted",https://i.fnri.dost.gov.ph/fct/library/report/3118,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000696,"Popcorn, sweetn",https://i.fnri.dost.gov.ph/fct/library/report/3119,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000697,"Rice cake (glutinous), biko, w/ grtd coconut topping",https://i.fnri.dost.gov.ph/fct/library/report/3131,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000697,"Biko/Sinukmani, may niyog",https://i.fnri.dost.gov.ph/fct/library/report/3131,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000698,"Rice cake (glutinous), biko, w/ purple rice",https://i.fnri.dost.gov.ph/fct/library/report/3132,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000698,"Biko, may pirurutong",https://i.fnri.dost.gov.ph/fct/library/report/3132,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000699,"Rice cake (glutinous), Chinese, tikoy",https://i.fnri.dost.gov.ph/fct/library/report/3133,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000699,Tikoy,https://i.fnri.dost.gov.ph/fct/library/report/3133,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000700,"Rice cake (glutinous), Chinese, tikoy, w/ peanut",https://i.fnri.dost.gov.ph/fct/library/report/3134,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000700,"Tikoy, may mani",https://i.fnri.dost.gov.ph/fct/library/report/3134,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000701,"Rice cake, bibingka, w/ cheese & coconut topping",https://i.fnri.dost.gov.ph/fct/library/report/3136,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000701,"Bibingkang galapong, may keso at  niyog",https://i.fnri.dost.gov.ph/fct/library/report/3136,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000702,"Rice cake, puto, brown",https://i.fnri.dost.gov.ph/fct/library/report/3138,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000702,"Puto, brown",https://i.fnri.dost.gov.ph/fct/library/report/3138,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000703,"Rice cake, puto, white, w/ grtd coconut topping",https://i.fnri.dost.gov.ph/fct/library/report/3140,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000703,"Puto puti, may niyog",https://i.fnri.dost.gov.ph/fct/library/report/3140,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000704,"Rice cake, cuchinta, w/ grtd coconut topping",https://i.fnri.dost.gov.ph/fct/library/report/3142,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000704,"Cuchinta/Kutsinta, may niyog",https://i.fnri.dost.gov.ph/fct/library/report/3142,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000705,Rice flour,https://i.fnri.dost.gov.ph/fct/library/report/3143,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000705,"Arina, bigas",https://i.fnri.dost.gov.ph/fct/library/report/3143,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000706,"Rice flour prep, tamales",https://i.fnri.dost.gov.ph/fct/library/report/3144,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000706,Tamales,https://i.fnri.dost.gov.ph/fct/library/report/3144,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000707,"Rice gruel, thin",https://i.fnri.dost.gov.ph/fct/library/report/3145,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000707,"Lugaw, malabnaw",https://i.fnri.dost.gov.ph/fct/library/report/3145,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000708,"Rice prep (glutinous), butse, w/ mung bean filling",https://i.fnri.dost.gov.ph/fct/library/report/3146,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000708,"Butse/Buchi, munggo",https://i.fnri.dost.gov.ph/fct/library/report/3146,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000709,"Rice prep (glutinous), butse, w/ sweet potato filling",https://i.fnri.dost.gov.ph/fct/library/report/3147,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000709,"Butse/Buchi, kamote",https://i.fnri.dost.gov.ph/fct/library/report/3147,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000710,"Rice prep (glutinous), kalamay, w/ coconut curd topping",https://i.fnri.dost.gov.ph/fct/library/report/3148,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000710,"Kalamay, may latik",https://i.fnri.dost.gov.ph/fct/library/report/3148,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000711,"Rice prep (glutinous), kalamay, w/ yam",https://i.fnri.dost.gov.ph/fct/library/report/3149,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000711,"Kalamay, ube",https://i.fnri.dost.gov.ph/fct/library/report/3149,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000712,"Rice prep (glutinous), palitaw, w/ grtd  coconut & sugar",https://i.fnri.dost.gov.ph/fct/library/report/3151,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000712,"Palitaw, may niyog at asukal",https://i.fnri.dost.gov.ph/fct/library/report/3151,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000713,"Rice prep (glutinous), suman, w/ grtd coconut topping",https://i.fnri.dost.gov.ph/fct/library/report/3155,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000713,"Suman maruwekos, may niyog",https://i.fnri.dost.gov.ph/fct/library/report/3155,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000714,"Rice prep (glutinous), tupig",https://i.fnri.dost.gov.ph/fct/library/report/3156,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000714,Tupig,https://i.fnri.dost.gov.ph/fct/library/report/3156,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000715,"Rice prep, espasol",https://i.fnri.dost.gov.ph/fct/library/report/3157,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000715,Espasol,https://i.fnri.dost.gov.ph/fct/library/report/3157,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000716,"Rice, crispies",https://i.fnri.dost.gov.ph/fct/library/report/3159,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000717,"Rice-bread prep, toasted, puto seko",https://i.fnri.dost.gov.ph/fct/library/report/3160,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000717,Puto seko,https://i.fnri.dost.gov.ph/fct/library/report/3160,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000718,"Wheat flour, all-purpose, enr, bleached",https://i.fnri.dost.gov.ph/fct/library/report/3164,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000718,"Arina trigo, all-purpose, enr, pinaputi",https://i.fnri.dost.gov.ph/fct/library/report/3164,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000719,"Wheat flour, cake flour, enr, bleached",https://i.fnri.dost.gov.ph/fct/library/report/3165,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000719,"Arina trigo, cake, enr, pinaputi",https://i.fnri.dost.gov.ph/fct/library/report/3165,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000720,"Instant noodles, chicken flvr, raw",https://i.fnri.dost.gov.ph/fct/library/report/3166,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000721,"Instant noodles, chicken flvr, ckd",https://i.fnri.dost.gov.ph/fct/library/report/3167,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000722,Job's tears grain,https://i.fnri.dost.gov.ph/fct/library/report/2970,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000722,Adlay/Tigbe butil,https://i.fnri.dost.gov.ph/fct/library/report/2970,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000723,"Yam, Luzon",https://i.fnri.dost.gov.ph/fct/library/report/3185,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000723,Pakit/Kamangeg,https://i.fnri.dost.gov.ph/fct/library/report/3185,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000724,"Yam, spiny",https://i.fnri.dost.gov.ph/fct/library/report/3189,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000724,Tugi/Lesser yam,https://i.fnri.dost.gov.ph/fct/library/report/3189,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000725,"Yam, spiny, boiled",https://i.fnri.dost.gov.ph/fct/library/report/3190,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000725,"Tugi/Lesser yam, nilaga",https://i.fnri.dost.gov.ph/fct/library/report/3190,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000726,Arrowroot starch,https://i.fnri.dost.gov.ph/fct/library/report/3192,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000726,Uraro starch,https://i.fnri.dost.gov.ph/fct/library/report/3192,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000727,East Indian arrowroot starch,https://i.fnri.dost.gov.ph/fct/library/report/3199,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000727,Yabyaban starch,https://i.fnri.dost.gov.ph/fct/library/report/3199,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000728,"Yacon tuber, raw",https://i.fnri.dost.gov.ph/fct/library/report/3209,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000728,Peruvian ground apple,https://i.fnri.dost.gov.ph/fct/library/report/3209,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000729,East Indian arrowroot,https://i.fnri.dost.gov.ph/fct/library/report/3171,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000729,Yabyaban,https://i.fnri.dost.gov.ph/fct/library/report/3171,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000730,Palauan,https://i.fnri.dost.gov.ph/fct/library/report/3173,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000730,Galiang/Swamp taro,https://i.fnri.dost.gov.ph/fct/library/report/3173,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000731,"Chestnut, roasted",https://i.fnri.dost.gov.ph/fct/library/report/3213,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000731,"Kastanyas, binusa",https://i.fnri.dost.gov.ph/fct/library/report/3213,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000732,Coconut sport,https://i.fnri.dost.gov.ph/fct/library/report/3219,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000732,Makapuno,https://i.fnri.dost.gov.ph/fct/library/report/3219,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000733,"Cowpea seed, dried",https://i.fnri.dost.gov.ph/fct/library/report/3220,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000733,"Paayap buto, tuyo",https://i.fnri.dost.gov.ph/fct/library/report/3220,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000734,"Kidney bean seed, black, dried",https://i.fnri.dost.gov.ph/fct/library/report/3228,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000734,"Abitsuwelas buto, itim, tuyo",https://i.fnri.dost.gov.ph/fct/library/report/3228,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000735,"Kidney bean seed, white, dried",https://i.fnri.dost.gov.ph/fct/library/report/3232,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000735,"Abitsuwelas buto, puti, tuyo",https://i.fnri.dost.gov.ph/fct/library/report/3232,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000736,"Kidney bean seed, white, dried, boiled",https://i.fnri.dost.gov.ph/fct/library/report/3233,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000736,"Abitsuwelas buto, puti, tuyo, nilaga",https://i.fnri.dost.gov.ph/fct/library/report/3233,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000737,"Lima bean seed, dried",https://i.fnri.dost.gov.ph/fct/library/report/3234,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000737,"Patani buto, tuyo",https://i.fnri.dost.gov.ph/fct/library/report/3234,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000738,"Mung bean seed, red, dried",https://i.fnri.dost.gov.ph/fct/library/report/3239,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000738,"Munggo buto, pula, tuyo",https://i.fnri.dost.gov.ph/fct/library/report/3239,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000739,"Mung bean seed, red, dried, boiled",https://i.fnri.dost.gov.ph/fct/library/report/3240,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000739,"Munggo buto, pula, tuyo, nilaga",https://i.fnri.dost.gov.ph/fct/library/report/3240,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000740,"Mung bean seed, yellow, dried",https://i.fnri.dost.gov.ph/fct/library/report/3241,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000740,"Munggo buto, dilaw, tuyo",https://i.fnri.dost.gov.ph/fct/library/report/3241,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000741,"Mung bean seed, yellow, dried, boiled",https://i.fnri.dost.gov.ph/fct/library/report/3242,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000741,"Munggo buto, dilaw, tuyo, nilaga",https://i.fnri.dost.gov.ph/fct/library/report/3242,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000742,Peanut w/ shell,https://i.fnri.dost.gov.ph/fct/library/report/3244,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000742,"Mani, may balat",https://i.fnri.dost.gov.ph/fct/library/report/3244,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000743,Peanut w/o skin,https://i.fnri.dost.gov.ph/fct/library/report/3247,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000743,"Mani, walang balok",https://i.fnri.dost.gov.ph/fct/library/report/3247,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000744,"Pigeon pea seed, dried",https://i.fnri.dost.gov.ph/fct/library/report/3249,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000744,"Kadyos buto, tuyo",https://i.fnri.dost.gov.ph/fct/library/report/3249,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000745,"Pigeon pea seed, dried, boiled",https://i.fnri.dost.gov.ph/fct/library/report/3250,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000745,"Kadyos buto, tuyo, nilaga",https://i.fnri.dost.gov.ph/fct/library/report/3250,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000746,"Rice bean seed, dried",https://i.fnri.dost.gov.ph/fct/library/report/3252,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000746,"Tapilan buto, tuyo",https://i.fnri.dost.gov.ph/fct/library/report/3252,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000747,"Soybean seed, black, dried",https://i.fnri.dost.gov.ph/fct/library/report/3255,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000747,"Utaw buto, itim, tuyo",https://i.fnri.dost.gov.ph/fct/library/report/3255,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000748,"Soybean seed, black, dried, boiled",https://i.fnri.dost.gov.ph/fct/library/report/3256,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000748,"Utaw buto, itim, tuyo, nilaga",https://i.fnri.dost.gov.ph/fct/library/report/3256,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000749,"Soybean seed, yellow, dried",https://i.fnri.dost.gov.ph/fct/library/report/3257,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000749,"Utaw buto, dilaw, tuyo",https://i.fnri.dost.gov.ph/fct/library/report/3257,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000750,"String/Yard long bean seed, dried",https://i.fnri.dost.gov.ph/fct/library/report/3259,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000750,"Sitaw buto, tuyo",https://i.fnri.dost.gov.ph/fct/library/report/3259,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000751,"Coconut chip, toasted, sweetn",https://i.fnri.dost.gov.ph/fct/library/report/3262,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000752,"Coconut, cream curd",https://i.fnri.dost.gov.ph/fct/library/report/3263,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000752,Latik,https://i.fnri.dost.gov.ph/fct/library/report/3263,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000753,"Green pea, dried, fried & seasoned",https://i.fnri.dost.gov.ph/fct/library/report/3264,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000753,"Gisantes, tuyo, prito, tinimpla",https://i.fnri.dost.gov.ph/fct/library/report/3264,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000754,"Green pea-corn-peanut mixture, fried",https://i.fnri.dost.gov.ph/fct/library/report/3266,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000755,"Lima bean, fried & seasoned",https://i.fnri.dost.gov.ph/fct/library/report/3267,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000755,"Patani, prito, may timpla",https://i.fnri.dost.gov.ph/fct/library/report/3267,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000756,Beet,https://i.fnri.dost.gov.ph/fct/library/report/3295,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000756,Remolacha,https://i.fnri.dost.gov.ph/fct/library/report/3295,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000757,"Beet, boiled",https://i.fnri.dost.gov.ph/fct/library/report/3296,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000757,"Remolacha, nilaga",https://i.fnri.dost.gov.ph/fct/library/report/3296,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000758,Breadfruit fruit,https://i.fnri.dost.gov.ph/fct/library/report/3308,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000758,Rimas bunga,https://i.fnri.dost.gov.ph/fct/library/report/3308,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000759,Celery lvs & petioles,https://i.fnri.dost.gov.ph/fct/library/report/3326,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000759,Baguio celery dahon at tangkay,https://i.fnri.dost.gov.ph/fct/library/report/3326,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000760,"Celery, Chinese, lvs & petioles",https://i.fnri.dost.gov.ph/fct/library/report/3327,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000760,Kinchay dahon at tangkay/Leaf celery,https://i.fnri.dost.gov.ph/fct/library/report/3327,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000761,Chayote lvs,https://i.fnri.dost.gov.ph/fct/library/report/3331,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000761,Sayote dahon/Vegetable pear lvs,https://i.fnri.dost.gov.ph/fct/library/report/3331,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000762,Coriander lvs,https://i.fnri.dost.gov.ph/fct/library/report/3339,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000762,Cilantro/Wansoy dahon,https://i.fnri.dost.gov.ph/fct/library/report/3339,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000763,Cowpea pod,https://i.fnri.dost.gov.ph/fct/library/report/3342,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000763,Paayap bunga,https://i.fnri.dost.gov.ph/fct/library/report/3342,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000764,"Cowpea pod, boiled",https://i.fnri.dost.gov.ph/fct/library/report/3343,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000764,"Paayap bunga, nilaga",https://i.fnri.dost.gov.ph/fct/library/report/3343,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000765,"Cowpea seed, fresh",https://i.fnri.dost.gov.ph/fct/library/report/3344,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000765,"Paayap buto, sariwa",https://i.fnri.dost.gov.ph/fct/library/report/3344,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000766,Endive lvs,https://i.fnri.dost.gov.ph/fct/library/report/3354,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000766,Eskarola dahon,https://i.fnri.dost.gov.ph/fct/library/report/3354,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000767,Garlic lvs,https://i.fnri.dost.gov.ph/fct/library/report/3364,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000767,Bawang dahon,https://i.fnri.dost.gov.ph/fct/library/report/3364,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000768,Garlic lvs & bulb,https://i.fnri.dost.gov.ph/fct/library/report/3366,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000768,Bawang dahon at ulo,https://i.fnri.dost.gov.ph/fct/library/report/3366,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000769,"Horseradish tree lvs, dwarf",https://i.fnri.dost.gov.ph/fct/library/report/3375,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000769,"Malunggay dahon, unano",https://i.fnri.dost.gov.ph/fct/library/report/3375,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000770,"Horseradish tree lvs, Japanese",https://i.fnri.dost.gov.ph/fct/library/report/3377,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000770,"Malunggay dahon, Hapon",https://i.fnri.dost.gov.ph/fct/library/report/3377,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000771,Horseradish tree pod,https://i.fnri.dost.gov.ph/fct/library/report/3379,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000771,Malunggay bunga,https://i.fnri.dost.gov.ph/fct/library/report/3379,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000772,Jackfruit seed,https://i.fnri.dost.gov.ph/fct/library/report/3384,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000772,Langka buto,https://i.fnri.dost.gov.ph/fct/library/report/3384,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000773,Chinese leek lvs,https://i.fnri.dost.gov.ph/fct/library/report/3392,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000773,Kutsay dahon/Chinese chives lvs,https://i.fnri.dost.gov.ph/fct/library/report/3392,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000774,Lima bean pod,https://i.fnri.dost.gov.ph/fct/library/report/3397,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000774,Patani bunga,https://i.fnri.dost.gov.ph/fct/library/report/3397,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000775,"Lima bean pod, boiled",https://i.fnri.dost.gov.ph/fct/library/report/3398,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000775,"Patani bunga, nilaga",https://i.fnri.dost.gov.ph/fct/library/report/3398,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000776,Malabar nightshade lvs,https://i.fnri.dost.gov.ph/fct/library/report/3400,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000776,Alugbati dahon/Spinach vine lvs,https://i.fnri.dost.gov.ph/fct/library/report/3400,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000777,"Malabar nightshade lvs, boiled",https://i.fnri.dost.gov.ph/fct/library/report/3401,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000777,"Alugbati dahon, nilaga",https://i.fnri.dost.gov.ph/fct/library/report/3401,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000778,Marrow-stem kale lvs and stems,https://i.fnri.dost.gov.ph/fct/library/report/3405,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000778,Kales dahon at tangkay,https://i.fnri.dost.gov.ph/fct/library/report/3405,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000779,"Mung bean seed, fresh",https://i.fnri.dost.gov.ph/fct/library/report/3409,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000779,"Munggo buto, sariwa",https://i.fnri.dost.gov.ph/fct/library/report/3409,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000780,New Zealand spinach lvs,https://i.fnri.dost.gov.ph/fct/library/report/3416,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000780,Ispinaka dahon,https://i.fnri.dost.gov.ph/fct/library/report/3416,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000781,"New Zealand spinach lvs, boiled",https://i.fnri.dost.gov.ph/fct/library/report/3417,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000781,"Ispinaka dahon, nilaga",https://i.fnri.dost.gov.ph/fct/library/report/3417,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000782,"Onion, garden shallot lvs",https://i.fnri.dost.gov.ph/fct/library/report/3424,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000782,"Sibuyas, Tagalog, dahon",https://i.fnri.dost.gov.ph/fct/library/report/3424,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000783,Parsley lvs,https://i.fnri.dost.gov.ph/fct/library/report/3438,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000784,"Pepper, chili lvs",https://i.fnri.dost.gov.ph/fct/library/report/3444,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000784,"Sili, labuyo, dahon",https://i.fnri.dost.gov.ph/fct/library/report/3444,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000785,"Pepper, sweet/bell, round, green",https://i.fnri.dost.gov.ph/fct/library/report/3449,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000785,"Sili, sweet/bell, bilog, berde",https://i.fnri.dost.gov.ph/fct/library/report/3449,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000786,"Pepper, sweet/bell, round, red",https://i.fnri.dost.gov.ph/fct/library/report/3451,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000786,"Sili, sweet/bell, bilog, pula",https://i.fnri.dost.gov.ph/fct/library/report/3451,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000787,Philippine spinach lvs,https://i.fnri.dost.gov.ph/fct/library/report/3452,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000787,Talinum dahon/Ceylon spinach lvs,https://i.fnri.dost.gov.ph/fct/library/report/3452,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000788,"Philippine spinach lvs, boiled",https://i.fnri.dost.gov.ph/fct/library/report/3453,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000788,"Talinum dahon, nilaga/Ceylon spinach lvs, boiled",https://i.fnri.dost.gov.ph/fct/library/report/3453,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000789,Pigeon pea pod,https://i.fnri.dost.gov.ph/fct/library/report/3454,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000789,Kadyos bunga,https://i.fnri.dost.gov.ph/fct/library/report/3454,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000790,"Pigeon pea pod, boiled",https://i.fnri.dost.gov.ph/fct/library/report/3455,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000790,"Kadyos bunga, nilaga",https://i.fnri.dost.gov.ph/fct/library/report/3455,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000791,"Pigeon pea seed, fresh",https://i.fnri.dost.gov.ph/fct/library/report/3456,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000791,"Kadyos buto, sariwa",https://i.fnri.dost.gov.ph/fct/library/report/3456,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000792,Purslane lvs,https://i.fnri.dost.gov.ph/fct/library/report/3459,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000792,Olasiman dahon,https://i.fnri.dost.gov.ph/fct/library/report/3459,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000793,"Purslane lvs, boiled",https://i.fnri.dost.gov.ph/fct/library/report/3460,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000793,"Olasiman dahon, nilaga",https://i.fnri.dost.gov.ph/fct/library/report/3460,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000794,"Radish, pod",https://i.fnri.dost.gov.ph/fct/library/report/3464,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000794,"Labanos/Rabanos, bunga",https://i.fnri.dost.gov.ph/fct/library/report/3464,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000795,"Seaweed, gamet, dried",https://i.fnri.dost.gov.ph/fct/library/report/3472,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000795,"Gamet, tuyo",https://i.fnri.dost.gov.ph/fct/library/report/3472,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000796,"Seaweed, pokpoklo",https://i.fnri.dost.gov.ph/fct/library/report/3477,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000796,Pokpoklo,https://i.fnri.dost.gov.ph/fct/library/report/3477,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000797,Sesbania flower,https://i.fnri.dost.gov.ph/fct/library/report/3478,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000797,Katuray bulaklak,https://i.fnri.dost.gov.ph/fct/library/report/3478,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000798,"Sesbania flower, boiled",https://i.fnri.dost.gov.ph/fct/library/report/3479,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000798,"Katuray bulaklak, nilaga",https://i.fnri.dost.gov.ph/fct/library/report/3479,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000799,Slender/Spineless amaranth lvs,https://i.fnri.dost.gov.ph/fct/library/report/3482,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000799,Kulitis dahon,https://i.fnri.dost.gov.ph/fct/library/report/3482,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000800,"Slender/Spineless amaranth lvs, boiled",https://i.fnri.dost.gov.ph/fct/library/report/3483,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000800,"Kulitis dahon, nilaga",https://i.fnri.dost.gov.ph/fct/library/report/3483,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000801,Snake gourd fruit,https://i.fnri.dost.gov.ph/fct/library/report/3484,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000801,Pakupis bunga,https://i.fnri.dost.gov.ph/fct/library/report/3484,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000802,"Snap bean pod, white",https://i.fnri.dost.gov.ph/fct/library/report/3487,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000802,"Abitsuwelas/Baguio beans bunga, puti",https://i.fnri.dost.gov.ph/fct/library/report/3487,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000803,"Soybean seed, fresh",https://i.fnri.dost.gov.ph/fct/library/report/3492,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000803,"Utaw buto, sariwa",https://i.fnri.dost.gov.ph/fct/library/report/3492,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000804,"Soybean seed, fresh, boiled",https://i.fnri.dost.gov.ph/fct/library/report/3493,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000804,"Utaw buto, sariwa, nilaga",https://i.fnri.dost.gov.ph/fct/library/report/3493,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000805,Sponge gourd lvs,https://i.fnri.dost.gov.ph/fct/library/report/3500,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000805,Patola dahon,https://i.fnri.dost.gov.ph/fct/library/report/3500,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000806,"Squash, summer fruit",https://i.fnri.dost.gov.ph/fct/library/report/3508,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000806,"Kalabasa bunga, puti",https://i.fnri.dost.gov.ph/fct/library/report/3508,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000807,String/Yard long bean lvs,https://i.fnri.dost.gov.ph/fct/library/report/3509,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000807,Sitaw talbos,https://i.fnri.dost.gov.ph/fct/library/report/3509,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000808,"String/Yard long bean seed, green, fresh",https://i.fnri.dost.gov.ph/fct/library/report/3517,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000808,"Sitaw buto, berde, sariwa",https://i.fnri.dost.gov.ph/fct/library/report/3517,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000809,"Tomato, Spanish, ripe",https://i.fnri.dost.gov.ph/fct/library/report/3538,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000809,"Kamatis, Kastila, hinog",https://i.fnri.dost.gov.ph/fct/library/report/3538,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000810,Water chestnut,https://i.fnri.dost.gov.ph/fct/library/report/3543,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000810,Apulid lamang-ugat,https://i.fnri.dost.gov.ph/fct/library/report/3543,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000811,"Water chestnut, boiled",https://i.fnri.dost.gov.ph/fct/library/report/3544,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000811,"Apulid lamang-ugat, nilaga",https://i.fnri.dost.gov.ph/fct/library/report/3544,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000812,Watercress,https://i.fnri.dost.gov.ph/fct/library/report/3547,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000812,Tonghoy,https://i.fnri.dost.gov.ph/fct/library/report/3547,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000813,Wax gourd fruit,https://i.fnri.dost.gov.ph/fct/library/report/3548,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000813,Kundol bunga,https://i.fnri.dost.gov.ph/fct/library/report/3548,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000814,"Wax gourd fruit, boiled",https://i.fnri.dost.gov.ph/fct/library/report/3549,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000814,"Kundol bunga, nilaga",https://i.fnri.dost.gov.ph/fct/library/report/3549,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000815,"Asparagus, cnd",https://i.fnri.dost.gov.ph/fct/library/report/3553,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000816,"Bamboo shoot, cnd",https://i.fnri.dost.gov.ph/fct/library/report/3554,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000816,"Labong, de lata",https://i.fnri.dost.gov.ph/fct/library/report/3554,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000817,"Bamboo shoot, dried",https://i.fnri.dost.gov.ph/fct/library/report/3555,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000817,"Labong, tuyo",https://i.fnri.dost.gov.ph/fct/library/report/3555,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000818,"Black wood ear mushroom, dried",https://i.fnri.dost.gov.ph/fct/library/report/3556,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000818,"Tengang daga, tuyo",https://i.fnri.dost.gov.ph/fct/library/report/3556,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000819,"Cucumber, salted, cnd",https://i.fnri.dost.gov.ph/fct/library/report/3557,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000819,"Pipino, inasnan, de lata",https://i.fnri.dost.gov.ph/fct/library/report/3557,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000820,"Mushroom, dried",https://i.fnri.dost.gov.ph/fct/library/report/3559,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000820,"Kabuti, tuyo",https://i.fnri.dost.gov.ph/fct/library/report/3559,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000821,Bignay,https://i.fnri.dost.gov.ph/fct/library/report/3600,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000821,Bugnay/Salamander tree fruit,https://i.fnri.dost.gov.ph/fct/library/report/3600,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000822,Bilimbi,https://i.fnri.dost.gov.ph/fct/library/report/3601,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000822,Kamyas/Kamias/Kalamyas,https://i.fnri.dost.gov.ph/fct/library/report/3601,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000823,Black/Java plum,https://i.fnri.dost.gov.ph/fct/library/report/3602,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000823,Duhat/Jambolan,https://i.fnri.dost.gov.ph/fct/library/report/3602,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000824,Canistel,https://i.fnri.dost.gov.ph/fct/library/report/3606,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000824,Tiesa/Eggfruit,https://i.fnri.dost.gov.ph/fct/library/report/3606,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000825,Cashew fruit,https://i.fnri.dost.gov.ph/fct/library/report/3607,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000825,Kasuy bunga,https://i.fnri.dost.gov.ph/fct/library/report/3607,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000826,Durian,https://i.fnri.dost.gov.ph/fct/library/report/3610,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000827,Jamaica cherry,https://i.fnri.dost.gov.ph/fct/library/report/3617,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000827,Datiles/Aratiles,https://i.fnri.dost.gov.ph/fct/library/report/3617,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000828,Jujube Indian/Chinese date,https://i.fnri.dost.gov.ph/fct/library/report/3618,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000828,Mansanitas,https://i.fnri.dost.gov.ph/fct/library/report/3618,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000829,Kaffir lime,https://i.fnri.dost.gov.ph/fct/library/report/3619,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000829,Kabuyaw,https://i.fnri.dost.gov.ph/fct/library/report/3619,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000830,Lemon,https://i.fnri.dost.gov.ph/fct/library/report/3622,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000830,Limon,https://i.fnri.dost.gov.ph/fct/library/report/3622,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000831,Lime,https://i.fnri.dost.gov.ph/fct/library/report/3624,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000831,Dayap/Key lime,https://i.fnri.dost.gov.ph/fct/library/report/3624,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000832,"Persimmon, kaki",https://i.fnri.dost.gov.ph/fct/library/report/3653,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000832,Asian persimmon,https://i.fnri.dost.gov.ph/fct/library/report/3653,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000833,Pomegranate,https://i.fnri.dost.gov.ph/fct/library/report/3656,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000833,Granada,https://i.fnri.dost.gov.ph/fct/library/report/3656,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000834,Sapodilla,https://i.fnri.dost.gov.ph/fct/library/report/3661,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000834,Chico,https://i.fnri.dost.gov.ph/fct/library/report/3661,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000835,Sapote,https://i.fnri.dost.gov.ph/fct/library/report/3662,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000835,Ebony persimmon,https://i.fnri.dost.gov.ph/fct/library/report/3662,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000836,Spanish plum,https://i.fnri.dost.gov.ph/fct/library/report/3666,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000836,Siniguwelas,https://i.fnri.dost.gov.ph/fct/library/report/3666,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000837,Starfruit,https://i.fnri.dost.gov.ph/fct/library/report/3669,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000837,Balimbing,https://i.fnri.dost.gov.ph/fct/library/report/3669,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000838,Sugar palm,https://i.fnri.dost.gov.ph/fct/library/report/3672,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000838,Kaong,https://i.fnri.dost.gov.ph/fct/library/report/3672,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000839,"Sugar palm, boiled",https://i.fnri.dost.gov.ph/fct/library/report/3673,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000839,"Kaong, nilaga",https://i.fnri.dost.gov.ph/fct/library/report/3673,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000840,"Banana chips, salted",https://i.fnri.dost.gov.ph/fct/library/report/3678,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000841,"Banana chips, sweetn",https://i.fnri.dost.gov.ph/fct/library/report/3679,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000842,Banana fritter,https://i.fnri.dost.gov.ph/fct/library/report/3681,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000842,"Maruya, saging",https://i.fnri.dost.gov.ph/fct/library/report/3681,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000843,"Banana, saba, mashed, w/ sugar & marg",https://i.fnri.dost.gov.ph/fct/library/report/3682,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000843,"Linupak, saging saba",https://i.fnri.dost.gov.ph/fct/library/report/3682,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000844,"Bilimbi, pickled",https://i.fnri.dost.gov.ph/fct/library/report/3685,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000844,"Kamias, buro",https://i.fnri.dost.gov.ph/fct/library/report/3685,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000845,"Cherry, in syrup, drnd",https://i.fnri.dost.gov.ph/fct/library/report/3686,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000846,"Date, dried",https://i.fnri.dost.gov.ph/fct/library/report/3687,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000847,"Fruit cocktail, tropical, in syrup, cnd",https://i.fnri.dost.gov.ph/fct/library/report/3689,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000848,"Jujube Indian/Chinese date, dried",https://i.fnri.dost.gov.ph/fct/library/report/3690,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000848,"Mansanitas, tuyo",https://i.fnri.dost.gov.ph/fct/library/report/3690,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000849,"Mango chips, dried",https://i.fnri.dost.gov.ph/fct/library/report/3691,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000850,"Peach, in heavy syrup, cnd",https://i.fnri.dost.gov.ph/fct/library/report/3692,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000850,"Milokoton, hiniwa, may arnibal, nakalata",https://i.fnri.dost.gov.ph/fct/library/report/3692,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000851,"Pineapple, crushed, cnd",https://i.fnri.dost.gov.ph/fct/library/report/3695,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000852,"Pineapple, slice, cnd",https://i.fnri.dost.gov.ph/fct/library/report/3696,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000853,Prune,https://i.fnri.dost.gov.ph/fct/library/report/3697,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000854,Raisin,https://i.fnri.dost.gov.ph/fct/library/report/3698,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000854,Pasas,https://i.fnri.dost.gov.ph/fct/library/report/3698,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000855,Dragon fruit,https://i.fnri.dost.gov.ph/fct/library/report/3699,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000855,Pitaya,https://i.fnri.dost.gov.ph/fct/library/report/3699,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000856,Carabeef chuck,https://i.fnri.dost.gov.ph/fct/library/report/3761,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000856,Kalabaw paypay,https://i.fnri.dost.gov.ph/fct/library/report/3761,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000857,Carabeef lean meat,https://i.fnri.dost.gov.ph/fct/library/report/3766,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000857,Kalabaw laman,https://i.fnri.dost.gov.ph/fct/library/report/3766,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000858,"Carabeef lean meat, boiled",https://i.fnri.dost.gov.ph/fct/library/report/3767,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000858,"Kalabaw laman, nilaga",https://i.fnri.dost.gov.ph/fct/library/report/3767,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000859,Carabeef round,https://i.fnri.dost.gov.ph/fct/library/report/3772,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000859,Kalabaw hita,https://i.fnri.dost.gov.ph/fct/library/report/3772,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000860,Carabeef round steak,https://i.fnri.dost.gov.ph/fct/library/report/3773,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000860,Kalabaw pierna corta at pierna larga,https://i.fnri.dost.gov.ph/fct/library/report/3773,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000861,Carabeef rump,https://i.fnri.dost.gov.ph/fct/library/report/3774,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000861,Kalabaw tapadera,https://i.fnri.dost.gov.ph/fct/library/report/3774,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000862,Carabeef shank,https://i.fnri.dost.gov.ph/fct/library/report/3775,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000862,Kalabaw kenchi,https://i.fnri.dost.gov.ph/fct/library/report/3775,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000863,Carabeef w/ fat,https://i.fnri.dost.gov.ph/fct/library/report/3778,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000863,"Kalabaw laman, may taba",https://i.fnri.dost.gov.ph/fct/library/report/3778,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000864,"Carabeef w/ fat, boiled",https://i.fnri.dost.gov.ph/fct/library/report/3779,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000864,"Kalabaw laman, may taba, nilaga",https://i.fnri.dost.gov.ph/fct/library/report/3779,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000865,Chevon back,https://i.fnri.dost.gov.ph/fct/library/report/3782,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000865,Kambing likod,https://i.fnri.dost.gov.ph/fct/library/report/3782,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000866,Chevon breast,https://i.fnri.dost.gov.ph/fct/library/report/3783,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000866,Kambing dibdib,https://i.fnri.dost.gov.ph/fct/library/report/3783,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000867,Chevon flank,https://i.fnri.dost.gov.ph/fct/library/report/3784,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000867,Kambing tiyan,https://i.fnri.dost.gov.ph/fct/library/report/3784,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000868,Chevon leg,https://i.fnri.dost.gov.ph/fct/library/report/3788,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000868,Kambing hita at binti,https://i.fnri.dost.gov.ph/fct/library/report/3788,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000869,Chevon liver,https://i.fnri.dost.gov.ph/fct/library/report/3789,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000869,Kambing atay,https://i.fnri.dost.gov.ph/fct/library/report/3789,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000870,Chevon loin,https://i.fnri.dost.gov.ph/fct/library/report/3790,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000870,Kambing lomo,https://i.fnri.dost.gov.ph/fct/library/report/3790,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000871,Chevon neck,https://i.fnri.dost.gov.ph/fct/library/report/3792,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000871,Kambing leeg,https://i.fnri.dost.gov.ph/fct/library/report/3792,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000872,Chevon rib,https://i.fnri.dost.gov.ph/fct/library/report/3793,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000872,Kambing tadyang,https://i.fnri.dost.gov.ph/fct/library/report/3793,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000873,Chevon shank,https://i.fnri.dost.gov.ph/fct/library/report/3794,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000873,Kambing biyas,https://i.fnri.dost.gov.ph/fct/library/report/3794,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000874,Chevon shoulder,https://i.fnri.dost.gov.ph/fct/library/report/3795,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000874,Kambing balikat,https://i.fnri.dost.gov.ph/fct/library/report/3795,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000875,"Chick, one-day old, fried",https://i.fnri.dost.gov.ph/fct/library/report/3797,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000876,Chicken intestine,https://i.fnri.dost.gov.ph/fct/library/report/3807,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000876,Manok bituka,https://i.fnri.dost.gov.ph/fct/library/report/3807,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000877,"Chicken intestine, bbq",https://i.fnri.dost.gov.ph/fct/library/report/3808,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000877,"Manok bituka, bbq/""IUD""/Isaw manok",https://i.fnri.dost.gov.ph/fct/library/report/3808,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000878,Duck back,https://i.fnri.dost.gov.ph/fct/library/report/3823,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000878,Pato likod,https://i.fnri.dost.gov.ph/fct/library/report/3823,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000879,Duck breast,https://i.fnri.dost.gov.ph/fct/library/report/3825,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000879,Pato pitso,https://i.fnri.dost.gov.ph/fct/library/report/3825,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000880,Duck gizzard,https://i.fnri.dost.gov.ph/fct/library/report/3826,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000880,Pato balun-balunan,https://i.fnri.dost.gov.ph/fct/library/report/3826,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000881,Duck liver,https://i.fnri.dost.gov.ph/fct/library/report/3827,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000881,Pato atay,https://i.fnri.dost.gov.ph/fct/library/report/3827,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000882,Duck thigh,https://i.fnri.dost.gov.ph/fct/library/report/3828,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000882,Pato hita,https://i.fnri.dost.gov.ph/fct/library/report/3828,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000883,Duck wing,https://i.fnri.dost.gov.ph/fct/library/report/3829,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000883,Pato pakpak,https://i.fnri.dost.gov.ph/fct/library/report/3829,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000884,Lamb flank,https://i.fnri.dost.gov.ph/fct/library/report/3835,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000884,Tupa tiyan,https://i.fnri.dost.gov.ph/fct/library/report/3835,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000885,Lamb foreshank,https://i.fnri.dost.gov.ph/fct/library/report/3836,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000885,"Tupa biyas, harapan",https://i.fnri.dost.gov.ph/fct/library/report/3836,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000886,Lamb hind shank,https://i.fnri.dost.gov.ph/fct/library/report/3837,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000886,"Tupa biyas, likod",https://i.fnri.dost.gov.ph/fct/library/report/3837,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000887,Lamb loin,https://i.fnri.dost.gov.ph/fct/library/report/3839,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000887,Tupa lomo,https://i.fnri.dost.gov.ph/fct/library/report/3839,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000888,Lamb neck,https://i.fnri.dost.gov.ph/fct/library/report/3841,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000888,Tupa leeg,https://i.fnri.dost.gov.ph/fct/library/report/3841,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000889,Lamb riblet,https://i.fnri.dost.gov.ph/fct/library/report/3842,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000889,Tupa tadyang,https://i.fnri.dost.gov.ph/fct/library/report/3842,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000890,Lamb roast/back,https://i.fnri.dost.gov.ph/fct/library/report/3843,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000890,Tupa likod,https://i.fnri.dost.gov.ph/fct/library/report/3843,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000891,Lamb shoulder,https://i.fnri.dost.gov.ph/fct/library/report/3844,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000891,Tupa balikat,https://i.fnri.dost.gov.ph/fct/library/report/3844,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000892,"Pork intestine, large",https://i.fnri.dost.gov.ph/fct/library/report/3875,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000892,Baboy bitukang malaki,https://i.fnri.dost.gov.ph/fct/library/report/3875,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000893,"Pork intestine, small",https://i.fnri.dost.gov.ph/fct/library/report/3876,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000893,Baboy bitukang maliit,https://i.fnri.dost.gov.ph/fct/library/report/3876,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000894,"Pork intestine, small, bbq",https://i.fnri.dost.gov.ph/fct/library/report/3877,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000894,"Baboy bitukang maliit, bbq/Isaw baboy",https://i.fnri.dost.gov.ph/fct/library/report/3877,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000895,Pork tongue,https://i.fnri.dost.gov.ph/fct/library/report/3895,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000895,Baboy dila,https://i.fnri.dost.gov.ph/fct/library/report/3895,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000896,Quail meat,https://i.fnri.dost.gov.ph/fct/library/report/3910,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000896,Pugo laman,https://i.fnri.dost.gov.ph/fct/library/report/3910,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000897,Turkey breast,https://i.fnri.dost.gov.ph/fct/library/report/3915,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000897,Pabo pitso,https://i.fnri.dost.gov.ph/fct/library/report/3915,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000898,Turkey thigh,https://i.fnri.dost.gov.ph/fct/library/report/3917,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000898,Pabo hita,https://i.fnri.dost.gov.ph/fct/library/report/3917,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000899,Carabeef jerky,https://i.fnri.dost.gov.ph/fct/library/report/3926,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000899,"Tapa, kalabaw",https://i.fnri.dost.gov.ph/fct/library/report/3926,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000900,Chicken liver spread,https://i.fnri.dost.gov.ph/fct/library/report/3927,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000901,Chicken meat ball,https://i.fnri.dost.gov.ph/fct/library/report/3928,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000902,Chicken spread,https://i.fnri.dost.gov.ph/fct/library/report/3931,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000903,Corned beef loaf,https://i.fnri.dost.gov.ph/fct/library/report/3932,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000904,"Ham, chopped, cnd",https://i.fnri.dost.gov.ph/fct/library/report/3936,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000905,"Ham, pork, sweet, chopped",https://i.fnri.dost.gov.ph/fct/library/report/3938,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000906,"Liver pate, cnd",https://i.fnri.dost.gov.ph/fct/library/report/3940,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000907,Liver spread,https://i.fnri.dost.gov.ph/fct/library/report/3941,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000908,"Luncheon meat, pork & ham",https://i.fnri.dost.gov.ph/fct/library/report/3944,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000909,"Luncheon meat, pork, Chinese style",https://i.fnri.dost.gov.ph/fct/library/report/3945,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000910,"Pork crackling, internal organ",https://i.fnri.dost.gov.ph/fct/library/report/3948,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000910,"Chicharon/Sitsaron baboy, lamang loob",https://i.fnri.dost.gov.ph/fct/library/report/3948,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000911,"Clam, kabibi",https://i.fnri.dost.gov.ph/fct/library/report/4005,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000911,Kabibi,https://i.fnri.dost.gov.ph/fct/library/report/4005,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000912,"Clam, kanturi",https://i.fnri.dost.gov.ph/fct/library/report/4006,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000912,Kanturi,https://i.fnri.dost.gov.ph/fct/library/report/4006,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000913,"Clam, lukan",https://i.fnri.dost.gov.ph/fct/library/report/4007,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000913,Lukan,https://i.fnri.dost.gov.ph/fct/library/report/4007,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000914,"Clam, razor shell",https://i.fnri.dost.gov.ph/fct/library/report/4009,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000914,Tikhan,https://i.fnri.dost.gov.ph/fct/library/report/4009,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000915,"Clam, venus",https://i.fnri.dost.gov.ph/fct/library/report/4013,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000915,Bigatan,https://i.fnri.dost.gov.ph/fct/library/report/4013,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000916,"Climbing perch, common",https://i.fnri.dost.gov.ph/fct/library/report/4015,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000916,Martiniko,https://i.fnri.dost.gov.ph/fct/library/report/4015,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000917,"Crevalle, deep-bellied",https://i.fnri.dost.gov.ph/fct/library/report/4023,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000917,Salay-salay aso,https://i.fnri.dost.gov.ph/fct/library/report/4023,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000918,"Crevalle, even-bellied",https://i.fnri.dost.gov.ph/fct/library/report/4024,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000918,Salay-salay,https://i.fnri.dost.gov.ph/fct/library/report/4024,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000919,"Eel, silver pike",https://i.fnri.dost.gov.ph/fct/library/report/4029,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000919,Pindanga,https://i.fnri.dost.gov.ph/fct/library/report/4029,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000920,"Eel, swamp",https://i.fnri.dost.gov.ph/fct/library/report/4030,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000920,Palos,https://i.fnri.dost.gov.ph/fct/library/report/4030,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000921,Fish roe,https://i.fnri.dost.gov.ph/fct/library/report/4031,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000921,"Isda, itlog",https://i.fnri.dost.gov.ph/fct/library/report/4031,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000922,Flying fish,https://i.fnri.dost.gov.ph/fct/library/report/4036,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000922,Bulador/Borador,https://i.fnri.dost.gov.ph/fct/library/report/4036,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000923,"Garfish, common",https://i.fnri.dost.gov.ph/fct/library/report/4037,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000923,Kambabalo/Hound needlefish,https://i.fnri.dost.gov.ph/fct/library/report/4037,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000924,"Gizzard shad, short-finned",https://i.fnri.dost.gov.ph/fct/library/report/4038,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000924,Kabasi/Chacunda gizzard shad,https://i.fnri.dost.gov.ph/fct/library/report/4038,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000925,"Goatfish, ochrebanded",https://i.fnri.dost.gov.ph/fct/library/report/4039,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000925,Saramulyete,https://i.fnri.dost.gov.ph/fct/library/report/4039,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000926,"Goby, flat-headed",https://i.fnri.dost.gov.ph/fct/library/report/4040,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000926,Biyang puti/Tank goby,https://i.fnri.dost.gov.ph/fct/library/report/4040,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000927,"Goby, long-tailed",https://i.fnri.dost.gov.ph/fct/library/report/4041,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000927,Talimusak,https://i.fnri.dost.gov.ph/fct/library/report/4041,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000928,Gouramy,https://i.fnri.dost.gov.ph/fct/library/report/4042,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000928,Gurami/Goramy,https://i.fnri.dost.gov.ph/fct/library/report/4042,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000929,"Hair tail, largehead",https://i.fnri.dost.gov.ph/fct/library/report/4044,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000929,Balila,https://i.fnri.dost.gov.ph/fct/library/report/4044,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000930,Hard-tail,https://i.fnri.dost.gov.ph/fct/library/report/4046,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000930,Oriles,https://i.fnri.dost.gov.ph/fct/library/report/4046,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000931,"Herring, big-eyed",https://i.fnri.dost.gov.ph/fct/library/report/4047,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000931,Tuabak/Dilat,https://i.fnri.dost.gov.ph/fct/library/report/4047,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000932,"Herring, deep-bodied",https://i.fnri.dost.gov.ph/fct/library/report/4048,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000932,Lapad/White sardinella,https://i.fnri.dost.gov.ph/fct/library/report/4048,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000933,"Lizard fish, common",https://i.fnri.dost.gov.ph/fct/library/report/4049,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000933,Kalaso,https://i.fnri.dost.gov.ph/fct/library/report/4049,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000934,"Moonfish, spotted",https://i.fnri.dost.gov.ph/fct/library/report/4059,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000934,Chabita/Hiwas,https://i.fnri.dost.gov.ph/fct/library/report/4059,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000935,"Mullet, black-finned",https://i.fnri.dost.gov.ph/fct/library/report/4063,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000935,Talilong/Otomebora mullet,https://i.fnri.dost.gov.ph/fct/library/report/4063,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000936,"Mullet, large-scaled",https://i.fnri.dost.gov.ph/fct/library/report/4064,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000936,Banak,https://i.fnri.dost.gov.ph/fct/library/report/4064,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000937,"Bream, doublewhip threadfin",https://i.fnri.dost.gov.ph/fct/library/report/4067,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000937,Bisugo,https://i.fnri.dost.gov.ph/fct/library/report/4067,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000938,"Bream, humpnose big-eye",https://i.fnri.dost.gov.ph/fct/library/report/4075,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000938,Malaking mata,https://i.fnri.dost.gov.ph/fct/library/report/4075,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000939,"Seabream, goldsilk",https://i.fnri.dost.gov.ph/fct/library/report/4077,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000939,Bakokong moro,https://i.fnri.dost.gov.ph/fct/library/report/4077,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000940,Sea cucumber,https://i.fnri.dost.gov.ph/fct/library/report/4088,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000940,Balatan/Trepang,https://i.fnri.dost.gov.ph/fct/library/report/4088,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000941,"Siganid, javan",https://i.fnri.dost.gov.ph/fct/library/report/4102,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000941,Samaral/Streaked spinefoot,https://i.fnri.dost.gov.ph/fct/library/report/4102,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000942,"Slipmouth, common",https://i.fnri.dost.gov.ph/fct/library/report/4106,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000942,Sapsap,https://i.fnri.dost.gov.ph/fct/library/report/4106,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000943,"Snail, freshwater",https://i.fnri.dost.gov.ph/fct/library/report/4108,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000943,Susong pilipit,https://i.fnri.dost.gov.ph/fct/library/report/4108,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000944,"Snail, golden",https://i.fnri.dost.gov.ph/fct/library/report/4109,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000944,"Kuhol, kulay ginto",https://i.fnri.dost.gov.ph/fct/library/report/4109,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000945,"Whiting, common",https://i.fnri.dost.gov.ph/fct/library/report/4128,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000945,Asohos,https://i.fnri.dost.gov.ph/fct/library/report/4128,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000946,"Cod, dried",https://i.fnri.dost.gov.ph/fct/library/report/4136,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000946,"Bakalaw, daing",https://i.fnri.dost.gov.ph/fct/library/report/4136,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000947,"Mudfish/Murrel, striated, dried",https://i.fnri.dost.gov.ph/fct/library/report/4164,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000947,"Dalag, daing",https://i.fnri.dost.gov.ph/fct/library/report/4164,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000948,"Egg, quail, pickled",https://i.fnri.dost.gov.ph/fct/library/report/4234,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000948,"Itlog, pugo, pickled",https://i.fnri.dost.gov.ph/fct/library/report/4234,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000949,"Milk, carabao",https://i.fnri.dost.gov.ph/fct/library/report/4247,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000949,"Gatas, kalabaw",https://i.fnri.dost.gov.ph/fct/library/report/4247,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000950,"Milk, goat",https://i.fnri.dost.gov.ph/fct/library/report/4251,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000950,"Gatas, kambing",https://i.fnri.dost.gov.ph/fct/library/report/4251,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000951,Yoghurt,https://i.fnri.dost.gov.ph/fct/library/report/4260,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000952,Sandwich spread,https://i.fnri.dost.gov.ph/fct/library/report/4271,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000953,"Chocolate, tablea",https://i.fnri.dost.gov.ph/fct/library/report/4284,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000954,Coco jam,https://i.fnri.dost.gov.ph/fct/library/report/4285,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000954,Matamis na bao,https://i.fnri.dost.gov.ph/fct/library/report/4285,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000955,Creme custard,https://i.fnri.dost.gov.ph/fct/library/report/4287,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000955,Leche flan,https://i.fnri.dost.gov.ph/fct/library/report/4287,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000956,"Fudge, milk",https://i.fnri.dost.gov.ph/fct/library/report/4290,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000956,"Pastilyas, gatas",https://i.fnri.dost.gov.ph/fct/library/report/4290,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000957,"Fudge, yam",https://i.fnri.dost.gov.ph/fct/library/report/4291,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000957,"Pastilyas, ube",https://i.fnri.dost.gov.ph/fct/library/report/4291,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000958,Honey,https://i.fnri.dost.gov.ph/fct/library/report/4292,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000958,Pulot-pukyutan,https://i.fnri.dost.gov.ph/fct/library/report/4292,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000959,Ice candy,https://i.fnri.dost.gov.ph/fct/library/report/4293,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000960,Ice drop,https://i.fnri.dost.gov.ph/fct/library/report/4294,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000961,"Jam, mango, cnd",https://i.fnri.dost.gov.ph/fct/library/report/4296,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000962,"Jam, pineapple",https://i.fnri.dost.gov.ph/fct/library/report/4297,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000963,"Jam, yam",https://i.fnri.dost.gov.ph/fct/library/report/4298,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000963,"Halaya, ubi",https://i.fnri.dost.gov.ph/fct/library/report/4298,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000964,"Jelly, guava",https://i.fnri.dost.gov.ph/fct/library/report/4299,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000965,"Jelly, strawberry",https://i.fnri.dost.gov.ph/fct/library/report/4302,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000966,"Nata de coco, sweetn",https://i.fnri.dost.gov.ph/fct/library/report/4306,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000967,Peanut brittle,https://i.fnri.dost.gov.ph/fct/library/report/4308,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000968,Polvoron,https://i.fnri.dost.gov.ph/fct/library/report/4311,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000969,"Sugar, brown",https://i.fnri.dost.gov.ph/fct/library/report/4313,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000969,"Asukal, pula",https://i.fnri.dost.gov.ph/fct/library/report/4313,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000970,"Sugar, crude, pakaskas",https://i.fnri.dost.gov.ph/fct/library/report/4314,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000970,Pakaskas,https://i.fnri.dost.gov.ph/fct/library/report/4314,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000971,"Sugar, crude, panocha",https://i.fnri.dost.gov.ph/fct/library/report/4315,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000971,Panocha,https://i.fnri.dost.gov.ph/fct/library/report/4315,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000972,"Sugar, pwdr",https://i.fnri.dost.gov.ph/fct/library/report/4316,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000972,"Asukal, pulbos/Confectioner's sugar",https://i.fnri.dost.gov.ph/fct/library/report/4316,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000973,"Sugar, white, refined",https://i.fnri.dost.gov.ph/fct/library/report/4317,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000973,"Asukal, puti, refinado",https://i.fnri.dost.gov.ph/fct/library/report/4317,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000974,"Syrup, molasses, cane",https://i.fnri.dost.gov.ph/fct/library/report/4319,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000974,Pulot,https://i.fnri.dost.gov.ph/fct/library/report/4319,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000975,"Tamarind, candied",https://i.fnri.dost.gov.ph/fct/library/report/4320,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000975,"Sampalok, candied",https://i.fnri.dost.gov.ph/fct/library/report/4320,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000976,"Sugar, coconut sap",https://i.fnri.dost.gov.ph/fct/library/report/4322,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000976,Coco sugar,https://i.fnri.dost.gov.ph/fct/library/report/4322,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000977,"Syrup, coconut sap",https://i.fnri.dost.gov.ph/fct/library/report/4323,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000977,Coco syrup,https://i.fnri.dost.gov.ph/fct/library/report/4323,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000978,"Bilimbi, dried",https://i.fnri.dost.gov.ph/fct/library/report/4324,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000978,"Kamyas, tuyo",https://i.fnri.dost.gov.ph/fct/library/report/4324,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000979,"Bouillon cube, beef",https://i.fnri.dost.gov.ph/fct/library/report/4325,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000979,Beef cube,https://i.fnri.dost.gov.ph/fct/library/report/4325,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000980,"Bouillon cube, chicken",https://i.fnri.dost.gov.ph/fct/library/report/4326,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000980,Chicken cube,https://i.fnri.dost.gov.ph/fct/library/report/4326,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000981,"Clam paste, ginamos",https://i.fnri.dost.gov.ph/fct/library/report/4329,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000981,"Bagoong tulya, ginamos",https://i.fnri.dost.gov.ph/fct/library/report/4329,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000982,"Fish paste, balatohan",https://i.fnri.dost.gov.ph/fct/library/report/4331,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000982,Bagoong balatohan,https://i.fnri.dost.gov.ph/fct/library/report/4331,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000983,"Fish paste, ginamos",https://i.fnri.dost.gov.ph/fct/library/report/4332,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000983,"Bagoong isda, ginamos",https://i.fnri.dost.gov.ph/fct/library/report/4332,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000984,"Fish paste, siganid fry",https://i.fnri.dost.gov.ph/fct/library/report/4333,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000984,Bagoong padas,https://i.fnri.dost.gov.ph/fct/library/report/4333,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000985,Lemon grass lvs,https://i.fnri.dost.gov.ph/fct/library/report/4337,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000985,Tanglad dahon,https://i.fnri.dost.gov.ph/fct/library/report/4337,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000986,"Lemon grass lvs, boiled",https://i.fnri.dost.gov.ph/fct/library/report/4338,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000986,"Tanglad dahon, nilaga",https://i.fnri.dost.gov.ph/fct/library/report/4338,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000987,"Banana, flowers, dried",https://i.fnri.dost.gov.ph/fct/library/report/4339,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000987,"Saging bulaklak, tuyo",https://i.fnri.dost.gov.ph/fct/library/report/4339,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000988,Oyster paste,https://i.fnri.dost.gov.ph/fct/library/report/4340,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000988,Bagoong talaba/Sise,https://i.fnri.dost.gov.ph/fct/library/report/4340,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000989,"Safflower, flowers, dried",https://i.fnri.dost.gov.ph/fct/library/report/4341,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000989,"Kasubha bulaklak, tuyo",https://i.fnri.dost.gov.ph/fct/library/report/4341,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000990,"Shrimp paste, bastos",https://i.fnri.dost.gov.ph/fct/library/report/4345,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000990,"Bagoong hipon, bastos",https://i.fnri.dost.gov.ph/fct/library/report/4345,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000991,"Vinegar, palm",https://i.fnri.dost.gov.ph/fct/library/report/4351,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000991,"Suka, sasa",https://i.fnri.dost.gov.ph/fct/library/report/4351,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000992,"Vinegar, pineapple",https://i.fnri.dost.gov.ph/fct/library/report/4352,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000992,"Suka, pinya",https://i.fnri.dost.gov.ph/fct/library/report/4352,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000993,"Beer, lager type",https://i.fnri.dost.gov.ph/fct/library/report/4355,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000993,Serbesa,https://i.fnri.dost.gov.ph/fct/library/report/4355,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000994,"Palm sap, fermented",https://i.fnri.dost.gov.ph/fct/library/report/4356,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000994,Tuba,https://i.fnri.dost.gov.ph/fct/library/report/4356,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000995,Rum,https://i.fnri.dost.gov.ph/fct/library/report/4357,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000996,"Sugarcane, fermented",https://i.fnri.dost.gov.ph/fct/library/report/4358,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000996,Basi,https://i.fnri.dost.gov.ph/fct/library/report/4358,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000997,"Wine, Chinese",https://i.fnri.dost.gov.ph/fct/library/report/4359,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000997,"Alak, Tsina",https://i.fnri.dost.gov.ph/fct/library/report/4359,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000998,"Choc-flvr drink, prep",https://i.fnri.dost.gov.ph/fct/library/report/4361,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000999,"Choc-flvr drink, pwdr",https://i.fnri.dost.gov.ph/fct/library/report/4362,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001000,"Choc-flvr drink, UHT",https://i.fnri.dost.gov.ph/fct/library/report/4363,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001001,"Cocoa, pwdr, local",https://i.fnri.dost.gov.ph/fct/library/report/4368,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001001,"Kakaw, pulbos, lokal",https://i.fnri.dost.gov.ph/fct/library/report/4368,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001002,"Fruit jce drnk conc, calamansi",https://i.fnri.dost.gov.ph/fct/library/report/4375,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001003,"Fruit jce drnk conc, guyabano",https://i.fnri.dost.gov.ph/fct/library/report/4378,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001004,"Fruit jce drnk conc, mango",https://i.fnri.dost.gov.ph/fct/library/report/4379,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001005,"Fruit jce drnk conc, orange",https://i.fnri.dost.gov.ph/fct/library/report/4380,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001006,"Juice, apple, cnd",https://i.fnri.dost.gov.ph/fct/library/report/4402,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001007,"Juice, calamansi (nectar)",https://i.fnri.dost.gov.ph/fct/library/report/4403,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001008,"Juice, mango",https://i.fnri.dost.gov.ph/fct/library/report/4404,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001009,"Juice, orange, unsweetn, cnd",https://i.fnri.dost.gov.ph/fct/library/report/4405,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001010,"Juice, pineapple, cnd",https://i.fnri.dost.gov.ph/fct/library/report/4407,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001011,"Juice, sugarcane",https://i.fnri.dost.gov.ph/fct/library/report/4408,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001011,"Katas, tubo",https://i.fnri.dost.gov.ph/fct/library/report/4408,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001012,"Juice, tomato, cnd",https://i.fnri.dost.gov.ph/fct/library/report/4409,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001013,"Lemon tea drink, ttb",https://i.fnri.dost.gov.ph/fct/library/report/4410,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001014,"Softdrink, cola",https://i.fnri.dost.gov.ph/fct/library/report/4412,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001015,"Softdrink, orange flvr",https://i.fnri.dost.gov.ph/fct/library/report/4413,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001016,Soybean milk drnk,https://i.fnri.dost.gov.ph/fct/library/report/4418,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001017,"Tea, prep w/ water, no sugar",https://i.fnri.dost.gov.ph/fct/library/report/5008,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001018,Cheese pimiento sandwich,https://i.fnri.dost.gov.ph/fct/library/report/4421,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001019,Glutinous rice w/ mung bean & cocomilk,https://i.fnri.dost.gov.ph/fct/library/report/4426,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001019,Ginataang munggo,https://i.fnri.dost.gov.ph/fct/library/report/4426,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001020,Hamburger sandwich w/ coleslaw,https://i.fnri.dost.gov.ph/fct/library/report/4427,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001021,"Hamburger sandwich, reg",https://i.fnri.dost.gov.ph/fct/library/report/4428,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001022,Meat pie,https://i.fnri.dost.gov.ph/fct/library/report/4429,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001022,Empanada,https://i.fnri.dost.gov.ph/fct/library/report/4429,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001023,Meat roll,https://i.fnri.dost.gov.ph/fct/library/report/4430,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001023,Mechado roll,https://i.fnri.dost.gov.ph/fct/library/report/4430,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001024,"Spaghetti, meat balls & tomato sce, cnd",https://i.fnri.dost.gov.ph/fct/library/report/4434,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001025,"Spaghetti, Vienna sausage & tomato sce, cnd",https://i.fnri.dost.gov.ph/fct/library/report/4435,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001026,Pineapple pie,https://i.fnri.dost.gov.ph/fct/library/report/4440,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001027,Pizza pie,https://i.fnri.dost.gov.ph/fct/library/report/4441,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001028,"Milk fish, w/ black beans, cnd",https://i.fnri.dost.gov.ph/fct/library/report/4442,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001028,"Bangus may tawsi, de lata",https://i.fnri.dost.gov.ph/fct/library/report/4442,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001029,"Spring roll, crab, unckd",https://i.fnri.dost.gov.ph/fct/library/report/4443,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001029,"Lumpia, alimango, hindi luto",https://i.fnri.dost.gov.ph/fct/library/report/4443,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001030,"Spring roll, fish, unckd",https://i.fnri.dost.gov.ph/fct/library/report/4444,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001030,"Lumpia, isda, hindi luto",https://i.fnri.dost.gov.ph/fct/library/report/4444,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001031,"Spring roll, shrimp, unckd",https://i.fnri.dost.gov.ph/fct/library/report/4445,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001031,"Lumpia, hipon, hindi luto",https://i.fnri.dost.gov.ph/fct/library/report/4445,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001032,"Beef callos, cnd",https://i.fnri.dost.gov.ph/fct/library/report/4448,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001033,"Beef curry, cnd",https://i.fnri.dost.gov.ph/fct/library/report/4449,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001034,"Beef roll, mechado, cnd",https://i.fnri.dost.gov.ph/fct/library/report/4452,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001035,"Beef roll, morcon, cnd",https://i.fnri.dost.gov.ph/fct/library/report/4453,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001036,"Beef steak, cnd",https://i.fnri.dost.gov.ph/fct/library/report/4454,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001037,"Beef stew, cnd",https://i.fnri.dost.gov.ph/fct/library/report/4455,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001038,"Chicken stew, cnd",https://i.fnri.dost.gov.ph/fct/library/report/4460,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001039,"Duck meat, pato tim, cnd",https://i.fnri.dost.gov.ph/fct/library/report/4462,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001039,"Pato tim, de lata",https://i.fnri.dost.gov.ph/fct/library/report/4462,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001040,"Pork afritada, cnd",https://i.fnri.dost.gov.ph/fct/library/report/4472,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001040,"Apritadang baboy, de lata",https://i.fnri.dost.gov.ph/fct/library/report/4472,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001041,"Pork humba, cnd",https://i.fnri.dost.gov.ph/fct/library/report/4474,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001042,"Pork leg, pinaksiw, cnd",https://i.fnri.dost.gov.ph/fct/library/report/4477,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001043,"Pork pastel, cnd",https://i.fnri.dost.gov.ph/fct/library/report/4478,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001044,"Pork, roasted, pinaksiw, cnd",https://i.fnri.dost.gov.ph/fct/library/report/4480,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001044,"Lechon paksiw, de lata",https://i.fnri.dost.gov.ph/fct/library/report/4480,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001045,"Spring roll, beef, unckd",https://i.fnri.dost.gov.ph/fct/library/report/4482,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001045,"Lumpia, baka, hindi luto",https://i.fnri.dost.gov.ph/fct/library/report/4482,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001046,"Spring roll, chicken, unckd",https://i.fnri.dost.gov.ph/fct/library/report/4483,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001046,"Lumpia, manok, hindi luto",https://i.fnri.dost.gov.ph/fct/library/report/4483,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001047,"Soup, chicken noodle, cnd",https://i.fnri.dost.gov.ph/fct/library/report/4492,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001048,"Fish, salmon, Atlantic, farmed, raw",https://fdc.nal.usda.gov/food-details/175167/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001049,"Fish, salmon, Atlantic, farmed, cooked, dry heat",https://fdc.nal.usda.gov/food-details/175168/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001050,"Fish, salmon, Atlantic, wild, raw",https://fdc.nal.usda.gov/food-details/173686/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001051,"Fish, salmon, Atlantic, wild, cooked, dry heat",https://fdc.nal.usda.gov/food-details/171998/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001052,"Fish, salmon, coho, wild, raw",https://fdc.nal.usda.gov/food-details/175136/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001053,"Fish, salmon, coho, wild, cooked, dry heat",https://fdc.nal.usda.gov/food-details/173719/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001054,"Fish, salmon, sockeye, raw",https://fdc.nal.usda.gov/food-details/173691/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001055,"Fish, salmon, sockeye, cooked, dry heat",https://fdc.nal.usda.gov/food-details/173692/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001056,"Fish, salmon, pink, raw",https://fdc.nal.usda.gov/food-details/175138/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001057,"Fish, salmon, pink, cooked, dry heat",https://fdc.nal.usda.gov/food-details/172001/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001058,"Fish, salmon, pink, canned, total can contents",https://fdc.nal.usda.gov/food-details/173690/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001059,"Fish, salmon, sockeye, canned, drained solids",https://fdc.nal.usda.gov/food-details/173693/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001060,"Fish, trout, rainbow, farmed, raw",https://fdc.nal.usda.gov/food-details/173717/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001061,"Fish, trout, rainbow, farmed, cooked, dry heat",https://fdc.nal.usda.gov/food-details/173718/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001062,"Fish, trout, rainbow, wild, raw",https://fdc.nal.usda.gov/food-details/175154/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001063,"Fish, trout, rainbow, wild, cooked, dry heat",https://fdc.nal.usda.gov/food-details/175155/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001064,"Fish, cod, Atlantic, raw",https://fdc.nal.usda.gov/food-details/171955/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001065,"Fish, cod, Atlantic, cooked, dry heat",https://fdc.nal.usda.gov/food-details/171956/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001066,"Fish, cod, Pacific, raw (may have been previously frozen)",https://fdc.nal.usda.gov/food-details/174191/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001067,"Fish, cod, Pacific, cooked",https://fdc.nal.usda.gov/food-details/175178/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001068,"Fish, haddock, raw",https://fdc.nal.usda.gov/food-details/171964/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001069,"Fish, haddock, cooked, dry heat",https://fdc.nal.usda.gov/food-details/174198/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001070,"Fish, haddock, smoked",https://fdc.nal.usda.gov/food-details/174199/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001071,"Fish, pollock, Alaska, raw",https://fdc.nal.usda.gov/food-details/173725/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001072,"Fish, pollock, Alaska, cooked",https://fdc.nal.usda.gov/food-details/173726/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001073,"Fish, halibut, Atlantic and Pacific, raw",https://fdc.nal.usda.gov/food-details/174200/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001074,"Fish, halibut, Atlantic and Pacific, cooked, dry heat",https://fdc.nal.usda.gov/food-details/174201/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001075,"Mollusks, scallop, mixed species, raw",https://fdc.nal.usda.gov/food-details/174220/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001076,"Mollusks, scallop, (bay and sea), cooked, steamed",https://fdc.nal.usda.gov/food-details/167742/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001077,"Mollusks, scallop, mixed species, cooked, breaded and fried",https://fdc.nal.usda.gov/food-details/174221/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001078,"Crustaceans, lobster, northern, raw",https://fdc.nal.usda.gov/food-details/174208/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001079,"Crustaceans, lobster, northern, cooked, moist heat",https://fdc.nal.usda.gov/food-details/174209/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001080,"Broccoli, raw",https://fdc.nal.usda.gov/food-details/170379/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001081,"Broccoli, cooked, boiled, drained, without salt",https://fdc.nal.usda.gov/food-details/169967/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001082,"Broccoli, frozen, chopped, cooked, boiled, drained, without salt",https://fdc.nal.usda.gov/food-details/169969/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001083,"Broccoli, chinese, raw",https://fdc.nal.usda.gov/food-details/169404/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001084,"Spinach, raw",https://fdc.nal.usda.gov/food-details/168462/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001085,"Spinach, cooked, boiled, drained, without salt",https://fdc.nal.usda.gov/food-details/168463/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001086,"Spinach, frozen, chopped or leaf, cooked, boiled, drained, without salt",https://fdc.nal.usda.gov/food-details/169288/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001087,"Brussels sprouts, raw",https://fdc.nal.usda.gov/food-details/170383/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001088,"Brussels sprouts, cooked, boiled, drained, without salt",https://fdc.nal.usda.gov/food-details/169971/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001089,"Brussels sprouts, frozen, cooked, boiled, drained, without salt",https://fdc.nal.usda.gov/food-details/169973/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001090,"Artichokes, (globe or french), raw",https://fdc.nal.usda.gov/food-details/169205/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001091,"Artichokes, (globe or french), cooked, boiled, drained, without salt",https://fdc.nal.usda.gov/food-details/168386/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001092,"Artichokes, (globe or french), frozen, cooked, boiled, drained, without salt",https://fdc.nal.usda.gov/food-details/168388/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001093,"Asparagus, raw",https://fdc.nal.usda.gov/food-details/168389/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001094,"Asparagus, cooked, boiled, drained",https://fdc.nal.usda.gov/food-details/168390/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001095,"Asparagus, frozen, cooked, boiled, drained, without salt",https://fdc.nal.usda.gov/food-details/169209/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001096,"Arugula, raw",https://fdc.nal.usda.gov/food-details/169387/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001097,"Leeks, (bulb and lower leaf-portion), raw",https://fdc.nal.usda.gov/food-details/169246/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001098,"Leeks, (bulb and lower leaf-portion), cooked, boiled, drained, without salt",https://fdc.nal.usda.gov/food-details/168426/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001099,"Fennel, bulb, raw",https://fdc.nal.usda.gov/food-details/169385/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001100,"Blueberries, raw",https://fdc.nal.usda.gov/food-details/171711/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001101,"Blueberries, frozen, unsweetened (Includes foods for USDA's Food Distribution Program)",https://fdc.nal.usda.gov/food-details/173950/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001102,"Raspberries, raw",https://fdc.nal.usda.gov/food-details/167755/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001103,"Raspberries, frozen, red, unsweetened",https://fdc.nal.usda.gov/food-details/168209/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001104,"Blackberries, raw",https://fdc.nal.usda.gov/food-details/173946/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001105,"Blackberries, frozen, unsweetened",https://fdc.nal.usda.gov/food-details/171710/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001106,"Cranberries, raw",https://fdc.nal.usda.gov/food-details/171722/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001107,"Cranberries, dried, sweetened (Includes foods for USDA's Food Distribution Program)",https://fdc.nal.usda.gov/food-details/171723/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001108,"Apricots, raw",https://fdc.nal.usda.gov/food-details/171697/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001109,"Apricots, dried, sulfured, uncooked",https://fdc.nal.usda.gov/food-details/173941/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001110,"Kiwifruit, green, raw",https://fdc.nal.usda.gov/food-details/168153/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001111,"Grapefruit, raw, pink and red, all areas",https://fdc.nal.usda.gov/food-details/174673/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001112,"Grapefruit, raw, white, all areas",https://fdc.nal.usda.gov/food-details/174676/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001113,"Cherries, sweet, raw",https://fdc.nal.usda.gov/food-details/171719/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001114,"Cherries, sour, red, raw",https://fdc.nal.usda.gov/food-details/173954/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001115,"Plums, raw",https://fdc.nal.usda.gov/food-details/169949/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001116,"Quinoa, uncooked",https://fdc.nal.usda.gov/food-details/168874/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001117,"Quinoa, cooked",https://fdc.nal.usda.gov/food-details/168917/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001118,"Bulgur, dry",https://fdc.nal.usda.gov/food-details/170688/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001119,"Bulgur, cooked",https://fdc.nal.usda.gov/food-details/170287/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001120,"Couscous, dry",https://fdc.nal.usda.gov/food-details/169699/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001121,"Couscous, cooked",https://fdc.nal.usda.gov/food-details/169700/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001122,"Barley, pearled, raw",https://fdc.nal.usda.gov/food-details/170284/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001123,"Barley, pearled, cooked",https://fdc.nal.usda.gov/food-details/170285/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001124,"Lentils, raw",https://fdc.nal.usda.gov/food-details/172420/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001125,"Lentils, mature seeds, cooked, boiled, without salt",https://fdc.nal.usda.gov/food-details/172421/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001126,"Lentils, pink or red, raw",https://fdc.nal.usda.gov/food-details/174284/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001127,"Nuts, almonds",https://fdc.nal.usda.gov/food-details/170567/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001128,"Nuts, almonds, dry roasted, without salt added",https://fdc.nal.usda.gov/food-details/170158/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001129,"Nuts, almonds, blanched",https://fdc.nal.usda.gov/food-details/170568/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001130,"Nuts, walnuts, black, dried",https://fdc.nal.usda.gov/food-details/170186/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001131,"Nuts, walnuts, english",https://fdc.nal.usda.gov/food-details/170187/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001132,"Nuts, pistachio nuts, raw",https://fdc.nal.usda.gov/food-details/170184/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001133,"Nuts, pistachio nuts, dry roasted, without salt added",https://fdc.nal.usda.gov/food-details/170185/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001134,"Nuts, pecans",https://fdc.nal.usda.gov/food-details/170182/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001135,"Nuts, pecans, dry roasted, without salt added",https://fdc.nal.usda.gov/food-details/170183/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001136,"Nuts, hazelnuts or filberts",https://fdc.nal.usda.gov/food-details/170581/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001137,"Nuts, hazelnuts or filberts, dry roasted, without salt added",https://fdc.nal.usda.gov/food-details/170583/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001138,"Seeds, chia seeds, dried",https://fdc.nal.usda.gov/food-details/170554/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001139,"Seeds, flaxseed",https://fdc.nal.usda.gov/food-details/169414/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001140,"Broccoli, flower clusters, raw",https://fdc.nal.usda.gov/food-details/169330/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001141,"Broccoli, stalks, raw",https://fdc.nal.usda.gov/food-details/169331/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001142,"Broccoli, cooked, boiled, drained, with salt",https://fdc.nal.usda.gov/food-details/168510/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001143,"Brussels sprouts, cooked, boiled, drained, with salt",https://fdc.nal.usda.gov/food-details/168513/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001144,"Cherries, sweet, canned, water pack, solids and liquids",https://fdc.nal.usda.gov/food-details/173957/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001145,"Cherries, sour, red, canned, water pack, solids and liquids",https://fdc.nal.usda.gov/food-details/173955/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001146,"Broccoli, frozen, chopped, unprepared",https://fdc.nal.usda.gov/food-details/169968/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC001147,"Asparagus, frozen, unprepared",https://fdc.nal.usda.gov/food-details/169208/nutrients,SEARCH_ALIAS_REVIEWED,Official identity/common name. Preserve all qualifiers.
+FC000666,Uraro,https://i.fnri.dost.gov.ph/fct/library/report/3046,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000666,Araro cookies,https://i.fnri.dost.gov.ph/fct/library/report/3046,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000673,Pacencia,https://i.fnri.dost.gov.ph/fct/library/report/3057,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000673,Paciencia,https://i.fnri.dost.gov.ph/fct/library/report/3057,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000692,Misua,https://i.fnri.dost.gov.ph/fct/library/report/3106,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000692,Miswa,https://i.fnri.dost.gov.ph/fct/library/report/3106,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000697,Biko,https://i.fnri.dost.gov.ph/fct/library/report/3131,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000697,"Sinukmani, may niyog",https://i.fnri.dost.gov.ph/fct/library/report/3131,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000704,Cuchinta,https://i.fnri.dost.gov.ph/fct/library/report/3142,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000704,"Kutsinta, may niyog",https://i.fnri.dost.gov.ph/fct/library/report/3142,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000708,Butse,https://i.fnri.dost.gov.ph/fct/library/report/3146,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000708,"Buchi, munggo",https://i.fnri.dost.gov.ph/fct/library/report/3146,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000709,Butse,https://i.fnri.dost.gov.ph/fct/library/report/3147,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000709,"Buchi, kamote",https://i.fnri.dost.gov.ph/fct/library/report/3147,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000722,Adlay,https://i.fnri.dost.gov.ph/fct/library/report/2970,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000722,Tigbe butil,https://i.fnri.dost.gov.ph/fct/library/report/2970,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000723,Pakit,https://i.fnri.dost.gov.ph/fct/library/report/3185,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000723,Kamangeg,https://i.fnri.dost.gov.ph/fct/library/report/3185,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000724,Tugi,https://i.fnri.dost.gov.ph/fct/library/report/3189,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000724,Lesser yam,https://i.fnri.dost.gov.ph/fct/library/report/3189,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000725,Tugi,https://i.fnri.dost.gov.ph/fct/library/report/3190,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000725,"Lesser yam, nilaga",https://i.fnri.dost.gov.ph/fct/library/report/3190,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000730,Galiang,https://i.fnri.dost.gov.ph/fct/library/report/3173,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000730,Swamp taro,https://i.fnri.dost.gov.ph/fct/library/report/3173,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000760,Kinchay dahon at tangkay,https://i.fnri.dost.gov.ph/fct/library/report/3327,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000760,Leaf celery,https://i.fnri.dost.gov.ph/fct/library/report/3327,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000761,Sayote dahon,https://i.fnri.dost.gov.ph/fct/library/report/3331,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000761,Vegetable pear lvs,https://i.fnri.dost.gov.ph/fct/library/report/3331,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000762,Cilantro,https://i.fnri.dost.gov.ph/fct/library/report/3339,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000762,Wansoy dahon,https://i.fnri.dost.gov.ph/fct/library/report/3339,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000773,Kutsay dahon,https://i.fnri.dost.gov.ph/fct/library/report/3392,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000773,Chinese chives lvs,https://i.fnri.dost.gov.ph/fct/library/report/3392,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000776,Alugbati dahon,https://i.fnri.dost.gov.ph/fct/library/report/3400,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000776,Spinach vine lvs,https://i.fnri.dost.gov.ph/fct/library/report/3400,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000785,"Sili, sweet",https://i.fnri.dost.gov.ph/fct/library/report/3449,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000785,"bell, bilog, berde",https://i.fnri.dost.gov.ph/fct/library/report/3449,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000786,"Sili, sweet",https://i.fnri.dost.gov.ph/fct/library/report/3451,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000786,"bell, bilog, pula",https://i.fnri.dost.gov.ph/fct/library/report/3451,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000787,Talinum dahon,https://i.fnri.dost.gov.ph/fct/library/report/3452,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000787,Ceylon spinach lvs,https://i.fnri.dost.gov.ph/fct/library/report/3452,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000788,"Talinum dahon, nilaga",https://i.fnri.dost.gov.ph/fct/library/report/3453,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000788,"Ceylon spinach lvs, boiled",https://i.fnri.dost.gov.ph/fct/library/report/3453,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000794,Labanos,https://i.fnri.dost.gov.ph/fct/library/report/3464,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000794,"Rabanos, bunga",https://i.fnri.dost.gov.ph/fct/library/report/3464,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000802,Abitsuwelas,https://i.fnri.dost.gov.ph/fct/library/report/3487,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000802,"Baguio beans bunga, puti",https://i.fnri.dost.gov.ph/fct/library/report/3487,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000821,Bugnay,https://i.fnri.dost.gov.ph/fct/library/report/3600,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000821,Salamander tree fruit,https://i.fnri.dost.gov.ph/fct/library/report/3600,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000822,Kamyas,https://i.fnri.dost.gov.ph/fct/library/report/3601,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000822,Kamias,https://i.fnri.dost.gov.ph/fct/library/report/3601,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000822,Kalamyas,https://i.fnri.dost.gov.ph/fct/library/report/3601,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000823,Duhat,https://i.fnri.dost.gov.ph/fct/library/report/3602,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000823,Jambolan,https://i.fnri.dost.gov.ph/fct/library/report/3602,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000824,Tiesa,https://i.fnri.dost.gov.ph/fct/library/report/3606,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000824,Eggfruit,https://i.fnri.dost.gov.ph/fct/library/report/3606,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000827,Datiles,https://i.fnri.dost.gov.ph/fct/library/report/3617,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000827,Aratiles,https://i.fnri.dost.gov.ph/fct/library/report/3617,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000831,Dayap,https://i.fnri.dost.gov.ph/fct/library/report/3624,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000831,Key lime,https://i.fnri.dost.gov.ph/fct/library/report/3624,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000877,"Manok bituka, bbq",https://i.fnri.dost.gov.ph/fct/library/report/3808,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000877,"""IUD""",https://i.fnri.dost.gov.ph/fct/library/report/3808,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000877,Isaw manok,https://i.fnri.dost.gov.ph/fct/library/report/3808,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000894,"Baboy bitukang maliit, bbq",https://i.fnri.dost.gov.ph/fct/library/report/3877,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000894,Isaw baboy,https://i.fnri.dost.gov.ph/fct/library/report/3877,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000910,Chicharon,https://i.fnri.dost.gov.ph/fct/library/report/3948,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000910,"Sitsaron baboy, lamang loob",https://i.fnri.dost.gov.ph/fct/library/report/3948,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000922,Bulador,https://i.fnri.dost.gov.ph/fct/library/report/4036,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000922,Borador,https://i.fnri.dost.gov.ph/fct/library/report/4036,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000923,Kambabalo,https://i.fnri.dost.gov.ph/fct/library/report/4037,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000923,Hound needlefish,https://i.fnri.dost.gov.ph/fct/library/report/4037,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000924,Kabasi,https://i.fnri.dost.gov.ph/fct/library/report/4038,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000924,Chacunda gizzard shad,https://i.fnri.dost.gov.ph/fct/library/report/4038,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000926,Biyang puti,https://i.fnri.dost.gov.ph/fct/library/report/4040,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000926,Tank goby,https://i.fnri.dost.gov.ph/fct/library/report/4040,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000928,Gurami,https://i.fnri.dost.gov.ph/fct/library/report/4042,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000928,Goramy,https://i.fnri.dost.gov.ph/fct/library/report/4042,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000931,Tuabak,https://i.fnri.dost.gov.ph/fct/library/report/4047,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000931,Dilat,https://i.fnri.dost.gov.ph/fct/library/report/4047,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000932,Lapad,https://i.fnri.dost.gov.ph/fct/library/report/4048,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000932,White sardinella,https://i.fnri.dost.gov.ph/fct/library/report/4048,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000934,Chabita,https://i.fnri.dost.gov.ph/fct/library/report/4059,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000934,Hiwas,https://i.fnri.dost.gov.ph/fct/library/report/4059,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000935,Talilong,https://i.fnri.dost.gov.ph/fct/library/report/4063,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000935,Otomebora mullet,https://i.fnri.dost.gov.ph/fct/library/report/4063,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000940,Balatan,https://i.fnri.dost.gov.ph/fct/library/report/4088,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000940,Trepang,https://i.fnri.dost.gov.ph/fct/library/report/4088,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000941,Samaral,https://i.fnri.dost.gov.ph/fct/library/report/4102,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000941,Streaked spinefoot,https://i.fnri.dost.gov.ph/fct/library/report/4102,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000972,"Asukal, pulbos",https://i.fnri.dost.gov.ph/fct/library/report/4316,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000972,Confectioner's sugar,https://i.fnri.dost.gov.ph/fct/library/report/4316,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000988,Bagoong talaba,https://i.fnri.dost.gov.ph/fct/library/report/4340,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000988,Sise,https://i.fnri.dost.gov.ph/fct/library/report/4340,SEARCH_ALIAS_REVIEWED,Separate slash-delimited official common names; retain comma-qualified preparation and plant part.
+FC000651,Monggo bread,https://i.fnri.dost.gov.ph/fct/library/report/2998,SEARCH_ALIAS_REVIEWED,Munggo/monggo spelling pair already documented in starter aliases; preserve qualifiers.
+FC000656,"Ensaymada, may Monggo",https://i.fnri.dost.gov.ph/fct/library/report/3008,SEARCH_ALIAS_REVIEWED,Munggo/monggo spelling pair already documented in starter aliases; preserve qualifiers.
+FC000680,"Corn, whole kernel, canned",https://i.fnri.dost.gov.ph/fct/library/report/3071,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC000683,"Cracker, graham, honey-flavor",https://i.fnri.dost.gov.ph/fct/library/report/3074,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC000691,"Noodles, wheat, instant, w/ flavor",https://i.fnri.dost.gov.ph/fct/library/report/3104,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC000691,"Mami, instant, may pampalasa",https://i.fnri.dost.gov.ph/fct/library/report/3104,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC000708,"Butse/Buchi, Monggo",https://i.fnri.dost.gov.ph/fct/library/report/3146,SEARCH_ALIAS_REVIEWED,Munggo/monggo spelling pair already documented in starter aliases; preserve qualifiers.
+FC000720,"Instant noodles, chicken flavor, raw",https://i.fnri.dost.gov.ph/fct/library/report/3166,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC000721,"Instant noodles, chicken flavor, cooked",https://i.fnri.dost.gov.ph/fct/library/report/3167,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC000738,"Monggo buto, pula, tuyo",https://i.fnri.dost.gov.ph/fct/library/report/3239,SEARCH_ALIAS_REVIEWED,Munggo/monggo spelling pair already documented in starter aliases; preserve qualifiers.
+FC000739,"Monggo buto, pula, tuyo, nilaga",https://i.fnri.dost.gov.ph/fct/library/report/3240,SEARCH_ALIAS_REVIEWED,Munggo/monggo spelling pair already documented in starter aliases; preserve qualifiers.
+FC000740,"Monggo buto, dilaw, tuyo",https://i.fnri.dost.gov.ph/fct/library/report/3241,SEARCH_ALIAS_REVIEWED,Munggo/monggo spelling pair already documented in starter aliases; preserve qualifiers.
+FC000741,"Monggo buto, dilaw, tuyo, nilaga",https://i.fnri.dost.gov.ph/fct/library/report/3242,SEARCH_ALIAS_REVIEWED,Munggo/monggo spelling pair already documented in starter aliases; preserve qualifiers.
+FC000759,Celery leaves & petioles,https://i.fnri.dost.gov.ph/fct/library/report/3326,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC000760,"Celery, Chinese, leaves & petioles",https://i.fnri.dost.gov.ph/fct/library/report/3327,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC000761,Chayote leaves,https://i.fnri.dost.gov.ph/fct/library/report/3331,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC000761,Sayote dahon/Vegetable pear leaves,https://i.fnri.dost.gov.ph/fct/library/report/3331,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC000762,Coriander leaves,https://i.fnri.dost.gov.ph/fct/library/report/3339,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC000766,Endive leaves,https://i.fnri.dost.gov.ph/fct/library/report/3354,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC000767,Garlic leaves,https://i.fnri.dost.gov.ph/fct/library/report/3364,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC000768,Garlic leaves & bulb,https://i.fnri.dost.gov.ph/fct/library/report/3366,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC000769,"Horseradish tree leaves, dwarf",https://i.fnri.dost.gov.ph/fct/library/report/3375,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC000770,"Horseradish tree leaves, Japanese",https://i.fnri.dost.gov.ph/fct/library/report/3377,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC000773,Chinese leek leaves,https://i.fnri.dost.gov.ph/fct/library/report/3392,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC000773,Kutsay dahon/Chinese chives leaves,https://i.fnri.dost.gov.ph/fct/library/report/3392,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC000776,Malabar nightshade leaves,https://i.fnri.dost.gov.ph/fct/library/report/3400,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC000776,Alugbati dahon/Spinach vine leaves,https://i.fnri.dost.gov.ph/fct/library/report/3400,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC000777,"Malabar nightshade leaves, boiled",https://i.fnri.dost.gov.ph/fct/library/report/3401,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC000778,Marrow-stem kale leaves and stems,https://i.fnri.dost.gov.ph/fct/library/report/3405,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC000779,"Monggo buto, sariwa",https://i.fnri.dost.gov.ph/fct/library/report/3409,SEARCH_ALIAS_REVIEWED,Munggo/monggo spelling pair already documented in starter aliases; preserve qualifiers.
+FC000780,New Zealand spinach leaves,https://i.fnri.dost.gov.ph/fct/library/report/3416,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC000781,"New Zealand spinach leaves, boiled",https://i.fnri.dost.gov.ph/fct/library/report/3417,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC000782,"Onion, garden shallot leaves",https://i.fnri.dost.gov.ph/fct/library/report/3424,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC000783,Parsley leaves,https://i.fnri.dost.gov.ph/fct/library/report/3438,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC000784,"Pepper, chili leaves",https://i.fnri.dost.gov.ph/fct/library/report/3444,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC000787,Philippine spinach leaves,https://i.fnri.dost.gov.ph/fct/library/report/3452,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC000787,Talinum dahon/Ceylon spinach leaves,https://i.fnri.dost.gov.ph/fct/library/report/3452,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC000788,"Philippine spinach leaves, boiled",https://i.fnri.dost.gov.ph/fct/library/report/3453,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC000788,"Talinum dahon, nilaga/Ceylon spinach leaves, boiled",https://i.fnri.dost.gov.ph/fct/library/report/3453,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC000792,Purslane leaves,https://i.fnri.dost.gov.ph/fct/library/report/3459,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC000793,"Purslane leaves, boiled",https://i.fnri.dost.gov.ph/fct/library/report/3460,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC000799,Slender/Spineless amaranth leaves,https://i.fnri.dost.gov.ph/fct/library/report/3482,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC000800,"Slender/Spineless amaranth leaves, boiled",https://i.fnri.dost.gov.ph/fct/library/report/3483,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC000805,Sponge gourd leaves,https://i.fnri.dost.gov.ph/fct/library/report/3500,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC000807,String/Yard long bean leaves,https://i.fnri.dost.gov.ph/fct/library/report/3509,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC000815,"Asparagus, canned",https://i.fnri.dost.gov.ph/fct/library/report/3553,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC000816,"Bamboo shoot, canned",https://i.fnri.dost.gov.ph/fct/library/report/3554,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC000819,"Cucumber, salted, canned",https://i.fnri.dost.gov.ph/fct/library/report/3557,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC000845,"Cherry, in syrup, drained",https://i.fnri.dost.gov.ph/fct/library/report/3686,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC000847,"Fruit cocktail, tropical, in syrup, canned",https://i.fnri.dost.gov.ph/fct/library/report/3689,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC000850,"Peach, in heavy syrup, canned",https://i.fnri.dost.gov.ph/fct/library/report/3692,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC000851,"Pineapple, crushed, canned",https://i.fnri.dost.gov.ph/fct/library/report/3695,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC000852,"Pineapple, slice, canned",https://i.fnri.dost.gov.ph/fct/library/report/3696,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC000904,"Ham, chopped, canned",https://i.fnri.dost.gov.ph/fct/library/report/3936,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC000906,"Liver pate, canned",https://i.fnri.dost.gov.ph/fct/library/report/3940,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC000961,"Jam, mango, canned",https://i.fnri.dost.gov.ph/fct/library/report/4296,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC000972,"Sugar, powder",https://i.fnri.dost.gov.ph/fct/library/report/4316,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC000985,Lemon grass leaves,https://i.fnri.dost.gov.ph/fct/library/report/4337,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC000986,"Lemon grass leaves, boiled",https://i.fnri.dost.gov.ph/fct/library/report/4338,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC000998,"Choc-flavor drink, prep",https://i.fnri.dost.gov.ph/fct/library/report/4361,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC000999,"Choc-flavor drink, powder",https://i.fnri.dost.gov.ph/fct/library/report/4362,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC001000,"Choc-flavor drink, UHT",https://i.fnri.dost.gov.ph/fct/library/report/4363,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC001001,"Cocoa, powder, local",https://i.fnri.dost.gov.ph/fct/library/report/4368,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC001006,"Juice, apple, canned",https://i.fnri.dost.gov.ph/fct/library/report/4402,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC001009,"Juice, orange, unsweetn, canned",https://i.fnri.dost.gov.ph/fct/library/report/4405,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC001010,"Juice, pineapple, canned",https://i.fnri.dost.gov.ph/fct/library/report/4407,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC001012,"Juice, tomato, canned",https://i.fnri.dost.gov.ph/fct/library/report/4409,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC001015,"Softdrink, orange flavor",https://i.fnri.dost.gov.ph/fct/library/report/4413,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC001019,Ginataang Monggo,https://i.fnri.dost.gov.ph/fct/library/report/4426,SEARCH_ALIAS_REVIEWED,Munggo/monggo spelling pair already documented in starter aliases; preserve qualifiers.
+FC001024,"Spaghetti, meat balls & tomato sce, canned",https://i.fnri.dost.gov.ph/fct/library/report/4434,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC001025,"Spaghetti, Vienna sausage & tomato sce, canned",https://i.fnri.dost.gov.ph/fct/library/report/4435,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC001028,"Milk fish, w/ black beans, canned",https://i.fnri.dost.gov.ph/fct/library/report/4442,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC001029,"Spring roll, crab, uncooked",https://i.fnri.dost.gov.ph/fct/library/report/4443,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC001030,"Spring roll, fish, uncooked",https://i.fnri.dost.gov.ph/fct/library/report/4444,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC001031,"Spring roll, shrimp, uncooked",https://i.fnri.dost.gov.ph/fct/library/report/4445,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC001032,"Beef callos, canned",https://i.fnri.dost.gov.ph/fct/library/report/4448,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC001033,"Beef curry, canned",https://i.fnri.dost.gov.ph/fct/library/report/4449,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC001034,"Beef roll, mechado, canned",https://i.fnri.dost.gov.ph/fct/library/report/4452,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC001035,"Beef roll, morcon, canned",https://i.fnri.dost.gov.ph/fct/library/report/4453,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC001036,"Beef steak, canned",https://i.fnri.dost.gov.ph/fct/library/report/4454,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC001037,"Beef stew, canned",https://i.fnri.dost.gov.ph/fct/library/report/4455,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC001038,"Chicken stew, canned",https://i.fnri.dost.gov.ph/fct/library/report/4460,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC001039,"Duck meat, pato tim, canned",https://i.fnri.dost.gov.ph/fct/library/report/4462,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC001040,"Pork afritada, canned",https://i.fnri.dost.gov.ph/fct/library/report/4472,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC001041,"Pork humba, canned",https://i.fnri.dost.gov.ph/fct/library/report/4474,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC001042,"Pork leg, pinaksiw, canned",https://i.fnri.dost.gov.ph/fct/library/report/4477,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC001043,"Pork pastel, canned",https://i.fnri.dost.gov.ph/fct/library/report/4478,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC001044,"Pork, roasted, pinaksiw, canned",https://i.fnri.dost.gov.ph/fct/library/report/4480,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC001045,"Spring roll, beef, uncooked",https://i.fnri.dost.gov.ph/fct/library/report/4482,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC001046,"Spring roll, chicken, uncooked",https://i.fnri.dost.gov.ph/fct/library/report/4483,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC001047,"Soup, chicken noodle, canned",https://i.fnri.dost.gov.ph/fct/library/report/4492,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC000708,"Buchi, Monggo",https://i.fnri.dost.gov.ph/fct/library/report/3146,SEARCH_ALIAS_REVIEWED,Munggo/monggo spelling pair already documented in starter aliases; preserve qualifiers.
+FC000761,Vegetable pear leaves,https://i.fnri.dost.gov.ph/fct/library/report/3331,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC000773,Chinese chives leaves,https://i.fnri.dost.gov.ph/fct/library/report/3392,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC000776,Spinach vine leaves,https://i.fnri.dost.gov.ph/fct/library/report/3400,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC000787,Ceylon spinach leaves,https://i.fnri.dost.gov.ph/fct/library/report/3452,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.
+FC000788,"Ceylon spinach leaves, boiled",https://i.fnri.dost.gov.ph/fct/library/report/3453,SEARCH_ALIAS_REVIEWED,Expand source abbreviations for search only.

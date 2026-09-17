@@ -1,8 +1,8 @@
 {
-  "foods_audited": 647,
-  "foods_with_official_common_names": 532,
-  "total_alias_rows": 1638,
-  "shared_aliases": 58,
-  "searchable_foods": 627,
-  "snapshot_version": "7b0598ff2318930bbb76b5e9"
+  "foods_audited": 1147,
+  "foods_with_official_common_names": 824,
+  "total_alias_rows": 2619,
+  "shared_aliases": 65,
+  "searchable_foods": 1127,
+  "snapshot_version": "e6b8867b142a0190a303559c"
 }

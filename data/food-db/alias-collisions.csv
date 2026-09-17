@@ -1,17 +1,22 @@
 normalized_alias,food_ids,handling
-abitsuwelas,FC000267;FC000303;FC000340,Show separate labeled choices; never merge or auto-select.
+abitsuwelas,FC000267;FC000303;FC000340;FC000802,Show separate labeled choices; never merge or auto-select.
 abukado,FC000087;FC000125;FC000126,Show separate labeled choices; never merge or auto-select.
 alimango,FC000059;FC000112;FC000113,Show separate labeled choices; never merge or auto-select.
 alimasag,FC000059;FC000112;FC000113,Show separate labeled choices; never merge or auto-select.
 avocado,FC000087;FC000125;FC000126,Show separate labeled choices; never merge or auto-select.
 baka tadyang,FC000403;FC000409,Show separate labeled choices; never merge or auto-select.
 bayabas,FC000084;FC000123;FC000124,Show separate labeled choices; never merge or auto-select.
+bihon,FC000014;FC000689,Show separate labeled choices; never merge or auto-select.
+biko,FC000162;FC000697,Show separate labeled choices; never merge or auto-select.
 bok choy pechay,FC000066;FC000114;FC000115;FC000142;FC000143,Show separate labeled choices; never merge or auto-select.
+butse,FC000708;FC000709,Show separate labeled choices; never merge or auto-select.
 canton,FC000015;FC000131;FC000132;FC000133;FC000147,Show separate labeled choices; never merge or auto-select.
+chicharon,FC000360;FC000910,Show separate labeled choices; never merge or auto-select.
 chicken meat,FC000029;FC000101,Show separate labeled choices; never merge or auto-select.
 chicken whole meat,FC000029;FC000101,Show separate labeled choices; never merge or auto-select.
 coconut milk,FC000097;FC000144;FC000145,Show separate labeled choices; never merge or auto-select.
 crab,FC000059;FC000112;FC000113,Show separate labeled choices; never merge or auto-select.
+cuchinta,FC000166;FC000704,Show separate labeled choices; never merge or auto-select.
 egg noodles cooked,FC000015;FC000131;FC000132;FC000133;FC000147,Show separate labeled choices; never merge or auto-select.
 filipino sausage,FC000043;FC000103;FC000104;FC000105,Show separate labeled choices; never merge or auto-select.
 fish sauce,FC000100;FC000146,Show separate labeled choices; never merge or auto-select.
@@ -26,7 +31,7 @@ guava,FC000084;FC000123;FC000124,Show separate labeled choices; never merge or a
 hipon,FC000057;FC000109;FC000110;FC000111,Show separate labeled choices; never merge or auto-select.
 kamoteng kahoy,FC000090;FC000198;FC000206,Show separate labeled choices; never merge or auto-select.
 kangkong,FC000073;FC000119,Show separate labeled choices; never merge or auto-select.
-labanos,FC000266;FC000302,Show separate labeled choices; never merge or auto-select.
+labanos,FC000266;FC000302;FC000794,Show separate labeled choices; never merge or auto-select.
 laman ng baboy,FC000039;FC000102,Show separate labeled choices; never merge or auto-select.
 lapas,FC000537;FC000538,Show separate labeled choices; never merge or auto-select.
 lean pork,FC000039;FC000102,Show separate labeled choices; never merge or auto-select.
@@ -35,6 +40,7 @@ longganisa,FC000043;FC000103;FC000104;FC000105,Show separate labeled choices; ne
 mangga,FC000080;FC000120;FC000121;FC000122,Show separate labeled choices; never merge or auto-select.
 mango ripe,FC000080;FC000120;FC000121;FC000122,Show separate labeled choices; never merge or auto-select.
 manok,FC000029;FC000101,Show separate labeled choices; never merge or auto-select.
+misua,FC000149;FC000692,Show separate labeled choices; never merge or auto-select.
 niyog gata,FC000097;FC000144;FC000145,Show separate labeled choices; never merge or auto-select.
 pancit canton noodles,FC000015;FC000131;FC000132;FC000133;FC000147,Show separate labeled choices; never merge or auto-select.
 patis,FC000100;FC000146,Show separate labeled choices; never merge or auto-select.
@@ -47,13 +53,14 @@ sardinas,FC000054;FC000106;FC000107;FC000108,Show separate labeled choices; neve
 sardines,FC000054;FC000106;FC000107;FC000108,Show separate labeled choices; never merge or auto-select.
 shrimp,FC000057;FC000109;FC000110;FC000111,Show separate labeled choices; never merge or auto-select.
 sigarilyas,FC000281;FC000313,Show separate labeled choices; never merge or auto-select.
-sili sweet,FC000300;FC000301;FC000338;FC000339,Show separate labeled choices; never merge or auto-select.
+sili sweet,FC000300;FC000301;FC000338;FC000339;FC000785;FC000786,Show separate labeled choices; never merge or auto-select.
 sitaw,FC000071;FC000072;FC000116;FC000117;FC000118,Show separate labeled choices; never merge or auto-select.
 skipjack,FC000052;FC000140;FC000141,Show separate labeled choices; never merge or auto-select.
 skipjack tuna,FC000052;FC000140;FC000141,Show separate labeled choices; never merge or auto-select.
 string beans,FC000071;FC000116;FC000117;FC000118,Show separate labeled choices; never merge or auto-select.
 taho,FC000242;FC000243,Show separate labeled choices; never merge or auto-select.
 tofu,FC000019;FC000020,Show separate labeled choices; never merge or auto-select.
+tugi,FC000724;FC000725,Show separate labeled choices; never merge or auto-select.
 ubi,FC000092;FC000202,Show separate labeled choices; never merge or auto-select.
 water spinach,FC000073;FC000119,Show separate labeled choices; never merge or auto-select.
 yardlong bean,FC000072;FC000116;FC000117;FC000118,Show separate labeled choices; never merge or auto-select.

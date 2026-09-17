@@ -1,0 +1,63 @@
+source,source_food_id,name,reason
+FNRI,F003,Beef brain,Outside the common-food focus for this batch.
+FNRI,F004,"Beef brain, boiled",Outside the common-food focus for this batch.
+FNRI,F022,Beef mammary,Outside the common-food focus for this batch.
+FNRI,F042,Beef spleen,Outside the common-food focus for this batch.
+FNRI,F043,"Beef spleen, boiled",Outside the common-food focus for this batch.
+FNRI,F051,Beef uterus,Outside the common-food focus for this batch.
+FNRI,F053,Carabeef brain,Outside the common-food focus for this batch.
+FNRI,F069,Carabeef spleen,Outside the common-food focus for this batch.
+FNRI,F139,Moor hen breast,Outside the common-food focus for this batch.
+FNRI,F140,Moor hen gizzard,Outside the common-food focus for this batch.
+FNRI,F141,Moor hen liver,Outside the common-food focus for this batch.
+FNRI,F142,Moor hen thigh,Outside the common-food focus for this batch.
+FNRI,F183,Pork spleen,Outside the common-food focus for this batch.
+FNRI,F184,"Pork spleen, boiled",Outside the common-food focus for this batch.
+FNRI,F189,Pork uterus,Outside the common-food focus for this batch.
+FNRI,F190,"Pork, suckling, belly",Outside the common-food focus for this batch.
+FNRI,F191,"Pork, suckling, blood",Outside the common-food focus for this batch.
+FNRI,F192,"Pork, suckling, brain",Outside the common-food focus for this batch.
+FNRI,F193,"Pork, suckling, heart",Outside the common-food focus for this batch.
+FNRI,F194,"Pork, suckling, intestine, large",Outside the common-food focus for this batch.
+FNRI,F195,"Pork, suckling, intestine, small",Outside the common-food focus for this batch.
+FNRI,F196,"Pork, suckling, kidney",Outside the common-food focus for this batch.
+FNRI,F197,"Pork, suckling, leg",Outside the common-food focus for this batch.
+FNRI,F198,"Pork, suckling, liver",Outside the common-food focus for this batch.
+FNRI,F199,"Pork, suckling, lung",Outside the common-food focus for this batch.
+FNRI,F200,"Pork, suckling, spare rib",Outside the common-food focus for this batch.
+FNRI,F201,"Pork, suckling, spleen",Outside the common-food focus for this batch.
+FNRI,F202,"Pork, suckling, stomach",Outside the common-food focus for this batch.
+FNRI,F207,Snipe lean meat,Outside the common-food focus for this batch.
+FNRI,F271,"Pork skin, seasoned, roasted",Sugar exceeds total carbohydrate.
+FNRI,G164,"Flatfish/Brill, rough-scaled, dried",Duplicate source descriptions; identity unresolved.
+FNRI,G165,"Flatfish/Brill, rough-scaled, dried",Duplicate source descriptions; identity unresolved.
+FNRI,G196,"Sardine, fimbriated, fry, dried",Duplicate source descriptions; identity unresolved.
+FNRI,G197,"Sardine, fimbriated, fry, dried",Duplicate source descriptions; identity unresolved.
+FNRI,G199,"Sardine, Indian, dried",Duplicate source descriptions; identity unresolved.
+FNRI,G200,"Sardine, Indian, dried",Duplicate source descriptions; identity unresolved.
+FNRI,G215,"Slipmouth, common, dried",Duplicate source descriptions; identity unresolved.
+FNRI,G216,"Slipmouth, common, dried",Duplicate source descriptions; identity unresolved.
+FNRI,G230,"Tuna spread, cnd",Sugar exceeds total carbohydrate.
+FNRI,J018,"Milk, human",Outside the common-food focus for this batch.
+FNRI,J021,"Milk, pwdr, infant formula",Outside the common-food focus for this batch.
+FNRI,R036,"Beef w/ gravy, cnd",Sugar exceeds total carbohydrate.
+FNRI,R088,"Hotcake, prep, w/ MLP",Outside the common-food focus for this batch.
+FNRI,R089,"Polvoron, prep, w/ MLP",Outside the common-food focus for this batch.
+FNRI,R090,"Gelatin drink, w/ MLP",Sugar exceeds total carbohydrate.
+FNRI,R091,"Ice candy, prep, w/ MLP",Outside the common-food focus for this batch.
+FNRI,R092,"Yacon shake, prep",Outside the common-food focus for this batch.
+FNRI,R093,"Carbonara, prep, w/ MLP",Outside the common-food focus for this batch.
+FNRI,R094,"Fruit salad, prep, w/ yacon",Outside the common-food focus for this batch.
+FNRI,R095,"Macaroni salad, prep, w/ yacon",Outside the common-food focus for this batch.
+FNRI,R096,"Waldorf salad, prep, w/ yacon",Outside the common-food focus for this batch.
+FNRI,R097,"Anchovy fry omelet, prep, w/ MLP",Outside the common-food focus for this batch.
+FNRI,R098,"Red snapper fritata, prep, w/ MLP",Outside the common-food focus for this batch.
+FNRI,R099,"Chopsuey, prep, w/ yacon",Outside the common-food focus for this batch.
+FNRI,R100,"Wonton soup, prep, w/ MLP",Outside the common-food focus for this batch.
+FNRI,R101,"Pork wonton, prep, w/ MLP",Outside the common-food focus for this batch.
+FNRI,R102,"Scrambled egg, prep, w/ MLP",Outside the common-food focus for this batch.
+FNRI,R103,"Shanghai pork roll, prep, w/ yacon",Outside the common-food focus for this batch.
+FNRI,R104,"Fried rice mix, w/ yacon",Outside the common-food focus for this batch.
+FNRI,R105,"Vegetable stir-fry w/ quail eggs, prep, w/ yacon",Outside the common-food focus for this batch.
+FNRI,R106,"Vegetable soup, prep, w/ yacon",Outside the common-food focus for this batch.
+FNRI,R107,"Vegetable spring roll, fresh, w/ yacon",Outside the common-food focus for this batch.
