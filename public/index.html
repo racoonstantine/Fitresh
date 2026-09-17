@@ -665,8 +665,29 @@
 
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px;">
           <div>
-            <label style="font-size:11px;color:var(--ink-soft);">Height (cm)</label>
+            <label style="font-size:11px;color:var(--ink-soft);">Weight unit</label>
+            <select id="obWeightUnit" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;">
+              <option value="kg" selected>Kilograms (kg)</option>
+              <option value="lbs">Pounds (lb)</option>
+            </select>
+          </div>
+          <div>
+            <label style="font-size:11px;color:var(--ink-soft);">Height unit</label>
+            <select id="obHeightUnit" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;">
+              <option value="cm" selected>Centimeters (cm)</option>
+              <option value="ft">Feet / inches</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px;">
+          <div>
+            <label style="font-size:11px;color:var(--ink-soft);" id="obHeightLabel">Height (cm)</label>
             <input type="number" id="obHeight" min="100" max="250" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;">
+            <div id="obHeightFtWrap" style="display:none;gap:6px;margin-top:2px;">
+              <input type="number" id="obHeightFt" placeholder="ft" min="3" max="8" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);">
+              <input type="number" id="obHeightIn" placeholder="in" min="0" max="11" step="0.1" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);">
+            </div>
           </div>
           <div>
             <label style="font-size:11px;color:var(--ink-soft);">Activity level</label>
@@ -681,11 +702,11 @@
 
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:6px;">
           <div>
-            <label style="font-size:11px;color:var(--ink-soft);">Current weight (kg)</label>
+            <label style="font-size:11px;color:var(--ink-soft);" id="obCurrentWeightLabel">Current weight (kg)</label>
             <input type="number" step="0.1" id="obCurrentWeight" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;">
           </div>
           <div>
-            <label style="font-size:11px;color:var(--ink-soft);">Goal weight (kg)</label>
+            <label style="font-size:11px;color:var(--ink-soft);" id="obGoalWeightLabel">Goal weight (kg)</label>
             <input type="number" step="0.1" id="obGoalWeight" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;">
           </div>
         </div>
@@ -1228,7 +1249,14 @@
           <div class="goals-category-title">Body</div>
           <div class="hub-grid">
             <div class="hub-tile hub-tile-empty">
-              <div class="hub-tile-label">Target weight (kg)</div>
+              <div class="hub-tile-label">Preferred weight unit</div>
+              <select id="goalWeightUnit" style="width:100%;padding:6px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:6px;font-family:var(--font-heading);font-size:16px;">
+                <option value="kg" selected>Kilograms (kg)</option>
+                <option value="lbs">Pounds (lb)</option>
+              </select>
+            </div>
+            <div class="hub-tile hub-tile-empty">
+              <div class="hub-tile-label" id="goalTargetWeightLabel">Target weight (kg)</div>
               <input type="number" step="0.1" id="goalTargetWeight" style="width:100%;padding:6px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:6px;font-family:var(--font-heading);font-size:16px;">
             </div>
             <div class="hub-tile hub-tile-empty">
@@ -1641,6 +1669,53 @@ let weighIns = []; // [{date:'YYYY-MM-DD', kg: number}]
 // Generic fallback goal until a profile with its own goalWeightKg is set (see updateWeightGoalsFromProfile).
 let GOAL_WEIGHT = 85;
 
+// ---------- Unit preferences (weight kg/lb, height cm/ft-in) ----------
+// Weight and height are always stored canonically in kg/cm everywhere
+// (weighIns, profile.currentWeightKg/goalWeightKg/heightCm) -- these helpers
+// only convert at the display/input boundary based on the user's
+// profile.weightUnit/heightUnit preference (default kg/cm).
+const KG_PER_LB = 0.45359237;
+function kgToLbs(kg){ return kg / KG_PER_LB; }
+function lbsToKg(lbs){ return lbs * KG_PER_LB; }
+function cmToFeetInches(cm){
+  const totalIn = cm / 2.54;
+  let feet = Math.floor(totalIn / 12);
+  let inches = Math.round((totalIn - feet * 12) * 10) / 10;
+  if(inches >= 12){ feet += 1; inches = 0; }
+  return {feet, inches};
+}
+function feetInchesToCm(feet, inches){
+  const ft = parseFloat(feet) || 0;
+  const inch = parseFloat(inches) || 0;
+  if(!ft && !inch) return null;
+  return (ft * 12 + inch) * 2.54;
+}
+function weightUnit(){ return (userProfile && userProfile.weightUnit) || 'kg'; }
+function heightUnit(){ return (userProfile && userProfile.heightUnit) || 'cm'; }
+function weightUnitLabel(){ return weightUnit() === 'lbs' ? 'lb' : 'kg'; }
+function kgToDisplayWeight(kg){
+  if(kg === null || kg === undefined || isNaN(kg)) return null;
+  return weightUnit() === 'lbs' ? kgToLbs(kg) : kg;
+}
+function displayWeightToKg(value){
+  const num = parseFloat(value);
+  if(isNaN(num)) return null;
+  return weightUnit() === 'lbs' ? lbsToKg(num) : num;
+}
+function formatWeightKg(kg, decimals){
+  if(kg === null || kg === undefined || isNaN(kg)) return '—';
+  const d = decimals === undefined ? 1 : decimals;
+  return kgToDisplayWeight(kg).toFixed(d) + ' ' + weightUnitLabel();
+}
+function formatHeightCm(cm){
+  if(!cm) return '—';
+  if(heightUnit() === 'ft'){
+    const {feet, inches} = cmToFeetInches(cm);
+    return `${feet}'${inches}"`;
+  }
+  return (cm / 100).toFixed(2) + ' m';
+}
+
 let nutritionLog = []; // [{date, fastHours, meal, calories, protein, fat, carbs, notes}]
 
 async function loadNutrition(){
@@ -2011,11 +2086,11 @@ async function renderTodayGlance(){
   grid.innerHTML = `
     <div class="glance-card" data-nav-view="body" style="cursor:pointer;">
       <div class="glance-card-head"><span class="glance-card-label">\u{1F4E6} Weight</span></div>
-      <div class="glance-card-value">${latestW ? latestW.kg + ' kg' : '—'}</div>
+      <div class="glance-card-value">${latestW ? formatWeightKg(latestW.kg) : '—'}</div>
       ${weightDelta !== null
-        ? `<div class="glance-card-sub" style="color:${weightDelta<=0?'var(--forest-dark)':'#B4472A'};">${weightDelta<=0?'▼':'▲'} ${Math.abs(weightDelta).toFixed(1)} kg</div>`
+        ? `<div class="glance-card-sub" style="color:${weightDelta<=0?'var(--forest-dark)':'#B4472A'};">${weightDelta<=0?'▼':'▲'} ${formatWeightKg(Math.abs(weightDelta))}</div>`
         : `<div class="glance-card-sub">${latestW ? 'First weigh-in logged' : 'No weigh-ins yet'}</div>`}
-      <div class="glance-card-sub">${latestW ? 'Last: ' + latestW.kg + ' kg (' + formatDateLabel(latestW.date) + ')' : ''}</div>
+      <div class="glance-card-sub">${latestW ? 'Last: ' + formatWeightKg(latestW.kg) + ' (' + formatDateLabel(latestW.date) + ')' : ''}</div>
     </div>
     <div class="glance-card open-fasting-screen-link" style="cursor:pointer;">
       <div class="glance-card-head"><span class="glance-card-label">⏱ Fasting</span></div>
@@ -2189,7 +2264,7 @@ async function renderTodayGlance(){
   const rows = [
     {icon: '\u{1F37D}', title: 'Food', sub: mealItemCount ? `${mealItemCount} item${mealItemCount===1?'':'s'} logged` : 'Not logged yet', value: hasFoodToday ? `${Math.round(combined.calories)} kcal` : '—'},
     {icon: '\u{1F4A7}', title: 'Water', sub: waterMl ? `${waterMl}ml logged` : 'Not logged yet', value: `${fmtL(waterMl)} L`},
-    {icon: '\u{1F4CB}', title: 'Weight', sub: todaysWeighIn ? 'Logged' : 'Not logged today', value: todaysWeighIn ? `${todaysWeighIn.kg} kg` : '—'},
+    {icon: '\u{1F4CB}', title: 'Weight', sub: todaysWeighIn ? 'Logged' : 'Not logged today', value: todaysWeighIn ? formatWeightKg(todaysWeighIn.kg) : '—'},
     {icon: '\u{1F3C3}', title: 'Exercise', sub: plannedType ? planLabel : 'Rest day', value: plannedType ? (exerciseDone ? 'Completed' : 'Not done') : '—'},
     {icon: '⏱', title: 'Fasting', sub: fastingState.startIso ? 'In progress' : (nutriEntry && nutriEntry.fastHours ? 'Logged' : 'Not started'), value: '', liveId: 'todayLogFastValue'},
     {icon: '\u{1F634}', title: 'Sleep', sub: sleepEntry ? (sleepEntry.startIso && sleepEntry.endIso ? `${fmtClock(sleepEntry.startIso)} – ${fmtClock(sleepEntry.endIso)}` : 'Logged') : 'Not logged yet', value: sleepEntry ? formatSleepHours(sleepEntry.hours) : '—'}
@@ -3187,7 +3262,7 @@ function renderAccountSnapshot(){
   if(weighIns.length >= 2){
     const sorted = [...weighIns].sort((a,b)=> a.date < b.date ? -1 : 1);
     const change = sorted[sorted.length - 1].kg - sorted[0].kg;
-    weightChangeText = `${change > 0 ? '+' : ''}${change.toFixed(1)} kg`;
+    weightChangeText = `${change > 0 ? '+' : ''}${formatWeightKg(change)}`;
   }
 
   greetingCard.innerHTML = `
@@ -3213,10 +3288,10 @@ function renderAccountSnapshot(){
       <div class="dash" style="grid-template-columns:repeat(2,1fr);">
         <div><div class="hub-tile-label">Age</div><div style="font-weight:600;">${p.age || '—'}</div></div>
         <div><div class="hub-tile-label">Gender</div><div style="font-weight:600;">${cap(p.gender)}</div></div>
-        <div><div class="hub-tile-label">Height</div><div style="font-weight:600;">${p.heightCm ? (p.heightCm/100).toFixed(2)+' m' : '—'}</div></div>
-        <div><div class="hub-tile-label">Weight</div><div style="font-weight:600;">${weightNow ? weightNow+' kg' : '—'}</div></div>
+        <div><div class="hub-tile-label">Height</div><div style="font-weight:600;">${formatHeightCm(p.heightCm)}</div></div>
+        <div><div class="hub-tile-label">Weight</div><div style="font-weight:600;">${formatWeightKg(weightNow)}</div></div>
         <div><div class="hub-tile-label">Activity level</div><div style="font-weight:600;">${cap(p.activityLevel)}</div></div>
-        <div><div class="hub-tile-label">Goal weight</div><div style="font-weight:600;">${p.goalWeightKg ? p.goalWeightKg+' kg' : '—'}</div></div>
+        <div><div class="hub-tile-label">Goal weight</div><div style="font-weight:600;">${formatWeightKg(p.goalWeightKg)}</div></div>
       </div>
       ${p.notes ? `<div class="note" style="margin-top:12px;">${p.notes}</div>` : ''}
     `;
@@ -3233,6 +3308,7 @@ function renderAccountSnapshot(){
   if(editBtn) editBtn.addEventListener('click', showOnboarding);
 }
 
+let goalWeightUnitPrev = 'kg';
 function renderAccountGoals(){
   const recEl = document.getElementById('goalEnergyRecommended');
   if(!recEl) return;
@@ -3278,7 +3354,10 @@ function renderAccountGoals(){
   document.getElementById('goalFiberCustom').value = profile.customFiberTarget || 30;
   document.getElementById('goalSugarCustom').value = profile.customSugarTarget || 50;
 
-  document.getElementById('goalTargetWeight').value = profile.goalWeightKg || '';
+  goalWeightUnitPrev = profile.weightUnit || 'kg';
+  document.getElementById('goalWeightUnit').value = goalWeightUnitPrev;
+  document.getElementById('goalTargetWeightLabel').textContent = `Target weight (${weightUnitLabel()})`;
+  document.getElementById('goalTargetWeight').value = profile.goalWeightKg ? Math.round(kgToDisplayWeight(profile.goalWeightKg) * 10) / 10 : '';
   document.getElementById('goalSleepHours').value = profile.sleepGoalHours || 8;
   document.getElementById('goalSteps').value = profile.stepsGoal || 10000;
   document.getElementById('goalCalorieBurn').value = profile.calorieBurnGoal || 400;
@@ -3380,7 +3459,7 @@ function renderSummary(){
     <div class="dash-card"><div class="dash-num">${avgCal !== null ? Math.round(avgCal) : '—'}</div><div class="dash-label">Avg kcal</div></div>
     <div class="dash-card"><div class="dash-num">${avgProtein !== null ? avgProtein.toFixed(1) : '—'}</div><div class="dash-label">Avg protein (g)</div></div>
     <div class="dash-card"><div class="dash-num">${avgFast !== null ? formatFastHours(avgFast) : '—'}</div><div class="dash-label">Avg fast</div></div>
-    <div class="dash-card"><div class="dash-num">${weightChange !== null ? (weightChange > 0 ? '+' : '') + weightChange.toFixed(1) : '—'}</div><div class="dash-label">Weight change (kg)</div></div>
+    <div class="dash-card"><div class="dash-num">${weightChange !== null ? (weightChange > 0 ? '+' : '') + formatWeightKg(weightChange) : '—'}</div><div class="dash-label">Weight change</div></div>
     <div class="dash-card"><div class="dash-num">${nutriEntries.length}</div><div class="dash-label">Days nutrition logged</div></div>
     <div class="dash-card"><div class="dash-num">${avgSleep !== null ? formatSleepHours(avgSleep) : '—'}</div><div class="dash-label">Avg sleep</div></div>
     <div class="dash-card"><div class="dash-num">${avgSteps !== null ? avgSteps.toLocaleString() : '—'}</div><div class="dash-label">Avg steps</div></div>
@@ -3399,7 +3478,7 @@ function renderSummary(){
         <div style="flex:0 0 76px;flex-shrink:0;color:var(--ink-soft);">${d}</div>
         <div style="flex:1 0 100px;color:${w ? 'var(--forest-dark)' : 'var(--ink-soft)'};">${w ? w.label : '—'}</div>
         <div style="flex:0 0 60px;flex-shrink:0;text-align:right;color:${n && n.calories ? (parseFloat(n.calories) >= getTargets(d).calMin ? 'var(--forest-dark)' : '#B4472A') : 'var(--ink-soft)'};">${n && n.calories ? n.calories+'k' : '—'}</div>
-        <div style="flex:0 0 55px;flex-shrink:0;text-align:right;color:var(--ink);">${wt ? wt.kg.toFixed(1)+'kg' : '—'}</div>
+        <div style="flex:0 0 55px;flex-shrink:0;text-align:right;color:var(--ink);">${wt ? formatWeightKg(wt.kg) : '—'}</div>
         <div style="flex:0 0 50px;flex-shrink:0;text-align:right;color:var(--ink-soft);">${n && n.fastHours ? formatFastHours(parseFloat(n.fastHours)) : '—'}</div>
         <div style="flex:0 0 55px;flex-shrink:0;text-align:right;color:var(--ink-soft);">${sl ? formatSleepHours(sl.hours) : '—'}</div>
         <div style="flex:0 0 55px;flex-shrink:0;text-align:right;color:var(--ink-soft);">${st !== undefined ? st.toLocaleString() : '—'}</div>
@@ -3431,18 +3510,21 @@ function renderWeightSection(){
   const pct = totalToLose > 0 ? Math.min(100, Math.round((lostSoFar / totalToLose) * 100)) : 0;
   const remaining = Math.max(0, current - GOAL_WEIGHT);
 
+  const unitLabel = weightUnitLabel();
+  const weighInKgInput = document.getElementById('weighInKg');
+  if(weighInKgInput) weighInKgInput.placeholder = unitLabel;
   document.getElementById('bodyWeightCards').innerHTML = `
     <div class="dash-card">
-      <div class="dash-num">${current.toFixed(1)}</div>
-      <div class="dash-label">Current (kg)</div>
+      <div class="dash-num">${kgToDisplayWeight(current).toFixed(1)}</div>
+      <div class="dash-label">Current (${unitLabel})</div>
     </div>
     <div class="dash-card">
-      <div class="dash-num">${lostSoFar > 0 ? '−' + lostSoFar.toFixed(1) : '0.0'}</div>
+      <div class="dash-num">${lostSoFar > 0 ? '−' + kgToDisplayWeight(lostSoFar).toFixed(1) : '0.0'}</div>
       <div class="dash-label">Lost so far</div>
     </div>
     <div class="dash-card">
-      <div class="dash-num">${remaining.toFixed(1)}</div>
-      <div class="dash-label">Kg to goal</div>
+      <div class="dash-num">${kgToDisplayWeight(remaining).toFixed(1)}</div>
+      <div class="dash-label">${unitLabel} to goal</div>
     </div>
   `;
 
@@ -3467,7 +3549,7 @@ function renderWeightSection(){
       </svg>
       <div style="display:flex;justify-content:space-between;font-size:10.5px;color:var(--ink-soft);margin-top:2px;">
         <span>${sorted[0].date}</span>
-        <span style="color:var(--ochre);">- - - goal ${GOAL_WEIGHT}kg</span>
+        <span style="color:var(--ochre);">- - - goal ${formatWeightKg(GOAL_WEIGHT)}</span>
         <span>${sorted[sorted.length-1].date}</span>
       </div>
     `;
@@ -3486,12 +3568,12 @@ function renderWeightSection(){
       if(prev !== null){
         const d = entry.kg - prev;
         const cls = d < 0 ? 'down' : (d > 0 ? 'up' : '');
-        deltaHtml = `<span class="wi-delta ${cls}">${d === 0 ? '' : (d > 0 ? '+' : '') + d.toFixed(1)}</span>`;
+        deltaHtml = `<span class="wi-delta ${cls}">${d === 0 ? '' : (d > 0 ? '+' : '') + kgToDisplayWeight(d).toFixed(1)}</span>`;
       }
       return `
         <div class="wi-row wi-row-edit" data-edit-weight="${entry.date}" data-edit-kg="${entry.kg}" style="cursor:pointer;">
           <div class="wi-date">${entry.date}</div>
-          <div class="wi-kg">${entry.kg.toFixed(1)} kg</div>
+          <div class="wi-kg">${formatWeightKg(entry.kg)}</div>
           ${deltaHtml}
           <button class="wi-del" data-del-weight="${entry.date}">✕</button>
         </div>
@@ -3502,7 +3584,7 @@ function renderWeightSection(){
         if(e.target.closest('[data-del-weight]')) return;
         document.getElementById('weighInDate').value = row.dataset.editWeight;
         const kgInput = document.getElementById('weighInKg');
-        kgInput.value = row.dataset.editKg;
+        kgInput.value = Math.round(kgToDisplayWeight(parseFloat(row.dataset.editKg)) * 10) / 10;
         kgInput.focus();
         if(kgInput.scrollIntoView) kgInput.scrollIntoView({behavior:'smooth', block:'center'});
       });
@@ -4324,7 +4406,7 @@ async function startApp(){
   document.getElementById('addWeighInBtn').addEventListener('click', ()=>{
     const dateInput = document.getElementById('weighInDate');
     const kgInput = document.getElementById('weighInKg');
-    const kg = parseFloat(kgInput.value);
+    const kg = displayWeightToKg(kgInput.value);
     if(!kg || kg <= 0) return;
     addWeighIn(dateInput.value || dateStrForOffset(0), kg);
     kgInput.value = '';
@@ -4572,6 +4654,21 @@ function revealApp(){
   document.getElementById('appRoot').style.display = 'block';
 }
 
+// Shows/hides the cm vs ft/in height inputs and updates the weight field
+// labels to match whatever unit is currently selected in the onboarding
+// form -- called on open and whenever either unit select changes.
+function applyObUnitDisplay(){
+  const wUnit = document.getElementById('obWeightUnit').value;
+  const hUnit = document.getElementById('obHeightUnit').value;
+  document.getElementById('obCurrentWeightLabel').textContent = `Current weight (${wUnit === 'lbs' ? 'lb' : 'kg'})`;
+  document.getElementById('obGoalWeightLabel').textContent = `Goal weight (${wUnit === 'lbs' ? 'lb' : 'kg'})`;
+  const isFt = hUnit === 'ft';
+  document.getElementById('obHeightLabel').textContent = isFt ? 'Height' : 'Height (cm)';
+  document.getElementById('obHeight').style.display = isFt ? 'none' : 'block';
+  document.getElementById('obHeightFtWrap').style.display = isFt ? 'flex' : 'none';
+}
+let obWeightUnitPrev = 'kg';
+let obHeightUnitPrev = 'cm';
 function showOnboarding(){
   document.getElementById('appRoot').style.display = 'none';
   document.getElementById('onboardingScreen').style.display = 'flex';
@@ -4579,12 +4676,35 @@ function showOnboarding(){
   document.getElementById('obUsername').value = (currentUser && currentUser.username) || '';
   document.getElementById('obGender').value = p.gender || '';
   document.getElementById('obAge').value = p.age || '';
-  document.getElementById('obHeight').value = p.heightCm || '';
   document.getElementById('obActivity').value = p.activityLevel || 'light';
-  document.getElementById('obCurrentWeight').value = p.currentWeightKg || currentWeightKg() || '';
-  document.getElementById('obGoalWeight').value = p.goalWeightKg || GOAL_WEIGHT || '';
+
+  obWeightUnitPrev = p.weightUnit || 'kg';
+  obHeightUnitPrev = p.heightUnit || 'cm';
+  document.getElementById('obWeightUnit').value = obWeightUnitPrev;
+  document.getElementById('obHeightUnit').value = obHeightUnitPrev;
+
+  const heightCm = p.heightCm || null;
+  if(obHeightUnitPrev === 'ft' && heightCm){
+    const {feet, inches} = cmToFeetInches(heightCm);
+    document.getElementById('obHeightFt').value = feet;
+    document.getElementById('obHeightIn').value = inches;
+    document.getElementById('obHeight').value = '';
+  } else {
+    document.getElementById('obHeight').value = heightCm || '';
+    document.getElementById('obHeightFt').value = '';
+    document.getElementById('obHeightIn').value = '';
+  }
+
+  const curKg = p.currentWeightKg || currentWeightKg() || null;
+  const goalKg = p.goalWeightKg || GOAL_WEIGHT || null;
+  document.getElementById('obCurrentWeight').value = curKg
+    ? (obWeightUnitPrev === 'lbs' ? (Math.round(kgToLbs(curKg) * 10) / 10) : curKg) : '';
+  document.getElementById('obGoalWeight').value = goalKg
+    ? (obWeightUnitPrev === 'lbs' ? (Math.round(kgToLbs(goalKg) * 10) / 10) : goalKg) : '';
+
   document.getElementById('obNotes').value = p.notes || '';
   document.getElementById('onboardingError').style.display = 'none';
+  applyObUnitDisplay();
 }
 
 async function showAppFor(user){
@@ -4708,14 +4828,26 @@ async function checkAuthAndStart(){
         currentUser.username = data.username;
       }
 
+      const wUnit = document.getElementById('obWeightUnit').value;
+      const hUnit = document.getElementById('obHeightUnit').value;
+      const heightCm = hUnit === 'ft'
+        ? feetInchesToCm(document.getElementById('obHeightFt').value, document.getElementById('obHeightIn').value)
+        : (parseFloat(document.getElementById('obHeight').value) || null);
+      const rawCurrent = parseFloat(document.getElementById('obCurrentWeight').value);
+      const rawGoal = parseFloat(document.getElementById('obGoalWeight').value);
+      const currentWeightKgVal = isNaN(rawCurrent) ? null : (wUnit === 'lbs' ? lbsToKg(rawCurrent) : rawCurrent);
+      const goalWeightKgVal = isNaN(rawGoal) ? null : (wUnit === 'lbs' ? lbsToKg(rawGoal) : rawGoal);
+
       const profile = {
         ...(userProfile || {}),
         gender: document.getElementById('obGender').value || null,
         age: parseInt(document.getElementById('obAge').value, 10) || null,
-        heightCm: parseFloat(document.getElementById('obHeight').value) || null,
+        heightCm,
+        weightUnit: wUnit,
+        heightUnit: hUnit,
         activityLevel: document.getElementById('obActivity').value,
-        currentWeightKg: parseFloat(document.getElementById('obCurrentWeight').value) || null,
-        goalWeightKg: parseFloat(document.getElementById('obGoalWeight').value) || null,
+        currentWeightKg: currentWeightKgVal,
+        goalWeightKg: goalWeightKgVal,
         notes: document.getElementById('obNotes').value.trim() || null
       };
       await saveProfile(profile);
@@ -4730,6 +4862,8 @@ async function checkAuthAndStart(){
       renderDashboard();
       renderNutrition();
       renderWeightSection();
+      renderTodayGlance();
+      renderAccountSnapshot();
     }catch(err){
       errBox.textContent = 'Could not reach the server — check your connection and try again.';
       errBox.style.display = 'block';
@@ -4741,6 +4875,45 @@ async function checkAuthAndStart(){
 
   document.getElementById('onboardingSkip').addEventListener('click', ()=>{
     revealApp();
+  });
+
+  // Switching a unit mid-edit converts whatever is currently typed instead
+  // of just relabeling the field, so a half-filled form doesn't silently
+  // get reinterpreted in the new unit.
+  document.getElementById('obWeightUnit').addEventListener('change', (e)=>{
+    const newUnit = e.target.value;
+    if(newUnit === obWeightUnitPrev){ return; }
+    ['obCurrentWeight', 'obGoalWeight'].forEach(id=>{
+      const input = document.getElementById(id);
+      const val = parseFloat(input.value);
+      if(isNaN(val)) return;
+      const kg = obWeightUnitPrev === 'lbs' ? lbsToKg(val) : val;
+      input.value = Math.round((newUnit === 'lbs' ? kgToLbs(kg) : kg) * 10) / 10;
+    });
+    obWeightUnitPrev = newUnit;
+    applyObUnitDisplay();
+  });
+  document.getElementById('obHeightUnit').addEventListener('change', (e)=>{
+    const newUnit = e.target.value;
+    if(newUnit === obHeightUnitPrev){ return; }
+    let cm = null;
+    if(obHeightUnitPrev === 'ft'){
+      cm = feetInchesToCm(document.getElementById('obHeightFt').value, document.getElementById('obHeightIn').value);
+    } else {
+      const val = parseFloat(document.getElementById('obHeight').value);
+      cm = isNaN(val) ? null : val;
+    }
+    if(cm){
+      if(newUnit === 'ft'){
+        const {feet, inches} = cmToFeetInches(cm);
+        document.getElementById('obHeightFt').value = feet;
+        document.getElementById('obHeightIn').value = inches;
+      } else {
+        document.getElementById('obHeight').value = Math.round(cm);
+      }
+    }
+    obHeightUnitPrev = newUnit;
+    applyObUnitDisplay();
   });
 
   document.getElementById('userBadge').addEventListener('click', ()=> showView('account'));
@@ -4759,7 +4932,10 @@ async function checkAuthAndStart(){
     profile.customFiberTarget = parseFloat(document.getElementById('goalFiberCustom').value) || null;
     profile.customSugarTarget = parseFloat(document.getElementById('goalSugarCustom').value) || null;
     profile.dietPreset = document.getElementById('goalDietPreset').value;
-    profile.goalWeightKg = parseFloat(document.getElementById('goalTargetWeight').value) || null;
+    const newWeightUnit = document.getElementById('goalWeightUnit').value;
+    profile.weightUnit = newWeightUnit;
+    const rawGoalWeight = parseFloat(document.getElementById('goalTargetWeight').value);
+    profile.goalWeightKg = isNaN(rawGoalWeight) ? null : (newWeightUnit === 'lbs' ? lbsToKg(rawGoalWeight) : rawGoalWeight);
     profile.sleepGoalHours = parseFloat(document.getElementById('goalSleepHours').value) || null;
     profile.stepsGoal = parseInt(document.getElementById('goalSteps').value, 10) || null;
     profile.calorieBurnGoal = parseFloat(document.getElementById('goalCalorieBurn').value) || null;
@@ -4782,6 +4958,9 @@ async function checkAuthAndStart(){
     renderNutrition();
     renderTodayGlance();
     renderFasting();
+    renderWeightSection();
+    renderAccountSnapshot();
+    if(document.getElementById('summaryCards')) renderSummary();
 
     const savedMsg = document.getElementById('goalsSavedMsg');
     savedMsg.style.display = 'block';
@@ -4807,6 +4986,18 @@ async function checkAuthAndStart(){
 
   document.getElementById('goalDietPreset').addEventListener('change', (e)=>{
     applyDietPreset(e.target.value);
+  });
+  document.getElementById('goalWeightUnit').addEventListener('change', (e)=>{
+    const newUnit = e.target.value;
+    if(newUnit === goalWeightUnitPrev) return;
+    const input = document.getElementById('goalTargetWeight');
+    const val = parseFloat(input.value);
+    if(!isNaN(val)){
+      const kg = goalWeightUnitPrev === 'lbs' ? lbsToKg(val) : val;
+      input.value = Math.round((newUnit === 'lbs' ? kgToLbs(kg) : kg) * 10) / 10;
+    }
+    goalWeightUnitPrev = newUnit;
+    document.getElementById('goalTargetWeightLabel').textContent = `Target weight (${newUnit === 'lbs' ? 'lb' : 'kg'})`;
   });
   document.getElementById('toggleMoreMacros').addEventListener('click', ()=>{
     const grid = document.getElementById('moreMacrosGrid');

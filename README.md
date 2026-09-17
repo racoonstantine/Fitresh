@@ -161,6 +161,27 @@ If you're setting this up on an existing database, also run
 [`db/migrations/002_add_username.sql`](db/migrations/002_add_username.sql)
 once.
 
+## Weight/height units (kg/lb, cm/ft-in)
+
+Weight and height are always stored canonically in kg and cm — in
+`weighIns`, `profile.currentWeightKg`/`goalWeightKg`/`heightCm`, and every
+BMI/BMR/TDEE calculation — so switching units never touches historical data
+or recomputes targets differently. `profile.weightUnit` ('kg' default or
+'lbs') and `profile.heightUnit` ('cm' default or 'ft') only control the
+display/input layer: a small set of helpers (`formatWeightKg()`,
+`formatHeightCm()`, `kgToDisplayWeight()`/`displayWeightToKg()`,
+`cmToFeetInches()`/`feetInchesToCm()`) convert at render time and when
+reading form inputs back.
+
+The profile setup/edit form (onboarding) has unit selects for both; toggling
+either one live-converts whatever is currently typed in the weight or
+height fields, instead of just relabeling them, so a half-filled form
+doesn't get silently reinterpreted in the new unit. The Goals page also has
+its own "Preferred weight unit" selector (defaults to kg) next to Target
+Weight, wired to the same `profile.weightUnit`, since that's the more
+likely place to flip units day-to-day — saving from either screen updates
+weight displays everywhere at once (Today, Body, Insights, Account).
+
 ## Nutrition engine (real food search + logging)
 
 Food's "Log a food" search box is backed by a proper normalized schema
