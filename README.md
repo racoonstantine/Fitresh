@@ -527,6 +527,49 @@ target sits below it, instead of both being crammed into one line under
 the ring — the combined "Carbs / 180g" line was cramped and started
 overlapping at narrow widths.
 
+## Food logging: search quality, day-nav race fix, grouped meals, notes
+
+- **Search quality**: food search (both the Food tab and the dedicated Log
+  Meal page) now drops any result with no usable calorie value
+  (`hasUsableNutrients()` — missing, null, or 0 kcal), so a food with
+  incomplete nutrition data never shows up as a pickable result. The
+  "+ Add a custom food" form and the Log Meal page's manual-item form both
+  now require a calorie value greater than 0 before saving, instead of
+  silently defaulting to 0 — these were the actual source of the "0 kcal"
+  entries showing up in the log, not the search itself.
+- **Day-nav race condition**: rapidly clicking prev/next day in the
+  Nutrition Dashboard could show a day-nav header, banner, and "Logged via
+  search" list that each reflected a *different* day, because
+  `renderNutrition()` re-read the live `nutriSelectedDate` global after its
+  `await` instead of using the value it had actually fetched data for, and
+  neither it nor `renderTodayMeals()`/`fetchMealTotals()` discarded
+  responses that had been superseded by a newer click. Fixed with a
+  captured-value-before-await pattern plus generation counters on all
+  three, the same pattern already used elsewhere in the app (e.g. the food
+  search's `foodSearchGeneration`).
+- **Grouped, itemized display**: the "Logged via search" list now sorts
+  entries into a fixed Breakfast → Lunch → Dinner → Snack → Misc order
+  (previously whatever order the backend returned), and shows each item's
+  protein/fat/carbs as a small line under the name, not just kcal.
+- **Editing past days**: already worked (the list is driven by whichever
+  day is selected in day-nav), it just wasn't obvious — tapping a logged
+  item expands an inline amount editor for it, for any day.
+- **"Log a Day (quick totals)" removed**: that legacy manual macro-entry
+  form (and the day-by-day notes list it fed) is gone — the search-based
+  Food tab flow and the dedicated Log Meal page (which has its own Notes
+  field) are the only ways to log food now. Whatever free-text "meal" and
+  "notes" a day already had from that old form still displays, but now
+  inline at the bottom of that specific day's "Logged via search" card
+  (`Notes for <date>`) instead of as a separate chronological history list.
+
+## Dedicated-page fun facts
+
+The Sleep, Water, Fasting, and Steps pages each show one random fact
+(`SLEEP_FACTS`/`WATER_FACTS`/`FASTING_FACTS`/`STEPS_FACTS`, picked via
+`randomFact()`) at the top every time the page opens — a different one per
+visit, unlike the Today tab's `SESSION_QUOTE` which stays fixed for the
+whole session.
+
 ## Local development
 
 There's no build step. To preview the frontend against a local PHP server:

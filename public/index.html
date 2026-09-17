@@ -885,6 +885,7 @@
             <div><label style="font-size:11px;color:var(--ink-soft);">Sodium (mg)</label><input type="number" id="cfSodium" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;"></div>
             <div><label style="font-size:11px;color:var(--ink-soft);">Cholesterol (mg)</label><input type="number" id="cfCholesterol" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;"></div>
           </div>
+          <div id="cfError" style="display:none;font-size:11.5px;color:#B4472A;margin-bottom:8px;"></div>
           <div style="display:flex;gap:8px;">
             <button class="timer-btn start" id="cfSaveBtn" type="button" style="flex:1;">Save &amp; log</button>
             <button class="timer-btn reset" id="cfCancelBtn" type="button" style="flex:1;">Cancel</button>
@@ -893,50 +894,6 @@
       </div>
 
       <div class="hub-card" id="todayMealsCard" style="margin-top:14px;"></div>
-    </section>
-
-    <section class="block" style="margin-bottom:18px;">
-      <div class="block-title">Log a Day (quick totals)</div>
-      <div style="background:var(--paper-raised);border:1px solid var(--line);border-radius:8px;padding:12px;">
-        <label style="font-size:11px;color:var(--ink-soft);">Date</label>
-        <input type="date" id="nutriDate" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;margin-bottom:10px;">
-
-        <label style="font-size:11px;color:var(--ink-soft);">Meal description</label>
-        <textarea id="nutriMeal" rows="2" placeholder="e.g. Grilled chicken, ampalaya, egg — home" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;font-family:var(--font-body);font-size:13px;background:var(--paper);resize:vertical;margin-top:2px;margin-bottom:10px;"></textarea>
-
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px;">
-          <div>
-            <label style="font-size:11px;color:var(--ink-soft);">Calories (kcal)</label>
-            <input type="number" id="nutriCal" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;">
-          </div>
-          <div>
-            <label style="font-size:11px;color:var(--ink-soft);">Protein (g)</label>
-            <input type="number" id="nutriProtein" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;">
-          </div>
-          <div>
-            <label style="font-size:11px;color:var(--ink-soft);">Fat (g)</label>
-            <input type="number" id="nutriFat" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;">
-          </div>
-          <div>
-            <label style="font-size:11px;color:var(--ink-soft);">Carbs (g)</label>
-            <input type="number" id="nutriCarbs" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;">
-          </div>
-        </div>
-
-        <label style="font-size:11px;color:var(--ink-soft);">Notes (optional)</label>
-        <input type="text" id="nutriNotes" placeholder="e.g. office day, low protein" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;margin-bottom:10px;">
-
-        <button class="timer-btn start" id="saveNutriBtn" style="width:100%;">Save day</button>
-      </div>
-      <section style="margin-top:14px;">
-        <div class="log-head" data-diary-toggle="1" style="padding:0;cursor:pointer;">
-          <div class="block-title" style="margin:0;flex:1;">Diary / Meal Notes</div>
-          <svg class="log-caret" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
-        </div>
-        <div class="log-detail" data-diary-detail="1">
-          <div id="nutriList" style="margin-top:10px;"></div>
-        </div>
-      </section>
     </section>
   </div><!-- /panelNutrition -->
 
@@ -1440,6 +1397,7 @@
         <div><label style="font-size:11px;color:var(--ink-soft);">Fat (g)</label><input type="number" id="lmManualFat" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;"></div>
         <div><label style="font-size:11px;color:var(--ink-soft);">Carbs (g)</label><input type="number" id="lmManualCarbs" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;"></div>
       </div>
+      <div id="lmManualError" style="display:none;font-size:11.5px;color:#B4472A;margin-bottom:8px;"></div>
       <button type="button" id="lmManualAdd" class="timer-btn start" style="width:100%;">+ Add item</button>
     </div>
 
@@ -1462,6 +1420,7 @@
     <div style="width:32px;"></div>
   </div>
   <div class="fullscreen-modal-body">
+    <div id="fsFactNote" class="note" style="margin-bottom:14px;"></div>
     <div id="fsMainCard" class="hub-card"></div>
 
     <div class="hub-card" style="margin-top:14px;">
@@ -1504,6 +1463,7 @@
     <div style="width:32px;"></div>
   </div>
   <div class="fullscreen-modal-body">
+    <div id="stepsFactNote" class="note" style="margin-bottom:14px;"></div>
     <div class="hub-card">
       <div id="stepsDayNav" style="display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:12px;"></div>
       <label style="font-size:11px;color:var(--ink-soft);">Step count</label>
@@ -1538,6 +1498,7 @@
     <div style="width:32px;"></div>
   </div>
   <div class="fullscreen-modal-body">
+    <div id="sleepFactNote" class="note" style="margin-bottom:14px;"></div>
     <div class="hub-card">
       <div id="sleepDayNav" style="display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:12px;"></div>
       <div style="display:flex;gap:8px;">
@@ -1579,6 +1540,7 @@
     <div style="width:32px;"></div>
   </div>
   <div class="fullscreen-modal-body">
+    <div id="waterFactNote" class="note" style="margin-bottom:14px;"></div>
     <div class="hub-card">
       <div id="waterDayNav" style="display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:12px;"></div>
       <div style="text-align:center;">
@@ -1870,16 +1832,23 @@ function upsertNutritionFields(dateStr, fields){
 
 // ---------- Search-logged meal totals, merged into the nutritionLog-driven dashboard ----------
 let mealTotalsByDate = {};
+let mealTotalsGeneration = 0;
 async function fetchMealTotals(dateList){
+  // Rapid day-nav clicks fire overlapping requests; only the response from
+  // the LAST call started is allowed to write mealTotalsByDate, so a slower
+  // older request can't overwrite it with stale data after the fact.
+  const generation = ++mealTotalsGeneration;
   const uniq = [...new Set(dateList)];
-  if(!uniq.length){ mealTotalsByDate = {}; return; }
+  if(!uniq.length){ if(generation === mealTotalsGeneration) mealTotalsByDate = {}; return; }
   const start = uniq.reduce((a,b)=> a < b ? a : b);
   const end = uniq.reduce((a,b)=> a > b ? a : b);
   try{
     const res = await fetch(`api/meals.php?action=range_totals&start=${start}&end=${end}`, {credentials:'same-origin'});
     const data = await res.json();
+    if(generation !== mealTotalsGeneration) return;
     mealTotalsByDate = data.totals || {};
   }catch(e){
+    if(generation !== mealTotalsGeneration) return;
     mealTotalsByDate = {};
   }
 }
@@ -2086,6 +2055,44 @@ const DAILY_QUOTES = [
 // Chosen once per session (page load) rather than daily, so it's a fresh
 // pick each time you open the app instead of the same quote all day.
 const SESSION_QUOTE = DAILY_QUOTES[Math.floor(Math.random() * DAILY_QUOTES.length)];
+
+// ---------- Dedicated-page fun facts (Sleep/Water/Fasting/Steps) ----------
+// One random fact per page-open (not per session) so it changes each visit,
+// unlike SESSION_QUOTE above which is meant to stay put for the whole session.
+const SLEEP_FACTS = [
+  "Most adults need 7-9 hours a night — consistency matters as much as total hours.",
+  "A regular sleep/wake time trains your body clock better than sleeping in on weekends.",
+  "Screens before bed delay melatonin release — dim the lights an hour before sleep.",
+  "Deep sleep is when most muscle repair and memory consolidation happens.",
+  "Caffeine has a half-life of ~5-6 hours — that 3pm coffee is still in your system at 9pm.",
+  "Short naps (20-30 min) can boost alertness without wrecking nighttime sleep.",
+  "A cooler room (around 18°C/65°F) generally helps you fall asleep faster."
+];
+const WATER_FACTS = [
+  "Even mild dehydration (as little as 1-2%) can measurably affect mood and focus.",
+  "Thirst is a lagging signal — by the time you feel thirsty, you're already a bit behind.",
+  "Food contributes roughly 20% of daily water intake, not just what you drink.",
+  "Urine that's pale straw-colored is a decent day-to-day hydration signal.",
+  "Water needs rise with heat, altitude, and exercise — fixed daily targets are a floor, not a ceiling.",
+  "Sipping steadily through the day is easier on the body than chugging it all at once."
+];
+const FASTING_FACTS = [
+  "Insulin levels drop several hours into a fast, making stored fat easier to access for energy.",
+  "The 16:8 pattern is popular mostly because it fits a normal sleep schedule with ease.",
+  "Black coffee, plain tea, and water typically don't break a fast — added sugar or cream does.",
+  "Breaking a long fast with a huge meal can cause more discomfort than easing in gradually.",
+  "Consistency in your eating window matters more than nailing the exact hour count.",
+  "Fasting affects everyone differently — how you feel matters more than any general rule."
+];
+const STEPS_FACTS = [
+  "10,000 steps/day is a popular round number, not a hard scientific threshold — more steps still help below it.",
+  "Short walking breaks after meals can noticeably help post-meal blood sugar levels.",
+  "Walking speed (not just step count) is linked to a range of long-term health markers.",
+  "Taking the stairs a few times a day adds up to meaningful extra activity over a week.",
+  "A short walk is one of the most reliable ways to clear your head during a work day.",
+  "Step count varies a lot by stride length — it's most useful as your own personal trend, not a comparison to others."
+];
+function randomFact(arr){ return arr[Math.floor(Math.random() * arr.length)]; }
 function updateTodayClock(){
   const el = document.getElementById('todayClock');
   if(!el) return;
@@ -2653,6 +2660,14 @@ function foodSearchEscape(value){
   return String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 }
 
+// Excludes results with no usable calorie data (missing or 0 kcal) so users
+// don't pick something that logs as "0 kcal" -- e.g. an OFF/library entry
+// that was never given full nutrition info.
+function hasUsableNutrients(r){
+  const kcal = r.nutrients && r.nutrients.ENERC_KCAL;
+  return kcal !== undefined && kcal !== null && kcal > 0;
+}
+
 async function searchFoodsCombined(query){
   const generation = ++foodSearchGeneration;
   const statusEl = document.getElementById('foodSearchStatus');
@@ -2669,7 +2684,7 @@ async function searchFoodsCombined(query){
     ]);
     const localRes = await fetch(`api/food_catalog.php?q=${encodeURIComponent(query)}`, {credentials:'same-origin'}).then(r=>r.json()).catch(()=>({results:[], error:'Local food search is temporarily unavailable.'}));
     if(generation !== foodSearchGeneration) return;
-    const local = (localRes.results || []).map(r => ({...r, _origin:'catalog'}));
+    const local = (localRes.results || []).map(r => ({...r, _origin:'catalog'})).filter(hasUsableNutrients);
     foodSearchResultsCache = local;
     renderFoodSearchResults();
     const suggestions = (localRes.suggestions || []).map(word => `<button type="button" class="timer-btn" data-food-suggestion="${foodSearchEscape(word)}">${foodSearchEscape(word)}</button>`).join(' ');
@@ -2679,8 +2694,8 @@ async function searchFoodsCombined(query){
     if(generation !== foodSearchGeneration) return;
     // Do not reset a selected portion while slower external searches finish.
     if([...resultsEl.querySelectorAll('.food-result-amount')].some(el => el.style.display === 'block')) return;
-    const library = (libRes.results || []).map(r => ({...r, _origin: 'library'}));
-    const external = (offRes.results || []).map(r => ({...r, _origin: 'off'}));
+    const library = (libRes.results || []).map(r => ({...r, _origin: 'library'})).filter(hasUsableNutrients);
+    const external = (offRes.results || []).map(r => ({...r, _origin: 'off'})).filter(hasUsableNutrients);
     const localIds = new Set(local.map(r => r.external_id));
     foodSearchResultsCache = [...local, ...library.filter(r => !(r.source === 'catalog' && localIds.has(r.external_id))), ...external];
     renderFoodSearchResults();
@@ -2799,24 +2814,36 @@ function renderFoodSearchResults(){
   }).join('');
 }
 
+let todayMealsGeneration = 0;
 async function renderTodayMeals(){
   const card = document.getElementById('todayMealsCard');
   if(!card) return;
+  const generation = ++todayMealsGeneration;
   const date = nutriSelectedDate || dateStrForOffset(0);
+  // Guards against rapid day-nav clicks: bail if a newer renderTodayMeals()
+  // call has started, or if the day changed again while we were awaiting.
+  const stillCurrent = () => generation === todayMealsGeneration && date === (nutriSelectedDate || dateStrForOffset(0));
+  const diaryEntry = nutritionLog.find(e => e.date === date);
+  const diaryHtml = (diaryEntry && (diaryEntry.meal || diaryEntry.notes)) ? `
+    <div style="margin-top:14px;padding-top:12px;border-top:1px solid var(--line);">
+      <div style="font-size:10.5px;font-weight:600;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.06em;margin-bottom:5px;">Notes for ${formatDateLabel(date)}</div>
+      ${diaryEntry.meal ? `<div style="font-size:12.5px;color:var(--ink);line-height:1.5;">${diaryEntry.meal}</div>` : ''}
+      ${diaryEntry.notes ? `<div style="font-size:12px;color:var(--ink-soft);font-style:italic;margin-top:4px;">${diaryEntry.notes}</div>` : ''}
+    </div>
+  ` : '';
   try{
     const res = await fetch(`api/meals.php?action=day&date=${date}`, {credentials: 'same-origin'});
     const data = await res.json();
-    if(!data.entries || !data.entries.length){
-      card.innerHTML = `<div class="block-title" style="margin:0 0 8px;">Logged via search</div><div class="dash-empty">Nothing logged this way yet for ${formatDateLabel(date)}.</div>`;
-      return;
-    }
-    const nonEmptyEntries = data.entries.filter(entry => entry.components.length);
+    if(!stillCurrent()) return;
+    const nonEmptyEntries = (data.entries || []).filter(entry => entry.components.length);
     if(!nonEmptyEntries.length){
-      card.innerHTML = `<div class="block-title" style="margin:0 0 8px;">Logged via search</div><div class="dash-empty">Nothing logged this way yet for ${formatDateLabel(date)}.</div>`;
+      card.innerHTML = `<div class="block-title" style="margin:0 0 8px;">Logged via search</div><div class="dash-empty">Nothing logged this way yet for ${formatDateLabel(date)}.</div>${diaryHtml}`;
       return;
     }
-    const typeLabels = {breakfast: 'Breakfast', lunch: 'Lunch', dinner: 'Dinner', snack: 'Snack', custom: 'Other'};
-    const rows = nonEmptyEntries.map(entry => `
+    const typeLabels = {breakfast: 'Breakfast', lunch: 'Lunch', dinner: 'Dinner', snack: 'Snack', custom: 'Misc'};
+    const MEAL_TYPE_ORDER = ['breakfast', 'lunch', 'dinner', 'snack', 'custom'];
+    const sortedEntries = [...nonEmptyEntries].sort((a, b) => MEAL_TYPE_ORDER.indexOf(a.meal_type) - MEAL_TYPE_ORDER.indexOf(b.meal_type));
+    const rows = sortedEntries.map(entry => `
       <div style="margin-bottom:10px;">
         <div style="font-size:11px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.06em;font-weight:700;margin-bottom:4px;">${typeLabels[entry.meal_type] || entry.meal_type}</div>
         ${entry.components.map(c => `
@@ -2828,6 +2855,7 @@ async function renderTodayMeals(){
                 <button class="wi-del meal-delete" data-id="${c.id}" type="button" title="Remove">✕</button>
               </div>
             </div>
+            <div style="font-size:10.5px;color:var(--ink-soft);margin-top:2px;">${Math.round((c.nutrients.PROCNT || 0) * 10) / 10}g protein · ${Math.round((c.nutrients.FAT || 0) * 10) / 10}g fat · ${Math.round((c.nutrients.CHOCDF || 0) * 10) / 10}g carbs</div>
             <div class="meal-component-edit" data-edit-id="${c.id}" style="display:none;margin-top:6px;gap:8px;align-items:center;">
               <input type="number" class="meal-edit-amount" data-edit-id="${c.id}" value="${c.amount}" style="width:80px;padding:6px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:12.5px;">
               <span style="font-size:11.5px;color:var(--ink-soft);">${c.unit}</span>
@@ -2845,6 +2873,7 @@ async function renderTodayMeals(){
         <span>Total</span>
         <span>${Math.round(t.ENERC_KCAL || 0)} kcal · ${Math.round(t.PROCNT || 0)}g protein</span>
       </div>
+      ${diaryHtml}
     `;
     card.querySelectorAll('.meal-delete').forEach(btn=>{
       btn.addEventListener('click', async (e)=>{
@@ -2884,19 +2913,28 @@ async function renderTodayMeals(){
       });
     });
   }catch(e){
+    if(!stillCurrent()) return;
     card.innerHTML = `<div class="dash-empty">Could not load today's search-logged foods.</div>`;
   }
 }
 
+let nutritionRenderGeneration = 0;
 async function renderNutrition(){
   if(nutriSelectedDate === null) nutriSelectedDate = dateStrForOffset(0);
   renderTodayMeals();
+  // Capture the selected date now, before the await below -- rapid day-nav
+  // clicks fire overlapping calls, and reading the live nutriSelectedDate
+  // again AFTER the await (like the rest of this function used to) could
+  // show a different day than the one whose totals were actually fetched.
+  const selectedDate = nutriSelectedDate;
+  const generation = ++nutritionRenderGeneration;
   const rangeSel = document.getElementById('nutriRange');
   const range = rangeSel ? rangeSel.value : 'day';
   const sorted = [...nutritionLog].sort((a,b)=> a.date < b.date ? -1 : 1);
   const windowDays = range === 'month' ? 30 : 7;
-  const dateList = range === 'day' ? [nutriSelectedDate] : (()=>{ const arr=[]; for(let i=0;i<windowDays;i++) arr.push(dateStrForOffset(-i)); return arr; })();
+  const dateList = range === 'day' ? [selectedDate] : (()=>{ const arr=[]; for(let i=0;i<windowDays;i++) arr.push(dateStrForOffset(-i)); return arr; })();
   await fetchMealTotals(dateList);
+  if(generation !== nutritionRenderGeneration) return;
   // Per-date totals from nutritionLog (quick-log) merged with search-logged meals,
   // for whichever dates are in view -- this feeds the cards/banner/macro bar below.
   const combinedList = dateList
@@ -2909,12 +2947,12 @@ async function renderNutrition(){
 
   if(range === 'day'){
     const todayStr = dateStrForOffset(0);
-    const isToday = nutriSelectedDate === todayStr;
+    const isToday = selectedDate === todayStr;
     navEl.innerHTML = `
       <button class="day-nav-btn" id="nutriPrevDay"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
       <div class="day-nav-label">
-        <div class="day-nav-date">${isToday ? 'Today' : formatDateLabel(nutriSelectedDate)}</div>
-        ${!isToday ? `<div class="day-nav-today-link" id="nutriJumpToday">Jump to today</div>` : `<div style="font-size:11px;color:var(--ink-soft);">${formatDateLabel(nutriSelectedDate)}</div>`}
+        <div class="day-nav-date">${isToday ? 'Today' : formatDateLabel(selectedDate)}</div>
+        ${!isToday ? `<div class="day-nav-today-link" id="nutriJumpToday">Jump to today</div>` : `<div style="font-size:11px;color:var(--ink-soft);">${formatDateLabel(selectedDate)}</div>`}
       </div>
       <button class="day-nav-btn" id="nutriNextDay" ${isToday ? 'disabled' : ''}><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></button>
     `;
@@ -2940,7 +2978,7 @@ async function renderNutrition(){
   }
 
   if(range === 'day'){
-    const today = nutriSelectedDate;
+    const today = selectedDate;
     const todayEntry = sorted.find(e => e.date === today);
     const combinedToday = combinedDayTotals(today, todayEntry);
     const t = getTargets(today);
@@ -3042,7 +3080,7 @@ async function renderNutrition(){
   const cardLabel = range === 'day' ? '' : (range === 'month' ? ' (30d)' : ' (7d)');
 
   clearInterval(nutriFastTickInterval);
-  const isTodaySelected = range === 'day' && nutriSelectedDate === dateStrForOffset(0);
+  const isTodaySelected = range === 'day' && selectedDate === dateStrForOffset(0);
   document.getElementById('nutriCards').innerHTML = `
     <div class="dash-card"><div class="dash-num" style="color:${calColor};">${avgCal !== null ? Math.round(avgCal) : '—'}</div><div class="dash-label">${range==='day' ? 'Kcal today' : 'Avg kcal'+cardLabel}</div></div>
     <div class="dash-card"><div class="dash-num" style="color:${proteinColor};">${avgProtein !== null ? avgProtein.toFixed(1) : '—'}</div><div class="dash-label">${range==='day' ? 'Protein today' : 'Avg protein'+cardLabel}</div></div>
@@ -3056,7 +3094,7 @@ async function renderNutrition(){
     <div class="dash-card"><div class="dash-num">${combinedList.length}</div><div class="dash-label">Days logged${cardLabel}</div></div>
   `;
   if(isTodaySelected){
-    const todayEntryForFast = sorted.find(e => e.date === nutriSelectedDate);
+    const todayEntryForFast = sorted.find(e => e.date === selectedDate);
     const lastFast = todayEntryForFast && todayEntryForFast.fastHours ? parseFloat(todayEntryForFast.fastHours) : null;
     const updateNutriFast = ()=>{
       const valEl = document.getElementById('nutriFastValue');
@@ -3123,50 +3161,6 @@ async function renderNutrition(){
     `;
   }
 
-  // Entry list
-  const listEl = document.getElementById('nutriList');
-  const displayList = [...sorted].reverse().slice(0,10);
-  if(displayList.length === 0){
-    listEl.innerHTML = `<div class="dash-empty">No days logged yet.</div>`;
-  } else {
-    listEl.innerHTML = displayList.map((e, idx) => {
-      const macroLine = [e.protein ? e.protein+'g P':'', e.fat ? e.fat+'g F':'', e.carbs ? e.carbs+'g C':''].filter(Boolean).join(' · ');
-      const dt = getTargets(e.date);
-      const belowTarget = (e.calories && parseFloat(e.calories) < dt.calMin) || (e.protein && parseFloat(e.protein) < dt.proteinMin);
-      return `
-      <div class="log-row">
-        <div class="log-head" data-nutri-toggle="${idx}">
-          <div class="hist-date">${e.date}</div>
-          <div class="hist-type">${e.calories ? e.calories+' kcal' : ''}${belowTarget ? ' <span style="color:#B4472A;font-weight:600;">· below target</span>' : ''}</div>
-          <svg class="log-caret" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
-        </div>
-        <div class="log-detail" data-nutri-detail="${idx}">
-          <div class="log-detail-inner">
-            ${e.meal ? `<div class="log-line">${e.meal}</div>` : ''}
-            ${macroLine ? `<div class="log-line">${macroLine}</div>` : ''}
-            ${e.notes ? `<div class="log-note">${e.notes}</div>` : ''}
-            <button class="wi-del" data-del-nutri="${e.date}" style="margin-top:4px;">Remove entry ✕</button>
-          </div>
-        </div>
-      </div>
-    `;
-    }).join('');
-    listEl.querySelectorAll('[data-nutri-toggle]').forEach(head=>{
-      head.addEventListener('click', ()=>{
-        const idx = head.dataset.nutriToggle;
-        const detail = listEl.querySelector(`[data-nutri-detail="${idx}"]`);
-        const open = detail.classList.toggle('open');
-        head.classList.toggle('expanded', open);
-      });
-    });
-    listEl.querySelectorAll('[data-del-nutri]').forEach(btn=>{
-      btn.addEventListener('click', (e)=>{
-        e.stopPropagation();
-        removeNutritionDay(btn.dataset.delNutri);
-        renderNutrition();
-      });
-    });
-  }
   renderTodayGlance();
 }
 
@@ -4293,12 +4287,6 @@ document.querySelector('[data-history-toggle="1"]').addEventListener('click', fu
   this.classList.toggle('expanded', open);
 });
 
-document.querySelector('[data-diary-toggle="1"]').addEventListener('click', function(){
-  const detail = document.querySelector('[data-diary-detail="1"]');
-  const open = detail.classList.toggle('open');
-  this.classList.toggle('expanded', open);
-});
-
 // Today at a Glance cards navigate to their tab on click -- delegated on the grid
 // containers (whose innerHTML gets rebuilt on every render) rather than per-card,
 // and skipped when the click actually landed on an interactive control inside the
@@ -4452,35 +4440,6 @@ async function startApp(){
     dateInput.value = dateStrForOffset(0);
     renderWeightSection();
     renderTodayGlance();
-  });
-
-  document.getElementById('nutriDate').value = dateStrForOffset(0);
-  document.getElementById('saveNutriBtn').addEventListener('click', ()=>{
-    const dateInput = document.getElementById('nutriDate');
-    const dateVal = dateInput.value || dateStrForOffset(0);
-    // Fasting is tracked separately (Fasting Timer / Fasting page) -- preserve whatever's
-    // already logged for this date instead of this quick form clobbering it with blank.
-    const existingEntry = nutritionLog.find(e => e.date === dateVal);
-    const entry = {
-      date: dateVal,
-      fastHours: existingEntry ? existingEntry.fastHours : '',
-      meal: document.getElementById('nutriMeal').value.trim(),
-      calories: document.getElementById('nutriCal').value || '',
-      protein: document.getElementById('nutriProtein').value || '',
-      fat: document.getElementById('nutriFat').value || '',
-      carbs: document.getElementById('nutriCarbs').value || '',
-      notes: document.getElementById('nutriNotes').value.trim()
-    };
-    if(!entry.meal && !entry.calories) return;
-    saveNutritionDay(entry);
-    document.getElementById('nutriMeal').value = '';
-    document.getElementById('nutriCal').value = '';
-    document.getElementById('nutriProtein').value = '';
-    document.getElementById('nutriFat').value = '';
-    document.getElementById('nutriCarbs').value = '';
-    document.getElementById('nutriNotes').value = '';
-    dateInput.value = dateStrForOffset(0);
-    renderNutrition();
   });
 
   document.getElementById('summaryRange').addEventListener('change', renderSummary);
@@ -5223,7 +5182,15 @@ async function checkAuthAndStart(){
   });
   document.getElementById('cfSaveBtn').addEventListener('click', async ()=>{
     const name = document.getElementById('cfName').value.trim();
+    const errEl = document.getElementById('cfError');
+    errEl.style.display = 'none';
     if(!name) return;
+    const calories = parseFloat(document.getElementById('cfCalories').value);
+    if(!calories || calories <= 0){
+      errEl.textContent = 'Enter the calories for this food — a custom food needs at least a calorie estimate to be useful in your log.';
+      errEl.style.display = 'block';
+      return;
+    }
     const btn = document.getElementById('cfSaveBtn');
     btn.disabled = true;
     btn.textContent = 'Saving…';
@@ -5235,7 +5202,7 @@ async function checkAuthAndStart(){
         body: JSON.stringify({
           name, canonical_amount: amount, canonical_unit: unit,
           nutrients: {
-            ENERC_KCAL: parseFloat(document.getElementById('cfCalories').value) || 0,
+            ENERC_KCAL: calories,
             PROCNT: parseFloat(document.getElementById('cfProtein').value) || 0,
             FAT: parseFloat(document.getElementById('cfFat').value) || 0,
             CHOCDF: parseFloat(document.getElementById('cfCarbs').value) || 0,
@@ -5328,7 +5295,7 @@ async function checkAuthAndStart(){
     try{
       const localRes = await fetch(`api/food_catalog.php?q=${encodeURIComponent(query)}`, {credentials:'same-origin'}).then(r=>r.json()).catch(()=>({results:[],error:'Local food search is temporarily unavailable.'}));
       if(generation !== lmSearchGeneration) return;
-      const local = (localRes.results || []).map(r => ({...r, _origin:'catalog'}));
+      const local = (localRes.results || []).map(r => ({...r, _origin:'catalog'})).filter(hasUsableNutrients);
       lmSearchResultsCache = local;
       renderLmSearchResults();
       const suggestions = (localRes.suggestions || []).map(word => `<button type="button" class="timer-btn" data-food-suggestion="${foodSearchEscape(word)}">${foodSearchEscape(word)}</button>`).join(' ');
@@ -5339,8 +5306,8 @@ async function checkAuthAndStart(){
       ]);
       if(generation !== lmSearchGeneration) return;
       if([...resultsEl.querySelectorAll('.food-result-amount')].some(el => el.style.display === 'block')) return;
-      const library = (libRes.results || []).map(r => ({...r, _origin:'library'}));
-      const external = (offRes.results || []).map(r => ({...r, _origin:'off'}));
+      const library = (libRes.results || []).map(r => ({...r, _origin:'library'})).filter(hasUsableNutrients);
+      const external = (offRes.results || []).map(r => ({...r, _origin:'off'})).filter(hasUsableNutrients);
       const localIds = new Set(local.map(r => r.external_id));
       lmSearchResultsCache = [...local, ...library.filter(r => !(r.source === 'catalog' && localIds.has(r.external_id))), ...external];
       renderLmSearchResults();
@@ -5432,12 +5399,20 @@ async function checkAuthAndStart(){
 
   document.getElementById('lmManualAdd').addEventListener('click', ()=>{
     const name = document.getElementById('lmManualName').value.trim();
+    const errEl = document.getElementById('lmManualError');
+    errEl.style.display = 'none';
     if(!name) return;
+    const kcal = parseFloat(document.getElementById('lmManualCal').value);
+    if(!kcal || kcal <= 0){
+      errEl.textContent = 'Enter the calories for this item — it needs at least a calorie estimate to be useful in your log.';
+      errEl.style.display = 'block';
+      return;
+    }
     const amount = parseFloat(document.getElementById('lmManualAmount').value) || 100;
     const unit = document.getElementById('lmManualUnit').value;
     lmItems.push({
       name, amount, unit,
-      kcal: parseFloat(document.getElementById('lmManualCal').value) || 0,
+      kcal,
       protein: parseFloat(document.getElementById('lmManualProtein').value) || 0,
       fat: parseFloat(document.getElementById('lmManualFat').value) || 0,
       carbs: parseFloat(document.getElementById('lmManualCarbs').value) || 0,
@@ -5548,6 +5523,7 @@ async function checkAuthAndStart(){
 
   window.openFastingScreen = function(){
     fsSelectedDate = dateStrForOffset(0);
+    document.getElementById('fsFactNote').textContent = randomFact(FASTING_FACTS);
     renderFastingScreenMain();
     renderFastingHistory();
     renderFsPastDayNav();
@@ -5785,6 +5761,7 @@ async function checkAuthAndStart(){
 
   window.openStepsScreen = function(){
     stepsSelectedDate = dateStrForOffset(0);
+    document.getElementById('stepsFactNote').textContent = randomFact(STEPS_FACTS);
     renderStepsDayNav();
     renderStepsHistory();
     document.getElementById('stepsScreen').style.display = 'flex';
@@ -5889,6 +5866,7 @@ async function checkAuthAndStart(){
 
   window.openSleepScreen = function(){
     sleepSelectedDate = dateStrForOffset(0);
+    document.getElementById('sleepFactNote').textContent = randomFact(SLEEP_FACTS);
     renderSleepDayNav();
     renderSleepHistory();
     document.getElementById('sleepScreen').style.display = 'flex';
@@ -6007,6 +5985,7 @@ async function checkAuthAndStart(){
 
   window.openWaterScreen = function(){
     waterSelectedDate = dateStrForOffset(0);
+    document.getElementById('waterFactNote').textContent = randomFact(WATER_FACTS);
     renderWaterDayNav();
     renderWaterHistory();
     document.getElementById('waterScreen').style.display = 'flex';
