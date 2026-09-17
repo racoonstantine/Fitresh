@@ -593,6 +593,13 @@
      inline style) only on narrow viewports, where the zoom actually happens. */
   @media (max-width: 760px){
     input, select, textarea { font-size: 16px !important; }
+    /* Side-by-side Start/End datetime-local fields (fasting's "Log or edit
+       a fast" panel, sleep's Bedtime/Wake time) don't fit at 50% width on a
+       phone -- the native date+time picker control has its own minimum
+       intrinsic width that's wider than half a narrow viewport, so the row
+       pushed the page wider than the screen instead of shrinking. Stack
+       them instead. */
+    .start-end-row{flex-direction:column;}
   }
 
   #timerPanel{
@@ -1499,14 +1506,14 @@
       <div class="block-title" style="margin:0 0 10px;">Log or edit a fast</div>
       <div id="fsPastDayNav" style="display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:12px;"></div>
       <div id="fsDaySummary" style="text-align:center;margin-bottom:14px;"></div>
-      <div style="display:flex;gap:8px;">
-        <div style="flex:1;">
+      <div class="start-end-row" style="display:flex;gap:8px;">
+        <div style="flex:1;min-width:0;">
           <label style="font-size:11px;color:var(--ink-soft);">Start</label>
-          <input type="datetime-local" id="fsPastStart" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;">
+          <input type="datetime-local" id="fsPastStart" style="width:100%;max-width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;box-sizing:border-box;">
         </div>
-        <div style="flex:1;">
+        <div style="flex:1;min-width:0;">
           <label style="font-size:11px;color:var(--ink-soft);">End</label>
-          <input type="datetime-local" id="fsPastEnd" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;">
+          <input type="datetime-local" id="fsPastEnd" style="width:100%;max-width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;box-sizing:border-box;">
         </div>
       </div>
       <div id="fsPastError" style="display:none;font-size:11.5px;color:#B4472A;margin-top:8px;"></div>
@@ -1576,14 +1583,14 @@
     <div id="sleepFactNote" class="note" style="margin-bottom:14px;"></div>
     <div class="hub-card">
       <div id="sleepDayNav" style="display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:12px;"></div>
-      <div style="display:flex;gap:8px;">
-        <div style="flex:1;">
+      <div class="start-end-row" style="display:flex;gap:8px;">
+        <div style="flex:1;min-width:0;">
           <label style="font-size:11px;color:var(--ink-soft);">Bedtime</label>
-          <input type="datetime-local" id="sleepStartInputScreen" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;">
+          <input type="datetime-local" id="sleepStartInputScreen" style="width:100%;max-width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;box-sizing:border-box;">
         </div>
-        <div style="flex:1;">
+        <div style="flex:1;min-width:0;">
           <label style="font-size:11px;color:var(--ink-soft);">Wake time</label>
-          <input type="datetime-local" id="sleepEndInputScreen" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;">
+          <input type="datetime-local" id="sleepEndInputScreen" style="width:100%;max-width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;box-sizing:border-box;">
         </div>
       </div>
       <div id="sleepScreenError" style="display:none;font-size:11.5px;color:#B4472A;margin-top:8px;"></div>
@@ -4662,6 +4669,14 @@ function openStatsForm(contextId, dateOverride){
   document.getElementById('statHrZoneFatBurn').value = hz.fatBurn || '';
   document.getElementById('statHrZoneAerobic').value = hz.aerobic || '';
   document.getElementById('statHrZoneAnaerobic').value = hz.anaerobic || '';
+  // Clear the AI prompt-assist round trip too, so a previous session's
+  // generated prompt or pasted reply doesn't linger into this one.
+  document.getElementById('aiStatsDesc').value = '';
+  document.getElementById('aiStatsPromptOut').value = '';
+  document.getElementById('aiStatsReplyIn').value = '';
+  document.getElementById('aiStatsPromptWrap').style.display = 'none';
+  document.getElementById('aiStatsParseError').style.display = 'none';
+  document.querySelector('[data-ai-detail="stats"]').style.display = 'none';
   const statsForm = document.getElementById('cardioStatsForm');
   statsForm.style.display = statsForm.style.display === 'none' ? 'block' : 'none';
   if(statsForm.style.display === 'block' && statsForm.scrollIntoView) statsForm.scrollIntoView({behavior:'smooth', block:'center'});
@@ -5768,8 +5783,16 @@ async function checkAuthAndStart(){
     document.getElementById('lmSearchStatus').style.display = 'none';
     document.getElementById('lmNotes').value = '';
     document.getElementById('lmSaveStatus').style.display = 'none';
-    ['lmManualName','lmManualCal','lmManualProtein','lmManualFat','lmManualCarbs'].forEach(id => document.getElementById(id).value = '');
+    ['lmManualName','lmManualCal','lmManualProtein','lmManualFat','lmManualCarbs','lmManualSodium','lmManualFiber','lmManualSugar'].forEach(id => document.getElementById(id).value = '');
     document.getElementById('lmManualAmount').value = 100;
+    document.getElementById('lmMoreMacros').style.display = 'none';
+    // AI Assist tab: clear the whole round trip (inputs, generated prompt,
+    // pasted reply, any error/success note) so a previous session's prompt
+    // or parsed reply never lingers into a fresh "Log a meal" open.
+    ['aiFoodName','aiFoodAmount','aiFoodDesc','aiFoodPromptOut','aiFoodReplyIn'].forEach(id => document.getElementById(id).value = '');
+    document.getElementById('aiFoodPromptWrap').style.display = 'none';
+    document.getElementById('aiFoodParseError').style.display = 'none';
+    document.getElementById('aiFoodParseSuccess').style.display = 'none';
     lmSetMode('search');
     renderLmMealItems();
     renderRecentFavorites('lm');

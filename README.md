@@ -780,6 +780,36 @@ already exists" response allows email enumeration. Both are low-severity
 on an invite-only, admin-approved signup flow, but worth a follow-up if the
 app ever opens to public signup.
 
+## UX cleanup: stale form data, mobile Start/End overflow
+
+Two rounds of the same underlying bug class: a form left populated with a
+previous session's data instead of resetting.
+
+- **Log a meal** (`window.openLogMealScreen()`) reset the search box, notes,
+  and the core Manual Log fields on open, but not the newer sodium/fiber/
+  sugar "More macros" fields or the entire AI Assist tab (name/amount/
+  description, the generated prompt, the pasted reply, any error/success
+  note). Reopening the screen after a previous AI-assisted log could show
+  that old prompt/reply still sitting there. Now everything on both tabs
+  resets on open.
+- **Log stats from watch** (`openStatsForm()`) had the same gap for its own
+  AI prompt-assist section — fixed the same way.
+
+Verified directly: populated every one of those fields with stale values,
+called the reset function, and confirmed every field/visibility state came
+back empty/hidden.
+
+Separately, the fasting page's "Log or edit a fast" Start/End fields and
+the sleep page's Bedtime/Wake time fields sit side-by-side at 50% width
+each — fine on desktop, but a `datetime-local` input's native picker has
+its own minimum width that's wider than half a phone screen, so the row
+pushed the whole page wider than the viewport instead of shrinking (visible
+as horizontal scroll/overflow on mobile). Both now use a shared
+`.start-end-row` class that stacks them vertically under 760px. Verified
+in an emulated 375px-wide viewport: before the fix the page's scroll width
+exceeded the viewport; after, it exactly matches with no horizontal
+overflow.
+
 ## Local development
 
 There's no build step. To preview the frontend against a local PHP server:
