@@ -949,6 +949,8 @@
       <div class="weight-progress" id="weightProgress"></div>
     </section>
 
+    <section class="block" id="workoutLibrary"></section>
+
     <div class="tabs" id="tabs" style="scroll-margin-top:12px;margin-top:16px;">
       <button class="tab" data-day="A">Strength A</button>
       <button class="tab" data-day="B">Strength B</button>
@@ -1461,6 +1463,12 @@
         <div><label style="font-size:11px;color:var(--ink-soft);">Fat (g)</label><input type="number" id="lmManualFat" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;"></div>
         <div><label style="font-size:11px;color:var(--ink-soft);">Carbs (g)</label><input type="number" id="lmManualCarbs" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;"></div>
       </div>
+      <button type="button" id="lmToggleMoreMacros" class="img-link" style="margin-bottom:8px;cursor:pointer;">More macros (sodium, fiber, sugar)</button>
+      <div id="lmMoreMacros" style="display:none;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:10px;">
+        <div><label style="font-size:11px;color:var(--ink-soft);">Sodium (mg)</label><input type="number" id="lmManualSodium" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;"></div>
+        <div><label style="font-size:11px;color:var(--ink-soft);">Fiber (g)</label><input type="number" id="lmManualFiber" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;"></div>
+        <div><label style="font-size:11px;color:var(--ink-soft);">Sugar (g)</label><input type="number" id="lmManualSugar" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;"></div>
+      </div>
       <div id="lmManualError" style="display:none;font-size:11.5px;color:#B4472A;margin-bottom:8px;"></div>
       <button type="button" id="lmManualAdd" class="timer-btn start" style="width:100%;">+ Add item</button>
     </div>
@@ -1490,6 +1498,7 @@
     <div class="hub-card" style="margin-top:14px;">
       <div class="block-title" style="margin:0 0 10px;">Log or edit a fast</div>
       <div id="fsPastDayNav" style="display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:12px;"></div>
+      <div id="fsDaySummary" style="text-align:center;margin-bottom:14px;"></div>
       <div style="display:flex;gap:8px;">
         <div style="flex:1;">
           <label style="font-size:11px;color:var(--ink-soft);">Start</label>
@@ -1502,7 +1511,10 @@
       </div>
       <div id="fsPastError" style="display:none;font-size:11.5px;color:#B4472A;margin-top:8px;"></div>
       <button type="button" id="fsPastSaveBtn" class="timer-btn reset" style="width:100%;margin-top:10px;">Save this fast</button>
-      <div id="fsPrevFastSummary" style="display:none;margin-top:12px;padding-top:12px;border-top:1px solid var(--line);"></div>
+      <div style="margin-top:16px;padding-top:14px;border-top:1px solid var(--line);">
+        <div class="block-title" style="margin:0 0 8px;font-size:12px;">Fasting trend</div>
+        <div id="fsHistoryChart"></div>
+      </div>
     </div>
 
     <section style="margin-top:18px;">
@@ -1512,8 +1524,7 @@
       </div>
       <div class="log-detail" data-fs-history-detail="1">
         <div style="padding-top:10px;">
-          <div id="fsHistoryChart"></div>
-          <div id="fsHistoryList" style="margin-top:10px;"></div>
+          <div id="fsHistoryList"></div>
         </div>
       </div>
     </section>
@@ -5150,6 +5161,7 @@ async function showAppFor(user){
   document.getElementById('loginScreen').style.display = 'none';
   document.getElementById('userBadge').textContent = user.display_name || user.email;
   await startApp();
+  if(window.workoutLibraryStart) window.workoutLibraryStart();
   if(!userProfile){
     showOnboarding();
   } else {
@@ -5864,11 +5876,18 @@ async function checkAuthAndStart(){
       protein: parseFloat(document.getElementById('lmManualProtein').value) || 0,
       fat: parseFloat(document.getElementById('lmManualFat').value) || 0,
       carbs: parseFloat(document.getElementById('lmManualCarbs').value) || 0,
+      sodium: parseFloat(document.getElementById('lmManualSodium').value) || null,
+      fiber: parseFloat(document.getElementById('lmManualFiber').value) || null,
+      sugar: parseFloat(document.getElementById('lmManualSugar').value) || null,
       source: 'manual'
     });
-    ['lmManualName','lmManualCal','lmManualProtein','lmManualFat','lmManualCarbs'].forEach(id => document.getElementById(id).value = '');
+    ['lmManualName','lmManualCal','lmManualProtein','lmManualFat','lmManualCarbs','lmManualSodium','lmManualFiber','lmManualSugar'].forEach(id => document.getElementById(id).value = '');
     document.getElementById('lmManualAmount').value = 100;
     renderLmMealItems();
+  });
+  document.getElementById('lmToggleMoreMacros').addEventListener('click', ()=>{
+    const grid = document.getElementById('lmMoreMacros');
+    grid.style.display = grid.style.display === 'none' ? 'grid' : 'none';
   });
 
   // ---------- AI prompt-assist logging (food) ----------
@@ -5888,15 +5907,18 @@ async function checkAuthAndStart(){
       lines.push("If you have a photo of this food, please attach it to this chat -- it helps a lot, especially since the food name and/or weight weren't given.");
       lines.push('');
     }
-    lines.push('If this meal has MORE THAN ONE distinct food item (e.g. rice + a main dish + a drink), give each item its OWN separate 6-line block in the exact format below, one after another, in the same order they were mentioned. Do not merge multiple items into a single block.');
+    lines.push('If this meal has MORE THAN ONE distinct food item (e.g. rice + a main dish + a drink), give each item its OWN separate block in the exact format below, one after another, in the same order they were mentioned. Do not merge multiple items into a single block.');
     lines.push('');
-    lines.push('Reply with ONLY block(s) in this exact format, filled in with your best estimate. No extra commentary.');
+    lines.push('Reply with ONLY block(s) in this exact format, filled in with your best estimate. Leave a line blank after the colon if you truly cannot estimate it. No extra commentary.');
     lines.push('Food: <food name>');
     lines.push('Amount: <estimated weight or quantity, e.g. 250g or 1 cup>');
     lines.push('Calories: <number> kcal');
     lines.push('Protein: <number> g');
     lines.push('Fat: <number> g');
     lines.push('Carbs: <number> g');
+    lines.push('Sodium: <number> mg');
+    lines.push('Fiber: <number> g');
+    lines.push('Sugar: <number> g');
     return lines.join('\n');
   }
   function parseLabeledReply(text, labels){
@@ -5929,7 +5951,7 @@ async function checkAuthAndStart(){
       }
     });
     if(current) blocks.push(current.join('\n'));
-    return blocks.map(block => parseLabeledReply(block, ['Food','Amount','Calories','Protein','Fat','Carbs']));
+    return blocks.map(block => parseLabeledReply(block, ['Food','Amount','Calories','Protein','Fat','Carbs','Sodium','Fiber','Sugar']));
   }
   function copyTextToClipboard(text, btnEl){
     const done = ()=>{
@@ -5993,6 +6015,9 @@ async function checkAuthAndStart(){
       const protein = firstNumber(fields.Protein);
       const fat = firstNumber(fields.Fat);
       const carbs = firstNumber(fields.Carbs);
+      const sodium = firstNumber(fields.Sodium);
+      const fiber = firstNumber(fields.Fiber);
+      const sugar = firstNumber(fields.Sugar);
       lmItems.push({
         // Only the first item falls back to the user's own typed name --
         // later items always use the AI's own name for that block, since
@@ -6004,6 +6029,9 @@ async function checkAuthAndStart(){
         protein: isNaN(protein) ? 0 : protein,
         fat: isNaN(fat) ? 0 : fat,
         carbs: isNaN(carbs) ? 0 : carbs,
+        sodium: isNaN(sodium) ? null : sodium,
+        fiber: isNaN(fiber) ? null : fiber,
+        sugar: isNaN(sugar) ? null : sugar,
         source: 'manual'
       });
       added++;
@@ -6034,6 +6062,7 @@ async function checkAuthAndStart(){
         <div>
           <div class="lm-item-name">${foodSearchEscape(it.name)}</div>
           <div class="lm-item-sub">${it.amount}${it.unit} · ${Math.round(it.kcal)} kcal · ${it.protein}g P / ${it.fat}g F / ${it.carbs}g C</div>
+          ${(it.sodium || it.fiber || it.sugar) ? `<div class="lm-item-sub">${it.sodium ? Math.round(it.sodium) + 'mg sodium' : ''}${(it.sodium && (it.fiber || it.sugar)) ? ' · ' : ''}${it.fiber ? it.fiber.toFixed(1) + 'g fiber' : ''}${(it.fiber && it.sugar) ? ' · ' : ''}${it.sugar ? it.sugar.toFixed(1) + 'g sugar' : ''}</div>` : ''}
         </div>
         <button type="button" class="lm-item-remove" data-remove-idx="${i}" title="Remove">✕</button>
       </div>
@@ -6078,7 +6107,10 @@ async function checkAuthAndStart(){
             method: 'POST', credentials: 'same-origin', headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
               name: it.name, canonical_amount: it.amount, canonical_unit: it.unit,
-              nutrients: {ENERC_KCAL: it.kcal, PROCNT: it.protein, FAT: it.fat, CHOCDF: it.carbs}
+              nutrients: {
+                ENERC_KCAL: it.kcal, PROCNT: it.protein, FAT: it.fat, CHOCDF: it.carbs,
+                FIBTG: it.fiber || null, SUGAR: it.sugar || null, NA: it.sodium || null
+              }
             })
           });
           const food = await res.json();
@@ -6124,7 +6156,6 @@ async function checkAuthAndStart(){
     renderFastingScreenMain();
     renderFastingHistory();
     renderFsPastDayNav();
-    renderPrevFastSummary();
     document.getElementById('fastingScreen').style.display = 'flex';
   };
   function closeFastingScreen(){
@@ -6164,28 +6195,30 @@ async function checkAuthAndStart(){
     renderFsPastForm();
   }
 
-  function renderPrevFastSummary(){
-    const el = document.getElementById('fsPrevFastSummary');
+  // Big headline summary for whichever day is currently selected in the
+  // day-nav above -- shown between the date and the Start/End fields, so
+  // navigating to a past day immediately surfaces that day's total fast and
+  // how it stacked up against the goal, without scrolling to History.
+  function renderFsDaySummary(){
+    const el = document.getElementById('fsDaySummary');
     if(!el) return;
-    const fasts = nutritionLog
-      .filter(e => e.fastHours && parseFloat(e.fastHours) > 0)
-      .sort((a,b)=> a.date < b.date ? 1 : -1);
-    if(!fasts.length){ el.style.display = 'none'; return; }
-    const last = fasts[0];
-    const hours = parseFloat(last.fastHours);
+    const entry = nutritionLog.find(e => e.date === fsSelectedDate && e.fastHours && parseFloat(e.fastHours) > 0);
+    if(!entry){
+      el.innerHTML = `<div style="font-size:12.5px;color:var(--ink-soft);">No fast logged for this day yet.</div>`;
+      return;
+    }
+    const hours = parseFloat(entry.fastHours);
     const goalHrs = fastingState.goalHours || 16;
     const pct = hours / goalHrs * 100;
     let commentary, color;
     if(pct >= 100 + 5){ commentary = 'Exceeded target'; color = 'var(--forest-dark)'; }
     else if(pct >= 100){ commentary = 'Goal Met'; color = 'var(--forest-dark)'; }
     else { commentary = 'Not Met'; color = '#B4472A'; }
-    el.style.display = 'block';
     el.innerHTML = `
-      <div style="font-size:11px;color:var(--ink-soft);margin-bottom:4px;">Previous fast · ${formatDateLabel(last.date)}</div>
-      <div style="display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;">
-        <div style="font-family:var(--font-heading);font-size:20px;">${formatFastHours(hours)}</div>
-        <div style="font-size:12px;color:var(--ink-soft);">${pct.toFixed(0)}% of ${goalHrs}h goal</div>
-        <div style="font-size:12px;font-weight:600;color:${color};">${commentary}</div>
+      <div style="font-family:var(--font-heading);font-size:34px;line-height:1.1;">${formatFastHours(hours)}</div>
+      <div style="display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:4px;">
+        <div style="font-size:12.5px;color:var(--ink-soft);">${pct.toFixed(0)}% of ${goalHrs}h goal</div>
+        <div style="font-size:12.5px;font-weight:700;color:${color};">${commentary}</div>
       </div>
     `;
   }
@@ -6209,6 +6242,7 @@ async function checkAuthAndStart(){
     const start = new Date(end.getTime() - hours * 3600000);
     document.getElementById('fsPastStart').value = toLocalInput(start);
     document.getElementById('fsPastEnd').value = toLocalInput(end);
+    renderFsDaySummary();
   }
 
   document.body.addEventListener('click', (e)=>{
@@ -6293,7 +6327,7 @@ async function checkAuthAndStart(){
       renderTodayGlance();
       renderFastingScreenMain();
       renderFastingHistory();
-      renderPrevFastSummary();
+      renderFsDaySummary();
     });
   }
 
@@ -6314,7 +6348,7 @@ async function checkAuthAndStart(){
     renderTodayGlance();
     renderFastingHistory();
     renderFasting();
-    renderPrevFastSummary();
+    renderFsDaySummary();
     errEl.style.color = 'var(--forest-dark)';
     errEl.textContent = `Saved — ${formatFastHours(hours)} logged for ${formatDateLabel(dateKey)}.`;
     errEl.style.display = 'block';
@@ -6866,5 +6900,7 @@ checkAuthAndStart();
   updateDisplay();
 })();
 </script>
+<link rel="stylesheet" href="workouts.css">
+<script src="workouts.js"></script>
 </body>
 </html>

@@ -673,6 +673,28 @@ a possible future step, not built here. Prompt-generation and reply-parsing
 logic, including the multi-item split, is unit-tested in
 `tools/test_ai_assist.cjs`.
 
+The food side also now asks for and parses **sodium (mg), fiber (g), and
+sugar (g)** alongside the core macros, matching the same three extra macros
+already tracked on the Goals page and the "Add a custom food" form. Since
+the Manual Log path (which the AI-assist results feed into) previously only
+captured calories/protein/fat/carbs, it got its own matching "More macros"
+collapsible section and the values now flow through to the saved food's
+nutrients (`FIBTG`/`SUGAR`/`NA`) the same way the custom-food form already
+does, instead of being silently dropped.
+
+## Fasting page: day-summary headliner and always-visible trend
+
+The "Log or edit a fast" card now shows a big headline readout for whichever
+day is selected in its own day-nav — total fast duration, % of goal, and the
+same "Exceeded target" / "Goal Met" / "Not Met" commentary used elsewhere —
+positioned between the date and the Start/End fields, so paging through past
+days surfaces that day's result immediately instead of requiring a scroll to
+History. (Previously this summary only ever showed the single most-recently
+logged fast, regardless of which day was selected.) The fasting trend chart
+that used to be nested inside the collapsible History section is now always
+visible directly under "Save this fast," under a "Fasting trend" label;
+History keeps just the plain list.
+
 ## Local development
 
 There's no build step. To preview the frontend against a local PHP server:

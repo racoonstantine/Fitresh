@@ -28,20 +28,24 @@ assert.ok(p1.includes('Description: home-cooked, extra oil'));
 assert.ok(!p1.includes('attach it to this chat'), 'should NOT ask for a photo when name+amount given');
 assert.ok(p1.includes('Reply with ONLY block(s) in this exact format'));
 assert.ok(p1.includes('MORE THAN ONE distinct food item'), 'prompt must instruct the AI to split multi-item meals into separate blocks');
+assert.ok(p1.includes('Sodium: <number> mg') && p1.includes('Fiber: <number> g') && p1.includes('Sugar: <number> g'), 'prompt must request sodium/fiber/sugar alongside the core macros');
 assert.ok(!p1.toUpperCase().includes('JSON'), 'prompt must not mention JSON per explicit user correction');
 
 const p2 = buildFoodAiPrompt('', '', '');
 assert.ok(p2.includes('attach it to this chat'), 'SHOULD ask for a photo when name+amount missing');
 
 // --- Reply parsing (food), tolerant of extra AI chatter ---
-const reply1 = `Sure, here's my estimate!\n\nFood: Chicken Adobo\nAmount: 250g\nCalories: 410 kcal\nProtein: 32 g\nFat: 22 g\nCarbs: 8 g\n\nLet me know if you need anything else!`;
-const f1 = parseLabeledReply(reply1, ['Food','Amount','Calories','Protein','Fat','Carbs']);
+const reply1 = `Sure, here's my estimate!\n\nFood: Chicken Adobo\nAmount: 250g\nCalories: 410 kcal\nProtein: 32 g\nFat: 22 g\nCarbs: 8 g\nSodium: 780 mg\nFiber: 2 g\nSugar: 3 g\n\nLet me know if you need anything else!`;
+const f1 = parseLabeledReply(reply1, ['Food','Amount','Calories','Protein','Fat','Carbs','Sodium','Fiber','Sugar']);
 assert.equal(f1.Food, 'Chicken Adobo');
 assert.equal(f1.Amount, '250g');
 assert.equal(firstNumber(f1.Calories), 410);
 assert.equal(firstNumber(f1.Protein), 32);
 assert.equal(firstNumber(f1.Fat), 22);
 assert.equal(firstNumber(f1.Carbs), 8);
+assert.equal(firstNumber(f1.Sodium), 780);
+assert.equal(firstNumber(f1.Fiber), 2);
+assert.equal(firstNumber(f1.Sugar), 3);
 
 // missing calories should be detectable (empty string / NaN)
 const reply2 = `Food: Mystery Snack\nAmount: unknown`;
@@ -61,16 +65,21 @@ assert.deepEqual(inferUnit('1 cup'), { amount: '1', unit: 'serving' });
 assert.deepEqual(inferUnit('330ml'), { amount: '330', unit: 'ml' });
 
 // --- Multi-item reply parsing ---
-// A reply with no "Item N:" headers, just consecutive Food: blocks.
-const multiReply = `Here you go!\n\nFood: Rice\nAmount: 1 cup\nCalories: 205 kcal\nProtein: 4 g\nFat: 0.4 g\nCarbs: 45 g\n\nFood: Chicken Adobo\nAmount: 200g\nCalories: 320 kcal\nProtein: 28 g\nFat: 18 g\nCarbs: 6 g\n\nFood: Fried Egg\nAmount: 1 piece\nCalories: 90 kcal\nProtein: 6 g\nFat: 7 g\nCarbs: 0.5 g\n\nEnjoy your meal!`;
+// A reply with no "Item N:" headers, just consecutive Food: blocks, including
+// the sodium/fiber/sugar lines added alongside the core macros.
+const multiReply = `Here you go!\n\nFood: Rice\nAmount: 1 cup\nCalories: 205 kcal\nProtein: 4 g\nFat: 0.4 g\nCarbs: 45 g\nSodium: 2 mg\nFiber: 0.6 g\nSugar: 0 g\n\nFood: Chicken Adobo\nAmount: 200g\nCalories: 320 kcal\nProtein: 28 g\nFat: 18 g\nCarbs: 6 g\nSodium: 900 mg\nFiber: 0.5 g\nSugar: 4 g\n\nFood: Fried Egg\nAmount: 1 piece\nCalories: 90 kcal\nProtein: 6 g\nFat: 7 g\nCarbs: 0.5 g\nSodium: 95 mg\nFiber: 0 g\nSugar: 0.2 g\n\nEnjoy your meal!`;
 const multiItems = splitFoodReplyBlocks(multiReply);
 assert.equal(multiItems.length, 3, 'should split into exactly 3 item blocks');
 assert.equal(multiItems[0].Food, 'Rice');
 assert.equal(firstNumber(multiItems[0].Calories), 205);
+assert.equal(firstNumber(multiItems[0].Sodium), 2);
 assert.equal(multiItems[1].Food, 'Chicken Adobo');
 assert.equal(firstNumber(multiItems[1].Calories), 320);
+assert.equal(firstNumber(multiItems[1].Sodium), 900);
+assert.equal(firstNumber(multiItems[1].Sugar), 4);
 assert.equal(multiItems[2].Food, 'Fried Egg');
 assert.equal(firstNumber(multiItems[2].Calories), 90);
+assert.equal(firstNumber(multiItems[2].Fiber), 0);
 
 // A reply WITH "Item N:" style headers should still parse correctly, since
 // splitFoodReplyBlocks anchors on "Food:" lines regardless of headers.
