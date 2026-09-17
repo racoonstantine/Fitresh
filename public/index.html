@@ -1036,6 +1036,31 @@
             <input type="number" id="statHrZoneAnaerobic" placeholder="anaerobic" style="width:100%;padding:7px 6px;border:1px solid var(--line);border-radius:5px;font-size:12.5px;background:var(--paper);">
           </div>
         </div>
+
+        <div style="margin-top:14px;border-top:1px dashed var(--line);padding-top:10px;">
+          <div class="log-head" data-ai-toggle="stats" style="padding:0;font-size:12px;color:var(--forest-dark);font-weight:600;">
+            <span style="flex:1;">AI prompt assist — describe your workout, get an estimate</span>
+            <svg class="log-caret" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+          <div data-ai-detail="stats" style="display:none;margin-top:8px;">
+            <div class="note" style="margin-bottom:8px;">Describe the workout you did — even just "30 min easy jog" is fine. We'll build a prompt you can paste into ChatGPT, Gemini, or any AI chat to get stat estimates back.</div>
+            <label style="font-size:11px;color:var(--ink-soft);">Activity description</label>
+            <textarea id="aiStatsDesc" rows="2" placeholder="e.g. 30 minute easy jog outdoors, felt moderate effort" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;margin-bottom:8px;resize:vertical;"></textarea>
+            <button type="button" id="aiStatsGenerateBtn" class="timer-btn start" style="width:100%;">Generate prompt</button>
+
+            <div id="aiStatsPromptWrap" style="display:none;margin-top:10px;">
+              <label style="font-size:11px;color:var(--ink-soft);">Copy this into your AI chat</label>
+              <textarea id="aiStatsPromptOut" rows="8" readonly style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper-raised);margin-top:2px;font-size:12px;font-family:monospace;resize:vertical;"></textarea>
+              <button type="button" id="aiStatsCopyBtn" class="timer-btn" style="width:100%;margin-top:6px;">📋 Copy prompt</button>
+
+              <label style="font-size:11px;color:var(--ink-soft);display:block;margin-top:12px;">Paste the AI's reply here</label>
+              <textarea id="aiStatsReplyIn" rows="6" placeholder="Paste the reply from ChatGPT / Gemini / etc. here" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;font-size:12.5px;resize:vertical;"></textarea>
+              <div id="aiStatsParseError" style="display:none;font-size:11.5px;color:#B4472A;margin-top:6px;"></div>
+              <button type="button" id="aiStatsParseBtn" class="timer-btn start" style="width:100%;margin-top:8px;">Parse &amp; fill in fields above</button>
+            </div>
+          </div>
+        </div>
+
         <button class="timer-btn start" id="saveStatsBtn" style="width:100%;margin-top:10px;">Save stats</button>
       </div>
     </section>
@@ -1380,6 +1405,7 @@
     <div class="main-nav" id="lmModeTabs" style="margin-bottom:12px;">
       <button class="main-tab active" data-lm-mode="search" type="button">Search Food</button>
       <button class="main-tab" data-lm-mode="manual" type="button">Manual Log</button>
+      <button class="main-tab" data-lm-mode="ai" type="button">AI Assist</button>
     </div>
 
     <div id="lmSearchMode">
@@ -1387,6 +1413,28 @@
       <input type="text" id="lmSearchInput" placeholder="Search a food — e.g. chicken breast, rice, adobo" autocomplete="off" style="width:100%;padding:9px 10px;border:1px solid var(--line);border-radius:6px;background:var(--paper);font-size:13.5px;">
       <div id="lmSearchStatus" style="font-size:12px;color:var(--ink-soft);display:none;margin-top:6px;"></div>
       <div id="lmSearchResults"></div>
+    </div>
+
+    <div id="lmAiMode" style="display:none;">
+      <div class="note" style="margin-bottom:10px;">Tell us what you ate — even just a name is fine. We'll build a prompt you can paste into ChatGPT, Gemini, or any AI chat to get nutrition estimates back, then parse the reply straight into your log.</div>
+      <label style="font-size:11px;color:var(--ink-soft);">Food name (optional)</label>
+      <input type="text" id="aiFoodName" placeholder="e.g. Mom's chicken adobo" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;margin-bottom:10px;">
+      <label style="font-size:11px;color:var(--ink-soft);">Weight / quantity (optional)</label>
+      <input type="text" id="aiFoodAmount" placeholder="e.g. 250g, 1 cup, 2 pieces" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;margin-bottom:10px;">
+      <label style="font-size:11px;color:var(--ink-soft);">Description (optional)</label>
+      <textarea id="aiFoodDesc" rows="2" placeholder="e.g. Home-cooked, extra oil, with rice on the side" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;margin-bottom:10px;resize:vertical;"></textarea>
+      <button type="button" id="aiFoodGenerateBtn" class="timer-btn start" style="width:100%;">Generate prompt</button>
+
+      <div id="aiFoodPromptWrap" style="display:none;margin-top:12px;">
+        <label style="font-size:11px;color:var(--ink-soft);">Copy this into your AI chat</label>
+        <textarea id="aiFoodPromptOut" rows="8" readonly style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper-raised);margin-top:2px;font-size:12px;font-family:monospace;resize:vertical;"></textarea>
+        <button type="button" id="aiFoodCopyBtn" class="timer-btn" style="width:100%;margin-top:6px;">📋 Copy prompt</button>
+
+        <label style="font-size:11px;color:var(--ink-soft);display:block;margin-top:14px;">Paste the AI's reply here</label>
+        <textarea id="aiFoodReplyIn" rows="6" placeholder="Paste the reply from ChatGPT / Gemini / etc. here" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;font-size:12.5px;resize:vertical;"></textarea>
+        <div id="aiFoodParseError" style="display:none;font-size:11.5px;color:#B4472A;margin-top:6px;"></div>
+        <button type="button" id="aiFoodParseBtn" class="timer-btn start" style="width:100%;margin-top:8px;">Parse &amp; fill in Manual Log</button>
+      </div>
     </div>
 
     <div id="lmManualMode" style="display:none;">
@@ -3118,6 +3166,7 @@ function renderFoodSearchResults(){
               <div style="font-weight:600;font-size:13.5px;">${foodSearchEscape(r.name)}</div>
               <div style="font-size:11.5px;color:var(--ink-soft);">${foodSearchEscape(sub)}</div>
               ${r.label ? `<div style="font-size:11.5px;color:var(--ink-soft);">${foodSearchEscape(r.label)}${r.complete === false ? ' · Some nutrients unavailable' : ''}</div>` : ''}
+              ${r.confidence ? `<div style="font-size:11.5px;color:var(--ink-soft);" title="${foodSearchEscape(r.confidence.reason)}">${foodSearchEscape(r.confidence.level)} reference confidence</div>` : ''}
             </div>
           </div>
           <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" style="width:16px;height:16px;stroke:var(--ink-soft);flex-shrink:0;"><path d="M9 18l6-6-6-6"/></svg>
@@ -4593,6 +4642,62 @@ document.getElementById('saveStatsBtn').onclick = ()=>{
   }
 };
 
+document.querySelector('[data-ai-toggle="stats"]').addEventListener('click', function(){
+  const detail = document.querySelector('[data-ai-detail="stats"]');
+  const open = detail.style.display !== 'block';
+  detail.style.display = open ? 'block' : 'none';
+  this.classList.toggle('expanded', open);
+});
+function buildStatsAiPrompt(desc){
+  const lines = [];
+  lines.push('You are a workout stats estimation assistant. Estimate the stats for the activity described below.');
+  lines.push('');
+  lines.push('Activity: ' + (desc || '(not specified -- infer from any photo/screenshot below)'));
+  lines.push('');
+  if(!desc){
+    lines.push('If you have a photo or screenshot of this workout (e.g. from a watch app), please attach it to this chat to improve the estimate.');
+    lines.push('');
+  }
+  lines.push('Reply with ONLY the following lines, filled in with your best estimate. No extra commentary. Leave a line blank after the colon if you cannot estimate it.');
+  lines.push('Distance: <km, e.g. 5.2>');
+  lines.push('Duration: <mm:ss, e.g. 32:10>');
+  lines.push('Calories: <number> kcal');
+  lines.push('Avg HR: <number> bpm');
+  lines.push('Avg Pace: <per km, e.g. 6\'10">');
+  lines.push('Steps: <number>');
+  lines.push('Max HR: <number> bpm');
+  lines.push('Elevation gain: <number> m');
+  return lines.join('\n');
+}
+document.getElementById('aiStatsGenerateBtn').addEventListener('click', ()=>{
+  const desc = document.getElementById('aiStatsDesc').value.trim();
+  document.getElementById('aiStatsPromptOut').value = buildStatsAiPrompt(desc);
+  document.getElementById('aiStatsPromptWrap').style.display = 'block';
+});
+document.getElementById('aiStatsCopyBtn').addEventListener('click', (e)=>{
+  copyTextToClipboard(document.getElementById('aiStatsPromptOut').value, e.currentTarget);
+});
+document.getElementById('aiStatsParseBtn').addEventListener('click', ()=>{
+  const reply = document.getElementById('aiStatsReplyIn').value;
+  const errEl = document.getElementById('aiStatsParseError');
+  errEl.style.display = 'none';
+  const fields = parseLabeledReply(reply, ['Distance','Duration','Calories','Avg HR','Avg Pace','Steps','Max HR','Elevation gain']);
+  const hasAny = Object.values(fields).some(v => v);
+  if(!reply.trim() || !hasAny){
+    errEl.textContent = "Couldn't find any recognizable stats in that reply -- make sure the AI replied using the format from the generated prompt, then try again.";
+    errEl.style.display = 'block';
+    return;
+  }
+  if(fields.Distance) document.getElementById('statDistance').value = firstNumber(fields.Distance);
+  if(fields.Duration) document.getElementById('statDuration').value = fields.Duration.replace(/[^0-9:]/g,'');
+  if(fields.Calories) document.getElementById('statCalories').value = firstNumber(fields.Calories);
+  if(fields['Avg HR']) document.getElementById('statHR').value = firstNumber(fields['Avg HR']);
+  if(fields['Avg Pace']) document.getElementById('statPace').value = fields['Avg Pace'];
+  if(fields.Steps) document.getElementById('statSteps').value = firstNumber(fields.Steps);
+  if(fields['Max HR']) document.getElementById('statMaxHR').value = firstNumber(fields['Max HR']);
+  if(fields['Elevation gain']) document.getElementById('statElevation').value = firstNumber(fields['Elevation gain']);
+});
+
 function setDay(day){
   currentDay = day;
   document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active', t.dataset.day===day));
@@ -5601,6 +5706,7 @@ async function checkAuthAndStart(){
     });
     document.getElementById('lmSearchMode').style.display = mode === 'search' ? 'block' : 'none';
     document.getElementById('lmManualMode').style.display = mode === 'manual' ? 'block' : 'none';
+    document.getElementById('lmAiMode').style.display = mode === 'ai' ? 'block' : 'none';
   }
   document.getElementById('lmModeTabs').addEventListener('click', (e)=>{
     const btn = e.target.closest('[data-lm-mode]');
@@ -5680,6 +5786,7 @@ async function checkAuthAndStart(){
               <div style="min-width:0;">
                 <div style="font-weight:600;font-size:13.5px;">${foodSearchEscape(r.name)}</div>
                 <div style="font-size:11.5px;color:var(--ink-soft);">${foodSearchEscape(sub)}${r.complete === false ? ' · Some nutrients unavailable' : ''}</div>
+                ${r.confidence ? `<div style="font-size:11.5px;color:var(--ink-soft);" title="${foodSearchEscape(r.confidence.reason)}">${foodSearchEscape(r.confidence.level)} reference confidence</div>` : ''}
               </div>
             </div>
             <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" style="width:16px;height:16px;stroke:var(--ink-soft);flex-shrink:0;"><path d="M9 18l6-6-6-6"/></svg>
@@ -5761,6 +5868,104 @@ async function checkAuthAndStart(){
     ['lmManualName','lmManualCal','lmManualProtein','lmManualFat','lmManualCarbs'].forEach(id => document.getElementById(id).value = '');
     document.getElementById('lmManualAmount').value = 100;
     renderLmMealItems();
+  });
+
+  // ---------- AI prompt-assist logging (food) ----------
+  // Clipboard-mediated, no API key: we generate a plain-text prompt the user
+  // pastes into their own AI chat (ChatGPT/Gemini/etc.), then parse the AI's
+  // plain-text reply back out and autofill the existing Manual Log fields
+  // above for the user to review before saving through the normal pipeline.
+  function buildFoodAiPrompt(name, amount, desc){
+    const lines = [];
+    lines.push('You are a nutrition estimation assistant. Estimate the nutrition facts for the meal described below.');
+    lines.push('');
+    lines.push('Food: ' + (name || '(not specified -- infer from any description or photo below)'));
+    lines.push('Weight/quantity: ' + (amount || '(not specified -- estimate a reasonable serving size)'));
+    if(desc) lines.push('Description: ' + desc);
+    lines.push('');
+    if(!name || !amount){
+      lines.push("If you have a photo of this food, please attach it to this chat -- it helps a lot, especially since the food name and/or weight weren't given.");
+      lines.push('');
+    }
+    lines.push('Reply with ONLY the following lines, filled in with your best estimate. No extra commentary.');
+    lines.push('Food: <food name>');
+    lines.push('Amount: <estimated weight or quantity, e.g. 250g or 1 cup>');
+    lines.push('Calories: <number> kcal');
+    lines.push('Protein: <number> g');
+    lines.push('Fat: <number> g');
+    lines.push('Carbs: <number> g');
+    return lines.join('\n');
+  }
+  function parseLabeledReply(text, labels){
+    const out = {};
+    labels.forEach(label => {
+      const re = new RegExp('(?:^|\\n)\\s*' + label.replace(/\s+/g,'\\s+') + '\\s*:\\s*([^\\n\\r]+)', 'i');
+      const m = text.match(re);
+      out[label] = m ? m[1].trim() : '';
+    });
+    return out;
+  }
+  function firstNumber(str){
+    const m = (str || '').match(/-?[\d.]+/);
+    return m ? parseFloat(m[0]) : NaN;
+  }
+  function copyTextToClipboard(text, btnEl){
+    const done = ()=>{
+      const original = btnEl.textContent;
+      btnEl.textContent = 'Copied!';
+      setTimeout(()=>{ btnEl.textContent = original; }, 1500);
+    };
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(done).catch(()=>{
+        const ta = document.createElement('textarea');
+        ta.value = text; document.body.appendChild(ta); ta.select();
+        try { document.execCommand('copy'); } catch(e){}
+        document.body.removeChild(ta);
+        done();
+      });
+    } else {
+      const ta = document.createElement('textarea');
+      ta.value = text; document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); } catch(e){}
+      document.body.removeChild(ta);
+      done();
+    }
+  }
+  document.getElementById('aiFoodGenerateBtn').addEventListener('click', ()=>{
+    const name = document.getElementById('aiFoodName').value.trim();
+    const amount = document.getElementById('aiFoodAmount').value.trim();
+    const desc = document.getElementById('aiFoodDesc').value.trim();
+    document.getElementById('aiFoodPromptOut').value = buildFoodAiPrompt(name, amount, desc);
+    document.getElementById('aiFoodPromptWrap').style.display = 'block';
+  });
+  document.getElementById('aiFoodCopyBtn').addEventListener('click', (e)=>{
+    copyTextToClipboard(document.getElementById('aiFoodPromptOut').value, e.currentTarget);
+  });
+  document.getElementById('aiFoodParseBtn').addEventListener('click', ()=>{
+    const reply = document.getElementById('aiFoodReplyIn').value;
+    const errEl = document.getElementById('aiFoodParseError');
+    errEl.style.display = 'none';
+    const fields = parseLabeledReply(reply, ['Food','Amount','Calories','Protein','Fat','Carbs']);
+    const calories = firstNumber(fields.Calories);
+    if(!reply.trim() || isNaN(calories) || calories <= 0){
+      errEl.textContent = "Couldn't find a calorie value in that reply -- make sure the AI replied using the format from the generated prompt, then try again.";
+      errEl.style.display = 'block';
+      return;
+    }
+    const typedName = document.getElementById('aiFoodName').value.trim();
+    document.getElementById('lmManualName').value = typedName || fields.Food || 'AI-estimated food';
+    document.getElementById('lmManualCal').value = calories;
+    const protein = firstNumber(fields.Protein); document.getElementById('lmManualProtein').value = isNaN(protein) ? '' : protein;
+    const fat = firstNumber(fields.Fat); document.getElementById('lmManualFat').value = isNaN(fat) ? '' : fat;
+    const carbs = firstNumber(fields.Carbs); document.getElementById('lmManualCarbs').value = isNaN(carbs) ? '' : carbs;
+    const amountRaw = fields.Amount;
+    const amtMatch = amountRaw.match(/^([\d.]+)\s*(g|gram|grams|gm|ml|millilit(?:er|re)s?)?/i);
+    if(amtMatch){
+      document.getElementById('lmManualAmount').value = amtMatch[1];
+      const unit = (amtMatch[2] || '').toLowerCase();
+      document.getElementById('lmManualUnit').value = unit.startsWith('g') ? 'g' : (unit.startsWith('m') ? 'ml' : 'serving');
+    }
+    lmSetMode('manual');
   });
 
   function renderLmMealItems(){

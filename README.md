@@ -632,6 +632,37 @@ redrawn (not pixel-traced) simplification of the "Gedli / Full Circle"
 concept mark — an orange-to-green arc, a leaf sweep, and a person
 silhouette — sized for legibility at 16-32px.
 
+## AI prompt-assist logging
+
+A trial third logging option, alongside search and manual entry, for both
+food (Log Meal page, "AI Assist" tab) and workouts (the "log stats from
+watch" form's collapsible AI section). No API key or backend integration —
+it's a clipboard-mediated round trip through whatever AI chat app the user
+already has (ChatGPT, Gemini, etc.):
+
+1. The user optionally enters a food name, weight/quantity, and description
+   (or an activity description for workouts) — all fields are optional.
+2. "Generate prompt" builds a plain-text prompt (not JSON — an AI chat reply
+   pasted back in is always plain text, so keeping the whole round trip in
+   that format avoids a pointless plain-text-to-JSON-and-back detour) that
+   asks the AI to estimate the nutrition/stats and reply using a fixed
+   labeled-line format the app knows how to parse. If the name/weight (or
+   activity description) is missing, the prompt also tells the user to
+   attach a photo of the food/workout to their AI chat to improve the
+   estimate.
+3. "Copy prompt" copies it to the clipboard for pasting into the AI chat.
+4. The user pastes the AI's reply back into the app and hits "Parse & fill" —
+   a per-line regex extracts each labeled value, tolerant of extra
+   commentary the AI adds around them.
+5. Parsed values autofill the *existing* Manual Log fields (food) or stats
+   fields (workout) — no separate save path — so the user reviews/edits
+   before hitting the normal Save/Add button, same validation as manual
+   entry (e.g. a missing calorie estimate still blocks saving).
+
+A full image-to-AI version (skipping the copy/paste round trip entirely) is
+a possible future step, not built here. Prompt-generation and reply-parsing
+logic is unit-tested in `tools/test_ai_assist.cjs`.
+
 ## Local development
 
 There's no build step. To preview the frontend against a local PHP server:
