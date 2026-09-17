@@ -1,0 +1,123 @@
+{
+  "raw": [
+    {
+      "id": "88374",
+      "fdc_id": "171287",
+      "seq_num": "1",
+      "amount": "1",
+      "measure_unit_id": "9999",
+      "portion_description": "",
+      "modifier": "large",
+      "gram_weight": "50",
+      "data_points": "",
+      "footnote": "",
+      "min_year_acquired": ""
+    },
+    {
+      "id": "88375",
+      "fdc_id": "171287",
+      "seq_num": "2",
+      "amount": "1",
+      "measure_unit_id": "9999",
+      "portion_description": "",
+      "modifier": "extra large",
+      "gram_weight": "56",
+      "data_points": "",
+      "footnote": "",
+      "min_year_acquired": ""
+    },
+    {
+      "id": "88376",
+      "fdc_id": "171287",
+      "seq_num": "3",
+      "amount": "1",
+      "measure_unit_id": "9999",
+      "portion_description": "",
+      "modifier": "jumbo",
+      "gram_weight": "63",
+      "data_points": "",
+      "footnote": "",
+      "min_year_acquired": ""
+    },
+    {
+      "id": "88377",
+      "fdc_id": "171287",
+      "seq_num": "5",
+      "amount": "1",
+      "measure_unit_id": "9999",
+      "portion_description": "",
+      "modifier": "cup (4.86 large eggs)",
+      "gram_weight": "243",
+      "data_points": "",
+      "footnote": "",
+      "min_year_acquired": ""
+    },
+    {
+      "id": "88378",
+      "fdc_id": "171287",
+      "seq_num": "6",
+      "amount": "1",
+      "measure_unit_id": "9999",
+      "portion_description": "",
+      "modifier": "medium",
+      "gram_weight": "44",
+      "data_points": "",
+      "footnote": "",
+      "min_year_acquired": ""
+    },
+    {
+      "id": "88379",
+      "fdc_id": "171287",
+      "seq_num": "7",
+      "amount": "1",
+      "measure_unit_id": "9999",
+      "portion_description": "",
+      "modifier": "small",
+      "gram_weight": "38",
+      "data_points": "",
+      "footnote": "",
+      "min_year_acquired": ""
+    }
+  ],
+  "scrambled": [
+    {
+      "id": "90050",
+      "fdc_id": "172187",
+      "seq_num": "1",
+      "amount": "1",
+      "measure_unit_id": "9999",
+      "portion_description": "",
+      "modifier": "large",
+      "gram_weight": "61",
+      "data_points": "",
+      "footnote": "",
+      "min_year_acquired": ""
+    },
+    {
+      "id": "90051",
+      "fdc_id": "172187",
+      "seq_num": "2",
+      "amount": "1",
+      "measure_unit_id": "9999",
+      "portion_description": "",
+      "modifier": "tbsp",
+      "gram_weight": "13.7",
+      "data_points": "",
+      "footnote": "",
+      "min_year_acquired": ""
+    },
+    {
+      "id": "90052",
+      "fdc_id": "172187",
+      "seq_num": "3",
+      "amount": "1",
+      "measure_unit_id": "9999",
+      "portion_description": "",
+      "modifier": "cup",
+      "gram_weight": "220",
+      "data_points": "",
+      "footnote": "",
+      "min_year_acquired": ""
+    }
+  ]
+}

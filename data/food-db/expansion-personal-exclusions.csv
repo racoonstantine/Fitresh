@@ -1,0 +1,1099 @@
+source,source_food_id,name,reason
+USDA,167816,"Pork, fresh, leg (ham), rump half, separable lean only, raw (Includes foods for USDA's Food Distribution Program)",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,167859,"Pork, fresh, variety meats and by-products, feet, raw",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,167860,"Pork, fresh, variety meats and by-products, kidneys, cooked, braised",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,167862,"Pork, fresh, variety meats and by-products, liver, raw",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,167863,"Pork, fresh, variety meats and by-products, liver, cooked, braised",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,167865,"Pork, fresh, variety meats and by-products, spleen, raw",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,167866,"Pork, fresh, variety meats and by-products, spleen, cooked, braised",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,167870,"Pork, cured, feet, pickled",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,168264,"Pork, fresh, variety meats and by-products, brain, raw",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,168265,"Pork, fresh, variety meats and by-products, brain, cooked, braised",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,168270,"Pork, fresh, variety meats and by-products, kidneys, raw",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,168275,"Pork, fresh, variety meats and by-products, tongue, raw",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,168276,"Pork, fresh, variety meats and by-products, tongue, cooked, braised",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,168277,"Pork, cured, bacon, unprepared",Source sugar exceeds carbohydrate; exclude rather than cap.
+USDA,168290,"Pork, fresh, variety meats and by-products, feet, cooked, simmered",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,168608,"Beef, grass-fed, ground, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168609,"Beef, flank, steak, separable lean only, trimmed to 0"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168610,"Beef, flank, steak, separable lean only, trimmed to 0"" fat, choice, cooked, braised",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168611,"Beef, flank, steak, separable lean only, trimmed to 0"" fat, choice, cooked, broiled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168612,"Beef, rib, eye, small end (ribs 10-12), separable lean and fat, trimmed to 0"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168613,"Beef, rib, shortribs, separable lean and fat, choice, cooked, braised",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168614,"Beef, rib, shortribs, separable lean only, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168615,"Beef, rib, shortribs, separable lean only, choice, cooked, braised",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168616,"Beef, round, full cut, separable lean only, trimmed to 1/4"" fat, choice, cooked, broiled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168617,"Beef, round, full cut, separable lean only, trimmed to 1/4"" fat, select, cooked, broiled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168618,"Beef, short loin, porterhouse steak, separable lean only, trimmed to 1/8"" fat, choice, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168619,"Beef, short loin, t-bone steak, bone-in, separable lean only, trimmed to 1/8"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168620,"Beef, short loin, t-bone steak, bone-in, separable lean only, trimmed to 1/8"" fat, choice, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168621,"Beef, rib eye, small end (ribs 10-12), separable lean only, trimmed to 0"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168622,"Beef, variety meats and by-products, brain, raw",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,168623,"Beef, variety meats and by-products, brain, cooked, pan-fried",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,168624,"Beef, variety meats and by-products, brain, cooked, simmered",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,168626,"Beef, variety meats and by-products, liver, cooked, braised",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,168627,"Beef, variety meats and by-products, liver, cooked, pan-fried",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,168631,"Beef, loin, top loin steak, boneless, lip off, separable lean and fat, trimmed to 0"" fat, select, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168633,"Beef, top sirloin, steak, separable lean and fat, trimmed to 0"" fat, select, cooked, broiled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168635,"Beef, top sirloin, steak, separable lean only, trimmed to 0"" fat, choice, cooked, broiled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168636,"Beef, top sirloin, steak, separable lean only, trimmed to 0"" fat, select, cooked, broiled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168639,"Beef, short loin, porterhouse steak, separable lean only, trimmed to 0"" fat, choice, cooked, broiled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168640,"Beef, short loin, porterhouse steak, separable lean only, trimmed to 1/8"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168641,"Beef, short loin, porterhouse steak, separable lean only, trimmed to 1/8"" fat, select, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168644,"Beef, short loin, t-bone steak, separable lean only, trimmed to 0"" fat, choice, cooked, broiled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168645,"Beef, short loin, t-bone steak, bone-in, separable lean only, trimmed to 1/8"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168646,"Beef, round, tip round, roast, separable lean and fat, trimmed to 0"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168647,"Beef, round, tip round, roast, separable lean and fat, trimmed to 0"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168648,"Beef, rib, eye, small end (ribs 10- 12) separable lean only, trimmed to 0"" fat, select, cooked, broiled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168653,"Beef, chuck, under blade center steak, boneless, Denver Cut, separable lean only, trimmed to 0"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168655,"Beef, shoulder top blade steak, boneless, separable lean only, trimmed to 0"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168657,"Beef, brisket, flat half, boneless, separable lean only, trimmed to 0"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168658,"Beef, brisket, flat half, boneless, separable lean only, trimmed to 0"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168659,"Beef, shoulder top blade steak, boneless, separable lean and fat, trimmed to 0"" fat, choice, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168661,"Beef, chuck eye roast, boneless, America's Beef Roast, separable lean and fat, trimmed to 0"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168662,"Beef, chuck eye roast, boneless, America's Beef Roast, separable lean and fat, trimmed to 0"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168663,"Beef, composite of trimmed retail cuts, separable lean and fat, trimmed to 1/8"" fat, select, cooked",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168668,"Beef, chuck, arm pot roast, separable lean and fat, trimmed to 1/8"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168669,"Beef, chuck, arm pot roast, separable lean and fat, trimmed to 1/8"" fat, choice, cooked, braised",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168670,"Beef, chuck, arm pot roast, separable lean and fat, trimmed to 1/8"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168671,"Beef, chuck, blade roast, separable lean and fat, trimmed to 1/8"" fat, choice, cooked, braised",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168672,"Beef, chuck, blade roast, separable lean and fat, trimmed to 1/8"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168673,"Beef, chuck, blade roast, separable lean and fat, trimmed to 1/8"" fat, select, cooked, braised",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168675,"Beef, rib, whole (ribs 6-12), separable lean and fat, trimmed to 1/8"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168676,"Beef, rib, whole (ribs 6-12), separable lean and fat, trimmed to 1/8"" fat, choice, cooked, broiled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168677,"Beef, rib, whole (ribs 6-12), separable lean and fat, trimmed to 1/8"" fat, choice, cooked, roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168678,"Beef, rib, whole (ribs 6-12), separable lean and fat, trimmed to 1/8"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168679,"Beef, rib, whole (ribs 6-12), separable lean and fat, trimmed to 1/8"" fat, prime, cooked, roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168683,"Beef, rib, large end (ribs 6-9), separable lean and fat, trimmed to 1/8"" fat, select, cooked, broiled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168684,"Beef, rib, large end (ribs 6-9), separable lean and fat, trimmed to 1/8"" fat, select, cooked, roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168685,"Beef, rib, large end (ribs 6-9), separable lean and fat, trimmed to 1/8"" fat, prime, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168686,"Beef, rib, large end (ribs 6-9), separable lean and fat, trimmed to 1/8"" fat, prime, cooked, broiled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168687,"Beef, rib, large end (ribs 6-9), separable lean and fat, trimmed to 1/8"" fat, prime, cooked, roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168688,"Beef, rib, small end (ribs 10-12), separable lean and fat, trimmed to 1/8"" fat, choice, cooked, broiled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168689,"Beef, rib, small end (ribs 10-12), separable lean and fat, trimmed to 1/8"" fat, choice, cooked, roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168690,"Beef, rib, small end (ribs 10-12), separable lean and fat, trimmed to 1/8"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168691,"Beef, rib, small end (ribs 10-12), separable lean and fat, trimmed to 1/8"" fat, select, cooked, broiled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168692,"Beef, shoulder top blade steak, boneless, separable lean and fat, trimmed to 0"" fat, select, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168694,"Beef, round, full cut, separable lean and fat, trimmed to 1/8"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168695,"Beef, round, full cut, separable lean and fat, trimmed to 1/8"" fat, choice, cooked, broiled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168697,"Beef, round, bottom round, steak, separable lean and fat, trimmed to 1/8"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168698,"Beef, round, bottom round, steak, separable lean and fat, trimmed to 1/8"" fat, choice, cooked, braised",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168699,"Beef, round, bottom round, roast, separable lean and fat, trimmed to 1/8"" fat, choice, cooked, roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168700,"Beef, round, bottom round, steak, separable lean and fat, trimmed to 1/8"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168701,"Beef, round, eye of round, roast, separable lean and fat, trimmed to 1/8"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168702,"Beef, round, eye of round, roast, separable lean and fat, trimmed to 1/8"" fat, choice, cooked, roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168703,"Beef, round, eye of round, roast, separable lean and fat, trimmed to 1/8"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168704,"Beef, round, eye of round, roast, separable lean and fat, trimmed to 1/8"" fat, select, cooked, roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168705,"Beef, round, tip round, separable lean and fat, trimmed to 1/8"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168706,"Beef, round, tip round, roast, separable lean and fat, trimmed to 1/8"" fat, select, cooked, roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168707,"Beef, shoulder top blade steak, boneless, separable lean and fat, trimmed to 0"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168708,"Beef, round, top round, separable lean only, trimmed to 1/8"" fat, choice, cooked, pan-fried",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168709,"Beef, round, top round, separable lean and fat, trimmed to 1/8"" fat, choice, cooked, braised",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168710,"Beef, round, top round, steak, separable lean and fat, trimmed to 1/8"" fat, choice, cooked, broiled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168711,"Beef, round, top round, separable lean and fat, trimmed to 1/8"" fat, choice, cooked, pan-fried",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168712,"Beef, round, top round, steak, separable lean and fat, trimmed to 1/8"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168713,"Beef, round, top round, separable lean and fat, trimmed to 1/8"" fat, select, cooked, braised",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168715,"Beef, short loin, porterhouse steak, separable lean and fat, trimmed to 1/8"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168716,"Beef, short loin, porterhouse steak, separable lean and fat, trimmed to 1/8"" fat, choice, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168717,"Beef, short loin, t-bone steak, separable lean and fat, trimmed to 1/8"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168718,"Beef, short loin, top loin, steak, separable lean and fat, trimmed to 1/8"" fat, choice, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168719,"Beef, loin, top loin, separable lean and fat, trimmed to 1/8"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168720,"Beef, loin, top loin, separable lean and fat, trimmed to 1/8"" fat, select, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168721,"Beef, short loin, top loin, steak, separable lean and fat, trimmed to 1/8"" fat, prime, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168722,"Beef, tenderloin, steak, separable lean and fat, trimmed to 1/8"" fat, choice, cooked, broiled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168723,"Beef, tenderloin, roast, separable lean and fat, trimmed to 1/8"" fat, choice, cooked, roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168724,"Beef, tenderloin, steak, separable lean and fat, trimmed to 1/8"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168725,"Beef, tenderloin, steak, separable lean and fat, trimmed to 1/8"" fat, select, cooked, broiled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168728,"Beef, top sirloin, steak, separable lean and fat, trimmed to 1/8"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168729,"Beef, top sirloin, steak, separable lean and fat, trimmed to 1/8"" fat, choice, cooked, broiled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168730,"Beef, chuck, clod roast, separable lean only, trimmed to 0"" fat, select, cooked, roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168731,"Beef, shoulder steak, boneless, separable lean only, trimmed to 0"" fat, choice, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168732,"Beef, shoulder steak, boneless, separable lean only, trimmed to 0"" fat, select, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168735,"Beef, bottom sirloin, tri-tip roast, separable lean and fat, trimmed to 0"" fat, choice, cooked, roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168736,"Beef, bottom sirloin, tri-tip roast, separable lean and fat, trimmed to 0"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168737,"Beef, bottom sirloin, tri-tip roast, separable lean and fat, trimmed to 0"" fat, select, cooked, roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168738,"Beef, chuck, top blade, separable lean only, trimmed to 0"" fat, choice, cooked, broiled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168739,"Beef, chuck, top blade, separable lean only, trimmed to 0"" fat, select, cooked, broiled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168740,"Beef, round, top round steak, boneless, separable lean and fat, trimmed to 0"" fat, choice, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168741,"Beef, round, top round steak, boneless, separable lean and fat, trimmed to 0"" fat, select, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168742,"Beef, chuck eye roast, boneless, America's Beef Roast, separable lean only, trimmed to 0"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,168743,"Beef, brisket, flat half, boneless, separable lean and fat, trimmed to 0"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169429,"Beef, grass-fed, strip steaks, lean only, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169430,"Beef, carcass, separable lean and fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169431,"Beef, carcass, separable lean and fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169432,"Beef, brisket, flat half, separable lean and fat, trimmed to 1/8"" fat, select, cooked, braised",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169433,"Beef, flank, steak, separable lean and fat, trimmed to 0"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169434,"Beef, flank, steak, separable lean and fat, trimmed to 0"" fat, choice, cooked, braised",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169435,"Beef, flank, steak, separable lean and fat, trimmed to 0"" fat, choice, cooked, broiled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169436,"Beef, rib, eye, small end (ribs 10-12), separable lean and fat, trimmed to 0"" fat, choice, cooked, broiled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169437,"Beef, rib, eye, small end (ribs 10-12), separable lean only, trimmed to 0"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169438,"Beef, rib, eye, small end (ribs 10-12), separable lean only, trimmed to 0"" fat, choice, cooked, broiled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169439,"Beef, rib, shortribs, separable lean and fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169440,"Beef, brisket, flat half, separable lean and fat, trimmed to 0"" fat, choice, cooked, braised",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169441,"Beef, shank crosscuts, separable lean only, trimmed to 1/4"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169442,"Beef, shank crosscuts, separable lean only, trimmed to 1/4"" fat, choice, cooked, simmered",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169443,"Beef, short loin, porterhouse steak, separable lean only, trimmed to 1/8"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169446,"Beef, chuck, under blade pot roast or steak, boneless, separable lean only, trimmed to 0"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169449,"Beef, variety meats and by-products, kidneys, raw",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,169450,"Beef, variety meats and by-products, kidneys, cooked, simmered",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,169451,"Beef, variety meats and by-products, liver, raw",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,169454,"Beef, variety meats and by-products, spleen, raw",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,169455,"Beef, loin, top loin steak, boneless, lip off, separable lean only, trimmed to 0"" fat, choice, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169456,"Beef, loin, top loin steak, boneless, lip off, separable lean only, trimmed to 0"" fat, select, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169458,"Beef, top sirloin, steak, separable lean and fat, trimmed to 0"" fat, choice, cooked, broiled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169460,"Beef, short loin, porterhouse steak, separable lean and fat, trimmed to 0"" fat, USDA choice, cooked, broiled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169461,"Beef, short loin, porterhouse steak, separable lean and fat, trimmed to 0"" fat, USDA select, cooked, broiled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169463,"Beef, short loin, porterhouse steak, separable lean only, trimmed to 0"" fat, select, cooked, broiled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169465,"Beef, short loin, t-bone steak, separable lean and fat, trimmed to 0"" fat, USDA choice, cooked, broiled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169466,"Beef, short loin, t-bone steak, separable lean and fat, trimmed to 0"" fat, USDA select, cooked, broiled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169467,"Beef, short loin, t-bone steak, bone-in, separable lean only, trimmed to 1/8"" fat, select, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169468,"Beef, short loin, t-bone steak, separable lean only, trimmed to 0"" fat, select, cooked, broiled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169469,"Beef, brisket, flat half, separable lean only, trimmed to 0"" fat, select, cooked, braised",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169471,"Beef, round, top round steak, boneless, separable lean only, trimmed to 0"" fat, choice, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169472,"Beef, round, top round steak, boneless, separable lean only, trimmed to 0"" fat, select, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169475,"Beef, shoulder top blade steak, boneless, separable lean only, trimmed to 0"" fat, choice, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169476,"Beef, shoulder top blade steak, boneless, separable lean only, trimmed to 0"" fat, select, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169478,"Beef, shoulder top blade steak, boneless, separable lean only, trimmed to 0"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169481,"Beef, shoulder pot roast or steak, boneless, separable lean only, trimmed to 0"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169482,"Beef, shoulder pot roast or steak, boneless, separable lean only, trimmed to 0"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169485,"Beef, composite of trimmed retail cuts, separable lean and fat, trimmed to 1/8"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169486,"Beef, composite of trimmed retail cuts, separable lean and fat, trimmed to 1/8"" fat, choice, cooked",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169487,"Beef, composite of trimmed retail cuts, separable lean and fat, trimmed to 1/8"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169492,"Beef, chuck, arm pot roast, separable lean and fat, trimmed to 1/8"" fat, select, cooked, braised",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169495,"Beef, chuck, blade roast, separable lean and fat, trimmed to 1/8"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169496,"Beef, chuck eye roast, boneless, America's Beef Roast, separable lean only, trimmed to 0"" fat, choice, cooked, roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169497,"Beef, chuck eye roast, boneless, America's Beef Roast, separable lean only, trimmed to 0"" fat, select, cooked, roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169501,"Beef, rib, whole (ribs 6-12), separable lean and fat, trimmed to 1/8"" fat, select, cooked, broiled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169502,"Beef, rib, whole (ribs 6-12), separable lean and fat, trimmed to 1/8"" fat, select, cooked, roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169503,"Beef, rib, whole (ribs 6-12), separable lean and fat, trimmed to 1/8"" fat, prime, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169504,"Beef, rib, whole (ribs 6-12), separable lean and fat, trimmed to 1/8"" fat, prime, cooked, broiled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169505,"Beef, rib, large end (ribs 6-9), separable lean and fat, trimmed to 1/8"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169506,"Beef, rib, large end (ribs 6-9), separable lean and fat, trimmed to 1/8"" fat, choice, cooked, broiled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169507,"Beef, rib, large end (ribs 6-9), separable lean and fat, trimmed to 1/8"" fat, choice, cooked, roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169508,"Beef, rib, large end (ribs 6-9), separable lean and fat, trimmed to 1/8"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169512,"Beef, rib, small end (ribs 10-12), separable lean and fat, trimmed to 1/8"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169513,"Beef, rib, small end (ribs 10-12), separable lean and fat, trimmed to 1/8"" fat, select, cooked, roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169514,"Beef, rib, small end (ribs 10-12), separable lean and fat, trimmed to 1/8"" fat, prime, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169515,"Beef, rib, small end (ribs 10-12), separable lean and fat, trimmed to 1/8"" fat, prime, cooked, broiled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169516,"Beef, rib, small end (ribs 10-12), separable lean and fat, trimmed to 1/8"" fat, prime, cooked, roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169517,"Beef, round, full cut, separable lean and fat, trimmed to 1/8"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169518,"Beef, round, full cut, separable lean and fat, trimmed to 1/8"" fat, select, cooked, broiled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169521,"Beef, round, bottom round, steak, separable lean and fat, trimmed to 1/8"" fat, select, cooked, braised",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169522,"Beef, round, bottom round, roast, separable lean and fat, trimmed to 1/8"" fat, select, cooked, roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169527,"Beef, round, tip round, separable lean and fat, trimmed to 1/8"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169528,"Beef, round, tip round, roast, separable lean and fat, trimmed to 1/8"" fat, choice, cooked, roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169532,"Beef, round, top round, steak, separable lean and fat, trimmed to 1/8"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169533,"Beef, round, top round, steak, separable lean and fat, trimmed to 1/8"" fat, select, cooked, broiled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169534,"Beef, round, top round, separable lean and fat, trimmed to 1/8"" fat, prime, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169535,"Beef, round, top round, steak, separable lean and fat, trimmed to 1/8"" fat, prime, cooked, broiled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169536,"Beef, shoulder top blade steak, boneless, separable lean and fat, trimmed to 0"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169537,"Beef, short loin, t-bone steak, separable lean and fat, trimmed to 1/8"" fat, choice, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169540,"Beef, loin, top loin, separable lean and fat, trimmed to 1/8"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169541,"Beef, short loin, top loin, separable lean and fat, trimmed to 1/8"" fat, prime, cooked, broiled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169545,"Beef, tenderloin, steak, separable lean and fat, trimmed to 1/8"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169546,"Beef, tenderloin, roast, separable lean and fat, trimmed to 1/8"" fat, select, cooked, roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169547,"Beef, tenderloin, separable lean and fat, trimmed to 1/8"" fat, prime, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169548,"Beef, tenderloin, steak, separable lean and fat, trimmed to 1/8"" fat, prime, cooked, broiled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169549,"Beef, tenderloin, roast, separable lean and fat, trimmed to 1/8"" fat, prime, cooked, roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169551,"Beef, top sirloin, steak, separable lean and fat, trimmed to 1/8"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169552,"Beef, top sirloin, steak, separable lean and fat, trimmed to 1/8"" fat, select, cooked, broiled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169553,"Beef, chuck, clod roast, separable lean only, trimmed to 0"" fat, choice, cooked, roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169554,"Beef, flank, steak, separable lean and fat, trimmed to 0"" fat, select, cooked, broiled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169555,"Beef, brisket, flat half, separable lean and fat, trimmed to 0"" fat, select, cooked, braised",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169556,"Beef, rib eye, small end (ribs 10-12), separable lean and fat, trimmed to 0"" fat, select, cooked, broiled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169559,"Beef, bottom sirloin, tri-tip roast, separable lean and fat, trimmed to 0"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169561,"Beef, chuck, mock tender steak, separable lean only, trimmed to 0"" fat, choice, cooked, broiled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169562,"Beef, chuck, mock tender steak, separable lean only, trimmed to 0"" fat, select, cooked, broiled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169564,"Beef, flank, steak, separable lean and fat, trimmed to 0"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169566,"Beef, chuck eye roast, boneless, America's Beef Roast, separable lean only, trimmed to 0"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169567,"Beef, chuck, short ribs, boneless, separable lean only, trimmed to 0"" fat, choice, cooked, braised",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169568,"Beef, chuck, short ribs, boneless, separable lean only, trimmed to 0"" fat, select, cooked, braised",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,169570,"Beef, brisket, flat half, boneless, separable lean and fat, trimmed to 0"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170196,"Beef, variety meats and by-products, tongue, raw",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,170201,"Beef, chuck, under blade center steak, boneless, Denver Cut, separable lean only, trimmed to 0"" fat, choice, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170203,"Beef, chuck, under blade center steak, boneless, Denver Cut, separable lean only, trimmed to 0"" fat, select, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170206,"Beef, composite of trimmed retail cuts, separable lean and fat, trimmed to 0"" fat, choice, cooked",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170207,"Beef, composite of trimmed retail cuts, separable lean and fat, trimmed to 0"" fat, select, cooked",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170209,"Beef, composite of trimmed retail cuts, separable lean only, trimmed to 0"" fat, choice, cooked",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170214,"Beef, chuck, under blade pot roast, boneless, separable lean and fat, trimmed to 0"" fat, select, cooked, braised",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170216,"Beef, chuck, under blade pot roast, boneless, separable lean only, trimmed to 0"" fat, choice, cooked, braised",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170217,"Beef, chuck, under blade pot roast, boneless, separable lean only, trimmed to 0"" fat, select, cooked, braised",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170218,"Beef, rib, large end (ribs 6-9), separable lean only, trimmed to 0"" fat, select, cooked, roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170220,"Beef, rib, small end (ribs 10-12), separable lean and fat, trimmed to 0"" fat, choice, cooked, broiled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170221,"Beef, rib, small end (ribs 10-12), separable lean and fat, trimmed to 0"" fat, select, cooked, broiled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170223,"Beef, round, bottom round, steak, separable lean and fat, trimmed to 0"" fat, choice, cooked, braised",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170224,"Beef, round, bottom round, roast, separable lean and fat, trimmed to 0"" fat, choice, cooked, roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170225,"Beef, round, bottom round, steak, separable lean and fat, trimmed to 0"" fat, select, cooked, braised",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170226,"Beef, round, bottom round, steak, separable lean only, trimmed to 0"" fat, select, cooked, braised",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170227,"Beef, round, bottom round roast, separable lean only, trimmed to 0"" fat, select, cooked, roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170229,"Beef, round, eye of round roast, boneless, separable lean and fat, trimmed to 0"" fat, choice, cooked, roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170231,"Beef, round, tip round, roast, separable lean and fat, trimmed to 0"" fat, choice, cooked, roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170232,"Beef, round, tip round, roast, separable lean and fat, trimmed to 0"" fat, select, cooked, roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170234,"Beef, round, top round, separable lean and fat, trimmed to 0"" fat, select, cooked, braised",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170235,"Beef, round, top round, separable lean only, trimmed to 0"" fat, choice, cooked, braised",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170236,"Beef, round, top round, separable lean only, trimmed to 0"" fat, select, cooked, braised",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170238,"Beef, loin, tenderloin steak, boneless, separable lean and fat, trimmed to 0"" fat, choice, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170240,"Beef, loin, top loin steak, boneless, lip off, separable lean and fat, trimmed to 0"" fat, choice, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170597,"Beef, variety meats and by-products, spleen, cooked, braised",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,170598,"Beef, variety meats and by-products, tongue, cooked, simmered",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,170599,"Beef, variety meats and by-products, tripe, raw",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,170601,"Beef, brisket, flat half, separable lean only, trimmed to 0"" fat, choice, cooked, braised",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170603,"Beef, chuck, under blade pot roast or steak, boneless, separable lean only, trimmed to 0"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170608,"Beef, chuck, under blade center steak, boneless, Denver Cut, separable lean only, trimmed to 0"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170610,"Beef, composite of trimmed retail cuts, separable lean only, trimmed to 0"" fat, select, cooked",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170614,"Beef, chuck, arm pot roast, separable lean and fat, trimmed to 0"" fat, select, cooked, braised",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170615,"Beef, chuck, arm pot roast, separable lean only, trimmed to 0"" fat, choice, cooked, braised",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170616,"Beef, chuck, arm pot roast, separable lean only, trimmed to 0"" fat, select, cooked, braised",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170618,"Beef, chuck, under blade pot roast, boneless, separable lean and fat, trimmed to 0"" fat, choice, cooked, braised",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170619,"Beef, rib, large end (ribs 6-9), separable lean and fat, trimmed to 0"" fat, choice, cooked, roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170620,"Beef, rib, large end (ribs 6-9), separable lean and fat, trimmed to 0"" fat, select, cooked, roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170622,"Beef, rib, large end (ribs 6-9), separable lean only, trimmed to 0"" fat, choice, cooked, roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170624,"Beef, rib, small end (ribs 10-12), separable lean only, trimmed to 0"" fat, choice, cooked, broiled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170625,"Beef, rib, small end (ribs 10-12), separable lean only, trimmed to 0"" fat, select, cooked, broiled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170627,"Beef, round, bottom round, roast, separable lean and fat, trimmed to 0"" fat, select, cooked, roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170630,"Beef, round, bottom round, steak, separable lean only, trimmed to 0"" fat, choice, cooked, braised",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170631,"Beef, round, bottom round, roast, separable lean only, trimmed to 0"" fat, choice, cooked, roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170632,"Beef, round, eye of round roast, boneless, separable lean and fat, trimmed to 0"" fat, select, cooked, roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170634,"Beef, round, eye of round roast, boneless, separable lean only, trimmed to 0"" fat, choice, cooked, roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170635,"Beef, round, eye of round roast, boneless, separable lean only, trimmed to 0"" fat, select, cooked, roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170636,"Beef, round, tip round, roast, separable lean only, trimmed to 0"" fat, choice, cooked, roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170637,"Beef, round, tip round, roast, separable lean only, trimmed to 0"" fat, select, cooked, roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170639,"Beef, round, top round, separable lean and fat, trimmed to 0"" fat, choice, cooked, braised",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170640,"Beef, loin, tenderloin steak, boneless, separable lean and fat, trimmed to 0"" fat, select, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170642,"Beef, loin, tenderloin steak, boneless, separable lean only, trimmed to 0"" fat, choice, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170643,"Beef, loin, tenderloin steak, boneless, separable lean only, trimmed to 0"" fat, select, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170783,"Beef, chuck, short ribs, boneless, separable lean only, trimmed to 0"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170797,"Beef, chuck eye Country-Style ribs, boneless, separable lean only, trimmed to 0"" fat, choice, cooked, braised",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170798,"Beef, chuck eye Country-Style ribs, boneless, separable lean only, trimmed to 0"" fat, select, cooked, braised",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170800,"Beef, chuck eye Country-Style ribs, boneless, separable lean only, trimmed to 0"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170802,"Beef, chuck eye steak, boneless, separable lean only, trimmed to 0"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170803,"Beef, chuck eye steak, boneless, separable lean only, trimmed to 0"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170805,"Beef, chuck, mock tender steak, boneless, separable lean only, trimmed to 0"" fat, select, cooked, braised",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170807,"Beef, chuck, mock tender steak, boneless, separable lean only, trimmed to 0"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170808,"Beef, chuck, mock tender steak, boneless, separable lean only, trimmed to 0"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170809,"Beef, chuck for stew, separable lean and fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170810,"Beef, chuck for stew, separable lean and fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170811,"Beef, chuck, under blade steak, boneless, separable lean only, trimmed to 0"" fat, choice, cooked, braised",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170812,"Beef, chuck, under blade steak, boneless, separable lean only, trimmed to 0"" fat, select, cooked, braised",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170814,"Beef, chuck, under blade pot roast or steak, boneless, separable lean and fat, trimmed to 0"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170815,"Beef, chuck, under blade pot roast or steak, boneless, separable lean and fat, trimmed to 0"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170817,"Beef, chuck, under blade center steak, boneless, Denver Cut, separable lean and fat, trimmed to 0"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170818,"Beef, shoulder pot roast or steak, boneless, separable lean and fat, trimmed to 0"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170819,"Beef, shoulder pot roast or steak, boneless, separable lean and fat, trimmed to 0"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170822,"Beef, chuck, mock tender steak, boneless, separable lean and fat, trimmed to 0"" fat, choice, cooked, braised",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170823,"Beef, chuck, mock tender steak, boneless, separable lean and fat, trimmed to 0"" fat, select, cooked, braised",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170825,"Beef, chuck, short ribs, boneless, separable lean and fat, trimmed to 0"" fat, select, cooked, braised",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170827,"Beef, chuck, short ribs, boneless, separable lean and fat, trimmed to 0"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170828,"Beef, chuck, short ribs, boneless, separable lean and fat, trimmed to 0"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170829,"Beef, chuck eye Country-Style ribs, boneless, separable lean and fat, trimmed to 0"" fat, choice, cooked, braised",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170830,"Beef, chuck eye Country-Style ribs, boneless, separable lean and fat, trimmed to 0"" fat, select, cooked, braised",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170832,"Beef, chuck eye Country-Style ribs, boneless, separable lean and fat, trimmed to 0"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170833,"Beef, chuck eye Country-Style ribs, boneless, separable lean and fat, trimmed to 0"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170834,"Beef, chuck eye steak, boneless, separable lean and fat, trimmed to 0"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170835,"Beef, chuck eye steak, boneless, separable lean and fat, trimmed to 0"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170837,"Beef, rib eye roast, bone-in, lip-on, separable lean only, trimmed to 1/8"" fat, select, cooked, roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170838,"Beef, rib eye steak/roast, bone-in, lip-on, separable lean only, trimmed to 1/8"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170840,"Beef, rib eye steak/roast, boneless, lip-on, separable lean only, trimmed to 1/8"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170841,"Beef, rib eye steak/roast, boneless, lip-on, separable lean only, trimmed to 1/8"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,170842,"Beef, rib eye roast, boneless, lip-on, separable lean only, trimmed to 1/8"" fat, choice, cooked, roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171047,"Chicken, broilers or fryers, meat and skin and giblets and neck, raw",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171048,"Chicken, broilers or fryers, meat and skin and giblets and neck, cooked, fried, batter",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171049,"Chicken, broilers or fryers, meat and skin and giblets and neck, cooked, fried, flour",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171050,"Chicken, broilers or fryers, meat and skin and giblets and neck, roasted",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171057,"Chicken, broilers or fryers, giblets, raw",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171058,"Chicken, broilers or fryers, giblets, cooked, fried",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171060,"Chicken, liver, all classes, raw",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171061,"Chicken, liver, all classes, cooked, simmered",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171083,"Turkey, whole, giblets, raw",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171084,"Turkey, whole, giblets, cooked, simmered",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171085,"Turkey, gizzard, all classes, raw",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171086,"Turkey, whole, neck, meat only, raw",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171087,"Turkey, whole, neck, meat only, cooked, simmered",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171107,"Chicken, cornish game hens, meat and skin, cooked, roasted",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171108,"Chicken, cornish game hens, meat only, raw",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171109,"Chicken, cornish game hens, meat only, cooked, roasted",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171114,"Chicken, broiler, rotisserie, BBQ, drumstick, meat only",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171118,"Chicken, broiler, rotisserie, BBQ, thigh, meat only",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171119,"Chicken, feet, boiled",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171124,"Chicken, broiler, rotisserie, BBQ, back, meat and skin",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171125,"Chicken, broiler, rotisserie, BBQ, breast, meat and skin",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171126,"Chicken, broiler, rotisserie, BBQ, drumstick, meat and skin",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171127,"Chicken, broiler, rotisserie, BBQ, thigh, meat and skin",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171193,"Beef, chuck, short ribs, boneless, separable lean only, trimmed to 0"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171194,"Beef, chuck eye Country-Style ribs, boneless, separable lean only, trimmed to 0"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171196,"Beef, chuck eye steak, boneless, separable lean only, trimmed to 0"" fat, choice, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171197,"Beef, chuck eye steak, boneless, separable lean only, trimmed to 0"" fat, select, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171198,"Beef, shoulder pot roast, boneless, separable lean only, trimmed to 0"" fat, choice, cooked, braised",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171199,"Beef, shoulder pot roast, boneless, separable lean only, trimmed to 0"" fat, select, cooked, braised",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171201,"Beef, chuck, mock tender steak, boneless, separable lean only, trimmed to 0"" fat, choice, cooked, braised",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171204,"Beef, chuck for stew, separable lean and fat, select, cooked, braised",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171205,"Beef, chuck for stew, separable lean and fat, choice, cooked, braised",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171210,"Beef, rib eye roast, bone-in, lip-on, separable lean only, trimmed to 1/8"" fat, choice, cooked, roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171211,"Beef, chuck, under blade center steak, boneless, Denver Cut, separable lean and fat, trimmed to 0"" fat, choice, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171212,"Beef, chuck, under blade center steak, boneless, Denver Cut, separable lean and fat, trimmed to 0"" fat, select, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171214,"Beef, chuck, under blade center steak, boneless, Denver Cut, separable lean and fat, trimmed to 0"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171215,"Beef, chuck eye roast, boneless, America's Beef Roast, separable lean and fat, trimmed to 0"" fat, choice, cooked, roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171216,"Beef, chuck eye roast, boneless, America's Beef Roast, separable lean and fat, trimmed to 0"" fat, select, cooked, roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171218,"Beef, chuck, under blade steak, boneless, separable lean and fat, trimmed to 0"" fat, choice, cooked, braised",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171219,"Beef, chuck, under blade steak, boneless, separable lean and fat, trimmed to 0"" fat, select, cooked, braised",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171220,"Beef, chuck, mock tender steak, boneless, separable lean and fat, trimmed to 0"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171221,"Beef, chuck, mock tender steak, boneless, separable lean and fat, trimmed to 0"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171223,"Beef, chuck, short ribs, boneless, separable lean and fat, trimmed to 0"" fat, choice, cooked, braised",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171225,"Beef, shoulder pot roast, boneless, separable lean and fat, trimmed to 0"" fat, choice, cooked, braised",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171226,"Beef, shoulder pot roast, boneless, separable lean and fat, trimmed to 0"" fat, select, cooked, braised",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171229,"Beef, chuck eye steak, boneless, separable lean and fat, trimmed to 0"" fat, choice, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171230,"Beef, chuck eye steak, boneless, separable lean and fat, trimmed to 0"" fat, select, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171232,"Beef, rib eye steak, boneless, lip-on, separable lean only, trimmed to 1/8"" fat, choice, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171233,"Beef, rib eye steak, boneless, lip-on, separable lean only, trimmed to 1/8"" fat, select, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171235,"Beef, rib eye steak/roast, bone-in, lip-on, separable lean only, trimmed to 1/8"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171237,"Beef, rib eye steak, bone-in, lip-on, separable lean only, trimmed to 1/8"" fat, choice, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171238,"Beef, rib eye steak, bone-in, lip-on, separable lean only, trimmed to 1/8"" fat, select, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171445,"Chicken, broiler, rotisserie, BBQ, breast, meat only",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171446,"Chicken, broilers or fryers, meat and skin and giblets and neck, stewed",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171455,"Chicken, broilers or fryers, giblets, cooked, simmered",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171456,"Chicken, gizzard, all classes, raw",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171457,"Chicken, gizzard, all classes, cooked, simmered",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171483,"Turkey, all classes, gizzard, cooked, simmered",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171486,"Turkey, all classes, liver, raw",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171487,"Turkey, all classes, liver, cooked, simmered",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171507,"Chicken, cornish game hens, meat and skin, raw",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171516,"Chicken, broiler, rotisserie, BBQ, wing, meat only",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171524,"Chicken, broiler, rotisserie, BBQ, skin",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171728,"Beef, Australian, imported, grass-fed,  external fat, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171729,"Beef, Australian, imported, grass-fed, seam fat, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171730,"Beef, Australian, imported, Wagyu, external fat, Aust. marble score 4/5, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171731,"Beef, Australian, imported, Wagyu, seam fat, Aust. marble score 4/5, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171732,"Beef, Australian, imported, Wagyu, loin, tenderloin steak/roast, boneless, separable lean and fat, Aust. marble score 4/5, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171733,"Beef, Australian, imported, grass-fed, loin, top loin steak/roast, boneless, separable lean and fat, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171734,"Beef, Australian, imported, grass-fed, loin, top sirloin cap-off steak/roast, boneless, separable lean only, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171735,"Beef, Australian, imported, grass-fed, rib, ribeye steak/roast lip-on, boneless, separable lean only, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171736,"Beef, Australian, imported, Wagyu, loin, top loin steak/roast, boneless, separable lean only, Aust. marble score 9, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171737,"Beef, Australian, imported, Wagyu, rib, small end rib steak/roast, boneless, separable lean only, Aust. marble score 4/5, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171738,"Beef, Australian, imported, Wagyu, rib, small end rib steak/roast, boneless, separable lean only, Aust. marble score 9, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171739,"Beef, Australian, imported, grass-fed, loin, top sirloin cap-off steak/roast, boneless, separable lean and fat, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171740,"Beef, Australian, imported, Wagyu, rib, small end rib steak/roast, boneless, separable lean and fat, Aust. marble score 4/5, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171741,"Beef, Australian, imported, Wagyu, rib, small end rib steak/roast, boneless, separable lean and fat, Aust. marble score 9, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171742,"Beef, Australian, imported, Wagyu, loin, tenderloin steak/roast, boneless, separable lean and fat, Aust. marble score 9, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171744,"Beef, round, top round roast, boneless, separable lean and fat, trimmed to 0"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171746,"Beef, round, eye of round roast, boneless, separable lean and fat, trimmed to 0"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171747,"Beef, round, eye of round roast, boneless, separable lean and fat, trimmed to 0"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171748,"Beef, loin, tenderloin roast, boneless, separable lean and fat, trimmed to 0"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171749,"Beef, loin, tenderloin roast, boneless, separable lean and fat, trimmed to 0"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171751,"Beef, loin, top loin steak, boneless, lip off, separable lean and fat, trimmed to 0"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171752,"Beef, loin, top loin steak, boneless, lip off, separable lean and fat, trimmed to 0"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171753,"Beef, loin, tenderloin roast, boneless, separable lean and fat, trimmed to 0"" fat, choice, cooked, roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171754,"Beef, loin, tenderloin roast, boneless, separable lean and fat, trimmed to 0"" fat, select, cooked, roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171756,"Beef, round, top round roast, boneless, separable lean and fat, trimmed to 0"" fat, choice, cooked, roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171758,"Beef, round, top round steak, boneless, separable lean only, trimmed to 0"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171759,"Beef, round, top round steak, boneless, separable lean only, trimmed to 0"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171761,"Beef, round, eye of round roast, boneless, separable lean only, trimmed to 0"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171763,"Beef, round, eye of round steak, boneless, separable lean only, trimmed to 0"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171764,"Beef, round, eye of round steak, boneless, separable lean only, trimmed to 0"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171766,"Beef, loin, top loin steak, boneless, lip off, separable lean only, trimmed to 0"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171768,"Beef, loin, tenderloin steak, boneless, separable lean only, trimmed to 0"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171769,"Beef, loin, tenderloin steak, boneless, separable lean only, trimmed to 0"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171770,"Beef, round, top round roast, boneless, separable lean only, trimmed to 0"" fat, choice, cooked, roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171771,"Beef, round, top round roast, boneless, separable lean only, trimmed to 0"" fat, select, cooked, roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171773,"Beef, round, eye of round steak, boneless, separable lean only, trimmed to 0"" fat, choice, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171774,"Beef, loin, top loin steak, boneless, lip-on, separable lean and fat, trimmed to 1/8"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171776,"Beef, composite of trimmed retail cuts, separable lean only, trimmed to 0"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171777,"Beef, composite of trimmed retail cuts, separable lean and fat, trimmed to 0"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171778,"Beef, composite of trimmed retail cuts, separable lean only, trimmed to 1/8"" fat, select, cooked",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171779,"Beef, composite of trimmed retail cuts, separable lean only, trimmed to 1/8"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171783,"Beef, chuck, mock tender steak, separable lean and fat, trimmed to 0"" fat, USDA choice, cooked, broiled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171784,"Beef, chuck, clod roast, separable lean and fat, trimmed to 0"" fat, select, cooked, roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171785,"Beef, shoulder steak, boneless, separable lean and fat, trimmed to 0"" fat, choice, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171786,"Beef, shoulder steak, boneless, separable lean and fat, trimmed to 0"" fat, select, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171796,"Beef, ground, 85% lean meat / 15% fat, raw (Includes foods for USDA's Food Distribution Program)",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171802,"Beef, rib, small end (ribs 10-12), separable lean only, trimmed to 1/8"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171803,"Beef, tenderloin, steak, separable lean only, trimmed to 1/8"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171804,"Beef, top sirloin, steak, separable lean only, trimmed to 1/8"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171805,"Beef, short loin, top loin, steak, separable lean only, trimmed to 1/8"" fat, select, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171806,"Beef, round, bottom round , roast, separable lean only, trimmed to 1/8"" fat, select, cooked, roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171807,"Beef, round, eye of round, roast, separable lean only, trimmed to 1/8"" fat, select, cooked, roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171808,"Beef, round, top round, steak, separable lean only, trimmed to 1/8"" fat, select, cooked, broiled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171817,"Beef, chuck, arm pot roast, separable lean only, trimmed to 1/8"" fat, choice, cooked, braised",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171818,"Beef, brisket, flat half, separable lean only, trimmed to 1/8"" fat, choice, cooked, braised",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171819,"Beef, round, eye of round, roast, separable lean only, trimmed to 1/8"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,171820,"Beef, round, top round, steak, separable lean only, trimmed to 1/8"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,172116,"Beef, short loin, porterhouse steak, separable lean and fat, trimmed to 1/8"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,172117,"Beef, short loin, porterhouse steak, separable lean and fat, trimmed to 1/8"" fat, select, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,172119,"Beef, round, knuckle, tip side, steak, separable lean and fat, trimmed to 0"" fat, choice, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,172120,"Beef, round, knuckle, tip side, steak, separable lean and fat , trimmed to 0"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,172121,"Beef, round, knuckle, tip side, steak, separable lean and fat, trimmed to 0"" fat, select, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,172122,"Beef, chuck, shoulder clod, shoulder tender, medallion, separable lean and fat, trimmed to 0"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,172123,"Beef, chuck, shoulder clod, shoulder top and center steaks, separable lean and fat, trimmed to 0"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,172124,"Beef, chuck, shoulder clod, shoulder top and center steaks, separable lean and fat, trimmed to 0"" fat, select, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,172125,"Beef, chuck, shoulder clod, top blade, steak, separable lean and fat, trimmed to 0"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,172126,"Beef, chuck, shoulder clod, top blade, steak, separable lean and fat, trimmed to 0"" fat, choice, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,172127,"Beef, round, knuckle, tip center, steak, separable lean and fat, trimmed to 0"" fat, select, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,172128,"Beef, round, outside round, bottom round, steak, separable lean and fat, trimmed to 0"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,172129,"Beef, round, outside round, bottom round, steak, separable lean and fat, trimmed to 0"" fat, choice, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,172130,"Beef, round, outside round, bottom round, steak, separable lean and fat, trimmed to 0"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,172136,"Beef, chuck, shoulder clod, shoulder tender, medallion, separable lean and fat, trimmed to 0"" fat, select, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,172137,"Beef, plate steak, boneless, inside skirt, separable lean only, trimmed to 0"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,172138,"Beef, plate steak, boneless, inside skirt, separable lean only, trimmed to 0"" fat, select, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,172139,"Beef, plate steak, boneless, inside skirt, separable lean only, trimmed to 0"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,172141,"Beef, plate steak, boneless, outside skirt, separable lean only, trimmed to 0"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,172144,"Beef, rib eye steak, boneless, lip off, separable lean only, trimmed to 0"" fat, choice, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,172146,"Beef, rib, back ribs, bone-in, separable lean only, trimmed to 0"" fat, choice, cooked, braised",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,172147,"Beef, rib, back ribs, bone-in, separable lean only, trimmed to 0"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,172148,"Beef, rib, back ribs, bone-in, separable lean only, trimmed to 0"" fat, select, cooked, braised",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,172149,"Beef, rib eye roast, bone-in, lip-on, separable lean and fat, trimmed to 1/8"" fat, select, cooked, roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,172152,"Beef, rib eye steak/roast, bone-in, lip-on, separable lean and fat, trimmed to 1/8"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,172154,"Beef, rib eye roast, boneless, lip-on, separable lean and fat, trimmed to 1/8"" fat, choice, cooked, roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,172155,"Beef, rib eye roast, boneless, lip-on, separable lean and fat, trimmed to 1/8"" fat, select, cooked, roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,172157,"Beef, plate steak, boneless, inside skirt, separable lean and fat, trimmed to 0"" fat, select, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,172159,"Beef, plate steak, boneless, inside skirt, separable lean and fat, trimmed to 0"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,172160,"Beef, plate steak, boneless, inside skirt, separable lean and fat, trimmed to 0"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,172162,"Beef, plate steak, boneless, outside skirt, separable lean and fat, trimmed to 0"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,172163,"Beef, plate steak, boneless, outside skirt, separable lean and fat, trimmed to 0"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,172165,"Beef, rib eye steak, boneless, lip off, separable lean and fat, trimmed to 0"" fat, choice, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,172167,"Beef, rib, back ribs, bone-in, separable lean and fat, trimmed to 0"" fat, choice, cooked, braised",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,172168,"Beef, rib, back ribs, bone-in, separable lean and fat, trimmed to 0"" fat, select, cooked, braised",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,172171,"Beef, loin, top sirloin cap steak, boneless, separable lean only, trimmed to 1/8"" fat, choice, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,172172,"Beef, loin, top sirloin cap steak, boneless, separable lean only, trimmed to 1/8"" fat, select, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,172174,"Beef, loin, top sirloin cap steak, boneless, separable lean only, trimmed to 1/8"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,172382,"Chicken, broilers or fryers, neck, meat and skin, raw",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,172383,"Chicken, broilers or fryers, neck, meat only, cooked, fried",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,172384,"Chicken, broilers or fryers, neck, meat only, cooked, simmered",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,172394,"Chicken, roasting, meat and skin and giblets and neck, raw",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,172396,"Chicken, roasting, giblets, raw",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,172397,"Chicken, roasting, giblets, cooked, simmered",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,172399,"Chicken, stewing, meat and skin, and giblets and neck, cooked, stewed",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,172406,"Chicken, capons, meat and skin and giblets and neck, raw",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,172407,"Chicken, capons, meat and skin and giblets and neck, cooked, roasted",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,172830,"Chicken, broiler, rotisserie, BBQ, wing, meat and skin",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,173047,"Beef, top loin petite roast, boneless, separable lean only, trimmed to 1/8"" fat, choice, cooked, roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173048,"Beef, top loin petite roast, boneless, separable lean only, trimmed to 1/8"" fat, select, cooked, roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173050,"Beef, loin, top sirloin filet, boneless, separable lean only, trimmed to 0"" fat, select, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173052,"Beef, loin, top sirloin petite roast, boneless, separable lean only, trimmed to 0"" fat, select, cooked, roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173055,"Beef, ribeye cap steak, boneless, separable lean only, trimmed to 0"" fat, choice, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173056,"Beef, ribeye cap steak, boneless, separable lean only, trimmed to 0"" fat, select, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173059,"Beef, ribeye petite roast, boneless, separable lean only, trimmed to 0"" fat, choice, cooked, roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173060,"Beef, ribeye petite roast, boneless, separable lean only, trimmed to 0"" fat, select, cooked, roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173062,"Beef, loin, top sirloin cap steak, boneless, separable lean and fat, trimmed to 1/8"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173064,"Beef, top loin filet, boneless, separable lean and fat, trimmed to 1/8"" fat, choice, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173065,"Beef, top loin filet, boneless, separable lean and fat, trimmed to 1/8"" fat, select, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173066,"Beef, top loin petite roast/filet, boneless, separable lean and fat, trimmed to 1/8"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173067,"Beef, top loin petite roast/filet, boneless, separable lean and fat, trimmed to 1/8"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173068,"Beef, Australian, imported, grass-fed, ground, 85% lean / 15% fat, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173069,"Beef, loin, top loin steak, boneless, lip-on, separable lean only, trimmed to 1/8"" fat, choice, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173070,"Beef, loin, top loin steak, boneless, lip-on, separable lean only, trimmed to 1/8"" fat, select, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173072,"Beef, loin, top loin steak, boneless, lip-on, separable lean and fat, trimmed to 1/8"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173073,"Beef, New Zealand, imported, brisket point end, separable lean only, cooked, braised",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173074,"Beef, New Zealand, imported, brisket point end, separable lean only, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173075,"Beef, New Zealand, imported, chuck eye roll, separable lean only, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173076,"Beef, New Zealand, imported, chuck eye roll, separable lean only, cooked, braised",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173077,"Beef, New Zealand, imported, flank, separable lean only, cooked, braised",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173078,"Beef, New Zealand, imported, flank, separable lean only, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173079,"Beef, New Zealand, imported, flat, separable lean only, cooked, braised",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173080,"Beef, New Zealand, imported, flat, separable lean only, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173081,"Beef, New Zealand, imported, variety meats and by-products, heart, cooked, boiled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173082,"Beef, New Zealand, imported, intermuscular fat, cooked",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173083,"Beef, New Zealand, imported, intermuscular fat, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173084,"Beef, New Zealand, imported, variety meats and by-products, kidney, cooked, boiled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173085,"Beef, New Zealand, imported, knuckle, cooked, fast fried",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173086,"Beef, New Zealand, imported, manufacturing beef, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173087,"Beef, New Zealand, imported, oyster blade, separable lean only, cooked, braised",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173088,"Beef, New Zealand, imported, oyster blade, separable lean only, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173089,"Beef, New Zealand, imported, ribs prepared, cooked, fast roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173090,"Beef, New Zealand, imported, subcutaneous fat, cooked",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173091,"Beef, New Zealand, imported, subcutaneous fat, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173092,"Beef, New Zealand, imported, sweetbread, cooked, boiled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173093,"Beef, New Zealand, imported, sweetbread, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173094,"Beef, New Zealand, imported, tenderloin, separable lean only, cooked, fast fried",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173095,"Beef, New Zealand, imported, variety meats and by-products, tripe cooked, boiled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173096,"Beef, New Zealand, imported, variety meats and by-products, tripe uncooked, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173097,"Beef, New Zealand, imported, bolar blade, separable lean and fat, cooked, fast roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173098,"Beef, New Zealand, imported, bolar blade, separable lean and fat, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173099,"Beef, New Zealand, imported, chuck eye roll, separable lean and fat, cooked, braised",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173100,"Beef, New Zealand, imported, chuck eye roll, separable lean and fat, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173101,"Beef, New Zealand, imported, cube roll, separable lean and fat, cooked, fast roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173102,"Beef, New Zealand, imported, cube roll, separable lean and fat, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173103,"Beef, New Zealand, imported, flat, separable lean and fat, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173104,"Beef, New Zealand, imported, hind shin, separable lean and fat, cooked, braised",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173105,"Beef, New Zealand, imported, hind shin, separable lean and fat, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173106,"Beef, New Zealand, imported, oyster blade, separable lean and fat, cooked, braised",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173107,"Beef, New Zealand, imported, striploin, separable lean and fat, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173108,"Beef, New Zealand, imported, tenderloin, separable lean and fat, cooked, fast fried",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173109,"Beef, New Zealand, imported, tenderloin, separable lean and fat, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173115,"Beef, round, bottom round, steak, separable lean only, trimmed to 1/8"" fat, choice, cooked, braised",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173116,"Beef, short loin, top loin, steak, separable lean only, trimmed to 1/8"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173117,"Beef, tenderloin, steak, separable lean only, trimmed to 1/8"" fat, choice, cooked, broiled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173118,"Beef, top sirloin, steak, separable lean only, trimmed to 1/8"" fat, choice, cooked, broiled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173119,"Beef, short loin, top loin, steak, separable lean only, trimmed to 1/8"" fat, choice, cooked, broiled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173120,"Beef, round, eye of round, roast, separable lean only, trimmed to 1/8"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173121,"Beef, round, top round, steak, separable lean only, trimmed to 1/8"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173122,"Beef, round, bottom round, roast, separable lean only, trimmed to 1/8"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173124,"Beef, bottom sirloin, tri-tip roast, separable lean only, trimmed to 0"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173126,"Beef, round, tip round, roast, separable lean only, trimmed to 0"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173127,"Beef, round, tip round, roast, separable lean only, trimmed to 0"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173128,"Beef, brisket, flat half, separable lean and fat, trimmed to 1/8"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173129,"Beef, brisket, flat half, separable lean and fat, trimmed to 1/8"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173130,"Beef, brisket, flat half, separable lean and fat, trimmed to 1/8"" fat, choice, cooked, braised",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173352,"Beef, short loin, t-bone steak, separable lean and fat, trimmed to 1/8"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173353,"Beef, short loin, t-bone steak, separable lean and fat, trimmed to 1/8"" fat, select, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173354,"Beef, round, knuckle, tip side, steak, separable lean and fat, trimmed to 0"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173355,"Beef, chuck, shoulder clod, shoulder tender, medallion, separable lean and fat, trimmed to 0"" fat, choice, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173356,"Beef, chuck, shoulder clod, shoulder tender, medallion, separable lean and fat, trimmed to 0"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173357,"Beef, chuck, shoulder clod, shoulder top and center steaks, separable lean and fat, trimmed to 0"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173358,"Beef, chuck, shoulder clod, shoulder top and center steaks, separable lean and fat, trimmed to 0"" fat, choice, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173359,"Beef, chuck, shoulder clod, top blade, steak, separable lean and fat, trimmed to 0"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173360,"Beef, chuck, shoulder clod, top blade, steak, separable lean and fat, trimmed to 0"" fat, select, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173361,"Beef, round, knuckle, tip center, steak, separable lean and fat, trimmed to 0"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173362,"Beef, round, knuckle, tip center, steak, separable lean and fat, trimmed to 0"" fat, choice, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173363,"Beef, round, knuckle, tip center, steak, separable lean and fat, trimmed to 0"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173364,"Beef, round, outside round, bottom round, steak, separable lean and fat, trimmed to 0"" fat, select, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173372,"Beef, rib eye roast, boneless, lip-on, separable lean only, trimmed to 1/8"" fat, select, cooked, roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173375,"Beef, plate steak, boneless, inside skirt, separable lean only, trimmed to 0"" fat, choice, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173377,"Beef, plate steak, boneless, outside skirt, separable lean only, trimmed to 0"" fat, choice, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173378,"Beef, plate steak, boneless, outside skirt, separable lean only, trimmed to 0"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173379,"Beef, plate steak, boneless, outside skirt, separable lean only, trimmed to 0"" fat, select, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173380,"Beef, rib eye steak, boneless, lip off, separable lean only, trimmed to 0"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173381,"Beef, rib eye steak, boneless, lip off, separable lean only, trimmed to 0"" fat, select, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173382,"Beef, rib eye steak, boneless, lip off, separable lean only, trimmed to 0"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173384,"Beef, rib, back ribs, bone-in, separable lean only, trimmed to 0"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173385,"Beef, rib eye steak, bone-in, lip-on, separable lean and fat, trimmed to 1/8"" fat, choice, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173386,"Beef, rib eye steak, bone-in, lip-on, separable lean and fat, trimmed to 1/8"" fat, select, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173388,"Beef, rib eye roast, bone-in, lip-on, separable lean and fat, trimmed to 1/8"" fat, choice, cooked, roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173389,"Beef, rib eye steak/roast, bone-in, lip-on, separable lean and fat, trimmed to 1/8"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173390,"Beef, rib eye steak, boneless, lip-on, separable lean and fat, trimmed to 1/8"" fat, choice, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173391,"Beef, rib eye steak, boneless, lip-on, separable lean and fat, trimmed to 1/8"" fat, select, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173393,"Beef, rib eye steak/roast, boneless, lip-on, separable lean and fat, trimmed to 1/8"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173394,"Beef, rib eye steak/roast, boneless, lip-on, separable lean and fat, trimmed to 1/8"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173396,"Beef, plate steak, boneless, inside skirt, separable lean and fat, trimmed to 0"" fat, choice, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173398,"Beef, plate steak, boneless, outside skirt, separable lean and fat, trimmed to 0"" fat, choice, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173399,"Beef, plate steak, boneless, outside skirt, separable lean and fat, trimmed to 0"" fat, select, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173401,"Beef, rib eye steak, boneless, lip off, separable lean and fat, trimmed to 0"" fat, select, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173403,"Beef, rib eye steak, boneless, lip off, separable lean and fat, trimmed to 0"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173404,"Beef, rib eye steak, boneless, lip off, separable lean and fat, trimmed to 0"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173405,"Beef, rib, back ribs, bone-in, separable lean and fat, trimmed to 0"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173406,"Beef, rib, back ribs, bone-in, separable lean and fat, trimmed to 0"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173407,"Beef, loin, top sirloin petite roast, boneless, separable lean only, trimmed to 0"" fat, choice, cooked, roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173408,"Beef, loin, top sirloin petite roast/filet, boneless, separable lean only, trimmed to 0"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173409,"Beef, loin, top sirloin cap steak, boneless, separable lean only, trimmed to 1/8"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173620,"Chicken, broilers or fryers, neck, meat and skin, cooked, fried, batter",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,173621,"Chicken, broilers or fryers, neck, meat and skin, cooked, fried, flour",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,173622,"Chicken, broilers or fryers, neck, meat and skin, cooked simmered",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,173623,"Chicken, broilers or fryers, neck, meat only, raw",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,173633,"Chicken, roasting, meat and skin and giblets and neck, cooked, roasted",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,173640,"Chicken, stewing, meat and skin, and giblets and neck, raw",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,173641,"Chicken, stewing, giblets, raw",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,173642,"Chicken, stewing, giblets, cooked, simmered",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,173965,"Beef, Australian, imported, grass-fed, loin, tenderloin steak/roast, boneless, separable lean only, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173966,"Beef, Australian, imported, Wagyu, loin, tenderloin steak/roast, boneless, separable lean only, Aust. marble score 4/5, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173967,"Beef, Australian, imported, Wagyu, external fat, Aust. marble score 9, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173968,"Beef, Australian, imported, Wagyu, seam fat, Aust. marble score 9, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173969,"Beef, Australian, imported, grass-fed, loin, tenderloin steak/roast, boneless, separable lean and fat, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173970,"Beef, Australian, imported, grass-fed, loin, top loin steak/roast, boneless, separable lean only, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173971,"Beef, Australian, imported, grass-fed, round, bottom round steak/roast, boneless, separable lean only, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173972,"Beef, Australian, imported, grass-fed, round, top round cap-off steak/roast, boneless, separable lean only, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173973,"Beef, Australian, imported, Wagyu, loin, tenderloin steak/roast, boneless, separable lean only, Aust. marble score 9, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173974,"Beef, Australian, imported, Wagyu, loin, top loin steak/roast, boneless, separable lean only, Aust. marble score 4/5, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173975,"Beef, Australian, imported, grass-fed, rib, ribeye steak/roast lip-on, boneless, separable lean and fat, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173976,"Beef, Australian, imported, grass-fed, round, bottom round steak/roast, boneless, separable lean and fat, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173977,"Beef, Australian, imported, grass-fed, round, top round cap-off steak/roast, boneless, separable lean and fat, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173978,"Beef, Australian, imported, Wagyu, loin, top loin steak/roast, boneless, separable lean and fat, Aust. marble score 4/5, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173979,"Beef, Australian, imported, Wagyu, loin, top loin steak/roast, separable lean and fat, Aust. marble score 9, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173980,"Beef, round, top round steak, boneless, separable lean and fat, trimmed to 0"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173981,"Beef, round, top round steak, boneless, separable lean and fat, trimmed to 0"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173983,"Beef, round, top round roast, boneless, separable lean and fat, trimmed to 0"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173985,"Beef, round, eye of round steak, boneless separable lean and fat, trimmed to 0"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173986,"Beef, round, eye of round steak, boneless, separable lean and fat, trimmed to 0"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173989,"Beef, loin, tenderloin steak, boneless, separable lean and fat, trimmed to 0"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173990,"Beef, loin, tenderloin steak, boneless, separable lean and fat, trimmed to 0"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173992,"Beef, round, top round roast, boneless, separable lean and fat, trimmed to 0"" fat, select, cooked, roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173994,"Beef, round, eye of round steak, boneless, separable lean and fat, trimmed to 0"" fat, choice, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173995,"Beef, round, eye of round steak, boneless, separable lean and fat, trimmed to 0"" fat, select, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173996,"Beef, round, top round roast, boneless, separable lean only, trimmed to 0"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173997,"Beef, round, top round roast, boneless, separable lean only, trimmed to 0"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,173999,"Beef, round, eye of round roast, boneless, separable lean only, trimmed to 0"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174000,"Beef, loin, tenderloin roast, boneless, separable lean only, trimmed to 0"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174001,"Beef, loin, tenderloin roast, boneless, separable lean only, trimmed to 0"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174003,"Beef, loin, top loin steak, boneless, lip off, separable lean only, trimmed to 0"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174005,"Beef, loin, tenderloin roast, boneless, separable lean only, trimmed to 0"" fat, choice, cooked, roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174006,"Beef, loin, tenderloin roast, separable lean only, boneless, trimmed to 0"" fat, select, cooked, roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174008,"Beef, round, eye of round steak, boneless, separable lean only, trimmed to 0"" fat, select, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174009,"Beef, loin, top loin steak, boneless, lip-on, separable lean only, trimmed to 1/8"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174010,"Beef, loin, top loin steak, boneless, lip-on, separable lean only, trimmed to 1/8"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174012,"Beef, composite of trimmed retail cuts, separable lean only, trimmed to 1/8"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174014,"Beef, composite of trimmed retail cuts, separable lean and fat, trimmed to 0"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174015,"Beef, composite of trimmed retail cuts, separable lean only, trimmed to 0"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174020,"Beef, chuck, mock tender steak, separable lean and fat, trimmed to 0"" fat, USDA select, cooked, broiled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174021,"Beef, chuck, top blade, separable lean and fat, trimmed to 0"" fat, choice, cooked, broiled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174022,"Beef, chuck, top blade, separable lean and fat, trimmed to 0"" fat, select, cooked, broiled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174023,"Beef, chuck, clod roast, separable lean and fat, trimmed to 0"" fat, choice, cooked, roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174041,"Beef, short loin, top loin, steak, separable lean only, trimmed to 1/8"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174042,"Beef, rib, small end (ribs 10-12), separable lean only, trimmed to 1/8"" fat, select, cooked, broiled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174043,"Beef, tenderloin, steak, separable lean only, trimmed to 1/8"" fat, select, cooked, broiled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174044,"Beef, top sirloin, steak, separable lean only, trimmed to 1/8"" fat, select, cooked, broiled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174045,"Beef, round, bottom round, steak, separable lean only, trimmed to 1/8"" fat, select, cooked, braised",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174056,"Beef, chuck, arm pot roast, separable lean only, trimmed to 1/8"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174057,"Beef, brisket, flat half, separable lean only, trimmed to 1/8"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174058,"Beef, round, bottom round, roast, separable lean only, trimmed to 1/8"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174059,"Beef, round, bottom round, roast, separable lean only, trimmed to 1/8"" fat, choice, cooked, roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174060,"Beef, round, eye of round, roast, separable lean only, trimmed to 1/8"" fat, choice, cooked, roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174061,"Beef, round, top round, steak, separable lean only, trimmed to 1/8"" fat, choice, cooked, broiled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174465,"Chicken, capons, giblets, raw",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,174466,"Chicken, capons, giblets, cooked, simmered",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,174491,"Chicken, liver, all classes, cooked, pan-fried",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,174506,"Chicken, broiler, rotisserie, BBQ, back meat only",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,174689,"Beef, top loin filet, boneless, separable lean only, trimmed to 1/8"" fat, choice, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174690,"Beef, top loin filet, boneless, separable lean only, trimmed to 1/8"" fat, select, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174691,"Beef, top loin petite roast/filet, boneless, separable lean only, trimmed to 1/8"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174692,"Beef, top loin petite roast/filet, boneless, separable lean only, trimmed to 1/8"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174694,"Beef, loin, top sirloin filet, boneless, separable lean only, trimmed to 0"" fat, choice, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174695,"Beef, loin, top sirloin petite roast/filet, boneless, separable lean only, trimmed to 0"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174697,"Beef, ribeye  petite roast/filet, boneless, separable lean only, trimmed to 0"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174698,"Beef, ribeye  petite roast/filet, boneless, separable lean only, trimmed to 0"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174699,"Beef, ribeye cap steak, boneless, separable lean only, trimmed to 0"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174700,"Beef, ribeye cap steak, boneless, separable lean only, trimmed to 0"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174702,"Beef, ribeye filet, boneless, separable lean only, trimmed to 0"" fat, choice, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174703,"Beef, ribeye filet, boneless, separable lean only, trimmed to 0"" fat, select, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174704,"Beef, loin, top sirloin cap steak, boneless, separable lean and fat, trimmed to 1/8"" fat, choice, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174705,"Beef, loin, top sirloin cap steak, boneless, separable lean and fat, trimmed to 1/8"" fat, select, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174707,"Beef, loin, top sirloin cap steak, boneless, separable lean and fat, trimmed to 1/8"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174709,"Beef, top loin petite roast, boneless, separable lean and fat, trimmed to 1/8"" fat, choice, cooked, roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174710,"Beef, top loin petite roast, boneless, separable lean and fat, trimmed to 1/8"" fat, select, cooked, roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174712,"Beef, loin, top loin steak, boneless, lip-on, separable lean and fat, trimmed to 1/8"" fat, choice, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174713,"Beef, loin, top loin steak, boneless, lip-on, separable lean and fat, trimmed to 1/8"" fat, select, cooked, grilled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174715,"Beef, New Zealand, imported, bolar blade, separable lean only, cooked, fast roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174716,"Beef, New Zealand, imported, bolar blade, separable lean only, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174717,"Beef, New Zealand, imported, brisket navel end, separable lean only, cooked, braised",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174718,"Beef, New Zealand, imported, brisket navel end, separable lean only, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174719,"Beef, New Zealand, imported, cube roll, separable lean only, cooked, fast roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174720,"Beef, New Zealand, imported, cube roll, separable lean only, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174721,"Beef, New Zealand, imported, eye round, separable lean only, cooked, slow roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174722,"Beef, New Zealand, imported, eye round, separable lean only, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174723,"Beef, New Zealand, imported, variety meats and by-products, heart, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174724,"Beef, New Zealand, imported, hind shin, separable lean only, cooked, braised",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174725,"Beef, New Zealand, imported, hind shin, separable lean only, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174726,"Beef, New Zealand, imported, inside, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174727,"Beef, New Zealand, imported, variety meats and by-products, kidney, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174728,"Beef, New Zealand, imported, variety meats and by-products liver, cooked, boiled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174729,"Beef, New Zealand, imported, variety meats and by-products, liver, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174730,"Beef, New Zealand, imported, manufacturing beef, cooked, boiled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174731,"Beef, New Zealand, imported, ribs prepared, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174732,"Beef, New Zealand, imported, rump centre, separable lean only, cooked, fast fried",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174733,"Beef, New Zealand, imported, striploin, separable lean only, cooked, fast fried",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174734,"Beef, New Zealand, imported, striploin, separable lean only, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174735,"Beef, New Zealand, imported, oyster blade, separable lean and fat, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174736,"Beef, New Zealand, imported, tenderloin, separable lean only, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174737,"Beef, New Zealand, imported, variety meats and by-products, tongue, cooked, boiled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174738,"Beef, New Zealand, imported, variety meats and by-products, tongue, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174739,"Beef, New Zealand, imported, brisket navel end, separable lean and fat, cooked, braised",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174740,"Beef, New Zealand, imported, brisket navel end, separable lean and fat, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174741,"Beef, New Zealand, imported, brisket point end, separable lean and fat, cooked, braised",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174742,"Beef, New Zealand, imported, brisket point end, separable lean and fat, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174743,"Beef, New Zealand, imported, eye round, separable lean and fat, cooked, slow roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174744,"Beef, New Zealand, imported, eye round, separable lean and fat, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174745,"Beef, New Zealand, imported, flank, separable lean and fat, cooked, braised",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174746,"Beef, New Zealand, imported, flank, separable lean and fat, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174747,"Beef, New Zealand, imported, flat, separable lean and fat, cooked, braised",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174748,"Beef, New Zealand, imported, rump centre, separable lean and fat, cooked, fast fried",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174749,"Beef, New Zealand, imported, rump centre, separable lean only, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174750,"Beef, New Zealand, imported, rump centre, separable lean and fat, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174751,"Beef, New Zealand, imported, striploin, separable lean and fat, cooked, fast fried",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174761,"Beef, rib, small end (ribs 10-12), separable lean only, trimmed to 1/8"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174762,"Beef, tenderloin, steak, separable lean only, trimmed to 1/8"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174763,"Beef, top sirloin, steak, separable lean only, trimmed to 1/8"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174764,"Beef, rib, small end (ribs 10-12), separable lean only, trimmed to 1/8""fat, choice, cooked, broiled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174765,"Beef, chuck, arm pot roast, separable lean only, trimmed to 1/8"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174766,"Beef, brisket, flat half, separable lean only, trimmed to 1/8"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174767,"Beef, chuck, arm pot roast, separable lean only, trimmed to 1/8"" fat, select, cooked, braised",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174768,"Beef, brisket, flat half, separable lean only, trimmed to 1/8"" fat, select, cooked, braised",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174769,"Beef, variety meats and by-products, tripe, cooked, simmered",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,174771,"Beef, bottom sirloin, tri-tip roast, separable lean only, trimmed to 0"" fat, choice, cooked, roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174772,"Beef, bottom sirloin, tri-tip roast, separable lean only, trimmed to 0"" fat, choice, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174773,"Beef, bottom sirloin, tri-tip roast, separable lean only, trimmed to 0"" fat, select, cooked, roasted",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174775,"Beef, flank, steak, separable lean only, trimmed to 0"" fat, select, cooked, broiled",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,174777,"Beef, flank, steak, separable lean only, trimmed to 0"" fat, select, raw",Avoid multiplying grade/origin variants; prefer all-grades generic cuts.
+USDA,167616,"Fish, salmon, king, chinook, liver (Alaska Native)",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,167626,"Fish, whitefish, broad, liver (Alaska Native)",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,168021,"Fish, pike, northern, liver (Alaska Native)",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,169810,"Fish, lingcod, liver (Alaska Native)",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171948,"Fish, bass, striped, raw",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,173709,"Fish, tuna, light, canned in water, drained solids (Includes foods for USDA's Food Distribution Program)",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,174228,"Fish, bass, striped, cooked, dry heat",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,175123,"Fish, mullet, striped, raw",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,175124,"Fish, mullet, striped, cooked, dry heat",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,170864,"Yogurt, Greek, 2% fat, apricot, CHOBANI",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,170874,"Milk, buttermilk, fluid, cultured, lowfat",Source sugar exceeds carbohydrate; exclude rather than cap.
+USDA,170891,"Yogurt, Greek, 2% fat,mixed berry blend, CHOBANI",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,170904,"Kefir, lowfat, plain, LIFEWAY",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,170909,"Yogurt, Greek, 2% fat, pineapple, CHOBANI",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,170912,"Yogurt, Greek, 2% fat, strawberry banana, CHOBANI",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,170913,"Yogurt, Greek, nonfat, Fruit on Bottom, Pomegranate, CHOBANI",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,170914,"Yogurt, Greek, Blueberry, CHOBANI",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,170915,"Yogurt, Greek, nonfat, Fruit on Bottom, Strawberry, CHOBANI",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,170916,"Yogurt, Greek, nonfat, Fruit on Bottom, Blackberry, CHOBANI",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171260,"Yogurt, Greek, 2%fat, coconut blend, CHOBANI",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171265,"Milk, whole, 3.25% milkfat, with added vitamin D",Source sugar exceeds carbohydrate; exclude rather than cap.
+USDA,171292,"Cheese, cheddar, reduced fat (Includes foods for USDA's Food Distribution Program)",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171296,"Yogurt, Greek, nonfat, vanilla, CHOBANI",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171297,"Yogurt, Greek, strawberry, DANNON OIKOS",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171298,"Yogurt, Greek, nonfat, vanilla, DANNON OIKOS",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171299,"Yogurt, Greek, nonfat, strawberry, DANNON OIKOS",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171301,"Kefir, lowfat, strawberry, LIFEWAY",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171309,"Yogurt, Greek, whole, plain, CHOBANI",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171310,"Yogurt, Greek, nonfat, lemon blend, CHOBANI",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171311,"Yogurt, Greek, nonfat, peach, CHOBANI",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171312,"Yogurt, Greek, nonfat, plain, CHOBANI",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171313,"Yogurt, Greek, nonfat, raspberry, CHOBANI",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,172199,"Yogurt, Greek, 2% fat, mango, CHOBANI",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,172205,"Milk, reduced fat, fluid, 2% milkfat, without added vitamin A and vitamin D",Source sugar exceeds carbohydrate; exclude rather than cap.
+USDA,172217,"Milk, whole, 3.25% milkfat, without added vitamin A and vitamin D",Source sugar exceeds carbohydrate; exclude rather than cap.
+USDA,173414,"Cheese, cheddar (Includes foods for USDA's Food Distribution Program)",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,173432,"Milk, nonfat, fluid, without added vitamin A and vitamin D (fat free or skim)",Source sugar exceeds carbohydrate; exclude rather than cap.
+USDA,173434,"Yogurt, Greek, 2% fat, key lime blend, CHOBANI",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,173441,"Milk, fluid, 1% fat, without added vitamin A and vitamin D",Source sugar exceeds carbohydrate; exclude rather than cap.
+USDA,172202,"Egg, whole, raw, frozen, pasteurized (Includes foods for USDA's Food Distribution Program)",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,168875,"Rice, brown, medium-grain, cooked (Includes foods for USDA's Food Distribution Program)",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,168876,"Rice, brown, parboiled, dry, UNCLE BEN'S",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,168893,"Wheat flour, whole-grain (Includes foods for USDA's Food Distribution Program)",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,168910,"Pasta, whole-wheat, cooked (Includes foods for USDA's Food Distribution Program)",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,169703,"Rice, brown, long-grain, raw (Includes foods for USDA's Food Distribution Program)",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,169706,"Rice, brown, medium-grain, raw (Includes foods for USDA's Food Distribution Program)",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,169738,"Pasta, whole-wheat, dry (Includes foods for USDA's Food Distribution Program)",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171656,"Cereals, QUAKER, corn grits, instant, plain, dry",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171657,"Cereals, CREAM OF WHEAT, regular (10 minute), cooked with water, without salt",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171658,"Cereals, farina, enriched, assorted brands including CREAM OF WHEAT, quick (1-3 minutes), dry",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171659,"Cereals, farina, enriched, assorted brands including CREAM OF WHEAT, quick (1-3 minutes), cooked with water, without salt",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171660,"Cereals, CREAM OF WHEAT, instant, dry",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171663,"Cereals, QUAKER, Instant Oatmeal, apples and cinnamon, dry",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171665,"Cereals, WHEATENA, dry",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171666,"Cereals, WHEATENA, cooked with water",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171674,"Cereals, MALT-O-MEAL, chocolate, dry",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171676,"Cereals, WHEATENA, cooked with water, with salt",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171678,"Cereals, ready-to-eat, MALT-O-MEAL, Blueberry Mini SPOONERS",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171682,"Cereals, QUAKER, Instant Oatmeal, Cinnamon Swirl, high fiber",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171683,"Cereals, QUAKER, oatmeal, REAL MEDLEYS, blueberry hazelnut, dry",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171684,"Cereals, QUAKER, oatmeal, REAL MEDLEYS, apple walnut, dry",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171685,"Cereals, QUAKER, oatmeal, REAL MEDLEYS, summer berry, dry",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,172024,"Pasta, whole grain, 51% whole wheat, remaining enriched semolina, cooked (Includes foods for USDA's Food Distribution Program)",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,172025,"Pasta, whole grain, 51% whole wheat, remaining enriched semolina, dry (Includes foods for USDA's Food Distribution Program)",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,172026,"Pasta, gluten-free, brown rice flour, cooked, TINKYADA",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,172027,"Pasta, gluten-free, corn flour and quinoa flour, cooked, ANCIENT HARVEST",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,172972,"Cereals, QUAKER, QUAKER MultiGrain Oatmeal, dry",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,172977,"Cereals, QUAKER, Instant Grits, Butter flavor, dry",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,172978,"Cereals, Oat Bran, QUAKER, QUAKER/MOTHER'S Oat Bran, prepared with water, salt",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,172979,"Cereals, QUAKER, QUAKER MultiGrain Oatmeal, prepared with water, no salt",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,172980,"Cereals, QUAKER, QUAKER MultiGrain Oatmeal, prepared with water, salt",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,172989,"Cereals, QUAKER, Quick Oats, Dry",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,172991,"Cereals, QUAKER, Instant Oatmeal, Raisin and Spice, dry",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,172992,"Cereals, QUAKER, Instant Grits, Redeye Gravy & Country Ham flavor, dry",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,172993,"Cereals, QUAKER, Instant Grits Product with American Cheese Flavor, dry",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,172994,"Cereals, QUAKER, Instant Grits, Ham 'n' Cheese flavor, dry",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,172998,"Cereals, MALT-O-MEAL, Farina Hot Wheat Cereal, dry",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,172999,"Cereals, MALT-O-MEAL, Maple & Brown Sugar Hot Wheat Cereal, dry",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,173004,"Cereals, MALT-O-MEAL, chocolate, prepared with water, without salt",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,173008,"Cereals, CREAM OF WHEAT, 2 1/2 minute cook time, cooked with water, stove-top, without salt",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,173009,"Cereals, CREAM OF WHEAT, 2 1/2 minute cook time, cooked with water, microwaved, without salt",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,173010,"Cereals, CREAM OF WHEAT, 1 minute cook time, dry",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,173011,"Cereals, CREAM OF WHEAT, 1 minute cook time, cooked with water, stove-top, without salt",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,173012,"Cereals, CREAM OF WHEAT, 1 minute cook time, cooked with water, microwaved, without salt",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,173016,"Cereals, QUAKER, Instant Oatmeal, Cinnamon Spice, reduced sugar",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,173263,"Rice, brown, parboiled, cooked, UNCLE BENS",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,173264,"Pasta, gluten-free, rice flour and rice bran extract, cooked, DE BOLES",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,173897,"Cereals, QUAKER, corn grits, instant, plain, prepared (microwaved or boiling water added), without salt",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,173898,"Cereals, QUAKER, corn grits, instant, cheddar cheese flavor, dry",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,173899,"Cereals, QUAKER, Instant Grits, Country Bacon flavor, dry",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,173900,"Cereals, CREAM OF RICE, dry",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,173901,"Cereals, CREAM OF WHEAT, regular, 10 minute cooking, dry",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,173902,"Cereals, CREAM OF WHEAT, instant, prepared with water, without salt",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,173903,"Cereals, MALT-O-MEAL, original, plain, dry",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,173907,"Cereals, QUAKER, Instant Oatmeal, maple and brown sugar, dry",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,173914,"Cereals, CREAM OF RICE, cooked with water, with salt",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,173915,"Cereals, CREAM OF WHEAT, regular (10 minute), cooked with water, with salt",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,173922,"Cereals, QUAKER, Weight Control Instant Oatmeal, maple and brown sugar",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,173923,"Cereals, QUAKER, Weight Control Instant Oatmeal, banana bread",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,173924,"Cereals, QUAKER, oatmeal, REAL MEDLEYS, peach almond, dry",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,173925,"Cereals, QUAKER, oatmeal, REAL MEDLEYS, cherry pistachio, dry",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,173926,"Cereals, QUAKER, Instant Oatmeal, weight control, cinnamon",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,174624,"Cereals, QUAKER, Instant Oatmeal, fruit and cream variety, dry",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,174625,"Cereals, QUAKER, Instant Oatmeal, raisins, dates and walnuts, dry",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,174626,"Cereals, QUAKER, Oat Bran, QUAKER/MOTHER'S Oat Bran, dry",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,174627,"Cereals, QUAKER, Oat Bran, QUAKER/MOTHER'S Oat Bran, prepared with water, no salt",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,174629,"Cereals, QUAKER, hominy grits, white, quick, dry",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,174630,"Cereals, QUAKER, hominy grits, white, regular, dry",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,174636,"Cereals, QUAKER, Instant Oatmeal, Cinnamon-Spice, dry",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,174637,"Cereals, QUAKER, Instant Oatmeal, DINOSAUR EGGS, Brown Sugar, dry",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,174638,"Cereals, QUAKER, Instant Oatmeal, Banana Bread, dry",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,174640,"Cereals, QUAKER, Quick Oats with Iron, Dry",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,174641,"Cereals, QUAKER, Whole Wheat Natural Cereal, dry",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,174651,"Cereals, MALT-O-MEAL, original, plain, prepared with water, without salt",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,174655,"Cereals, CREAM OF WHEAT, 2 1/2 minute cook time, dry",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,174660,"Cereals, QUAKER, Instant Oatmeal Organic, Regular",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,174661,"Cereals, QUAKER, Instant Oatmeal, fruit and cream, variety of flavors, reduced sugar",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,174662,"Cereals, QUAKER, Instant Oatmeal, Apple and Cinnamon, reduced sugar",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,168395,"Beans, kidney, mature seeds, sprouted, cooked, boiled, drained, without salt",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,168595,"Seeds, sunflower seed butter, with salt added (Includes foods for USDA's Food Distribution Program)",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,169213,"Beans, kidney, mature seeds, sprouted, raw",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,169315,"Beans, kidney, mature seeds, sprouted, cooked, boiled, drained, with salt",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,169885,"Beans, liquid from stewed kidney beans",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,169962,"Beans, snap, green, frozen, all styles, unprepared (Includes foods for USDA's Food Distribution Program)",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,170016,"Peas, green, frozen, unprepared (Includes foods for USDA's Food Distribution Program)",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,170181,"Nuts, mixed nuts, dry roasted, with peanuts, salt added, CHOSEN ROASTER",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,170586,"Nuts, mixed nuts, dry roasted, with peanuts, salt added, PLANTERS pistachio blend",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,173740,"Beans, kidney, all types, mature seeds, cooked, boiled, without salt",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,173741,"Beans, kidney, all types, mature seeds, canned",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,173742,"Beans, kidney, california red, mature seeds, raw",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,173743,"Beans, kidney, california red, mature seeds, cooked, boiled, without salt",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,173744,"Beans, kidney, red, mature seeds, raw",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,173792,"Beans, kidney, all types, mature seeds, cooked, boiled, with salt",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,173793,"Beans, kidney, california red, mature seeds, cooked, boiled, with salt",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,174285,"Beans, kidney, red, mature seeds, canned, drained solids",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,175190,"Beans, great northern, mature seeds, raw (Includes foods for USDA's Food Distribution Program)",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,175193,"Beans, kidney, all types, mature seeds, raw",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,175194,"Beans, kidney, red, mature seeds, cooked, boiled, without salt",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,175195,"Beans, kidney, red, mature seeds, canned, solids and liquids",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,175196,"Beans, kidney, royal red, mature seeds, raw",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,175197,"Beans, kidney, royal red, mature seeds, cooked, boiled, without salt",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,175199,"Beans, pinto, mature seeds, raw (Includes foods for USDA's Food Distribution Program)",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,175242,"Beans, kidney, red, mature seeds, cooked, boiled, with salt",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,175243,"Beans, kidney, red, mature seeds, canned, drained solids, rinsed in tap water",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,175244,"Beans, kidney, royal red, mature seeds, cooked, boiled with salt",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,175245,"Beans, kidney, red, mature seeds, canned, solids and liquid, low sodium",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,167604,"Potatoes, hash brown, refrigerated, unprepared",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,167632,"Squash, Indian, cooked, boiled (Navajo)",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,168037,"Corn, white, steamed (Navajo)",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,168040,"Squash, Indian, raw (Navajo)",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,168398,"Corn, sweet, yellow, frozen, kernels cut off cob, unprepared (Includes foods for USDA's Food Distribution Program)",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,168409,"Cucumber, with peel, raw",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,168422,"Mushrooms, Chanterelle, raw",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,168423,"Mushrooms, morel, raw",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,168429,"Lettuce, butterhead (includes boston and bibb types), raw",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,168431,"Lettuce, red leaf, raw",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,168434,"Mushrooms, brown, italian, or crimini, raw",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,168437,"Mushrooms, shiitake, cooked, without salt",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,168448,"Pumpkin, raw",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,168449,"Pumpkin, cooked, boiled, drained, without salt",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,168451,"Radishes, oriental, raw",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,168452,"Radishes, oriental, cooked, boiled, drained, without salt",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,168464,"Squash, summer, crookneck and straightneck, raw",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,168465,"Squash, summer, crookneck and straightneck, cooked, boiled, drained, without salt",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,168466,"Squash, summer, crookneck and straightneck, canned, drained, solid, without salt",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,168467,"Squash, summer, crookneck and straightneck, frozen, unprepared",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,168468,"Squash, summer, crookneck and straightneck, frozen, cooked, boiled, drained, without salt",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,168472,"Squash, winter, acorn, raw",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,168475,"Squash, winter, hubbard, raw",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,168482,"Sweet potato, raw, unprepared (Includes foods for USDA's Food Distribution Program)",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,168484,"Sweet potato, cooked, boiled, without skin",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,168506,"Beets, cooked, boiled. drained, with salt",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,168514,"Cabbage, common, cooked, boiled, drained, with salt",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,168515,"Cabbage, red, cooked, boiled, drained, with salt",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,168516,"Cabbage, savoy, cooked, boiled, drained, with salt",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,168517,"Cabbage, chinese (pak-choi), cooked, boiled, drained, with salt",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,168520,"Cauliflower, cooked, boiled, drained, with salt",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,168525,"Corn, sweet, yellow, cooked, boiled, drained, with salt",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,168537,"Mushrooms, white, cooked, boiled, drained, with salt",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,168538,"Corn, sweet, white, raw",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,168539,"Corn, sweet, white, cooked, boiled, drained, without salt",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,168540,"Corn, sweet, white, cooked, boiled, drained, with salt",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,168550,"Peppers, sweet, red, sauteed",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,168557,"Mushrooms, brown, italian, or crimini, exposed to ultraviolet light, raw",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,168565,"Squash, zucchini, baby, raw",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,168568,"Carrots, baby, raw",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,168572,"Cabbage, napa, cooked",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,168576,"Peppers, jalapeno, raw",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,168578,"Peppers, hungarian, raw",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,168580,"Mushrooms, oyster, raw",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,169145,"Beets, raw",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,169146,"Beets, cooked, boiled, drained",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,169225,"Cucumber, peeled, raw",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,169242,"Mushrooms, shiitake, raw",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,169243,"Mushrooms, portabella, grilled",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,169247,"Lettuce, cos or romaine, raw",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,169248,"Lettuce, iceberg (includes crisphead types), raw",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,169249,"Lettuce, green leaf, raw",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,169251,"Mushrooms, white, raw",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,169252,"Mushrooms, white, cooked, boiled, drained, without salt",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,169255,"Mushrooms, portabella, raw",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,169260,"Okra, raw",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,169261,"Okra, cooked, boiled, drained, without salt",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,169276,"Radishes, raw",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,169289,"Squash, summer, scallop, raw",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,169290,"Squash, summer, scallop, cooked, boiled, drained, without salt",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,169291,"Squash, summer, zucchini, includes skin, raw",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,169292,"Squash, summer, zucchini, includes skin, cooked, boiled, drained, without salt",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,169295,"Squash, winter, butternut, raw",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,169298,"Squash, winter, spaghetti, raw",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,169306,"Sweet potato, frozen, unprepared (Includes foods for USDA's Food Distribution Program)",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,169311,"Artichokes, (globe or french), cooked, boiled, drained, with salt",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,169313,"Asparagus, cooked, boiled, drained, with salt",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,169335,"Cabbage, common (danish, domestic, and pointed types), freshly harvest, raw",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,169336,"Cabbage, common (danish, domestic, and pointed types), stored, raw",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,169337,"Cabbage, chinese (pe-tsai), cooked, boiled, drained, with salt",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,169339,"Carrots, cooked, boiled, drained, with salt",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,169342,"Celery, cooked, boiled, drained, with salt",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,169345,"Corn, sweet, yellow, canned, no salt added, solids and liquids (Includes foods for USDA's Food Distribution Program)",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,169377,"Mushrooms, portabella, exposed to ultraviolet light, grilled",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,169382,"Mushrooms, enoki, raw",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,169383,"Peppers, sweet, yellow, raw",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,169389,"Cauliflower, green, raw",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,169390,"Cauliflower, green, cooked, no salt added",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,169391,"Cauliflower, green, cooked, with salt",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,169395,"Peppers, serrano, raw",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,169402,"Mushrooms, white, microwaved",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,169403,"Mushrooms, maitake, raw",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,169891,"Cabbage, mustard, salted",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,169975,"Cabbage, raw",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,169976,"Cabbage, cooked, boiled, drained, without salt",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,169977,"Cabbage, red, raw",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,169978,"Cabbage, red, cooked, boiled, drained, without salt",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,169979,"Cabbage, chinese (pe-tsai), raw",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,169980,"Cabbage, chinese (pe-tsai), cooked, boiled, drained, without salt",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,169983,"Carrots, frozen, unprepared (Includes foods for USDA's Food Distribution Program)",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,169986,"Cauliflower, raw",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,169988,"Celery, raw",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,169989,"Celery, cooked, boiled, drained, without salt",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,169998,"Corn, sweet, yellow, raw",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,169999,"Corn, sweet, yellow, cooked, boiled, drained, without salt",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,170000,"Onions, raw",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,170001,"Onions, cooked, boiled, drained, without salt",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,170004,"Onions, yellow, sauteed",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,170005,"Onions, spring or scallions (includes tops and bulb), raw",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,170006,"Onions, young green, tops only",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,170007,"Onions, welsh, raw",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,170008,"Onions, sweet, raw",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,170024,"Peppers, sweet, green, sauteed",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,170026,"Potatoes, flesh and skin, raw",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,170027,"Potatoes, russet, flesh and skin, raw (Includes foods for USDA's Food Distribution Program)",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,170028,"Potatoes, white, flesh and skin, raw",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,170029,"Potatoes, red, flesh and skin, raw",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,170032,"Potatoes, raw, skin",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,170035,"Potatoes, microwaved, cooked in skin, skin, without salt",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,170036,"Potatoes, hash brown, home-prepared",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,170038,"Potatoes, scalloped, home-prepared with butter",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,170050,"Tomatoes, red, ripe, cooked",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,170058,"Turnips, cooked, boiled, drained, without salt",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,170081,"Radishes, white icicle, raw",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,170088,"Sweet potato, cooked, candied, home-prepared",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,170089,"Tomatoes, red, ripe, cooked, stewed",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,170094,"Potatoes, microwaved, cooked in skin, flesh and skin, without salt",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,170096,"Tomatoes, yellow, raw",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,170097,"Mushrooms, shiitake, cooked, with salt",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,170098,"Okra, cooked, boiled, drained, with salt",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,170100,"Onions, cooked, boiled, drained, with salt",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,170106,"Peppers, hot chili, red, raw",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,170108,"Peppers, sweet, red, raw",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,170109,"Peppers, sweet, green, cooked, boiled, drained, with salt",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,170110,"Peppers, sweet, red, cooked, boiled, drained, without salt",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,170114,"Potatoes, boiled, cooked in skin, flesh, with salt",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,170115,"Potatoes, microwaved, cooked, in skin, skin with salt",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,170119,"Pumpkin, flowers, cooked, boiled, drained, with salt",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,170122,"Radishes, oriental, cooked, boiled, drained, with salt",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,170125,"Squash, summer, all varieties, cooked, boiled, drained, with salt",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,170126,"Squash, summer, crookneck and straightneck, cooked, boiled, drained, with salt",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,170137,"Tomatoes, red, ripe, cooked, with salt",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,170143,"Mushrooms, portabella, exposed to ultraviolet light, raw",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,170388,"Cabbage, savoy, raw",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,170389,"Cabbage, savoy, cooked, boiled, drained, without salt",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,170393,"Carrots, raw",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,170394,"Carrots, cooked, boiled, drained, without salt",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,170397,"Cauliflower, cooked, boiled, drained, without salt",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,170427,"Peppers, sweet, green, raw",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,170428,"Peppers, sweet, green, cooked, boiled, drained, without salt",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,170438,"Potatoes, boiled, cooked in skin, flesh, without salt",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,170439,"Potatoes, boiled, cooked in skin, skin, without salt",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,170440,"Potatoes, boiled, cooked without skin, flesh, without salt",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,170441,"Potatoes, microwaved, cooked in skin, flesh, without salt",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,170442,"Potatoes, au gratin, home-prepared from recipe using butter",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,170447,"Potatoes, au gratin, dry mix, unprepared",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,170448,"Potatoes, au gratin, dry mix, prepared with water, whole milk and butter",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,170449,"Potatoes, scalloped, dry mix, unprepared",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,170450,"Potatoes, scalloped, dry mix, prepared with water, whole milk and butter",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,170456,"Tomatoes, green, raw",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,170457,"Tomatoes, red, ripe, raw, year round average",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,170465,"Turnips, raw",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,170487,"Squash, summer, all varieties, raw",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,170488,"Squash, summer, all varieties, cooked, boiled, drained, without salt",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,170489,"Squash, winter, all varieties, raw",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,170497,"Peppers, hot chili, green, raw",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,170498,"Potatoes, o'brien, home-prepared",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,170502,"Tomatoes, orange, raw",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,170515,"Peppers, sweet, red, cooked, boiled, drained, with salt",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,170519,"Potatoes, boiled, cooked in skin, skin, with salt",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,170520,"Potatoes, boiled, cooked without skin, flesh, with salt",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,170521,"Potatoes, microwaved, cooked, in skin, flesh and skin, with salt",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,170522,"Potatoes, microwaved, cooked in skin, flesh, with salt",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,170524,"Potatoes, au gratin, home-prepared from recipe using margarine",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,170525,"Potatoes, scalloped, home-prepared with margarine",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,170526,"Pumpkin, cooked, boiled, drained, with salt",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,170532,"Squash, summer, crookneck and straightneck, frozen, cooked, boiled, drained, with salt",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,170533,"Squash, summer, scallop, cooked, boiled, drained, with salt",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,170534,"Squash, summer, zucchini, includes skin, cooked, boiled, drained, with salt",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,170541,"Sweet potato, cooked, boiled, without skin, with salt",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,170547,"Turnips, cooked, boiled, drained, with salt",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,167640,"Blueberries, wild, raw (Alaska Native)",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,167762,"Strawberries, raw",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,167776,"Pears, raw, bartlett (Includes foods for USDA's Food Distribution Program)",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,167777,"Pears, raw, red anjou",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,167778,"Pears, raw, bosc (Includes foods for USDA's Food Distribution Program)",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,167779,"Pears, raw, green anjou (Includes foods for USDA's Food Distribution Program)",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,167793,"Apples, raw, fuji, with skin (Includes foods for USDA's Food Distribution Program)",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,167808,"Raspberries, puree, seedless",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,167809,"Raspberries, puree, with seeds",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,168164,"Raisins, golden, seedless",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,168165,"Raisins, dark, seedless (Includes foods for USDA's Food Distribution Program)",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,168166,"Raisins, seeded",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,168173,"Strawberries, frozen, unsweetened (Includes foods for USDA's Food Distribution Program)",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,168177,"Pears, asian, raw",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,168191,"Dates, medjool",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,168193,"Pineapple, raw, traditional varieties",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,168194,"Pineapple, raw, extra sweet variety",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,168201,"Apples, raw, red delicious, with skin (Includes foods for USDA's Food Distribution Program)",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,168202,"Apples, raw, golden delicious, with skin",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,168203,"Apples, raw, granny smith, with skin (Includes foods for USDA's Food Distribution Program)",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,168204,"Apples, raw, gala, with skin (Includes foods for USDA's Food Distribution Program)",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,168982,"Blackberries, wild, raw (Alaska Native)",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,168997,"Raspberries, wild (Northern Plains Indians)",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,169098,"Orange juice, raw (Includes foods for USDA's Food Distribution Program)",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,169118,"Pears, raw",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,169124,"Pineapple, raw, all varieties",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,169804,"Cranberries, wild, bush, raw (Alaska Native)",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,169820,"Plums, wild (Northern Plains Indians)",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,169914,"Nectarines, raw",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,169928,"Peaches, yellow, raw",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,169931,"Peaches, canned, extra light syrup, solids and liquids (Includes foods for USDA's Food Distribution Program)",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,169937,"Pears, canned, extra light syrup pack, solids and liquids (Includes foods for USDA's Food Distribution Program)",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171688,"Apples, raw, with skin (Includes foods for USDA's Food Distribution Program)",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,171689,"Apples, raw, without skin",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,171694,"Apples, frozen, unsweetened, unheated (Includes foods for USDA's Food Distribution Program)",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171708,"Cherries, tart, dried, sweetened (Includes foods for USDA's Food Distribution Program)",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171718,"Cherries, sour, red, frozen, unsweetened (Includes foods for USDA's Food Distribution Program)",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171726,"Dates, deglet noor",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,173021,"Figs, raw",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,173033,"Grapefruit, raw, pink and red and white, all areas",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,173034,"Grapefruit, raw, white, Florida",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,173928,"Apples, raw, without skin, cooked, boiled",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,173929,"Apples, raw, without skin, cooked, microwave",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,173932,"Apples, frozen, unsweetened, heated (Includes foods for USDA's Food Distribution Program)",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,173938,"Apricots, canned, extra light syrup pack, with skin, solids and liquids (Includes foods for USDA's Food Distribution Program)",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,173949,"Blueberries, wild, frozen (Includes foods for USDA's Food Distribution Program)",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,174674,"Grapefruit, raw, pink and red, California and Arizona",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,174675,"Grapefruit, raw, pink and red, Florida",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,174677,"Grapefruit, raw, white, California",Prefer preparation gaps over duplicating existing fresh/boiled produce.
+USDA,168834,"Syrups, chocolate, HERSHEY'S Genuine Chocolate Flavored Lite Syrup",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,170459,"Tomato products, canned, paste, without salt added (Includes foods for USDA's Food Distribution Program)",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,170677,"Syrups, chocolate, HERSHEY'S Sugar free, Genuine Chocolate Flavored, Lite Syrup",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171002,"Salad dressing, KRAFT Mayo Light Mayonnaise",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171003,"Salad dressing, KRAFT Mayo Fat Free Mayonnaise Dressing",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171004,"Salad dressing, KRAFT MIRACLE WHIP FREE Nonfat Dressing",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171020,"Salad dressing, french dressing, commercial, regular, without salt",Source sugar exceeds carbohydrate; exclude rather than cap.
+USDA,171185,"Sauce, pesto, MEZZETTA, NAPA VALLEY BISTRO, basil pesto, ready-to-serve",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171187,"Sauce, hot chile, sriracha, CHA! BY TEXAS PETE",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171188,"Sauce, hot chile, sriracha, TUONG OT SRIRACHA",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171402,"Salad dressing, thousand island, commercial, regular",Source sugar exceeds carbohydrate; exclude rather than cap.
+USDA,171581,"Sauce, pesto, BUITONI, pesto with basil, ready-to-serve, refrigerated",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171582,"Sauce, pesto, CLASSICO, basil pesto, ready-to-serve",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171599,"Gravy, HEINZ Home Style, savory beef",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171600,"Gravy, CAMPBELL'S, chicken",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171827,"Sauce, barbecue, SWEET BABY RAY'S, original",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171828,"Sauce, barbecue, BULL'S-EYE, original",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171829,"Sauce, barbecue, KC MASTERPIECE, original",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,171830,"Sauce, barbecue, OPEN PIT, original",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,174072,"Gravy, HEINZ Home Style, classic chicken",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,174528,"Sauce, ready-to-serve, pepper, TABASCO",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.
+USDA,174544,"Sauce, barbecue, KRAFT, original",Outside generic everyday-food focus; branded legacy formulations not current Philippine labels.

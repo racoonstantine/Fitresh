@@ -1,0 +1,35 @@
+request,food_id,name,decision,notes
+chia seeds,FC001138,"Seeds, chia seeds, dried",Reused existing qualified identity,Match preparation and fat/flavor; no broad-name automatic selection.
+Greek yogurt,FC001246,"Yogurt, Greek, plain, nonfat (Includes foods for USDA's Food Distribution Program)",Reused existing qualified identity,Match preparation and fat/flavor; no broad-name automatic selection.
+Greek yogurt,FC001247,"Yogurt, Greek, plain, lowfat",Reused existing qualified identity,Match preparation and fat/flavor; no broad-name automatic selection.
+Greek yogurt,FC001248,"Yogurt, Greek, plain, whole milk",Reused existing qualified identity,Match preparation and fat/flavor; no broad-name automatic selection.
+regular yogurt,FC001249,"Yogurt, plain, whole milk",Reused existing qualified identity,Match preparation and fat/flavor; no broad-name automatic selection.
+regular yogurt,FC001465,"Yogurt, plain, low fat",New source-backed identity,Match preparation and fat/flavor; no broad-name automatic selection.
+regular yogurt,FC001466,"Yogurt, plain, skim milk",New source-backed identity,Match preparation and fat/flavor; no broad-name automatic selection.
+okra boiled,FC000262,"Okra, boiled",Reused existing qualified identity,Match preparation and fat/flavor; no broad-name automatic selection.
+broccoli boiled,FC001081,"Broccoli, cooked, boiled, drained, without salt",Reused existing qualified identity,Match preparation and fat/flavor; no broad-name automatic selection.
+talong boiled,FC000256,"Eggplant, boiled",Reused existing qualified identity,Match preparation and fat/flavor; no broad-name automatic selection.
+repolyo boiled,FC000252,"Cabbage, green, boiled",Reused existing qualified identity,Match preparation and fat/flavor; no broad-name automatic selection.
+kimchi,FC001605,"Cabbage, kimchi",New source-backed identity,Match preparation and fat/flavor; no broad-name automatic selection.
+scrambled eggs,FC001504,"Egg, whole, cooked, scrambled",New source-backed identity,Match preparation and fat/flavor; no broad-name automatic selection.
+"Blue marlin (Makaira nigricans), Hawaii-caught, fresh",FC001790,"Blue marlin (Makaira nigricans), Hawaii-caught, fresh",Added qualified identity,Explicit selection required for estimate-only rows.
+"Athlene ACTIVE Pure Isolate, Chocolate, dry powder (estimate)",FC001791,"Athlene ACTIVE Pure Isolate, Chocolate, dry powder (estimate)",Added qualified identity,Explicit selection required for estimate-only rows.
+"Athlene ACTIVE Pure Isolate, Strawberry Milkshake, dry powder (estimate)",FC001792,"Athlene ACTIVE Pure Isolate, Strawberry Milkshake, dry powder (estimate)",Added qualified identity,Explicit selection required for estimate-only rows.
+"Seared sirloin steak, 100 g pan-fried meat plus 5 g butter (estimate)",FC001793,"Seared sirloin steak, 100 g pan-fried meat plus 5 g butter (estimate)",Added qualified identity,Explicit selection required for estimate-only rows.
+"Seared Atlantic farmed salmon, 100 g cooked fish plus 5 g oil (estimate)",FC001794,"Seared Atlantic farmed salmon, 100 g cooked fish plus 5 g oil (estimate)",Added qualified identity,Explicit selection required for estimate-only rows.
+"Seared blue marlin, fresh-fish yield model with oil (estimate)",FC001795,"Seared blue marlin, fresh-fish yield model with oil (estimate)",Added qualified identity,Explicit selection required for estimate-only rows.
+"Home-fried chicken Pinoy-style, white meat, soy-calamansi (estimate)",FC001796,"Home-fried chicken Pinoy-style, white meat, soy-calamansi (estimate)",Added qualified identity,Explicit selection required for estimate-only rows.
+"Home-fried chicken Pinoy-style, flour-coated meat and skin (estimate)",FC001797,"Home-fried chicken Pinoy-style, flour-coated meat and skin (estimate)",Added qualified identity,Explicit selection required for estimate-only rows.
+"Chooks-to-Go Sweet Roast, edible meat and skin, no extra sauce (estimate)",FC001798,"Chooks-to-Go Sweet Roast, edible meat and skin, no extra sauce (estimate)",Added qualified identity,Explicit selection required for estimate-only rows.
+"Chooks-to-Go Pepper Roast, edible meat and skin, no extra sauce (estimate)",FC001799,"Chooks-to-Go Pepper Roast, edible meat and skin, no extra sauce (estimate)",Added qualified identity,Explicit selection required for estimate-only rows.
+"Kenny Rogers Philippines Classic Roasted Chicken, edible meat and skin (estimate)",FC001800,"Kenny Rogers Philippines Classic Roasted Chicken, edible meat and skin (estimate)",Added qualified identity,Explicit selection required for estimate-only rows.
+"Kenny Rogers Philippines Classic Roasted Chicken, skin and visible fat removed (estimate)",FC001801,"Kenny Rogers Philippines Classic Roasted Chicken, skin and visible fat removed (estimate)",Added qualified identity,Explicit selection required for estimate-only rows.
+"Kenny Rogers Philippines Grilled Salmon, fish and lemon-butter-style sauce only (estimate)",FC001802,"Kenny Rogers Philippines Grilled Salmon, fish and lemon-butter-style sauce only (estimate)",Added qualified identity,Explicit selection required for estimate-only rows.
+"Kenny Rogers Philippines Burger Steak, patty and mushroom gravy only (estimate)",FC001803,"Kenny Rogers Philippines Burger Steak, patty and mushroom gravy only (estimate)",Added qualified identity,Explicit selection required for estimate-only rows.
+Kenny Rogers Philippines Spinach Mashed Potato side (estimate),FC001804,Kenny Rogers Philippines Spinach Mashed Potato side (estimate),Added qualified identity,Explicit selection required for estimate-only rows.
+Kenny Rogers Philippines Macaroni and Cheese side (estimate),FC001805,Kenny Rogers Philippines Macaroni and Cheese side (estimate),Added qualified identity,Explicit selection required for estimate-only rows.
+Kenny Rogers Philippines Corn and Carrots side (estimate),FC001806,Kenny Rogers Philippines Corn and Carrots side (estimate),Added qualified identity,Explicit selection required for estimate-only rows.
+Kenny Rogers Philippines Steamed Vegetables side (estimate),FC001807,Kenny Rogers Philippines Steamed Vegetables side (estimate),Added qualified identity,Explicit selection required for estimate-only rows.
+Kenny Rogers Philippines Coleslaw side (estimate),FC001808,Kenny Rogers Philippines Coleslaw side (estimate),Added qualified identity,Explicit selection required for estimate-only rows.
+Kenny Rogers Philippines Corn Muffin (estimate),FC001809,Kenny Rogers Philippines Corn Muffin (estimate),Added qualified identity,Explicit selection required for estimate-only rows.
+thick yogurt,,,Unresolved description,"Thickness alone does not establish Greek style, fat, sugar or brand. Choose a qualified yogurt."

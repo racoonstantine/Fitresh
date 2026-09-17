@@ -45,6 +45,7 @@ function food_with_nutrients(PDO $pdo, int $foodId): array
             $snapshot = catalog_food((string)$food['external_id']);
             $food['label'] = $snapshot['label'];
             $food['complete'] = $snapshot['complete'];
+            $food['confidence'] = $snapshot['confidence'] ?? null;
             $food['nutrient_provenance'] = $snapshot['nutrient_provenance'];
             $food['portions'] = $snapshot['portions'] ?? [];
         } catch (Throwable $e) {

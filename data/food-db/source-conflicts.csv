@@ -1,0 +1,5 @@
+food_id,name,carbs_g_100g,sugar_g_100g,source_url,status,next_action
+FC001243,"Milk, nonfat, fluid, with added vitamin A and vitamin D (fat free or skim)",4.96,5.09,https://fdc.nal.usda.gov/food-details/171269/nutrients,SOURCE_CONFLICT_REVIEW_REQUIRED,Check a newer exact source record; do not cap sugar or change carbohydrate to force consistency.
+FC001244,"Milk, reduced fat, fluid, 2% milkfat, with added vitamin A and vitamin D",4.8,5.06,https://fdc.nal.usda.gov/food-details/171267/nutrients,SOURCE_CONFLICT_REVIEW_REQUIRED,Check a newer exact source record; do not cap sugar or change carbohydrate to force consistency.
+FC001245,"Milk, lowfat, fluid, 1% milkfat, with added vitamin A and vitamin D",4.99,5.2,https://fdc.nal.usda.gov/food-details/170872/nutrients,SOURCE_CONFLICT_REVIEW_REQUIRED,Check a newer exact source record; do not cap sugar or change carbohydrate to force consistency.
+FC001252,"Beverages, carbonated, ginger ale",8.76,8.9,https://fdc.nal.usda.gov/food-details/174846/nutrients,SOURCE_CONFLICT_REVIEW_REQUIRED,Check a newer exact source record; do not cap sugar or change carbohydrate to force consistency.

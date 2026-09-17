@@ -1,0 +1,113 @@
+food_id,batch_id,source,source_food_id,name,category,source_url
+FC001148,batch-1,FNRI,Q001,"Ceylon moss/Agar-agar, in light syrup",Beverages,https://i.fnri.dost.gov.ph/fct/library/report/4360
+FC001149,batch-1,FNRI,Q005,"Choc-flvr energy drnk, granules, fortified",Beverages,https://i.fnri.dost.gov.ph/fct/library/report/4364
+FC001150,batch-1,FNRI,Q006,"Choc-flvr energy drnk, pwdr, fortified",Beverages,https://i.fnri.dost.gov.ph/fct/library/report/4365
+FC001151,batch-1,FNRI,Q007,"Choc-flvr food milk, pwdr",Beverages,https://i.fnri.dost.gov.ph/fct/library/report/4366
+FC001152,batch-1,FNRI,Q017,"Fruit jce drnk conc, grape",Beverages,https://i.fnri.dost.gov.ph/fct/library/report/4376
+FC001153,batch-1,FNRI,Q018,"Fruit jce drnk conc, grapefruit",Beverages,https://i.fnri.dost.gov.ph/fct/library/report/4377
+FC001154,batch-1,FNRI,Q022,"Fruit jce drnk, apple, ttb",Beverages,https://i.fnri.dost.gov.ph/fct/library/report/4381
+FC001155,batch-1,FNRI,Q023,"Fruit jce drnk, citrus cooler, ttb",Beverages,https://i.fnri.dost.gov.ph/fct/library/report/4382
+FC001156,batch-1,FNRI,Q025,"Fruit jce drnk, grape, ttpk",Beverages,https://i.fnri.dost.gov.ph/fct/library/report/4384
+FC001157,batch-1,FNRI,Q026,"Fruit jce drnk, guava, ttpk",Beverages,https://i.fnri.dost.gov.ph/fct/library/report/4385
+FC001158,batch-1,FNRI,Q027,"Fruit jce drnk, guyabano, btl",Beverages,https://i.fnri.dost.gov.ph/fct/library/report/4386
+FC001159,batch-1,FNRI,Q028,"Fruit jce drnk, mango, btl",Beverages,https://i.fnri.dost.gov.ph/fct/library/report/4387
+FC001160,batch-1,FNRI,Q029,"Fruit jce drnk, mango, polyfoil",Beverages,https://i.fnri.dost.gov.ph/fct/library/report/4388
+FC001161,batch-1,FNRI,Q030,"Fruit jce drnk, mango, ttb",Beverages,https://i.fnri.dost.gov.ph/fct/library/report/4389
+FC001162,batch-1,FNRI,Q031,"Fruit jce drnk, orange & pineapple, ttb",Beverages,https://i.fnri.dost.gov.ph/fct/library/report/4390
+FC001163,batch-1,FNRI,Q032,"Fruit jce drnk, orange, btl",Beverages,https://i.fnri.dost.gov.ph/fct/library/report/4391
+FC001164,batch-1,FNRI,Q033,"Fruit jce drnk, orange, polyfoil",Beverages,https://i.fnri.dost.gov.ph/fct/library/report/4392
+FC001165,batch-1,FNRI,Q034,"Fruit jce drnk, orange, ttb",Beverages,https://i.fnri.dost.gov.ph/fct/library/report/4393
+FC001166,batch-1,FNRI,Q035,"Fruit jce drnk, pineapple & lychee, ttb",Beverages,https://i.fnri.dost.gov.ph/fct/library/report/4394
+FC001167,batch-1,FNRI,Q036,"Fruit jce drnk, pineapple & orange, cnd",Beverages,https://i.fnri.dost.gov.ph/fct/library/report/4395
+FC001168,batch-1,FNRI,Q037,"Fruit jce drnk, pineapple, ttb",Beverages,https://i.fnri.dost.gov.ph/fct/library/report/4396
+FC001169,batch-1,FNRI,Q038,"Fruit jce drnk, strawberry, polyfoil",Beverages,https://i.fnri.dost.gov.ph/fct/library/report/4397
+FC001170,batch-1,FNRI,Q039,"Fruit jce drnk, sugarcane, ttb",Beverages,https://i.fnri.dost.gov.ph/fct/library/report/4398
+FC001171,batch-1,FNRI,Q040,"Fruit-flvr drnk conc, orange",Beverages,https://i.fnri.dost.gov.ph/fct/library/report/4399
+FC001172,batch-1,FNRI,Q041,"Fruit-flvr drnk conc, strawberry",Beverages,https://i.fnri.dost.gov.ph/fct/library/report/4400
+FC001173,batch-1,FNRI,Q042,"Fruit-flvr drnk, pwdr, orange",Beverages,https://i.fnri.dost.gov.ph/fct/library/report/4401
+FC001174,batch-1,FNRI,Q047,"Juice, pineapple & grapefruit, cnd",Beverages,https://i.fnri.dost.gov.ph/fct/library/report/4406
+FC001175,batch-1,FNRI,Q052,Sago in light syrup,Beverages,https://i.fnri.dost.gov.ph/fct/library/report/4411
+FC001176,batch-1,FNRI,Q055,"Soy drink, pwdr, plain",Beverages,https://i.fnri.dost.gov.ph/fct/library/report/4414
+FC001177,batch-1,FNRI,Q056,"Soy drnk, pwdr, corn flvr",Beverages,https://i.fnri.dost.gov.ph/fct/library/report/4415
+FC001178,batch-1,FNRI,Q057,"Soy drnk, pwdr, pandan flvr",Beverages,https://i.fnri.dost.gov.ph/fct/library/report/4416
+FC001179,batch-1,FNRI,Q058,"Soybean milk drink, choc-flvr",Beverages,https://i.fnri.dost.gov.ph/fct/library/report/4417
+FC001180,batch-1,FNRI,Q060,"Tea lvs, dried",Beverages,https://i.fnri.dost.gov.ph/fct/library/report/4419
+FC001181,batch-1,FNRI,Q061,Young coconut (shredded) drnk,Beverages,https://i.fnri.dost.gov.ph/fct/library/report/4420
+FC001182,batch-1,FNRI,A026,"Ampaw, pinipig","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/2988
+FC001183,batch-1,FNRI,A027,"Ampaw, rice","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/2989
+FC001184,batch-1,FNRI,A056,"Cake, cream-filled roll","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3018
+FC001185,batch-1,FNRI,A058,"Cake, jelly roll","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3020
+FC001186,batch-1,FNRI,A063,"Cake, mocha roll","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3025
+FC001187,batch-1,FNRI,A066,"Chips, cheese flvr","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3028
+FC001188,batch-1,FNRI,A067,"Chips, corn, bbq flvr","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3029
+FC001189,batch-1,FNRI,A068,"Chips, corn, nacho cheese flvr","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3030
+FC001190,batch-1,FNRI,A073,"Chips, fish crackers","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3035
+FC001191,batch-1,FNRI,A074,"Chips, fish kroepeck","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3036
+FC001192,batch-1,FNRI,A075,"Chips, prawn crackers","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3037
+FC001193,batch-1,FNRI,A077,"Chips, shrimp crackers","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3039
+FC001194,batch-1,FNRI,A079,"Chips, squid crackers","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3041
+FC001195,batch-1,FNRI,A099,"Cookies, sandwich type, choc-filled","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3061
+FC001196,batch-1,FNRI,A100,"Cookies, sandwich type, cream-filled","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3062
+FC001197,batch-1,FNRI,A102,"Cookies, wafer","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3064
+FC001198,batch-1,FNRI,A105,"Corn pudding, w/ grtd coconut topping","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3067
+FC001199,batch-1,FNRI,A107,"Corn pudding, maja, yellow w/ grtd coconut topping","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3069
+FC001200,batch-1,FNRI,A119,"Curls, cheese flvr","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3081
+FC001201,batch-1,FNRI,A143,"Noodles, wheat, inst, w/ flvr, fortified","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3105
+FC001202,batch-1,FNRI,A155,"Popcorn and peanuts, sweetn","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3117
+FC001203,batch-1,FNRI,A158,"Pretzel, choc-coated","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3120
+FC001204,batch-1,FNRI,A199,"Rice-bread prep, toasted, puto seko, w/ grtd coconut","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3161
+FC001205,batch-1,FNRI,M002,"Candy bar, peanut",Sweets & Sweeteners,https://i.fnri.dost.gov.ph/fct/library/report/4273
+FC001206,batch-1,FNRI,M004,"Candy, custard",Sweets & Sweeteners,https://i.fnri.dost.gov.ph/fct/library/report/4275
+FC001207,batch-1,FNRI,M005,"Candy, hard",Sweets & Sweeteners,https://i.fnri.dost.gov.ph/fct/library/report/4276
+FC001208,batch-1,FNRI,M006,"Candy, milk choc",Sweets & Sweeteners,https://i.fnri.dost.gov.ph/fct/library/report/4277
+FC001209,batch-1,FNRI,M009,"Candy, toffee",Sweets & Sweeteners,https://i.fnri.dost.gov.ph/fct/library/report/4280
+FC001210,batch-1,FNRI,M012,Champoy,Sweets & Sweeteners,https://i.fnri.dost.gov.ph/fct/library/report/4283
+FC001211,batch-1,FNRI,M033,Marshmallow,Sweets & Sweeteners,https://i.fnri.dost.gov.ph/fct/library/report/4304
+FC001212,batch-1,FNRI,M038,Peanut brittle w/ sesame seed,Sweets & Sweeteners,https://i.fnri.dost.gov.ph/fct/library/report/4309
+FC001213,batch-1,FNRI,M039,"Peanut, milk choc-coated",Sweets & Sweeteners,https://i.fnri.dost.gov.ph/fct/library/report/4310
+FC001214,batch-1,FNRI,M041,"Popsicle, choc flvr",Sweets & Sweeteners,https://i.fnri.dost.gov.ph/fct/library/report/4312
+FC001215,batch-1,FNRI,N030,Worcestershire sauce,Condiments,https://i.fnri.dost.gov.ph/fct/library/report/4353
+FC001216,batch-1,FNRI,N031,"Shrimp paste, sauteed",Condiments,https://i.fnri.dost.gov.ph/fct/library/report/4354
+FC001217,batch-1,FNRI,R026,"Beef & tomato spread, cnd",Prepared Foods,https://i.fnri.dost.gov.ph/fct/library/report/4446
+FC001218,batch-1,FNRI,R030,"Beef hamburger w/ tomato sce, cnd",Prepared Foods,https://i.fnri.dost.gov.ph/fct/library/report/4450
+FC001219,batch-1,FNRI,R037,"Beef w/ mushroom sce, cnd",Prepared Foods,https://i.fnri.dost.gov.ph/fct/library/report/4457
+FC001220,batch-1,FNRI,R039,"Beef, chili con carne, cnd",Prepared Foods,https://i.fnri.dost.gov.ph/fct/library/report/4459
+FC001221,batch-1,FNRI,R041,"Corned beef hash, cnd",Prepared Foods,https://i.fnri.dost.gov.ph/fct/library/report/4461
+FC001222,batch-1,FNRI,R065,"Chicken noodle broth, inst",Prepared Foods,https://i.fnri.dost.gov.ph/fct/library/report/4485
+FC001223,batch-1,FNRI,R067,"Soup, beef & veg, cnd",Prepared Foods,https://i.fnri.dost.gov.ph/fct/library/report/4487
+FC001224,batch-1,FNRI,R069,"Soup, chicken & asparagus, cnd",Prepared Foods,https://i.fnri.dost.gov.ph/fct/library/report/4489
+FC001225,batch-1,FNRI,R070,"Soup, chicken & veg, cnd",Prepared Foods,https://i.fnri.dost.gov.ph/fct/library/report/4490
+FC001226,batch-1,FNRI,R076,"Soup, cream of mushroom, cnd",Prepared Foods,https://i.fnri.dost.gov.ph/fct/library/report/4496
+FC001227,batch-1,FNRI,R079,"Soup, pansit molo, cond, cnd",Prepared Foods,https://i.fnri.dost.gov.ph/fct/library/report/4499
+FC001228,batch-1,FNRI,R081,"Soup, sotanghon, cond",Prepared Foods,https://i.fnri.dost.gov.ph/fct/library/report/4501
+FC001229,batch-1,FNRI,R108,"Pork ball, wrapped",Prepared Foods,https://i.fnri.dost.gov.ph/fct/library/report/4528
+FC001230,batch-1,USDA,171889,"Beverages, coffee, brewed, prepared with tap water, decaffeinated",Beverages,https://fdc.nal.usda.gov/food-details/171889/nutrients
+FC001231,batch-1,USDA,171890,"Beverages, coffee, brewed, prepared with tap water",Beverages,https://fdc.nal.usda.gov/food-details/171890/nutrients
+FC001232,batch-1,USDA,171891,"Beverages, coffee, brewed, espresso, restaurant-prepared",Beverages,https://fdc.nal.usda.gov/food-details/171891/nutrients
+FC001233,batch-1,USDA,174130,"Beverages, coffee, instant, regular, prepared with water",Beverages,https://fdc.nal.usda.gov/food-details/174130/nutrients
+FC001234,batch-1,USDA,174125,"Beverages, coffee, brewed, espresso, restaurant-prepared, decaffeinated",Beverages,https://fdc.nal.usda.gov/food-details/174125/nutrients
+FC001235,batch-1,USDA,174119,"Beverages, coffee, ready to drink, iced, mocha, milk based",Beverages,https://fdc.nal.usda.gov/food-details/174119/nutrients
+FC001236,batch-1,USDA,171880,"Beverages, coffee, ready to drink, milk based, sweetened",Beverages,https://fdc.nal.usda.gov/food-details/171880/nutrients
+FC001237,batch-1,USDA,173647,"Beverages, water, tap, drinking",Beverages,https://fdc.nal.usda.gov/food-details/173647/nutrients
+FC001238,batch-1,USDA,174158,"Water, bottled, generic",Beverages,https://fdc.nal.usda.gov/food-details/174158/nutrients
+FC001239,batch-1,USDA,174832,"Beverages, almond milk, unsweetened, shelf stable",Beverages,https://fdc.nal.usda.gov/food-details/174832/nutrients
+FC001240,batch-1,USDA,168751,"Beverages, almond milk, sweetened, vanilla flavor, ready-to-drink",Beverages,https://fdc.nal.usda.gov/food-details/168751/nutrients
+FC001241,batch-1,USDA,174116,"Beverages, coconut milk, sweetened, fortified with calcium, vitamins A, B12, D2",Beverages,https://fdc.nal.usda.gov/food-details/174116/nutrients
+FC001242,batch-1,USDA,174831,"Beverages, Coconut water, ready-to-drink, unsweetened",Beverages,https://fdc.nal.usda.gov/food-details/174831/nutrients
+FC001243,batch-1,USDA,171269,"Milk, nonfat, fluid, with added vitamin A and vitamin D (fat free or skim)",Milk & Dairy,https://fdc.nal.usda.gov/food-details/171269/nutrients
+FC001244,batch-1,USDA,171267,"Milk, reduced fat, fluid, 2% milkfat, with added vitamin A and vitamin D",Milk & Dairy,https://fdc.nal.usda.gov/food-details/171267/nutrients
+FC001245,batch-1,USDA,170872,"Milk, lowfat, fluid, 1% milkfat, with added vitamin A and vitamin D",Milk & Dairy,https://fdc.nal.usda.gov/food-details/170872/nutrients
+FC001246,batch-1,USDA,170894,"Yogurt, Greek, plain, nonfat (Includes foods for USDA's Food Distribution Program)",Milk & Dairy,https://fdc.nal.usda.gov/food-details/170894/nutrients
+FC001247,batch-1,USDA,170903,"Yogurt, Greek, plain, lowfat",Milk & Dairy,https://fdc.nal.usda.gov/food-details/170903/nutrients
+FC001248,batch-2,USDA,171304,"Yogurt, Greek, plain, whole milk",Milk & Dairy,https://fdc.nal.usda.gov/food-details/171304/nutrients
+FC001249,batch-2,USDA,171284,"Yogurt, plain, whole milk",Milk & Dairy,https://fdc.nal.usda.gov/food-details/171284/nutrients
+FC001250,batch-2,USDA,171869,"Beverages, carbonated, tonic water",Beverages,https://fdc.nal.usda.gov/food-details/171869/nutrients
+FC001251,batch-2,USDA,174842,"Beverages, carbonated, club soda",Beverages,https://fdc.nal.usda.gov/food-details/174842/nutrients
+FC001252,batch-2,USDA,174846,"Beverages, carbonated, ginger ale",Beverages,https://fdc.nal.usda.gov/food-details/174846/nutrients
+FC001253,batch-2,USDA,175099,"Beverages, carbonated, low calorie, cola or pepper-type, with aspartame, contains caffeine",Beverages,https://fdc.nal.usda.gov/food-details/175099/nutrients
+FC001254,batch-2,USDA,174850,"Beverages, carbonated, low calorie, cola or pepper-type, with aspartame, without caffeine",Beverages,https://fdc.nal.usda.gov/food-details/174850/nutrients
+FC001255,batch-2,USDA,174851,"Beverages, carbonated, cola, without caffeine",Beverages,https://fdc.nal.usda.gov/food-details/174851/nutrients
+FC001256,batch-2,USDA,174853,"Beverages, carbonated, reduced sugar, cola, contains caffeine and sweeteners",Beverages,https://fdc.nal.usda.gov/food-details/174853/nutrients
+FC001257,batch-2,USDA,174120,"Beverages, tea, Oolong, brewed",Beverages,https://fdc.nal.usda.gov/food-details/174120/nutrients
+FC001258,batch-2,USDA,174156,"Beverages, tea, herb, brewed, chamomile",Beverages,https://fdc.nal.usda.gov/food-details/174156/nutrients
+FC001259,batch-2,USDA,174871,"Beverages, tea, black, brewed, prepared with tap water, decaffeinated",Beverages,https://fdc.nal.usda.gov/food-details/174871/nutrients

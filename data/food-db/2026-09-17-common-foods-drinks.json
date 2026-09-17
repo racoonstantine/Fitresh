@@ -1,0 +1,19 @@
+{
+  "expansion_id": "2026-09-17-common-foods-drinks",
+  "added": 112,
+  "fnri": 82,
+  "usda": 30,
+  "total": 1259,
+  "original_records_preserved": 1147,
+  "household_portions_added": 73,
+  "estimates_added": 0,
+  "added_fnri_statuses": {
+    "VERIFIED_FNRI": 64,
+    "PARTIAL_VERIFIED_FNRI": 18
+  },
+  "loggable_additions": 108,
+  "quarantined_source_conflicts": 4,
+  "display_labels_reviewed": 58,
+  "missing_fnri_fields_audited": 349,
+  "existing_nutrient_values_changed": 0
+}

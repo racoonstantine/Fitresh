@@ -25,5 +25,12 @@ foreach ($catalog['foods'] as $id => $food) {
     }
     rejects($food,['amount'=>1,'unit'=>'portion','portion_id'=>'wrong-food-portion']);
 }
-check($count === 245 && $multi > 0, 'All documented portions and multi-unit servings tested');
-echo "PASS: 245 sourced portions, ounces, personal pieces/density, native ml, unsupported and invalid measurements.\n";
+$handle = fopen(__DIR__.'/../data/food-db/portions.csv','r');
+$header = fgetcsv($handle); $expected = 0;
+while (($values = fgetcsv($handle)) !== false) {
+    $row = array_combine($header,$values);
+    if ($row['data_status'] === 'OTHER_SOURCE_PORTION' && isset($catalog['foods'][$row['food_id']])) $expected++;
+}
+fclose($handle);
+check($count === $expected && $count >= 245 && $multi > 0, 'All loggable documented portions and multi-unit servings tested');
+echo "PASS: $count sourced portions, ounces, personal pieces/density, native ml, unsupported and invalid measurements.\n";

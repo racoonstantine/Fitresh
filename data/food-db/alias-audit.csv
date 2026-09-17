@@ -603,8 +603,8 @@ FC000601,"Ice cream, strawberry flvr",3,"Sorbetes, lasang strawberry",SOURCE_COM
 FC000602,"Milk drink, cultured",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
 FC000603,"Milk, evaporated, filled",2,"Gatas, evaporada, filled",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
 FC000604,"Milk, recombined",2,"Gatas, recombined",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
-FC000605,"Milk, sweetn, cond, filled",2,"Gatas, kondensada, filled",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
-FC000606,"Milk drink, recon, strawberry, UHT",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000605,"Milk, sweetn, cond, filled",3,"Gatas, kondensada, filled",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC000606,"Milk drink, recon, strawberry, UHT",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
 FC000607,"Milk, buttermilk",2,"Gatas, buttermilk",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
 FC000608,"Catsup, banana",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
 FC000609,"Catsup, tomato",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
@@ -641,10 +641,10 @@ FC000639,Margarine,2,Margarina,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search co
 FC000640,"Margarine, fortified",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
 FC000641,Mayonnaise,1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
 FC000642,"Oil, corn",2,"Langis, mais",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
-FC000643,"Coffee, roasted",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000643,"Coffee, roasted",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
 FC000644,Coconut water,2,"Niyog, tubig",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
-FC000645,"Coffee, creamer & sugar (3 in 1)",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
-FC000646,"Coffee, inst, 100% pure",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000645,"Coffee, creamer & sugar (3 in 1)",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000646,"Coffee, inst, 100% pure",3,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
 FC000647,"Cocoa, pwdr, imported",3,"Kakaw, pulbos, imported",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
 FC000648,"Bread, cinnamon roll",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
 FC000649,"Bread, hotdog roll",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
@@ -996,26 +996,26 @@ FC000994,"Palm sap, fermented",2,Tuba,SOURCE_COMMON_NAMES_AVAILABLE,Canonical se
 FC000995,Rum,1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
 FC000996,"Sugarcane, fermented",2,Basi,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
 FC000997,"Wine, Chinese",2,"Alak, Tsina",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
-FC000998,"Choc-flvr drink, prep",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
-FC000999,"Choc-flvr drink, pwdr",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
-FC001000,"Choc-flvr drink, UHT",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000998,"Choc-flvr drink, prep",3,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC000999,"Choc-flvr drink, pwdr",3,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001000,"Choc-flvr drink, UHT",3,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
 FC001001,"Cocoa, pwdr, local",3,"Kakaw, pulbos, lokal",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
-FC001002,"Fruit jce drnk conc, calamansi",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
-FC001003,"Fruit jce drnk conc, guyabano",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
-FC001004,"Fruit jce drnk conc, mango",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
-FC001005,"Fruit jce drnk conc, orange",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001002,"Fruit jce drnk conc, calamansi",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001003,"Fruit jce drnk conc, guyabano",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001004,"Fruit jce drnk conc, mango",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001005,"Fruit jce drnk conc, orange",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
 FC001006,"Juice, apple, cnd",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
 FC001007,"Juice, calamansi (nectar)",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
 FC001008,"Juice, mango",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
-FC001009,"Juice, orange, unsweetn, cnd",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001009,"Juice, orange, unsweetn, cnd",3,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
 FC001010,"Juice, pineapple, cnd",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
 FC001011,"Juice, sugarcane",2,"Katas, tubo",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
 FC001012,"Juice, tomato, cnd",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
 FC001013,"Lemon tea drink, ttb",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
 FC001014,"Softdrink, cola",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
 FC001015,"Softdrink, orange flvr",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
-FC001016,Soybean milk drnk,1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
-FC001017,"Tea, prep w/ water, no sugar",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001016,Soybean milk drnk,2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001017,"Tea, prep w/ water, no sugar",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
 FC001018,Cheese pimiento sandwich,1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
 FC001019,Glutinous rice w/ mung bean & cocomilk,3,Ginataang munggo,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
 FC001020,Hamburger sandwich w/ coleslaw,1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
@@ -1079,7 +1079,7 @@ FC001077,"Mollusks, scallop, mixed species, cooked, breaded and fried",1,,NO_FNR
 FC001078,"Crustaceans, lobster, northern, raw",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
 FC001079,"Crustaceans, lobster, northern, cooked, moist heat",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
 FC001080,"Broccoli, raw",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
-FC001081,"Broccoli, cooked, boiled, drained, without salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001081,"Broccoli, cooked, boiled, drained, without salt",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
 FC001082,"Broccoli, frozen, chopped, cooked, boiled, drained, without salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
 FC001083,"Broccoli, chinese, raw",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
 FC001084,"Spinach, raw",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
@@ -1146,3 +1146,665 @@ FC001144,"Cherries, sweet, canned, water pack, solids and liquids",1,,NO_FNRI_CO
 FC001145,"Cherries, sour, red, canned, water pack, solids and liquids",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
 FC001146,"Broccoli, frozen, chopped, unprepared",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
 FC001147,"Asparagus, frozen, unprepared",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001148,"Ceylon moss/Agar-agar, in light syrup",2,Gulaman palamig,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC001149,"Choc-flvr energy drnk, granules, fortified",3,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001150,"Choc-flvr energy drnk, pwdr, fortified",3,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001151,"Choc-flvr food milk, pwdr",3,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001152,"Fruit jce drnk conc, grape",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001153,"Fruit jce drnk conc, grapefruit",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001154,"Fruit jce drnk, apple, ttb",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001155,"Fruit jce drnk, citrus cooler, ttb",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001156,"Fruit jce drnk, grape, ttpk",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001157,"Fruit jce drnk, guava, ttpk",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001158,"Fruit jce drnk, guyabano, btl",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001159,"Fruit jce drnk, mango, btl",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001160,"Fruit jce drnk, mango, polyfoil",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001161,"Fruit jce drnk, mango, ttb",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001162,"Fruit jce drnk, orange & pineapple, ttb",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001163,"Fruit jce drnk, orange, btl",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001164,"Fruit jce drnk, orange, polyfoil",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001165,"Fruit jce drnk, orange, ttb",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001166,"Fruit jce drnk, pineapple & lychee, ttb",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001167,"Fruit jce drnk, pineapple & orange, cnd",3,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001168,"Fruit jce drnk, pineapple, ttb",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001169,"Fruit jce drnk, strawberry, polyfoil",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001170,"Fruit jce drnk, sugarcane, ttb",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001171,"Fruit-flvr drnk conc, orange",3,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001172,"Fruit-flvr drnk conc, strawberry",3,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001173,"Fruit-flvr drnk, pwdr, orange",3,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001174,"Juice, pineapple & grapefruit, cnd",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001175,Sago in light syrup,2,Sago palamig,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC001176,"Soy drink, pwdr, plain",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001177,"Soy drnk, pwdr, corn flvr",3,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001178,"Soy drnk, pwdr, pandan flvr",3,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001179,"Soybean milk drink, choc-flvr",3,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001180,"Tea lvs, dried",3,"Tsaa dahon, tuyo",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC001181,Young coconut (shredded) drnk,3,Buko palamig,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC001182,"Ampaw, pinipig",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001183,"Ampaw, rice",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001184,"Cake, cream-filled roll",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001185,"Cake, jelly roll",2,Pianono,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC001186,"Cake, mocha roll",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001187,"Chips, cheese flvr",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001188,"Chips, corn, bbq flvr",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001189,"Chips, corn, nacho cheese flvr",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001190,"Chips, fish crackers",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001191,"Chips, fish kroepeck",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001192,"Chips, prawn crackers",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001193,"Chips, shrimp crackers",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001194,"Chips, squid crackers",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001195,"Cookies, sandwich type, choc-filled",2,"Biskwit, may palaman na tsokolate",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC001196,"Cookies, sandwich type, cream-filled",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001197,"Cookies, wafer",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001198,"Corn pudding, w/ grtd coconut topping",2,"Maja blanca, may niyog",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC001199,"Corn pudding, maja, yellow w/ grtd coconut topping",2,"Maja, mais, may niyog",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC001200,"Curls, cheese flvr",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001201,"Noodles, wheat, inst, w/ flvr, fortified",4,"Mami, inst, may pampalasa,fortified",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC001202,"Popcorn and peanuts, sweetn",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001203,"Pretzel, choc-coated",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001204,"Rice-bread prep, toasted, puto seko, w/ grtd coconut",2,"Puto seko, may niyog",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC001205,"Candy bar, peanut",2,Matamis na mani,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC001206,"Candy, custard",2,Yema,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC001207,"Candy, hard",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001208,"Candy, milk choc",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001209,"Candy, toffee",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001210,Champoy,1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001211,Marshmallow,1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001212,Peanut brittle w/ sesame seed,1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001213,"Peanut, milk choc-coated",2,"Mani, binalot sa tsokolate gatas",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC001214,"Popsicle, choc flvr",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001215,Worcestershire sauce,1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001216,"Shrimp paste, sauteed",2,"Bagoong alamang, ginisa",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC001217,"Beef & tomato spread, cnd",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001218,"Beef hamburger w/ tomato sce, cnd",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001219,"Beef w/ mushroom sce, cnd",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001220,"Beef, chili con carne, cnd",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001221,"Corned beef hash, cnd",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001222,"Chicken noodle broth, inst",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001223,"Soup, beef & veg, cnd",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001224,"Soup, chicken & asparagus, cnd",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001225,"Soup, chicken & veg, cnd",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001226,"Soup, cream of mushroom, cnd",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001227,"Soup, pansit molo, cond, cnd",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001228,"Soup, sotanghon, cond",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001229,"Pork ball, wrapped",4,Pork wonton/Pork siomai,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC001230,"Beverages, coffee, brewed, prepared with tap water, decaffeinated",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001231,"Beverages, coffee, brewed, prepared with tap water",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001232,"Beverages, coffee, brewed, espresso, restaurant-prepared",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001233,"Beverages, coffee, instant, regular, prepared with water",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001234,"Beverages, coffee, brewed, espresso, restaurant-prepared, decaffeinated",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001235,"Beverages, coffee, ready to drink, iced, mocha, milk based",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001236,"Beverages, coffee, ready to drink, milk based, sweetened",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001237,"Beverages, water, tap, drinking",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001238,"Water, bottled, generic",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001239,"Beverages, almond milk, unsweetened, shelf stable",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001240,"Beverages, almond milk, sweetened, vanilla flavor, ready-to-drink",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001241,"Beverages, coconut milk, sweetened, fortified with calcium, vitamins A, B12, D2",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001242,"Beverages, Coconut water, ready-to-drink, unsweetened",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001243,"Milk, nonfat, fluid, with added vitamin A and vitamin D (fat free or skim)",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001244,"Milk, reduced fat, fluid, 2% milkfat, with added vitamin A and vitamin D",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001245,"Milk, lowfat, fluid, 1% milkfat, with added vitamin A and vitamin D",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001246,"Yogurt, Greek, plain, nonfat (Includes foods for USDA's Food Distribution Program)",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001247,"Yogurt, Greek, plain, lowfat",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001248,"Yogurt, Greek, plain, whole milk",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001249,"Yogurt, plain, whole milk",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001250,"Beverages, carbonated, tonic water",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001251,"Beverages, carbonated, club soda",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001252,"Beverages, carbonated, ginger ale",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001253,"Beverages, carbonated, low calorie, cola or pepper-type, with aspartame, contains caffeine",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001254,"Beverages, carbonated, low calorie, cola or pepper-type, with aspartame, without caffeine",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001255,"Beverages, carbonated, cola, without caffeine",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001256,"Beverages, carbonated, reduced sugar, cola, contains caffeine and sweeteners",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001257,"Beverages, tea, Oolong, brewed",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001258,"Beverages, tea, herb, brewed, chamomile",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001259,"Beverages, tea, black, brewed, prepared with tap water, decaffeinated",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001260,"Adobong manok, white meat (recipe estimate)",3,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001261,"Adobong baboy, pork belly (recipe estimate)",3,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001262,"Adobong baboy, lean shoulder (recipe estimate)",3,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001263,"Adobong manok at baboy, white meat and belly (recipe estimate)",3,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001264,"Adobong pusit, no ink (recipe estimate)",3,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001265,"Adobong kangkong, leaves (recipe estimate)",3,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001266,"Adobong sitaw, with lean pork (recipe estimate)",3,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001267,"Tinolang manok, white meat, sayote and malunggay (recipe estimate)",3,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001268,"Tinolang manok, white meat, sayote, no added oil (recipe estimate)",3,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001269,"Sinigang na baboy, belly, tamarind and vegetables (recipe estimate)",3,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001270,"Sinigang na baboy, lean shoulder, tamarind and vegetables (recipe estimate)",3,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001271,"Sinigang na hipon, peeled shrimp and tamarind (recipe estimate)",3,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001272,"Nilagang baka, shank, cabbage and potato (recipe estimate)",3,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001273,"Nilagang baboy, lean shoulder and pechay (recipe estimate)",3,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001274,"Ginisang monggo, malunggay, no meat (recipe estimate)",4,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001275,"Ginisang monggo, pork belly and malunggay (recipe estimate)",4,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001276,"Ginisang monggo, peeled shrimp and malunggay (recipe estimate)",4,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001277,"Ginisang monggo, canned sardines in tomato sauce (recipe estimate)",4,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001278,"Pinakbet, shrimp paste, no pork (recipe estimate)",3,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001279,"Pinakbet, pork belly and shrimp paste (recipe estimate)",3,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001280,"Ginataang kalabasa at sitaw, no meat (recipe estimate)",3,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001281,"Ginataang kalabasa at sitaw, peeled shrimp (recipe estimate)",3,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001282,"Laing, boiled taro leaves and coconut milk, no meat (recipe estimate)",3,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001283,"Laing, boiled taro leaves, pork belly and coconut milk (recipe estimate)",3,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001284,"Ginisang sayote, white chicken meat (recipe estimate)",3,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001285,"Ginisang sayote, egg (recipe estimate)",3,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001286,"Ginisang ampalaya, egg and tomato (recipe estimate)",3,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001287,"Ginisang upo, peeled shrimp (recipe estimate)",3,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001288,"Ginisang pechay, tofu (recipe estimate)",3,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001289,"Tortang talong, egg, no meat (recipe estimate)",3,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001290,"Tortang talong, ground pork and egg (recipe estimate)",3,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001291,"Giniling na baka, 90 percent lean beef, tomato and potato (recipe estimate)",3,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001292,"Giniling na baboy, tomato and potato (recipe estimate)",3,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001293,"Menudong baboy, lean shoulder and liver (recipe estimate)",3,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001294,"Afritadang manok, white meat (recipe estimate)",3,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001295,"Afritadang baboy, lean shoulder (recipe estimate)",3,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001296,"Mechadong baka, lean chuck, unlarded (recipe estimate)",3,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001297,"Kalderetang baka, lean chuck, pork liver and cheese (recipe estimate)",3,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001298,"Kare-kare, lean beef and tripe, peanut, no bagoong on side (recipe estimate)",3,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001299,"Bicol Express, pork belly, coconut milk and shrimp paste (recipe estimate)",3,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001300,"Pancit bihon, white chicken meat and vegetables (recipe estimate)",3,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001301,"Pancit bihon, peeled shrimp and vegetables (recipe estimate)",3,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001302,"Pancit sotanghon, white chicken meat and vegetables (recipe estimate)",3,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001303,"Pancit miki, lean pork and vegetables (recipe estimate)",3,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001304,"Arroz caldo, white chicken meat and ginger (recipe estimate)",3,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001305,"Goto, beef tripe and ginger (recipe estimate)",3,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001306,"Lugaw, plain rice, ginger, no meat (recipe estimate)",3,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001307,"Tokwat baboy, tofu and lean pork, vinegar soy dressing (recipe estimate)",3,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001308,"Bangsilog, broiled bangus, fried rice and egg (recipe estimate)",3,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001309,"Chicksilog, fried white chicken, fried rice and egg (recipe estimate)",3,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001310,"Millet, glutinous",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001311,Sorghum,4,"Batad/Batag, butil",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC001312,"Sorghum, boiled",4,"Batad/Batag, butil, nilaga",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC001313,Bunuelos,1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001314,"Cake, marshmallow roll",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001315,"Cake, pineapple roll",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001316,"Chips, corn, natural flvr",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001317,"Chips, corn-potato based, cheese flvr",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001318,"Chips, corn, taco & bbq flvr",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001319,"Chips, corn, taco flvr",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001320,"Chips, prawn crackers, flvrd",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001321,"Chips, shrimp kroepeck",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001322,"Chips, sticks, onion flvr",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001323,"Chips, tortilla, bbq flvr",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001324,"Chips, tortilla, nacho cheese flvr",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001325,"Cookies, assorted",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001326,"Cookies, camachili",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001327,"Cookies, gem",2,Iced gem cookies,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC001328,"Cookies, pili nut",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001329,"Cookies, vanilla wafer, choc-coated",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001330,"Curls, bbq flvr",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001331,"Curls, prawn flvr",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001332,"Curls, shrimp flvr",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001333,Gurgurya,1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001334,Hominy,2,Binatog,SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC001335,"Lohuwa, peanut",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001336,"Lohuwa, rice",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001337,"Lohuwa, sesame seed",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001338,"Pretzel, sweetn",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001339,"Pudding, pineapple",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001340,"Pudding, raisin",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001341,"Pudding, vanilla",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001342,"Puffs, bbq flvr",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001343,"Puffs, cheese flvr",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001344,"Puffs, chicken flvr",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001345,"Puffs, spiced",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001346,"Peanut butter, choc flvr",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001347,Peanut cracker,1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001348,Pork jerky,2,"Tapa, baboy",SOURCE_COMMON_NAMES_AVAILABLE,Canonical search covered. No unsupported regional translation added.
+FC001349,"Malunggay leaves powder, dry",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001350,"Chicken, broilers or fryers, meat and skin, cooked, fried, flour",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001351,"Chicken, broilers or fryers, meat and skin, cooked, fried, batter",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001352,"Beef, top sirloin, steak, separable lean and fat, trimmed to 1/8"" fat, choice, cooked, pan-fried",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001353,"Turkey, Ground, cooked",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001354,"Pork, bacon, rendered fat, cooked",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001355,"Pork, cured, bacon, cooked, baked",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001356,"Pork, fresh, separable fat, cooked",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001357,"Beef, cured, breakfast strips, cooked",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001358,"Pork, cured, bacon, cooked, microwaved",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001359,"Beef, retail cuts, separable fat, cooked",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001360,"Beef, cured, corned beef, brisket, cooked",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001361,"Turkey, whole, dark meat, cooked, roasted",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001362,"Turkey, whole, meat only, cooked, roasted",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001363,"Chicken, stewing, meat only, cooked, stewed",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001364,"Turkey, all classes, heart, cooked, simmered",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001365,"Beef, ground, unspecified fat content, cooked",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001366,"Chicken, heart, all classes, cooked, simmered",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001367,"Chicken, roasting, meat only, cooked, roasted",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001368,"Turkey, whole, meat and skin, cooked, roasted",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001369,"Turkey, young hen, skin only, cooked, roasted",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001370,"Beef, ground, patties, frozen, cooked, broiled",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001371,"Chicken, ground, crumbles, cooked, pan-browned",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001372,"Chicken, capons, meat and skin, cooked, roasted",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001373,"Chicken, stewing, meat and skin, cooked, stewed",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001374,"Turkey, whole, back, meat only, cooked, roasted",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001375,"Turkey, whole, wing, meat only, cooked, roasted",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001376,"Turkey, all classes, light meat, cooked, roasted",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001377,"Chicken, roasting, meat and skin, cooked, roasted",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001378,"Pork, cured, bacon, pre-sliced, cooked, pan-fried",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001379,"Pork, ground, 96% lean / 4% fat, cooked, crumbles",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001380,"Turkey, whole, breast, meat only, cooked, roasted",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001381,"Pork, cured, ham, low sodium, lean and fat, cooked",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001382,"Pork, ground, 72% lean / 28% fat, cooked, crumbles",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001383,"Pork, ground, 84% lean / 16% fat, cooked, crumbles",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001384,"Pork, ground, 96% lean / 4% fat, cooked, pan-broiled",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001385,"Chicken, broilers or fryers, meat only, cooked, fried",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001386,"Pork, ground, 72% lean / 28% fat, cooked, pan-broiled",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001387,"Pork, ground, 84% lean / 16% fat, cooked, pan-broiled",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001388,"Turkey, wing, smoked, cooked, with skin, bone removed",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001389,"Chicken, broilers or fryers, meat only, cooked, stewed",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001390,"Chicken, broilers or fryers, skin only, cooked, stewed",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001391,"Chicken, skin (drumsticks and thighs), cooked, braised",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001392,"Chicken, skin (drumsticks and thighs), cooked, roasted",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001393,"Chicken, stewing, dark meat, meat only, cooked, stewed",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001394,"Turkey, fryer-roasters, meat and skin, cooked, roasted",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001395,"Turkey, retail parts, wing, meat only, cooked, roasted",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001396,"Chicken, broilers or fryers, meat only, cooked, roasted",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001397,"Chicken, broilers or fryers, skin only, cooked, roasted",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001398,"Chicken, stewing, light meat, meat only, cooked, stewed",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001399,"Turkey, retail parts, thigh, meat only, cooked, roasted",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001400,"Chicken, roasting, dark meat, meat only, cooked, roasted",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001401,"Turkey, all classes, leg, meat and skin, cooked, roasted",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001402,"Turkey, retail parts, breast, meat only, cooked, roasted",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001403,"Turkey, whole, dark meat, meat and skin, cooked, roasted",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001404,"Beef, ground, 93% lean meat / 7% fat, loaf, cooked, baked",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001405,"Beef, ground, 95% lean meat / 5% fat, loaf, cooked, baked",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001406,"Beef, ground, 97% lean meat / 3% fat, loaf, cooked, baked",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001407,"Chicken, roasting, light meat, meat only, cooked, roasted",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001408,"Turkey, all classes, back, meat and skin, cooked, roasted",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001409,"Turkey, all classes, wing, meat and skin, cooked, roasted",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001410,"Turkey, whole, light meat, meat and skin, cooked, roasted",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001411,"Beef, ground, 70% lean meat / 30% fat, loaf, cooked, baked",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001412,"Beef, ground, 75% lean meat / 25% fat, loaf, cooked, baked",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001413,"Beef, ground, 80% lean meat / 20% fat, loaf, cooked, baked",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001414,"Beef, ground, 85% lean meat / 15% fat, loaf, cooked, baked",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001415,"Beef, ground, 90% lean meat / 10% fat, loaf, cooked, baked",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001416,"Chicken, broilers or fryers, leg, meat only, cooked, fried",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001417,"Chicken, broilers or fryers, meat and skin, cooked, stewed",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001418,"Turkey, drumstick, smoked, cooked, with skin, bone removed",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001419,"Turkey, retail parts, wing, meat and skin, cooked, roasted",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001420,"Beef, variety meats and by-products, lungs, cooked, braised",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001421,"Chicken, broilers or fryers, back, meat only, cooked, fried",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001422,"Chicken, broilers or fryers, leg, meat only, cooked, stewed",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001423,"Chicken, broilers or fryers, meat and skin, cooked, roasted",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001424,"Chicken, broilers or fryers, wing, meat only, cooked, fried",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001425,"Turkey, all classes, breast, meat and skin, cooked, roasted",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001426,"Turkey, retail parts, drumstick, meat only, cooked, roasted",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001427,"Turkey, retail parts, thigh, meat and skin, cooked, roasted",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001428,"Beef, ground, 93% lean meat / 7% fat, patty, cooked, broiled",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001429,"Beef, ground, 95% lean meat / 5% fat, patty, cooked, broiled",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001430,"Crustaceans, shrimp, cooked",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001431,"Fish, carp, cooked, dry heat",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001432,"Fish, cusk, cooked, dry heat",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001433,"Fish, ling, cooked, dry heat",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001434,"Fish, scup, cooked, dry heat",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001435,"Fish, spot, cooked, dry heat",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001436,"Fish, burbot, cooked, dry heat",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001437,"Fish, lingcod, cooked, dry heat",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001438,"Fish, tilapia, cooked, dry heat",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001439,"Fish, bluefish, cooked, dry heat",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001440,"Fish, mahimahi, cooked, dry heat",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001441,"Fish, milkfish, cooked, dry heat",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001442,"Fish, monkfish, cooked, dry heat",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001443,"Fish, tilefish, cooked, dry heat",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001444,"Fish, sablefish, cooked, dry heat",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001445,"Fish, swordfish, cooked, dry heat",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001446,"Fish, butterfish, cooked, dry heat",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001447,"Fish, sheepshead, cooked, dry heat",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001448,"Fish, pout, ocean, cooked, dry heat",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001449,"Fish, salmon, chum, cooked, dry heat",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001450,"Fish, pike, walleye, cooked, dry heat",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001451,"Fish, sucker, white, cooked, dry heat",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001452,"Fish, mackerel, king, cooked, dry heat",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001453,"Fish, pike, northern, cooked, dry heat",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001454,"Fish, roughy, orange, cooked, dry heat",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001455,"Fish, shad, american, cooked, dry heat",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001456,"Fish, smelt, rainbow, cooked, dry heat",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001457,"Fish, salmon, chinook, cooked, dry heat",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001458,"Fish, drum, freshwater, cooked, dry heat",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001459,"Fish, herring, Pacific, cooked, dry heat",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001460,"Fish, pompano, florida, cooked, dry heat",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001461,"Fish, turbot, european, cooked, dry heat",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001462,"Fish, herring, Atlantic, cooked, dry heat",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001463,"Fish, mackerel, spanish, cooked, dry heat",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001464,"Fish, pollock, Atlantic, cooked, dry heat",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001465,"Yogurt, plain, low fat",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001466,"Yogurt, plain, skim milk",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001467,"Yogurt, vanilla, non-fat",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001468,"Yogurt, vanilla, low fat.",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001469,"Yogurt, Greek, vanilla, lowfat",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001470,"Yogurt, Greek, vanilla, nonfat",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001471,"Yogurt, Greek, fruit, whole milk",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001472,"Yogurt, Greek, strawberry, nonfat",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001473,"Cheese, blue",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001474,"Cheese, brie",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001475,"Cheese, edam",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001476,"Cheese, feta",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001477,"Cheese, brick",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001478,"Cheese, colby",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001479,"Cheese, cream",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001480,"Cheese, gouda",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001481,"Cheese, swiss",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001482,"Cheese, romano",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001483,"Cheese, tilsit",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001484,"Cheese, caraway",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001485,"Cheese, fontina",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001486,"Cheese, gjetost",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001487,"Cheese, gruyere",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001488,"Cheese, cheshire",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001489,"Cheese, monterey",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001490,"Cheese, muenster",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001491,"Cheese, camembert",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001492,"Cheese, limburger",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001493,"Cheese, provolone",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001494,"Cheese, roquefort",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001495,"Cheese, neufchatel",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001496,"Milk, sheep, fluid",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001497,"Cheese, Mexican blend",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001498,"Cheese, port de salut",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001499,"Cream, sour, cultured",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001500,"Cheese, cream, low fat",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001501,"Cheese, parmesan, hard",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001502,"Cheese, swiss, low fat",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001503,"Cheese, cream, fat free",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001504,"Egg, whole, cooked, scrambled",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001505,"Rice, brown, long-grain, cooked (Includes foods for USDA's Food Distribution Program)",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001506,"Millet, cooked",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001507,"Spaghetti, spinach, cooked",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001508,"Pasta, gluten-free, corn, cooked",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001509,"Macaroni, vegetable, enriched, cooked",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001510,"Pasta, homemade, made with egg, cooked",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001511,"Pasta, cooked, enriched, with added salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001512,"Pasta, fresh-refrigerated, plain, cooked",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001513,"Pasta, homemade, made without egg, cooked",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001514,"Pasta, cooked, unenriched, with added salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001515,"Pasta, fresh-refrigerated, spinach, cooked",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001516,"Rice, white, glutinous, unenriched, cooked",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001517,"Rice, white, short-grain, enriched, cooked",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001518,"Pasta, cooked, enriched, without added salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001519,"Rice, white, medium-grain, enriched, cooked",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001520,"Rice, white, glutinous, unenriched, uncooked",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001521,"Rice, white, short-grain, cooked, unenriched",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001522,"Rice, white, short-grain, enriched, uncooked",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001523,"Pasta, cooked, unenriched, without added salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001524,"Rice, white, medium-grain, cooked, unenriched",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001525,"Pasta, gluten-free, corn and rice flour, cooked",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001526,"Rice, white, long-grain, regular, enriched, cooked",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001527,"Rice, white, long-grain, parboiled, enriched, cooked",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001528,"Rice, white, long-grain, parboiled, unenriched, cooked",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001529,"Cereals, farina, enriched, cooked with water, with salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001530,"Spaghetti, protein-fortified, cooked, enriched (n x 6.25)",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001531,"Rice, white, long-grain, precooked or instant, enriched, dry",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001532,"Rice, white, long-grain, regular, cooked, enriched, with salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001533,"Rice, white, long-grain, regular, cooked, unenriched, with salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001534,"Rice, white, long-grain, precooked or instant, enriched, prepared",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001535,"Rice, white, long-grain, regular, unenriched, cooked without salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001536,"Cereals, whole wheat hot natural cereal, cooked with water, with salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001537,"Cereals, whole wheat hot natural cereal, cooked with water, without salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001538,"Pasta, whole grain, 51% whole wheat, remaining unenriched semolina, cooked",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001539,"Cereals, corn grits, yellow, regular, quick, enriched, cooked with water, with salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001540,"Cereals, corn grits, white, regular and quick, enriched, cooked with water, with salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001541,"Cereals, corn grits, white, regular and quick, enriched, cooked with water, without salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001542,"Cereals, corn grits, yellow, regular and quick, enriched, cooked with water, without salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001543,"Cereals, oats, regular and quick, unenriched, cooked with water (includes boiling and microwaving), without salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001544,"Cereals, oats, regular and quick and instant, unenriched, cooked with water (includes boiling and microwaving), with salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001545,Buckwheat,1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001546,"Millet, raw",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001547,"Barley, hulled",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001548,"Millet, puffed",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001549,"Rye flour, dark",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001550,"Rye flour, light",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001551,"Rye flour, medium",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001552,"Pasta, dry, enriched",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001553,"Pasta, dry, unenriched",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001554,"Cornmeal, blue (Navajo)",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001555,"Spaghetti, spinach, dry",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001556,"Cornmeal, white (Navajo)",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001557,"Cornmeal, yellow (Navajo)",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001558,"Cornmeal, whole-grain, white",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001559,"Cornmeal, whole-grain, yellow",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001560,"Pasta, gluten-free, corn, dry",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001561,"Corn flour, whole-grain, white",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001562,"Oat flour, partially debranned",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001563,"Corn flour, whole-grain, yellow",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001564,"Cereals, farina, unenriched, dry",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001565,"Corn flour, masa, enriched, white",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001566,"Corn flour, yellow, masa, enriched",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001567,"Macaroni, vegetable, enriched, dry",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001568,"Wheat flour, white, cake, enriched",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001569,"Corn flour, masa, unenriched, white",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001570,"Beans, chili, barbecue, ranch style, cooked",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001571,"Peanuts, all types, cooked, boiled, with salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001572,"Soybeans, mature cooked, boiled, without salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001573,"Peas, green, cooked, boiled, drained, with salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001574,"Lentils, mature seeds, cooked, boiled, with salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001575,"Lentils, sprouted, cooked, stir-fried, with salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001576,"Soybeans, mature seeds, cooked, boiled, with salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001577,"Soybeans, mature seeds, sprouted, cooked, steamed",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001578,"Peas, green, cooked, boiled, drained, without salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001579,"Lentils, sprouted, cooked, stir-fried, without salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001580,"Soybeans, green, cooked, boiled, drained, with salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001581,"Beans, navy, mature seeds, cooked, boiled, with salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001582,"Beans, pink, mature seeds, cooked, boiled, with salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001583,"Peas, split, mature seeds, cooked, boiled, with salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001584,"Soybeans, mature seeds, sprouted, cooked, stir-fried",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001585,"Beans, adzuki, mature seed, cooked, boiled, with salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001586,"Beans, black, mature seeds, cooked, boiled, with salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001587,"Beans, pinto, mature seeds, cooked, boiled, with salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001588,"Beans, white, mature seeds, cooked, boiled, with salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001589,"Beans, french, mature seeds, cooked, boiled, with salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001590,"Beans, snap, green, cooked, boiled, drained, with salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001591,"Beans, yellow, mature seeds, cooked, boiled, with salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001592,"Soybeans, green, cooked, boiled, drained, without salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001593,"Beans, navy, mature seeds, cooked, boiled, without salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001594,"Beans, pink, mature seeds, cooked, boiled, without salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001595,"Beans, snap, yellow, cooked, boiled, drained, with salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001596,"Peas, edible-podded, cooked, boiled, drained, with salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001597,"Peas, green, frozen, cooked, boiled, drained, with salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001598,"Peas, split, mature seeds, cooked, boiled, without salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001599,"Beans, black, mature seeds, cooked, boiled, without salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001600,"Beans, pinto, mature seeds, cooked, boiled, without salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001601,"Beans, white, mature seeds, cooked, boiled, without salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001602,"Beans, adzuki, mature seeds, cooked, boiled, without salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001603,"Beans, french, mature seeds, cooked, boiled, without salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001604,"Beans, snap, green, cooked, boiled, drained, without salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001605,"Cabbage, kimchi",2,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001606,"Sweet potato, frozen, cooked, baked, with salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001607,"Squash, winter, acorn, cooked, baked, with salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001608,"Okra, frozen, cooked, boiled, drained, with salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001609,"Sweet potato, frozen, cooked, baked, without salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001610,"Squash, winter, acorn, cooked, baked, without salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001611,"Carrots, frozen, cooked, boiled, drained, with salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001612,"Okra, frozen, cooked, boiled, drained, without salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001613,"Squash, winter, butternut, cooked, baked, with salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001614,"Turnips, frozen, cooked, boiled, drained, with salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001615,"Asparagus, frozen, cooked, boiled, drained, with salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001616,"Sweet potato, cooked, baked in skin, flesh, with salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001617,"Carrots, frozen, cooked, boiled, drained, without salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001618,"Squash, winter, butternut, cooked, baked, without salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001619,"Turnips, frozen, cooked, boiled, drained, without salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001620,"Cauliflower, frozen, cooked, boiled, drained, with salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001621,"Squash, winter, all varieties, cooked, baked, with salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001622,"Squash, winter, acorn, cooked, boiled, mashed, with salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001623,"Sweet potato, cooked, baked in skin, flesh, without salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001624,"Onions, frozen, whole, cooked, boiled, drained, with salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001625,"Cauliflower, frozen, cooked, boiled, drained, without salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001626,"Squash, winter, all varieties, cooked, baked, without salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001627,"Squash, winter, hubbard, cooked, boiled, mashed, with salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001628,"Onions, frozen, chopped, cooked, boiled, drained, with salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001629,"Potatoes, frozen, whole, cooked, boiled, drained, with salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001630,"Squash, winter, acorn, cooked, boiled, mashed, without salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001631,"Onions, frozen, whole, cooked, boiled, drained, without salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001632,"Squash, winter, butternut, frozen, cooked, boiled, with salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001633,"Squash, winter, hubbard, cooked, boiled, mashed, without salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001634,"Onions, frozen, chopped, cooked, boiled, drained, without salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001635,"Potatoes, frozen, whole, cooked, boiled, drained, without salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001636,"Squash, winter, butternut, frozen, cooked, boiled, without salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001637,"Squash, winter, spaghetti, cooked, boiled, drained, or baked, with salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001638,"Artichokes, (globe or french), frozen, cooked, boiled, drained, with salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001639,"Peppers, sweet, green, frozen, chopped, cooked, boiled, drained, with salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001640,"Squash, winter, spaghetti, cooked, boiled, drained, or baked, without salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001641,"Corn, sweet, white, frozen, kernels on cob, cooked, boiled, drained, with salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001642,"Corn, sweet, yellow, frozen, kernels on cob, cooked, boiled, drained, with salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001643,"Corn, sweet, white, frozen, kernels on cob, cooked, boiled, drained, without salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001644,"Corn, sweet, yellow, frozen, kernels on cob, cooked, boiled, drained, without salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001645,"Squash, summer, zucchini, includes skin, frozen, cooked, boiled, drained, with salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001646,"Squash, summer, zucchini, includes skin, frozen, cooked, boiled, drained, without salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001647,"Tomatoes, sun-dried",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001648,"Corn, dried (Navajo)",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001649,"Peppers, ancho, dried",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001650,"Peppers, pasilla, dried",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001651,"Pickles, cucumber, sour",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001652,"Okra, frozen, unprepared",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001653,"Onions, dehydrated flakes",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001654,"Radishes, oriental, dried",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001655,"Figs, dried, uncooked",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001656,"Plums, dried (prunes), uncooked",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001657,"Pears, dried, sulfured, uncooked",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001658,"Apples, dried, sulfured, uncooked",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001659,"Peaches, dried, sulfured, uncooked",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001660,"Prunes, dehydrated (low-moisture), uncooked",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001661,"Apples, dehydrated (low moisture), sulfured, uncooked",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001662,"Peaches, dehydrated (low-moisture), sulfured, uncooked",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001663,"Apricots, dehydrated (low-moisture), sulfured, uncooked",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001664,"Figs, dried, stewed",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001665,"Mango nectar, canned",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001666,"Apricots, frozen, sweetened",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001667,"Blueberries, dried, sweetened",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001668,"Blueberries, frozen, sweetened",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001669,"Orange juice, canned, unsweetened",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001670,"Peaches, frozen, sliced, sweetened",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001671,"Pears, canned, heavy syrup, drained",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001672,"Plums, canned, heavy syrup, drained",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001673,"Raspberries, frozen, red, sweetened",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001674,"Pineapple, frozen, chunks, sweetened",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001675,"Peaches, canned, heavy syrup, drained",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001676,"Apricots, canned, heavy syrup, drained",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001677,"Pineapple, canned, juice pack, drained",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001678,"Strawberries, frozen, sweetened, sliced",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001679,"Olives, ripe, canned (small-extra large)",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001680,"Blueberries, canned, light syrup, drained",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001681,"Blueberries, wild, frozen (Alaska Native)",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001682,"Olives, pickled, canned or bottled, green",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001683,"Prunes, dehydrated (low-moisture), stewed",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001684,"Cherries, sour, canned, water pack, drained",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001685,"Bread, egg",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001686,"Bagels, egg",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001687,"Bread, wheat",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001688,"Bagels, wheat",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001689,"Bread, cheese",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001690,"Bread, potato",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001691,"Rolls, french",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001692,"Bread, Italian",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001693,"Bread, oatmeal",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001694,"Crackers, milk",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001695,"Bread, cinnamon",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001696,"Bread, oat bran",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001697,"Bagels, oat bran",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001698,"Bread, rice bran",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001699,"Cookies, fortune",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001700,"Cookies, fig bars",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001701,"Cookies, molasses",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001702,"Muffins, oat bran",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001703,"Bagels, multigrain",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001704,"Bread, white wheat",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001705,"Rolls, dinner, egg",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001706,"Rolls, dinner, rye",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001707,"Bread, egg, toasted",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001708,"Bread, pumpernickel",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001709,"Bread, rye, toasted",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001710,"Rolls, pumpernickel",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001711,"Bread, cracked-wheat",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001712,"Bread, sticks, plain",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001713,"Cookies, gingersnaps",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001714,"Crackers, matzo, egg",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001715,"Crackers, multigrain",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001716,"Crackers, rusk toast",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001717,"Rolls, dinner, sweet",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001718,"Rolls, dinner, wheat",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001719,"Bread, wheat, toasted",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001720,"Crackers, whole-wheat",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001721,"Bread, wheat, sprouted",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001722,"Cookies, Marie biscuit",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001723,"Crackers, matzo, plain",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001724,"Bagels, cinnamon-raisin",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001725,"Bread, oatmeal, toasted",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001726,"Bread, raisin, enriched",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001727,"Muffins, English, wheat",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001728,"Rolls, dinner, oat bran",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001729,"Bread, oat bran, toasted",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001730,"Bread, pita, whole-wheat",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001731,"Bread, stuffing, dry mix",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001732,"Crackers, water biscuits",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001733,"Crackers, wheat, regular",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001734,"Bagels, whole grain white",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001735,"Bread, raisin, unenriched",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001736,"Bread, rice bran, toasted",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001737,"Cookies, chocolate wafers",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001738,"Cookies, coconut macaroon",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001739,"Cookies, oatmeal, dry mix",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001740,"Crackers, cheese, regular",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001741,"Crackers, crispbread, rye",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001742,"Crackers, wheat, low salt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001743,"Bread, kneel down (Navajo)",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001744,"Cookies, raisin, soft-type",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001745,"Rolls, dinner, whole-wheat",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001746,"Bread, boston brown, canned",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001747,"Bread, reduced-calorie, rye",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001748,"Muffins, blueberry, dry mix",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001749,"Muffins, corn, toaster-type",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001750,"Gravy, mushroom, canned",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001751,Catsup,1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001752,"Syrups, malt",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001753,"Syrups, maple",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001754,"Vinegar, cider",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001755,"Sauce, barbecue",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001756,"Spices, paprika",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001757,"Spices, saffron",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001758,"Syrups, sorghum",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001759,"Spices, bay leaf",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001760,"Spices, cardamom",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001761,"Gravy, brown, dry",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001762,"Spices, dill seed",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001763,"Syrups, grenadine",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001764,"Vinegar, balsamic",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001765,"Vinegar, red wine",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001766,"Catsup, low sodium",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001767,"Gravy, au jus, dry",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001768,"Gravy, turkey, dry",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001769,"Sauce, horseradish",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001770,"Spices, anise seed",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001771,"Spices, cumin seed",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001772,"Spices, poppy seed",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001773,"Syrups, corn, dark",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001774,"Syrups, sugar free",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001775,"Vinegar, distilled",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001776,"Gravy, chicken, dry",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001777,"Spices, celery seed",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001778,"Spices, fennel seed",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001779,"Syrups, corn, light",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001780,"Spices, basil, dried",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001781,"Spices, caraway seed",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001782,"Spices, chili powder",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001783,"Spices, curry powder",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001784,"Spices, mace, ground",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001785,"Spices, onion powder",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001786,"Spices, sage, ground",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001787,"Spices, thyme, dried",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001788,"Gravy, au jus, canned",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001789,"Sauce, worcestershire",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001790,"Blue marlin (Makaira nigricans), Hawaii-caught, fresh",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001791,"Athlene ACTIVE Pure Isolate, Chocolate, dry powder (estimate)",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001792,"Athlene ACTIVE Pure Isolate, Strawberry Milkshake, dry powder (estimate)",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001793,"Seared sirloin steak, 100 g pan-fried meat plus 5 g butter (estimate)",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001794,"Seared Atlantic farmed salmon, 100 g cooked fish plus 5 g oil (estimate)",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001795,"Seared blue marlin, fresh-fish yield model with oil (estimate)",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001796,"Home-fried chicken Pinoy-style, white meat, soy-calamansi (estimate)",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001797,"Home-fried chicken Pinoy-style, flour-coated meat and skin (estimate)",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001798,"Chooks-to-Go Sweet Roast, edible meat and skin, no extra sauce (estimate)",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001799,"Chooks-to-Go Pepper Roast, edible meat and skin, no extra sauce (estimate)",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001800,"Kenny Rogers Philippines Classic Roasted Chicken, edible meat and skin (estimate)",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001801,"Kenny Rogers Philippines Classic Roasted Chicken, skin and visible fat removed (estimate)",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001802,"Kenny Rogers Philippines Grilled Salmon, fish and lemon-butter-style sauce only (estimate)",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001803,"Kenny Rogers Philippines Burger Steak, patty and mushroom gravy only (estimate)",1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001804,Kenny Rogers Philippines Spinach Mashed Potato side (estimate),1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001805,Kenny Rogers Philippines Macaroni and Cheese side (estimate),1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001806,Kenny Rogers Philippines Corn and Carrots side (estimate),1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001807,Kenny Rogers Philippines Steamed Vegetables side (estimate),1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001808,Kenny Rogers Philippines Coleslaw side (estimate),1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.
+FC001809,Kenny Rogers Philippines Corn Muffin (estimate),1,,NO_FNRI_COMMON_NAME_FOR_THIS_RECORD,Canonical search covered. No unsupported regional translation added.

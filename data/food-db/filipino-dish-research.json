@@ -1,0 +1,20 @@
+{
+  "checked_date": "2026-09-17",
+  "sources": [
+    {
+      "url": "https://i.fnri.dost.gov.ph/fct/library/search_item",
+      "finding": "Retained full PhilFCT catalog reviewed. Existing canned and specialized recipes do not represent the proposed home-prepared ingredient mixtures."
+    },
+    {
+      "url": "https://fnri.dost.gov.ph/images/images/standardtools/MenuGuideCalendar/2016MGC.pdf",
+      "local_snapshot": "Food_DB/research/fnri-menu-2016.pdf",
+      "sha256": "537bc3151f4c5fd559f3611380766d6c401205a5a40ce71eeff72b55649cdf2d",
+      "finding": "Official recipe nutrition is per stated serving, e.g. cups/pieces. No gram-weight mapping used; did not convert its nutrient values to per 100 g."
+    },
+    {
+      "url": "https://www.ajinomoto.com.ph/ajinomoto-static/eggplant-adobo/index.html",
+      "finding": "Nutrition basis ambiguous relative to dish-only serving and meal-serving idea; not imported."
+    }
+  ],
+  "decision": "Build clearly labeled model-designed ingredient mixtures instead; all recipe weights/yields assumed, no published recipe nutrition imported."
+}

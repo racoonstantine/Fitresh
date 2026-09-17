@@ -1,0 +1,11 @@
+{
+  "batch": "2026-09-17-filipino-dishes",
+  "added": 50,
+  "verified_dishes_added": 0,
+  "explicit_recipe_estimates_added": 50,
+  "total_food_identities": 1309,
+  "prior_food_rows_preserved": 1259,
+  "ingredient_rows": 406,
+  "documented_household_weights_added": 0,
+  "policy": "Estimates are unavailable by default and require explicit estimate_id; all original foods, portions and estimates preserved."
+}

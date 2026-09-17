@@ -1,0 +1,481 @@
+food_id,batch_id,source,source_food_id,name,category,source_url
+FC001310,batch-1,FNRI,A009,"Millet, glutinous","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/2971
+FC001311,batch-1,FNRI,A024,Sorghum,"Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/2986
+FC001312,batch-1,FNRI,A025,"Sorghum, boiled","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/2987
+FC001313,batch-1,FNRI,A049,Bunuelos,"Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3011
+FC001314,batch-1,FNRI,A062,"Cake, marshmallow roll","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3024
+FC001315,batch-1,FNRI,A064,"Cake, pineapple roll","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3026
+FC001316,batch-1,FNRI,A069,"Chips, corn, natural flvr","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3031
+FC001317,batch-1,FNRI,A070,"Chips, corn-potato based, cheese flvr","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3032
+FC001318,batch-1,FNRI,A071,"Chips, corn, taco & bbq flvr","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3033
+FC001319,batch-1,FNRI,A072,"Chips, corn, taco flvr","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3034
+FC001320,batch-1,FNRI,A076,"Chips, prawn crackers, flvrd","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3038
+FC001321,batch-1,FNRI,A078,"Chips, shrimp kroepeck","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3040
+FC001322,batch-1,FNRI,A080,"Chips, sticks, onion flvr","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3042
+FC001323,batch-1,FNRI,A081,"Chips, tortilla, bbq flvr","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3043
+FC001324,batch-1,FNRI,A082,"Chips, tortilla, nacho cheese flvr","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3044
+FC001325,batch-1,FNRI,A085,"Cookies, assorted","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3047
+FC001326,batch-1,FNRI,A088,"Cookies, camachili","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3050
+FC001327,batch-1,FNRI,A089,"Cookies, gem","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3051
+FC001328,batch-1,FNRI,A096,"Cookies, pili nut","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3058
+FC001329,batch-1,FNRI,A101,"Cookies, vanilla wafer, choc-coated","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3063
+FC001330,batch-1,FNRI,A117,"Curls, bbq flvr","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3079
+FC001331,batch-1,FNRI,A121,"Curls, prawn flvr","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3083
+FC001332,batch-1,FNRI,A122,"Curls, shrimp flvr","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3084
+FC001333,batch-1,FNRI,A125,Gurgurya,"Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3087
+FC001334,batch-1,FNRI,A126,Hominy,"Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3088
+FC001335,batch-1,FNRI,A131,"Lohuwa, peanut","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3093
+FC001336,batch-1,FNRI,A132,"Lohuwa, rice","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3094
+FC001337,batch-1,FNRI,A133,"Lohuwa, sesame seed","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3095
+FC001338,batch-1,FNRI,A159,"Pretzel, sweetn","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3121
+FC001339,batch-1,FNRI,A160,"Pudding, pineapple","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3122
+FC001340,batch-1,FNRI,A161,"Pudding, raisin","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3123
+FC001341,batch-1,FNRI,A162,"Pudding, vanilla","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3124
+FC001342,batch-1,FNRI,A163,"Puffs, bbq flvr","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3125
+FC001343,batch-1,FNRI,A164,"Puffs, cheese flvr","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3126
+FC001344,batch-1,FNRI,A165,"Puffs, chicken flvr","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3127
+FC001345,batch-1,FNRI,A166,"Puffs, spiced","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/3128
+FC001346,batch-1,FNRI,C059,"Peanut butter, choc flvr","Legumes, Nuts & Seeds",https://i.fnri.dost.gov.ph/fct/library/report/3269
+FC001347,batch-1,FNRI,C060,Peanut cracker,"Legumes, Nuts & Seeds",https://i.fnri.dost.gov.ph/fct/library/report/3270
+FC001348,batch-1,FNRI,F243,Pork jerky,Meat & Poultry,https://i.fnri.dost.gov.ph/fct/library/report/3950
+FC001349,batch-1,FNRI,D297,"Malunggay leaves powder, dry",Vegetables,https://i.fnri.dost.gov.ph/fct/library/report/3576
+FC001350,batch-1,USDA,171449,"Chicken, broilers or fryers, meat and skin, cooked, fried, flour",Meat & Poultry,https://fdc.nal.usda.gov/food-details/171449/nutrients
+FC001351,batch-1,USDA,171448,"Chicken, broilers or fryers, meat and skin, cooked, fried, batter",Meat & Poultry,https://fdc.nal.usda.gov/food-details/171448/nutrients
+FC001352,batch-1,USDA,169550,"Beef, top sirloin, steak, separable lean and fat, trimmed to 1/8"" fat, choice, cooked, pan-fried",Meat & Poultry,https://fdc.nal.usda.gov/food-details/169550/nutrients
+FC001353,batch-1,USDA,171506,"Turkey, Ground, cooked",Meat & Poultry,https://fdc.nal.usda.gov/food-details/171506/nutrients
+FC001354,batch-1,USDA,168324,"Pork, bacon, rendered fat, cooked",Meat & Poultry,https://fdc.nal.usda.gov/food-details/168324/nutrients
+FC001355,batch-1,USDA,167914,"Pork, cured, bacon, cooked, baked",Meat & Poultry,https://fdc.nal.usda.gov/food-details/167914/nutrients
+FC001356,batch-1,USDA,168221,"Pork, fresh, separable fat, cooked",Meat & Poultry,https://fdc.nal.usda.gov/food-details/168221/nutrients
+FC001357,batch-1,USDA,170198,"Beef, cured, breakfast strips, cooked",Meat & Poultry,https://fdc.nal.usda.gov/food-details/170198/nutrients
+FC001358,batch-1,USDA,168321,"Pork, cured, bacon, cooked, microwaved",Meat & Poultry,https://fdc.nal.usda.gov/food-details/168321/nutrients
+FC001359,batch-1,USDA,168606,"Beef, retail cuts, separable fat, cooked",Meat & Poultry,https://fdc.nal.usda.gov/food-details/168606/nutrients
+FC001360,batch-1,USDA,170200,"Beef, cured, corned beef, brisket, cooked",Meat & Poultry,https://fdc.nal.usda.gov/food-details/170200/nutrients
+FC001361,batch-1,USDA,171091,"Turkey, whole, dark meat, cooked, roasted",Meat & Poultry,https://fdc.nal.usda.gov/food-details/171091/nutrients
+FC001362,batch-1,USDA,171481,"Turkey, whole, meat only, cooked, roasted",Meat & Poultry,https://fdc.nal.usda.gov/food-details/171481/nutrients
+FC001363,batch-1,USDA,172403,"Chicken, stewing, meat only, cooked, stewed",Meat & Poultry,https://fdc.nal.usda.gov/food-details/172403/nutrients
+FC001364,batch-1,USDA,171485,"Turkey, all classes, heart, cooked, simmered",Meat & Poultry,https://fdc.nal.usda.gov/food-details/171485/nutrients
+FC001365,batch-1,USDA,172161,"Beef, ground, unspecified fat content, cooked",Meat & Poultry,https://fdc.nal.usda.gov/food-details/172161/nutrients
+FC001366,batch-1,USDA,171059,"Chicken, heart, all classes, cooked, simmered",Meat & Poultry,https://fdc.nal.usda.gov/food-details/171059/nutrients
+FC001367,batch-1,USDA,172395,"Chicken, roasting, meat only, cooked, roasted",Meat & Poultry,https://fdc.nal.usda.gov/food-details/172395/nutrients
+FC001368,batch-1,USDA,171479,"Turkey, whole, meat and skin, cooked, roasted",Meat & Poultry,https://fdc.nal.usda.gov/food-details/171479/nutrients
+FC001369,batch-1,USDA,171499,"Turkey, young hen, skin only, cooked, roasted",Meat & Poultry,https://fdc.nal.usda.gov/food-details/171499/nutrients
+FC001370,batch-1,USDA,169447,"Beef, ground, patties, frozen, cooked, broiled",Meat & Poultry,https://fdc.nal.usda.gov/food-details/169447/nutrients
+FC001371,batch-1,USDA,171117,"Chicken, ground, crumbles, cooked, pan-browned",Meat & Poultry,https://fdc.nal.usda.gov/food-details/171117/nutrients
+FC001372,batch-1,USDA,173646,"Chicken, capons, meat and skin, cooked, roasted",Meat & Poultry,https://fdc.nal.usda.gov/food-details/173646/nutrients
+FC001373,batch-1,USDA,172401,"Chicken, stewing, meat and skin, cooked, stewed",Meat & Poultry,https://fdc.nal.usda.gov/food-details/172401/nutrients
+FC001374,batch-1,USDA,171097,"Turkey, whole, back, meat only, cooked, roasted",Meat & Poultry,https://fdc.nal.usda.gov/food-details/171097/nutrients
+FC001375,batch-1,USDA,171498,"Turkey, whole, wing, meat only, cooked, roasted",Meat & Poultry,https://fdc.nal.usda.gov/food-details/171498/nutrients
+FC001376,batch-1,USDA,171491,"Turkey, all classes, light meat, cooked, roasted",Meat & Poultry,https://fdc.nal.usda.gov/food-details/171491/nutrients
+FC001377,batch-1,USDA,173635,"Chicken, roasting, meat and skin, cooked, roasted",Meat & Poultry,https://fdc.nal.usda.gov/food-details/173635/nutrients
+FC001378,batch-1,USDA,168322,"Pork, cured, bacon, pre-sliced, cooked, pan-fried",Meat & Poultry,https://fdc.nal.usda.gov/food-details/168322/nutrients
+FC001379,batch-1,USDA,169193,"Pork, ground, 96% lean / 4% fat, cooked, crumbles",Meat & Poultry,https://fdc.nal.usda.gov/food-details/169193/nutrients
+FC001380,batch-1,USDA,171496,"Turkey, whole, breast, meat only, cooked, roasted",Meat & Poultry,https://fdc.nal.usda.gov/food-details/171496/nutrients
+FC001381,batch-1,USDA,168110,"Pork, cured, ham, low sodium, lean and fat, cooked",Meat & Poultry,https://fdc.nal.usda.gov/food-details/168110/nutrients
+FC001382,batch-1,USDA,169191,"Pork, ground, 72% lean / 28% fat, cooked, crumbles",Meat & Poultry,https://fdc.nal.usda.gov/food-details/169191/nutrients
+FC001383,batch-1,USDA,169192,"Pork, ground, 84% lean / 16% fat, cooked, crumbles",Meat & Poultry,https://fdc.nal.usda.gov/food-details/169192/nutrients
+FC001384,batch-1,USDA,168375,"Pork, ground, 96% lean / 4% fat, cooked, pan-broiled",Meat & Poultry,https://fdc.nal.usda.gov/food-details/168375/nutrients
+FC001385,batch-1,USDA,171053,"Chicken, broilers or fryers, meat only, cooked, fried",Meat & Poultry,https://fdc.nal.usda.gov/food-details/171053/nutrients
+FC001386,batch-1,USDA,168373,"Pork, ground, 72% lean / 28% fat, cooked, pan-broiled",Meat & Poultry,https://fdc.nal.usda.gov/food-details/168373/nutrients
+FC001387,batch-1,USDA,168374,"Pork, ground, 84% lean / 16% fat, cooked, pan-broiled",Meat & Poultry,https://fdc.nal.usda.gov/food-details/168374/nutrients
+FC001388,batch-1,USDA,167709,"Turkey, wing, smoked, cooked, with skin, bone removed",Meat & Poultry,https://fdc.nal.usda.gov/food-details/167709/nutrients
+FC001389,batch-1,USDA,171451,"Chicken, broilers or fryers, meat only, cooked, stewed",Meat & Poultry,https://fdc.nal.usda.gov/food-details/171451/nutrients
+FC001390,batch-1,USDA,171056,"Chicken, broilers or fryers, skin only, cooked, stewed",Meat & Poultry,https://fdc.nal.usda.gov/food-details/171056/nutrients
+FC001391,batch-1,USDA,172854,"Chicken, skin (drumsticks and thighs), cooked, braised",Meat & Poultry,https://fdc.nal.usda.gov/food-details/172854/nutrients
+FC001392,batch-1,USDA,174496,"Chicken, skin (drumsticks and thighs), cooked, roasted",Meat & Poultry,https://fdc.nal.usda.gov/food-details/174496/nutrients
+FC001393,batch-1,USDA,172405,"Chicken, stewing, dark meat, meat only, cooked, stewed",Meat & Poultry,https://fdc.nal.usda.gov/food-details/172405/nutrients
+FC001394,batch-1,USDA,171095,"Turkey, fryer-roasters, meat and skin, cooked, roasted",Meat & Poultry,https://fdc.nal.usda.gov/food-details/171095/nutrients
+FC001395,batch-1,USDA,172872,"Turkey, retail parts, wing, meat only, cooked, roasted",Meat & Poultry,https://fdc.nal.usda.gov/food-details/172872/nutrients
+FC001396,batch-1,USDA,171054,"Chicken, broilers or fryers, meat only, cooked, roasted",Meat & Poultry,https://fdc.nal.usda.gov/food-details/171054/nutrients
+FC001397,batch-1,USDA,171055,"Chicken, broilers or fryers, skin only, cooked, roasted",Meat & Poultry,https://fdc.nal.usda.gov/food-details/171055/nutrients
+FC001398,batch-1,USDA,173644,"Chicken, stewing, light meat, meat only, cooked, stewed",Meat & Poultry,https://fdc.nal.usda.gov/food-details/173644/nutrients
+FC001399,batch-1,USDA,172877,"Turkey, retail parts, thigh, meat only, cooked, roasted",Meat & Poultry,https://fdc.nal.usda.gov/food-details/172877/nutrients
+FC001400,batch-1,USDA,173639,"Chicken, roasting, dark meat, meat only, cooked, roasted",Meat & Poultry,https://fdc.nal.usda.gov/food-details/173639/nutrients
+FC001401,batch-1,USDA,171494,"Turkey, all classes, leg, meat and skin, cooked, roasted",Meat & Poultry,https://fdc.nal.usda.gov/food-details/171494/nutrients
+FC001402,batch-1,USDA,174516,"Turkey, retail parts, breast, meat only, cooked, roasted",Meat & Poultry,https://fdc.nal.usda.gov/food-details/174516/nutrients
+FC001403,batch-1,USDA,171489,"Turkey, whole, dark meat, meat and skin, cooked, roasted",Meat & Poultry,https://fdc.nal.usda.gov/food-details/171489/nutrients
+FC001404,batch-1,USDA,174754,"Beef, ground, 93% lean meat / 7% fat, loaf, cooked, baked",Meat & Poultry,https://fdc.nal.usda.gov/food-details/174754/nutrients
+FC001405,batch-1,USDA,174029,"Beef, ground, 95% lean meat / 5% fat, loaf, cooked, baked",Meat & Poultry,https://fdc.nal.usda.gov/food-details/174029/nutrients
+FC001406,batch-1,USDA,173114,"Beef, ground, 97% lean meat / 3% fat, loaf, cooked, baked",Meat & Poultry,https://fdc.nal.usda.gov/food-details/173114/nutrients
+FC001407,batch-1,USDA,173637,"Chicken, roasting, light meat, meat only, cooked, roasted",Meat & Poultry,https://fdc.nal.usda.gov/food-details/173637/nutrients
+FC001408,batch-1,USDA,171092,"Turkey, all classes, back, meat and skin, cooked, roasted",Meat & Poultry,https://fdc.nal.usda.gov/food-details/171092/nutrients
+FC001409,batch-1,USDA,171094,"Turkey, all classes, wing, meat and skin, cooked, roasted",Meat & Poultry,https://fdc.nal.usda.gov/food-details/171094/nutrients
+FC001410,batch-2,USDA,171089,"Turkey, whole, light meat, meat and skin, cooked, roasted",Meat & Poultry,https://fdc.nal.usda.gov/food-details/171089/nutrients
+FC001411,batch-2,USDA,169474,"Beef, ground, 70% lean meat / 30% fat, loaf, cooked, baked",Meat & Poultry,https://fdc.nal.usda.gov/food-details/169474/nutrients
+FC001412,batch-2,USDA,171801,"Beef, ground, 75% lean meat / 25% fat, loaf, cooked, baked",Meat & Poultry,https://fdc.nal.usda.gov/food-details/171801/nutrients
+FC001413,batch-2,USDA,171800,"Beef, ground, 80% lean meat / 20% fat, loaf, cooked, baked",Meat & Poultry,https://fdc.nal.usda.gov/food-details/171800/nutrients
+FC001414,batch-2,USDA,174035,"Beef, ground, 85% lean meat / 15% fat, loaf, cooked, baked",Meat & Poultry,https://fdc.nal.usda.gov/food-details/174035/nutrients
+FC001415,batch-2,USDA,171795,"Beef, ground, 90% lean meat / 10% fat, loaf, cooked, baked",Meat & Poultry,https://fdc.nal.usda.gov/food-details/171795/nutrients
+FC001416,batch-2,USDA,172379,"Chicken, broilers or fryers, leg, meat only, cooked, fried",Meat & Poultry,https://fdc.nal.usda.gov/food-details/172379/nutrients
+FC001417,batch-2,USDA,171051,"Chicken, broilers or fryers, meat and skin, cooked, stewed",Meat & Poultry,https://fdc.nal.usda.gov/food-details/171051/nutrients
+FC001418,batch-2,USDA,167710,"Turkey, drumstick, smoked, cooked, with skin, bone removed",Meat & Poultry,https://fdc.nal.usda.gov/food-details/167710/nutrients
+FC001419,batch-2,USDA,171133,"Turkey, retail parts, wing, meat and skin, cooked, roasted",Meat & Poultry,https://fdc.nal.usda.gov/food-details/171133/nutrients
+FC001420,batch-2,USDA,168629,"Beef, variety meats and by-products, lungs, cooked, braised",Meat & Poultry,https://fdc.nal.usda.gov/food-details/168629/nutrients
+FC001421,batch-2,USDA,171074,"Chicken, broilers or fryers, back, meat only, cooked, fried",Meat & Poultry,https://fdc.nal.usda.gov/food-details/171074/nutrients
+FC001422,batch-2,USDA,172381,"Chicken, broilers or fryers, leg, meat only, cooked, stewed",Meat & Poultry,https://fdc.nal.usda.gov/food-details/172381/nutrients
+FC001423,batch-2,USDA,171450,"Chicken, broilers or fryers, meat and skin, cooked, roasted",Meat & Poultry,https://fdc.nal.usda.gov/food-details/171450/nutrients
+FC001424,batch-2,USDA,172391,"Chicken, broilers or fryers, wing, meat only, cooked, fried",Meat & Poultry,https://fdc.nal.usda.gov/food-details/172391/nutrients
+FC001425,batch-2,USDA,171492,"Turkey, all classes, breast, meat and skin, cooked, roasted",Meat & Poultry,https://fdc.nal.usda.gov/food-details/171492/nutrients
+FC001426,batch-2,USDA,172878,"Turkey, retail parts, drumstick, meat only, cooked, roasted",Meat & Poultry,https://fdc.nal.usda.gov/food-details/172878/nutrients
+FC001427,batch-2,USDA,171137,"Turkey, retail parts, thigh, meat and skin, cooked, roasted",Meat & Poultry,https://fdc.nal.usda.gov/food-details/171137/nutrients
+FC001428,batch-2,USDA,174752,"Beef, ground, 93% lean meat / 7% fat, patty, cooked, broiled",Meat & Poultry,https://fdc.nal.usda.gov/food-details/174752/nutrients
+FC001429,batch-2,USDA,171791,"Beef, ground, 95% lean meat / 5% fat, patty, cooked, broiled",Meat & Poultry,https://fdc.nal.usda.gov/food-details/171791/nutrients
+FC001430,batch-2,USDA,175180,"Crustaceans, shrimp, cooked",Fish & Seafood,https://fdc.nal.usda.gov/food-details/175180/nutrients
+FC001431,batch-2,USDA,174185,"Fish, carp, cooked, dry heat",Fish & Seafood,https://fdc.nal.usda.gov/food-details/174185/nutrients
+FC001432,batch-2,USDA,171991,"Fish, cusk, cooked, dry heat",Fish & Seafood,https://fdc.nal.usda.gov/food-details/171991/nutrients
+FC001433,batch-2,USDA,174234,"Fish, ling, cooked, dry heat",Fish & Seafood,https://fdc.nal.usda.gov/food-details/174234/nutrients
+FC001434,batch-2,USDA,174241,"Fish, scup, cooked, dry heat",Fish & Seafood,https://fdc.nal.usda.gov/food-details/174241/nutrients
+FC001435,batch-2,USDA,174244,"Fish, spot, cooked, dry heat",Fish & Seafood,https://fdc.nal.usda.gov/food-details/174244/nutrients
+FC001436,batch-2,USDA,174230,"Fish, burbot, cooked, dry heat",Fish & Seafood,https://fdc.nal.usda.gov/food-details/174230/nutrients
+FC001437,batch-2,USDA,174235,"Fish, lingcod, cooked, dry heat",Fish & Seafood,https://fdc.nal.usda.gov/food-details/174235/nutrients
+FC001438,batch-2,USDA,175177,"Fish, tilapia, cooked, dry heat",Fish & Seafood,https://fdc.nal.usda.gov/food-details/175177/nutrients
+FC001439,batch-2,USDA,174229,"Fish, bluefish, cooked, dry heat",Fish & Seafood,https://fdc.nal.usda.gov/food-details/174229/nutrients
+FC001440,batch-2,USDA,171992,"Fish, mahimahi, cooked, dry heat",Fish & Seafood,https://fdc.nal.usda.gov/food-details/171992/nutrients
+FC001441,batch-2,USDA,171995,"Fish, milkfish, cooked, dry heat",Fish & Seafood,https://fdc.nal.usda.gov/food-details/171995/nutrients
+FC001442,batch-2,USDA,171996,"Fish, monkfish, cooked, dry heat",Fish & Seafood,https://fdc.nal.usda.gov/food-details/171996/nutrients
+FC001443,batch-2,USDA,175152,"Fish, tilefish, cooked, dry heat",Fish & Seafood,https://fdc.nal.usda.gov/food-details/175152/nutrients
+FC001444,batch-2,USDA,174240,"Fish, sablefish, cooked, dry heat",Fish & Seafood,https://fdc.nal.usda.gov/food-details/174240/nutrients
+FC001445,batch-2,USDA,173704,"Fish, swordfish, cooked, dry heat",Fish & Seafood,https://fdc.nal.usda.gov/food-details/173704/nutrients
+FC001446,batch-2,USDA,174231,"Fish, butterfish, cooked, dry heat",Fish & Seafood,https://fdc.nal.usda.gov/food-details/174231/nutrients
+FC001447,batch-2,USDA,175145,"Fish, sheepshead, cooked, dry heat",Fish & Seafood,https://fdc.nal.usda.gov/food-details/175145/nutrients
+FC001448,batch-2,USDA,174238,"Fish, pout, ocean, cooked, dry heat",Fish & Seafood,https://fdc.nal.usda.gov/food-details/174238/nutrients
+FC001449,batch-2,USDA,172000,"Fish, salmon, chum, cooked, dry heat",Fish & Seafood,https://fdc.nal.usda.gov/food-details/172000/nutrients
+FC001450,batch-2,USDA,171997,"Fish, pike, walleye, cooked, dry heat",Fish & Seafood,https://fdc.nal.usda.gov/food-details/171997/nutrients
+FC001451,batch-2,USDA,172002,"Fish, sucker, white, cooked, dry heat",Fish & Seafood,https://fdc.nal.usda.gov/food-details/172002/nutrients
+FC001452,batch-2,USDA,174236,"Fish, mackerel, king, cooked, dry heat",Fish & Seafood,https://fdc.nal.usda.gov/food-details/174236/nutrients
+FC001453,batch-2,USDA,175127,"Fish, pike, northern, cooked, dry heat",Fish & Seafood,https://fdc.nal.usda.gov/food-details/175127/nutrients
+FC001454,batch-2,USDA,174251,"Fish, roughy, orange, cooked, dry heat",Fish & Seafood,https://fdc.nal.usda.gov/food-details/174251/nutrients
+FC001455,batch-2,USDA,174243,"Fish, shad, american, cooked, dry heat",Fish & Seafood,https://fdc.nal.usda.gov/food-details/174243/nutrients
+FC001456,batch-2,USDA,175147,"Fish, smelt, rainbow, cooked, dry heat",Fish & Seafood,https://fdc.nal.usda.gov/food-details/175147/nutrients
+FC001457,batch-2,USDA,171999,"Fish, salmon, chinook, cooked, dry heat",Fish & Seafood,https://fdc.nal.usda.gov/food-details/171999/nutrients
+FC001458,batch-2,USDA,171993,"Fish, drum, freshwater, cooked, dry heat",Fish & Seafood,https://fdc.nal.usda.gov/food-details/171993/nutrients
+FC001459,batch-2,USDA,174233,"Fish, herring, Pacific, cooked, dry heat",Fish & Seafood,https://fdc.nal.usda.gov/food-details/174233/nutrients
+FC001460,batch-2,USDA,173683,"Fish, pompano, florida, cooked, dry heat",Fish & Seafood,https://fdc.nal.usda.gov/food-details/173683/nutrients
+FC001461,batch-2,USDA,174245,"Fish, turbot, european, cooked, dry heat",Fish & Seafood,https://fdc.nal.usda.gov/food-details/174245/nutrients
+FC001462,batch-2,USDA,175117,"Fish, herring, Atlantic, cooked, dry heat",Fish & Seafood,https://fdc.nal.usda.gov/food-details/175117/nutrients
+FC001463,batch-2,USDA,173674,"Fish, mackerel, spanish, cooked, dry heat",Fish & Seafood,https://fdc.nal.usda.gov/food-details/173674/nutrients
+FC001464,batch-2,USDA,174237,"Fish, pollock, Atlantic, cooked, dry heat",Fish & Seafood,https://fdc.nal.usda.gov/food-details/174237/nutrients
+FC001465,batch-2,USDA,170886,"Yogurt, plain, low fat",Milk & Dairy,https://fdc.nal.usda.gov/food-details/170886/nutrients
+FC001466,batch-2,USDA,170887,"Yogurt, plain, skim milk",Milk & Dairy,https://fdc.nal.usda.gov/food-details/170887/nutrients
+FC001467,batch-2,USDA,170906,"Yogurt, vanilla, non-fat",Milk & Dairy,https://fdc.nal.usda.gov/food-details/170906/nutrients
+FC001468,batch-2,USDA,170888,"Yogurt, vanilla, low fat.",Milk & Dairy,https://fdc.nal.usda.gov/food-details/170888/nutrients
+FC001469,batch-2,USDA,170907,"Yogurt, Greek, vanilla, lowfat",Milk & Dairy,https://fdc.nal.usda.gov/food-details/170907/nutrients
+FC001470,batch-2,USDA,170902,"Yogurt, Greek, vanilla, nonfat",Milk & Dairy,https://fdc.nal.usda.gov/food-details/170902/nutrients
+FC001471,batch-2,USDA,170905,"Yogurt, Greek, fruit, whole milk",Milk & Dairy,https://fdc.nal.usda.gov/food-details/170905/nutrients
+FC001472,batch-2,USDA,170901,"Yogurt, Greek, strawberry, nonfat",Milk & Dairy,https://fdc.nal.usda.gov/food-details/170901/nutrients
+FC001473,batch-2,USDA,172175,"Cheese, blue",Milk & Dairy,https://fdc.nal.usda.gov/food-details/172175/nutrients
+FC001474,batch-2,USDA,172177,"Cheese, brie",Milk & Dairy,https://fdc.nal.usda.gov/food-details/172177/nutrients
+FC001475,batch-2,USDA,173419,"Cheese, edam",Milk & Dairy,https://fdc.nal.usda.gov/food-details/173419/nutrients
+FC001476,batch-2,USDA,173420,"Cheese, feta",Milk & Dairy,https://fdc.nal.usda.gov/food-details/173420/nutrients
+FC001477,batch-2,USDA,172176,"Cheese, brick",Milk & Dairy,https://fdc.nal.usda.gov/food-details/172176/nutrients
+FC001478,batch-2,USDA,173416,"Cheese, colby",Milk & Dairy,https://fdc.nal.usda.gov/food-details/173416/nutrients
+FC001479,batch-2,USDA,173418,"Cheese, cream",Milk & Dairy,https://fdc.nal.usda.gov/food-details/173418/nutrients
+FC001480,batch-2,USDA,171241,"Cheese, gouda",Milk & Dairy,https://fdc.nal.usda.gov/food-details/171241/nutrients
+FC001481,batch-2,USDA,171251,"Cheese, swiss",Milk & Dairy,https://fdc.nal.usda.gov/food-details/171251/nutrients
+FC001482,batch-2,USDA,171249,"Cheese, romano",Milk & Dairy,https://fdc.nal.usda.gov/food-details/171249/nutrients
+FC001483,batch-2,USDA,170852,"Cheese, tilsit",Milk & Dairy,https://fdc.nal.usda.gov/food-details/170852/nutrients
+FC001484,batch-2,USDA,173413,"Cheese, caraway",Milk & Dairy,https://fdc.nal.usda.gov/food-details/173413/nutrients
+FC001485,batch-2,USDA,170843,"Cheese, fontina",Milk & Dairy,https://fdc.nal.usda.gov/food-details/170843/nutrients
+FC001486,batch-2,USDA,171240,"Cheese, gjetost",Milk & Dairy,https://fdc.nal.usda.gov/food-details/171240/nutrients
+FC001487,batch-2,USDA,171242,"Cheese, gruyere",Milk & Dairy,https://fdc.nal.usda.gov/food-details/171242/nutrients
+FC001488,batch-2,USDA,173415,"Cheese, cheshire",Milk & Dairy,https://fdc.nal.usda.gov/food-details/173415/nutrients
+FC001489,batch-2,USDA,170844,"Cheese, monterey",Milk & Dairy,https://fdc.nal.usda.gov/food-details/170844/nutrients
+FC001490,batch-2,USDA,171245,"Cheese, muenster",Milk & Dairy,https://fdc.nal.usda.gov/food-details/171245/nutrients
+FC001491,batch-2,USDA,172178,"Cheese, camembert",Milk & Dairy,https://fdc.nal.usda.gov/food-details/172178/nutrients
+FC001492,batch-2,USDA,171243,"Cheese, limburger",Milk & Dairy,https://fdc.nal.usda.gov/food-details/171243/nutrients
+FC001493,batch-2,USDA,170850,"Cheese, provolone",Milk & Dairy,https://fdc.nal.usda.gov/food-details/170850/nutrients
+FC001494,batch-2,USDA,171250,"Cheese, roquefort",Milk & Dairy,https://fdc.nal.usda.gov/food-details/171250/nutrients
+FC001495,batch-2,USDA,171246,"Cheese, neufchatel",Milk & Dairy,https://fdc.nal.usda.gov/food-details/171246/nutrients
+FC001496,batch-2,USDA,170882,"Milk, sheep, fluid",Milk & Dairy,https://fdc.nal.usda.gov/food-details/170882/nutrients
+FC001497,batch-2,USDA,171288,"Cheese, Mexican blend",Milk & Dairy,https://fdc.nal.usda.gov/food-details/171288/nutrients
+FC001498,batch-2,USDA,170849,"Cheese, port de salut",Milk & Dairy,https://fdc.nal.usda.gov/food-details/170849/nutrients
+FC001499,batch-2,USDA,171257,"Cream, sour, cultured",Milk & Dairy,https://fdc.nal.usda.gov/food-details/171257/nutrients
+FC001500,batch-2,USDA,169079,"Cheese, cream, low fat",Milk & Dairy,https://fdc.nal.usda.gov/food-details/169079/nutrients
+FC001501,batch-2,USDA,170848,"Cheese, parmesan, hard",Milk & Dairy,https://fdc.nal.usda.gov/food-details/170848/nutrients
+FC001502,batch-2,USDA,168141,"Cheese, swiss, low fat",Milk & Dairy,https://fdc.nal.usda.gov/food-details/168141/nutrients
+FC001503,batch-2,USDA,172207,"Cheese, cream, fat free",Milk & Dairy,https://fdc.nal.usda.gov/food-details/172207/nutrients
+FC001504,batch-2,USDA,172187,"Egg, whole, cooked, scrambled",Eggs,https://fdc.nal.usda.gov/food-details/172187/nutrients
+FC001505,batch-2,USDA,169704,"Rice, brown, long-grain, cooked (Includes foods for USDA's Food Distribution Program)","Rice, Grains & Bakery",https://fdc.nal.usda.gov/food-details/169704/nutrients
+FC001506,batch-2,USDA,168871,"Millet, cooked","Rice, Grains & Bakery",https://fdc.nal.usda.gov/food-details/168871/nutrients
+FC001507,batch-2,USDA,168912,"Spaghetti, spinach, cooked","Rice, Grains & Bakery",https://fdc.nal.usda.gov/food-details/168912/nutrients
+FC001508,batch-2,USDA,168900,"Pasta, gluten-free, corn, cooked","Rice, Grains & Bakery",https://fdc.nal.usda.gov/food-details/168900/nutrients
+FC001509,batch-2,USDA,168904,"Macaroni, vegetable, enriched, cooked","Rice, Grains & Bakery",https://fdc.nal.usda.gov/food-details/168904/nutrients
+FC001510,batch-3,USDA,168901,"Pasta, homemade, made with egg, cooked","Rice, Grains & Bakery",https://fdc.nal.usda.gov/food-details/168901/nutrients
+FC001511,batch-3,USDA,169751,"Pasta, cooked, enriched, with added salt","Rice, Grains & Bakery",https://fdc.nal.usda.gov/food-details/169751/nutrients
+FC001512,batch-3,USDA,169728,"Pasta, fresh-refrigerated, plain, cooked","Rice, Grains & Bakery",https://fdc.nal.usda.gov/food-details/169728/nutrients
+FC001513,batch-3,USDA,168902,"Pasta, homemade, made without egg, cooked","Rice, Grains & Bakery",https://fdc.nal.usda.gov/food-details/168902/nutrients
+FC001514,batch-3,USDA,172014,"Pasta, cooked, unenriched, with added salt","Rice, Grains & Bakery",https://fdc.nal.usda.gov/food-details/172014/nutrients
+FC001515,batch-3,USDA,169730,"Pasta, fresh-refrigerated, spinach, cooked","Rice, Grains & Bakery",https://fdc.nal.usda.gov/food-details/169730/nutrients
+FC001516,batch-3,USDA,169711,"Rice, white, glutinous, unenriched, cooked","Rice, Grains & Bakery",https://fdc.nal.usda.gov/food-details/169711/nutrients
+FC001517,batch-3,USDA,168882,"Rice, white, short-grain, enriched, cooked","Rice, Grains & Bakery",https://fdc.nal.usda.gov/food-details/168882/nutrients
+FC001518,batch-3,USDA,169737,"Pasta, cooked, enriched, without added salt","Rice, Grains & Bakery",https://fdc.nal.usda.gov/food-details/169737/nutrients
+FC001519,batch-3,USDA,168880,"Rice, white, medium-grain, enriched, cooked","Rice, Grains & Bakery",https://fdc.nal.usda.gov/food-details/168880/nutrients
+FC001520,batch-3,USDA,168883,"Rice, white, glutinous, unenriched, uncooked","Rice, Grains & Bakery",https://fdc.nal.usda.gov/food-details/168883/nutrients
+FC001521,batch-3,USDA,168932,"Rice, white, short-grain, cooked, unenriched","Rice, Grains & Bakery",https://fdc.nal.usda.gov/food-details/168932/nutrients
+FC001522,batch-3,USDA,168881,"Rice, white, short-grain, enriched, uncooked","Rice, Grains & Bakery",https://fdc.nal.usda.gov/food-details/168881/nutrients
+FC001523,batch-3,USDA,168928,"Pasta, cooked, unenriched, without added salt","Rice, Grains & Bakery",https://fdc.nal.usda.gov/food-details/168928/nutrients
+FC001524,batch-3,USDA,168930,"Rice, white, medium-grain, cooked, unenriched","Rice, Grains & Bakery",https://fdc.nal.usda.gov/food-details/168930/nutrients
+FC001525,batch-3,USDA,173265,"Pasta, gluten-free, corn and rice flour, cooked","Rice, Grains & Bakery",https://fdc.nal.usda.gov/food-details/173265/nutrients
+FC001526,batch-3,USDA,168878,"Rice, white, long-grain, regular, enriched, cooked","Rice, Grains & Bakery",https://fdc.nal.usda.gov/food-details/168878/nutrients
+FC001527,batch-3,USDA,169708,"Rice, white, long-grain, parboiled, enriched, cooked","Rice, Grains & Bakery",https://fdc.nal.usda.gov/food-details/169708/nutrients
+FC001528,batch-3,USDA,169759,"Rice, white, long-grain, parboiled, unenriched, cooked","Rice, Grains & Bakery",https://fdc.nal.usda.gov/food-details/169759/nutrients
+FC001529,batch-3,USDA,173917,"Cereals, farina, enriched, cooked with water, with salt","Rice, Grains & Bakery",https://fdc.nal.usda.gov/food-details/173917/nutrients
+FC001530,batch-3,USDA,168934,"Spaghetti, protein-fortified, cooked, enriched (n x 6.25)","Rice, Grains & Bakery",https://fdc.nal.usda.gov/food-details/168934/nutrients
+FC001531,batch-3,USDA,169709,"Rice, white, long-grain, precooked or instant, enriched, dry","Rice, Grains & Bakery",https://fdc.nal.usda.gov/food-details/169709/nutrients
+FC001532,batch-3,USDA,169753,"Rice, white, long-grain, regular, cooked, enriched, with salt","Rice, Grains & Bakery",https://fdc.nal.usda.gov/food-details/169753/nutrients
+FC001533,batch-3,USDA,168935,"Rice, white, long-grain, regular, cooked, unenriched, with salt","Rice, Grains & Bakery",https://fdc.nal.usda.gov/food-details/168935/nutrients
+FC001534,batch-3,USDA,169710,"Rice, white, long-grain, precooked or instant, enriched, prepared","Rice, Grains & Bakery",https://fdc.nal.usda.gov/food-details/169710/nutrients
+FC001535,batch-3,USDA,169757,"Rice, white, long-grain, regular, unenriched, cooked without salt","Rice, Grains & Bakery",https://fdc.nal.usda.gov/food-details/169757/nutrients
+FC001536,batch-3,USDA,171677,"Cereals, whole wheat hot natural cereal, cooked with water, with salt","Rice, Grains & Bakery",https://fdc.nal.usda.gov/food-details/171677/nutrients
+FC001537,batch-3,USDA,171668,"Cereals, whole wheat hot natural cereal, cooked with water, without salt","Rice, Grains & Bakery",https://fdc.nal.usda.gov/food-details/171668/nutrients
+FC001538,batch-3,USDA,168916,"Pasta, whole grain, 51% whole wheat, remaining unenriched semolina, cooked","Rice, Grains & Bakery",https://fdc.nal.usda.gov/food-details/168916/nutrients
+FC001539,batch-3,USDA,171673,"Cereals, corn grits, yellow, regular, quick, enriched, cooked with water, with salt","Rice, Grains & Bakery",https://fdc.nal.usda.gov/food-details/171673/nutrients
+FC001540,batch-3,USDA,171671,"Cereals, corn grits, white, regular and quick, enriched, cooked with water, with salt","Rice, Grains & Bakery",https://fdc.nal.usda.gov/food-details/171671/nutrients
+FC001541,batch-3,USDA,171655,"Cereals, corn grits, white, regular and quick, enriched, cooked with water, without salt","Rice, Grains & Bakery",https://fdc.nal.usda.gov/food-details/171655/nutrients
+FC001542,batch-3,USDA,171672,"Cereals, corn grits, yellow, regular and quick, enriched, cooked with water, without salt","Rice, Grains & Bakery",https://fdc.nal.usda.gov/food-details/171672/nutrients
+FC001543,batch-3,USDA,173905,"Cereals, oats, regular and quick, unenriched, cooked with water (includes boiling and microwaving), without salt","Rice, Grains & Bakery",https://fdc.nal.usda.gov/food-details/173905/nutrients
+FC001544,batch-3,USDA,171675,"Cereals, oats, regular and quick and instant, unenriched, cooked with water (includes boiling and microwaving), with salt","Rice, Grains & Bakery",https://fdc.nal.usda.gov/food-details/171675/nutrients
+FC001545,batch-3,USDA,170286,Buckwheat,"Rice, Grains & Bakery",https://fdc.nal.usda.gov/food-details/170286/nutrients
+FC001546,batch-3,USDA,169702,"Millet, raw","Rice, Grains & Bakery",https://fdc.nal.usda.gov/food-details/169702/nutrients
+FC001547,batch-3,USDA,170283,"Barley, hulled","Rice, Grains & Bakery",https://fdc.nal.usda.gov/food-details/170283/nutrients
+FC001548,batch-3,USDA,167724,"Millet, puffed","Rice, Grains & Bakery",https://fdc.nal.usda.gov/food-details/167724/nutrients
+FC001549,batch-3,USDA,168885,"Rye flour, dark","Rice, Grains & Bakery",https://fdc.nal.usda.gov/food-details/168885/nutrients
+FC001550,batch-3,USDA,168887,"Rye flour, light","Rice, Grains & Bakery",https://fdc.nal.usda.gov/food-details/168887/nutrients
+FC001551,batch-3,USDA,168886,"Rye flour, medium","Rice, Grains & Bakery",https://fdc.nal.usda.gov/food-details/168886/nutrients
+FC001552,batch-3,USDA,169736,"Pasta, dry, enriched","Rice, Grains & Bakery",https://fdc.nal.usda.gov/food-details/169736/nutrients
+FC001553,batch-3,USDA,168927,"Pasta, dry, unenriched","Rice, Grains & Bakery",https://fdc.nal.usda.gov/food-details/168927/nutrients
+FC001554,batch-3,USDA,167628,"Cornmeal, blue (Navajo)","Rice, Grains & Bakery",https://fdc.nal.usda.gov/food-details/167628/nutrients
+FC001555,batch-3,USDA,168911,"Spaghetti, spinach, dry","Rice, Grains & Bakery",https://fdc.nal.usda.gov/food-details/168911/nutrients
+FC001556,batch-3,USDA,168038,"Cornmeal, white (Navajo)","Rice, Grains & Bakery",https://fdc.nal.usda.gov/food-details/168038/nutrients
+FC001557,batch-3,USDA,168039,"Cornmeal, yellow (Navajo)","Rice, Grains & Bakery",https://fdc.nal.usda.gov/food-details/168039/nutrients
+FC001558,batch-3,USDA,169750,"Cornmeal, whole-grain, white","Rice, Grains & Bakery",https://fdc.nal.usda.gov/food-details/169750/nutrients
+FC001559,batch-3,USDA,169697,"Cornmeal, whole-grain, yellow","Rice, Grains & Bakery",https://fdc.nal.usda.gov/food-details/169697/nutrients
+FC001560,batch-3,USDA,168899,"Pasta, gluten-free, corn, dry","Rice, Grains & Bakery",https://fdc.nal.usda.gov/food-details/168899/nutrients
+FC001561,batch-3,USDA,169748,"Corn flour, whole-grain, white","Rice, Grains & Bakery",https://fdc.nal.usda.gov/food-details/169748/nutrients
+FC001562,batch-3,USDA,169741,"Oat flour, partially debranned","Rice, Grains & Bakery",https://fdc.nal.usda.gov/food-details/169741/nutrients
+FC001563,batch-3,USDA,170290,"Corn flour, whole-grain, yellow","Rice, Grains & Bakery",https://fdc.nal.usda.gov/food-details/170290/nutrients
+FC001564,batch-3,USDA,173916,"Cereals, farina, unenriched, dry","Rice, Grains & Bakery",https://fdc.nal.usda.gov/food-details/173916/nutrients
+FC001565,batch-3,USDA,169694,"Corn flour, masa, enriched, white","Rice, Grains & Bakery",https://fdc.nal.usda.gov/food-details/169694/nutrients
+FC001566,batch-3,USDA,169749,"Corn flour, yellow, masa, enriched","Rice, Grains & Bakery",https://fdc.nal.usda.gov/food-details/169749/nutrients
+FC001567,batch-3,USDA,168903,"Macaroni, vegetable, enriched, dry","Rice, Grains & Bakery",https://fdc.nal.usda.gov/food-details/168903/nutrients
+FC001568,batch-3,USDA,169723,"Wheat flour, white, cake, enriched","Rice, Grains & Bakery",https://fdc.nal.usda.gov/food-details/169723/nutrients
+FC001569,batch-3,USDA,169696,"Corn flour, masa, unenriched, white","Rice, Grains & Bakery",https://fdc.nal.usda.gov/food-details/169696/nutrients
+FC001570,batch-3,USDA,169065,"Beans, chili, barbecue, ranch style, cooked","Legumes, Nuts & Seeds",https://fdc.nal.usda.gov/food-details/169065/nutrients
+FC001571,batch-3,USDA,174260,"Peanuts, all types, cooked, boiled, with salt","Legumes, Nuts & Seeds",https://fdc.nal.usda.gov/food-details/174260/nutrients
+FC001572,batch-3,USDA,174271,"Soybeans, mature cooked, boiled, without salt","Legumes, Nuts & Seeds",https://fdc.nal.usda.gov/food-details/174271/nutrients
+FC001573,batch-3,USDA,170102,"Peas, green, cooked, boiled, drained, with salt","Legumes, Nuts & Seeds",https://fdc.nal.usda.gov/food-details/170102/nutrients
+FC001574,batch-3,USDA,175254,"Lentils, mature seeds, cooked, boiled, with salt","Legumes, Nuts & Seeds",https://fdc.nal.usda.gov/food-details/175254/nutrients
+FC001575,batch-3,USDA,168551,"Lentils, sprouted, cooked, stir-fried, with salt","Legumes, Nuts & Seeds",https://fdc.nal.usda.gov/food-details/168551/nutrients
+FC001576,batch-3,USDA,174299,"Soybeans, mature seeds, cooked, boiled, with salt","Legumes, Nuts & Seeds",https://fdc.nal.usda.gov/food-details/174299/nutrients
+FC001577,batch-3,USDA,168460,"Soybeans, mature seeds, sprouted, cooked, steamed","Legumes, Nuts & Seeds",https://fdc.nal.usda.gov/food-details/168460/nutrients
+FC001578,batch-3,USDA,170420,"Peas, green, cooked, boiled, drained, without salt","Legumes, Nuts & Seeds",https://fdc.nal.usda.gov/food-details/170420/nutrients
+FC001579,batch-3,USDA,168428,"Lentils, sprouted, cooked, stir-fried, without salt","Legumes, Nuts & Seeds",https://fdc.nal.usda.gov/food-details/168428/nutrients
+FC001580,batch-3,USDA,170530,"Soybeans, green, cooked, boiled, drained, with salt","Legumes, Nuts & Seeds",https://fdc.nal.usda.gov/food-details/170530/nutrients
+FC001581,batch-3,USDA,173794,"Beans, navy, mature seeds, cooked, boiled, with salt","Legumes, Nuts & Seeds",https://fdc.nal.usda.gov/food-details/173794/nutrients
+FC001582,batch-3,USDA,173795,"Beans, pink, mature seeds, cooked, boiled, with salt","Legumes, Nuts & Seeds",https://fdc.nal.usda.gov/food-details/173795/nutrients
+FC001583,batch-3,USDA,175257,"Peas, split, mature seeds, cooked, boiled, with salt","Legumes, Nuts & Seeds",https://fdc.nal.usda.gov/food-details/175257/nutrients
+FC001584,batch-3,USDA,168461,"Soybeans, mature seeds, sprouted, cooked, stir-fried","Legumes, Nuts & Seeds",https://fdc.nal.usda.gov/food-details/168461/nutrients
+FC001585,batch-3,USDA,173789,"Beans, adzuki, mature seed, cooked, boiled, with salt","Legumes, Nuts & Seeds",https://fdc.nal.usda.gov/food-details/173789/nutrients
+FC001586,batch-3,USDA,175237,"Beans, black, mature seeds, cooked, boiled, with salt","Legumes, Nuts & Seeds",https://fdc.nal.usda.gov/food-details/175237/nutrients
+FC001587,batch-3,USDA,173796,"Beans, pinto, mature seeds, cooked, boiled, with salt","Legumes, Nuts & Seeds",https://fdc.nal.usda.gov/food-details/173796/nutrients
+FC001588,batch-3,USDA,175249,"Beans, white, mature seeds, cooked, boiled, with salt","Legumes, Nuts & Seeds",https://fdc.nal.usda.gov/food-details/175249/nutrients
+FC001589,batch-3,USDA,175241,"Beans, french, mature seeds, cooked, boiled, with salt","Legumes, Nuts & Seeds",https://fdc.nal.usda.gov/food-details/175241/nutrients
+FC001590,batch-3,USDA,169321,"Beans, snap, green, cooked, boiled, drained, with salt","Legumes, Nuts & Seeds",https://fdc.nal.usda.gov/food-details/169321/nutrients
+FC001591,batch-3,USDA,175248,"Beans, yellow, mature seeds, cooked, boiled, with salt","Legumes, Nuts & Seeds",https://fdc.nal.usda.gov/food-details/175248/nutrients
+FC001592,batch-3,USDA,169283,"Soybeans, green, cooked, boiled, drained, without salt","Legumes, Nuts & Seeds",https://fdc.nal.usda.gov/food-details/169283/nutrients
+FC001593,batch-3,USDA,173746,"Beans, navy, mature seeds, cooked, boiled, without salt","Legumes, Nuts & Seeds",https://fdc.nal.usda.gov/food-details/173746/nutrients
+FC001594,batch-3,USDA,175198,"Beans, pink, mature seeds, cooked, boiled, without salt","Legumes, Nuts & Seeds",https://fdc.nal.usda.gov/food-details/175198/nutrients
+FC001595,batch-3,USDA,169323,"Beans, snap, yellow, cooked, boiled, drained, with salt","Legumes, Nuts & Seeds",https://fdc.nal.usda.gov/food-details/169323/nutrients
+FC001596,batch-3,USDA,170509,"Peas, edible-podded, cooked, boiled, drained, with salt","Legumes, Nuts & Seeds",https://fdc.nal.usda.gov/food-details/170509/nutrients
+FC001597,batch-3,USDA,170105,"Peas, green, frozen, cooked, boiled, drained, with salt","Legumes, Nuts & Seeds",https://fdc.nal.usda.gov/food-details/170105/nutrients
+FC001598,batch-3,USDA,172429,"Peas, split, mature seeds, cooked, boiled, without salt","Legumes, Nuts & Seeds",https://fdc.nal.usda.gov/food-details/172429/nutrients
+FC001599,batch-3,USDA,173735,"Beans, black, mature seeds, cooked, boiled, without salt","Legumes, Nuts & Seeds",https://fdc.nal.usda.gov/food-details/173735/nutrients
+FC001600,batch-3,USDA,175200,"Beans, pinto, mature seeds, cooked, boiled, without salt","Legumes, Nuts & Seeds",https://fdc.nal.usda.gov/food-details/175200/nutrients
+FC001601,batch-3,USDA,175203,"Beans, white, mature seeds, cooked, boiled, without salt","Legumes, Nuts & Seeds",https://fdc.nal.usda.gov/food-details/175203/nutrients
+FC001602,batch-3,USDA,173728,"Beans, adzuki, mature seeds, cooked, boiled, without salt","Legumes, Nuts & Seeds",https://fdc.nal.usda.gov/food-details/173728/nutrients
+FC001603,batch-3,USDA,173739,"Beans, french, mature seeds, cooked, boiled, without salt","Legumes, Nuts & Seeds",https://fdc.nal.usda.gov/food-details/173739/nutrients
+FC001604,batch-3,USDA,169141,"Beans, snap, green, cooked, boiled, drained, without salt","Legumes, Nuts & Seeds",https://fdc.nal.usda.gov/food-details/169141/nutrients
+FC001605,batch-3,USDA,170392,"Cabbage, kimchi",Vegetables,https://fdc.nal.usda.gov/food-details/170392/nutrients
+FC001606,batch-3,USDA,170542,"Sweet potato, frozen, cooked, baked, with salt",Vegetables,https://fdc.nal.usda.gov/food-details/170542/nutrients
+FC001607,batch-3,USDA,170128,"Squash, winter, acorn, cooked, baked, with salt",Vegetables,https://fdc.nal.usda.gov/food-details/170128/nutrients
+FC001608,batch-3,USDA,170099,"Okra, frozen, cooked, boiled, drained, with salt",Vegetables,https://fdc.nal.usda.gov/food-details/170099/nutrients
+FC001609,batch-3,USDA,169307,"Sweet potato, frozen, cooked, baked, without salt",Vegetables,https://fdc.nal.usda.gov/food-details/169307/nutrients
+FC001610,batch-4,USDA,169293,"Squash, winter, acorn, cooked, baked, without salt",Vegetables,https://fdc.nal.usda.gov/food-details/169293/nutrients
+FC001611,batch-4,USDA,168519,"Carrots, frozen, cooked, boiled, drained, with salt",Vegetables,https://fdc.nal.usda.gov/food-details/168519/nutrients
+FC001612,batch-4,USDA,169263,"Okra, frozen, cooked, boiled, drained, without salt",Vegetables,https://fdc.nal.usda.gov/food-details/169263/nutrients
+FC001613,batch-4,USDA,170130,"Squash, winter, butternut, cooked, baked, with salt",Vegetables,https://fdc.nal.usda.gov/food-details/170130/nutrients
+FC001614,batch-4,USDA,170548,"Turnips, frozen, cooked, boiled, drained, with salt",Vegetables,https://fdc.nal.usda.gov/food-details/170548/nutrients
+FC001615,batch-4,USDA,168494,"Asparagus, frozen, cooked, boiled, drained, with salt",Vegetables,https://fdc.nal.usda.gov/food-details/168494/nutrients
+FC001616,batch-4,USDA,170134,"Sweet potato, cooked, baked in skin, flesh, with salt",Vegetables,https://fdc.nal.usda.gov/food-details/170134/nutrients
+FC001617,batch-4,USDA,169984,"Carrots, frozen, cooked, boiled, drained, without salt",Vegetables,https://fdc.nal.usda.gov/food-details/169984/nutrients
+FC001618,batch-4,USDA,169296,"Squash, winter, butternut, cooked, baked, without salt",Vegetables,https://fdc.nal.usda.gov/food-details/169296/nutrients
+FC001619,batch-4,USDA,170060,"Turnips, frozen, cooked, boiled, drained, without salt",Vegetables,https://fdc.nal.usda.gov/food-details/170060/nutrients
+FC001620,batch-4,USDA,168521,"Cauliflower, frozen, cooked, boiled, drained, with salt",Vegetables,https://fdc.nal.usda.gov/food-details/168521/nutrients
+FC001621,batch-4,USDA,170127,"Squash, winter, all varieties, cooked, baked, with salt",Vegetables,https://fdc.nal.usda.gov/food-details/170127/nutrients
+FC001622,batch-4,USDA,170129,"Squash, winter, acorn, cooked, boiled, mashed, with salt",Vegetables,https://fdc.nal.usda.gov/food-details/170129/nutrients
+FC001623,batch-4,USDA,168483,"Sweet potato, cooked, baked in skin, flesh, without salt",Vegetables,https://fdc.nal.usda.gov/food-details/168483/nutrients
+FC001624,batch-4,USDA,170507,"Onions, frozen, whole, cooked, boiled, drained, with salt",Vegetables,https://fdc.nal.usda.gov/food-details/170507/nutrients
+FC001625,batch-4,USDA,170399,"Cauliflower, frozen, cooked, boiled, drained, without salt",Vegetables,https://fdc.nal.usda.gov/food-details/170399/nutrients
+FC001626,batch-4,USDA,170490,"Squash, winter, all varieties, cooked, baked, without salt",Vegetables,https://fdc.nal.usda.gov/food-details/170490/nutrients
+FC001627,batch-4,USDA,170538,"Squash, winter, hubbard, cooked, boiled, mashed, with salt",Vegetables,https://fdc.nal.usda.gov/food-details/170538/nutrients
+FC001628,batch-4,USDA,170101,"Onions, frozen, chopped, cooked, boiled, drained, with salt",Vegetables,https://fdc.nal.usda.gov/food-details/170101/nutrients
+FC001629,batch-4,USDA,170116,"Potatoes, frozen, whole, cooked, boiled, drained, with salt",Vegetables,https://fdc.nal.usda.gov/food-details/170116/nutrients
+FC001630,batch-4,USDA,169294,"Squash, winter, acorn, cooked, boiled, mashed, without salt",Vegetables,https://fdc.nal.usda.gov/food-details/169294/nutrients
+FC001631,batch-4,USDA,170413,"Onions, frozen, whole, cooked, boiled, drained, without salt",Vegetables,https://fdc.nal.usda.gov/food-details/170413/nutrients
+FC001632,batch-4,USDA,170536,"Squash, winter, butternut, frozen, cooked, boiled, with salt",Vegetables,https://fdc.nal.usda.gov/food-details/170536/nutrients
+FC001633,batch-4,USDA,169297,"Squash, winter, hubbard, cooked, boiled, mashed, without salt",Vegetables,https://fdc.nal.usda.gov/food-details/169297/nutrients
+FC001634,batch-4,USDA,170411,"Onions, frozen, chopped, cooked, boiled, drained, without salt",Vegetables,https://fdc.nal.usda.gov/food-details/170411/nutrients
+FC001635,batch-4,USDA,170049,"Potatoes, frozen, whole, cooked, boiled, drained, without salt",Vegetables,https://fdc.nal.usda.gov/food-details/170049/nutrients
+FC001636,batch-4,USDA,168474,"Squash, winter, butternut, frozen, cooked, boiled, without salt",Vegetables,https://fdc.nal.usda.gov/food-details/168474/nutrients
+FC001637,batch-4,USDA,170539,"Squash, winter, spaghetti, cooked, boiled, drained, or baked, with salt",Vegetables,https://fdc.nal.usda.gov/food-details/170539/nutrients
+FC001638,batch-4,USDA,169312,"Artichokes, (globe or french), frozen, cooked, boiled, drained, with salt",Vegetables,https://fdc.nal.usda.gov/food-details/169312/nutrients
+FC001639,batch-4,USDA,170516,"Peppers, sweet, green, frozen, chopped, cooked, boiled, drained, with salt",Vegetables,https://fdc.nal.usda.gov/food-details/170516/nutrients
+FC001640,batch-4,USDA,169299,"Squash, winter, spaghetti, cooked, boiled, drained, or baked, without salt",Vegetables,https://fdc.nal.usda.gov/food-details/169299/nutrients
+FC001641,batch-4,USDA,169367,"Corn, sweet, white, frozen, kernels on cob, cooked, boiled, drained, with salt",Vegetables,https://fdc.nal.usda.gov/food-details/169367/nutrients
+FC001642,batch-4,USDA,169349,"Corn, sweet, yellow, frozen, kernels on cob, cooked, boiled, drained, with salt",Vegetables,https://fdc.nal.usda.gov/food-details/169349/nutrients
+FC001643,batch-4,USDA,169366,"Corn, sweet, white, frozen, kernels on cob, cooked, boiled, drained, without salt",Vegetables,https://fdc.nal.usda.gov/food-details/169366/nutrients
+FC001644,batch-4,USDA,168401,"Corn, sweet, yellow, frozen, kernels on cob, cooked, boiled, drained, without salt",Vegetables,https://fdc.nal.usda.gov/food-details/168401/nutrients
+FC001645,batch-4,USDA,170535,"Squash, summer, zucchini, includes skin, frozen, cooked, boiled, drained, with salt",Vegetables,https://fdc.nal.usda.gov/food-details/170535/nutrients
+FC001646,batch-4,USDA,168470,"Squash, summer, zucchini, includes skin, frozen, cooked, boiled, drained, without salt",Vegetables,https://fdc.nal.usda.gov/food-details/168470/nutrients
+FC001647,batch-4,USDA,168567,"Tomatoes, sun-dried",Vegetables,https://fdc.nal.usda.gov/food-details/168567/nutrients
+FC001648,batch-4,USDA,167631,"Corn, dried (Navajo)",Vegetables,https://fdc.nal.usda.gov/food-details/167631/nutrients
+FC001649,batch-4,USDA,169396,"Peppers, ancho, dried",Vegetables,https://fdc.nal.usda.gov/food-details/169396/nutrients
+FC001650,batch-4,USDA,168579,"Peppers, pasilla, dried",Vegetables,https://fdc.nal.usda.gov/food-details/168579/nutrients
+FC001651,batch-4,USDA,169379,"Pickles, cucumber, sour",Vegetables,https://fdc.nal.usda.gov/food-details/169379/nutrients
+FC001652,batch-4,USDA,169262,"Okra, frozen, unprepared",Vegetables,https://fdc.nal.usda.gov/food-details/169262/nutrients
+FC001653,batch-4,USDA,170002,"Onions, dehydrated flakes",Vegetables,https://fdc.nal.usda.gov/food-details/170002/nutrients
+FC001654,batch-4,USDA,168453,"Radishes, oriental, dried",Vegetables,https://fdc.nal.usda.gov/food-details/168453/nutrients
+FC001655,batch-4,USDA,174665,"Figs, dried, uncooked",Fruits,https://fdc.nal.usda.gov/food-details/174665/nutrients
+FC001656,batch-4,USDA,168162,"Plums, dried (prunes), uncooked",Fruits,https://fdc.nal.usda.gov/food-details/168162/nutrients
+FC001657,batch-4,USDA,169121,"Pears, dried, sulfured, uncooked",Fruits,https://fdc.nal.usda.gov/food-details/169121/nutrients
+FC001658,batch-4,USDA,171691,"Apples, dried, sulfured, uncooked",Fruits,https://fdc.nal.usda.gov/food-details/171691/nutrients
+FC001659,batch-4,USDA,169934,"Peaches, dried, sulfured, uncooked",Fruits,https://fdc.nal.usda.gov/food-details/169934/nutrients
+FC001660,batch-4,USDA,168160,"Prunes, dehydrated (low-moisture), uncooked",Fruits,https://fdc.nal.usda.gov/food-details/168160/nutrients
+FC001661,batch-4,USDA,173931,"Apples, dehydrated (low moisture), sulfured, uncooked",Fruits,https://fdc.nal.usda.gov/food-details/173931/nutrients
+FC001662,batch-4,USDA,169932,"Peaches, dehydrated (low-moisture), sulfured, uncooked",Fruits,https://fdc.nal.usda.gov/food-details/169932/nutrients
+FC001663,batch-4,USDA,171702,"Apricots, dehydrated (low-moisture), sulfured, uncooked",Fruits,https://fdc.nal.usda.gov/food-details/171702/nutrients
+FC001664,batch-4,USDA,174666,"Figs, dried, stewed",Fruits,https://fdc.nal.usda.gov/food-details/174666/nutrients
+FC001665,batch-4,USDA,167785,"Mango nectar, canned",Fruits,https://fdc.nal.usda.gov/food-details/167785/nutrients
+FC001666,batch-4,USDA,171703,"Apricots, frozen, sweetened",Fruits,https://fdc.nal.usda.gov/food-details/171703/nutrients
+FC001667,batch-4,USDA,168158,"Blueberries, dried, sweetened",Fruits,https://fdc.nal.usda.gov/food-details/168158/nutrients
+FC001668,batch-4,USDA,173951,"Blueberries, frozen, sweetened",Fruits,https://fdc.nal.usda.gov/food-details/173951/nutrients
+FC001669,batch-4,USDA,169099,"Orange juice, canned, unsweetened",Fruits,https://fdc.nal.usda.gov/food-details/169099/nutrients
+FC001670,batch-4,USDA,169116,"Peaches, frozen, sliced, sweetened",Fruits,https://fdc.nal.usda.gov/food-details/169116/nutrients
+FC001671,batch-4,USDA,168182,"Pears, canned, heavy syrup, drained",Fruits,https://fdc.nal.usda.gov/food-details/168182/nutrients
+FC001672,batch-4,USDA,168183,"Plums, canned, heavy syrup, drained",Fruits,https://fdc.nal.usda.gov/food-details/168183/nutrients
+FC001673,batch-4,USDA,167757,"Raspberries, frozen, red, sweetened",Fruits,https://fdc.nal.usda.gov/food-details/167757/nutrients
+FC001674,batch-4,USDA,169946,"Pineapple, frozen, chunks, sweetened",Fruits,https://fdc.nal.usda.gov/food-details/169946/nutrients
+FC001675,batch-4,USDA,168181,"Peaches, canned, heavy syrup, drained",Fruits,https://fdc.nal.usda.gov/food-details/168181/nutrients
+FC001676,batch-4,USDA,167768,"Apricots, canned, heavy syrup, drained",Fruits,https://fdc.nal.usda.gov/food-details/167768/nutrients
+FC001677,batch-4,USDA,167767,"Pineapple, canned, juice pack, drained",Fruits,https://fdc.nal.usda.gov/food-details/167767/nutrients
+FC001678,batch-4,USDA,168174,"Strawberries, frozen, sweetened, sliced",Fruits,https://fdc.nal.usda.gov/food-details/168174/nutrients
+FC001679,batch-4,USDA,169094,"Olives, ripe, canned (small-extra large)",Fruits,https://fdc.nal.usda.gov/food-details/169094/nutrients
+FC001680,batch-4,USDA,168179,"Blueberries, canned, light syrup, drained",Fruits,https://fdc.nal.usda.gov/food-details/168179/nutrients
+FC001681,batch-4,USDA,169799,"Blueberries, wild, frozen (Alaska Native)",Fruits,https://fdc.nal.usda.gov/food-details/169799/nutrients
+FC001682,batch-4,USDA,169096,"Olives, pickled, canned or bottled, green",Fruits,https://fdc.nal.usda.gov/food-details/169096/nutrients
+FC001683,batch-4,USDA,168161,"Prunes, dehydrated (low-moisture), stewed",Fruits,https://fdc.nal.usda.gov/food-details/168161/nutrients
+FC001684,batch-4,USDA,167769,"Cherries, sour, canned, water pack, drained",Fruits,https://fdc.nal.usda.gov/food-details/167769/nutrients
+FC001685,batch-4,USDA,172673,"Bread, egg",Bread & Bakery,https://fdc.nal.usda.gov/food-details/172673/nutrients
+FC001686,batch-4,USDA,174901,"Bagels, egg",Bread & Bakery,https://fdc.nal.usda.gov/food-details/174901/nutrients
+FC001687,batch-4,USDA,172686,"Bread, wheat",Bread & Bakery,https://fdc.nal.usda.gov/food-details/172686/nutrients
+FC001688,batch-4,USDA,167533,"Bagels, wheat",Bread & Bakery,https://fdc.nal.usda.gov/food-details/167533/nutrients
+FC001689,batch-4,USDA,167944,"Bread, cheese",Bread & Bakery,https://fdc.nal.usda.gov/food-details/167944/nutrients
+FC001690,batch-4,USDA,167943,"Bread, potato",Bread & Bakery,https://fdc.nal.usda.gov/food-details/167943/nutrients
+FC001691,batch-4,USDA,172795,"Rolls, french",Bread & Bakery,https://fdc.nal.usda.gov/food-details/172795/nutrients
+FC001692,batch-4,USDA,174913,"Bread, Italian",Bread & Bakery,https://fdc.nal.usda.gov/food-details/174913/nutrients
+FC001693,batch-4,USDA,172678,"Bread, oatmeal",Bread & Bakery,https://fdc.nal.usda.gov/food-details/172678/nutrients
+FC001694,batch-4,USDA,174980,"Crackers, milk",Bread & Bakery,https://fdc.nal.usda.gov/food-details/174980/nutrients
+FC001695,batch-4,USDA,171849,"Bread, cinnamon",Bread & Bakery,https://fdc.nal.usda.gov/food-details/171849/nutrients
+FC001696,batch-4,USDA,172676,"Bread, oat bran",Bread & Bakery,https://fdc.nal.usda.gov/food-details/172676/nutrients
+FC001697,batch-4,USDA,172666,"Bagels, oat bran",Bread & Bakery,https://fdc.nal.usda.gov/food-details/172666/nutrients
+FC001698,batch-4,USDA,174923,"Bread, rice bran",Bread & Bakery,https://fdc.nal.usda.gov/food-details/174923/nutrients
+FC001699,batch-4,USDA,172722,"Cookies, fortune",Bread & Bakery,https://fdc.nal.usda.gov/food-details/172722/nutrients
+FC001700,batch-4,USDA,172721,"Cookies, fig bars",Bread & Bakery,https://fdc.nal.usda.gov/food-details/172721/nutrients
+FC001701,batch-4,USDA,172724,"Cookies, molasses",Bread & Bakery,https://fdc.nal.usda.gov/food-details/172724/nutrients
+FC001702,batch-4,USDA,172769,"Muffins, oat bran",Bread & Bakery,https://fdc.nal.usda.gov/food-details/172769/nutrients
+FC001703,batch-4,USDA,171852,"Bagels, multigrain",Bread & Bakery,https://fdc.nal.usda.gov/food-details/171852/nutrients
+FC001704,batch-4,USDA,167532,"Bread, white wheat",Bread & Bakery,https://fdc.nal.usda.gov/food-details/167532/nutrients
+FC001705,batch-4,USDA,175027,"Rolls, dinner, egg",Bread & Bakery,https://fdc.nal.usda.gov/food-details/175027/nutrients
+FC001706,batch-4,USDA,175029,"Rolls, dinner, rye",Bread & Bakery,https://fdc.nal.usda.gov/food-details/175029/nutrients
+FC001707,batch-4,USDA,172674,"Bread, egg, toasted",Bread & Bakery,https://fdc.nal.usda.gov/food-details/172674/nutrients
+FC001708,batch-4,USDA,174918,"Bread, pumpernickel",Bread & Bakery,https://fdc.nal.usda.gov/food-details/174918/nutrients
+FC001709,batch-4,USDA,172685,"Bread, rye, toasted",Bread & Bakery,https://fdc.nal.usda.gov/food-details/172685/nutrients
+FC001710,batch-5,USDA,168126,"Rolls, pumpernickel",Bread & Bakery,https://fdc.nal.usda.gov/food-details/168126/nutrients
+FC001711,batch-5,USDA,172672,"Bread, cracked-wheat",Bread & Bakery,https://fdc.nal.usda.gov/food-details/172672/nutrients
+FC001712,batch-5,USDA,174929,"Bread, sticks, plain",Bread & Bakery,https://fdc.nal.usda.gov/food-details/174929/nutrients
+FC001713,batch-5,USDA,174956,"Cookies, gingersnaps",Bread & Bakery,https://fdc.nal.usda.gov/food-details/174956/nutrients
+FC001714,batch-5,USDA,172741,"Crackers, matzo, egg",Bread & Bakery,https://fdc.nal.usda.gov/food-details/172741/nutrients
+FC001715,batch-5,USDA,171838,"Crackers, multigrain",Bread & Bakery,https://fdc.nal.usda.gov/food-details/171838/nutrients
+FC001716,batch-5,USDA,174981,"Crackers, rusk toast",Bread & Bakery,https://fdc.nal.usda.gov/food-details/174981/nutrients
+FC001717,batch-5,USDA,174107,"Rolls, dinner, sweet",Bread & Bakery,https://fdc.nal.usda.gov/food-details/174107/nutrients
+FC001718,batch-5,USDA,175030,"Rolls, dinner, wheat",Bread & Bakery,https://fdc.nal.usda.gov/food-details/175030/nutrients
+FC001719,batch-5,USDA,172687,"Bread, wheat, toasted",Bread & Bakery,https://fdc.nal.usda.gov/food-details/172687/nutrients
+FC001720,batch-5,USDA,172749,"Crackers, whole-wheat",Bread & Bakery,https://fdc.nal.usda.gov/food-details/172749/nutrients
+FC001721,batch-5,USDA,171850,"Bread, wheat, sprouted",Bread & Bakery,https://fdc.nal.usda.gov/food-details/171850/nutrients
+FC001722,batch-5,USDA,171867,"Cookies, Marie biscuit",Bread & Bakery,https://fdc.nal.usda.gov/food-details/171867/nutrients
+FC001723,batch-5,USDA,172740,"Crackers, matzo, plain",Bread & Bakery,https://fdc.nal.usda.gov/food-details/172740/nutrients
+FC001724,batch-5,USDA,172664,"Bagels, cinnamon-raisin",Bread & Bakery,https://fdc.nal.usda.gov/food-details/172664/nutrients
+FC001725,batch-5,USDA,172679,"Bread, oatmeal, toasted",Bread & Bakery,https://fdc.nal.usda.gov/food-details/172679/nutrients
+FC001726,batch-5,USDA,172680,"Bread, raisin, enriched",Bread & Bakery,https://fdc.nal.usda.gov/food-details/172680/nutrients
+FC001727,batch-5,USDA,172761,"Muffins, English, wheat",Bread & Bakery,https://fdc.nal.usda.gov/food-details/172761/nutrients
+FC001728,batch-5,USDA,175028,"Rolls, dinner, oat bran",Bread & Bakery,https://fdc.nal.usda.gov/food-details/175028/nutrients
+FC001729,batch-5,USDA,172677,"Bread, oat bran, toasted",Bread & Bakery,https://fdc.nal.usda.gov/food-details/172677/nutrients
+FC001730,batch-5,USDA,174916,"Bread, pita, whole-wheat",Bread & Bakery,https://fdc.nal.usda.gov/food-details/174916/nutrients
+FC001731,batch-5,USDA,174930,"Bread, stuffing, dry mix",Bread & Bakery,https://fdc.nal.usda.gov/food-details/174930/nutrients
+FC001732,batch-5,USDA,171856,"Crackers, water biscuits",Bread & Bakery,https://fdc.nal.usda.gov/food-details/171856/nutrients
+FC001733,batch-5,USDA,174985,"Crackers, wheat, regular",Bread & Bakery,https://fdc.nal.usda.gov/food-details/174985/nutrients
+FC001734,batch-5,USDA,174092,"Bagels, whole grain white",Bread & Bakery,https://fdc.nal.usda.gov/food-details/174092/nutrients
+FC001735,batch-5,USDA,172817,"Bread, raisin, unenriched",Bread & Bakery,https://fdc.nal.usda.gov/food-details/172817/nutrients
+FC001736,batch-5,USDA,175044,"Bread, rice bran, toasted",Bread & Bakery,https://fdc.nal.usda.gov/food-details/175044/nutrients
+FC001737,batch-5,USDA,172714,"Cookies, chocolate wafers",Bread & Bakery,https://fdc.nal.usda.gov/food-details/172714/nutrients
+FC001738,batch-5,USDA,171847,"Cookies, coconut macaroon",Bread & Bakery,https://fdc.nal.usda.gov/food-details/171847/nutrients
+FC001739,batch-5,USDA,174960,"Cookies, oatmeal, dry mix",Bread & Bakery,https://fdc.nal.usda.gov/food-details/174960/nutrients
+FC001740,batch-5,USDA,174975,"Crackers, cheese, regular",Bread & Bakery,https://fdc.nal.usda.gov/food-details/174975/nutrients
+FC001741,batch-5,USDA,172739,"Crackers, crispbread, rye",Bread & Bakery,https://fdc.nal.usda.gov/food-details/172739/nutrients
+FC001742,batch-5,USDA,175059,"Crackers, wheat, low salt",Bread & Bakery,https://fdc.nal.usda.gov/food-details/175059/nutrients
+FC001743,batch-5,USDA,167633,"Bread, kneel down (Navajo)",Bread & Bakery,https://fdc.nal.usda.gov/food-details/167633/nutrients
+FC001744,batch-5,USDA,174966,"Cookies, raisin, soft-type",Bread & Bakery,https://fdc.nal.usda.gov/food-details/174966/nutrients
+FC001745,batch-5,USDA,172794,"Rolls, dinner, whole-wheat",Bread & Bakery,https://fdc.nal.usda.gov/food-details/172794/nutrients
+FC001746,batch-5,USDA,174907,"Bread, boston brown, canned",Bread & Bakery,https://fdc.nal.usda.gov/food-details/174907/nutrients
+FC001747,batch-5,USDA,174920,"Bread, reduced-calorie, rye",Bread & Bakery,https://fdc.nal.usda.gov/food-details/174920/nutrients
+FC001748,batch-5,USDA,172766,"Muffins, blueberry, dry mix",Bread & Bakery,https://fdc.nal.usda.gov/food-details/172766/nutrients
+FC001749,batch-5,USDA,175004,"Muffins, corn, toaster-type",Bread & Bakery,https://fdc.nal.usda.gov/food-details/175004/nutrients
+FC001750,batch-5,USDA,171170,"Gravy, mushroom, canned",Condiments,https://fdc.nal.usda.gov/food-details/171170/nutrients
+FC001751,batch-5,USDA,168556,Catsup,Condiments,https://fdc.nal.usda.gov/food-details/168556/nutrients
+FC001752,batch-5,USDA,169660,"Syrups, malt",Condiments,https://fdc.nal.usda.gov/food-details/169660/nutrients
+FC001753,batch-5,USDA,169661,"Syrups, maple",Condiments,https://fdc.nal.usda.gov/food-details/169661/nutrients
+FC001754,batch-5,USDA,173469,"Vinegar, cider",Condiments,https://fdc.nal.usda.gov/food-details/173469/nutrients
+FC001755,batch-5,USDA,174523,"Sauce, barbecue",Condiments,https://fdc.nal.usda.gov/food-details/174523/nutrients
+FC001756,batch-5,USDA,171329,"Spices, paprika",Condiments,https://fdc.nal.usda.gov/food-details/171329/nutrients
+FC001757,batch-5,USDA,170934,"Spices, saffron",Condiments,https://fdc.nal.usda.gov/food-details/170934/nutrients
+FC001758,batch-5,USDA,169662,"Syrups, sorghum",Condiments,https://fdc.nal.usda.gov/food-details/169662/nutrients
+FC001759,batch-5,USDA,170917,"Spices, bay leaf",Condiments,https://fdc.nal.usda.gov/food-details/170917/nutrients
+FC001760,batch-5,USDA,170919,"Spices, cardamom",Condiments,https://fdc.nal.usda.gov/food-details/170919/nutrients
+FC001761,batch-5,USDA,171565,"Gravy, brown, dry",Condiments,https://fdc.nal.usda.gov/food-details/171565/nutrients
+FC001762,batch-5,USDA,170925,"Spices, dill seed",Condiments,https://fdc.nal.usda.gov/food-details/170925/nutrients
+FC001763,batch-5,USDA,168088,"Syrups, grenadine",Condiments,https://fdc.nal.usda.gov/food-details/168088/nutrients
+FC001764,batch-5,USDA,172241,"Vinegar, balsamic",Condiments,https://fdc.nal.usda.gov/food-details/172241/nutrients
+FC001765,batch-5,USDA,172240,"Vinegar, red wine",Condiments,https://fdc.nal.usda.gov/food-details/172240/nutrients
+FC001766,batch-5,USDA,169381,"Catsup, low sodium",Condiments,https://fdc.nal.usda.gov/food-details/169381/nutrients
+FC001767,batch-5,USDA,171169,"Gravy, au jus, dry",Condiments,https://fdc.nal.usda.gov/food-details/171169/nutrients
+FC001768,batch-5,USDA,171569,"Gravy, turkey, dry",Condiments,https://fdc.nal.usda.gov/food-details/171569/nutrients
+FC001769,batch-5,USDA,171833,"Sauce, horseradish",Condiments,https://fdc.nal.usda.gov/food-details/171833/nutrients
+FC001770,batch-5,USDA,171316,"Spices, anise seed",Condiments,https://fdc.nal.usda.gov/food-details/171316/nutrients
+FC001771,batch-5,USDA,170923,"Spices, cumin seed",Condiments,https://fdc.nal.usda.gov/food-details/170923/nutrients
+FC001772,batch-5,USDA,171330,"Spices, poppy seed",Condiments,https://fdc.nal.usda.gov/food-details/171330/nutrients
+FC001773,batch-5,USDA,168836,"Syrups, corn, dark",Condiments,https://fdc.nal.usda.gov/food-details/168836/nutrients
+FC001774,batch-5,USDA,169878,"Syrups, sugar free",Condiments,https://fdc.nal.usda.gov/food-details/169878/nutrients
+FC001775,batch-5,USDA,172237,"Vinegar, distilled",Condiments,https://fdc.nal.usda.gov/food-details/172237/nutrients
+FC001776,batch-5,USDA,171567,"Gravy, chicken, dry",Condiments,https://fdc.nal.usda.gov/food-details/171567/nutrients
+FC001777,batch-5,USDA,170920,"Spices, celery seed",Condiments,https://fdc.nal.usda.gov/food-details/170920/nutrients
+FC001778,batch-5,USDA,171323,"Spices, fennel seed",Condiments,https://fdc.nal.usda.gov/food-details/171323/nutrients
+FC001779,batch-5,USDA,168837,"Syrups, corn, light",Condiments,https://fdc.nal.usda.gov/food-details/168837/nutrients
+FC001780,batch-5,USDA,171317,"Spices, basil, dried",Condiments,https://fdc.nal.usda.gov/food-details/171317/nutrients
+FC001781,batch-5,USDA,170918,"Spices, caraway seed",Condiments,https://fdc.nal.usda.gov/food-details/170918/nutrients
+FC001782,batch-5,USDA,171319,"Spices, chili powder",Condiments,https://fdc.nal.usda.gov/food-details/171319/nutrients
+FC001783,batch-5,USDA,170924,"Spices, curry powder",Condiments,https://fdc.nal.usda.gov/food-details/170924/nutrients
+FC001784,batch-5,USDA,170927,"Spices, mace, ground",Condiments,https://fdc.nal.usda.gov/food-details/170927/nutrients
+FC001785,batch-5,USDA,171327,"Spices, onion powder",Condiments,https://fdc.nal.usda.gov/food-details/171327/nutrients
+FC001786,batch-5,USDA,170935,"Spices, sage, ground",Condiments,https://fdc.nal.usda.gov/food-details/170935/nutrients
+FC001787,batch-5,USDA,170938,"Spices, thyme, dried",Condiments,https://fdc.nal.usda.gov/food-details/170938/nutrients
+FC001788,batch-5,USDA,171168,"Gravy, au jus, canned",Condiments,https://fdc.nal.usda.gov/food-details/171168/nutrients
+FC001789,batch-5,USDA,171610,"Sauce, worcestershire",Condiments,https://fdc.nal.usda.gov/food-details/171610/nutrients

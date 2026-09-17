@@ -1,0 +1,16 @@
+{
+  "date": "2026-09-17",
+  "added_identities": 500,
+  "fnri": 40,
+  "usda": 440,
+  "other_analytical_reference": 1,
+  "explicit_estimates_added": 19,
+  "previous_food_rows_preserved": 1309,
+  "total_foods": 1809,
+  "default_searchable_foods": 1716,
+  "source_household_portions_added": 905,
+  "source_phase_manifest": "expansion-personal-sources.csv",
+  "special_phase_manifest": "expansion-personal-specials.csv",
+  "confidence_policy_version": "1.0",
+  "deployed": false
+}

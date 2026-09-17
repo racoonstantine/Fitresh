@@ -1,0 +1,14 @@
+{
+  "expansion_id": "2026-09-17-personal-500",
+  "added": 480,
+  "fnri": 40,
+  "usda": 440,
+  "total": 1789,
+  "original_records_preserved": 1309,
+  "household_portions_added": 904,
+  "estimates_added": 0,
+  "added_fnri_statuses": {
+    "VERIFIED_FNRI": 38,
+    "PARTIAL_VERIFIED_FNRI": 2
+  }
+}

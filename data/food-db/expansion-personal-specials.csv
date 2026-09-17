@@ -1,0 +1,21 @@
+food_id,name,status,source_url
+FC001790,"Blue marlin (Makaira nigricans), Hawaii-caught, fresh",OTHER_SOURCE_AVAILABLE,https://www.hawaii-seafood.org/wp-content/uploads/2023/01/6-Hawaii-Blue-Marlin-Nutrient-Label-Claims.pdf
+FC001791,"Athlene ACTIVE Pure Isolate, Chocolate, dry powder (estimate)",ESTIMATE_ONLY,https://athlene.com.ph/cdn/shop/products/Pure_Isolate_nutrition_facts_1.png?v=1580265813&width=1946
+FC001792,"Athlene ACTIVE Pure Isolate, Strawberry Milkshake, dry powder (estimate)",ESTIMATE_ONLY,https://athlene.com.ph/cdn/shop/products/6_fb90b81d-d365-463a-b114-c288c2e6d216.png?v=1603087577&width=1946
+FC001793,"Seared sirloin steak, 100 g pan-fried meat plus 5 g butter (estimate)",ESTIMATE_ONLY,https://fdc.nal.usda.gov/food-details/169550/nutrients
+FC001794,"Seared Atlantic farmed salmon, 100 g cooked fish plus 5 g oil (estimate)",ESTIMATE_ONLY,https://fdc.nal.usda.gov/food-details/175168/nutrients
+FC001795,"Seared blue marlin, fresh-fish yield model with oil (estimate)",ESTIMATE_ONLY,https://www.hawaii-seafood.org/wp-content/uploads/2023/01/6-Hawaii-Blue-Marlin-Nutrient-Label-Claims.pdf
+FC001796,"Home-fried chicken Pinoy-style, white meat, soy-calamansi (estimate)",ESTIMATE_ONLY,https://i.fnri.dost.gov.ph/fct/library/search_item
+FC001797,"Home-fried chicken Pinoy-style, flour-coated meat and skin (estimate)",ESTIMATE_ONLY,https://fdc.nal.usda.gov/food-details/171449/nutrients
+FC001798,"Chooks-to-Go Sweet Roast, edible meat and skin, no extra sauce (estimate)",ESTIMATE_ONLY,https://superbrands.s3.amazonaws.com/AAA%20MASTER%202%20PAGE%20PDF%20Case%20Studies/Philippines/Philippines%20Edition%209/Philippines%20Edition%209%20Chooks-to-Go.pdf
+FC001799,"Chooks-to-Go Pepper Roast, edible meat and skin, no extra sauce (estimate)",ESTIMATE_ONLY,https://superbrands.s3.amazonaws.com/AAA%20MASTER%202%20PAGE%20PDF%20Case%20Studies/Philippines/Philippines%20Edition%209/Philippines%20Edition%209%20Chooks-to-Go.pdf
+FC001800,"Kenny Rogers Philippines Classic Roasted Chicken, edible meat and skin (estimate)",ESTIMATE_ONLY,https://www.foodpanda.ph/restaurant/jodo/kenny-rogers-roasters-banawe
+FC001801,"Kenny Rogers Philippines Classic Roasted Chicken, skin and visible fat removed (estimate)",ESTIMATE_ONLY,https://www.foodpanda.ph/restaurant/jodo/kenny-rogers-roasters-banawe
+FC001802,"Kenny Rogers Philippines Grilled Salmon, fish and lemon-butter-style sauce only (estimate)",ESTIMATE_ONLY,https://www.foodpanda.ph/restaurant/jodo/kenny-rogers-roasters-banawe
+FC001803,"Kenny Rogers Philippines Burger Steak, patty and mushroom gravy only (estimate)",ESTIMATE_ONLY,https://www.foodpanda.ph/restaurant/jodo/kenny-rogers-roasters-banawe
+FC001804,Kenny Rogers Philippines Spinach Mashed Potato side (estimate),ESTIMATE_ONLY,https://www.foodpanda.ph/restaurant/jodo/kenny-rogers-roasters-banawe
+FC001805,Kenny Rogers Philippines Macaroni and Cheese side (estimate),ESTIMATE_ONLY,https://www.foodpanda.ph/restaurant/jodo/kenny-rogers-roasters-banawe
+FC001806,Kenny Rogers Philippines Corn and Carrots side (estimate),ESTIMATE_ONLY,https://www.foodpanda.ph/restaurant/jodo/kenny-rogers-roasters-banawe
+FC001807,Kenny Rogers Philippines Steamed Vegetables side (estimate),ESTIMATE_ONLY,https://www.foodpanda.ph/restaurant/jodo/kenny-rogers-roasters-banawe
+FC001808,Kenny Rogers Philippines Coleslaw side (estimate),ESTIMATE_ONLY,https://www.foodpanda.ph/restaurant/jodo/kenny-rogers-roasters-banawe
+FC001809,Kenny Rogers Philippines Corn Muffin (estimate),ESTIMATE_ONLY,https://www.foodpanda.ph/restaurant/jodo/kenny-rogers-roasters-banawe

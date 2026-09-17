@@ -9,6 +9,129 @@ The workbook is a historical starter, not a synchronized view of this directory.
 
 ## Current coverage
 
+As of 2026-09-17, the personal-food expansion adds **500 identities**: 40 FNRI,
+440 USDA, one Hawaii Seafood Council blue-marlin reference, and 19 explicit
+estimates. Total: **1,809 foods**, **1,716 default-searchable**, **71 opt-in
+estimates**, and **1,223 source-backed household portions**. All 1,309 pre-batch
+food rows remain unchanged. The source phase added 904 portions and the fish
+label added one. Separate manifests record the 480-source and 20-special phases.
+
+`food-confidence.csv` tags every identity Good, Medium, Low or Unrated;
+`estimate-confidence.csv` tags each selected estimate. The resolver, JSON export,
+search snapshot and both application search screens expose these labels.
+Good means a matched reference with all eight tracked nutrients; Medium means
+missing tracked nutrients or the explicitly documented Athlene serving-unit
+inference; Low means a recipe/proxy estimate; Unrated means no usable evidence.
+These are evidence/completeness labels, not measured error percentages or a
+guarantee that a reference matches a particular meal. Review dates do not imply
+new laboratory measurements; the USDA source remains SR Legacy 2018.
+
+`personal-food-coverage.csv` maps the requested foods, including existing chia,
+yogurt and boiled-vegetable records reused without duplicate identities. Kenny
+Rogers and Chooks-to-Go values are assumed ingredient/proxy models, not official
+nutrition panels. Athlene Chocolate and Strawberry use manufacturer serving
+values, but the panel omits the serving mass unit; inferred grams therefore
+remain opt-in estimates. Missing fiber remains unknown. Blue marlin is modeled
+from the correct species, not swordfish. Original label facts and snapshot hashes
+are retained in `external-label-facts.csv` and `personal-online-source-evidence.json`.
+
+`estimated-egg-portions.csv` includes small, medium, large, extra-large and jumbo
+scrambled-egg equivalents. Only the source's 61 g large-egg portion is a measured
+reference; other sizes are raw-size-ratio estimates kept outside automatic
+household conversions. Restaurant entries have no invented scoop or piece
+weights. “Thick yogurt” remains ambiguous until fat, flavor and style are chosen.
+
+New estimate calculations are frozen in `personal-estimate-components.csv`;
+`changes.csv` documents the pre-release coleslaw correction from an erroneous
+cucumber ingredient link to green cabbage. No prior manually verified value
+was overwritten. Estimates require explicit selection through the resolver or
+export; they are not silently enabled in default application search.
+
+Validation: Python source/preservation/arithmetic tests, PHP search/measurement
+tests and JavaScript search/measurement tests. Assets are generated locally;
+no deployment or authenticated production meal-save test is claimed.
+
+## Previous Filipino-dish batch (historical counts)
+
+The Filipino-dish batch adds **50 opt-in ingredient-based recipe estimates**, for
+**1,309 identities** total. All 1,259 prior food rows and all prior nutrient,
+portion and estimate records are preserved. The 50 new variants contain 406
+explicit component weights. They cover adobo, tinola, sinigang, nilaga, monggo,
+pinakbet, ginataan, laing, vegetable dishes, menudo, afritada, mechado, kaldereta,
+kare-kare, Bicol Express, pancit, porridge, tokwa and two silog combinations.
+
+**These are model-designed reference mixtures, not verified FNRI dish values or
+published standardized recipes.** Component nutrient values come from the existing
+source-backed food records, with FNRI preferred. Component amounts, retention and
+final yield are assumptions. Mostly cooked component weights are summed with
+retained water/sauce. No raw-to-cooked yield, standard bowl or cup weight is claimed.
+Raw aromatics, egg preparation and tamarind proxies are documented in each estimate.
+If any component lacks a nutrient, the dish's corresponding nutrient stays unknown.
+
+`filipino-recipes.csv` lists all 50 variants and their estimate IDs.
+`recipe-ingredients.csv` freezes every component weight, nutrient value and
+per-nutrient source reference. `food_estimates.csv` contains the calculated values.
+`filipino-dish-source-audit.csv` records why related canned/source dishes were not
+substituted for these formulations. Existing aliases remain separate choices.
+
+The catalog has 52 explicit estimates (including the prior two), and default
+app search still offers 1,235 source-backed foods. The new recipe estimates are
+available through explicit resolver selection and `food_catalog.json`'s
+`explicit_estimates`; they are not yet selectable in the app's default search.
+No household serving weights were added for these recipes. The existing 318
+source portion records are unchanged.
+
+Example explicit lookup for 150 g of the chicken adobo reference mixture:
+
+```console
+python tools/resolve_food.py FC001260 --estimate-id EST_PH_DISH_001_V1 --edible-grams 150
+```
+
+Without `--estimate-id`, this identity returns unknown nutrients. The app must
+ask users to opt into estimates before exposing these records for logging.
+18 integrity tests cover original-record preservation, independent recalculation,
+unknown-value propagation, source reconciliation and explicit selection.
+
+## Common-food and drink batch history
+
+The targeted common-food and drink batch adds **112 identities: 82 FNRI and
+30 USDA**, giving **1,259 identities**. All 1,147 prior food rows are unchanged.
+Of the additions, 108 are loggable and four USDA source conflicts are quarantined
+because reported sugar exceeds carbohydrate. Their source numbers are preserved,
+not capped or silently corrected. Search offers 1,235 foods; 951 have all eight
+tracked nutrients. The 19 broad identities and two opt-in estimates are unchanged.
+
+There are now 82 beverage-category records (including powders and concentrates),
+plus milk/dairy and alcoholic-beverage categories. Additions include bottled and
+tap water, brewed/instant-prepared coffee, decaf coffee, espresso, almond milk,
+oolong/chamomile tea, yogurt variants, fruit drinks and FNRI snacks/prepared foods.
+USDA records retain precise preparation, fat and fortification qualifiers; they
+are distinct fallback identities, not replacements for existing FNRI foods.
+
+The batch adds 73 sourced household portions, totaling 318 retained records.
+306 belong to currently loggable foods; 12 belong to the four quarantined records.
+Only source-recorded weights are offered. No generic sachet, piece or density was
+invented. Bottled water has a source-recorded 1 ml / 1 g portion; that conversion
+must not be applied to unrelated drinks.
+
+`food-display-labels.csv` documents 58 readable drink/dairy labels. It expands
+abbreviations and identifies three dry coffee products from their source water
+and energy values. Original `foods.csv` names and numeric values remain intact.
+`nutrient-gap-audit.csv` records 349 FNRI nutrient gaps whose matching retained
+source also has no numeric value. These remain blank. No existing nutrient was
+filled by analogy, changed, or replaced with an AI estimate.
+
+`expansion-common-foods.csv` records additions; `source-conflicts.csv` records
+blocked source records; `expansion-common-foods-exclusions.csv` records the FNRI
+candidate excluded for sugar exceeding carbohydrate. Source snapshots were
+accessed September 16 and reviewed September 17; this is not a fresh source release.
+
+Rebuild labels with `python tools/polish_food_labels.py`, then run the catalog
+export and search build below. Application search snapshot is refreshed locally;
+production deployment and authenticated logging are not verified by this batch.
+
+## Second 500-food expansion history
+
 The second 500-food expansion is complete: **1,147 food identities**. It adds
 400 FNRI records and 100 USDA records, preserving every field in the existing
 647 food records. No AI estimates or duplicate source IDs count toward the 500.

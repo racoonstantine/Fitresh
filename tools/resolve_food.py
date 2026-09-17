@@ -4,6 +4,7 @@ import json
 import math
 from pathlib import Path
 from food_db_sources import DB, FIELDS, read_csv
+from food_confidence import classify
 
 PRIMARY_STATUSES = {'VERIFIED_FNRI', 'PARTIAL_VERIFIED_FNRI', 'MANUALLY_VERIFIED'}
 
@@ -23,6 +24,8 @@ class FoodCatalog:
         self.estimates = read_csv(self.directory/'food_estimates.csv')
         self.variants = read_csv(self.directory/'food_variants.csv')
         self.portions = read_csv(self.directory/'portions.csv')
+        labels = self.directory/'food-display-labels.csv'
+        self.display_names = {r['food_id']:r['display_name'] for r in read_csv(labels)} if labels.exists() else {}
 
     def resolve(self, food_id, *, estimate_id=None, edible_grams=100):
         grams = number(edible_grams)
@@ -68,8 +71,9 @@ class FoodCatalog:
         carbs=nutrients['carbs_g_100g']['value_per_100g']; sugar=nutrients['sugar_g_100g']['value_per_100g']
         if carbs is not None and sugar is not None and sugar > carbs + .1:
             raise ValueError('Source blend reports more sugar than total carbohydrate; review the food match')
-        return dict(food_id=food_id,name=row['name'],edible_grams=grams,label=label,
+        return dict(food_id=food_id,name=self.display_names.get(food_id,row['name']),edible_grams=grams,label=label,
             complete=all(n['value_per_100g'] is not None for n in nutrients.values()),
+            confidence=classify(row,nutrients,chosen),
             requires_identity_selection=blocked,variants=options,nutrients=nutrients,
             estimate=None if not chosen else {k:chosen[k] for k in ['estimate_id','method','assumptions','limitations','review_status','model','method_version','estimated_date','range_basis']})
 

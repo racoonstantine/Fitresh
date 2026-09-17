@@ -1,0 +1,4 @@
+food_id,product,serving_mass,mass_unit_status,source_url,kcal_100g,protein_g_100g,carbs_g_100g,fat_g_100g,fiber_g_100g,sugar_g_100g,sodium_mg_100g,cholesterol_mg_100g
+FC001790,"Hawaii blue marlin, fresh",113,EXPLICIT_GRAMS,https://www.hawaii-seafood.org/wp-content/uploads/2023/01/6-Hawaii-Blue-Marlin-Nutrient-Label-Claims.pdf,120,29,0,0.5,0,0,45,35
+FC001791,"Athlene ACTIVE Pure Isolate, Chocolate, dry powder",29.84,GRAMS_INFERRED_NOT_PRINTED,https://athlene.com.ph/cdn/shop/products/Pure_Isolate_nutrition_facts_1.png?v=1580265813&width=1946,108,25,1,0,,0,103,1
+FC001792,"Athlene ACTIVE Pure Isolate, Strawberry Milkshake, dry powder",29.08,GRAMS_INFERRED_NOT_PRINTED,https://athlene.com.ph/cdn/shop/products/6_fb90b81d-d365-463a-b114-c288c2e6d216.png?v=1603087577&width=1946,105,25,1,0,,0,101,1

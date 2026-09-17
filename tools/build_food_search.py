@@ -34,6 +34,8 @@ def main():
     official_names={}
     for fid,row in catalog.foods.items():
         add(fid,row['name'],row['source_url'],'Canonical name; preparation retained.')
+        if fid in catalog.display_names:
+            add(fid,catalog.display_names[fid],row['source_url'],'Reviewed display label; original source name remains unchanged in foods.csv and food-display-labels.csv.')
         source=fnri.get(row['source_food_id']) if 'FNRI' in row['source_name'] else None
         common=source['meta'][2] if source else ''
         official_names[fid]=common if common not in ['N/A','-'] else ''
@@ -79,7 +81,7 @@ def main():
         resolved=catalog.resolve(fid)
         if resolved['requires_identity_selection'] or any(resolved['nutrients'][f]['value_per_100g'] is None for f in ['kcal_100g','protein_g_100g','fat_g_100g','carbs_g_100g']):continue
         foods[fid]=dict(food_id=fid,name=resolved['name'],source='catalog',brand=None,canonical_amount=100,canonical_unit='g',
-            label=resolved['label'],complete=resolved['complete'],
+            label=resolved['label'],complete=resolved['complete'],confidence=resolved['confidence'],
             aliases=list(dict.fromkeys(by_food[fid])),
             portions=[p for p in catalog.portions if p['food_id']==fid and p['data_status']=='OTHER_SOURCE_PORTION' and float(p['edible_weight_g'] or 0)>0],
             nutrients={code:resolved['nutrients'][field]['value_per_100g'] for field,code in codes.items()},

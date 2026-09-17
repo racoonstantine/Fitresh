@@ -5,6 +5,7 @@ alimango,FC000059;FC000112;FC000113,Show separate labeled choices; never merge o
 alimasag,FC000059;FC000112;FC000113,Show separate labeled choices; never merge or auto-select.
 avocado,FC000087;FC000125;FC000126,Show separate labeled choices; never merge or auto-select.
 baka tadyang,FC000403;FC000409,Show separate labeled choices; never merge or auto-select.
+batad,FC001311;FC001312,Show separate labeled choices; never merge or auto-select.
 bayabas,FC000084;FC000123;FC000124,Show separate labeled choices; never merge or auto-select.
 bihon,FC000014;FC000689,Show separate labeled choices; never merge or auto-select.
 biko,FC000162;FC000697,Show separate labeled choices; never merge or auto-select.
@@ -13,6 +14,7 @@ butse,FC000708;FC000709,Show separate labeled choices; never merge or auto-selec
 canton,FC000015;FC000131;FC000132;FC000133;FC000147,Show separate labeled choices; never merge or auto-select.
 chicharon,FC000360;FC000910,Show separate labeled choices; never merge or auto-select.
 chicken meat,FC000029;FC000101,Show separate labeled choices; never merge or auto-select.
+chicken tinola,FC001267;FC001268,Show separate labeled choices; never merge or auto-select.
 chicken whole meat,FC000029;FC000101,Show separate labeled choices; never merge or auto-select.
 coconut milk,FC000097;FC000144;FC000145,Show separate labeled choices; never merge or auto-select.
 crab,FC000059;FC000112;FC000113,Show separate labeled choices; never merge or auto-select.
@@ -25,6 +27,8 @@ gata,FC000097;FC000144;FC000145,Show separate labeled choices; never merge or au
 gatas na pulbos,FC000095;FC000127;FC000128;FC000129;FC000130,Show separate labeled choices; never merge or auto-select.
 giniling na baboy,FC000040;FC000138;FC000139,Show separate labeled choices; never merge or auto-select.
 giniling na baka,FC000034;FC000134;FC000135;FC000136;FC000137,Show separate labeled choices; never merge or auto-select.
+ginisang monggo,FC001274;FC001275;FC001276;FC001277,Show separate labeled choices; never merge or auto-select.
+ginisang munggo,FC001274;FC001275;FC001276;FC001277,Show separate labeled choices; never merge or auto-select.
 ground beef,FC000034;FC000134;FC000135;FC000136;FC000137,Show separate labeled choices; never merge or auto-select.
 ground pork,FC000040;FC000138;FC000139,Show separate labeled choices; never merge or auto-select.
 guava,FC000084;FC000123;FC000124,Show separate labeled choices; never merge or auto-select.
@@ -42,10 +46,14 @@ mango ripe,FC000080;FC000120;FC000121;FC000122,Show separate labeled choices; ne
 manok,FC000029;FC000101,Show separate labeled choices; never merge or auto-select.
 misua,FC000149;FC000692,Show separate labeled choices; never merge or auto-select.
 niyog gata,FC000097;FC000144;FC000145,Show separate labeled choices; never merge or auto-select.
+pakbet,FC001278;FC001279,Show separate labeled choices; never merge or auto-select.
 pancit canton noodles,FC000015;FC000131;FC000132;FC000133;FC000147,Show separate labeled choices; never merge or auto-select.
+pansit bihon,FC001300;FC001301,Show separate labeled choices; never merge or auto-select.
 patis,FC000100;FC000146,Show separate labeled choices; never merge or auto-select.
 pechay,FC000066;FC000114;FC000115;FC000142;FC000143,Show separate labeled choices; never merge or auto-select.
+pork adobo,FC001261;FC001262,Show separate labeled choices; never merge or auto-select.
 pork lean meat,FC000039;FC000102,Show separate labeled choices; never merge or auto-select.
+pork sinigang,FC001269;FC001270,Show separate labeled choices; never merge or auto-select.
 powdered milk,FC000095;FC000127;FC000128;FC000129;FC000130,Show separate labeled choices; never merge or auto-select.
 ripe mango,FC000080;FC000120;FC000121;FC000122,Show separate labeled choices; never merge or auto-select.
 saluyot,FC000259;FC000290,Show separate labeled choices; never merge or auto-select.

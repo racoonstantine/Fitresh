@@ -1,0 +1,350 @@
+food_id,name,field,source_value,source_url,status,next_action
+FC000012,"Bread, Spanish bread",sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/2992,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000012,"Bread, Spanish bread",sodium_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/2992,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000012,"Bread, Spanish bread",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/2992,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000022,"Peanut, roasted",sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3248,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000023,Pili nut,fiber_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3251,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000023,Pili nut,sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3251,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000031,"Beef lean meat, boiled",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3723,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000032,"Beef lean meat, fried",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3725,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000038,Pork Boston butt / shoulder,cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3860,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000048,"Milkfish, dried",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4160,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000049,Tilapia,cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4125,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000050,Round scad,cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4085,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000053,Yellowfin tuna,cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4127,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000055,"Anchovy, dried",sodium_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4130,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000060,Mussels,cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4065,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000097,Coconut milk,sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4262,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000100,Fish sauce,sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4334,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000102,"Pork Boston butt, lean",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3864,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000104,"Sausage, pork",sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3964,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000112,"Crab, blue swimming, w/o fat",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4017,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000113,"Crab, mud/mangrove, w/o fat",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4020,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000116,"String/Yard long bean pod, green",sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3511,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000117,"String/Yard long bean pod, red",sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3513,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000118,"String/Yard long bean pod, white",sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3515,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000154,Hopyang Hapon,cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3090,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000155,Hopyang munggo,cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3091,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000211,"Cassava cake, bibingka",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3193,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000227,"Peanut w/ skin, roasted",sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3246,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000246,"Watermelon seed, dried, salted",sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3279,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000271,"Squash lvs, boiled",fiber_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3507,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000271,"Squash lvs, boiled",sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3507,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000272,"String/Yard long bean pod, green, boiled",sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3512,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000301,"Pepper, sweet/bell, long, red",sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3448,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000306,Squash flower,fiber_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3502,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000307,Squash lvs,fiber_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3506,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000307,Squash lvs,sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3506,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000314,"Mushroom, cnd",sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3558,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000319,"Seaweed, lato",fiber_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3475,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000319,"Seaweed, lato",sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3475,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000319,"Seaweed, lato",sodium_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3475,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000320,"Pickles, papaya",sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3567,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000322,"Bottle gourd lvs, boiled",fiber_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3307,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000322,"Bottle gourd lvs, boiled",sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3307,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000326,"Chayote lvs, boiled",fiber_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3332,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000326,"Chayote lvs, boiled",sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3332,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000331,"Jackfruit seed, boiled",sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3385,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000337,"Pepper, chili lvs, boiled",fiber_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3445,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000337,"Pepper, chili lvs, boiled",sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3445,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000341,"Sponge gourd lvs, boiled",fiber_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3501,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000341,"Sponge gourd lvs, boiled",sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3501,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000342,"Squash flower, boiled",fiber_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3503,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000346,Bottle gourd lvs,fiber_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3306,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000346,Bottle gourd lvs,sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3306,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000351,"Pork belly, seasoned, roasted, skin and visible fat removed",sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3977,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000354,"Corned beef, cnd",sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3933,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000361,"Pork, sweet cured, Pampanga",sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3953,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000361,"Pork, sweet cured, Pampanga",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3953,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000363,"Sausage, chorizo, Bilbao style",sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3957,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000369,"Pork, bbq",sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3974,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000372,"Beef liver, boiled",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3727,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000376,"Beef shank, boiled",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3743,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000379,"Beef sirloin, fried",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3748,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000382,"Chicken, white meat, boiled",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3818,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000385,"Pork Boston butt, boiled",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3861,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000387,"Pork Boston butt, fried",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3863,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000388,"Pork Boston butt, lean, boiled",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3865,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000390,"Pork Boston butt, lean, fried",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3867,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000391,"Pork kidney, boiled",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3879,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000393,"Pork liver, broiled",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3883,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000394,"Pork liver, fried",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3884,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000395,"Pork picnic, boiled",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3887,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000399,Beef club steak,cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3715,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000404,Beef porterhouse steak,cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3733,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000407,Beef rump,cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3741,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000412,Beef tail,cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3752,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000418,"Chicken feet, bbq",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3802,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000424,Pork back fat,cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3853,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000425,Pork center loin,cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3868,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000433,Pork picnic,cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3886,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000437,Pork tenderloin,cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3894,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000448,"Clam, halaan, boiled",sodium_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4002,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000450,"Crab, mud/mangrove, w/o fat, boiled",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4021,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000451,"Mackerel, short-bodied, fried",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4051,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000452,"Milkfish, fried",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4056,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000453,"Mussel, green, boiled",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4066,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000454,"Shrimp, banana prawn, boiled",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4094,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000455,"Shrimp, greasy back, boiled",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4100,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000456,"Squid, boiled",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4112,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000461,"Grouper, whitespotted",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4043,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000462,"Mackerel, short-bodied",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4050,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000463,"Mackerel, Spanish",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4052,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000465,Red snapper/Malabar,cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4078,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000468,Sea bass,cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4086,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000469,"Shrimp, freshwater",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4095,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000470,"Tuna, frigate",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4126,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000471,Fish ball,cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4141,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000472,"Fish preparation, quekiam",fiber_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4143,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000472,"Fish preparation, quekiam",sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4143,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000472,"Fish preparation, quekiam",sodium_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4143,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000472,"Fish preparation, quekiam",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4143,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000476,"Squid, dried",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4197,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000480,"Mudfish/Murrel, striated, boiled",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4062,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000481,"Mudfish/Murrel, striated",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4061,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000486,"Clam, imbao, boiled",sodium_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4004,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000487,"Anchovy, Indian (adult)",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3985,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000491,"Crab, blue swimming, fat",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4016,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000492,"Crab, mud/mangrove, fat",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4019,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000493,"Crab, shore",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4022,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000497,"Shrimp, freshwater (small)",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4096,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000498,"Shrimp, sergestid",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4101,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000499,"Anchovy, long-jawed, dried, ground",sodium_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4131,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000500,"Catfish, freshwater, dried",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4133,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000506,"Mackerel, short-bodied, smoked",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4156,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000509,"Mackerel, Indian, in tomato sce",sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4159,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000510,"Milkfish, in natural oil, cnd",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4161,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000512,"Oyster, dried",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4168,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000518,"Sardines, smoked, cnd",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4184,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000532,"Anchovy, long-jawed, w/o head",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3986,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000533,"Sea catfish, smooth-headed",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4087,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000534,"Shrimp, giant tiger prawn, head",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4098,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000535,"Cavalla, banded, fried",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3996,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000536,"Cavalla, banded, steamed",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3997,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000538,Abalone juice,cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3982,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000539,Amber fish,cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3983,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000541,"Barracuda, striped",fiber_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3988,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000541,"Barracuda, striped",sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3988,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000541,"Barracuda, striped",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3988,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000542,"Butterfly fish, threadfin",fiber_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3989,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000542,"Butterfly fish, threadfin",sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3989,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000542,"Butterfly fish, threadfin",sodium_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3989,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000542,"Butterfly fish, threadfin",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3989,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000543,"Fusilier, goldband",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3990,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000544,Cardinal fish,fiber_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3991,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000544,Cardinal fish,sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3991,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000544,Cardinal fish,sodium_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3991,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000544,Cardinal fish,cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3991,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000545,Carp,cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3992,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000548,"Tamarind, unripe, boiled",fiber_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3677,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000548,"Tamarind, unripe, boiled",sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3677,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000548,"Tamarind, unripe, boiled",sodium_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3677,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000566,Lanzon,sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3621,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000575,Mangosteen,sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3640,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000582,Rambutan,sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3658,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000585,Stinking passion flower juice,sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3664,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000592,"Tamarind, unripe",fiber_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3676,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000592,"Tamarind, unripe",sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3676,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000596,"Cheese, native",sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4238,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000596,"Cheese, native",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4238,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000599,Cream,cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4241,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000604,"Milk, recombined",sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4258,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000611,Lechon sauce,cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4336,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000613,Shrimp paste,cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4343,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000614,"Shrimp paste, alamang",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4344,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000618,"Steamed bun, mung bean filling",fiber_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4424,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000618,"Steamed bun, mung bean filling",sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4424,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000618,"Steamed bun, mung bean filling",sodium_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4424,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000618,"Steamed bun, mung bean filling",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4424,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000619,"Steamed bun, pork filling",fiber_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4425,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000619,"Steamed bun, pork filling",sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4425,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000619,"Steamed bun, pork filling",sodium_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4425,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000619,"Steamed bun, pork filling",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4425,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000629,"Halu-halo, cnd",fiber_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4438,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000629,"Halu-halo, cnd",sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4438,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000629,"Halu-halo, cnd",sodium_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4438,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000629,"Halu-halo, cnd",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4438,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000630,"Halu-halo, w/ ice",fiber_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4439,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000630,"Halu-halo, w/ ice",sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4439,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000630,"Halu-halo, w/ ice",sodium_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4439,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000630,"Halu-halo, w/ ice",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4439,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000631,"Beef caldereta, cnd",sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4447,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000631,"Beef caldereta, cnd",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4447,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000632,"Beef kare-kare, cnd",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4451,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000633,"Pork & chicken adobo, cnd",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4467,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000634,"Pork adobo, cnd",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4470,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000635,"Pork adobo, w/ egg, cnd",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4471,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000637,"Pork blood stew, cnd",sodium_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4473,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000637,"Pork blood stew, cnd",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4473,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000670,"Cookies, lady finger",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3053,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000693,"Noodles, wheat, miki, dry",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3108,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000706,"Rice flour prep, tamales",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3144,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000717,"Rice-bread prep, toasted, puto seko",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3160,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000754,"Green pea-corn-peanut mixture, fried",fiber_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3266,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000754,"Green pea-corn-peanut mixture, fried",sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3266,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000754,"Green pea-corn-peanut mixture, fried",sodium_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3266,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000754,"Green pea-corn-peanut mixture, fried",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3266,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000755,"Lima bean, fried & seasoned",fiber_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3267,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000755,"Lima bean, fried & seasoned",sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3267,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000755,"Lima bean, fried & seasoned",sodium_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3267,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000755,"Lima bean, fried & seasoned",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3267,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000756,Beet,sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3295,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000757,"Beet, boiled",sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3296,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000760,"Celery, Chinese, lvs & petioles",sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3327,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000761,Chayote lvs,fiber_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3331,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000761,Chayote lvs,sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3331,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000767,Garlic lvs,sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3364,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000769,"Horseradish tree lvs, dwarf",sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3375,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000770,"Horseradish tree lvs, Japanese",sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3377,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000772,Jackfruit seed,sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3384,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000784,"Pepper, chili lvs",fiber_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3444,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000784,"Pepper, chili lvs",sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3444,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000792,Purslane lvs,sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3459,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000793,"Purslane lvs, boiled",sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3460,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000796,"Seaweed, pokpoklo",fiber_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3477,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000796,"Seaweed, pokpoklo",sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3477,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000796,"Seaweed, pokpoklo",sodium_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3477,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000797,Sesbania flower,sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3478,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000798,"Sesbania flower, boiled",sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3479,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000805,Sponge gourd lvs,fiber_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3500,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000805,Sponge gourd lvs,sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3500,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000811,"Water chestnut, boiled",fiber_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3544,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000811,"Water chestnut, boiled",sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3544,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000811,"Water chestnut, boiled",sodium_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3544,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000813,Wax gourd fruit,sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3548,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000819,"Cucumber, salted, cnd",sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3557,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000823,Black/Java plum,fiber_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3602,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000823,Black/Java plum,sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3602,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000827,Jamaica cherry,fiber_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3617,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000827,Jamaica cherry,sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3617,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000827,Jamaica cherry,sodium_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3617,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000828,Jujube Indian/Chinese date,sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3618,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000836,Spanish plum,fiber_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3666,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000836,Spanish plum,sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3666,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000840,"Banana chips, salted",sodium_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3678,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000850,"Peach, in heavy syrup, cnd",sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3692,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000855,Dragon fruit,sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3699,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000857,Carabeef lean meat,cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3766,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000858,"Carabeef lean meat, boiled",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3767,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000859,Carabeef round,cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3772,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000861,Carabeef rump,cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3774,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000863,Carabeef w/ fat,cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3778,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000864,"Carabeef w/ fat, boiled",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3779,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000865,Chevon back,cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3782,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000866,Chevon breast,cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3783,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000867,Chevon flank,cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3784,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000868,Chevon leg,cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3788,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000869,Chevon liver,cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3789,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000870,Chevon loin,cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3790,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000871,Chevon neck,cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3792,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000872,Chevon rib,cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3793,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000873,Chevon shank,cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3794,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000874,Chevon shoulder,cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3795,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000875,"Chick, one-day old, fried",fiber_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3797,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000875,"Chick, one-day old, fried",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3797,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000876,Chicken intestine,fiber_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3807,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000876,Chicken intestine,sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3807,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000876,Chicken intestine,cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3807,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000878,Duck back,cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3823,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000880,Duck gizzard,cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3826,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000882,Duck thigh,cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3828,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000883,Duck wing,cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3829,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000886,Lamb hind shank,cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3837,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000887,Lamb loin,cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3839,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000888,Lamb neck,cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3841,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000889,Lamb riblet,cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3842,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000890,Lamb roast/back,cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3843,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000891,Lamb shoulder,cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3844,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000892,"Pork intestine, large",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3875,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000893,"Pork intestine, small",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3876,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000897,Turkey breast,cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3915,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000898,Turkey thigh,cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3917,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000899,Carabeef jerky,cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3926,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000901,Chicken meat ball,fiber_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3928,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000901,Chicken meat ball,sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3928,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000901,Chicken meat ball,sodium_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3928,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000910,"Pork crackling, internal organ",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3948,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000913,"Clam, lukan",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4007,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000916,"Climbing perch, common",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4015,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000919,"Eel, silver pike",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4029,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000920,"Eel, swamp",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4030,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000923,"Garfish, common",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4037,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000924,"Gizzard shad, short-finned",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4038,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000927,"Goby, long-tailed",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4041,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000928,Gouramy,cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4042,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000929,"Hair tail, largehead",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4044,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000930,Hard-tail,cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4046,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000931,"Herring, big-eyed",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4047,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000932,"Herring, deep-bodied",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4048,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000934,"Moonfish, spotted",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4059,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000936,"Mullet, large-scaled",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4064,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000938,"Bream, humpnose big-eye",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4075,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000939,"Seabream, goldsilk",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4077,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000941,"Siganid, javan",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4102,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000942,"Slipmouth, common",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4106,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000947,"Mudfish/Murrel, striated, dried",sodium_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4164,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000947,"Mudfish/Murrel, striated, dried",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4164,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000948,"Egg, quail, pickled",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4234,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000949,"Milk, carabao",sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4247,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000953,"Chocolate, tablea",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4284,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000959,Ice candy,cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4293,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000970,"Sugar, crude, pakaskas",sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4314,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000974,"Syrup, molasses, cane",sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4319,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000975,"Tamarind, candied",fiber_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4320,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000978,"Bilimbi, dried",fiber_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4324,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000979,"Bouillon cube, beef",sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4325,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000981,"Clam paste, ginamos",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4329,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000985,Lemon grass lvs,sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4337,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000986,"Lemon grass lvs, boiled",sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4338,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000987,"Banana, flowers, dried",fiber_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4339,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000987,"Banana, flowers, dried",sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4339,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000987,"Banana, flowers, dried",sodium_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4339,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000988,Oyster paste,cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4340,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000989,"Safflower, flowers, dried",sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4341,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC000990,"Shrimp paste, bastos",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4345,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC001020,Hamburger sandwich w/ coleslaw,fiber_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4427,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC001020,Hamburger sandwich w/ coleslaw,sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4427,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC001026,Pineapple pie,fiber_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4440,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC001028,"Milk fish, w/ black beans, cnd",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4442,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC001032,"Beef callos, cnd",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4448,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC001033,"Beef curry, cnd",fiber_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4449,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC001033,"Beef curry, cnd",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4449,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC001034,"Beef roll, mechado, cnd",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4452,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC001035,"Beef roll, morcon, cnd",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4453,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC001036,"Beef steak, cnd",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4454,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC001039,"Duck meat, pato tim, cnd",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4462,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC001040,"Pork afritada, cnd",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4472,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC001041,"Pork humba, cnd",fiber_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4474,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC001041,"Pork humba, cnd",sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4474,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC001041,"Pork humba, cnd",sodium_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4474,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC001041,"Pork humba, cnd",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4474,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC001042,"Pork leg, pinaksiw, cnd",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4477,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC001043,"Pork pastel, cnd",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4478,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC001044,"Pork, roasted, pinaksiw, cnd",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4480,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC001150,"Choc-flvr energy drnk, pwdr, fortified",sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4365,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC001151,"Choc-flvr food milk, pwdr",sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4366,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC001166,"Fruit jce drnk, pineapple & lychee, ttb",fiber_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4394,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC001166,"Fruit jce drnk, pineapple & lychee, ttb",sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4394,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC001166,"Fruit jce drnk, pineapple & lychee, ttb",sodium_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4394,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC001174,"Juice, pineapple & grapefruit, cnd",sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4406,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC001182,"Ampaw, pinipig",sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/2988,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC001183,"Ampaw, rice",sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/2989,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC001185,"Cake, jelly roll",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3020,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC001190,"Chips, fish crackers",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3035,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC001191,"Chips, fish kroepeck",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3036,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC001194,"Chips, squid crackers",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3041,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC001204,"Rice-bread prep, toasted, puto seko, w/ grtd coconut",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/3161,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC001210,Champoy,fiber_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4283,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC001210,Champoy,sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4283,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC001210,Champoy,sodium_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4283,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC001210,Champoy,cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4283,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC001217,"Beef & tomato spread, cnd",fiber_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4446,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC001217,"Beef & tomato spread, cnd",sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4446,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC001217,"Beef & tomato spread, cnd",sodium_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4446,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC001217,"Beef & tomato spread, cnd",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4446,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC001218,"Beef hamburger w/ tomato sce, cnd",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4450,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC001219,"Beef w/ mushroom sce, cnd",sugar_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4457,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC001219,"Beef w/ mushroom sce, cnd",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4457,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC001220,"Beef, chili con carne, cnd",fiber_g_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4459,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC001227,"Soup, pansit molo, cond, cnd",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4499,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.
+FC001228,"Soup, sotanghon, cond",cholesterol_mg_100g,-,https://i.fnri.dost.gov.ph/fct/library/report/4501,SOURCE_MISSING,Keep blank; no exact source value in retained FNRI snapshot.

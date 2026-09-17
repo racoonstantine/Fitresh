@@ -1,0 +1,28 @@
+{
+  "nutrient_label_sources": [
+    {
+      "source_url": "https://www.hawaii-seafood.org/wp-content/uploads/2023/01/6-Hawaii-Blue-Marlin-Nutrient-Label-Claims.pdf",
+      "local_snapshot": "Food_DB/research/blue-marlin-label.pdf",
+      "sha256": "177a75b41026cdd9b31e7ed087b48a6163f94104156bc60bcf3ef3e07f61f421",
+      "reviewed_date": "2026-09-17"
+    },
+    {
+      "source_url": "https://athlene.com.ph/cdn/shop/products/Pure_Isolate_nutrition_facts_1.png?v=1580265813&width=1946",
+      "local_snapshot": "Food_DB/research/athlene-isolate-nutrition.png",
+      "sha256": "1703401cbb9f0eb549dc188c37ebc1d954d9fd3f85230db9ba16d290171b9731",
+      "reviewed_date": "2026-09-17"
+    },
+    {
+      "source_url": "https://athlene.com.ph/cdn/shop/products/6_fb90b81d-d365-463a-b114-c288c2e6d216.png?v=1603087577&width=1946",
+      "local_snapshot": "Food_DB/research/athlene-isolate-label-6.png",
+      "sha256": "29c5021e6fb6df4cf5bbdf16eea15aee23fa101c76b3f4477c9beb1f8c1d344b",
+      "reviewed_date": "2026-09-17"
+    }
+  ],
+  "menu_identity_sources": [
+    "https://www.foodpanda.ph/restaurant/jodo/kenny-rogers-roasters-banawe",
+    "https://superbrands.s3.amazonaws.com/AAA%20MASTER%202%20PAGE%20PDF%20Case%20Studies/Philippines/Philippines%20Edition%209/Philippines%20Edition%209%20Chooks-to-Go.pdf",
+    "https://kennyrogersdelivery.com.ph/"
+  ],
+  "notes": "Restaurant menu sources verify identities only; no third-party restaurant calorie tables imported."
+}

@@ -29,7 +29,7 @@ async function test(name, endMarker, prefix, statusId, resultsId, renderer) {
   context.fetch=async url=>{
     const q = new URL(url,'http://localhost').searchParams.get('q');
     if(url.includes('food_catalog') && q==='oldquery') await new Promise(resolve=>release=resolve);
-    return {json:async()=>({results:url.includes('food_catalog')?[{name:q,external_id:q}]:[]})};
+    return {json:async()=>({results:url.includes('food_catalog')?[{name:q,external_id:q,nutrients:{ENERC_KCAL:20}}]:[]})};
   };
   const old=context[name]('oldquery');
   await context[name]('newquery');
