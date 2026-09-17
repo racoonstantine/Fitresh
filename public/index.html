@@ -225,6 +225,18 @@
     background:var(--paper-raised);border:1px solid var(--line);border-radius:var(--radius-lg);
     padding:20px;margin-bottom:18px;
   }
+
+  /* Compact input tiles for simple "one label, one field" goal settings --
+     .hub-tile's 150px min-height is meant for stat-display tiles and wastes
+     a lot of vertical space when reused for plain number inputs. */
+  .goal-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:8px 0;}
+  @media (min-width:480px){.goal-grid{grid-template-columns:repeat(3,minmax(0,1fr));}}
+  .goal-field{background:var(--paper-raised);border:1px solid var(--line);border-radius:8px;padding:8px 10px;}
+  .goal-field-head{display:flex;align-items:center;justify-content:space-between;gap:4px;}
+  .goal-field label{font-size:10.5px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.04em;font-weight:600;}
+  .goal-field input{width:100%;border:none;background:transparent;font-family:var(--font-heading);font-size:16px;margin-top:2px;padding:2px 0;color:var(--ink);}
+  .goal-field input:focus{outline:none;}
+  .goal-field-unit{padding:1px 4px;border:1px solid var(--line);border-radius:4px;background:var(--paper);font-size:10px;flex-shrink:0;}
   *{box-sizing:border-box;}
   html, body{
     height:100%;
@@ -665,24 +677,13 @@
 
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px;">
           <div>
-            <label style="font-size:11px;color:var(--ink-soft);">Weight unit</label>
-            <select id="obWeightUnit" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;">
-              <option value="kg" selected>Kilograms (kg)</option>
-              <option value="lbs">Pounds (lb)</option>
-            </select>
-          </div>
-          <div>
-            <label style="font-size:11px;color:var(--ink-soft);">Height unit</label>
-            <select id="obHeightUnit" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;">
-              <option value="cm" selected>Centimeters (cm)</option>
-              <option value="ft">Feet / inches</option>
-            </select>
-          </div>
-        </div>
-
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px;">
-          <div>
-            <label style="font-size:11px;color:var(--ink-soft);" id="obHeightLabel">Height (cm)</label>
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:6px;">
+              <label style="font-size:11px;color:var(--ink-soft);" id="obHeightLabel">Height (cm)</label>
+              <select id="obHeightUnit" style="padding:2px 4px;border:1px solid var(--line);border-radius:4px;background:var(--paper);font-size:10.5px;">
+                <option value="cm" selected>cm</option>
+                <option value="ft">ft/in</option>
+              </select>
+            </div>
             <input type="number" id="obHeight" min="100" max="250" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;">
             <div id="obHeightFtWrap" style="display:none;gap:6px;margin-top:2px;">
               <input type="number" id="obHeightFt" placeholder="ft" min="3" max="8" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);">
@@ -702,7 +703,13 @@
 
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:6px;">
           <div>
-            <label style="font-size:11px;color:var(--ink-soft);" id="obCurrentWeightLabel">Current weight (kg)</label>
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:6px;">
+              <label style="font-size:11px;color:var(--ink-soft);" id="obCurrentWeightLabel">Current weight (kg)</label>
+              <select id="obWeightUnit" style="padding:2px 4px;border:1px solid var(--line);border-radius:4px;background:var(--paper);font-size:10.5px;">
+                <option value="kg" selected>kg</option>
+                <option value="lbs">lb</option>
+              </select>
+            </div>
             <input type="number" step="0.1" id="obCurrentWeight" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;">
           </div>
           <div>
@@ -1200,83 +1207,82 @@
           </div>
 
           <div style="font-size:11px;color:var(--ink-soft);margin:12px 0 4px;" id="goalProteinNote"></div>
-          <div class="hub-grid">
-            <div class="hub-tile hub-tile-empty">
-              <div class="hub-tile-label">Protein (g)</div>
-              <input type="number" id="goalProteinCustom" style="width:100%;padding:6px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:6px;font-family:var(--font-heading);font-size:16px;">
+          <div class="goal-grid">
+            <div class="goal-field">
+              <label>Protein (g)</label>
+              <input type="number" id="goalProteinCustom">
             </div>
-            <div class="hub-tile hub-tile-empty">
-              <div class="hub-tile-label">Carbs (g)</div>
-              <input type="number" id="goalCarbsCustom" style="width:100%;padding:6px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:6px;font-family:var(--font-heading);font-size:16px;">
+            <div class="goal-field">
+              <label>Carbs (g)</label>
+              <input type="number" id="goalCarbsCustom">
             </div>
-            <div class="hub-tile hub-tile-empty">
-              <div class="hub-tile-label">Fat (g)</div>
-              <input type="number" id="goalFatCustom" style="width:100%;padding:6px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:6px;font-family:var(--font-heading);font-size:16px;">
+            <div class="goal-field">
+              <label>Fat (g)</label>
+              <input type="number" id="goalFatCustom">
             </div>
           </div>
 
-          <button type="button" id="toggleMoreMacros" class="img-link" style="margin-top:10px;cursor:pointer;">More macros (sodium, fiber, sugar)</button>
-          <div class="hub-grid" id="moreMacrosGrid" style="margin-top:10px;display:none;">
-            <div class="hub-tile hub-tile-empty">
-              <div class="hub-tile-label">Sodium (mg)</div>
-              <input type="number" id="goalSodiumCustom" style="width:100%;padding:6px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:6px;font-family:var(--font-heading);font-size:16px;">
+          <button type="button" id="toggleMoreMacros" class="img-link" style="margin-top:6px;cursor:pointer;">More macros (sodium, fiber, sugar)</button>
+          <div class="goal-grid" id="moreMacrosGrid" style="display:none;">
+            <div class="goal-field">
+              <label>Sodium (mg)</label>
+              <input type="number" id="goalSodiumCustom">
             </div>
-            <div class="hub-tile hub-tile-empty">
-              <div class="hub-tile-label">Fiber (g)</div>
-              <input type="number" id="goalFiberCustom" style="width:100%;padding:6px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:6px;font-family:var(--font-heading);font-size:16px;">
+            <div class="goal-field">
+              <label>Fiber (g)</label>
+              <input type="number" id="goalFiberCustom">
             </div>
-            <div class="hub-tile hub-tile-empty">
-              <div class="hub-tile-label">Sugar (g)</div>
-              <input type="number" id="goalSugarCustom" style="width:100%;padding:6px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:6px;font-family:var(--font-heading);font-size:16px;">
+            <div class="goal-field">
+              <label>Sugar (g)</label>
+              <input type="number" id="goalSugarCustom">
             </div>
           </div>
         </div>
 
         <div class="goals-category">
           <div class="goals-category-title">Body</div>
-          <div class="hub-grid">
-            <div class="hub-tile hub-tile-empty">
-              <div class="hub-tile-label">Preferred weight unit</div>
-              <select id="goalWeightUnit" style="width:100%;padding:6px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:6px;font-family:var(--font-heading);font-size:16px;">
-                <option value="kg" selected>Kilograms (kg)</option>
-                <option value="lbs">Pounds (lb)</option>
-              </select>
+          <div class="goal-grid">
+            <div class="goal-field">
+              <div class="goal-field-head">
+                <label id="goalTargetWeightLabel">Target weight (kg)</label>
+                <select id="goalWeightUnit" class="goal-field-unit">
+                  <option value="kg" selected>kg</option>
+                  <option value="lbs">lb</option>
+                </select>
+              </div>
+              <input type="number" step="0.1" id="goalTargetWeight">
             </div>
-            <div class="hub-tile hub-tile-empty">
-              <div class="hub-tile-label" id="goalTargetWeightLabel">Target weight (kg)</div>
-              <input type="number" step="0.1" id="goalTargetWeight" style="width:100%;padding:6px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:6px;font-family:var(--font-heading);font-size:16px;">
-            </div>
-            <div class="hub-tile hub-tile-empty">
-              <div class="hub-tile-label">Sleep (hours)</div>
-              <input type="number" step="0.5" id="goalSleepHours" style="width:100%;padding:6px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:6px;font-family:var(--font-heading);font-size:16px;">
+            <div class="goal-field">
+              <label>Sleep (hours)</label>
+              <input type="number" step="0.5" id="goalSleepHours">
             </div>
           </div>
         </div>
 
         <div class="goals-category">
           <div class="goals-category-title">Train</div>
-          <div class="hub-grid">
-            <div class="hub-tile hub-tile-empty">
-              <div class="hub-tile-label">Steps</div>
-              <input type="number" id="goalSteps" style="width:100%;padding:6px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:6px;font-family:var(--font-heading);font-size:16px;">
+          <div class="goal-grid">
+            <div class="goal-field">
+              <label>Steps</label>
+              <input type="number" id="goalSteps">
             </div>
-            <div class="hub-tile hub-tile-empty">
-              <div class="hub-tile-label">Calories burned</div>
-              <input type="number" id="goalCalorieBurn" style="width:100%;padding:6px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:6px;font-family:var(--font-heading);font-size:16px;">
+            <div class="goal-field">
+              <label>Calories burned</label>
+              <input type="number" id="goalCalorieBurn">
             </div>
           </div>
         </div>
 
         <div class="goals-category">
           <div class="goals-category-title">Misc</div>
-          <div class="hub-grid">
-            <div class="hub-tile hub-tile-empty">
-              <div class="hub-tile-label">Water (ml)</div>
-              <input type="number" id="goalWater" style="width:100%;padding:6px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:6px;font-family:var(--font-heading);font-size:16px;">
+          <div class="goal-grid">
+            <div class="goal-field">
+              <label>Water (ml)</label>
+              <input type="number" id="goalWater">
             </div>
-            <div class="hub-tile hub-tile-empty">
-              <div class="hub-tile-label">Fasting goal (hours)</div>
-              <input type="number" step="0.5" id="goalFastingHours" style="width:100%;padding:6px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:6px;font-family:var(--font-heading);font-size:16px;">
+            <div class="goal-field">
+              <label>Fasting goal (hours)</label>
+              <input type="number" step="0.5" id="goalFastingHours">
             </div>
           </div>
         </div>
@@ -1560,6 +1566,51 @@
       <div class="log-detail" data-sleep-history-detail="1">
         <div style="padding-top:10px;">
           <div id="sleepScreenHistoryList"></div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<div id="waterScreen" class="fullscreen-modal" style="display:none;">
+  <div class="fullscreen-modal-header">
+    <button type="button" id="waterScreenClose" class="modal-close-btn">✕</button>
+    <div class="fullscreen-modal-title">Water</div>
+    <div style="width:32px;"></div>
+  </div>
+  <div class="fullscreen-modal-body">
+    <div class="hub-card">
+      <div id="waterDayNav" style="display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:12px;"></div>
+      <div style="text-align:center;">
+        <div id="waterScreenValue" style="font-family:var(--font-heading);font-size:38px;">0 L</div>
+        <div id="waterScreenSub" style="font-size:12px;color:var(--ink-soft);margin-top:2px;">Target: 2.5 L</div>
+        <div class="glance-bar-track" style="margin:12px 0;">
+          <div class="glance-bar-fill" id="waterScreenBar" style="width:0%;background:#4A90D9;"></div>
+        </div>
+        <div style="display:flex;gap:8px;justify-content:center;">
+          <button class="glance-water-btn" id="waterScreenMinus" type="button" style="width:36px;height:36px;font-size:16px;">−</button>
+          <button class="glance-water-btn" id="waterScreenPlus" type="button" style="width:36px;height:36px;font-size:16px;">+</button>
+        </div>
+        <div style="font-size:11px;color:var(--ink-soft);margin-top:6px;">+/− adds or removes a glass (250ml)</div>
+      </div>
+      <div style="display:flex;gap:8px;margin-top:14px;">
+        <input type="number" id="waterManualMl" min="0" step="50" placeholder="Set exact amount (ml)" style="flex:1;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);">
+        <button type="button" id="waterManualSetBtn" class="timer-btn reset" style="flex:0 0 70px;">Set</button>
+      </div>
+    </div>
+
+    <div class="hub-card" style="margin-top:14px;">
+      <div id="waterScreenChart"></div>
+    </div>
+
+    <section style="margin-top:18px;">
+      <div class="log-head" data-water-history-toggle="1" style="padding:0;cursor:pointer;">
+        <div class="block-title" style="margin:0;flex:1;">History</div>
+        <svg class="log-caret" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+      <div class="log-detail" data-water-history-detail="1">
+        <div style="padding-top:10px;">
+          <div id="waterScreenHistoryList"></div>
         </div>
       </div>
     </section>
@@ -2131,7 +2182,7 @@ async function renderTodayGlance(){
       <div class="glance-bar-track"><div class="glance-bar-fill" style="width:${Math.min(100, calTarget ? combined.calories/calTarget*100 : 0)}%;background:var(--ochre);"></div></div>
       <div class="glance-card-sub">Target: ${Math.round(calTarget).toLocaleString()} kcal</div>
     </div>
-    <div class="glance-card" data-nav-view="food" style="cursor:pointer;">
+    <div class="glance-card open-water-screen-link" style="cursor:pointer;">
       <div class="glance-card-head">
         <span class="glance-card-label">\u{1F4A7} Water</span>
         <div style="display:flex;gap:5px;">
@@ -2167,16 +2218,19 @@ async function renderTodayGlance(){
       <div class="glance-card-label" style="margin-bottom:4px;">\u{1F3AF} Macronutrients</div>
       <div style="display:flex;justify-content:space-around;">
         <div class="glance-ring-row">
+          <div class="glance-card-sub" style="margin-bottom:2px;">Carbs</div>
           ${glanceRing(carbsTarget ? combined.carbs/carbsTarget*100 : 0, 'var(--ochre)', 64, `<div style="font-weight:700;font-size:13px;">${Math.round(combined.carbs)}g</div>`)}
-          <div class="glance-card-sub">Carbs / ${carbsTarget}g</div>
+          <div class="glance-card-sub" style="margin-top:2px;">/ ${carbsTarget}g</div>
         </div>
         <div class="glance-ring-row">
+          <div class="glance-card-sub" style="margin-bottom:2px;">Protein</div>
           ${glanceRing(proteinTarget ? combined.protein/proteinTarget*100 : 0, 'var(--forest)', 64, `<div style="font-weight:700;font-size:13px;">${Math.round(combined.protein)}g</div>`)}
-          <div class="glance-card-sub">Protein / ${proteinTarget}g</div>
+          <div class="glance-card-sub" style="margin-top:2px;">/ ${proteinTarget}g</div>
         </div>
         <div class="glance-ring-row">
+          <div class="glance-card-sub" style="margin-bottom:2px;">Fat</div>
           ${glanceRing(fatTarget ? combined.fat/fatTarget*100 : 0, '#B4472A', 64, `<div style="font-weight:700;font-size:13px;">${Math.round(combined.fat)}g</div>`)}
-          <div class="glance-card-sub">Fat / ${fatTarget}g</div>
+          <div class="glance-card-sub" style="margin-top:2px;">/ ${fatTarget}g</div>
         </div>
       </div>
     </div>
@@ -3166,21 +3220,8 @@ function renderBodySleepCard(){
   const chartEl = document.getElementById('bodySleepMiniChart');
   if(!chartEl) return;
   const recent = [...entries].reverse().slice(-7);
-  if(recent.length < 2){
-    chartEl.innerHTML = '';
-  } else {
-    const w = 300, h = 50, pad = 6;
-    const vals = recent.map(s => s.hours);
-    const maxV = Math.max(...vals, goalHrs) + 1;
-    const barW = (w - pad*2) / recent.length;
-    const bars = recent.map((s, i) => {
-      const barH = (s.hours / maxV) * (h - pad*2);
-      const x = pad + i*barW;
-      const y = h - pad - barH;
-      return `<rect x="${x + barW*0.15}" y="${y}" width="${barW*0.7}" height="${barH}" rx="2" fill="var(--forest)"/>`;
-    }).join('');
-    chartEl.innerHTML = `<svg viewBox="0 0 ${w} ${h}" style="width:100%;height:${h}px;overflow:visible;">${bars}</svg>`;
-  }
+  if(recent.length < 2){ chartEl.innerHTML = ''; return; }
+  renderTrendLineChart(chartEl, recent.map(s => ({y: s.hours, label: formatDateLabel(s.date)})), {goalValue: goalHrs});
 }
 
 function renderTrainStepsCard(){
@@ -3449,6 +3490,70 @@ function renderSummary(){
   `;
 }
 
+// Picks a "nice" rounded step (1/2/5 x a power of 10) for ~count gridlines
+// spanning [min, max], the same rounding trick D3's tick generator uses --
+// e.g. a 90.6-102 range becomes 90/95/100 rather than awkward decimals.
+function niceTicks(min, max, count){
+  if(min === max){ min -= 1; max += 1; }
+  const range = max - min;
+  const rawStep = range / count;
+  const mag = Math.pow(10, Math.floor(Math.log10(rawStep)));
+  const norm = rawStep / mag;
+  const niceNorm = norm < 1.5 ? 1 : (norm < 3 ? 2 : (norm < 7 ? 5 : 10));
+  const step = niceNorm * mag;
+  const niceMin = Math.floor(min / step) * step;
+  const niceMax = Math.ceil(max / step) * step;
+  const ticks = [];
+  for(let v = niceMin; v <= niceMax + step * 1e-6; v += step) ticks.push(Math.round(v * 1000) / 1000);
+  return ticks;
+}
+
+// Shared trend-line chart: axis gridlines + labels, a line with dot markers,
+// and an optional dashed goal/target line -- used by Weight, Sleep, Steps,
+// Fasting, and Water so every trend graph in the app looks the same.
+// points: [{y: number, label: string}], oldest first.
+function renderTrendLineChart(containerEl, points, opts){
+  if(!containerEl) return;
+  opts = opts || {};
+  if(points.length < 2){
+    containerEl.innerHTML = `<div class="dash-empty">${opts.emptyText || 'Log a couple of entries to see your trend.'}</div>`;
+    return;
+  }
+  const color = opts.color || 'var(--forest)';
+  const dotColor = opts.dotColor || 'var(--forest-dark)';
+  const vals = points.map(p => p.y).concat(opts.goalValue !== undefined && opts.goalValue !== null ? [opts.goalValue] : []);
+  const ticks = niceTicks(Math.min(...vals), Math.max(...vals), 4);
+  const minV = ticks[0], maxV = ticks[ticks.length - 1];
+  const w = 300, h = 150, padL = 34, padR = 8, padT = 10, padB = 20;
+  const plotW = w - padL - padR, plotH = h - padT - padB;
+  const xStep = plotW / (points.length - 1);
+  const yFor = v => padT + plotH - ((v - minV) / (maxV - minV || 1)) * plotH;
+  const xFor = i => padL + i * xStep;
+
+  const gridLines = ticks.map(t => `
+    <line x1="${padL}" y1="${yFor(t)}" x2="${w - padR}" y2="${yFor(t)}" stroke="var(--line)" stroke-width="1"/>
+    <text x="${padL - 6}" y="${yFor(t) + 3}" text-anchor="end" font-size="9" fill="var(--ink-soft)">${t}</text>
+  `).join('');
+  const goalLine = (opts.goalValue !== undefined && opts.goalValue !== null)
+    ? `<line x1="${padL}" y1="${yFor(opts.goalValue)}" x2="${w - padR}" y2="${yFor(opts.goalValue)}" stroke="var(--ochre)" stroke-width="1.5" stroke-dasharray="4,3"/>`
+    : '';
+  const linePoints = points.map((p, i) => `${xFor(i)},${yFor(p.y)}`).join(' ');
+  const dots = points.map((p, i) => `<circle cx="${xFor(i)}" cy="${yFor(p.y)}" r="3.5" fill="${dotColor}"/>`).join('');
+  const labelIdxs = points.length <= 6 ? points.map((_, i) => i) : [0, Math.round((points.length - 1) / 2), points.length - 1];
+  const xLabels = labelIdxs.map(i => `<text x="${xFor(i)}" y="${h - 4}" text-anchor="middle" font-size="9" fill="var(--ink-soft)">${points[i].label}</text>`).join('');
+
+  containerEl.innerHTML = `
+    <svg viewBox="0 0 ${w} ${h}" style="width:100%;height:${h}px;overflow:visible;">
+      ${gridLines}
+      ${goalLine}
+      <polyline points="${linePoints}" fill="none" stroke="${color}" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      ${dots}
+      ${xLabels}
+    </svg>
+    ${opts.goalLabel ? `<div style="font-size:10.5px;color:var(--ochre);text-align:right;margin-top:2px;">- - - ${opts.goalLabel}</div>` : ''}
+  `;
+}
+
 function renderWeightSection(){
   const sorted = [...weighIns].sort((a,b)=> a.date < b.date ? -1 : 1);
   const startWeight = sorted.length ? sorted[0].kg : GOAL_WEIGHT;
@@ -3476,32 +3581,12 @@ function renderWeightSection(){
     </div>
   `;
 
-  // Simple SVG sparkline
   const chartEl = document.getElementById('weightChart');
-  if(sorted.length < 2){
-    chartEl.innerHTML = `<div class="dash-empty">Log at least 2 weigh-ins to see your trend line.</div>`;
-  } else {
-    const w = 300, h = 90, pad = 10;
-    const vals = sorted.map(s=>s.kg);
-    const minV = Math.min(...vals, GOAL_WEIGHT) - 1;
-    const maxV = Math.max(...vals, startWeight) + 1;
-    const xStep = (w - pad*2) / (sorted.length - 1);
-    const yFor = v => h - pad - ((v - minV) / (maxV - minV)) * (h - pad*2);
-    const points = sorted.map((s,i)=> `${pad + i*xStep},${yFor(s.kg)}`).join(' ');
-    const goalY = yFor(GOAL_WEIGHT);
-    chartEl.innerHTML = `
-      <svg viewBox="0 0 ${w} ${h}" style="width:100%;height:${h}px;overflow:visible;">
-        <line x1="${pad}" y1="${goalY}" x2="${w-pad}" y2="${goalY}" stroke="var(--ochre)" stroke-width="1" stroke-dasharray="3,3"/>
-        <polyline points="${points}" fill="none" stroke="var(--forest)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-        ${sorted.map((s,i)=> `<circle cx="${pad + i*xStep}" cy="${yFor(s.kg)}" r="3" fill="var(--forest-dark)"/>`).join('')}
-      </svg>
-      <div style="display:flex;justify-content:space-between;font-size:10.5px;color:var(--ink-soft);margin-top:2px;">
-        <span>${sorted[0].date}</span>
-        <span style="color:var(--ochre);">- - - goal ${formatWeightKg(GOAL_WEIGHT)}</span>
-        <span>${sorted[sorted.length-1].date}</span>
-      </div>
-    `;
-  }
+  renderTrendLineChart(chartEl, sorted.map(s => ({y: kgToDisplayWeight(s.kg), label: formatDateLabel(s.date)})), {
+    color: 'var(--forest)', dotColor: 'var(--forest-dark)',
+    goalValue: kgToDisplayWeight(GOAL_WEIGHT), goalLabel: `goal ${formatWeightKg(GOAL_WEIGHT)}`,
+    emptyText: 'Log at least 2 weigh-ins to see your trend line.'
+  });
 
   // Recent entries list
   const listEl = document.getElementById('weighInList');
@@ -4617,7 +4702,7 @@ function applyObUnitDisplay(){
   document.getElementById('obCurrentWeightLabel').textContent = `Current weight (${wUnit === 'lbs' ? 'lb' : 'kg'})`;
   document.getElementById('obGoalWeightLabel').textContent = `Goal weight (${wUnit === 'lbs' ? 'lb' : 'kg'})`;
   const isFt = hUnit === 'ft';
-  document.getElementById('obHeightLabel').textContent = isFt ? 'Height' : 'Height (cm)';
+  document.getElementById('obHeightLabel').textContent = isFt ? 'Height (ft/in)' : 'Height (cm)';
   document.getElementById('obHeight').style.display = isFt ? 'none' : 'block';
   document.getElementById('obHeightFtWrap').style.display = isFt ? 'flex' : 'none';
 }
@@ -5670,27 +5755,9 @@ async function checkAuthAndStart(){
 
     const chartEl = document.getElementById('fsHistoryChart');
     const recent = [...fasts].reverse().slice(-14);
-    if(recent.length < 2){
-      chartEl.innerHTML = `<div class="dash-empty">Log a couple of fasts to see your trend.</div>`;
-    } else {
-      const w = 300, h = 80, pad = 8;
-      const vals = recent.map(f => f.hours);
-      const maxV = Math.max(...vals, 16) + 2;
-      const barW = (w - pad*2) / recent.length;
-      const bars = recent.map((f, i) => {
-        const barH = (f.hours / maxV) * (h - pad*2);
-        const x = pad + i*barW;
-        const y = h - pad - barH;
-        return `<rect x="${x + barW*0.15}" y="${y}" width="${barW*0.7}" height="${barH}" rx="2" fill="var(--forest)"/>`;
-      }).join('');
-      chartEl.innerHTML = `
-        <svg viewBox="0 0 ${w} ${h}" style="width:100%;height:${h}px;overflow:visible;">${bars}</svg>
-        <div style="display:flex;justify-content:space-between;font-size:10.5px;color:var(--ink-soft);margin-top:2px;">
-          <span>${formatDateLabel(recent[0].date)}</span>
-          <span>${formatDateLabel(recent[recent.length-1].date)}</span>
-        </div>
-      `;
-    }
+    renderTrendLineChart(chartEl, recent.map(f => ({y: f.hours, label: formatDateLabel(f.date)})), {
+      goalValue: fastingState.goalHours || 16, emptyText: 'Log a couple of fasts to see your trend.'
+    });
 
     const listEl = document.getElementById('fsHistoryList');
     if(!fasts.length){
@@ -5790,27 +5857,11 @@ async function checkAuthAndStart(){
 
     const chartEl = document.getElementById('stepsChart');
     const recent = [...entries].reverse().slice(-14);
-    if(recent.length < 2){
-      chartEl.innerHTML = `<div class="dash-empty">Log a couple of days to see your trend.</div>`;
-    } else {
-      const w = 300, h = 80, pad = 8;
-      const vals = recent.map(s => s.count);
-      const maxV = Math.max(...vals, 10000) * 1.1;
-      const barW = (w - pad*2) / recent.length;
-      const bars = recent.map((s, i) => {
-        const barH = (s.count / maxV) * (h - pad*2);
-        const x = pad + i*barW;
-        const y = h - pad - barH;
-        return `<rect x="${x + barW*0.15}" y="${y}" width="${barW*0.7}" height="${barH}" rx="2" fill="#4A90D9"/>`;
-      }).join('');
-      chartEl.innerHTML = `
-        <svg viewBox="0 0 ${w} ${h}" style="width:100%;height:${h}px;overflow:visible;">${bars}</svg>
-        <div style="display:flex;justify-content:space-between;font-size:10.5px;color:var(--ink-soft);margin-top:2px;">
-          <span>${formatDateLabel(recent[0].date)}</span>
-          <span>${formatDateLabel(recent[recent.length-1].date)}</span>
-        </div>
-      `;
-    }
+    renderTrendLineChart(chartEl, recent.map(s => ({y: s.count, label: formatDateLabel(s.date)})), {
+      color: '#4A90D9', dotColor: '#2E6DA8',
+      goalValue: (userHealthTargets && userHealthTargets.stepsGoal) || 10000,
+      emptyText: 'Log a couple of days to see your trend.'
+    });
 
     const listEl = document.getElementById('stepsHistoryList');
     if(!entries.length){
@@ -5924,27 +5975,10 @@ async function checkAuthAndStart(){
 
     const chartEl = document.getElementById('sleepScreenChart');
     const recent = [...entries].reverse().slice(-14);
-    if(recent.length < 2){
-      chartEl.innerHTML = `<div class="dash-empty">Log a couple of nights to see your trend.</div>`;
-    } else {
-      const w = 300, h = 80, pad = 8;
-      const vals = recent.map(s => s.hours);
-      const maxV = Math.max(...vals, 8) + 2;
-      const barW = (w - pad*2) / recent.length;
-      const bars = recent.map((s, i) => {
-        const barH = (s.hours / maxV) * (h - pad*2);
-        const x = pad + i*barW;
-        const y = h - pad - barH;
-        return `<rect x="${x + barW*0.15}" y="${y}" width="${barW*0.7}" height="${barH}" rx="2" fill="var(--forest)"/>`;
-      }).join('');
-      chartEl.innerHTML = `
-        <svg viewBox="0 0 ${w} ${h}" style="width:100%;height:${h}px;overflow:visible;">${bars}</svg>
-        <div style="display:flex;justify-content:space-between;font-size:10.5px;color:var(--ink-soft);margin-top:2px;">
-          <span>${formatDateLabel(recent[0].date)}</span>
-          <span>${formatDateLabel(recent[recent.length-1].date)}</span>
-        </div>
-      `;
-    }
+    renderTrendLineChart(chartEl, recent.map(s => ({y: s.hours, label: formatDateLabel(s.date)})), {
+      goalValue: (userProfile && userProfile.sleepGoalHours) || 8,
+      emptyText: 'Log a couple of nights to see your trend.'
+    });
 
     const listEl = document.getElementById('sleepScreenHistoryList');
     if(!entries.length){
@@ -5961,6 +5995,121 @@ async function checkAuthAndStart(){
 
   document.querySelector('[data-sleep-history-toggle="1"]').addEventListener('click', function(){
     const detail = document.querySelector('[data-sleep-history-detail="1"]');
+    const open = detail.classList.toggle('open');
+    this.classList.toggle('expanded', open);
+  });
+})();
+
+/* ---------- Water (dedicated full-page day-nav editor + history) ---------- */
+(function(){
+  let waterSelectedDate = null;
+  const fmtL = ml => (ml / 1000).toFixed(2).replace(/\.?0+$/, '') || '0';
+
+  window.openWaterScreen = function(){
+    waterSelectedDate = dateStrForOffset(0);
+    renderWaterDayNav();
+    renderWaterHistory();
+    document.getElementById('waterScreen').style.display = 'flex';
+  };
+  function closeWaterScreen(){
+    document.getElementById('waterScreen').style.display = 'none';
+  }
+  document.getElementById('waterScreenClose').addEventListener('click', closeWaterScreen);
+  document.body.addEventListener('click', (e)=>{
+    if(e.target.closest('button, input, select, a, textarea')) return;
+    if(e.target.closest('.open-water-screen-link')) window.openWaterScreen();
+  });
+
+  function waterTargetMl(){
+    return (userHealthTargets && userHealthTargets.waterGoalMl) || (userProfile && userProfile.waterGoalMl) || 2500;
+  }
+
+  function renderWaterDayNav(){
+    const navEl = document.getElementById('waterDayNav');
+    const todayStr = dateStrForOffset(0);
+    const isToday = waterSelectedDate === todayStr;
+    navEl.innerHTML = `
+      <button class="day-nav-btn" id="waterPrevDay" type="button"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+      <div class="day-nav-label">
+        <div class="day-nav-date">${isToday ? 'Today' : formatDateLabel(waterSelectedDate)}</div>
+        ${!isToday ? `<div class="day-nav-today-link" id="waterJumpToday">Jump to today</div>` : `<div style="font-size:11px;color:var(--ink-soft);">${formatDateLabel(waterSelectedDate)}</div>`}
+      </div>
+      <button class="day-nav-btn" id="waterNextDay" type="button" ${isToday ? 'disabled' : ''}><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></button>
+    `;
+    document.getElementById('waterPrevDay').addEventListener('click', ()=>{
+      waterSelectedDate = addDaysToDate(waterSelectedDate, -1);
+      renderWaterDayNav();
+    });
+    if(!isToday){
+      document.getElementById('waterNextDay').addEventListener('click', ()=>{
+        waterSelectedDate = addDaysToDate(waterSelectedDate, 1);
+        renderWaterDayNav();
+      });
+      document.getElementById('waterJumpToday').addEventListener('click', ()=>{
+        waterSelectedDate = todayStr;
+        renderWaterDayNav();
+      });
+    }
+    renderWaterForm();
+  }
+
+  function renderWaterForm(){
+    const ml = waterLog[waterSelectedDate] || 0;
+    const target = waterTargetMl();
+    document.getElementById('waterScreenValue').textContent = `${fmtL(ml)} L`;
+    document.getElementById('waterScreenSub').textContent = `Target: ${(target/1000).toFixed(1)} L`;
+    document.getElementById('waterScreenBar').style.width = Math.min(100, target ? ml/target*100 : 0) + '%';
+    document.getElementById('waterManualMl').value = '';
+  }
+
+  function adjustWater(deltaMl){
+    const ml = Math.max(0, (waterLog[waterSelectedDate] || 0) + deltaMl);
+    waterLog[waterSelectedDate] = ml;
+    saveWater();
+    renderWaterForm();
+    renderWaterHistory();
+    if(waterSelectedDate === dateStrForOffset(0)) renderTodayGlance();
+  }
+  document.getElementById('waterScreenPlus').addEventListener('click', ()=> adjustWater(250));
+  document.getElementById('waterScreenMinus').addEventListener('click', ()=> adjustWater(-250));
+  document.getElementById('waterManualSetBtn').addEventListener('click', ()=>{
+    const val = parseInt(document.getElementById('waterManualMl').value, 10);
+    if(isNaN(val) || val < 0) return;
+    waterLog[waterSelectedDate] = val;
+    saveWater();
+    renderWaterForm();
+    renderWaterHistory();
+    if(waterSelectedDate === dateStrForOffset(0)) renderTodayGlance();
+  });
+
+  function renderWaterHistory(){
+    const entries = Object.entries(waterLog)
+      .map(([date, ml]) => ({date, ml}))
+      .filter(e => e.ml > 0)
+      .sort((a,b)=> a.date < b.date ? 1 : -1);
+
+    const chartEl = document.getElementById('waterScreenChart');
+    const recent = [...entries].reverse().slice(-14);
+    renderTrendLineChart(chartEl, recent.map(e => ({y: e.ml, label: formatDateLabel(e.date)})), {
+      color: '#4A90D9', dotColor: '#2E6DA8',
+      goalValue: waterTargetMl(), emptyText: 'Log a couple of days to see your trend.'
+    });
+
+    const listEl = document.getElementById('waterScreenHistoryList');
+    if(!entries.length){
+      listEl.innerHTML = `<div class="dash-empty">No water logged yet.</div>`;
+    } else {
+      listEl.innerHTML = entries.slice(0, 10).map(e => `
+        <div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px dashed var(--line);font-size:12.5px;">
+          <span style="color:var(--ink-soft);">${formatDateLabel(e.date)}</span>
+          <span style="font-weight:600;">${fmtL(e.ml)} L</span>
+        </div>
+      `).join('');
+    }
+  }
+
+  document.querySelector('[data-water-history-toggle="1"]').addEventListener('click', function(){
+    const detail = document.querySelector('[data-water-history-detail="1"]');
     const open = detail.classList.toggle('open');
     this.classList.toggle('expanded', open);
   });

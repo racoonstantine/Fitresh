@@ -483,6 +483,50 @@ full picture in one place. The day-by-day table's row layout got explicit
 scroll horizontally on narrow screens instead of getting squeezed unreadably
 thin.
 
+## Water (dedicated page)
+
+Water gets the same treatment as Fasting/Steps/Sleep: the Today card's
+quick +/− glass buttons still work in place, but tapping the card now opens
+a dedicated page (`window.openWaterScreen`) with day-nav, a manual "set
+exact amount" input alongside the +/− buttons, a 14-day trend chart, and
+collapsible history. Same `water` resource (`{date: ml}`) as before.
+
+## Trend charts: shared axis-labeled line chart
+
+Every trend graph in the app (Weight, Sleep, Steps, Fasting, Water) now
+renders through one shared `renderTrendLineChart()` helper instead of each
+screen having its own bar-chart or bare-sparkline code: y-axis gridlines at
+"nice" rounded values (a small D3-style tick-rounding helper, `niceTicks()`),
+x-axis date labels, a line with dot markers, and an optional dashed
+goal/target line. Weight's chart also gained axis labels and gridlines it
+didn't have before, matching how the other trend pages already looked.
+
+## Goals page: compact fields, inline weight-unit dropdown
+
+The Goals page's simple "one label, one number" fields (macros, target
+weight, sleep, steps, calorie burn, water, fasting) moved off `.hub-tile`
+(designed for 150px-tall stat-display tiles, and mostly wasted space for a
+plain input) onto a new lightweight `.goal-field` style — a compact bordered
+box just tall enough for a label and an input. The standalone "Preferred
+weight unit" tile is gone; its dropdown now sits inline in the "Target
+weight" field's own label row (a `.goal-field-unit` select), and switching
+it live-converts whatever's already typed rather than just relabeling.
+
+## Onboarding/profile form: inline unit dropdowns
+
+The Weight unit / Height unit selects used to take a full row of their own.
+They're now small inline dropdowns in the "Height" and "Current weight"
+field labels themselves (`.goal-field-unit`-style small `<select>`), with
+the label text and the ft/in vs. cm field layout still updating live on
+change — same behavior, tighter layout.
+
+## Today at a Glance: Macronutrients tile relabel
+
+The macro name (Carbs/Protein/Fat) now sits above each ring and the gram
+target sits below it, instead of both being crammed into one line under
+the ring — the combined "Carbs / 180g" line was cramped and started
+overlapping at narrow widths.
+
 ## Local development
 
 There's no build step. To preview the frontend against a local PHP server:
