@@ -695,6 +695,32 @@ that used to be nested inside the collapsible History section is now always
 visible directly under "Save this fast," under a "Fasting trend" label;
 History keeps just the plain list.
 
+## Nutrition dashboard: correct over-target coloring, daily guidance notes, meal-type editing
+
+Fixed a real bug in the Macro breakdown bars (Calories/Protein/Fat): the
+"met" check only looked at the floor of the target range, never the
+ceiling, so exceeding the max (e.g. 100g fat against a 60-75g target) still
+rendered green. It now correctly turns red both under the floor and over
+the ceiling, matching how Carbs/Sodium/Sugar (ceiling-only macros) already
+behaved. Covered by `tools/test_nutrition_notes.cjs`.
+
+Added a "Guidance for today/that day" note block under the Macro breakdown,
+generated from how the day's actual totals compare to targets — e.g.
+flagging high sodium/sugar/carbs or low protein/fiber with a one-line
+suggestion, or a single "nothing to flag" note when everything's in range.
+Sodium/fiber/sugar notes are skipped entirely on days with no itemized food
+logging, since those totals aren't tracked otherwise and would otherwise
+look like false zeros.
+
+Editing a logged food item (tap to expand under "Logged via search") now
+includes a meal-type dropdown alongside the amount, so a food logged under
+the wrong meal (or one you want to move from, say, lunch to dinner) can be
+corrected in place instead of deleted and re-logged. `api/meals.php`'s
+`update_component` action now finds-or-creates the target date's meal entry
+for the new type and re-links the component to it (mirroring the same
+grouping rule the `log` action already uses), since meal type lives on the
+meal entry, not the individual food component.
+
 ## Local development
 
 There's no build step. To preview the frontend against a local PHP server:

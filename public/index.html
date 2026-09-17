@@ -2697,7 +2697,11 @@ function macroBarRow(label, value, min, max, unit, mode){
   const zoneLeftPct = mode === 'ceiling' ? 0 : (min / scaleMax * 100);
   const zoneWidthPct = mode === 'ceiling' ? (max / scaleMax * 100) : ((max - min) / scaleMax * 100);
   const fillPct = Math.min(100, (value / scaleMax) * 100);
-  const met = mode === 'ceiling' ? value <= max : value >= min;
+  // Range mode (calories/protein/fat) has both a floor and a ceiling -- it
+  // was previously only checking the floor, so exceeding the max silently
+  // stayed green instead of flagging red like it does for ceiling-only
+  // macros (carbs/sodium/sugar).
+  const met = mode === 'ceiling' ? value <= max : (value >= min && value <= max);
   const fillColor = met ? 'var(--forest)' : '#B4472A';
   const rangeLabel = mode === 'ceiling' ? `under ${max}${unit}` : `${min}-${max}${unit}`;
   // Round for display -- summed floats (e.g. 29.2 + 0.4) can otherwise print as 29.599999999999998.
@@ -2727,6 +2731,47 @@ function macroChip(label, value, target, unit, mode){
       <div style="font-size:12px;font-weight:600;color:${met ? 'var(--forest-dark)' : '#B4472A'};">${displayValue}<span style="font-weight:400;color:var(--ink-soft);">/${target}${unit}</span></div>
     </div>
   `;
+}
+
+// Short, plain-language guidance notes based on how a day's totals compare
+// to that day's targets -- e.g. flagging high sodium/sugar/carbs, low
+// protein/fiber, or calories outside the target range, with a brief
+// suggestion of what to do about it. sodium/fiber/sugar checks are skipped
+// entirely when hasItemized is false, since those totals only ever come
+// from itemized food-search logging (see combinedDayTotals) -- a plain
+// day-log entry with no items would otherwise look like "0 sodium", which
+// is "not tracked" rather than a genuine zero.
+function buildNutritionNotes(vals, t, hasItemized){
+  const notes = [];
+  if(vals.cal > t.calMax){
+    notes.push({icon: '⚠️', text: `Calories are ${Math.round(vals.cal - t.calMax)} kcal over today's ceiling — fine occasionally, but worth watching if it becomes a pattern.`});
+  } else if(vals.cal < t.calMin){
+    notes.push({icon: 'ℹ️', text: `Calories are under today's target — make sure you're eating enough to fuel the day.`});
+  }
+  if(vals.protein < t.proteinMin){
+    notes.push({icon: 'ℹ️', text: `Protein is under target — a protein-rich snack (eggs, chicken, tofu, dairy) would help close the gap.`});
+  }
+  if(vals.fat > t.fatMax){
+    notes.push({icon: '⚠️', text: `Fat is above target (${Math.round(vals.fat)}g vs ${t.fatMax}g) — consider leaner protein or less added oil for your next meal.`});
+  }
+  if(vals.carbs > t.carbsMax){
+    notes.push({icon: '⚠️', text: `Carbs are above today's ceiling (${Math.round(vals.carbs)}g vs under ${t.carbsMax}g) — watch portions of rice, bread, or sugary drinks for the rest of the day.`});
+  }
+  if(hasItemized){
+    if(vals.sodium > t.sodiumMax){
+      notes.push({icon: '⚠️', text: `Sodium is above today's limit (${Math.round(vals.sodium)}mg vs ${t.sodiumMax}mg) — go easy on processed, canned, or salty foods and drink extra water.`});
+    }
+    if(vals.sugar > t.sugarMax){
+      notes.push({icon: '⚠️', text: `Sugar is above today's limit (${Math.round(vals.sugar)}g vs ${t.sugarMax}g) — sodas, desserts, and sweetened drinks are the usual culprits.`});
+    }
+    if(vals.fiber > 0 && vals.fiber < t.fiberTarget){
+      notes.push({icon: 'ℹ️', text: `Fiber is under target (${Math.round(vals.fiber)}g vs ${t.fiberTarget}g) — more veggies, fruit, or whole grains would help.`});
+    }
+  }
+  if(!notes.length){
+    notes.push({icon: '✓', text: `Nothing to flag — today's numbers are within a healthy range.`});
+  }
+  return notes;
 }
 
 let foodSearchResultsCache = [];
@@ -2986,6 +3031,7 @@ function foodSnapshot(row, foodId){
   return {
     id: foodId, name: row.name, brand: row.brand || null,
     canonical_unit: row.canonical_unit || 'g', canonical_amount: row.canonical_amount || 100,
+    personal_food: row.personal_food || null, label: row.label || null,
     nutrients: row.nutrients || {}, portions: row.portions || [], _origin: 'library'
   };
 }
@@ -3102,6 +3148,7 @@ async function searchFoodsCombined(query){
 function foodMeasureOptions(r){
   const base = r.canonical_unit || 'g';
   const options = [{value:base, label:base, factor:1}];
+  if(r.personal_food?.definition && base !== 'serving') options.push({value:'serving',label:'Serving: '+r.personal_food.definition.serving_label+' (user entered)',factor:Number(r.personal_food.definition.serving_size)});
   if(base === 'g'){
     options.push({value:'oz', label:'oz (weight)', factor:28.349523125});
     (r.portions || []).forEach(p => options.push({value:'portion:' + p.portion_id, label:'Serving: ' + p.description, factor:Number(p.edible_weight_g), portion:p}));
@@ -3179,6 +3226,7 @@ function renderFoodSearchResults(){
               <div style="font-size:11.5px;color:var(--ink-soft);">${foodSearchEscape(sub)}</div>
               ${r.label ? `<div style="font-size:11.5px;color:var(--ink-soft);">${foodSearchEscape(r.label)}${r.complete === false ? ' · Some nutrients unavailable' : ''}</div>` : ''}
               ${r.confidence ? `<div style="font-size:11.5px;color:var(--ink-soft);" title="${foodSearchEscape(r.confidence.reason)}">${foodSearchEscape(r.confidence.level)} reference confidence</div>` : ''}
+              <button type="button" class="timer-btn" data-personal-copy="${i}" data-personal-surface="food">Save a personal copy</button>
             </div>
           </div>
           <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" style="width:16px;height:16px;stroke:var(--ink-soft);flex-shrink:0;"><path d="M9 18l6-6-6-6"/></svg>
@@ -3244,9 +3292,12 @@ async function renderTodayMeals(){
               </div>
             </div>
             <div style="font-size:10.5px;color:var(--ink-soft);margin-top:2px;">${Math.round((c.nutrients.PROCNT || 0) * 10) / 10}g protein · ${Math.round((c.nutrients.FAT || 0) * 10) / 10}g fat · ${Math.round((c.nutrients.CHOCDF || 0) * 10) / 10}g carbs</div>
-            <div class="meal-component-edit" data-edit-id="${c.id}" style="display:none;margin-top:6px;gap:8px;align-items:center;">
+            <div class="meal-component-edit" data-edit-id="${c.id}" style="display:none;margin-top:6px;gap:8px;align-items:center;flex-wrap:wrap;">
               <input type="number" class="meal-edit-amount" data-edit-id="${c.id}" value="${c.amount}" style="width:80px;padding:6px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:12.5px;">
               <span style="font-size:11.5px;color:var(--ink-soft);">${c.unit}</span>
+              <select class="meal-edit-type" data-edit-id="${c.id}" style="padding:6px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:12.5px;">
+                ${MEAL_TYPE_ORDER.map(mt => `<option value="${mt}" ${mt === entry.meal_type ? 'selected' : ''}>${typeLabels[mt] || mt}</option>`).join('')}
+              </select>
               <button class="timer-btn start meal-save-amount" data-id="${c.id}" data-unit="${c.unit}" type="button" style="flex:1;padding:6px 0;font-size:12px;">Save</button>
             </div>
           </div>
@@ -3288,13 +3339,14 @@ async function renderTodayMeals(){
         e.stopPropagation();
         const id = btn.dataset.id;
         const input = card.querySelector(`.meal-edit-amount[data-edit-id="${id}"]`);
+        const typeSelect = card.querySelector(`.meal-edit-type[data-edit-id="${id}"]`);
         const amount = parseFloat(input.value);
         if(!amount || amount <= 0) return;
         btn.disabled = true;
         btn.textContent = 'Saving…';
         await fetch('api/meals.php?action=update_component', {
           method: 'POST', credentials: 'same-origin', headers: {'Content-Type': 'application/json'},
-          body: JSON.stringify({id: parseInt(id, 10), amount, unit: btn.dataset.unit || 'g'})
+          body: JSON.stringify({id: parseInt(id, 10), amount, unit: btn.dataset.unit || 'g', meal_type: typeSelect ? typeSelect.value : undefined})
         });
         renderTodayMeals();
         renderNutrition();
@@ -3445,6 +3497,19 @@ async function renderNutrition(){
               </div>
             </div>
           </div>
+
+          ${(() => {
+            const notes = buildNutritionNotes(
+              {cal: eatenCal, protein: eatenProtein, fat: eatenFat, carbs: eatenCarbs, sodium: eatenSodium, fiber: eatenFiber, sugar: eatenSugar},
+              t, !!(eatenSodium || eatenFiber || eatenSugar)
+            );
+            return `
+              <div style="margin-top:12px;padding-top:12px;border-top:1px solid var(--line);">
+                <div style="font-size:10.5px;font-weight:600;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px;">Guidance for ${dayWord}</div>
+                ${notes.map(n => `<div style="display:flex;gap:6px;font-size:12px;color:var(--ink);line-height:1.4;margin-bottom:5px;"><span>${n.icon}</span><span>${n.text}</span></div>`).join('')}
+              </div>
+            `;
+          })()}
         </div>
       `;
       const macroHead = bannerEl.querySelector('[data-macro-toggle="1"]');
@@ -5567,6 +5632,8 @@ async function checkAuthAndStart(){
     searchFoodsCombined(query);
   });
   document.getElementById('foodSearchResults').addEventListener('click', async (e)=>{
+    const copyBtn=e.target.closest('[data-personal-copy]');
+    if(copyBtn){e.stopPropagation();window.personalFoods.openCopy(foodSearchResultsCache[Number(copyBtn.dataset.personalCopy)]);return;}
     const cancelBtn = e.target.closest('.food-log-cancel');
     if(cancelBtn){
       e.stopPropagation();
@@ -5800,6 +5867,7 @@ async function checkAuthAndStart(){
                 <div style="font-weight:600;font-size:13.5px;">${foodSearchEscape(r.name)}</div>
                 <div style="font-size:11.5px;color:var(--ink-soft);">${foodSearchEscape(sub)}${r.complete === false ? ' · Some nutrients unavailable' : ''}</div>
                 ${r.confidence ? `<div style="font-size:11.5px;color:var(--ink-soft);" title="${foodSearchEscape(r.confidence.reason)}">${foodSearchEscape(r.confidence.level)} reference confidence</div>` : ''}
+                <button type="button" class="timer-btn" data-personal-copy="${i}" data-personal-surface="lm">Save a personal copy</button>
               </div>
             </div>
             <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" style="width:16px;height:16px;stroke:var(--ink-soft);flex-shrink:0;"><path d="M9 18l6-6-6-6"/></svg>
@@ -5824,6 +5892,8 @@ async function checkAuthAndStart(){
     if(row) updateFoodMeasurement(row, panel);
   }));
   document.getElementById('lmSearchResults').addEventListener('click', async (e)=>{
+    const copyBtn=e.target.closest('[data-personal-copy]');
+    if(copyBtn){e.stopPropagation();window.personalFoods.openCopy(lmSearchResultsCache[Number(copyBtn.dataset.personalCopy)]);return;}
     const addBtn = e.target.closest('.lm-add-search-item');
     if(addBtn){
       e.stopPropagation();
@@ -6902,5 +6972,7 @@ checkAuthAndStart();
 </script>
 <link rel="stylesheet" href="workouts.css">
 <script src="workouts.js"></script>
+<link rel="stylesheet" href="personal-foods.css">
+<script src="personal-foods.js"></script>
 </body>
 </html>

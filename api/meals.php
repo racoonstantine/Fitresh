@@ -211,13 +211,20 @@ if ($method === 'POST' && $action === 'delete_component') {
 if ($method === 'POST' && $action === 'update_component') {
     // Correcting a logged amount -- only the amount/unit change; the food itself
     // (and its nutrient record) is untouched, so nutrients continue to scale from it.
+    // An optional meal_type additionally moves the component to a different
+    // meal_entries row for the same date (find-or-create, same grouping rule
+    // as the `log` action), since meal type lives on the entry, not the component.
     $componentId = (int)($input['id'] ?? 0);
     $amount = (float)($input['amount'] ?? 0);
     if ($componentId <= 0 || $amount <= 0) {
         json_respond(['error' => 'Invalid amount.'], 400);
     }
     $unit = (string)($input['unit'] ?? 'g');
-    $owned = $pdo->prepare('SELECT food_id FROM meal_components WHERE id = ? AND meal_entry_id IN (SELECT id FROM meal_entries WHERE user_id = ?)');
+    $owned = $pdo->prepare(
+        'SELECT mc.food_id, me.entry_date, me.meal_type, me.id AS meal_entry_id
+         FROM meal_components mc JOIN meal_entries me ON me.id = mc.meal_entry_id
+         WHERE mc.id = ? AND me.user_id = ?'
+    );
     $owned->execute([$componentId, $userId]);
     $existing = $owned->fetch();
     if (!$existing) json_respond(['error' => 'Meal component unavailable.'], 404);
@@ -232,11 +239,31 @@ if ($method === 'POST' && $action === 'update_component') {
     } catch (InvalidArgumentException $e) {
         json_respond(['error' => $e->getMessage()], 400);
     }
+
+    $targetMealEntryId = (int)$existing['meal_entry_id'];
+    $requestedMealType = isset($input['meal_type']) ? (string)$input['meal_type'] : null;
+    if ($requestedMealType !== null && $requestedMealType !== $existing['meal_type'] && in_array($requestedMealType, MEAL_TYPES, true)) {
+        $stmt = $pdo->prepare(
+            'SELECT id FROM meal_entries WHERE user_id = ? AND entry_date = ? AND meal_type = ? AND display_name IS NULL LIMIT 1'
+        );
+        $stmt->execute([$userId, $existing['entry_date'], $requestedMealType]);
+        $target = $stmt->fetch();
+        if ($target) {
+            $targetMealEntryId = (int)$target['id'];
+        } else {
+            $stmt = $pdo->prepare(
+                'INSERT INTO meal_entries (user_id, entry_date, meal_type, display_name, created_at) VALUES (?, ?, ?, NULL, NOW())'
+            );
+            $stmt->execute([$userId, $existing['entry_date'], $requestedMealType]);
+            $targetMealEntryId = (int)$pdo->lastInsertId();
+        }
+    }
+
     $stmt = $pdo->prepare(
-        'UPDATE meal_components SET amount = ?, unit = ?
+        'UPDATE meal_components SET amount = ?, unit = ?, meal_entry_id = ?
          WHERE id = ? AND meal_entry_id IN (SELECT id FROM meal_entries WHERE user_id = ?)'
     );
-    $stmt->execute([$amount, $unit, $componentId, $userId]);
+    $stmt->execute([$amount, $unit, $targetMealEntryId, $componentId, $userId]);
     json_respond(['ok' => true]);
 }
 
