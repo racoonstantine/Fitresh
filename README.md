@@ -267,14 +267,6 @@ The "Calories Burned" ring's target (400 kcal) is a fixed placeholder —
 there's no user-configurable exercise-calorie goal yet, unlike the food/
 water/protein targets which all come from the health profile.
 
-## Sleep tracking
-
-A Sleep card on Today at a Glance takes last night's bedtime and wake time
-(defaults to 10pm-7am the first time) and shows the computed hours; click
-Edit to change it. Stored as a new `sleep` resource (`{date: {startIso,
-endIso, hours}}`, keyed by the wake date) via the same generic mechanism as
-everything else.
-
 ## Richer workout stats
 
 "Log stats from watch" (now available on strength days too, not just
@@ -421,6 +413,10 @@ separate "edit mode":
 - Today's header now shows the current day and time (updates every 30s),
   and the daily quote pool includes Tagalog lines alongside the English
   ones.
+- The Food tab's "Log a Day (quick totals)" entry list is now a collapsible
+  "Diary / Meal Notes" section (collapsed by default), since it's really a
+  short free-text daily note/summary rather than the main food log —
+  distinct from the itemized search-logged meals shown above it.
 
 ## Today tab: tap-through navigation, fasting detail, and rotating quotes
 
@@ -451,14 +447,19 @@ most recently logged fast's total hours, percent of goal, and a verdict —
 Goal Met, Not Met, or Exceeded target (>105% of goal) — so you can see at a
 glance how the last fast went without opening History.
 
-## Sleep tracking on the Body tab
+## Sleep (dedicated page)
 
-Sleep now has a full home on the Body tab (previously only editable from the
-Today card): day-nav (prev/next/jump-to-today) to log or correct any past
-night, a 14-day trend chart, and a collapsible history list (most recent 10).
-It reads/writes the same `sleep` resource as the Today card, so logging from
-either place shows up in both immediately. The "coming soon" Sleep
-placeholder tile was removed from Body now that it's a real feature.
+Sleep moved off the Today card's inline edit form and the Body tab's
+full day-nav section onto its own dedicated page (`window.openSleepScreen`),
+mirroring the Fasting and Steps pages: day-nav (prev/next/jump-to-today) to
+log or correct any past night, a 14-day trend chart, and a collapsible
+history list (most recent 10). Both the Today glance card and a compact
+summary tile on the Body tab (last night's hours, a short trend commentary
+like "Averaging 6.2h the past 3 nights — below your 8h goal", and a mini
+7-day bar chart) are now read-only and open the dedicated page on tap
+instead of editing inline. All three surfaces read/write the same `sleep`
+resource, so logging from the dedicated page shows up everywhere
+immediately.
 
 ## Steps (manual entry)
 

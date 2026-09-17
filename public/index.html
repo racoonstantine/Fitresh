@@ -797,35 +797,14 @@
     </section>
 
     <section class="block" style="margin-bottom:18px;">
-      <div class="block-title">Sleep</div>
-      <div class="hub-card">
-        <div id="bodySleepDayNav" style="display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:12px;"></div>
-        <div style="display:flex;gap:8px;">
-          <div style="flex:1;">
-            <label style="font-size:11px;color:var(--ink-soft);">Bedtime</label>
-            <input type="datetime-local" id="bodySleepStart" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;">
-          </div>
-          <div style="flex:1;">
-            <label style="font-size:11px;color:var(--ink-soft);">Wake time</label>
-            <input type="datetime-local" id="bodySleepEnd" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;">
-          </div>
+      <div class="hub-card open-sleep-screen-link" id="bodySleepCard" style="cursor:pointer;">
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <div class="block-title" style="margin:0;">😴 Sleep</div>
+          <span style="font-size:11px;color:var(--ink-soft);">Details →</span>
         </div>
-        <div id="bodySleepError" style="display:none;font-size:11.5px;color:#B4472A;margin-top:8px;"></div>
-        <button type="button" id="bodySleepSaveBtn" class="timer-btn start" style="width:100%;margin-top:10px;">Save sleep</button>
+        <div id="bodySleepSummary" style="margin-top:8px;"></div>
+        <div id="bodySleepMiniChart" style="margin-top:10px;"></div>
       </div>
-
-      <div class="hub-card" style="margin-top:12px;">
-        <div id="bodySleepChart"></div>
-      </div>
-
-      <section style="margin-top:12px;">
-        <div class="log-head" data-sleep-history-toggle="1" style="padding:0;cursor:pointer;">
-          <div class="block-title" style="margin:0;">Sleep History</div>
-        </div>
-        <div class="log-detail" data-sleep-history-detail="1">
-          <div id="bodySleepHistoryList" style="margin-top:10px;"></div>
-        </div>
-      </section>
     </section>
 
     <section class="block" style="margin-bottom:18px;">
@@ -942,7 +921,15 @@
 
         <button class="timer-btn start" id="saveNutriBtn" style="width:100%;">Save day</button>
       </div>
-      <div id="nutriList" style="margin-top:10px;"></div>
+      <section style="margin-top:14px;">
+        <div class="log-head" data-diary-toggle="1" style="padding:0;cursor:pointer;">
+          <div class="block-title" style="margin:0;flex:1;">Diary / Meal Notes</div>
+          <svg class="log-caret" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="log-detail" data-diary-detail="1">
+          <div id="nutriList" style="margin-top:10px;"></div>
+        </div>
+      </section>
     </section>
   </div><!-- /panelNutrition -->
 
@@ -1538,6 +1525,47 @@
   </div>
 </div>
 
+<div id="sleepScreen" class="fullscreen-modal" style="display:none;">
+  <div class="fullscreen-modal-header">
+    <button type="button" id="sleepScreenClose" class="modal-close-btn">✕</button>
+    <div class="fullscreen-modal-title">Sleep</div>
+    <div style="width:32px;"></div>
+  </div>
+  <div class="fullscreen-modal-body">
+    <div class="hub-card">
+      <div id="sleepDayNav" style="display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:12px;"></div>
+      <div style="display:flex;gap:8px;">
+        <div style="flex:1;">
+          <label style="font-size:11px;color:var(--ink-soft);">Bedtime</label>
+          <input type="datetime-local" id="sleepStartInputScreen" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;">
+        </div>
+        <div style="flex:1;">
+          <label style="font-size:11px;color:var(--ink-soft);">Wake time</label>
+          <input type="datetime-local" id="sleepEndInputScreen" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;">
+        </div>
+      </div>
+      <div id="sleepScreenError" style="display:none;font-size:11.5px;color:#B4472A;margin-top:8px;"></div>
+      <button type="button" id="sleepScreenSaveBtn" class="timer-btn start" style="width:100%;margin-top:10px;">Save sleep</button>
+    </div>
+
+    <div class="hub-card" style="margin-top:14px;">
+      <div id="sleepScreenChart"></div>
+    </div>
+
+    <section style="margin-top:18px;">
+      <div class="log-head" data-sleep-history-toggle="1" style="padding:0;cursor:pointer;">
+        <div class="block-title" style="margin:0;flex:1;">History</div>
+        <svg class="log-caret" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+      <div class="log-detail" data-sleep-history-detail="1">
+        <div style="padding-top:10px;">
+          <div id="sleepScreenHistoryList"></div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
 <script>
 const STORAGE_PREFIX = 'log:';
 
@@ -1853,7 +1881,6 @@ function addWaterMl(deltaMl){
 
 // ---------- Sleep (manual last-night bedtime/wake-time entry) ----------
 let sleepLog = {}; // {dateStr (wake date): {startIso, endIso, hours}}
-let sleepFormOpen = false;
 async function loadSleep(){
   try{
     const res = await window.storage.get(STORAGE_PREFIX + 'sleep', false);
@@ -2170,25 +2197,16 @@ async function renderTodayGlance(){
       ${glanceRing(Math.min(100, caloriesBurned/calorieBurnTarget*100), '#B4472A', 84, `<div style="font-family:var(--font-heading);font-size:20px;">${Math.round(caloriesBurned)}</div><div style="font-size:9.5px;color:var(--ink-soft);">kcal</div>`)}
       <div class="glance-card-sub">Target: ${calorieBurnTarget} kcal</div>
     </div>
-    <div class="glance-card" id="sleepCard" data-nav-view="body" style="cursor:pointer;">
+    <div class="glance-card open-sleep-screen-link" style="cursor:pointer;">
       <div class="glance-card-head"><span class="glance-card-label">\u{1F634} Sleep</span></div>
-      ${sleepEntry && !sleepFormOpen ? `
+      ${sleepEntry ? `
         <div class="glance-card-value">${formatSleepHours(sleepEntry.hours)}</div>
         <div class="glance-card-sub">${sleepEntry.startIso && sleepEntry.endIso ? `${fmtClock(sleepEntry.startIso)} – ${fmtClock(sleepEntry.endIso)}` : 'Logged'}</div>
         <div class="glance-card-sub">Goal: ${sleepGoalHours}h${sleepEntry.hours >= sleepGoalHours ? ' ✓' : ''}</div>
-        <button class="img-link" id="editSleepBtn" type="button" style="cursor:pointer;margin-top:4px;padding:4px 10px;font-size:11px;align-self:flex-start;">Edit</button>
       ` : `
-        <div style="display:flex;gap:6px;">
-          <div style="flex:1;">
-            <label style="font-size:10px;color:var(--ink-soft);">Bedtime</label>
-            <input type="datetime-local" id="sleepStartInput" style="width:100%;padding:6px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:11px;">
-          </div>
-          <div style="flex:1;">
-            <label style="font-size:10px;color:var(--ink-soft);">Wake time</label>
-            <input type="datetime-local" id="sleepEndInput" style="width:100%;padding:6px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:11px;">
-          </div>
-        </div>
-        <button class="timer-btn start" id="saveSleepBtn" type="button" style="width:100%;margin-top:6px;padding:7px 0;font-size:12px;">Save sleep</button>
+        <div class="glance-card-value">—</div>
+        <div class="glance-card-sub">Not logged yet</div>
+        <div class="glance-card-sub">Goal: ${sleepGoalHours}h</div>
       `}
     </div>
     <div class="glance-card open-steps-screen-link" style="align-items:center;cursor:pointer;">
@@ -2197,38 +2215,6 @@ async function renderTodayGlance(){
       <div class="glance-card-sub">Target: ${stepsTarget.toLocaleString()}</div>
     </div>
   `;
-
-  if(!(sleepEntry && !sleepFormOpen)){
-    const pad2 = n => String(n).padStart(2,'0');
-    const toLocalInput = d => `${d.getFullYear()}-${pad2(d.getMonth()+1)}-${pad2(d.getDate())}T${pad2(d.getHours())}:${pad2(d.getMinutes())}`;
-    const startInput = document.getElementById('sleepStartInput');
-    const endInput = document.getElementById('sleepEndInput');
-    if(sleepEntry && sleepEntry.startIso && sleepEntry.endIso){
-      startInput.value = toLocalInput(new Date(sleepEntry.startIso));
-      endInput.value = toLocalInput(new Date(sleepEntry.endIso));
-    } else {
-      const bed = new Date(); bed.setDate(bed.getDate() - 1); bed.setHours(22,0,0,0);
-      const wake = new Date(); wake.setHours(7,0,0,0);
-      startInput.value = toLocalInput(bed);
-      endInput.value = toLocalInput(wake);
-    }
-    document.getElementById('saveSleepBtn').addEventListener('click', ()=>{
-      const startD = new Date(startInput.value);
-      const endD = new Date(endInput.value);
-      if(isNaN(startD.getTime()) || isNaN(endD.getTime()) || endD <= startD) return;
-      const hours = (endD - startD) / 3600000;
-      sleepLog[today] = {startIso: startD.toISOString(), endIso: endD.toISOString(), hours};
-      sleepFormOpen = false;
-      saveSleepLog();
-      renderTodayGlance();
-      renderBodySleep();
-    });
-  } else {
-    document.getElementById('editSleepBtn').addEventListener('click', ()=>{
-      sleepFormOpen = true;
-      renderTodayGlance();
-    });
-  }
 
   const qaGrid = document.getElementById('quickActionsGrid');
   qaGrid.innerHTML = `
@@ -3148,73 +3134,44 @@ function renderBodyPlaceholders(){
 }
 
 // ---------- Body tab: Sleep (day-nav edit + history + trend chart) ----------
-let bodySleepSelectedDate = null;
-function renderBodySleepDayNav(){
-  const navEl = document.getElementById('bodySleepDayNav');
-  if(!navEl) return;
-  const todayStr = dateStrForOffset(0);
-  if(!bodySleepSelectedDate) bodySleepSelectedDate = todayStr;
-  const isToday = bodySleepSelectedDate === todayStr;
-  navEl.innerHTML = `
-    <button class="day-nav-btn" id="bodySleepPrevDay" type="button"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
-    <div class="day-nav-label">
-      <div class="day-nav-date">${isToday ? 'Today' : formatDateLabel(bodySleepSelectedDate)}</div>
-      ${!isToday ? `<div class="day-nav-today-link" id="bodySleepJumpToday">Jump to today</div>` : `<div style="font-size:11px;color:var(--ink-soft);">${formatDateLabel(bodySleepSelectedDate)}</div>`}
-    </div>
-    <button class="day-nav-btn" id="bodySleepNextDay" type="button" ${isToday ? 'disabled' : ''}><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></button>
-  `;
-  document.getElementById('bodySleepPrevDay').addEventListener('click', ()=>{
-    bodySleepSelectedDate = addDaysToDate(bodySleepSelectedDate, -1);
-    renderBodySleepDayNav();
-    renderBodySleepForm();
-  });
-  if(!isToday){
-    document.getElementById('bodySleepNextDay').addEventListener('click', ()=>{
-      bodySleepSelectedDate = addDaysToDate(bodySleepSelectedDate, 1);
-      renderBodySleepDayNav();
-      renderBodySleepForm();
-    });
-    document.getElementById('bodySleepJumpToday').addEventListener('click', ()=>{
-      bodySleepSelectedDate = todayStr;
-      renderBodySleepDayNav();
-      renderBodySleepForm();
-    });
-  }
-  renderBodySleepForm();
-}
-function renderBodySleepForm(){
-  const errEl = document.getElementById('bodySleepError');
-  if(!errEl) return;
-  errEl.style.display = 'none';
-  const pad2 = n => String(n).padStart(2,'0');
-  const toLocalInput = d => `${d.getFullYear()}-${pad2(d.getMonth()+1)}-${pad2(d.getDate())}T${pad2(d.getHours())}:${pad2(d.getMinutes())}`;
-  const existing = sleepLog[bodySleepSelectedDate];
-  let start, end;
-  if(existing && existing.startIso && existing.endIso){
-    start = new Date(existing.startIso);
-    end = new Date(existing.endIso);
-  } else {
-    end = new Date(bodySleepSelectedDate + 'T07:00:00');
-    start = new Date(end.getTime() - 8 * 3600000);
-  }
-  document.getElementById('bodySleepStart').value = toLocalInput(start);
-  document.getElementById('bodySleepEnd').value = toLocalInput(end);
-}
-function renderBodySleepHistory(){
+// Body tab: compact read-only summary + mini trend + commentary. Editing
+// happens on the dedicated Sleep page (window.openSleepScreen), same
+// pattern as the Steps and Fasting tiles.
+function renderBodySleepCard(){
+  const summaryEl = document.getElementById('bodySleepSummary');
+  if(!summaryEl) return;
+  const today = dateStrForOffset(0);
+  const goalHrs = (userProfile && userProfile.sleepGoalHours) || 8;
+  const todayEntry = sleepLog[today] || null;
+
   const entries = Object.entries(sleepLog)
     .map(([date, s]) => ({date, hours: s.hours}))
     .sort((a,b)=> a.date < b.date ? 1 : -1);
+  const recentEntries = entries.slice(0, 3);
+  const avgRecent = recentEntries.length ? recentEntries.reduce((a,b)=>a+b.hours,0)/recentEntries.length : null;
 
-  const chartEl = document.getElementById('bodySleepChart');
-  const recent = [...entries].reverse().slice(-14);
-  if(!chartEl){
-    // panel not built yet
-  } else if(recent.length < 2){
-    chartEl.innerHTML = `<div class="dash-empty">Log a couple of nights to see your trend.</div>`;
+  let commentary = 'No sleep logged yet.';
+  if(avgRecent !== null){
+    if(avgRecent >= goalHrs) commentary = 'Well rested — keep it up.';
+    else if(avgRecent >= goalHrs - 1) commentary = 'Close to your sleep goal.';
+    else commentary = `Averaging ${formatSleepHours(avgRecent)} the past ${recentEntries.length} night${recentEntries.length===1?'':'s'} — below your ${goalHrs}h goal.`;
+  }
+
+  summaryEl.innerHTML = `
+    <div style="font-family:var(--font-heading);font-size:22px;">${todayEntry ? formatSleepHours(todayEntry.hours) : '—'}</div>
+    <div style="font-size:12px;color:var(--ink-soft);margin-top:2px;">${todayEntry ? 'Last night' : 'Not logged last night'} · Goal: ${goalHrs}h</div>
+    <div style="font-size:12px;color:var(--ink-soft);margin-top:6px;">${commentary}</div>
+  `;
+
+  const chartEl = document.getElementById('bodySleepMiniChart');
+  if(!chartEl) return;
+  const recent = [...entries].reverse().slice(-7);
+  if(recent.length < 2){
+    chartEl.innerHTML = '';
   } else {
-    const w = 300, h = 80, pad = 8;
+    const w = 300, h = 50, pad = 6;
     const vals = recent.map(s => s.hours);
-    const maxV = Math.max(...vals, 8) + 2;
+    const maxV = Math.max(...vals, goalHrs) + 1;
     const barW = (w - pad*2) / recent.length;
     const bars = recent.map((s, i) => {
       const barH = (s.hours / maxV) * (h - pad*2);
@@ -3222,31 +3179,8 @@ function renderBodySleepHistory(){
       const y = h - pad - barH;
       return `<rect x="${x + barW*0.15}" y="${y}" width="${barW*0.7}" height="${barH}" rx="2" fill="var(--forest)"/>`;
     }).join('');
-    chartEl.innerHTML = `
-      <svg viewBox="0 0 ${w} ${h}" style="width:100%;height:${h}px;overflow:visible;">${bars}</svg>
-      <div style="display:flex;justify-content:space-between;font-size:10.5px;color:var(--ink-soft);margin-top:2px;">
-        <span>${formatDateLabel(recent[0].date)}</span>
-        <span>${formatDateLabel(recent[recent.length-1].date)}</span>
-      </div>
-    `;
+    chartEl.innerHTML = `<svg viewBox="0 0 ${w} ${h}" style="width:100%;height:${h}px;overflow:visible;">${bars}</svg>`;
   }
-
-  const listEl = document.getElementById('bodySleepHistoryList');
-  if(!listEl) return;
-  if(!entries.length){
-    listEl.innerHTML = `<div class="dash-empty">No sleep logged yet.</div>`;
-  } else {
-    listEl.innerHTML = entries.slice(0, 10).map(s => `
-      <div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px dashed var(--line);font-size:12.5px;">
-        <span style="color:var(--ink-soft);">${formatDateLabel(s.date)}</span>
-        <span style="font-weight:600;">${formatSleepHours(s.hours)}</span>
-      </div>
-    `).join('');
-  }
-}
-function renderBodySleep(){
-  renderBodySleepDayNav();
-  renderBodySleepHistory();
 }
 
 function renderTrainStepsCard(){
@@ -3259,35 +3193,6 @@ function renderTrainStepsCard(){
   valEl.textContent = stepsToday.toLocaleString();
   subEl.textContent = `Target: ${stepsTarget.toLocaleString()}${stepsToday >= stepsTarget ? ' ✓' : ''}`;
 }
-(function(){
-  const toggle = document.querySelector('[data-sleep-history-toggle="1"]');
-  if(!toggle) return;
-  toggle.addEventListener('click', function(){
-    const detail = document.querySelector('[data-sleep-history-detail="1"]');
-    const open = detail.classList.toggle('open');
-    this.classList.toggle('expanded', open);
-  });
-  document.getElementById('bodySleepSaveBtn').addEventListener('click', ()=>{
-    const errEl = document.getElementById('bodySleepError');
-    errEl.style.display = 'none';
-    const startD = new Date(document.getElementById('bodySleepStart').value);
-    const endD = new Date(document.getElementById('bodySleepEnd').value);
-    if(isNaN(startD.getTime()) || isNaN(endD.getTime()) || endD <= startD){
-      errEl.textContent = 'Wake time must be after bedtime.';
-      errEl.style.display = 'block';
-      return;
-    }
-    const hours = (endD - startD) / 3600000;
-    sleepLog[bodySleepSelectedDate] = { startIso: startD.toISOString(), endIso: endD.toISOString(), hours };
-    saveSleepLog();
-    renderBodySleepHistory();
-    renderTodayGlance();
-    errEl.style.color = 'var(--forest-dark)';
-    errEl.textContent = `Saved — ${formatSleepHours(hours)} logged for ${formatDateLabel(bodySleepSelectedDate)}.`;
-    errEl.style.display = 'block';
-  });
-})();
-
 function renderAccountSnapshot(){
   const greetingCard = document.getElementById('snapshotGreetingCard');
   const profileCard = document.getElementById('snapshotProfileCard');
@@ -4303,10 +4208,16 @@ document.querySelector('[data-history-toggle="1"]').addEventListener('click', fu
   this.classList.toggle('expanded', open);
 });
 
+document.querySelector('[data-diary-toggle="1"]').addEventListener('click', function(){
+  const detail = document.querySelector('[data-diary-detail="1"]');
+  const open = detail.classList.toggle('open');
+  this.classList.toggle('expanded', open);
+});
+
 // Today at a Glance cards navigate to their tab on click -- delegated on the grid
 // containers (whose innerHTML gets rebuilt on every render) rather than per-card,
 // and skipped when the click actually landed on an interactive control inside the
-// card (Water's +/-, Sleep's inputs/Edit/Save buttons).
+// card (Water's +/- buttons).
 function wireGlanceCardNav(gridEl){
   if(!gridEl) return;
   gridEl.addEventListener('click', (e)=>{
@@ -4357,7 +4268,7 @@ async function startApp(){
       btn.classList.toggle('active', btn.dataset.view === view);
     });
     document.getElementById('scrollArea').scrollTop = 0;
-    if(view === 'body'){ renderBodyPlaceholders(); renderBodySleep(); }
+    if(view === 'body'){ renderBodyPlaceholders(); renderBodySleepCard(); }
     if(view === 'train'){ renderTrainStepsCard(); }
     if(view === 'insights'){ renderInsights(); renderSummary(); }
     if(view === 'account') showAccountView(currentAccountView);
@@ -4422,7 +4333,7 @@ async function startApp(){
   setDay(startDay);
   renderTally();
   renderBodyPlaceholders();
-  renderBodySleep();
+  renderBodySleepCard();
   renderTrainStepsCard();
   document.getElementById('exportBtn').addEventListener('click', exportLogCSV);
 
@@ -4901,7 +4812,7 @@ async function checkAuthAndStart(){
 
       revealApp();
       renderBodyPlaceholders();
-      renderBodySleep();
+      renderBodySleepCard();
       renderDashboard();
       renderNutrition();
       renderWeightSection();
@@ -4997,7 +4908,7 @@ async function checkAuthAndStart(){
 
     renderAccountGoals();
     renderBodyPlaceholders();
-    renderBodySleep();
+    renderBodySleepCard();
     renderNutrition();
     renderTodayGlance();
     renderFasting();
@@ -5916,6 +5827,140 @@ async function checkAuthAndStart(){
 
   document.querySelector('[data-steps-history-toggle="1"]').addEventListener('click', function(){
     const detail = document.querySelector('[data-steps-history-detail="1"]');
+    const open = detail.classList.toggle('open');
+    this.classList.toggle('expanded', open);
+  });
+})();
+
+/* ---------- Sleep (dedicated full-page day-nav editor + history) ---------- */
+(function(){
+  let sleepSelectedDate = null;
+
+  window.openSleepScreen = function(){
+    sleepSelectedDate = dateStrForOffset(0);
+    renderSleepDayNav();
+    renderSleepHistory();
+    document.getElementById('sleepScreen').style.display = 'flex';
+  };
+  function closeSleepScreen(){
+    document.getElementById('sleepScreen').style.display = 'none';
+  }
+  document.getElementById('sleepScreenClose').addEventListener('click', closeSleepScreen);
+  document.body.addEventListener('click', (e)=>{
+    if(e.target.closest('.open-sleep-screen-link')) window.openSleepScreen();
+  });
+
+  function renderSleepDayNav(){
+    const navEl = document.getElementById('sleepDayNav');
+    const todayStr = dateStrForOffset(0);
+    const isToday = sleepSelectedDate === todayStr;
+    navEl.innerHTML = `
+      <button class="day-nav-btn" id="sleepPrevDay" type="button"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+      <div class="day-nav-label">
+        <div class="day-nav-date">${isToday ? 'Today' : formatDateLabel(sleepSelectedDate)}</div>
+        ${!isToday ? `<div class="day-nav-today-link" id="sleepJumpToday">Jump to today</div>` : `<div style="font-size:11px;color:var(--ink-soft);">${formatDateLabel(sleepSelectedDate)}</div>`}
+      </div>
+      <button class="day-nav-btn" id="sleepNextDay" type="button" ${isToday ? 'disabled' : ''}><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></button>
+    `;
+    document.getElementById('sleepPrevDay').addEventListener('click', ()=>{
+      sleepSelectedDate = addDaysToDate(sleepSelectedDate, -1);
+      renderSleepDayNav();
+    });
+    if(!isToday){
+      document.getElementById('sleepNextDay').addEventListener('click', ()=>{
+        sleepSelectedDate = addDaysToDate(sleepSelectedDate, 1);
+        renderSleepDayNav();
+      });
+      document.getElementById('sleepJumpToday').addEventListener('click', ()=>{
+        sleepSelectedDate = todayStr;
+        renderSleepDayNav();
+      });
+    }
+    renderSleepForm();
+  }
+
+  function renderSleepForm(){
+    document.getElementById('sleepScreenError').style.display = 'none';
+    const pad2 = n => String(n).padStart(2,'0');
+    const toLocalInput = d => `${d.getFullYear()}-${pad2(d.getMonth()+1)}-${pad2(d.getDate())}T${pad2(d.getHours())}:${pad2(d.getMinutes())}`;
+    const existing = sleepLog[sleepSelectedDate];
+    let start, end;
+    if(existing && existing.startIso && existing.endIso){
+      start = new Date(existing.startIso);
+      end = new Date(existing.endIso);
+    } else {
+      end = new Date(sleepSelectedDate + 'T07:00:00');
+      start = new Date(end.getTime() - 8 * 3600000);
+    }
+    document.getElementById('sleepStartInputScreen').value = toLocalInput(start);
+    document.getElementById('sleepEndInputScreen').value = toLocalInput(end);
+  }
+
+  document.getElementById('sleepScreenSaveBtn').addEventListener('click', ()=>{
+    const errEl = document.getElementById('sleepScreenError');
+    errEl.style.display = 'none';
+    const startD = new Date(document.getElementById('sleepStartInputScreen').value);
+    const endD = new Date(document.getElementById('sleepEndInputScreen').value);
+    if(isNaN(startD.getTime()) || isNaN(endD.getTime()) || endD <= startD){
+      errEl.textContent = 'Wake time must be after bedtime.';
+      errEl.style.display = 'block';
+      return;
+    }
+    const hours = (endD - startD) / 3600000;
+    sleepLog[sleepSelectedDate] = { startIso: startD.toISOString(), endIso: endD.toISOString(), hours };
+    saveSleepLog();
+    renderSleepHistory();
+    renderTodayGlance();
+    renderBodySleepCard();
+    errEl.style.color = 'var(--forest-dark)';
+    errEl.textContent = `Saved — ${formatSleepHours(hours)} logged for ${formatDateLabel(sleepSelectedDate)}.`;
+    errEl.style.display = 'block';
+  });
+
+  function renderSleepHistory(){
+    const entries = Object.entries(sleepLog)
+      .map(([date, s]) => ({date, hours: s.hours}))
+      .sort((a,b)=> a.date < b.date ? 1 : -1);
+
+    const chartEl = document.getElementById('sleepScreenChart');
+    const recent = [...entries].reverse().slice(-14);
+    if(recent.length < 2){
+      chartEl.innerHTML = `<div class="dash-empty">Log a couple of nights to see your trend.</div>`;
+    } else {
+      const w = 300, h = 80, pad = 8;
+      const vals = recent.map(s => s.hours);
+      const maxV = Math.max(...vals, 8) + 2;
+      const barW = (w - pad*2) / recent.length;
+      const bars = recent.map((s, i) => {
+        const barH = (s.hours / maxV) * (h - pad*2);
+        const x = pad + i*barW;
+        const y = h - pad - barH;
+        return `<rect x="${x + barW*0.15}" y="${y}" width="${barW*0.7}" height="${barH}" rx="2" fill="var(--forest)"/>`;
+      }).join('');
+      chartEl.innerHTML = `
+        <svg viewBox="0 0 ${w} ${h}" style="width:100%;height:${h}px;overflow:visible;">${bars}</svg>
+        <div style="display:flex;justify-content:space-between;font-size:10.5px;color:var(--ink-soft);margin-top:2px;">
+          <span>${formatDateLabel(recent[0].date)}</span>
+          <span>${formatDateLabel(recent[recent.length-1].date)}</span>
+        </div>
+      `;
+    }
+
+    const listEl = document.getElementById('sleepScreenHistoryList');
+    if(!entries.length){
+      listEl.innerHTML = `<div class="dash-empty">No sleep logged yet.</div>`;
+    } else {
+      listEl.innerHTML = entries.slice(0, 10).map(s => `
+        <div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px dashed var(--line);font-size:12.5px;">
+          <span style="color:var(--ink-soft);">${formatDateLabel(s.date)}</span>
+          <span style="font-weight:600;">${formatSleepHours(s.hours)}</span>
+        </div>
+      `).join('');
+    }
+  }
+
+  document.querySelector('[data-sleep-history-toggle="1"]').addEventListener('click', function(){
+    const detail = document.querySelector('[data-sleep-history-detail="1"]');
     const open = detail.classList.toggle('open');
     this.classList.toggle('expanded', open);
   });
