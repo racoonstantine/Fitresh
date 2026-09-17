@@ -570,6 +570,68 @@ The Sleep, Water, Fasting, and Steps pages each show one random fact
 visit, unlike the Today tab's `SESSION_QUOTE` which stays fixed for the
 whole session.
 
+## Day-nav loading feedback, "Daily" rename, mobile input zoom fix
+
+- Rapid day-nav clicks on the Nutrition Dashboard now show immediate
+  feedback: the nav row gets a `.day-nav-loading` class (a slow opacity
+  pulse, pointer-events disabled) the instant you click, cleared again once
+  `renderNutrition()`'s fetch actually resolves. Only the Nutrition
+  Dashboard needed this — the Workout Dashboard and the Sleep/Steps/Water
+  pages all read from data that's already loaded into memory at startup,
+  so switching days there is instant with nothing to wait on.
+- The "Today" range option (Nutrition Dashboard, Workout Dashboard,
+  Insights Trends) is now labeled "Daily", since day-nav lets you move to
+  any past day, not just today.
+- Mobile Safari/Chrome auto-zoom the page when focusing a form field whose
+  computed font-size is under 16px, which this app's many inline
+  `font-size:13px`-ish inputs all trigger. Fixed with a `max-width:760px`
+  media query forcing `font-size:16px !important` on every input/select/
+  textarea (inline styles need `!important` to be overridden) — keeps the
+  desktop layout's smaller text untouched and only changes behavior where
+  the zoom actually happens.
+
+## Recent & favorite foods
+
+Every food actually logged (via search, the Log Meal page, or "+ Add a
+custom food") is recorded into a new `recentFoods` resource (most-recent-
+first, capped at 12, deduped by food id); starring one moves it into
+`favoriteFoods` (capped at 20) instead of falling out when newer items get
+logged. Both the Food tab's inline search and the dedicated Log Meal page
+show a horizontally-scrollable "Recent & Favorites" strip above the search
+box — tapping a chip drops that food straight into the same search-result
+UI (measure picker, save button, everything) at position 0, so re-logging
+something doesn't need a fresh search.
+
+## Food icons
+
+Logged meal items, search results, and Recent & Favorites chips all show a
+small icon on the left, from a 55-icon reference pack
+(`icons/full-circle-food-icons/`, copied into `public/icons/food/` so it
+actually deploys) covering meats, rice/noodle/pasta dishes, produce,
+drinks, and desserts, plus a `generic-meal` fallback. Classification
+(`getFoodIcon()`, `public/index.html`) is deliberately kept separate from
+rendering (`renderFoodIconSvg()`) per
+[`food-icon-auto-assignment-spec.md`](icons/full-circle-food-icons/food-icon-auto-assignment-spec.md):
+`iconOverride` > `icon` > name-based phrase/keyword rules > stored
+category/subcategory > `generic-meal`. Name-based rules sit above category
+on purpose, since a food's own stored category is often coarser ("meat")
+than what its name actually tells you ("Chicken Sopas" should read as
+soup, not chicken) — the phrase-rule table specifically resolves that kind
+of mixed-dish ambiguity before the generic keyword list runs.
+`tools/test_food_icons.cjs` extracts the classifier straight out of
+`index.html` (no build step to hook into) and checks it against the
+spec's own example table, with one deliberate deviation: the spec's test
+list says "Pandesal → bread", but there's a dedicated `pandesal` icon in
+the pack, so that's what gets used — more specific wins per the spec's
+own "database metadata when available" principle.
+
+## Favicon
+
+Replaced the old inline data-URI favicon with `public/favicon.svg`, a
+redrawn (not pixel-traced) simplification of the "Gedli / Full Circle"
+concept mark — an orange-to-green arc, a leaf sweep, and a person
+silhouette — sized for legibility at 16-32px.
+
 ## Local development
 
 There's no build step. To preview the frontend against a local PHP server:

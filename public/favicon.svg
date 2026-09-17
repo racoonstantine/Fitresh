@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="arc" x1="8" y1="10" x2="56" y2="10" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2F6F4E"/>
+      <stop offset="1" stop-color="#F0A93C"/>
+    </linearGradient>
+    <linearGradient id="leaf" x1="10" y1="50" x2="46" y2="14" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1F5C3F"/>
+      <stop offset="1" stop-color="#4C9A6B"/>
+    </linearGradient>
+  </defs>
+  <!-- orange-to-green arc, top of the circle -->
+  <path d="M12 20 A24 24 0 0 1 52 20" fill="none" stroke="url(#arc)" stroke-width="6" stroke-linecap="round"/>
+  <!-- leaf body sweeping around the bottom-left -->
+  <path d="M46 22 C50 40 38 54 20 54 C10 54 6 46 8 38 C12 42 20 44 26 40 C16 38 12 30 14 22 C20 30 30 32 38 28 C30 24 26 16 28 10 C34 16 42 16 46 22 Z" fill="url(#leaf)"/>
+  <!-- person silhouette: head + raised-arm body reading as a "person reaching up" -->
+  <circle cx="33" cy="24" r="4.2" fill="#F5EAD8"/>
+  <path d="M33 29 C27 29 24 35 24 42 L26 42 C26 37 29 33 33 33 C37 33 40 37 40 42 L42 42 C42 35 39 29 33 29 Z" fill="#F5EAD8"/>
+</svg>
