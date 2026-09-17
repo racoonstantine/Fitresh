@@ -18,7 +18,7 @@ const statsCode = html.slice(start2, end2);
 
 const context = vm.createContext({});
 vm.runInContext(foodCode + '\n' + statsCode, context);
-const { buildFoodAiPrompt, parseLabeledReply, firstNumber, buildStatsAiPrompt } = context;
+const { buildFoodAiPrompt, parseLabeledReply, firstNumber, buildStatsAiPrompt, splitFoodReplyBlocks } = context;
 
 // --- Prompt generation ---
 const p1 = buildFoodAiPrompt('Chicken Adobo', '250g', 'home-cooked, extra oil');
@@ -26,7 +26,8 @@ assert.ok(p1.includes('Food: Chicken Adobo'));
 assert.ok(p1.includes('Weight/quantity: 250g'));
 assert.ok(p1.includes('Description: home-cooked, extra oil'));
 assert.ok(!p1.includes('attach it to this chat'), 'should NOT ask for a photo when name+amount given');
-assert.ok(p1.includes('Reply with ONLY the following lines'));
+assert.ok(p1.includes('Reply with ONLY block(s) in this exact format'));
+assert.ok(p1.includes('MORE THAN ONE distinct food item'), 'prompt must instruct the AI to split multi-item meals into separate blocks');
 assert.ok(!p1.toUpperCase().includes('JSON'), 'prompt must not mention JSON per explicit user correction');
 
 const p2 = buildFoodAiPrompt('', '', '');
@@ -58,6 +59,33 @@ function inferUnit(amountRaw){
 assert.deepEqual(inferUnit('250g'), { amount: '250', unit: 'g' });
 assert.deepEqual(inferUnit('1 cup'), { amount: '1', unit: 'serving' });
 assert.deepEqual(inferUnit('330ml'), { amount: '330', unit: 'ml' });
+
+// --- Multi-item reply parsing ---
+// A reply with no "Item N:" headers, just consecutive Food: blocks.
+const multiReply = `Here you go!\n\nFood: Rice\nAmount: 1 cup\nCalories: 205 kcal\nProtein: 4 g\nFat: 0.4 g\nCarbs: 45 g\n\nFood: Chicken Adobo\nAmount: 200g\nCalories: 320 kcal\nProtein: 28 g\nFat: 18 g\nCarbs: 6 g\n\nFood: Fried Egg\nAmount: 1 piece\nCalories: 90 kcal\nProtein: 6 g\nFat: 7 g\nCarbs: 0.5 g\n\nEnjoy your meal!`;
+const multiItems = splitFoodReplyBlocks(multiReply);
+assert.equal(multiItems.length, 3, 'should split into exactly 3 item blocks');
+assert.equal(multiItems[0].Food, 'Rice');
+assert.equal(firstNumber(multiItems[0].Calories), 205);
+assert.equal(multiItems[1].Food, 'Chicken Adobo');
+assert.equal(firstNumber(multiItems[1].Calories), 320);
+assert.equal(multiItems[2].Food, 'Fried Egg');
+assert.equal(firstNumber(multiItems[2].Calories), 90);
+
+// A reply WITH "Item N:" style headers should still parse correctly, since
+// splitFoodReplyBlocks anchors on "Food:" lines regardless of headers.
+const multiReplyWithHeaders = `Item 1:\nFood: Rice\nAmount: 1 cup\nCalories: 205 kcal\nProtein: 4 g\nFat: 0.4 g\nCarbs: 45 g\n\nItem 2:\nFood: Chicken Adobo\nAmount: 200g\nCalories: 320 kcal\nProtein: 28 g\nFat: 18 g\nCarbs: 6 g`;
+const multiItems2 = splitFoodReplyBlocks(multiReplyWithHeaders);
+assert.equal(multiItems2.length, 2);
+assert.equal(multiItems2[0].Food, 'Rice');
+assert.equal(multiItems2[1].Food, 'Chicken Adobo');
+
+// A single-item reply (backward compatible) should still yield exactly 1 block.
+const singleReply = `Food: Chicken Adobo\nAmount: 250g\nCalories: 410 kcal\nProtein: 32 g\nFat: 22 g\nCarbs: 8 g`;
+assert.equal(splitFoodReplyBlocks(singleReply).length, 1);
+
+// Chatter with no "Food:" line at all should yield zero blocks (triggers the error path).
+assert.equal(splitFoodReplyBlocks("Sorry, I can't help with that.").length, 0);
 
 // --- Prompt generation + parsing (workout) ---
 const sp1 = buildStatsAiPrompt('30 minute easy jog outdoors');

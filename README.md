@@ -651,17 +651,27 @@ already has (ChatGPT, Gemini, etc.):
    attach a photo of the food/workout to their AI chat to improve the
    estimate.
 3. "Copy prompt" copies it to the clipboard for pasting into the AI chat.
-4. The user pastes the AI's reply back into the app and hits "Parse & fill" —
-   a per-line regex extracts each labeled value, tolerant of extra
-   commentary the AI adds around them.
-5. Parsed values autofill the *existing* Manual Log fields (food) or stats
-   fields (workout) — no separate save path — so the user reviews/edits
-   before hitting the normal Save/Add button, same validation as manual
-   entry (e.g. a missing calorie estimate still blocks saving).
+4. The user pastes the AI's reply back into the app and hits "Parse & fill"
+   (food) or "Parse & add" (workout) — a per-line regex extracts each
+   labeled value, tolerant of extra commentary the AI adds around them.
+5. For food, the meal prompt explicitly tells the AI to give each distinct
+   item its own labeled block when the meal has more than one (e.g. rice +
+   a main dish + a drink) instead of merging them into one estimate. Parsing
+   splits the reply into one chunk per `Food:` line — regardless of whether
+   the AI adds "Item 1:"-style headers — and adds every item with a usable
+   calorie value straight into the current meal's item list in one go,
+   sparing the user separate copy/paste rounds per item. Workout stats stay
+   single-item, since one set of watch-style stats already describes one
+   whole session.
+6. Either way, results land in the *existing* Manual Log item list (food) or
+   stats fields (workout) — no separate save path — so the user reviews/
+   edits before hitting the normal Save/Add button, same validation as
+   manual entry (e.g. a missing calorie estimate still blocks that item).
 
 A full image-to-AI version (skipping the copy/paste round trip entirely) is
 a possible future step, not built here. Prompt-generation and reply-parsing
-logic is unit-tested in `tools/test_ai_assist.cjs`.
+logic, including the multi-item split, is unit-tested in
+`tools/test_ai_assist.cjs`.
 
 ## Local development
 

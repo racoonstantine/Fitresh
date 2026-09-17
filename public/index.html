@@ -1416,13 +1416,13 @@
     </div>
 
     <div id="lmAiMode" style="display:none;">
-      <div class="note" style="margin-bottom:10px;">Tell us what you ate — even just a name is fine. We'll build a prompt you can paste into ChatGPT, Gemini, or any AI chat to get nutrition estimates back, then parse the reply straight into your log.</div>
-      <label style="font-size:11px;color:var(--ink-soft);">Food name (optional)</label>
+      <div class="note" style="margin-bottom:10px;">Tell us what you ate — one item or a whole plate. We'll build a prompt you can paste into ChatGPT, Gemini, or any AI chat to get nutrition estimates back, then parse every item straight into this meal in one go.</div>
+      <label style="font-size:11px;color:var(--ink-soft);">Main food name (optional)</label>
       <input type="text" id="aiFoodName" placeholder="e.g. Mom's chicken adobo" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;margin-bottom:10px;">
       <label style="font-size:11px;color:var(--ink-soft);">Weight / quantity (optional)</label>
       <input type="text" id="aiFoodAmount" placeholder="e.g. 250g, 1 cup, 2 pieces" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;margin-bottom:10px;">
-      <label style="font-size:11px;color:var(--ink-soft);">Description (optional)</label>
-      <textarea id="aiFoodDesc" rows="2" placeholder="e.g. Home-cooked, extra oil, with rice on the side" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;margin-bottom:10px;resize:vertical;"></textarea>
+      <label style="font-size:11px;color:var(--ink-soft);">Description — list multiple items if you had more than one (optional)</label>
+      <textarea id="aiFoodDesc" rows="2" placeholder="e.g. 1 cup rice, chicken adobo (~200g), and a fried egg" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;margin-bottom:10px;resize:vertical;"></textarea>
       <button type="button" id="aiFoodGenerateBtn" class="timer-btn start" style="width:100%;">Generate prompt</button>
 
       <div id="aiFoodPromptWrap" style="display:none;margin-top:12px;">
@@ -1433,7 +1433,8 @@
         <label style="font-size:11px;color:var(--ink-soft);display:block;margin-top:14px;">Paste the AI's reply here</label>
         <textarea id="aiFoodReplyIn" rows="6" placeholder="Paste the reply from ChatGPT / Gemini / etc. here" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;font-size:12.5px;resize:vertical;"></textarea>
         <div id="aiFoodParseError" style="display:none;font-size:11.5px;color:#B4472A;margin-top:6px;"></div>
-        <button type="button" id="aiFoodParseBtn" class="timer-btn start" style="width:100%;margin-top:8px;">Parse &amp; fill in Manual Log</button>
+        <div id="aiFoodParseSuccess" style="display:none;font-size:11.5px;color:var(--forest-dark);margin-top:6px;"></div>
+        <button type="button" id="aiFoodParseBtn" class="timer-btn start" style="width:100%;margin-top:8px;">Parse &amp; add to this meal</button>
       </div>
     </div>
 
@@ -5887,7 +5888,9 @@ async function checkAuthAndStart(){
       lines.push("If you have a photo of this food, please attach it to this chat -- it helps a lot, especially since the food name and/or weight weren't given.");
       lines.push('');
     }
-    lines.push('Reply with ONLY the following lines, filled in with your best estimate. No extra commentary.');
+    lines.push('If this meal has MORE THAN ONE distinct food item (e.g. rice + a main dish + a drink), give each item its OWN separate 6-line block in the exact format below, one after another, in the same order they were mentioned. Do not merge multiple items into a single block.');
+    lines.push('');
+    lines.push('Reply with ONLY block(s) in this exact format, filled in with your best estimate. No extra commentary.');
     lines.push('Food: <food name>');
     lines.push('Amount: <estimated weight or quantity, e.g. 250g or 1 cup>');
     lines.push('Calories: <number> kcal');
@@ -5908,6 +5911,25 @@ async function checkAuthAndStart(){
   function firstNumber(str){
     const m = (str || '').match(/-?[\d.]+/);
     return m ? parseFloat(m[0]) : NaN;
+  }
+  // Splits a reply into one chunk per food item -- a new item starts at every
+  // "Food:" line, so this works whether or not the AI adds "Item 1:"-style
+  // headers or blank lines between blocks, and ignores any chatter before
+  // the first "Food:" line.
+  function splitFoodReplyBlocks(text){
+    const lines = text.split(/\r?\n/);
+    const blocks = [];
+    let current = null;
+    lines.forEach(line => {
+      if(/^\s*Food\s*:/i.test(line)){
+        if(current) blocks.push(current.join('\n'));
+        current = [line];
+      } else if(current){
+        current.push(line);
+      }
+    });
+    if(current) blocks.push(current.join('\n'));
+    return blocks.map(block => parseLabeledReply(block, ['Food','Amount','Calories','Protein','Fat','Carbs']));
   }
   function copyTextToClipboard(text, btnEl){
     const done = ()=>{
@@ -5941,30 +5963,59 @@ async function checkAuthAndStart(){
   document.getElementById('aiFoodCopyBtn').addEventListener('click', (e)=>{
     copyTextToClipboard(document.getElementById('aiFoodPromptOut').value, e.currentTarget);
   });
+  function amountRawToAmountUnit(amountRaw){
+    const m = (amountRaw || '').match(/^([\d.]+)\s*(g|gram|grams|gm|ml|millilit(?:er|re)s?)?/i);
+    if(!m) return { amount: 100, unit: 'serving' };
+    const unit = (m[2] || '').toLowerCase();
+    return {
+      amount: parseFloat(m[1]),
+      unit: unit.startsWith('g') ? 'g' : (unit.startsWith('m') ? 'ml' : 'serving')
+    };
+  }
   document.getElementById('aiFoodParseBtn').addEventListener('click', ()=>{
     const reply = document.getElementById('aiFoodReplyIn').value;
     const errEl = document.getElementById('aiFoodParseError');
+    const successEl = document.getElementById('aiFoodParseSuccess');
     errEl.style.display = 'none';
-    const fields = parseLabeledReply(reply, ['Food','Amount','Calories','Protein','Fat','Carbs']);
-    const calories = firstNumber(fields.Calories);
-    if(!reply.trim() || isNaN(calories) || calories <= 0){
-      errEl.textContent = "Couldn't find a calorie value in that reply -- make sure the AI replied using the format from the generated prompt, then try again.";
+    successEl.style.display = 'none';
+    const items = splitFoodReplyBlocks(reply);
+    if(!reply.trim() || items.length === 0){
+      errEl.textContent = "Couldn't find any food items in that reply -- make sure the AI replied using the format from the generated prompt, then try again.";
       errEl.style.display = 'block';
       return;
     }
     const typedName = document.getElementById('aiFoodName').value.trim();
-    document.getElementById('lmManualName').value = typedName || fields.Food || 'AI-estimated food';
-    document.getElementById('lmManualCal').value = calories;
-    const protein = firstNumber(fields.Protein); document.getElementById('lmManualProtein').value = isNaN(protein) ? '' : protein;
-    const fat = firstNumber(fields.Fat); document.getElementById('lmManualFat').value = isNaN(fat) ? '' : fat;
-    const carbs = firstNumber(fields.Carbs); document.getElementById('lmManualCarbs').value = isNaN(carbs) ? '' : carbs;
-    const amountRaw = fields.Amount;
-    const amtMatch = amountRaw.match(/^([\d.]+)\s*(g|gram|grams|gm|ml|millilit(?:er|re)s?)?/i);
-    if(amtMatch){
-      document.getElementById('lmManualAmount').value = amtMatch[1];
-      const unit = (amtMatch[2] || '').toLowerCase();
-      document.getElementById('lmManualUnit').value = unit.startsWith('g') ? 'g' : (unit.startsWith('m') ? 'ml' : 'serving');
+    let added = 0, skipped = 0;
+    items.forEach((fields, idx) => {
+      const calories = firstNumber(fields.Calories);
+      if(isNaN(calories) || calories <= 0){ skipped++; return; }
+      const { amount, unit } = amountRawToAmountUnit(fields.Amount);
+      const protein = firstNumber(fields.Protein);
+      const fat = firstNumber(fields.Fat);
+      const carbs = firstNumber(fields.Carbs);
+      lmItems.push({
+        // Only the first item falls back to the user's own typed name --
+        // later items always use the AI's own name for that block, since
+        // reusing the typed name for every item would mislabel a multi-item
+        // reply (e.g. rice + adobo would both end up called "adobo").
+        name: (idx === 0 && typedName) || fields.Food || 'AI-estimated food',
+        amount, unit,
+        kcal: calories,
+        protein: isNaN(protein) ? 0 : protein,
+        fat: isNaN(fat) ? 0 : fat,
+        carbs: isNaN(carbs) ? 0 : carbs,
+        source: 'manual'
+      });
+      added++;
+    });
+    if(added === 0){
+      errEl.textContent = "Found food item(s) in that reply, but none had a usable calorie value -- make sure the AI replied using the format from the generated prompt, then try again.";
+      errEl.style.display = 'block';
+      return;
     }
+    renderLmMealItems();
+    successEl.textContent = `Added ${added} item${added === 1 ? '' : 's'} to this meal below` + (skipped ? ` (${skipped} skipped -- no calorie value)` : '') + ' -- review and edit if needed, then save.';
+    successEl.style.display = 'block';
     lmSetMode('manual');
   });
 
