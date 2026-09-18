@@ -1,25 +1,25 @@
 {
-  "foods": 1809,
+  "foods": 2873,
   "default_labels": {
-    "Verified": 1132,
-    "Unavailable": 93,
-    "Other source": 584
+    "Verified": 1429,
+    "Unavailable": 339,
+    "Other source": 1105
   },
   "confidence_levels": {
-    "Good": 1300,
-    "Medium": 416,
-    "Unrated": 23,
-    "Low": 70
+    "Good": 1826,
+    "Medium": 708,
+    "Unrated": 25,
+    "Low": 314
   },
-  "default_complete": 1300,
-  "explicit_estimates": 71,
-  "household_portions": 1223,
+  "default_complete": 1826,
+  "explicit_estimates": 315,
+  "household_portions": 2223,
   "source_status_counts": {
-    "VERIFIED_FNRI": 864,
-    "PARTIAL_VERIFIED_FNRI": 270,
+    "VERIFIED_FNRI": 1013,
+    "PARTIAL_VERIFIED_FNRI": 418,
     "NEEDS_FOOD_IDENTITY_VERIFICATION": 19,
-    "OTHER_SOURCE_AVAILABLE": 582,
-    "ESTIMATE_ONLY": 70,
-    "SOURCE_CONFLICT_REVIEW_REQUIRED": 4
+    "OTHER_SOURCE_AVAILABLE": 1103,
+    "ESTIMATE_ONLY": 314,
+    "SOURCE_CONFLICT_REVIEW_REQUIRED": 6
   }
 }

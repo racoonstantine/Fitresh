@@ -9,6 +9,127 @@ The workbook is a historical starter, not a synchronized view of this directory.
 
 ## Current coverage
 
+The **2026-09-18 world-cuisine batch adds 54 identities**, bringing the catalog
+to **2,873 foods**, **2,534 default-searchable references**, **315 explicit
+estimates**, and **6,079 aliases**. The 54 additions comprise 20 exact USDA SR
+Legacy reference records, 10 modeled dishes, and 24 restaurant models. No new
+exact FNRI match was identified for this selection; retained FNRI sources still
+take priority for ingredient values. All 2,819 pre-batch food rows and existing
+nutrition, source, portion and estimate records are preserved.
+
+Restaurant additions cover Botejyu, Panda Express, Royal Indian Curry House by
+Swaadisht (Muntinlupa listing), Mister Kabab, Banana Leaf and Shake Shack.
+Generic additions cover Japanese, Chinese, Indian, Middle Eastern and
+Singaporean dishes; American food is represented by the Shake Shack models.
+Naan, hummus, falafel, teriyaki sauce and Chinese soups have exact historical
+USDA identities, not claimed Philippine brand equivalence. Malaysian dishes on
+Banana Leaf's menu retain their Malaysian identities.
+
+The 34 models are **Low confidence**, not human-verified restaurant nutrition.
+Sources establish dish/menu identity only. The 211 component weights are
+explicit assumptions; cooking yield, recipe proportions and proprietary sauces
+remain unverified. Unknown nutrients remain blank. Models support weighed grams
+only and require explicit estimate selection; they are excluded from default
+app search. The 28 new household weights belong only to exact USDA references.
+No production deployment was performed.
+
+Batch records: `world-expansion-54.csv`, `world-reference-review.csv`,
+`world-identity-review.csv`, `world-online-source-audit.csv`,
+`world-estimate-components.csv`, and `2026-09-18-world-foods-54.json`.
+Reproducible builders are `tools/world_food_sources.py`,
+`tools/world_food_plans.py` and `tools/expand_world_foods.py`; integrity checks
+are in `tools/test_world_foods.py`. The active immutable search snapshot is
+`491cd9c83ec97255ba0647b5`. Existing meal snapshots remain unchanged.
+
+### Previous bilingual and regional updates
+
+Search displays the first FNRI common name alongside the complete English
+identity when they differ (for example, `Sayote bunga, nilaga · Chayote fruit,
+boiled`). Common names may be Tagalog or another regional/source name; no
+language is guessed. Foods lacking a source common name retain their existing
+label. Original names and nutrition remain unchanged. This display metadata
+travels in the immutable catalog snapshot and new recent/favorite entries.
+
+The bilingual search update adds 522 source-derived aliases (5,969 total),
+including common-name discovery terms without comma qualifiers, such as
+`Repolyo`. Shared terms return separate fully qualified choices, never a merged
+food. 1,077 catalog identities have official FNRI common names; this does not
+mean every food has a Tagalog translation. Historical cached snapshots remain
+unchanged and may keep their older English-only display until reselected.
+
+The **2026-09-18 regional batch adds 500 identities**, bringing the database to
+**2,819 foods**, **2,514 default-searchable references**, and **281 explicit
+estimates**. All 2,319 pre-batch food rows and prior nutrient/portion/estimate
+records are preserved. No manually verified nutrient value was overwritten.
+
+The additions are **250 FNRI references**, **150 USDA references**, **30 regional
+dish estimates**, and **70 restaurant estimates**: Gerry's Grill 25, Max's
+Restaurant 25, and Giligan's 20. The 400 references cover local produce, seafood,
+fruit, legumes, grains, meats and prepared foods; they are not 400 restaurant
+dishes. Raw, boiled, dried, canned and source-specific preparations remain
+distinct. USDA records remain qualified historical SR Legacy references, not
+Philippine brand formulations. FNRI values were checked against the retained
+2026-09-16 primary snapshot, not represented as newly measured nutrition.
+
+Regional models cover Ilocos, Cagayan Valley, Iloilo/Negros, Bicol, Mindanao,
+Cordillera and Visayas. Examples include poqui-poqui, dinengdeng, batil patung,
+sinanta, patupat, batchoy, Pancit Molo, KBL, kansi, pinangat, kinalas, sinantolan,
+pastil, piaparan, linigid, palapa, dodol, pinikpikan, humba and bam-i. These are
+specified reference mixtures, not authoritative regional recipes. Ingredient
+substitutions and missing nutrients are documented. Menu/tourism pages support
+identity only; **all 100 new models remain Low-confidence, explicitly selected
+estimates excluded from default application search**. No official restaurant
+nutrition panel or actual order weight is claimed.
+
+This batch adds **234 source-recorded household portions** and **613 frozen
+ingredient rows**. The 100 g reference basis is not a household serving. Unknown
+weights do not enable pieces, bowls or ml conversion. Local-name and spelling
+aliases preserve separate identities; new alias audit dates are 2026-09-18.
+
+Batch files: `regional-expansion-500.csv`, `regional-estimate-components.csv`,
+`regional-identity-review.csv`, `regional-online-source-audit.csv`,
+`regional-source-exclusions.csv`, and `2026-09-18-regional-foods-500.json`.
+Confidence tables, catalog export and immutable search snapshot are rebuilt.
+Validation: 22 existing plus 5 expansion Python tests and PHP/JavaScript search
+and measurement regression checks passed. The batch is local, not deployed.
+
+## Previous restaurant and sweets batch (historical counts)
+
+The latest Philippine restaurant/sweets batch adds **510 identities**, bringing
+the catalog to **2,319 foods**, **2,114 default-searchable references**, and **181
+explicit estimates**. All 1,809 prior food rows remain unchanged.
+
+This batch includes 49 FNRI and 351 USDA references, plus 110 Low-confidence
+restaurant estimates: Jollibee 25, McDonald's 25, KFC 16, Mang Inasal 12, Chowking
+16, Ramen Kuroda 12, and Ramen Nagi 4. The source additions focus on sweets,
+desserts, bakery foods, snacks, spreads, dairy and supporting ingredients.
+USDA entries are exact historical reference foods, not verified Philippine
+restaurant formulations. Source IDs and names are retained; all nutrients are
+checked against the retained primary snapshots. Some generic source recipes may
+resemble existing Filipino dishes but remain qualified by their source identity.
+
+`ph-restaurant-estimates.csv` is the restaurant directory; its menu links establish
+identity only. `ph-restaurant-components.csv` freezes 475 assumed component weights
+and their source nutrition. Full Philippine manufacturer panels were not obtained.
+Menu availability and customization vary. Ramen models include all modeled broth;
+they do not establish the mass of a real bowl. No restaurant piece, scoop, bucket
+or order weight has been invented, and combo-size repetitions do not inflate the
+count. These models remain explicitly selected estimates, excluded from default
+application search. Source audit: `ph-restaurant-source-audit.csv`.
+
+Two newly imported FNRI records (seasoned roasted pork skin and canned tuna spread)
+report sugar above carbohydrate. Original numbers remain intact; both are blocked
+from default nutrition resolution and flagged in `ph-source-conflicts.csv`, with
+status changes documented in `changes.csv`. Thus 398 of the 400 source references
+are eligible. The batch adds 738 source-backed household portions. Palaman and
+brand-spelling discovery aliases preserve separate food identities.
+
+`2026-09-17-ph-foods-510.json` records the completed batch. Validation now includes
+22 Python tests plus PHP/JavaScript search and measurement checks. The new assets
+are local and have not been deployed.
+
+## Previous personal-food batch (historical counts)
+
 As of 2026-09-17, the personal-food expansion adds **500 identities**: 40 FNRI,
 440 USDA, one Hawaii Seafood Council blue-marlin reference, and 19 explicit
 estimates. Total: **1,809 foods**, **1,716 default-searchable**, **71 opt-in

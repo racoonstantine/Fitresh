@@ -1,0 +1,501 @@
+food_id,kind,group,name,source_food_id,source_url,estimate_id,modeled_mass_g
+FC002320,reference,FNRI,"Bago lvs, boiled",D007,https://i.fnri.dost.gov.ph/fct/library/report/3286,,
+FC002321,reference,FNRI,"Bago bagin fruit, boiled",D008,https://i.fnri.dost.gov.ph/fct/library/report/3287,,
+FC002322,reference,FNRI,"Cashew, young lvs, boiled",D042,https://i.fnri.dost.gov.ph/fct/library/report/3321,,
+FC002323,reference,FNRI,"Cassava lvs, boiled",D044,https://i.fnri.dost.gov.ph/fct/library/report/3323,,
+FC002324,reference,FNRI,"Cowpea lvs, boiled",D062,https://i.fnri.dost.gov.ph/fct/library/report/3341,,
+FC002325,reference,FNRI,"East Indian lotus lvs, boiled",D072,https://i.fnri.dost.gov.ph/fct/library/report/3351,,
+FC002326,reference,FNRI,"Fragrant premna lvs, boiled",D080,https://i.fnri.dost.gov.ph/fct/library/report/3359,,
+FC002327,reference,FNRI,"Galo pulp, boiled",D082,https://i.fnri.dost.gov.ph/fct/library/report/3361,,
+FC002328,reference,FNRI,"Galo seed, boiled",D083,https://i.fnri.dost.gov.ph/fct/library/report/3362,,
+FC002329,reference,FNRI,"Himbaba-o lvs, boiled",D093,https://i.fnri.dost.gov.ph/fct/library/report/3372,,
+FC002330,reference,FNRI,"Lagikway lvs, boiled",D112,https://i.fnri.dost.gov.ph/fct/library/report/3391,,
+FC002331,reference,FNRI,"Lettuce tree, young lvs, boiled",D117,https://i.fnri.dost.gov.ph/fct/library/report/3396,,
+FC002332,reference,FNRI,"Mango, young lvs, boiled",D125,https://i.fnri.dost.gov.ph/fct/library/report/3404,,
+FC002333,reference,FNRI,"Mexican lilac flowers, boiled",D128,https://i.fnri.dost.gov.ph/fct/library/report/3407,,
+FC002334,reference,FNRI,"Palm-like fig, young lvs, boiled",D152,https://i.fnri.dost.gov.ph/fct/library/report/3431,,
+FC002335,reference,FNRI,"Papaya, young lvs, boiled",D156,https://i.fnri.dost.gov.ph/fct/library/report/3435,,
+FC002336,reference,FNRI,"Papaya petioles, boiled",D158,https://i.fnri.dost.gov.ph/fct/library/report/3437,,
+FC002337,reference,FNRI,"Sea purslane lvs, boiled",D191,https://i.fnri.dost.gov.ph/fct/library/report/3470,,
+FC002338,reference,FNRI,"Sesbania lvs, boiled",D202,https://i.fnri.dost.gov.ph/fct/library/report/3481,,
+FC002339,reference,FNRI,"Spanish plum, young lvs, boiled",D216,https://i.fnri.dost.gov.ph/fct/library/report/3495,,
+FC002340,reference,FNRI,"Spiny pigweed/Thorny amaranth lvs, boiled",D218,https://i.fnri.dost.gov.ph/fct/library/report/3497,,
+FC002341,reference,FNRI,"Tamarind lvs, boiled",D250,https://i.fnri.dost.gov.ph/fct/library/report/3529,,
+FC002342,reference,FNRI,"Ivy gourd lvs, boiled",D252,https://i.fnri.dost.gov.ph/fct/library/report/3531,,
+FC002343,reference,FNRI,"Water caltrop, boiled",D263,https://i.fnri.dost.gov.ph/fct/library/report/3542,,
+FC002344,reference,FNRI,American black nightshade lvs,D001,https://i.fnri.dost.gov.ph/fct/library/report/3280,,
+FC002345,reference,FNRI,Apat-apat fern lvs,D002,https://i.fnri.dost.gov.ph/fct/library/report/3281,,
+FC002346,reference,FNRI,Aragan lvs,D003,https://i.fnri.dost.gov.ph/fct/library/report/3282,,
+FC002347,reference,FNRI,Asystasia lvs & stems,D004,https://i.fnri.dost.gov.ph/fct/library/report/3283,,
+FC002348,reference,FNRI,Aurora lvs & stems,D005,https://i.fnri.dost.gov.ph/fct/library/report/3284,,
+FC002349,reference,FNRI,Bago lvs,D006,https://i.fnri.dost.gov.ph/fct/library/report/3285,,
+FC002350,reference,FNRI,Banana stem,D012,https://i.fnri.dost.gov.ph/fct/library/report/3291,,
+FC002351,reference,FNRI,Bayuno fruit,D015,https://i.fnri.dost.gov.ph/fct/library/report/3294,,
+FC002352,reference,FNRI,Blue pea pod,D023,https://i.fnri.dost.gov.ph/fct/library/report/3302,,
+FC002353,reference,FNRI,Borreria lvs & stems,D024,https://i.fnri.dost.gov.ph/fct/library/report/3303,,
+FC002354,reference,FNRI,Breadnut fruit,D030,https://i.fnri.dost.gov.ph/fct/library/report/3309,,
+FC002355,reference,FNRI,Breadnut seed,D031,https://i.fnri.dost.gov.ph/fct/library/report/3310,,
+FC002356,reference,FNRI,Bulak-bulakan pod,D032,https://i.fnri.dost.gov.ph/fct/library/report/3311,,
+FC002357,reference,FNRI,Busi-busi lvs,D033,https://i.fnri.dost.gov.ph/fct/library/report/3312,,
+FC002358,reference,FNRI,"Cashew, young lvs",D041,https://i.fnri.dost.gov.ph/fct/library/report/3320,,
+FC002359,reference,FNRI,Cassava lvs,D043,https://i.fnri.dost.gov.ph/fct/library/report/3322,,
+FC002360,reference,FNRI,Fragrant manjack lvs,D059,https://i.fnri.dost.gov.ph/fct/library/report/3338,,
+FC002361,reference,FNRI,Cowpea lvs,D061,https://i.fnri.dost.gov.ph/fct/library/report/3340,,
+FC002362,reference,FNRI,Crown daisy lvs,D066,https://i.fnri.dost.gov.ph/fct/library/report/3345,,
+FC002363,reference,FNRI,"Kutcharitas lvs, green",D067,https://i.fnri.dost.gov.ph/fct/library/report/3346,,
+FC002364,reference,FNRI,"Kutcharitas lvs, red",D068,https://i.fnri.dost.gov.ph/fct/library/report/3347,,
+FC002365,reference,FNRI,East Indian lotus fruit,D070,https://i.fnri.dost.gov.ph/fct/library/report/3349,,
+FC002366,reference,FNRI,East Indian lotus lvs,D071,https://i.fnri.dost.gov.ph/fct/library/report/3350,,
+FC002367,reference,FNRI,"Flowering fern, lvs",D077,https://i.fnri.dost.gov.ph/fct/library/report/3356,,
+FC002368,reference,FNRI,Foetid cassia lvs,D078,https://i.fnri.dost.gov.ph/fct/library/report/3357,,
+FC002369,reference,FNRI,Fragrant premna lvs,D079,https://i.fnri.dost.gov.ph/fct/library/report/3358,,
+FC002370,reference,FNRI,"Galo fruit, whole",D081,https://i.fnri.dost.gov.ph/fct/library/report/3360,,
+FC002371,reference,FNRI,Glynus lvs,D088,https://i.fnri.dost.gov.ph/fct/library/report/3367,,
+FC002372,reference,FNRI,Guava lvs,D089,https://i.fnri.dost.gov.ph/fct/library/report/3368,,
+FC002373,reference,FNRI,Himbaba-o lvs,D092,https://i.fnri.dost.gov.ph/fct/library/report/3371,,
+FC002374,reference,FNRI,Lagikway lvs,D111,https://i.fnri.dost.gov.ph/fct/library/report/3390,,
+FC002375,reference,FNRI,"Lettuce tree, young lvs",D116,https://i.fnri.dost.gov.ph/fct/library/report/3395,,
+FC002376,reference,FNRI,"Limang sugat, young lvs",D120,https://i.fnri.dost.gov.ph/fct/library/report/3399,,
+FC002377,reference,FNRI,Malibaddu,D123,https://i.fnri.dost.gov.ph/fct/library/report/3402,,
+FC002378,reference,FNRI,"Mango, young lvs",D124,https://i.fnri.dost.gov.ph/fct/library/report/3403,,
+FC002379,reference,FNRI,Mexican lilac flower,D127,https://i.fnri.dost.gov.ph/fct/library/report/3406,,
+FC002380,reference,FNRI,Morning glory lvs,D129,https://i.fnri.dost.gov.ph/fct/library/report/3408,,
+FC002381,reference,FNRI,"Palm-like fig, young lvs",D151,https://i.fnri.dost.gov.ph/fct/library/report/3430,,
+FC002382,reference,FNRI,Pansit-pansitan,D153,https://i.fnri.dost.gov.ph/fct/library/report/3432,,
+FC002383,reference,FNRI,"Papaya, young lvs",D155,https://i.fnri.dost.gov.ph/fct/library/report/3434,,
+FC002384,reference,FNRI,Papaya petioles,D157,https://i.fnri.dost.gov.ph/fct/library/report/3436,,
+FC002385,reference,FNRI,Malabar bauhinia lvs,D178,https://i.fnri.dost.gov.ph/fct/library/report/3457,,
+FC002386,reference,FNRI,"Prickly chaff-flower, lvs",D179,https://i.fnri.dost.gov.ph/fct/library/report/3458,,
+FC002387,reference,FNRI,Racaba lvs,D182,https://i.fnri.dost.gov.ph/fct/library/report/3461,,
+FC002388,reference,FNRI,"Rhubarb, young petioles",D186,https://i.fnri.dost.gov.ph/fct/library/report/3465,,
+FC002389,reference,FNRI,Roselle lvs,D187,https://i.fnri.dost.gov.ph/fct/library/report/3466,,
+FC002390,reference,FNRI,"Sabitan, lvs",D188,https://i.fnri.dost.gov.ph/fct/library/report/3467,,
+FC002391,reference,FNRI,"Seaweed, gut weed, dried",D189,https://i.fnri.dost.gov.ph/fct/library/report/3468,,
+FC002392,reference,FNRI,Sea purslane lvs,D190,https://i.fnri.dost.gov.ph/fct/library/report/3469,,
+FC002393,reference,FNRI,"Seaweed, balbalulang",D192,https://i.fnri.dost.gov.ph/fct/library/report/3471,,
+FC002394,reference,FNRI,"Seaweed, kawkawayan",D194,https://i.fnri.dost.gov.ph/fct/library/report/3473,,
+FC002395,reference,FNRI,"Seaweed, kulot",D195,https://i.fnri.dost.gov.ph/fct/library/report/3474,,
+FC002396,reference,FNRI,Sesbania lvs,D201,https://i.fnri.dost.gov.ph/fct/library/report/3480,,
+FC002397,reference,FNRI,"Snap bean seed, black & brown, fresh",D210,https://i.fnri.dost.gov.ph/fct/library/report/3489,,
+FC002398,reference,FNRI,"Spanish plum, young lvs",D215,https://i.fnri.dost.gov.ph/fct/library/report/3494,,
+FC002399,reference,FNRI,Spiny pigweed/Thorny amaranth lvs,D217,https://i.fnri.dost.gov.ph/fct/library/report/3496,,
+FC002400,reference,FNRI,"Sugar palm, heart of palm",D240,https://i.fnri.dost.gov.ph/fct/library/report/3519,,
+FC002401,reference,FNRI,Swamp amaranth lvs,D241,https://i.fnri.dost.gov.ph/fct/library/report/3520,,
+FC002402,reference,FNRI,Tamarind flower,D248,https://i.fnri.dost.gov.ph/fct/library/report/3527,,
+FC002403,reference,FNRI,Tamarind lvs,D249,https://i.fnri.dost.gov.ph/fct/library/report/3528,,
+FC002404,reference,FNRI,Ivy gourd lvs,D251,https://i.fnri.dost.gov.ph/fct/library/report/3530,,
+FC002405,reference,FNRI,Wild ginger,D271,https://i.fnri.dost.gov.ph/fct/library/report/3550,,
+FC002406,reference,FNRI,"Papaya fruit, unripe, dried",D285,https://i.fnri.dost.gov.ph/fct/library/report/3564,,
+FC002407,reference,FNRI,"Bagbagkong flower, raw",D294,https://i.fnri.dost.gov.ph/fct/library/report/3573,,
+FC002408,reference,FNRI,"Mangrove apple, raw",D298,https://i.fnri.dost.gov.ph/fct/library/report/3577,,
+FC002409,reference,FNRI,"Ivy gourd, immature fruit, raw",D299,https://i.fnri.dost.gov.ph/fct/library/report/3578,,
+FC002410,reference,FNRI,"Libas, mature lvs",D301,https://i.fnri.dost.gov.ph/fct/library/report/3580,,
+FC002411,reference,FNRI,"Libas, young lvs",D302,https://i.fnri.dost.gov.ph/fct/library/report/3581,,
+FC002412,reference,FNRI,"Thyme, fresh",D303,https://i.fnri.dost.gov.ph/fct/library/report/3582,,
+FC002413,reference,FNRI,Atemoya,E003,https://i.fnri.dost.gov.ph/fct/library/report/3585,,
+FC002414,reference,FNRI,Barbados gooseberry,E021,https://i.fnri.dost.gov.ph/fct/library/report/3603,,
+FC002415,reference,FNRI,Buri palm,E022,https://i.fnri.dost.gov.ph/fct/library/report/3604,,
+FC002416,reference,FNRI,Johey oak,E034,https://i.fnri.dost.gov.ph/fct/library/report/3616,,
+FC002417,reference,FNRI,Kalumpit,E038,https://i.fnri.dost.gov.ph/fct/library/report/3620,,
+FC002418,reference,FNRI,Lemon peel,E041,https://i.fnri.dost.gov.ph/fct/library/report/3623,,
+FC002419,reference,FNRI,Lime peel,E043,https://i.fnri.dost.gov.ph/fct/library/report/3625,,
+FC002420,reference,FNRI,Lipoti,E044,https://i.fnri.dost.gov.ph/fct/library/report/3626,,
+FC002421,reference,FNRI,Madras thorn,E046,https://i.fnri.dost.gov.ph/fct/library/report/3628,,
+FC002422,reference,FNRI,Malay gooseberry,E048,https://i.fnri.dost.gov.ph/fct/library/report/3630,,
+FC002423,reference,FNRI,Many-spiked flacourtia,E059,https://i.fnri.dost.gov.ph/fct/library/report/3641,,
+FC002424,reference,FNRI,Marmalade plum,E060,https://i.fnri.dost.gov.ph/fct/library/report/3642,,
+FC002425,reference,FNRI,Philippine dillenia,E072,https://i.fnri.dost.gov.ph/fct/library/report/3654,,
+FC002426,reference,FNRI,Rattan fruit,E077,https://i.fnri.dost.gov.ph/fct/library/report/3659,,
+FC002427,reference,FNRI,Susong-kalabaw,E092,https://i.fnri.dost.gov.ph/fct/library/report/3674,,
+FC002428,reference,FNRI,"Kandis, flesh",E118,https://i.fnri.dost.gov.ph/fct/library/report/3700,,
+FC002429,reference,FNRI,"Kandis, pulp",E119,https://i.fnri.dost.gov.ph/fct/library/report/3701,,
+FC002430,reference,FNRI,"Libas fruit, ripe",E120,https://i.fnri.dost.gov.ph/fct/library/report/3702,,
+FC002431,reference,FNRI,"Libas fruit, unripe",E121,https://i.fnri.dost.gov.ph/fct/library/report/3703,,
+FC002432,reference,FNRI,Maraitum,E122,https://i.fnri.dost.gov.ph/fct/library/report/3704,,
+FC002433,reference,FNRI,Palau-biyok,E123,https://i.fnri.dost.gov.ph/fct/library/report/3705,,
+FC002434,reference,FNRI,Sapinit,E124,https://i.fnri.dost.gov.ph/fct/library/report/3706,,
+FC002435,reference,FNRI,Tabo,E125,https://i.fnri.dost.gov.ph/fct/library/report/3707,,
+FC002436,reference,FNRI,"Clam, rayed shell",G028,https://i.fnri.dost.gov.ph/fct/library/report/4008,,
+FC002437,reference,FNRI,"Clam, tongue",G030,https://i.fnri.dost.gov.ph/fct/library/report/4010,,
+FC002438,reference,FNRI,"Clam, tongue, head, blanched",G031,https://i.fnri.dost.gov.ph/fct/library/report/4011,,
+FC002439,reference,FNRI,"Clam, tongue, tail",G032,https://i.fnri.dost.gov.ph/fct/library/report/4012,,
+FC002440,reference,FNRI,"Clam, wedge shell/bean",G034,https://i.fnri.dost.gov.ph/fct/library/report/4014,,
+FC002441,reference,FNRI,"Croaker, tigertooth",G045,https://i.fnri.dost.gov.ph/fct/library/report/4025,,
+FC002442,reference,FNRI,"Croaker, plain",G046,https://i.fnri.dost.gov.ph/fct/library/report/4026,,
+FC002443,reference,FNRI,"Croaker, smooth-scaled whiskered",G047,https://i.fnri.dost.gov.ph/fct/library/report/4027,,
+FC002444,reference,FNRI,"Drepane, speckled",G048,https://i.fnri.dost.gov.ph/fct/library/report/4028,,
+FC002445,reference,FNRI,"Flatfish/Brill, rough-scaled",G052,https://i.fnri.dost.gov.ph/fct/library/report/4032,,
+FC002446,reference,FNRI,"Flatfish/Brill, smooth-scaled",G053,https://i.fnri.dost.gov.ph/fct/library/report/4033,,
+FC002447,reference,FNRI,"Flatfish/Turbot, Indian",G054,https://i.fnri.dost.gov.ph/fct/library/report/4034,,
+FC002448,reference,FNRI,"Flathead, Indian",G055,https://i.fnri.dost.gov.ph/fct/library/report/4035,,
+FC002449,reference,FNRI,"Halfbeak, long billed",G065,https://i.fnri.dost.gov.ph/fct/library/report/4045,,
+FC002450,reference,FNRI,"Mojarra, longfin",G077,https://i.fnri.dost.gov.ph/fct/library/report/4057,,
+FC002451,reference,FNRI,"Mojarra, whipfin",G078,https://i.fnri.dost.gov.ph/fct/library/report/4058,,
+FC002452,reference,FNRI,Moray,G080,https://i.fnri.dost.gov.ph/fct/library/report/4060,,
+FC002453,reference,FNRI,"Parrot fish, daisy",G091,https://i.fnri.dost.gov.ph/fct/library/report/4071,,
+FC002454,reference,FNRI,"Threadfish, Indian",G092,https://i.fnri.dost.gov.ph/fct/library/report/4072,,
+FC002455,reference,FNRI,"Silvergrunt, bluecheek",G093,https://i.fnri.dost.gov.ph/fct/library/report/4073,,
+FC002456,reference,FNRI,"Emperor, pink ear",G096,https://i.fnri.dost.gov.ph/fct/library/report/4076,,
+FC002457,reference,FNRI,"Runner, rainbow",G099,https://i.fnri.dost.gov.ph/fct/library/report/4079,,
+FC002458,reference,FNRI,Silver-bar fish,G123,https://i.fnri.dost.gov.ph/fct/library/report/4103,,
+FC002459,reference,FNRI,"Slipmouth, black-finned",G125,https://i.fnri.dost.gov.ph/fct/library/report/4105,,
+FC002460,reference,FNRI,"Snail, black",G127,https://i.fnri.dost.gov.ph/fct/library/report/4107,,
+FC002461,reference,FNRI,Spadefish,G130,https://i.fnri.dost.gov.ph/fct/library/report/4110,,
+FC002462,reference,FNRI,"Sting ray, blue-spotted",G133,https://i.fnri.dost.gov.ph/fct/library/report/4113,,
+FC002463,reference,FNRI,"Sting ray, honeycomb",G134,https://i.fnri.dost.gov.ph/fct/library/report/4114,,
+FC002464,reference,FNRI,"Surgeonfish, blue-lined",G135,https://i.fnri.dost.gov.ph/fct/library/report/4115,,
+FC002465,reference,FNRI,Tarpon,G137,https://i.fnri.dost.gov.ph/fct/library/report/4117,,
+FC002466,reference,FNRI,"Ten-pounder, Hawaiian",G138,https://i.fnri.dost.gov.ph/fct/library/report/4118,,
+FC002467,reference,FNRI,"Therapon, convex-lined",G139,https://i.fnri.dost.gov.ph/fct/library/report/4119,,
+FC002468,reference,FNRI,"Theraponid, silvery",G140,https://i.fnri.dost.gov.ph/fct/library/report/4120,,
+FC002469,reference,FNRI,"Terapon, largescaled",G141,https://i.fnri.dost.gov.ph/fct/library/report/4121,,
+FC002470,reference,FNRI,Threadfin fish,G142,https://i.fnri.dost.gov.ph/fct/library/report/4122,,
+FC002471,reference,FNRI,"Threadfin, fourfinger",G143,https://i.fnri.dost.gov.ph/fct/library/report/4123,,
+FC002472,reference,FNRI,"Threadfin, small-mouth",G144,https://i.fnri.dost.gov.ph/fct/library/report/4124,,
+FC002473,reference,FNRI,"Amber fish, dried",G149,https://i.fnri.dost.gov.ph/fct/library/report/4129,,
+FC002474,reference,FNRI,"Fusilier, goldband, dried",G152,https://i.fnri.dost.gov.ph/fct/library/report/4132,,
+FC002475,reference,FNRI,"Cavalla, banded, dried",G155,https://i.fnri.dost.gov.ph/fct/library/report/4135,,
+FC002476,reference,FNRI,"Crevalle, deep-bellied, dried",G158,https://i.fnri.dost.gov.ph/fct/library/report/4138,,
+FC002477,reference,FNRI,"Croaker, plain, dried",G159,https://i.fnri.dost.gov.ph/fct/library/report/4139,,
+FC002478,reference,FNRI,"Eel, swamp, dried",G160,https://i.fnri.dost.gov.ph/fct/library/report/4140,,
+FC002479,reference,FNRI,"Gizzard shad, short-finned, dried",G166,https://i.fnri.dost.gov.ph/fct/library/report/4146,,
+FC002480,reference,FNRI,"Gizzard shad, short-finned, smoked",G167,https://i.fnri.dost.gov.ph/fct/library/report/4147,,
+FC002481,reference,FNRI,"Goby, flat-headed, dried",G168,https://i.fnri.dost.gov.ph/fct/library/report/4148,,
+FC002482,reference,FNRI,"Sinarapan, dried",G169,https://i.fnri.dost.gov.ph/fct/library/report/4149,,
+FC002483,reference,FNRI,"Hard-tail, dried",G171,https://i.fnri.dost.gov.ph/fct/library/report/4151,,
+FC002484,reference,FNRI,"Jellyfish, dried",G172,https://i.fnri.dost.gov.ph/fct/library/report/4152,,
+FC002485,reference,FNRI,"Lizard fish, common, dried",G173,https://i.fnri.dost.gov.ph/fct/library/report/4153,,
+FC002486,reference,FNRI,"Mullet, black-finned, dried",G185,https://i.fnri.dost.gov.ph/fct/library/report/4165,,
+FC002487,reference,FNRI,"Mullet, large-scaled, dried",G186,https://i.fnri.dost.gov.ph/fct/library/report/4166,,
+FC002488,reference,FNRI,"Bream, doublewhip threadfin, dried",G187,https://i.fnri.dost.gov.ph/fct/library/report/4167,,
+FC002489,reference,FNRI,"Parrot fish, daisy, dried",G189,https://i.fnri.dost.gov.ph/fct/library/report/4169,,
+FC002490,reference,FNRI,"Emperor, pink ear, dried",G190,https://i.fnri.dost.gov.ph/fct/library/report/4170,,
+FC002491,reference,FNRI,"Seabream, goldsilk, dried",G191,https://i.fnri.dost.gov.ph/fct/library/report/4171,,
+FC002492,reference,FNRI,"Runner, rainbow, in oil, cnd",G193,https://i.fnri.dost.gov.ph/fct/library/report/4173,,
+FC002493,reference,FNRI,"Siganid, javan, dried",G213,https://i.fnri.dost.gov.ph/fct/library/report/4193,,
+FC002494,reference,FNRI,"Sting ray, honeycomb, dried",G218,https://i.fnri.dost.gov.ph/fct/library/report/4198,,
+FC002495,reference,FNRI,"Surgeonfish, blue-lined, dried",G219,https://i.fnri.dost.gov.ph/fct/library/report/4199,,
+FC002496,reference,FNRI,"Swordfish, dried",G220,https://i.fnri.dost.gov.ph/fct/library/report/4200,,
+FC002497,reference,FNRI,"Theraponid, silvery, dried",G221,https://i.fnri.dost.gov.ph/fct/library/report/4201,,
+FC002498,reference,FNRI,"Beef w/chickpeas, cnd",R038,https://i.fnri.dost.gov.ph/fct/library/report/4458,,
+FC002499,reference,FNRI,"Meat ball & quail egg, sw & sr sce, cnd",R045,https://i.fnri.dost.gov.ph/fct/library/report/4465,,
+FC002500,reference,FNRI,"Pork leg w/ mushroom sce, cnd",R055,https://i.fnri.dost.gov.ph/fct/library/report/4475,,
+FC002501,reference,FNRI,"Pork leg, mushroom & chestnut, cnd",R056,https://i.fnri.dost.gov.ph/fct/library/report/4476,,
+FC002502,reference,FNRI,"Pork w/ black beans, cnd",R059,https://i.fnri.dost.gov.ph/fct/library/report/4479,,
+FC002503,reference,FNRI,"Roast beef hash, cnd",R061,https://i.fnri.dost.gov.ph/fct/library/report/4481,,
+FC002504,reference,FNRI,"Soup, beans w/ bacon, cond, cnd",R066,https://i.fnri.dost.gov.ph/fct/library/report/4486,,
+FC002505,reference,FNRI,"Soup, bird's nest (nido), cond, cnd",R068,https://i.fnri.dost.gov.ph/fct/library/report/4488,,
+FC002506,reference,FNRI,"Soup, chicken & veg, cond, cnd",R071,https://i.fnri.dost.gov.ph/fct/library/report/4491,,
+FC002507,reference,FNRI,"Soup, corn potage, cond, cnd",R073,https://i.fnri.dost.gov.ph/fct/library/report/4493,,
+FC002508,reference,FNRI,"Soup, cream of asparagus, cond, cnd",R074,https://i.fnri.dost.gov.ph/fct/library/report/4494,,
+FC002509,reference,FNRI,"Soup, cream of chicken, cond, cnd",R075,https://i.fnri.dost.gov.ph/fct/library/report/4495,,
+FC002510,reference,FNRI,"Soup, noodles & beef, cond, cnd",R078,https://i.fnri.dost.gov.ph/fct/library/report/4498,,
+FC002511,reference,FNRI,"Soup, turkey noodle, cnd",R082,https://i.fnri.dost.gov.ph/fct/library/report/4502,,
+FC002512,reference,FNRI,"Soup, veg alphabet, cnd",R083,https://i.fnri.dost.gov.ph/fct/library/report/4503,,
+FC002513,reference,FNRI,"Soup, veg, cond, cnd",R084,https://i.fnri.dost.gov.ph/fct/library/report/4504,,
+FC002514,reference,FNRI,"Soup, vermicelli & chicken, cond, cnd",R085,https://i.fnri.dost.gov.ph/fct/library/report/4505,,
+FC002515,reference,FNRI,"Hotcake, prep, w/ MLP",R088,https://i.fnri.dost.gov.ph/fct/library/report/4508,,
+FC002516,reference,FNRI,"Polvoron, prep, w/ MLP",R089,https://i.fnri.dost.gov.ph/fct/library/report/4509,,
+FC002517,reference,FNRI,"Ice candy, prep, w/ MLP",R091,https://i.fnri.dost.gov.ph/fct/library/report/4511,,
+FC002518,reference,FNRI,"Yacon shake, prep",R092,https://i.fnri.dost.gov.ph/fct/library/report/4512,,
+FC002519,reference,FNRI,"Carbonara, prep, w/ MLP",R093,https://i.fnri.dost.gov.ph/fct/library/report/4513,,
+FC002520,reference,FNRI,"Fruit salad, prep, w/ yacon",R094,https://i.fnri.dost.gov.ph/fct/library/report/4514,,
+FC002521,reference,FNRI,"Macaroni salad, prep, w/ yacon",R095,https://i.fnri.dost.gov.ph/fct/library/report/4515,,
+FC002522,reference,FNRI,"Waldorf salad, prep, w/ yacon",R096,https://i.fnri.dost.gov.ph/fct/library/report/4516,,
+FC002523,reference,FNRI,"Anchovy fry omelet, prep, w/ MLP",R097,https://i.fnri.dost.gov.ph/fct/library/report/4517,,
+FC002524,reference,FNRI,"Red snapper fritata, prep, w/ MLP",R098,https://i.fnri.dost.gov.ph/fct/library/report/4518,,
+FC002525,reference,FNRI,"Chopsuey, prep, w/ yacon",R099,https://i.fnri.dost.gov.ph/fct/library/report/4519,,
+FC002526,reference,FNRI,"Wonton soup, prep, w/ MLP",R100,https://i.fnri.dost.gov.ph/fct/library/report/4520,,
+FC002527,reference,FNRI,"Pork wonton, prep, w/ MLP",R101,https://i.fnri.dost.gov.ph/fct/library/report/4521,,
+FC002528,reference,FNRI,"Scrambled egg, prep, w/ MLP",R102,https://i.fnri.dost.gov.ph/fct/library/report/4522,,
+FC002529,reference,FNRI,"Shanghai pork roll, prep, w/ yacon",R103,https://i.fnri.dost.gov.ph/fct/library/report/4523,,
+FC002530,reference,FNRI,"Fried rice mix, w/ yacon",R104,https://i.fnri.dost.gov.ph/fct/library/report/4524,,
+FC002531,reference,FNRI,"Vegetable stir-fry w/ quail eggs, prep, w/ yacon",R105,https://i.fnri.dost.gov.ph/fct/library/report/4525,,
+FC002532,reference,FNRI,"Vegetable soup, prep, w/ yacon",R106,https://i.fnri.dost.gov.ph/fct/library/report/4526,,
+FC002533,reference,FNRI,"Vegetable spring roll, fresh, w/ yacon",R107,https://i.fnri.dost.gov.ph/fct/library/report/4527,,
+FC002534,reference,FNRI,"Marang seed, dried, boiled",C026,https://i.fnri.dost.gov.ph/fct/library/report/3236,,
+FC002535,reference,FNRI,"Davao wonder bean seed, dried",C011,https://i.fnri.dost.gov.ph/fct/library/report/3221,,
+FC002536,reference,FNRI,"Java olive seed, dried",C016,https://i.fnri.dost.gov.ph/fct/library/report/3226,,
+FC002537,reference,FNRI,"Kaatoan bangkal  seed, dried",C017,https://i.fnri.dost.gov.ph/fct/library/report/3227,,
+FC002538,reference,FNRI,"Marang seed, dried",C025,https://i.fnri.dost.gov.ph/fct/library/report/3235,,
+FC002539,reference,FNRI,"Negro coffee seed, dried",C033,https://i.fnri.dost.gov.ph/fct/library/report/3243,,
+FC002540,reference,FNRI,Yautia,B024,https://i.fnri.dost.gov.ph/fct/library/report/3191,,
+FC002541,reference,FNRI,"Beef brain, boiled",F004,https://i.fnri.dost.gov.ph/fct/library/report/3711,,
+FC002542,reference,FNRI,"Beef omasum, boiled",F024,https://i.fnri.dost.gov.ph/fct/library/report/3731,,
+FC002543,reference,FNRI,"Beef reticulum, boiled",F028,https://i.fnri.dost.gov.ph/fct/library/report/3735,,
+FC002544,reference,FNRI,"Beef spleen, boiled",F043,https://i.fnri.dost.gov.ph/fct/library/report/3750,,
+FC002545,reference,FNRI,"Pork spleen, boiled",F184,https://i.fnri.dost.gov.ph/fct/library/report/3891,,
+FC002546,reference,FNRI,Beef blood,F001,https://i.fnri.dost.gov.ph/fct/library/report/3708,,
+FC002547,reference,FNRI,Beef brain,F003,https://i.fnri.dost.gov.ph/fct/library/report/3710,,
+FC002548,reference,FNRI,Beef head,F010,https://i.fnri.dost.gov.ph/fct/library/report/3717,,
+FC002549,reference,FNRI,"Beef intestine, large",F012,https://i.fnri.dost.gov.ph/fct/library/report/3719,,
+FC002550,reference,FNRI,"Beef intestine, small",F013,https://i.fnri.dost.gov.ph/fct/library/report/3720,,
+FC002551,reference,FNRI,Beef lung,F021,https://i.fnri.dost.gov.ph/fct/library/report/3728,,
+FC002552,reference,FNRI,Beef mammary,F022,https://i.fnri.dost.gov.ph/fct/library/report/3729,,
+FC002553,reference,FNRI,Beef omasum,F023,https://i.fnri.dost.gov.ph/fct/library/report/3730,,
+FC002554,reference,FNRI,Beef reticulum,F027,https://i.fnri.dost.gov.ph/fct/library/report/3734,,
+FC002555,reference,FNRI,Beef spleen,F042,https://i.fnri.dost.gov.ph/fct/library/report/3749,,
+FC002556,reference,FNRI,Beef uterus,F051,https://i.fnri.dost.gov.ph/fct/library/report/3758,,
+FC002557,reference,FNRI,Carabeef blood,F052,https://i.fnri.dost.gov.ph/fct/library/report/3759,,
+FC002558,reference,FNRI,Carabeef brain,F053,https://i.fnri.dost.gov.ph/fct/library/report/3760,,
+FC002559,reference,FNRI,Carabeef heart,F055,https://i.fnri.dost.gov.ph/fct/library/report/3762,,
+FC002560,reference,FNRI,"Carabeef intestine, large",F056,https://i.fnri.dost.gov.ph/fct/library/report/3763,,
+FC002561,reference,FNRI,"Carabeef intestine, small",F057,https://i.fnri.dost.gov.ph/fct/library/report/3764,,
+FC002562,reference,FNRI,Carabeef kidney,F058,https://i.fnri.dost.gov.ph/fct/library/report/3765,,
+FC002563,reference,FNRI,Carabeef liver,F061,https://i.fnri.dost.gov.ph/fct/library/report/3768,,
+FC002564,reference,FNRI,Carabeef lung,F062,https://i.fnri.dost.gov.ph/fct/library/report/3769,,
+FC002565,reference,FNRI,Carabeef omasum,F063,https://i.fnri.dost.gov.ph/fct/library/report/3770,,
+FC002566,reference,FNRI,Carabeef reticulum,F064,https://i.fnri.dost.gov.ph/fct/library/report/3771,,
+FC002567,reference,FNRI,Carabeef spleen,F069,https://i.fnri.dost.gov.ph/fct/library/report/3776,,
+FC002568,reference,FNRI,Carabeef stomach,F070,https://i.fnri.dost.gov.ph/fct/library/report/3777,,
+FC002569,reference,FNRI,Chevon heart,F078,https://i.fnri.dost.gov.ph/fct/library/report/3785,,
+FC002570,reference,USDA,"Amaranth leaves, cooked, boiled, drained, with salt",168492,https://fdc.nal.usda.gov/food-details/168492/nutrients,,
+FC002571,reference,USDA,"Apples, raw, without skin, cooked, boiled",173928,https://fdc.nal.usda.gov/food-details/173928/nutrients,,
+FC002572,reference,USDA,"Crustaceans, crab, alaska king, cooked, moist heat",174202,https://fdc.nal.usda.gov/food-details/174202/nutrients,,
+FC002573,reference,USDA,"Beans, kidney, all types, mature seeds, cooked, boiled, with salt",173792,https://fdc.nal.usda.gov/food-details/173792/nutrients,,
+FC002574,reference,USDA,"Amaranth grain, cooked",170683,https://fdc.nal.usda.gov/food-details/170683/nutrients,,
+FC002575,reference,USDA,"Nuts, acorn flour, full fat",170566,https://fdc.nal.usda.gov/food-details/170566/nutrients,,
+FC002576,reference,USDA,"Amaranth leaves, cooked, boiled, drained, without salt",169202,https://fdc.nal.usda.gov/food-details/169202/nutrients,,
+FC002577,reference,USDA,"Apples, raw, without skin, cooked, microwave",173929,https://fdc.nal.usda.gov/food-details/173929/nutrients,,
+FC002578,reference,USDA,"Crustaceans, crab, blue, cooked, moist heat",174205,https://fdc.nal.usda.gov/food-details/174205/nutrients,,
+FC002579,reference,USDA,"Beans, kidney, all types, mature seeds, cooked, boiled, without salt",173740,https://fdc.nal.usda.gov/food-details/173740/nutrients,,
+FC002580,reference,USDA,"Amaranth grain, uncooked",170682,https://fdc.nal.usda.gov/food-details/170682/nutrients,,
+FC002581,reference,USDA,"Nuts, acorns, dried",170565,https://fdc.nal.usda.gov/food-details/170565/nutrients,,
+FC002582,reference,USDA,"Balsam-pear (bitter gourd), leafy tips, cooked, boiled, drained, with salt",168495,https://fdc.nal.usda.gov/food-details/168495/nutrients,,
+FC002583,reference,USDA,"Guava sauce, cooked",174686,https://fdc.nal.usda.gov/food-details/174686/nutrients,,
+FC002584,reference,USDA,"Crustaceans, crab, dungeness, cooked, moist heat",172007,https://fdc.nal.usda.gov/food-details/172007/nutrients,,
+FC002585,reference,USDA,"Beans, kidney, california red, mature seeds, cooked, boiled, with salt",173793,https://fdc.nal.usda.gov/food-details/173793/nutrients,,
+FC002586,reference,USDA,"Buckwheat groats, roasted, cooked",170686,https://fdc.nal.usda.gov/food-details/170686/nutrients,,
+FC002587,reference,USDA,"Nuts, acorns, raw",170157,https://fdc.nal.usda.gov/food-details/170157/nutrients,,
+FC002588,reference,USDA,"Balsam-pear (bitter gourd), leafy tips, cooked, boiled, drained, without salt",168392,https://fdc.nal.usda.gov/food-details/168392/nutrients,,
+FC002589,reference,USDA,"Apple juice, canned or bottled, unsweetened, with added ascorbic acid",167771,https://fdc.nal.usda.gov/food-details/167771/nutrients,,
+FC002590,reference,USDA,"Crustaceans, crab, queen, cooked, moist heat",172008,https://fdc.nal.usda.gov/food-details/172008/nutrients,,
+FC002591,reference,USDA,"Beans, kidney, california red, mature seeds, cooked, boiled, without salt",173743,https://fdc.nal.usda.gov/food-details/173743/nutrients,,
+FC002592,reference,USDA,"Noodles, egg, enriched, cooked",169732,https://fdc.nal.usda.gov/food-details/169732/nutrients,,
+FC002593,reference,USDA,"Nuts, cashew butter, plain, with salt added",168597,https://fdc.nal.usda.gov/food-details/168597/nutrients,,
+FC002594,reference,USDA,"Balsam-pear (bitter gourd), pods, cooked, boiled, drained, with salt",168496,https://fdc.nal.usda.gov/food-details/168496/nutrients,,
+FC002595,reference,USDA,"Apple juice, canned or bottled, unsweetened, with added ascorbic acid, calcium, and potassium",167800,https://fdc.nal.usda.gov/food-details/167800/nutrients,,
+FC002596,reference,USDA,"Crustaceans, shrimp, mixed species, cooked, breaded and fried",171970,https://fdc.nal.usda.gov/food-details/171970/nutrients,,
+FC002597,reference,USDA,"Beans, kidney, red, mature seeds, cooked, boiled, with salt",175242,https://fdc.nal.usda.gov/food-details/175242/nutrients,,
+FC002598,reference,USDA,"Noodles, egg, spinach, enriched, cooked",169734,https://fdc.nal.usda.gov/food-details/169734/nutrients,,
+FC002599,reference,USDA,"Nuts, cashew butter, plain, without salt added",170163,https://fdc.nal.usda.gov/food-details/170163/nutrients,,
+FC002600,reference,USDA,"Balsam-pear (bitter gourd), pods, cooked, boiled, drained, without salt",168394,https://fdc.nal.usda.gov/food-details/168394/nutrients,,
+FC002601,reference,USDA,"Apple juice, canned or bottled, unsweetened, without added ascorbic acid",173933,https://fdc.nal.usda.gov/food-details/173933/nutrients,,
+FC002602,reference,USDA,"Crustaceans, shrimp, mixed species, cooked, moist heat (may contain additives to retain moisture)",171971,https://fdc.nal.usda.gov/food-details/171971/nutrients,,
+FC002603,reference,USDA,"Beans, kidney, red, mature seeds, cooked, boiled, without salt",175194,https://fdc.nal.usda.gov/food-details/175194/nutrients,,
+FC002604,reference,USDA,"Noodles, egg, unenriched, cooked, without added salt",168926,https://fdc.nal.usda.gov/food-details/168926/nutrients,,
+FC002605,reference,USDA,"Nuts, cashew nuts, dry roasted, with salt added",169421,https://fdc.nal.usda.gov/food-details/169421/nutrients,,
+FC002606,reference,USDA,"Bamboo shoots, cooked, boiled, drained, with salt",168497,https://fdc.nal.usda.gov/food-details/168497/nutrients,,
+FC002607,reference,USDA,"Apple juice, frozen concentrate, unsweetened, diluted with 3 volume water without added ascorbic acid",173935,https://fdc.nal.usda.gov/food-details/173935/nutrients,,
+FC002608,reference,USDA,"Fish, mackerel, Atlantic, cooked, dry heat",175120,https://fdc.nal.usda.gov/food-details/175120/nutrients,,
+FC002609,reference,USDA,"Beans, kidney, royal red, mature seeds, cooked, boiled with salt",175244,https://fdc.nal.usda.gov/food-details/175244/nutrients,,
+FC002610,reference,USDA,"Noodles, japanese, soba, cooked",168907,https://fdc.nal.usda.gov/food-details/168907/nutrients,,
+FC002611,reference,USDA,"Nuts, cashew nuts, dry roasted, without salt added",170571,https://fdc.nal.usda.gov/food-details/170571/nutrients,,
+FC002612,reference,USDA,"Bamboo shoots, cooked, boiled, drained, without salt",169211,https://fdc.nal.usda.gov/food-details/169211/nutrients,,
+FC002613,reference,USDA,"Apple juice, frozen concentrate, unsweetened, diluted with 3 volume water, with added ascorbic acid",167775,https://fdc.nal.usda.gov/food-details/167775/nutrients,,
+FC002614,reference,USDA,"Fish, mackerel, Pacific and jack, mixed species, cooked, dry heat",171994,https://fdc.nal.usda.gov/food-details/171994/nutrients,,
+FC002615,reference,USDA,"Beans, kidney, royal red, mature seeds, cooked, boiled, without salt",175197,https://fdc.nal.usda.gov/food-details/175197/nutrients,,
+FC002616,reference,USDA,"Noodles, japanese, somen, cooked",168909,https://fdc.nal.usda.gov/food-details/168909/nutrients,,
+FC002617,reference,USDA,"Nuts, cashew nuts, oil roasted, with salt added",169422,https://fdc.nal.usda.gov/food-details/169422/nutrients,,
+FC002618,reference,USDA,"Beans, kidney, mature seeds, sprouted, cooked, boiled, drained, with salt",169315,https://fdc.nal.usda.gov/food-details/169315/nutrients,,
+FC002619,reference,USDA,"Apple juice, frozen concentrate, unsweetened, undiluted, with added ascorbic acid",168188,https://fdc.nal.usda.gov/food-details/168188/nutrients,,
+FC002620,reference,USDA,"Fish, salmon, coho, farmed, cooked, dry heat",173716,https://fdc.nal.usda.gov/food-details/173716/nutrients,,
+FC002621,reference,USDA,"Chickpeas (garbanzo beans, bengal gram), mature seeds, cooked, boiled, with salt",173799,https://fdc.nal.usda.gov/food-details/173799/nutrients,,
+FC002622,reference,USDA,"Oat bran, cooked",168873,https://fdc.nal.usda.gov/food-details/168873/nutrients,,
+FC002623,reference,USDA,"Nuts, cashew nuts, oil roasted, without salt added",170572,https://fdc.nal.usda.gov/food-details/170572/nutrients,,
+FC002624,reference,USDA,"Beans, kidney, mature seeds, sprouted, cooked, boiled, drained, without salt",168395,https://fdc.nal.usda.gov/food-details/168395/nutrients,,
+FC002625,reference,USDA,"Apple juice, frozen concentrate, unsweetened, undiluted, without added ascorbic acid",173934,https://fdc.nal.usda.gov/food-details/173934/nutrients,,
+FC002626,reference,USDA,"Fish, salmon, coho, wild, cooked, moist heat",175137,https://fdc.nal.usda.gov/food-details/175137/nutrients,,
+FC002627,reference,USDA,"Chickpeas (garbanzo beans, bengal gram), mature seeds, cooked, boiled, without salt",173757,https://fdc.nal.usda.gov/food-details/173757/nutrients,,
+FC002628,reference,USDA,"Wild rice, cooked",168897,https://fdc.nal.usda.gov/food-details/168897/nutrients,,
+FC002629,reference,USDA,"Nuts, cashew nuts, raw",170162,https://fdc.nal.usda.gov/food-details/170162/nutrients,,
+FC002630,reference,USDA,"Cabbage, chinese (pak-choi), cooked, boiled, drained, with salt",168517,https://fdc.nal.usda.gov/food-details/168517/nutrients,,
+FC002631,reference,USDA,"Apples, canned, sweetened, sliced, drained, heated",173930,https://fdc.nal.usda.gov/food-details/173930/nutrients,,
+FC002632,reference,USDA,"Fish, sunfish, pumpkin seed, cooked, dry heat",172003,https://fdc.nal.usda.gov/food-details/172003/nutrients,,
+FC002633,reference,USDA,"Mung beans, mature seeds, cooked, boiled, with salt",175255,https://fdc.nal.usda.gov/food-details/175255/nutrients,,
+FC002634,reference,USDA,"Buckwheat flour, whole-groat",170687,https://fdc.nal.usda.gov/food-details/170687/nutrients,,
+FC002635,reference,USDA,"Nuts, coconut cream, canned, sweetened",170171,https://fdc.nal.usda.gov/food-details/170171/nutrients,,
+FC002636,reference,USDA,"Cabbage, chinese (pe-tsai), cooked, boiled, drained, with salt",169337,https://fdc.nal.usda.gov/food-details/169337/nutrients,,
+FC002637,reference,USDA,"Apples, dehydrated (low moisture), sulfured, stewed",171690,https://fdc.nal.usda.gov/food-details/171690/nutrients,,
+FC002638,reference,USDA,"Fish, tuna, fresh, bluefin, cooked, dry heat",173707,https://fdc.nal.usda.gov/food-details/173707/nutrients,,
+FC002639,reference,USDA,"Mung beans, mature seeds, cooked, boiled, without salt",174257,https://fdc.nal.usda.gov/food-details/174257/nutrients,,
+FC002640,reference,USDA,"Buckwheat groats, roasted, dry",170685,https://fdc.nal.usda.gov/food-details/170685/nutrients,,
+FC002641,reference,USDA,"Nuts, coconut cream, raw (liquid expressed from grated meat)",170580,https://fdc.nal.usda.gov/food-details/170580/nutrients,,
+FC002642,reference,USDA,"Cabbage, chinese (pe-tsai), cooked, boiled, drained, without salt",169980,https://fdc.nal.usda.gov/food-details/169980/nutrients,,
+FC002643,reference,USDA,"Apples, dried, sulfured, stewed, with added sugar",171693,https://fdc.nal.usda.gov/food-details/171693/nutrients,,
+FC002644,reference,USDA,"Fish, tuna, yellowfin, fresh, cooked, dry heat",172006,https://fdc.nal.usda.gov/food-details/172006/nutrients,,
+FC002645,reference,USDA,"Mungo beans, mature seeds, cooked, boiled, with salt",175256,https://fdc.nal.usda.gov/food-details/175256/nutrients,,
+FC002646,reference,USDA,"Corn bran, crude",170289,https://fdc.nal.usda.gov/food-details/170289/nutrients,,
+FC002647,reference,USDA,"Nuts, coconut meat, dried (desiccated), creamed",168585,https://fdc.nal.usda.gov/food-details/168585/nutrients,,
+FC002648,reference,USDA,"Cabbage, common, cooked, boiled, drained, with salt",168514,https://fdc.nal.usda.gov/food-details/168514/nutrients,,
+FC002649,reference,USDA,"Apples, dried, sulfured, stewed, without added sugar",171692,https://fdc.nal.usda.gov/food-details/171692/nutrients,,
+FC002650,reference,USDA,"Mollusks, clam, mixed species, cooked, breaded and fried",171974,https://fdc.nal.usda.gov/food-details/171974/nutrients,,
+FC002651,reference,USDA,"Mungo beans, mature seeds, cooked, boiled, without salt",172427,https://fdc.nal.usda.gov/food-details/172427/nutrients,,
+FC002652,reference,USDA,"Corn flour, whole-grain, blue (harina de maiz morado)",168921,https://fdc.nal.usda.gov/food-details/168921/nutrients,,
+FC002653,reference,USDA,"Nuts, coconut meat, dried (desiccated), not sweetened",170170,https://fdc.nal.usda.gov/food-details/170170/nutrients,,
+FC002654,reference,USDA,"Cabbage, cooked, boiled, drained, without salt",169976,https://fdc.nal.usda.gov/food-details/169976/nutrients,,
+FC002655,reference,USDA,"Apples, raw, golden delicious, with skin",168202,https://fdc.nal.usda.gov/food-details/168202/nutrients,,
+FC002656,reference,USDA,"Mollusks, clam, mixed species, cooked, moist heat",171975,https://fdc.nal.usda.gov/food-details/171975/nutrients,,
+FC002657,reference,USDA,"Beans, baked, canned, with pork and tomato sauce",173733,https://fdc.nal.usda.gov/food-details/173733/nutrients,,
+FC002658,reference,USDA,"Corn flour, yellow, degermed, unenriched",169695,https://fdc.nal.usda.gov/food-details/169695/nutrients,,
+FC002659,reference,USDA,"Nuts, coconut meat, dried (desiccated), sweetened, flaked, canned",170578,https://fdc.nal.usda.gov/food-details/170578/nutrients,,
+FC002660,reference,USDA,"Cabbage, napa, cooked",168572,https://fdc.nal.usda.gov/food-details/168572/nutrients,,
+FC002661,reference,USDA,"Apples, raw, without skin",171689,https://fdc.nal.usda.gov/food-details/171689/nutrients,,
+FC002662,reference,USDA,"Mollusks, mussel, blue, cooked, moist heat",174217,https://fdc.nal.usda.gov/food-details/174217/nutrients,,
+FC002663,reference,USDA,"Beans, kidney, all types, mature seeds, canned",173741,https://fdc.nal.usda.gov/food-details/173741/nutrients,,
+FC002664,reference,USDA,"Corn grain, white",168920,https://fdc.nal.usda.gov/food-details/168920/nutrients,,
+FC002665,reference,USDA,"Nuts, coconut meat, dried (desiccated), sweetened, flaked, packaged",170577,https://fdc.nal.usda.gov/food-details/170577/nutrients,,
+FC002666,reference,USDA,"Cabbage, red, cooked, boiled, drained, with salt",168515,https://fdc.nal.usda.gov/food-details/168515/nutrients,,
+FC002667,reference,USDA,"Applesauce, canned, sweetened, with salt",167773,https://fdc.nal.usda.gov/food-details/167773/nutrients,,
+FC002668,reference,USDA,"Mollusks, octopus, common, cooked, moist heat",174249,https://fdc.nal.usda.gov/food-details/174249/nutrients,,
+FC002669,reference,USDA,"Beans, kidney, all types, mature seeds, raw",175193,https://fdc.nal.usda.gov/food-details/175193/nutrients,,
+FC002670,reference,USDA,"Corn grain, yellow",170288,https://fdc.nal.usda.gov/food-details/170288/nutrients,,
+FC002671,reference,USDA,"Nuts, coconut meat, dried (desiccated), sweetened, shredded",168586,https://fdc.nal.usda.gov/food-details/168586/nutrients,,
+FC002672,reference,USDA,"Cabbage, red, cooked, boiled, drained, without salt",169978,https://fdc.nal.usda.gov/food-details/169978/nutrients,,
+FC002673,reference,USDA,"Applesauce, canned, sweetened, without salt",171696,https://fdc.nal.usda.gov/food-details/171696/nutrients,,
+FC002674,reference,USDA,"Mollusks, oyster, Pacific, cooked, moist heat",174250,https://fdc.nal.usda.gov/food-details/174250/nutrients,,
+FC002675,reference,USDA,"Beans, kidney, california red, mature seeds, raw",173742,https://fdc.nal.usda.gov/food-details/173742/nutrients,,
+FC002676,reference,USDA,"Cornmeal, degermed, enriched, white",168922,https://fdc.nal.usda.gov/food-details/168922/nutrients,,
+FC002677,reference,USDA,"Nuts, coconut meat, dried (desiccated), toasted",170579,https://fdc.nal.usda.gov/food-details/170579/nutrients,,
+FC002678,reference,USDA,"Cabbage, savoy, cooked, boiled, drained, with salt",168516,https://fdc.nal.usda.gov/food-details/168516/nutrients,,
+FC002679,reference,USDA,"Applesauce, canned, unsweetened, with added ascorbic acid",167772,https://fdc.nal.usda.gov/food-details/167772/nutrients,,
+FC002680,reference,USDA,"Mollusks, oyster, eastern, cooked, breaded and fried",171979,https://fdc.nal.usda.gov/food-details/171979/nutrients,,
+FC002681,reference,USDA,"Beans, kidney, red, mature seeds, canned, drained solids",174285,https://fdc.nal.usda.gov/food-details/174285/nutrients,,
+FC002682,reference,USDA,"Cornmeal, degermed, enriched, yellow",168867,https://fdc.nal.usda.gov/food-details/168867/nutrients,,
+FC002683,reference,USDA,"Nuts, coconut meat, raw",170169,https://fdc.nal.usda.gov/food-details/170169/nutrients,,
+FC002684,reference,USDA,"Cabbage, savoy, cooked, boiled, drained, without salt",170389,https://fdc.nal.usda.gov/food-details/170389/nutrients,,
+FC002685,reference,USDA,"Bananas, dehydrated, or banana powder",173945,https://fdc.nal.usda.gov/food-details/173945/nutrients,,
+FC002686,reference,USDA,"Mollusks, oyster, eastern, farmed, cooked, dry heat",175173,https://fdc.nal.usda.gov/food-details/175173/nutrients,,
+FC002687,reference,USDA,"Beans, kidney, red, mature seeds, canned, drained solids, rinsed in tap water",175243,https://fdc.nal.usda.gov/food-details/175243/nutrients,,
+FC002688,reference,USDA,"Cornmeal, degermed, unenriched, white",172015,https://fdc.nal.usda.gov/food-details/172015/nutrients,,
+FC002689,reference,USDA,"Nuts, coconut milk, frozen (liquid expressed from grated meat and water)",169409,https://fdc.nal.usda.gov/food-details/169409/nutrients,,
+FC002690,reference,USDA,"Carrots, cooked, boiled, drained, with salt",169339,https://fdc.nal.usda.gov/food-details/169339/nutrients,,
+FC002691,reference,USDA,"Bananas, raw",173944,https://fdc.nal.usda.gov/food-details/173944/nutrients,,
+FC002692,reference,USDA,"Mollusks, oyster, eastern, wild, cooked, dry heat",175171,https://fdc.nal.usda.gov/food-details/175171/nutrients,,
+FC002693,reference,USDA,"Beans, kidney, red, mature seeds, canned, solids and liquid, low sodium",175245,https://fdc.nal.usda.gov/food-details/175245/nutrients,,
+FC002694,reference,USDA,"Cornmeal, degermed, unenriched, yellow",168929,https://fdc.nal.usda.gov/food-details/168929/nutrients,,
+FC002695,reference,USDA,"Nuts, coconut water (liquid from coconuts)",170174,https://fdc.nal.usda.gov/food-details/170174/nutrients,,
+FC002696,reference,USDA,"Carrots, cooked, boiled, drained, without salt",170394,https://fdc.nal.usda.gov/food-details/170394/nutrients,,
+FC002697,reference,USDA,"Crabapples, raw",171721,https://fdc.nal.usda.gov/food-details/171721/nutrients,,
+FC002698,reference,USDA,"Mollusks, oyster, eastern, wild, cooked, moist heat",171980,https://fdc.nal.usda.gov/food-details/171980/nutrients,,
+FC002699,reference,USDA,"Beans, kidney, red, mature seeds, canned, solids and liquids",175195,https://fdc.nal.usda.gov/food-details/175195/nutrients,,
+FC002700,reference,USDA,"Cornmeal, white, self-rising, bolted, plain, enriched",168923,https://fdc.nal.usda.gov/food-details/168923/nutrients,,
+FC002701,reference,USDA,"Nuts, mixed nuts, dry roasted, with peanuts, with salt added",168599,https://fdc.nal.usda.gov/food-details/168599/nutrients,,
+FC002702,reference,USDA,"Cauliflower, cooked, boiled, drained, with salt",168520,https://fdc.nal.usda.gov/food-details/168520/nutrients,,
+FC002703,reference,USDA,"Cranberry-orange relish, canned",173962,https://fdc.nal.usda.gov/food-details/173962/nutrients,,
+FC002704,reference,USDA,"Mollusks, squid, mixed species, cooked, fried",171982,https://fdc.nal.usda.gov/food-details/171982/nutrients,,
+FC002705,reference,USDA,"Beans, kidney, red, mature seeds, raw",173744,https://fdc.nal.usda.gov/food-details/173744/nutrients,,
+FC002706,reference,USDA,"Cornmeal, white, self-rising, bolted, with wheat flour added, enriched",168924,https://fdc.nal.usda.gov/food-details/168924/nutrients,,
+FC002707,reference,USDA,"Nuts, mixed nuts, dry roasted, with peanuts, without salt added",170585,https://fdc.nal.usda.gov/food-details/170585/nutrients,,
+FC002708,reference,USDA,"Cauliflower, cooked, boiled, drained, without salt",170397,https://fdc.nal.usda.gov/food-details/170397/nutrients,,
+FC002709,reference,USDA,"Custard-apple, (bullock's-heart), raw",171725,https://fdc.nal.usda.gov/food-details/171725/nutrients,,
+FC002710,reference,USDA,"Salmon nuggets, cooked as purchased, unheated",173722,https://fdc.nal.usda.gov/food-details/173722/nutrients,,
+FC002711,reference,USDA,"Beans, kidney, royal red, mature seeds, raw",175196,https://fdc.nal.usda.gov/food-details/175196/nutrients,,
+FC002712,reference,USDA,"Cornmeal, white, self-rising, degermed, enriched",168925,https://fdc.nal.usda.gov/food-details/168925/nutrients,,
+FC002713,reference,USDA,"Nuts, mixed nuts, oil roasted, with peanuts, lightly salted",169427,https://fdc.nal.usda.gov/food-details/169427/nutrients,,
+FC002714,reference,USDA,"Cauliflower, green, cooked, no salt added",169390,https://fdc.nal.usda.gov/food-details/169390/nutrients,,
+FC002715,reference,USDA,"Durian, raw or frozen",168192,https://fdc.nal.usda.gov/food-details/168192/nutrients,,
+FC002716,reference,USDA,"Crustaceans, crab, alaska king, imitation, made from surimi",174203,https://fdc.nal.usda.gov/food-details/174203/nutrients,,
+FC002717,reference,USDA,"Beans, liquid from stewed kidney beans",169885,https://fdc.nal.usda.gov/food-details/169885/nutrients,,
+FC002718,reference,USDA,"Cornmeal, yellow, self-rising, bolted, plain, enriched",168868,https://fdc.nal.usda.gov/food-details/168868/nutrients,,
+FC002719,reference,USDA,"Nuts, mixed nuts, oil roasted, with peanuts, with salt added",168600,https://fdc.nal.usda.gov/food-details/168600/nutrients,,
+FC002720,regional,Ilocos,"Poqui-poqui, eggplant and egg (Ilocos) (estimate)",EST_REGIONAL_20260918_001_V1,https://app.philippines.travel/articles/intro-to-ilocos-norte,EST_REGIONAL_20260918_001_V1,491
+FC002721,regional,Ilocos,"Dinengdeng, mixed vegetables with grilled milkfish (Ilocos) (estimate)",EST_REGIONAL_20260918_002_V1,https://app.philippines.travel/articles/intro-to-ilocos-norte,EST_REGIONAL_20260918_002_V1,805
+FC002722,regional,Ilocos,Bagnet with tomato and fish-paste relish (Ilocos) (estimate),EST_REGIONAL_20260918_003_V1,https://app.philippines.travel/articles/intro-to-ilocos-norte,EST_REGIONAL_20260918_003_V1,287
+FC002723,regional,Cagayan Valley,"Pancit batil patung, beef-proxy noodles with egg and broth (Cagayan Valley) (estimate)",EST_REGIONAL_20260918_004_V1,https://www.tourism.gov.ph/article/all-the-must-try-food-when-in-region-2/,EST_REGIONAL_20260918_004_V1,660
+FC002724,regional,Cagayan Valley,"Pancit Cabagan, pork noodles with egg and sauce (Cagayan Valley) (estimate)",EST_REGIONAL_20260918_005_V1,https://mirror.pia.gov.ph/features/2023/07/21/pansit-batil-patung-remembering-how-it-all-began,EST_REGIONAL_20260918_005_V1,655
+FC002725,regional,Cagayan Valley,"Sinanta, mixed-noodle seafood soup (Cagayan Valley) (estimate)",EST_REGIONAL_20260918_006_V1,https://www.tourism.gov.ph/article/all-the-must-try-food-when-in-region-2/,EST_REGIONAL_20260918_006_V1,770
+FC002726,regional,Cagayan Valley,"Patupat, sticky rice with sugarcane reduction (Cagayan Valley) (estimate)",EST_REGIONAL_20260918_007_V1,https://www.tourism.gov.ph/article/all-the-must-try-food-when-in-region-2/,EST_REGIONAL_20260918_007_V1,355
+FC002727,regional,Iloilo and Negros,"La Paz batchoy, pork-liver noodles and cracklings (Iloilo and Negros) (estimate)",EST_REGIONAL_20260918_008_V1,https://pia.gov.ph/features/culinary-gem-iloilo-the-city-of-love-and-gastronomy/,EST_REGIONAL_20260918_008_V1,618
+FC002728,regional,Iloilo and Negros,"Pancit Molo, pork-shrimp dumpling soup (Iloilo and Negros) (estimate)",EST_REGIONAL_20260918_009_V1,https://pia.gov.ph/features/culinary-gem-iloilo-the-city-of-love-and-gastronomy/,EST_REGIONAL_20260918_009_V1,627
+FC002729,regional,Iloilo and Negros,"KBL, kadyos baboy langka soup (Iloilo and Negros) (estimate)",EST_REGIONAL_20260918_010_V1,https://pia.gov.ph/features/culinary-gem-iloilo-the-city-of-love-and-gastronomy/,EST_REGIONAL_20260918_010_V1,917
+FC002730,regional,Iloilo and Negros,"Kansi, beef-shank and young-jackfruit soup (Iloilo and Negros) (estimate)",EST_REGIONAL_20260918_011_V1,https://pia.gov.ph/features/culinary-gem-iloilo-the-city-of-love-and-gastronomy/,EST_REGIONAL_20260918_011_V1,893
+FC002731,regional,Bicol,"Pinangat, taro-leaf parcels with pork (Bicol) (estimate)",EST_REGIONAL_20260918_012_V1,https://www.tourism.gov.ph/article/eating-through-region-5-a-taste-of-bicol-s-distinctive-cuisine-0/,EST_REGIONAL_20260918_012_V1,502
+FC002732,regional,Bicol,"Pinangat, taro-leaf parcels with fish (Bicol) (estimate)",EST_REGIONAL_20260918_013_V1,https://www.tourism.gov.ph/article/eating-through-region-5-a-taste-of-bicol-s-distinctive-cuisine-0/,EST_REGIONAL_20260918_013_V1,502
+FC002733,regional,Bicol,"Kinalas, beef noodle soup with heart proxy (Bicol) (estimate)",EST_REGIONAL_20260918_014_V1,https://www.tourism.gov.ph/article/eating-through-region-5-a-taste-of-bicol-s-distinctive-cuisine-0/,EST_REGIONAL_20260918_014_V1,693
+FC002734,regional,Bicol,"Sinantolan, santol and coconut milk (Bicol) (estimate)",EST_REGIONAL_20260918_015_V1,https://www.tourism.gov.ph/article/eating-through-region-5-a-taste-of-bicol-s-distinctive-cuisine-0/,EST_REGIONAL_20260918_015_V1,404
+FC002735,regional,Bicol,"Kinunot, tuna and malunggay variant (Bicol) (estimate)",EST_REGIONAL_20260918_016_V1,https://www.tourism.gov.ph/article/eating-through-region-5-a-taste-of-bicol-s-distinctive-cuisine-0/,EST_REGIONAL_20260918_016_V1,427
+FC002736,regional,Bicol,"Kinaluko, taro with coconut milk (Bicol) (estimate)",EST_REGIONAL_20260918_017_V1,https://www.tourism.gov.ph/article/eating-through-region-5-a-taste-of-bicol-s-distinctive-cuisine-0/,EST_REGIONAL_20260918_017_V1,351
+FC002737,regional,Bicol,"Catandungan latik, rice cake with coconut-sugar topping (Bicol) (estimate)",EST_REGIONAL_20260918_018_V1,https://www.tourism.gov.ph/article/eating-through-region-5-a-taste-of-bicol-s-distinctive-cuisine-0/,EST_REGIONAL_20260918_018_V1,360
+FC002738,regional,Bicol,"Pili ice cream, generic dairy variant (Bicol) (estimate)",EST_REGIONAL_20260918_019_V1,https://www.tourism.gov.ph/article/eating-through-region-5-a-taste-of-bicol-s-distinctive-cuisine-0/,EST_REGIONAL_20260918_019_V1,170
+FC002739,regional,Mindanao,"Pastil, rice with chicken kagikit (Mindanao) (estimate)",EST_REGIONAL_20260918_020_V1,https://www.tourism.gov.ph/article/taste-the-philippines-through-its-halal-food-and-heritage-destinations/,EST_REGIONAL_20260918_020_V1,337
+FC002740,regional,Mindanao,"Pastil, rice with fish kagikit (Mindanao) (estimate)",EST_REGIONAL_20260918_021_V1,https://www.tourism.gov.ph/article/taste-the-philippines-through-its-halal-food-and-heritage-destinations/,EST_REGIONAL_20260918_021_V1,337
+FC002741,regional,Mindanao,"Pastil, rice with beef kagikit (Mindanao) (estimate)",EST_REGIONAL_20260918_022_V1,https://www.tourism.gov.ph/article/taste-the-philippines-through-its-halal-food-and-heritage-destinations/,EST_REGIONAL_20260918_022_V1,337
+FC002742,regional,Mindanao,"Piaparan a manok, chicken-coconut mixture (Mindanao) (estimate)",EST_REGIONAL_20260918_023_V1,https://www.tourism.gov.ph/article/taste-the-philippines-through-its-halal-food-and-heritage-destinations/,EST_REGIONAL_20260918_023_V1,453
+FC002743,regional,Mindanao,"Linigid na manok, chicken in coconut milk (Mindanao) (estimate)",EST_REGIONAL_20260918_024_V1,https://www.tourism.gov.ph/article/taste-the-philippines-through-its-halal-food-and-heritage-destinations/,EST_REGIONAL_20260918_024_V1,546
+FC002744,regional,Mindanao,"Beef rendang, Mindanao coconut-spice variant (Mindanao) (estimate)",EST_REGIONAL_20260918_025_V1,https://www.tourism.gov.ph/article/taste-the-philippines-through-its-halal-food-and-heritage-destinations/,EST_REGIONAL_20260918_025_V1,380
+FC002745,regional,Mindanao,"Palapa, spring-onion ginger chili proxy (Mindanao) (estimate)",EST_REGIONAL_20260918_026_V1,https://www.tourism.gov.ph/article/taste-the-philippines-through-its-halal-food-and-heritage-destinations/,EST_REGIONAL_20260918_026_V1,175
+FC002746,regional,Mindanao,"Dodol, coconut sticky-rice sweet (Mindanao) (estimate)",EST_REGIONAL_20260918_027_V1,https://www.tourism.gov.ph/article/taste-the-philippines-through-its-halal-food-and-heritage-destinations/,EST_REGIONAL_20260918_027_V1,440
+FC002747,regional,Cordillera,"Pinikpikan, chicken soup with salted-pork proxy (Cordillera) (estimate)",EST_REGIONAL_20260918_028_V1,https://www.pcaarrd.dost.gov.ph/index.php/quick-information-dispatch-qid-articles/etag-s-safety-requirements-recipes-and-packaging-tackled,EST_REGIONAL_20260918_028_V1,895
+FC002748,regional,Visayas,"Humba, home-style pork belly and sweet soy sauce (Visayas) (estimate)",EST_REGIONAL_20260918_029_V1,https://www.evsu.edu.ph/wp-content/uploads/2024/07/PBD-2024-07-14-1.pdf,EST_REGIONAL_20260918_029_V1,413
+FC002749,regional,Visayas,"Bam-i, mixed noodles with pork and shrimp (Visayas) (estimate)",EST_REGIONAL_20260918_030_V1,https://www.evsu.edu.ph/wp-content/uploads/2024/07/PBD-2024-07-14-1.pdf,EST_REGIONAL_20260918_030_V1,660
+FC002750,restaurant,Gerry's Grill,Gerry's Grill Philippines Calamares (estimate),EST_REGIONAL_20260918_031_V1,https://gerrysgrill.com/PH,EST_REGIONAL_20260918_031_V1,217
+FC002751,restaurant,Gerry's Grill,Gerry's Grill Philippines Crispy Kangkong (estimate),EST_REGIONAL_20260918_032_V1,https://gerrysgrill.com/PH,EST_REGIONAL_20260918_032_V1,187
+FC002752,restaurant,Gerry's Grill,Gerry's Grill Philippines Lumpiang Shanghai (estimate),EST_REGIONAL_20260918_033_V1,https://gerrysgrill.com/PH,EST_REGIONAL_20260918_033_V1,258
+FC002753,restaurant,Gerry's Grill,Gerry's Grill Philippines Tokwat Lechon Kawali (estimate),EST_REGIONAL_20260918_034_V1,https://gerrysgrill.com/PH,EST_REGIONAL_20260918_034_V1,320
+FC002754,restaurant,Gerry's Grill,Gerry's Grill Philippines Chili Cheese Sticks (estimate),EST_REGIONAL_20260918_035_V1,https://gerrysgrill.com/PH,EST_REGIONAL_20260918_035_V1,165
+FC002755,restaurant,Gerry's Grill,Gerry's Grill Philippines Garlic Adobo Shreds (estimate),EST_REGIONAL_20260918_036_V1,https://gerrysgrill.com/PH,EST_REGIONAL_20260918_036_V1,233
+FC002756,restaurant,Gerry's Grill,Gerry's Grill Philippines Sinigang na Baboy (estimate),EST_REGIONAL_20260918_037_V1,https://gerrysgrill.com/PH,EST_REGIONAL_20260918_037_V1,842
+FC002757,restaurant,Gerry's Grill,Gerry's Grill Philippines Sinigang na Boneless Bangus (estimate),EST_REGIONAL_20260918_038_V1,https://gerrysgrill.com/PH,EST_REGIONAL_20260918_038_V1,842
+FC002758,restaurant,Gerry's Grill,Gerry's Grill Philippines Sinigang na Hipon (estimate),EST_REGIONAL_20260918_039_V1,https://gerrysgrill.com/PH,EST_REGIONAL_20260918_039_V1,842
+FC002759,restaurant,Gerry's Grill,Gerry's Grill Philippines Nilagang Bulalo (estimate),EST_REGIONAL_20260918_040_V1,https://gerrysgrill.com/PH,EST_REGIONAL_20260918_040_V1,875
+FC002760,restaurant,Gerry's Grill,Gerry's Grill Philippines Ampalaya Guisado (estimate),EST_REGIONAL_20260918_041_V1,https://gerrysgrill.com/PH,EST_REGIONAL_20260918_041_V1,349
+FC002761,restaurant,Gerry's Grill,Gerry's Grill Philippines Chopsuey (estimate),EST_REGIONAL_20260918_042_V1,https://gerrysgrill.com/PH,EST_REGIONAL_20260918_042_V1,344
+FC002762,restaurant,Gerry's Grill,Gerry's Grill Philippines Ginataang Gulay (estimate),EST_REGIONAL_20260918_043_V1,https://gerrysgrill.com/PH,EST_REGIONAL_20260918_043_V1,477
+FC002763,restaurant,Gerry's Grill,Gerry's Grill Philippines Pinakbet (estimate),EST_REGIONAL_20260918_044_V1,https://gerrysgrill.com/PH,EST_REGIONAL_20260918_044_V1,482
+FC002764,restaurant,Gerry's Grill,Gerry's Grill Philippines Tortang Talong (estimate),EST_REGIONAL_20260918_045_V1,https://gerrysgrill.com/PH,EST_REGIONAL_20260918_045_V1,297
+FC002765,restaurant,Gerry's Grill,Gerry's Grill Philippines Inihaw na Pusit (estimate),EST_REGIONAL_20260918_046_V1,https://gerrysgrill.com/PH,EST_REGIONAL_20260918_046_V1,260
+FC002766,restaurant,Gerry's Grill,Gerry's Grill Philippines Sizzling Bangus Sisig (estimate),EST_REGIONAL_20260918_047_V1,https://gerrysgrill.com/PH,EST_REGIONAL_20260918_047_V1,244
+FC002767,restaurant,Gerry's Grill,Gerry's Grill Philippines Sizzling Gambas (estimate),EST_REGIONAL_20260918_048_V1,https://gerrysgrill.com/PH,EST_REGIONAL_20260918_048_V1,257
+FC002768,restaurant,Gerry's Grill,Gerry's Grill Philippines Chicken Kebab (estimate),EST_REGIONAL_20260918_049_V1,https://gerrysgrill.com/PH,EST_REGIONAL_20260918_049_V1,276
+FC002769,restaurant,Gerry's Grill,Gerry's Grill Philippines Garlic Mushroom Chicken (estimate),EST_REGIONAL_20260918_050_V1,https://gerrysgrill.com/PH,EST_REGIONAL_20260918_050_V1,277
+FC002770,restaurant,Gerry's Grill,Gerry's Grill Philippines Classic Fried Chicken (estimate),EST_REGIONAL_20260918_051_V1,https://gerrysgrill.com/PH,EST_REGIONAL_20260918_051_V1,200
+FC002771,restaurant,Gerry's Grill,Gerry's Grill Philippines Pancit Bihon (estimate),EST_REGIONAL_20260918_052_V1,https://gerrysgrill.com/PH,EST_REGIONAL_20260918_052_V1,462
+FC002772,restaurant,Gerry's Grill,Gerry's Grill Philippines Pancit Canton (estimate),EST_REGIONAL_20260918_053_V1,https://gerrysgrill.com/PH,EST_REGIONAL_20260918_053_V1,452
+FC002773,restaurant,Gerry's Grill,Gerry's Grill Philippines Pancit Palabok (estimate),EST_REGIONAL_20260918_054_V1,https://gerrysgrill.com/PH,EST_REGIONAL_20260918_054_V1,425
+FC002774,restaurant,Gerry's Grill,Gerry's Grill Philippines Banana con Leche (estimate),EST_REGIONAL_20260918_055_V1,https://gerrysgrill.com/PH,EST_REGIONAL_20260918_055_V1,315
+FC002775,restaurant,Max's Restaurant,Max's Restaurant Philippines Fried Chicken (estimate),EST_REGIONAL_20260918_056_V1,https://delivery.maxschicken.com/,EST_REGIONAL_20260918_056_V1,200
+FC002776,restaurant,Max's Restaurant,Max's Restaurant Philippines Crispy Pata (estimate),EST_REGIONAL_20260918_057_V1,https://delivery.maxschicken.com/,EST_REGIONAL_20260918_057_V1,181
+FC002777,restaurant,Max's Restaurant,Max's Restaurant Philippines All Beef Kare-Kare (estimate),EST_REGIONAL_20260918_058_V1,https://delivery.maxschicken.com/,EST_REGIONAL_20260918_058_V1,595
+FC002778,restaurant,Max's Restaurant,Max's Restaurant Philippines Sizzling Tofu (estimate),EST_REGIONAL_20260918_059_V1,https://delivery.maxschicken.com/,EST_REGIONAL_20260918_059_V1,340
+FC002779,restaurant,Max's Restaurant,Max's Restaurant Philippines Lumpiang Shanghai (estimate),EST_REGIONAL_20260918_060_V1,https://delivery.maxschicken.com/,EST_REGIONAL_20260918_060_V1,258
+FC002780,restaurant,Max's Restaurant,Max's Restaurant Philippines Chicken Sisig (estimate),EST_REGIONAL_20260918_061_V1,https://delivery.maxschicken.com/,EST_REGIONAL_20260918_061_V1,281
+FC002781,restaurant,Max's Restaurant,Max's Restaurant Philippines Sizzling Crispy Pork Sisig (estimate),EST_REGIONAL_20260918_062_V1,https://delivery.maxschicken.com/,EST_REGIONAL_20260918_062_V1,246
+FC002782,restaurant,Max's Restaurant,Max's Restaurant Philippines Sinigang na Tiyan ng Bangus (estimate),EST_REGIONAL_20260918_063_V1,https://delivery.maxschicken.com/,EST_REGIONAL_20260918_063_V1,842
+FC002783,restaurant,Max's Restaurant,Max's Restaurant Philippines Sinigang na Tiyan ng Bangus sa Miso (estimate),EST_REGIONAL_20260918_064_V1,https://delivery.maxschicken.com/,EST_REGIONAL_20260918_064_V1,867
+FC002784,restaurant,Max's Restaurant,Max's Restaurant Philippines Sinigang na Baboy (estimate),EST_REGIONAL_20260918_065_V1,https://delivery.maxschicken.com/,EST_REGIONAL_20260918_065_V1,842
+FC002785,restaurant,Max's Restaurant,Max's Restaurant Philippines Sinigang na Hipon (estimate),EST_REGIONAL_20260918_066_V1,https://delivery.maxschicken.com/,EST_REGIONAL_20260918_066_V1,842
+FC002786,restaurant,Max's Restaurant,Max's Restaurant Philippines Lechon Kawali Kare-kare (estimate),EST_REGIONAL_20260918_067_V1,https://delivery.maxschicken.com/,EST_REGIONAL_20260918_067_V1,595
+FC002787,restaurant,Max's Restaurant,Max's Restaurant Philippines Vegetable Kare-Kare (estimate),EST_REGIONAL_20260918_068_V1,https://delivery.maxschicken.com/,EST_REGIONAL_20260918_068_V1,552
+FC002788,restaurant,Max's Restaurant,Max's Restaurant Philippines Seafood Kare-Kare (estimate),EST_REGIONAL_20260918_069_V1,https://delivery.maxschicken.com/,EST_REGIONAL_20260918_069_V1,527
+FC002789,restaurant,Max's Restaurant,Max's Restaurant Philippines Chopsuey (estimate),EST_REGIONAL_20260918_070_V1,https://delivery.maxschicken.com/,EST_REGIONAL_20260918_070_V1,344
+FC002790,restaurant,Max's Restaurant,Max's Restaurant Philippines Lechon Kawali (estimate),EST_REGIONAL_20260918_071_V1,https://delivery.maxschicken.com/,EST_REGIONAL_20260918_071_V1,180
+FC002791,restaurant,Max's Restaurant,Max's Restaurant Philippines Pocherong Baka (estimate),EST_REGIONAL_20260918_072_V1,https://delivery.maxschicken.com/,EST_REGIONAL_20260918_072_V1,702
+FC002792,restaurant,Max's Restaurant,Max's Restaurant Philippines Bulalo (estimate),EST_REGIONAL_20260918_073_V1,https://delivery.maxschicken.com/,EST_REGIONAL_20260918_073_V1,825
+FC002793,restaurant,Max's Restaurant,Max's Restaurant Philippines Beef Caldereta (estimate),EST_REGIONAL_20260918_074_V1,https://delivery.maxschicken.com/,EST_REGIONAL_20260918_074_V1,542
+FC002794,restaurant,Max's Restaurant,Max's Restaurant Philippines Sweet and Sour Fish Fillet (estimate),EST_REGIONAL_20260918_075_V1,https://delivery.maxschicken.com/,EST_REGIONAL_20260918_075_V1,314
+FC002795,restaurant,Max's Restaurant,Max's Restaurant Philippines Boneless Bangus (estimate),EST_REGIONAL_20260918_076_V1,https://delivery.maxschicken.com/,EST_REGIONAL_20260918_076_V1,193
+FC002796,restaurant,Max's Restaurant,Max's Restaurant Philippines Pinakbet (estimate),EST_REGIONAL_20260918_077_V1,https://delivery.maxschicken.com/,EST_REGIONAL_20260918_077_V1,482
+FC002797,restaurant,Max's Restaurant,Max's Restaurant Philippines Pancit Canton (estimate),EST_REGIONAL_20260918_078_V1,https://delivery.maxschicken.com/,EST_REGIONAL_20260918_078_V1,452
+FC002798,restaurant,Max's Restaurant,Max's Restaurant Philippines Pancit Bam-I (estimate),EST_REGIONAL_20260918_079_V1,https://delivery.maxschicken.com/,EST_REGIONAL_20260918_079_V1,477
+FC002799,restaurant,Max's Restaurant,Max's Restaurant Philippines Arroz Caldo (estimate),EST_REGIONAL_20260918_080_V1,https://delivery.maxschicken.com/,EST_REGIONAL_20260918_080_V1,548
+FC002800,restaurant,Giligan's,Giligan's Philippines Kare-kare Gulay (estimate),EST_REGIONAL_20260918_081_V1,https://delivery.giligansrestaurant.com/collections/all,EST_REGIONAL_20260918_081_V1,552
+FC002801,restaurant,Giligan's,Giligan's Philippines Fried Chicken (estimate),EST_REGIONAL_20260918_082_V1,https://delivery.giligansrestaurant.com/collections/all,EST_REGIONAL_20260918_082_V1,200
+FC002802,restaurant,Giligan's,Giligan's Philippines Bangus Salpicao (estimate),EST_REGIONAL_20260918_083_V1,https://delivery.giligansrestaurant.com/collections/all,EST_REGIONAL_20260918_083_V1,225
+FC002803,restaurant,Giligan's,Giligan's Philippines Beef Caldereta (estimate),EST_REGIONAL_20260918_084_V1,https://delivery.giligansrestaurant.com/collections/all,EST_REGIONAL_20260918_084_V1,542
+FC002804,restaurant,Giligan's,Giligan's Philippines Bihon Guisado (estimate),EST_REGIONAL_20260918_085_V1,https://delivery.giligansrestaurant.com/collections/all,EST_REGIONAL_20260918_085_V1,462
+FC002805,restaurant,Giligan's,Giligan's Philippines Binagoongang Kangkong (estimate),EST_REGIONAL_20260918_086_V1,https://delivery.giligansrestaurant.com/collections/all,EST_REGIONAL_20260918_086_V1,292
+FC002806,restaurant,Giligan's,Giligan's Philippines Binagoongang Lechon Kawali (estimate),EST_REGIONAL_20260918_087_V1,https://delivery.giligansrestaurant.com/collections/all,EST_REGIONAL_20260918_087_V1,311
+FC002807,restaurant,Giligan's,Giligan's Philippines Binagoongang Talong (estimate),EST_REGIONAL_20260918_088_V1,https://delivery.giligansrestaurant.com/collections/all,EST_REGIONAL_20260918_088_V1,363
+FC002808,restaurant,Giligan's,Giligan's Philippines Boneless Cajun Chicken (estimate),EST_REGIONAL_20260918_089_V1,https://delivery.giligansrestaurant.com/collections/all,EST_REGIONAL_20260918_089_V1,200
+FC002809,restaurant,Giligan's,Giligan's Philippines Boneless Chicken BBQ (estimate),EST_REGIONAL_20260918_090_V1,https://delivery.giligansrestaurant.com/collections/all,EST_REGIONAL_20260918_090_V1,235
+FC002810,restaurant,Giligan's,Giligan's Philippines Boneless Chicken Inasal (estimate),EST_REGIONAL_20260918_091_V1,https://delivery.giligansrestaurant.com/collections/all,EST_REGIONAL_20260918_091_V1,219
+FC002811,restaurant,Giligan's,Giligan's Philippines Boneless Chicken Teriyaki (estimate),EST_REGIONAL_20260918_092_V1,https://delivery.giligansrestaurant.com/collections/all,EST_REGIONAL_20260918_092_V1,247
+FC002812,restaurant,Giligan's,Giligan's Philippines Boneless Garlic Chicken (estimate),EST_REGIONAL_20260918_093_V1,https://delivery.giligansrestaurant.com/collections/all,EST_REGIONAL_20260918_093_V1,222
+FC002813,restaurant,Giligan's,Giligan's Philippines Boneless Soy Honey Chicken (estimate),EST_REGIONAL_20260918_094_V1,https://delivery.giligansrestaurant.com/collections/all,EST_REGIONAL_20260918_094_V1,233
+FC002814,restaurant,Giligan's,Giligan's Philippines Boneless Sweet and Spicy Chicken (estimate),EST_REGIONAL_20260918_095_V1,https://delivery.giligansrestaurant.com/collections/all,EST_REGIONAL_20260918_095_V1,257
+FC002815,restaurant,Giligan's,Giligan's Philippines Bulalo Soup (estimate),EST_REGIONAL_20260918_096_V1,https://delivery.giligansrestaurant.com/collections/all,EST_REGIONAL_20260918_096_V1,775
+FC002816,restaurant,Giligan's,Giligan's Philippines Cajun Shrimp (estimate),EST_REGIONAL_20260918_097_V1,https://delivery.giligansrestaurant.com/collections/all,EST_REGIONAL_20260918_097_V1,213
+FC002817,restaurant,Giligan's,Giligan's Philippines Calamares Fritos (estimate),EST_REGIONAL_20260918_098_V1,https://delivery.giligansrestaurant.com/collections/all,EST_REGIONAL_20260918_098_V1,217
+FC002818,restaurant,Giligan's,Giligan's Philippines Canton Guisado (estimate),EST_REGIONAL_20260918_099_V1,https://delivery.giligansrestaurant.com/collections/all,EST_REGIONAL_20260918_099_V1,452
+FC002819,restaurant,Giligan's,Giligan's Philippines Chopsuey (estimate),EST_REGIONAL_20260918_100_V1,https://delivery.giligansrestaurant.com/collections/all,EST_REGIONAL_20260918_100_V1,344

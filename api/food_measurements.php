@@ -1,6 +1,7 @@
 <?php
 declare(strict_types=1);
 require_once __DIR__ . '/catalog.php';
+require_once __DIR__ . '/personal_foods_store.php';
 
 // Canonical amounts remain the storage/calculation basis. Never assume 1 ml = 1 g.
 function food_measurement(array $food, array $input): array {
@@ -11,6 +12,11 @@ function food_measurement(array $food, array $input): array {
     $base = (string)($food['canonical_unit'] ?? 'g');
     $unit = (string)($input['unit'] ?? $base);
     if ($unit === $base) $converted = $amount;
+    elseif ($unit === 'serving' && ($food['source'] ?? '') === 'personal' && isset($food['personal_food']['definition'])) {
+        $definition=$food['personal_food']['definition'];
+        if ($definition['serving_measure'] !== $base) throw new InvalidArgumentException('Serving measure unavailable.');
+        $converted=$amount*(float)$definition['serving_size'];
+    }
     elseif ($base === 'g' && $unit === 'oz') $converted = $amount * 28.349523125;
     elseif ($base === 'oz' && $unit === 'g') $converted = $amount / 28.349523125;
     elseif ($base === 'g' && $unit === 'portion') {
@@ -34,5 +40,6 @@ function meal_food_measurement(PDO $pdo, int $foodId, int $userId, array $input)
     $stmt->execute([$foodId, $userId]);
     $food = $stmt->fetch();
     if (!$food) throw new InvalidArgumentException('Food unavailable.');
+    if ($food['source']==='personal') $food['personal_food']=personal_food_metadata($pdo,$foodId);
     return food_measurement($food, $input);
 }

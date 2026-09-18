@@ -1,0 +1,37 @@
+{
+  "batch": "2026-09-17-ph-foods-510",
+  "added_food_identities": 510,
+  "source_references": 400,
+  "source_references_eligible": 398,
+  "source_conflicts": 2,
+  "restaurant_estimates": 110,
+  "prior_food_rows_preserved": 1809,
+  "total_foods": 2319,
+  "by_brand": {
+    "Jollibee": 25,
+    "McDonald's": 25,
+    "KFC": 16,
+    "Mang Inasal": 12,
+    "Chowking": 16,
+    "Ramen Kuroda": 12,
+    "Ramen Nagi": 4
+  },
+  "source_categories": {
+    "Rice, Grains & Bakery": 1,
+    "Vegetables": 14,
+    "Fruits": 2,
+    "Meat & Poultry": 15,
+    "Fish & Seafood": 1,
+    "Sweets & Sweeteners": 16,
+    "Sweets & Desserts": 100,
+    "Bread & Bakery": 100,
+    "Snacks": 60,
+    "Dairy & Spreads": 30,
+    "Spreads & Dressings": 20,
+    "Prepared Foods": 25,
+    "Soups & Sauces": 16
+  },
+  "household_portions_added": 738,
+  "policy": "FNRI first, exact other sources second, explicit Low-confidence restaurant models third. No actual branded serving mass inferred.",
+  "deployed": false
+}

@@ -1,0 +1,37 @@
+{
+  "batch": "2026-09-18-world-foods-54",
+  "added": 54,
+  "total_foods": 2873,
+  "prior_food_rows_preserved": 2819,
+  "fnri": 0,
+  "usda": 20,
+  "dish_estimates": 10,
+  "restaurant_estimates": 24,
+  "by_group": {
+    "USDA": 20,
+    "Botejyu": 4,
+    "Panda Express": 4,
+    "Royal Indian Curry House by Swaadisht": 4,
+    "Mister Kabab": 4,
+    "Banana Leaf": 4,
+    "Shake Shack": 4,
+    "Japanese": 2,
+    "Chinese": 2,
+    "Indian": 2,
+    "Middle Eastern": 2,
+    "Singaporean": 2
+  },
+  "household_portions_added": 28,
+  "ingredient_rows": 211,
+  "baseline_sha256": {
+    "foods.csv": "3f33acc6084dd511af790ac8dabb0ba68cc165b205f672d0bddc019d07d7d802",
+    "aliases.csv": "4bcd79e3ffa3e114e422347526bb06dd49facd92be8d9b58d0cea3825b1a2dd7",
+    "portions.csv": "ef92bfd2253add26965cc1976f8db0ac552e2075f716e8f5d4afe50d2d1bbfcd",
+    "changes.csv": "f040b325376976e3507c243da1c3c51679c1aed4fa68b33354efcefb0ce6c0c6",
+    "verification-evidence.csv": "c391a22b3f532bb25c765205dde4b02d597503a9eb2957fde91e472b274a6fed",
+    "other_food_values.csv": "f42ecd520294acee1c5f0ec6c8ad49934cdaee2f44d89c6cfc2d65f037ecd61f",
+    "food_estimates.csv": "e08cb7f5cb2ec800a3eb4db5270207c91c0621a347925c4d7b20ecfd52de3884",
+    "estimate_inputs.csv": "7c814ce49eca2966daaa95a92e63c5dd5b7f5f504f1dbc719fc06600c8525466"
+  },
+  "deployed": false
+}

@@ -1,0 +1,37 @@
+{
+  "batch": "2026-09-18-regional-foods-500",
+  "added": 500,
+  "total_foods": 2819,
+  "prior_food_rows_preserved": 2319,
+  "fnri": 250,
+  "usda": 150,
+  "regional_estimates": 30,
+  "restaurant_estimates": 70,
+  "by_group": {
+    "FNRI": 250,
+    "USDA": 150,
+    "Ilocos": 3,
+    "Cagayan Valley": 4,
+    "Iloilo and Negros": 4,
+    "Bicol": 8,
+    "Mindanao": 8,
+    "Cordillera": 1,
+    "Visayas": 2,
+    "Gerry's Grill": 25,
+    "Max's Restaurant": 25,
+    "Giligan's": 20
+  },
+  "household_portions_added": 234,
+  "ingredient_rows": 613,
+  "baseline_sha256": {
+    "foods.csv": "18c2c50f990fc26fa0a35579348340a9e65c0d79bef7b5b11274fed4efdb2a6c",
+    "aliases.csv": "cc32fe15df0cb99dc100337607f37fb3079be9833f0919db1668b31bfb198aa8",
+    "portions.csv": "128b377edabc4193c0944d9dbb968e44a48b418b9b48610dc6c54dfd9b5c871c",
+    "changes.csv": "1e8dd178545db0d0b6ba9cea9fa8873b57bd028ad52e176f016627ac77c4a051",
+    "verification-evidence.csv": "054874042665c47e3d2f69b8d47596c2bcb15a55b7d8c4efe27e8e5a3a10b90f",
+    "other_food_values.csv": "1e3cabc6405a4eb3300562ac9b7bd1bdb276fe9dd52e91572277f09384d47cba",
+    "food_estimates.csv": "b05bc92a64a587c318ea2ebd3bd0a847c0bff25a92fb791eb5d00a9b6c563905",
+    "estimate_inputs.csv": "95a2055e82babbf744c6aa4eb492867afd3c42c57399f35d9cab88e6b3862256"
+  },
+  "deployed": false
+}

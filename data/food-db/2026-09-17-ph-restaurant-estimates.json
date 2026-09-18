@@ -1,0 +1,16 @@
+{
+  "added": 110,
+  "total_foods": 2319,
+  "by_brand": {
+    "Jollibee": 25,
+    "McDonald's": 25,
+    "KFC": 16,
+    "Mang Inasal": 12,
+    "Chowking": 16,
+    "Ramen Kuroda": 12,
+    "Ramen Nagi": 4
+  },
+  "ingredients": 475,
+  "status": "All explicit opt-in Low-confidence estimates; no measured order weights.",
+  "prior_food_rows_preserved": 2209
+}

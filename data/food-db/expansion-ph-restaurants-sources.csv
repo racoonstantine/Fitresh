@@ -1,0 +1,401 @@
+food_id,batch_id,source,source_food_id,name,category,source_url
+FC001810,batch-1,FNRI,A029,"Biscuit, cocohoney","Rice, Grains & Bakery",https://i.fnri.dost.gov.ph/fct/library/report/2991
+FC001811,batch-1,FNRI,D056,Coconut cotyledon,Vegetables,https://i.fnri.dost.gov.ph/fct/library/report/3335
+FC001812,batch-1,FNRI,D057,"Coconut, heart of palm",Vegetables,https://i.fnri.dost.gov.ph/fct/library/report/3336
+FC001813,batch-1,FNRI,D090,Himbaba-o flower,Vegetables,https://i.fnri.dost.gov.ph/fct/library/report/3369
+FC001814,batch-1,FNRI,D091,"Himbaba-o flower, boiled",Vegetables,https://i.fnri.dost.gov.ph/fct/library/report/3370
+FC001815,batch-1,FNRI,D281,"Mustard lvs, pickled",Vegetables,https://i.fnri.dost.gov.ph/fct/library/report/3560
+FC001816,batch-1,FNRI,D282,"Mustard lvs, salted",Vegetables,https://i.fnri.dost.gov.ph/fct/library/report/3561
+FC001817,batch-1,FNRI,D283,"Olive, green, in brine",Vegetables,https://i.fnri.dost.gov.ph/fct/library/report/3562
+FC001818,batch-1,FNRI,D284,"Olive, ripe, in brine",Vegetables,https://i.fnri.dost.gov.ph/fct/library/report/3563
+FC001819,batch-1,FNRI,D286,Pickle relish,Vegetables,https://i.fnri.dost.gov.ph/fct/library/report/3565
+FC001820,batch-1,FNRI,D287,"Pickles, mixed",Vegetables,https://i.fnri.dost.gov.ph/fct/library/report/3566
+FC001821,batch-1,FNRI,D289,"Pickles, whole, gherkins",Vegetables,https://i.fnri.dost.gov.ph/fct/library/report/3568
+FC001822,batch-1,FNRI,D290,"Pimiento, cnd",Vegetables,https://i.fnri.dost.gov.ph/fct/library/report/3569
+FC001823,batch-1,FNRI,D292,"Radish, salted, cnd",Vegetables,https://i.fnri.dost.gov.ph/fct/library/report/3571
+FC001824,batch-1,FNRI,D295,"Batwan, immature fruit, raw",Vegetables,https://i.fnri.dost.gov.ph/fct/library/report/3574
+FC001825,batch-1,FNRI,E098,"Banana cracker, sweetn",Fruits,https://i.fnri.dost.gov.ph/fct/library/report/3680
+FC001826,batch-1,FNRI,E106,Dikyam,Fruits,https://i.fnri.dost.gov.ph/fct/library/report/3688
+FC001827,batch-1,FNRI,F002,"Beef blood, bbq",Meat & Poultry,https://i.fnri.dost.gov.ph/fct/library/report/3709
+FC001828,batch-1,FNRI,F098,"Chicken head, bbq",Meat & Poultry,https://i.fnri.dost.gov.ph/fct/library/report/3805
+FC001829,batch-1,FNRI,F217,Beef spread,Meat & Poultry,https://i.fnri.dost.gov.ph/fct/library/report/3924
+FC001830,batch-1,FNRI,F218,"Beef, sweet cured",Meat & Poultry,https://i.fnri.dost.gov.ph/fct/library/report/3925
+FC001831,batch-1,FNRI,F230,"Ham, deviled spread",Meat & Poultry,https://i.fnri.dost.gov.ph/fct/library/report/3937
+FC001832,batch-1,FNRI,F236,"Luncheon meat, deviled spread",Meat & Poultry,https://i.fnri.dost.gov.ph/fct/library/report/3943
+FC001833,batch-1,FNRI,F247,"Potted meat spread, w/ cereal, cnd",Meat & Poultry,https://i.fnri.dost.gov.ph/fct/library/report/3954
+FC001834,batch-1,FNRI,F248,"Sausage, bologna",Meat & Poultry,https://i.fnri.dost.gov.ph/fct/library/report/3955
+FC001835,batch-1,FNRI,F251,"Sausage, frankfurter",Meat & Poultry,https://i.fnri.dost.gov.ph/fct/library/report/3958
+FC001836,batch-1,FNRI,F252,"Sausage, ham",Meat & Poultry,https://i.fnri.dost.gov.ph/fct/library/report/3959
+FC001837,batch-1,FNRI,F256,"Sausage, mortadella",Meat & Poultry,https://i.fnri.dost.gov.ph/fct/library/report/3963
+FC001838,batch-1,FNRI,F260,"Sausage, salami",Meat & Poultry,https://i.fnri.dost.gov.ph/fct/library/report/3967
+FC001839,batch-1,FNRI,F262,"Sausage, Vienna, tidbits",Meat & Poultry,https://i.fnri.dost.gov.ph/fct/library/report/3969
+FC001840,batch-1,FNRI,F264,"Chicken blood, bbq",Meat & Poultry,https://i.fnri.dost.gov.ph/fct/library/report/3971
+FC001841,batch-1,FNRI,F271,"Pork skin, seasoned, roasted",Meat & Poultry,https://i.fnri.dost.gov.ph/fct/library/report/3978
+FC001842,batch-1,FNRI,G230,"Tuna spread, cnd",Fish & Seafood,https://i.fnri.dost.gov.ph/fct/library/report/4210
+FC001843,batch-1,FNRI,M001,"Breadfruit, candied",Sweets & Sweeteners,https://i.fnri.dost.gov.ph/fct/library/report/4272
+FC001844,batch-1,FNRI,M003,"Candy bar, pili nut",Sweets & Sweeteners,https://i.fnri.dost.gov.ph/fct/library/report/4274
+FC001845,batch-1,FNRI,M007,"Candy, pili nut",Sweets & Sweeteners,https://i.fnri.dost.gov.ph/fct/library/report/4278
+FC001846,batch-1,FNRI,M008,"Candy, pulled",Sweets & Sweeteners,https://i.fnri.dost.gov.ph/fct/library/report/4279
+FC001847,batch-1,FNRI,M010,"Carageenan gel, assorted fruit-flvr",Sweets & Sweeteners,https://i.fnri.dost.gov.ph/fct/library/report/4281
+FC001848,batch-1,FNRI,M011,Caramelo,Sweets & Sweeteners,https://i.fnri.dost.gov.ph/fct/library/report/4282
+FC001849,batch-1,FNRI,M017,"Fudge, durian",Sweets & Sweeteners,https://i.fnri.dost.gov.ph/fct/library/report/4288
+FC001850,batch-1,FNRI,M018,"Fudge, jackfruit",Sweets & Sweeteners,https://i.fnri.dost.gov.ph/fct/library/report/4289
+FC001851,batch-1,FNRI,M024,"Jam, jackfruit & pineapple, cnd",Sweets & Sweeteners,https://i.fnri.dost.gov.ph/fct/library/report/4295
+FC001852,batch-1,FNRI,M030,"Jelly, pineapple",Sweets & Sweeteners,https://i.fnri.dost.gov.ph/fct/library/report/4301
+FC001853,batch-1,FNRI,M032,Masareal,Sweets & Sweeteners,https://i.fnri.dost.gov.ph/fct/library/report/4303
+FC001854,batch-1,FNRI,M034,"Milk choc bar, orange crunch",Sweets & Sweeteners,https://i.fnri.dost.gov.ph/fct/library/report/4305
+FC001855,batch-1,FNRI,M036,"Nata de piña, sweetn",Sweets & Sweeteners,https://i.fnri.dost.gov.ph/fct/library/report/4307
+FC001856,batch-1,FNRI,M047,Syrup,Sweets & Sweeteners,https://i.fnri.dost.gov.ph/fct/library/report/4318
+FC001857,batch-1,FNRI,M050,"Wax gourd, candied",Sweets & Sweeteners,https://i.fnri.dost.gov.ph/fct/library/report/4321
+FC001858,batch-1,FNRI,M015,"Coconut meat, grated, sweetn",Sweets & Sweeteners,https://i.fnri.dost.gov.ph/fct/library/report/4836
+FC001859,batch-1,USDA,169642,Jellies,Sweets & Desserts,https://fdc.nal.usda.gov/food-details/169642/nutrients
+FC001860,batch-1,USDA,168820,Molasses,Sweets & Desserts,https://fdc.nal.usda.gov/food-details/168820/nutrients
+FC001861,batch-1,USDA,167743,"Syrup, Cane",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/167743/nutrients
+FC001862,batch-1,USDA,167990,"Candies, hard",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/167990/nutrients
+FC001863,batch-1,USDA,167577,"Sherbet, orange",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/167577/nutrients
+FC001864,batch-1,USDA,170281,"Candies, Tamarind",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/170281/nutrients
+FC001865,batch-1,USDA,167974,"Candies, caramels",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/167974/nutrients
+FC001866,batch-1,USDA,168819,"Marmalade, orange",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/168819/nutrients
+FC001867,batch-1,USDA,167991,"Candies, jellybeans",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/167991/nutrients
+FC001868,batch-1,USDA,169585,"Candies, peanut bar",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/169585/nutrients
+FC001869,batch-1,USDA,167575,"Ice creams, vanilla",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/167575/nutrients
+FC001870,batch-1,USDA,169665,"Toppings, pineapple",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/169665/nutrients
+FC001871,batch-1,USDA,168758,"Toppings, strawberry",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/168758/nutrients
+FC001872,batch-1,USDA,167972,"Candies, butterscotch",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/167972/nutrients
+FC001873,batch-1,USDA,168809,"Ice creams, chocolate",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/168809/nutrients
+FC001874,batch-1,USDA,167957,"Syrup, fruit flavored",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/167957/nutrients
+FC001875,batch-1,USDA,169588,"Candies, sesame crunch",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/169588/nutrients
+FC001876,batch-1,USDA,168810,"Ice creams, strawberry",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/168810/nutrients
+FC001877,batch-1,USDA,170276,"Syrup, maple, Canadian",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/170276/nutrients
+FC001878,batch-1,USDA,167587,"Candies, milk chocolate",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/167587/nutrients
+FC001879,batch-1,USDA,169666,"Toppings, nuts in syrup",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/169666/nutrients
+FC001880,batch-1,USDA,167977,"Candies, sweet chocolate",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/167977/nutrients
+FC001881,batch-1,USDA,167571,"Candies, white chocolate",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/167571/nutrients
+FC001882,batch-1,USDA,168104,"Frozen yogurts, chocolate",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/168104/nutrients
+FC001883,batch-1,USDA,167573,"Ice creams, vanilla, rich",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/167573/nutrients
+FC001884,batch-1,USDA,167572,"Ice creams, vanilla, light",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/167572/nutrients
+FC001885,batch-1,USDA,167973,"Candies, carob, unsweetened",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/167973/nutrients
+FC001886,batch-1,USDA,168136,"Ice creams, chocolate, rich",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/168136/nutrients
+FC001887,batch-1,USDA,168822,"Pie fillings, apple, canned",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/168822/nutrients
+FC001888,batch-1,USDA,169659,"Syrups, corn, high-fructose",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/169659/nutrients
+FC001889,batch-1,USDA,167976,"Candies, semisweet chocolate",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/167976/nutrients
+FC001890,batch-1,USDA,167585,"Ice creams, chocolate, light",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/167585/nutrients
+FC001891,batch-1,USDA,168824,"Pie fillings, canned, cherry",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/168824/nutrients
+FC001892,batch-1,USDA,168782,"Puddings, rice, ready-to-eat",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/168782/nutrients
+FC001893,batch-1,USDA,167541,"Snacks, fruit leather, rolls",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/167541/nutrients
+FC001894,batch-1,USDA,169060,"Candies, nougat, with almonds",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/169060/nutrients
+FC001895,batch-1,USDA,170656,"Candies, sugar-coated almonds",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/170656/nutrients
+FC001896,batch-1,USDA,167540,"Snacks, fruit leather, pieces",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/167540/nutrients
+FC001897,batch-1,USDA,168835,"Syrups, chocolate, fudge-type",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/168835/nutrients
+FC001898,batch-1,USDA,169578,"Syrups, table blends, pancake",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/169578/nutrients
+FC001899,batch-1,USDA,168813,"Frozen novelties, ice type, pop",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/168813/nutrients
+FC001900,batch-1,USDA,167738,"Pie fillings, blueberry, canned",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/167738/nutrients
+FC001901,batch-1,USDA,169614,"Puddings, tapioca, ready-to-eat",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/169614/nutrients
+FC001902,batch-1,USDA,169608,"Puddings, vanilla, ready-to-eat",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/169608/nutrients
+FC001903,batch-1,USDA,169638,"Frozen novelties, ice type, lime",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/169638/nutrients
+FC001904,batch-1,USDA,167580,"Candies, fudge, vanilla with nuts",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/167580/nutrients
+FC001905,batch-1,USDA,168778,"Puddings, chocolate, ready-to-eat",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/168778/nutrients
+FC001906,batch-1,USDA,168841,"Toppings, butterscotch or caramel",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/168841/nutrients
+FC001907,batch-1,USDA,168000,Chocolate-flavored hazelnut spread,Sweets & Desserts,https://fdc.nal.usda.gov/food-details/168000/nutrients
+FC001908,batch-1,USDA,170658,"Candies, soft fruit and nut squares",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/170658/nutrients
+FC001909,batch-1,USDA,168815,"Frozen yogurts, vanilla, soft-serve",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/168815/nutrients
+FC001910,batch-2,USDA,169670,"Candies, taffy, prepared-from-recipe",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/169670/nutrients
+FC001911,batch-2,USDA,169618,"Frostings, coconut-nut, ready-to-eat",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/169618/nutrients
+FC001912,batch-2,USDA,168113,"Frozen novelties, juice type, orange",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/168113/nutrients
+FC001913,batch-2,USDA,167567,"Baking chocolate, unsweetened, liquid",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/167567/nutrients
+FC001914,batch-2,USDA,168754,"Candies, milk chocolate, with almonds",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/168754/nutrients
+FC001915,batch-2,USDA,169671,"Candies, toffee, prepared-from-recipe",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/169671/nutrients
+FC001916,batch-2,USDA,168848,"Frozen yogurts, chocolate, soft-serve",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/168848/nutrients
+FC001917,batch-2,USDA,167568,"Baking chocolate, unsweetened, squares",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/167568/nutrients
+FC001918,batch-2,USDA,167986,"Candies, fondant, prepared-from-recipe",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/167986/nutrients
+FC001919,batch-2,USDA,167989,"Candies, gumdrops, starch jelly pieces",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/167989/nutrients
+FC001920,batch-2,USDA,168001,"Candies, milk chocolate coated peanuts",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/168001/nutrients
+FC001921,batch-2,USDA,169576,"Candies, milk chocolate coated raisins",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/169576/nutrients
+FC001922,batch-2,USDA,168791,"Candies, praline, prepared-from-recipe",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/168791/nutrients
+FC001923,batch-2,USDA,169668,"Frostings, glaze, prepared-from-recipe",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/169668/nutrients
+FC001924,batch-2,USDA,169632,"Frozen novelties, fruit and juice bars",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/169632/nutrients
+FC001925,batch-2,USDA,167981,"Ice creams, french vanilla, soft-serve",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/167981/nutrients
+FC001926,batch-2,USDA,167576,"Ice creams, vanilla, light, soft-serve",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/167576/nutrients
+FC001927,batch-2,USDA,168142,"Sweeteners, tabletop, fructose, liquid",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/168142/nutrients
+FC001928,batch-2,USDA,167569,"Candies, confectioner's coating, yogurt",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/167569/nutrients
+FC001929,batch-2,USDA,168846,"Candies, divinity, prepared-from-recipe",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/168846/nutrients
+FC001930,batch-2,USDA,167978,"Candies, sweet chocolate coated fondant",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/167978/nutrients
+FC001931,batch-2,USDA,169580,"Candies, truffles, prepared-from-recipe",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/169580/nutrients
+FC001932,batch-2,USDA,167566,"Candies, caramels, chocolate-flavor roll",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/167566/nutrients
+FC001933,batch-2,USDA,169620,"Frostings, vanilla, creamy, ready-to-eat",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/169620/nutrients
+FC001934,batch-2,USDA,167546,"Candies, honey-combed, with peanut butter",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/167546/nutrients
+FC001935,batch-2,USDA,168755,"Candies, milk chocolate, with rice cereal",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/168755/nutrients
+FC001936,batch-2,USDA,170279,"Candies, fruit snacks, with high vitamin C",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/170279/nutrients
+FC001937,batch-2,USDA,168795,"Frostings, chocolate, creamy, ready-to-eat",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/168795/nutrients
+FC001938,batch-2,USDA,169631,"Ice creams, vanilla, light, no sugar added",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/169631/nutrients
+FC001939,batch-2,USDA,167584,"Syrups, table blends, pancake, with butter",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/167584/nutrients
+FC001940,batch-2,USDA,170282,"Candies, coconut bar, not chocolate covered",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/170282/nutrients
+FC001941,batch-2,USDA,169634,"Candies, dark chocolate coated coffee beans",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/169634/nutrients
+FC001942,batch-2,USDA,169637,"Candies, milk chocolate coated coffee beans",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/169637/nutrients
+FC001943,batch-2,USDA,169601,"Desserts, apple crisp, prepared-from-recipe",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/169601/nutrients
+FC001944,batch-2,USDA,169619,"Frostings, cream cheese-flavor, ready-to-eat",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/169619/nutrients
+FC001945,batch-2,USDA,168105,"Frozen yogurts, flavors other than chocolate",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/168105/nutrients
+FC001946,batch-2,USDA,169633,"Ice creams, chocolate, light, no sugar added",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/169633/nutrients
+FC001947,batch-2,USDA,168838,"Syrups, table blends, pancake, with 2% maple",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/168838/nutrients
+FC001948,batch-2,USDA,169059,"Candies, chocolate covered, caramel with nuts",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/169059/nutrients
+FC001949,batch-2,USDA,167980,"Candies, confectioner's coating, butterscotch",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/167980/nutrients
+FC001950,batch-2,USDA,167579,"Candies, fudge, vanilla, prepared-from-recipe",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/167579/nutrients
+FC001951,batch-2,USDA,169586,"Candies, peanut brittle, prepared-from-recipe",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/169586/nutrients
+FC001952,batch-2,USDA,168847,"Frozen novelties, ice type, pineapple-coconut",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/168847/nutrients
+FC001953,batch-2,USDA,167570,"Candies, confectioner's coating, peanut butter",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/167570/nutrients
+FC001954,batch-2,USDA,170275,"Candies, crispy bar with peanut butter filling",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/170275/nutrients
+FC001955,batch-2,USDA,169690,"Candies, semisweet chocolate, made with butter",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/169690/nutrients
+FC001956,batch-2,USDA,167721,"Frozen novelties, juice type, juice with cream",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/167721/nutrients
+FC001957,batch-2,USDA,168839,"Syrups, table blends, corn, refiner, and sugar",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/168839/nutrients
+FC001958,batch-2,USDA,167987,"Candies, fudge, chocolate, prepared-from-recipe",Sweets & Desserts,https://fdc.nal.usda.gov/food-details/167987/nutrients
+FC001959,batch-2,USDA,175020,"Pie, peach",Bread & Bakery,https://fdc.nal.usda.gov/food-details/175020/nutrients
+FC001960,batch-2,USDA,175032,"Strudel, apple",Bread & Bakery,https://fdc.nal.usda.gov/food-details/175032/nutrients
+FC001961,batch-2,USDA,174988,"Croissants, apple",Bread & Bakery,https://fdc.nal.usda.gov/food-details/174988/nutrients
+FC001962,batch-2,USDA,174987,"Croissants, butter",Bread & Bakery,https://fdc.nal.usda.gov/food-details/174987/nutrients
+FC001963,batch-2,USDA,174989,"Croissants, cheese",Bread & Bakery,https://fdc.nal.usda.gov/food-details/174989/nutrients
+FC001964,batch-2,USDA,175033,"Sweet rolls, cheese",Bread & Bakery,https://fdc.nal.usda.gov/food-details/175033/nutrients
+FC001965,batch-2,USDA,172754,"Danish pastry, cheese",Bread & Bakery,https://fdc.nal.usda.gov/food-details/172754/nutrients
+FC001966,batch-2,USDA,172784,"Pie, fried pies, fruit",Bread & Bakery,https://fdc.nal.usda.gov/food-details/172784/nutrients
+FC001967,batch-2,USDA,175064,"Pie, fried pies, lemon",Bread & Bakery,https://fdc.nal.usda.gov/food-details/175064/nutrients
+FC001968,batch-2,USDA,174937,"Cake, coffeecake, fruit",Bread & Bakery,https://fdc.nal.usda.gov/food-details/174937/nutrients
+FC001969,batch-2,USDA,173240,"Pie, fried pies, cherry",Bread & Bakery,https://fdc.nal.usda.gov/food-details/173240/nutrients
+FC001970,batch-2,USDA,172699,"Cake, coffeecake, cheese",Bread & Bakery,https://fdc.nal.usda.gov/food-details/172699/nutrients
+FC001971,batch-2,USDA,174915,"Bread, pita, white, enriched",Bread & Bakery,https://fdc.nal.usda.gov/food-details/174915/nutrients
+FC001972,batch-2,USDA,172742,"Crackers, matzo, whole-wheat",Bread & Bakery,https://fdc.nal.usda.gov/food-details/172742/nutrients
+FC001973,batch-2,USDA,174977,"Crackers, melba toast, plain",Bread & Bakery,https://fdc.nal.usda.gov/food-details/174977/nutrients
+FC001974,batch-2,USDA,174979,"Crackers, melba toast, wheat",Bread & Bakery,https://fdc.nal.usda.gov/food-details/174979/nutrients
+FC001975,batch-2,USDA,172744,"Crackers, rye, wafers, plain",Bread & Bakery,https://fdc.nal.usda.gov/food-details/172744/nutrients
+FC001976,batch-2,USDA,174084,"Crackers, cheese, whole grain",Bread & Bakery,https://fdc.nal.usda.gov/food-details/174084/nutrients
+FC001977,batch-2,USDA,172762,"Muffins, English, whole-wheat",Bread & Bakery,https://fdc.nal.usda.gov/food-details/172762/nutrients
+FC001978,batch-2,USDA,175031,"Rolls, hard (includes kaiser)",Bread & Bakery,https://fdc.nal.usda.gov/food-details/175031/nutrients
+FC001979,batch-2,USDA,174963,"Cookies, oatmeal, with raisins",Bread & Bakery,https://fdc.nal.usda.gov/food-details/174963/nutrients
+FC001980,batch-2,USDA,172812,"Crackers, matzo, egg and onion",Bread & Bakery,https://fdc.nal.usda.gov/food-details/172812/nutrients
+FC001981,batch-2,USDA,167529,"Crackers, snack, Goya Crackers",Bread & Bakery,https://fdc.nal.usda.gov/food-details/167529/nutrients
+FC001982,batch-2,USDA,171851,"Bread, wheat, sprouted, toasted",Bread & Bakery,https://fdc.nal.usda.gov/food-details/171851/nutrients
+FC001983,batch-2,USDA,174098,"Crackers, flavored, fish-shaped",Bread & Bakery,https://fdc.nal.usda.gov/food-details/174098/nutrients
+FC001984,batch-2,USDA,172745,"Crackers, rye, wafers, seasoned",Bread & Bakery,https://fdc.nal.usda.gov/food-details/172745/nutrients
+FC001985,batch-2,USDA,174917,"Bread, protein (includes gluten)",Bread & Bakery,https://fdc.nal.usda.gov/food-details/174917/nutrients
+FC001986,batch-2,USDA,172681,"Bread, raisin, enriched, toasted",Bread & Bakery,https://fdc.nal.usda.gov/food-details/172681/nutrients
+FC001987,batch-2,USDA,167530,"Crackers, cream, Gamesa Sabrosas",Bread & Bakery,https://fdc.nal.usda.gov/food-details/167530/nutrients
+FC001988,batch-2,USDA,172767,"Muffins, blueberry, toaster-type",Bread & Bakery,https://fdc.nal.usda.gov/food-details/172767/nutrients
+FC001989,batch-2,USDA,175012,"Pie, apple, prepared from recipe",Bread & Bakery,https://fdc.nal.usda.gov/food-details/175012/nutrients
+FC001990,batch-2,USDA,175019,"Pie, mince, prepared from recipe",Bread & Bakery,https://fdc.nal.usda.gov/food-details/175019/nutrients
+FC001991,batch-2,USDA,172786,"Pie, pecan, prepared from recipe",Bread & Bakery,https://fdc.nal.usda.gov/food-details/172786/nutrients
+FC001992,batch-2,USDA,172753,"Danish pastry, cinnamon, enriched",Bread & Bakery,https://fdc.nal.usda.gov/food-details/172753/nutrients
+FC001993,batch-2,USDA,172781,"Pie, cherry, prepared from recipe",Bread & Bakery,https://fdc.nal.usda.gov/food-details/172781/nutrients
+FC001994,batch-2,USDA,175021,"Pie, pecan, commercially prepared",Bread & Bakery,https://fdc.nal.usda.gov/food-details/175021/nutrients
+FC001995,batch-2,USDA,172796,"Rolls, hamburger or hotdog, plain",Bread & Bakery,https://fdc.nal.usda.gov/food-details/172796/nutrients
+FC001996,batch-2,USDA,172707,"Cake, sponge, prepared from recipe",Bread & Bakery,https://fdc.nal.usda.gov/food-details/172707/nutrients
+FC001997,batch-2,USDA,174972,"Cookies, sugar, refrigerated dough",Bread & Bakery,https://fdc.nal.usda.gov/food-details/174972/nutrients
+FC001998,batch-2,USDA,172756,"Doughnuts, french crullers, glazed",Bread & Bakery,https://fdc.nal.usda.gov/food-details/172756/nutrients
+FC001999,batch-2,USDA,172780,"Pie, cherry, commercially prepared",Bread & Bakery,https://fdc.nal.usda.gov/food-details/172780/nutrients
+FC002000,batch-2,USDA,172788,"Pie, pumpkin, prepared from recipe",Bread & Bakery,https://fdc.nal.usda.gov/food-details/172788/nutrients
+FC002001,batch-2,USDA,167935,"Bread, pan dulce, sweet yeast bread",Bread & Bakery,https://fdc.nal.usda.gov/food-details/167935/nutrients
+FC002002,batch-2,USDA,172706,"Cake, sponge, commercially prepared",Bread & Bakery,https://fdc.nal.usda.gov/food-details/172706/nutrients
+FC002003,batch-2,USDA,174974,"Cookies, vanilla wafers, higher fat",Bread & Bakery,https://fdc.nal.usda.gov/food-details/174974/nutrients
+FC002004,batch-2,USDA,172763,"French toast, frozen, ready-to-heat",Bread & Bakery,https://fdc.nal.usda.gov/food-details/172763/nutrients
+FC002005,batch-2,USDA,172787,"Pie, pumpkin, commercially prepared",Bread & Bakery,https://fdc.nal.usda.gov/food-details/172787/nutrients
+FC002006,batch-2,USDA,174091,"Bread, french or vienna, whole wheat",Bread & Bakery,https://fdc.nal.usda.gov/food-details/174091/nutrients
+FC002007,batch-2,USDA,174961,"Cookies, oatmeal, refrigerated dough",Bread & Bakery,https://fdc.nal.usda.gov/food-details/174961/nutrients
+FC002008,batch-2,USDA,175002,"Muffins, corn, commercially prepared",Bread & Bakery,https://fdc.nal.usda.gov/food-details/175002/nutrients
+FC002009,batch-2,USDA,172779,"Pie, blueberry, prepared from recipe",Bread & Bakery,https://fdc.nal.usda.gov/food-details/172779/nutrients
+FC002010,batch-3,USDA,175039,"Waffles, plain, prepared from recipe",Bread & Bakery,https://fdc.nal.usda.gov/food-details/175039/nutrients
+FC002011,batch-3,USDA,175009,"Pancakes, plain, prepared from recipe",Bread & Bakery,https://fdc.nal.usda.gov/food-details/175009/nutrients
+FC002012,batch-3,USDA,172778,"Pie, blueberry, commercially prepared",Bread & Bakery,https://fdc.nal.usda.gov/food-details/172778/nutrients
+FC002013,batch-3,USDA,175038,"Waffles, plain, frozen, ready-to-heat",Bread & Bakery,https://fdc.nal.usda.gov/food-details/175038/nutrients
+FC002014,batch-3,USDA,172694,"Cake, angelfood, commercially prepared",Bread & Bakery,https://fdc.nal.usda.gov/food-details/172694/nutrients
+FC002015,batch-3,USDA,174939,"Cake, fruitcake, commercially prepared",Bread & Bakery,https://fdc.nal.usda.gov/food-details/174939/nutrients
+FC002016,batch-3,USDA,174982,"Crackers, standard snack-type, regular",Bread & Bakery,https://fdc.nal.usda.gov/food-details/174982/nutrients
+FC002017,batch-3,USDA,174986,"Cream puff shell, prepared from recipe",Bread & Bakery,https://fdc.nal.usda.gov/food-details/174986/nutrients
+FC002018,batch-3,USDA,174912,"Bread, irish soda, prepared from recipe",Bread & Bakery,https://fdc.nal.usda.gov/food-details/174912/nutrients
+FC002019,batch-3,USDA,172711,"Cake, cheesecake, commercially prepared",Bread & Bakery,https://fdc.nal.usda.gov/food-details/172711/nutrients
+FC002020,batch-3,USDA,172702,"Cake, gingerbread, prepared from recipe",Bread & Bakery,https://fdc.nal.usda.gov/food-details/172702/nutrients
+FC002021,batch-3,USDA,174943,"Cake, snack cakes, creme-filled, sponge",Bread & Bakery,https://fdc.nal.usda.gov/food-details/174943/nutrients
+FC002022,batch-3,USDA,171837,"Cookies, animal, with frosting or icing",Bread & Bakery,https://fdc.nal.usda.gov/food-details/171837/nutrients
+FC002023,batch-3,USDA,174949,"Cookies, brownies, prepared from recipe",Bread & Bakery,https://fdc.nal.usda.gov/food-details/174949/nutrients
+FC002024,batch-3,USDA,174088,"Cookies, sugar wafer, chocolate-covered",Bread & Bakery,https://fdc.nal.usda.gov/food-details/174088/nutrients
+FC002025,batch-3,USDA,167522,"Pie, Dutch Apple, Commercially Prepared",Bread & Bakery,https://fdc.nal.usda.gov/food-details/167522/nutrients
+FC002026,batch-3,USDA,172777,"Pie, banana cream, prepared from recipe",Bread & Bakery,https://fdc.nal.usda.gov/food-details/172777/nutrients
+FC002027,batch-3,USDA,172783,"Pie, egg custard, commercially prepared",Bread & Bakery,https://fdc.nal.usda.gov/food-details/172783/nutrients
+FC002028,batch-3,USDA,172797,"Rolls, hamburger or hotdog, mixed-grain",Bread & Bakery,https://fdc.nal.usda.gov/food-details/172797/nutrients
+FC002029,batch-3,USDA,172690,"Bread, whole-wheat, prepared from recipe",Bread & Bakery,https://fdc.nal.usda.gov/food-details/172690/nutrients
+FC002030,batch-3,USDA,174080,"Cookie, chocolate, with icing or coating",Bread & Bakery,https://fdc.nal.usda.gov/food-details/174080/nutrients
+FC002031,batch-3,USDA,172713,"Cookies, brownies, commercially prepared",Bread & Bakery,https://fdc.nal.usda.gov/food-details/172713/nutrients
+FC002032,batch-3,USDA,174965,"Cookies, peanut butter sandwich, regular",Bread & Bakery,https://fdc.nal.usda.gov/food-details/174965/nutrients
+FC002033,batch-3,USDA,172789,"Pie, vanilla cream, prepared from recipe",Bread & Bakery,https://fdc.nal.usda.gov/food-details/172789/nutrients
+FC002034,batch-3,USDA,174090,"Rolls, hamburger or hot dog, whole wheat",Bread & Bakery,https://fdc.nal.usda.gov/food-details/174090/nutrients
+FC002035,batch-3,USDA,172671,"Biscuits, mixed grain, refrigerated dough",Bread & Bakery,https://fdc.nal.usda.gov/food-details/172671/nutrients
+FC002036,batch-3,USDA,168013,"Bread, multi-grain (includes whole-grain)",Bread & Bakery,https://fdc.nal.usda.gov/food-details/168013/nutrients
+FC002037,batch-3,USDA,172688,"Bread, whole-wheat, commercially prepared",Bread & Bakery,https://fdc.nal.usda.gov/food-details/172688/nutrients
+FC002038,batch-3,USDA,174096,"Cookies, chocolate, made with rice cereal",Bread & Bakery,https://fdc.nal.usda.gov/food-details/174096/nutrients
+FC002039,batch-3,USDA,175045,"Muffins, blueberry, toaster-type, toasted",Bread & Bakery,https://fdc.nal.usda.gov/food-details/175045/nutrients
+FC002040,batch-3,USDA,172773,"Pancakes, blueberry, prepared from recipe",Bread & Bakery,https://fdc.nal.usda.gov/food-details/172773/nutrients
+FC002041,batch-3,USDA,175016,"Pie, coconut creme, commercially prepared",Bread & Bakery,https://fdc.nal.usda.gov/food-details/175016/nutrients
+FC002042,batch-3,USDA,175018,"Pie, lemon meringue, prepared from recipe",Bread & Bakery,https://fdc.nal.usda.gov/food-details/175018/nutrients
+FC002043,batch-3,USDA,172809,"Bread, protein, (includes gluten), toasted",Bread & Bakery,https://fdc.nal.usda.gov/food-details/172809/nutrients
+FC002044,batch-3,USDA,174933,"Cake, cherry fudge with chocolate frosting",Bread & Bakery,https://fdc.nal.usda.gov/food-details/174933/nutrients
+FC002045,batch-3,USDA,174958,"Cookies, graham crackers, chocolate-coated",Bread & Bakery,https://fdc.nal.usda.gov/food-details/174958/nutrients
+FC002046,batch-3,USDA,172729,"Cookies, peanut butter, refrigerated dough",Bread & Bakery,https://fdc.nal.usda.gov/food-details/172729/nutrients
+FC002047,batch-3,USDA,172822,"Crackers, melba toast, plain, without salt",Bread & Bakery,https://fdc.nal.usda.gov/food-details/172822/nutrients
+FC002048,batch-3,USDA,175047,"Pancakes, buttermilk, prepared from recipe",Bread & Bakery,https://fdc.nal.usda.gov/food-details/175047/nutrients
+FC002049,batch-3,USDA,172785,"Pie, lemon meringue, commercially prepared",Bread & Bakery,https://fdc.nal.usda.gov/food-details/172785/nutrients
+FC002050,batch-3,USDA,167516,"Waffles, buttermilk, frozen, ready-to-heat",Bread & Bakery,https://fdc.nal.usda.gov/food-details/167516/nutrients
+FC002051,batch-3,USDA,174953,"Cookies, chocolate chip, refrigerated dough",Bread & Bakery,https://fdc.nal.usda.gov/food-details/174953/nutrients
+FC002052,batch-3,USDA,175014,"Pie, chocolate creme, commercially prepared",Bread & Bakery,https://fdc.nal.usda.gov/food-details/175014/nutrients
+FC002053,batch-3,USDA,172782,"Pie, coconut custard, commercially prepared",Bread & Bakery,https://fdc.nal.usda.gov/food-details/172782/nutrients
+FC002054,batch-3,USDA,172667,"Biscuits, plain or buttermilk, frozen, baked",Bread & Bakery,https://fdc.nal.usda.gov/food-details/172667/nutrients
+FC002055,batch-3,USDA,172675,"Bread, french or vienna (includes sourdough)",Bread & Bakery,https://fdc.nal.usda.gov/food-details/172675/nutrients
+FC002056,batch-3,USDA,174925,"Bread, white, commercially prepared, toasted",Bread & Bakery,https://fdc.nal.usda.gov/food-details/174925/nutrients
+FC002057,batch-3,USDA,174964,"Cookies, peanut butter, prepared from recipe",Bread & Bakery,https://fdc.nal.usda.gov/food-details/174964/nutrients
+FC002058,batch-3,USDA,172737,"Cookies, vanilla sandwich with creme filling",Bread & Bakery,https://fdc.nal.usda.gov/food-details/172737/nutrients
+FC002059,batch-3,USDA,169064,"Pretzels, soft",Snacks,https://fdc.nal.usda.gov/food-details/169064/nutrients
+FC002060,batch-3,USDA,168857,"Snacks, corn cakes",Snacks,https://fdc.nal.usda.gov/food-details/168857/nutrients
+FC002061,batch-3,USDA,168865,"Snacks, taro chips",Snacks,https://fdc.nal.usda.gov/food-details/168865/nutrients
+FC002062,batch-3,USDA,168849,"Snacks, banana chips",Snacks,https://fdc.nal.usda.gov/food-details/168849/nutrients
+FC002063,batch-3,USDA,168854,"Snacks, potato sticks",Snacks,https://fdc.nal.usda.gov/food-details/168854/nutrients
+FC002064,batch-3,USDA,167550,"Snacks, popcorn, cakes",Snacks,https://fdc.nal.usda.gov/food-details/167550/nutrients
+FC002065,batch-3,USDA,173160,"Snacks, shrimp cracker",Snacks,https://fdc.nal.usda.gov/food-details/173160/nutrients
+FC002066,batch-3,USDA,174790,"Pretzels, soft, unsalted",Snacks,https://fdc.nal.usda.gov/food-details/174790/nutrients
+FC002067,batch-3,USDA,173155,"Snacks, brown rice chips",Snacks,https://fdc.nal.usda.gov/food-details/173155/nutrients
+FC002068,batch-3,USDA,167961,"Snacks, pork skins, plain",Snacks,https://fdc.nal.usda.gov/food-details/167961/nutrients
+FC002069,batch-3,USDA,173150,"Snacks, bagel chips, plain",Snacks,https://fdc.nal.usda.gov/food-details/173150/nutrients
+FC002070,batch-3,USDA,173147,"Snacks, pita chips, salted",Snacks,https://fdc.nal.usda.gov/food-details/173147/nutrients
+FC002071,batch-3,USDA,167561,"Snacks, trail mix, regular",Snacks,https://fdc.nal.usda.gov/food-details/167561/nutrients
+FC002072,batch-3,USDA,168850,"Snacks, beef sticks, smoked",Snacks,https://fdc.nal.usda.gov/food-details/168850/nutrients
+FC002073,batch-3,USDA,167959,"Snacks, popcorn, air-popped",Snacks,https://fdc.nal.usda.gov/food-details/167959/nutrients
+FC002074,batch-3,USDA,167968,"Snacks, trail mix, tropical",Snacks,https://fdc.nal.usda.gov/food-details/167968/nutrients
+FC002075,batch-3,USDA,173142,"Snacks, plantain chips, salted",Snacks,https://fdc.nal.usda.gov/food-details/173142/nutrients
+FC002076,batch-3,USDA,167960,"Snacks, popcorn, cheese-flavor",Snacks,https://fdc.nal.usda.gov/food-details/167960/nutrients
+FC002077,batch-3,USDA,169673,"Snacks, crisped rice bar, almond",Snacks,https://fdc.nal.usda.gov/food-details/169673/nutrients
+FC002078,batch-3,USDA,167958,"Snacks, oriental mix, rice-based",Snacks,https://fdc.nal.usda.gov/food-details/167958/nutrients
+FC002079,batch-3,USDA,169672,"Snacks, cornnuts, barbecue-flavor",Snacks,https://fdc.nal.usda.gov/food-details/169672/nutrients
+FC002080,batch-3,USDA,167542,"Snacks, granola bars, hard, plain",Snacks,https://fdc.nal.usda.gov/food-details/167542/nutrients
+FC002081,batch-3,USDA,167543,"Snacks, granola bars, hard, almond",Snacks,https://fdc.nal.usda.gov/food-details/167543/nutrients
+FC002082,batch-3,USDA,168851,"Snacks, pork skins, barbecue-flavor",Snacks,https://fdc.nal.usda.gov/food-details/168851/nutrients
+FC002083,batch-3,USDA,169682,"Snacks, potato chips, cheese-flavor",Snacks,https://fdc.nal.usda.gov/food-details/169682/nutrients
+FC002084,batch-3,USDA,169677,"Snacks, potato chips, plain, salted",Snacks,https://fdc.nal.usda.gov/food-details/169677/nutrients
+FC002085,batch-3,USDA,168855,"Snacks, rice cakes, brown rice, rye",Snacks,https://fdc.nal.usda.gov/food-details/168855/nutrients
+FC002086,batch-3,USDA,173140,"Snacks, soy chips or crisps, salted",Snacks,https://fdc.nal.usda.gov/food-details/173140/nutrients
+FC002087,batch-3,USDA,167970,"Snacks, tortilla chips, taco-flavor",Snacks,https://fdc.nal.usda.gov/food-details/167970/nutrients
+FC002088,batch-3,USDA,173146,"Snacks, granola bites, mixed flavors",Snacks,https://fdc.nal.usda.gov/food-details/173146/nutrients
+FC002089,batch-3,USDA,174805,"Snacks, potato chips, lightly salted",Snacks,https://fdc.nal.usda.gov/food-details/174805/nutrients
+FC002090,batch-3,USDA,169679,"Snacks, rice cakes, brown rice, corn",Snacks,https://fdc.nal.usda.gov/food-details/169679/nutrients
+FC002091,batch-3,USDA,174783,"Snacks, sweet potato chips, unsalted",Snacks,https://fdc.nal.usda.gov/food-details/174783/nutrients
+FC002092,batch-3,USDA,167559,"Snacks, tortilla chips, nacho cheese",Snacks,https://fdc.nal.usda.gov/food-details/167559/nutrients
+FC002093,batch-3,USDA,167560,"Snacks, tortilla chips, ranch-flavor",Snacks,https://fdc.nal.usda.gov/food-details/167560/nutrients
+FC002094,batch-3,USDA,170654,"Snacks, trail mix, regular, unsalted",Snacks,https://fdc.nal.usda.gov/food-details/170654/nutrients
+FC002095,batch-3,USDA,167962,"Snacks, potato chips, barbecue-flavor",Snacks,https://fdc.nal.usda.gov/food-details/167962/nutrients
+FC002096,batch-3,USDA,170649,"Snacks, potato chips, plain, unsalted",Snacks,https://fdc.nal.usda.gov/food-details/170649/nutrients
+FC002097,batch-3,USDA,167555,"Snacks, pretzels, hard, plain, salted",Snacks,https://fdc.nal.usda.gov/food-details/167555/nutrients
+FC002098,batch-3,USDA,173152,"Snacks, yucca (cassava) chips, salted",Snacks,https://fdc.nal.usda.gov/food-details/173152/nutrients
+FC002099,batch-3,USDA,167536,"Snacks, beef jerky, chopped and formed",Snacks,https://fdc.nal.usda.gov/food-details/167536/nutrients
+FC002100,batch-3,USDA,173157,"Snacks, peas, roasted, wasabi-flavored",Snacks,https://fdc.nal.usda.gov/food-details/173157/nutrients
+FC002101,batch-3,USDA,170246,"Snacks, popcorn, air-popped (Unsalted)",Snacks,https://fdc.nal.usda.gov/food-details/170246/nutrients
+FC002102,batch-3,USDA,167966,"Snacks, rice cracker brown rice, plain",Snacks,https://fdc.nal.usda.gov/food-details/167966/nutrients
+FC002103,batch-3,USDA,167951,"Snacks, crisped rice bar, chocolate chip",Snacks,https://fdc.nal.usda.gov/food-details/167951/nutrients
+FC002104,batch-3,USDA,168861,"Snacks, granola bar, fruit-filled, nonfat",Snacks,https://fdc.nal.usda.gov/food-details/168861/nutrients
+FC002105,batch-3,USDA,169681,"Snacks, granola bars, hard, peanut butter",Snacks,https://fdc.nal.usda.gov/food-details/169681/nutrients
+FC002106,batch-3,USDA,167967,"Snacks, rice cakes, brown rice, buckwheat",Snacks,https://fdc.nal.usda.gov/food-details/167967/nutrients
+FC002107,batch-3,USDA,167537,"Snacks, corn-based, extruded, chips, plain",Snacks,https://fdc.nal.usda.gov/food-details/167537/nutrients
+FC002108,batch-3,USDA,167539,"Snacks, corn-based, extruded, cones, plain",Snacks,https://fdc.nal.usda.gov/food-details/167539/nutrients
+FC002109,batch-3,USDA,167948,"Snacks, corn-based, extruded, onion-flavor",Snacks,https://fdc.nal.usda.gov/food-details/167948/nutrients
+FC002110,batch-4,USDA,167952,"Snacks, granola bars, hard, chocolate chip",Snacks,https://fdc.nal.usda.gov/food-details/167952/nutrients
+FC002111,batch-4,USDA,169680,"Snacks, rice cakes, brown rice, multigrain",Snacks,https://fdc.nal.usda.gov/food-details/169680/nutrients
+FC002112,batch-4,USDA,168856,"Snacks, sesame sticks, wheat-based, salted",Snacks,https://fdc.nal.usda.gov/food-details/168856/nutrients
+FC002113,batch-4,USDA,167954,"Snacks, granola bars, soft, uncoated, plain",Snacks,https://fdc.nal.usda.gov/food-details/167954/nutrients
+FC002114,batch-4,USDA,167557,"Snacks, rice cakes, brown rice, sesame seed",Snacks,https://fdc.nal.usda.gov/food-details/167557/nutrients
+FC002115,batch-4,USDA,167544,"Snacks, granola bars, soft, uncoated, raisin",Snacks,https://fdc.nal.usda.gov/food-details/167544/nutrients
+FC002116,batch-4,USDA,170653,"Snacks, sesame sticks, wheat-based, unsalted",Snacks,https://fdc.nal.usda.gov/food-details/170653/nutrients
+FC002117,batch-4,USDA,168116,"Snacks, tortilla chips, unsalted, white corn",Snacks,https://fdc.nal.usda.gov/food-details/168116/nutrients
+FC002118,batch-4,USDA,168127,"Snacks, corn-based, extruded, chips, unsalted",Snacks,https://fdc.nal.usda.gov/food-details/168127/nutrients
+FC002119,batch-4,USDA,172197,"Cheese, goat, hard type",Dairy & Spreads,https://fdc.nal.usda.gov/food-details/172197/nutrients
+FC002120,batch-4,USDA,173435,"Cheese, goat, soft type",Dairy & Spreads,https://fdc.nal.usda.gov/food-details/173435/nutrients
+FC002121,batch-4,USDA,171247,"Cheese, parmesan, grated",Dairy & Spreads,https://fdc.nal.usda.gov/food-details/171247/nutrients
+FC002122,batch-4,USDA,169051,"Cheese, mozzarella, nonfat",Dairy & Spreads,https://fdc.nal.usda.gov/food-details/169051/nutrients
+FC002123,batch-4,USDA,173431,"Cheese, parmesan, shredded",Dairy & Spreads,https://fdc.nal.usda.gov/food-details/173431/nutrients
+FC002124,batch-4,USDA,172223,"Cheese, fresh, queso fresco",Dairy & Spreads,https://fdc.nal.usda.gov/food-details/172223/nutrients
+FC002125,batch-4,USDA,173433,"Cheese, goat, semisoft type",Dairy & Spreads,https://fdc.nal.usda.gov/food-details/173433/nutrients
+FC002126,batch-4,USDA,170851,"Cheese, ricotta, whole milk",Dairy & Spreads,https://fdc.nal.usda.gov/food-details/170851/nutrients
+FC002127,batch-4,USDA,172224,"Cheese, white, queso blanco",Dairy & Spreads,https://fdc.nal.usda.gov/food-details/172224/nutrients
+FC002128,batch-4,USDA,171255,"Cream, fluid, half and half",Dairy & Spreads,https://fdc.nal.usda.gov/food-details/171255/nutrients
+FC002129,batch-4,USDA,170859,"Cream, fluid, heavy whipping",Dairy & Spreads,https://fdc.nal.usda.gov/food-details/170859/nutrients
+FC002130,batch-4,USDA,170858,"Cream, fluid, light whipping",Dairy & Spreads,https://fdc.nal.usda.gov/food-details/170858/nutrients
+FC002131,batch-4,USDA,172222,"Cheese, dry white, queso seco",Dairy & Spreads,https://fdc.nal.usda.gov/food-details/172222/nutrients
+FC002132,batch-4,USDA,170899,"Cheese, cheddar, sharp, sliced",Dairy & Spreads,https://fdc.nal.usda.gov/food-details/170899/nutrients
+FC002133,batch-4,USDA,170845,"Cheese, mozzarella, whole milk",Dairy & Spreads,https://fdc.nal.usda.gov/food-details/170845/nutrients
+FC002134,batch-4,USDA,171248,"Cheese, ricotta, part skim milk",Dairy & Spreads,https://fdc.nal.usda.gov/food-details/171248/nutrients
+FC002135,batch-4,USDA,169078,"Cheese, cottage, with vegetables",Dairy & Spreads,https://fdc.nal.usda.gov/food-details/169078/nutrients
+FC002136,batch-4,USDA,173465,"Ice cream, soft serve, chocolate",Dairy & Spreads,https://fdc.nal.usda.gov/food-details/173465/nutrients
+FC002137,batch-4,USDA,170847,"Cheese, mozzarella, part skim milk",Dairy & Spreads,https://fdc.nal.usda.gov/food-details/170847/nutrients
+FC002138,batch-4,USDA,170855,"Cheese, pasteurized process, swiss",Dairy & Spreads,https://fdc.nal.usda.gov/food-details/170855/nutrients
+FC002139,batch-4,USDA,169901,"Cheese, american cheddar, imitation",Dairy & Spreads,https://fdc.nal.usda.gov/food-details/169901/nutrients
+FC002140,batch-4,USDA,172180,"Cheese, cottage, creamed, with fruit",Dairy & Spreads,https://fdc.nal.usda.gov/food-details/172180/nutrients
+FC002141,batch-4,USDA,170854,"Cheese, pasteurized process, pimento",Dairy & Spreads,https://fdc.nal.usda.gov/food-details/170854/nutrients
+FC002142,batch-4,USDA,171293,"Ice cream, light, soft serve, chocolate",Dairy & Spreads,https://fdc.nal.usda.gov/food-details/171293/nutrients
+FC002143,batch-4,USDA,170860,"Cream, whipped, cream topping, pressurized",Dairy & Spreads,https://fdc.nal.usda.gov/food-details/170860/nutrients
+FC002144,batch-4,USDA,173466,"Ice cream, bar or stick, chocolate covered",Dairy & Spreads,https://fdc.nal.usda.gov/food-details/173466/nutrients
+FC002145,batch-4,USDA,172179,"Cheese, cottage, creamed, large or small curd",Dairy & Spreads,https://fdc.nal.usda.gov/food-details/172179/nutrients
+FC002146,batch-4,USDA,170857,"Cream, fluid, light (coffee cream or table cream)",Dairy & Spreads,https://fdc.nal.usda.gov/food-details/170857/nutrients
+FC002147,batch-4,USDA,171290,"Cheese, pasteurized process, American, without added vitamin D",Dairy & Spreads,https://fdc.nal.usda.gov/food-details/171290/nutrients
+FC002148,batch-4,USDA,170853,"Cheese, pasteurized process, American, fortified with vitamin D",Dairy & Spreads,https://fdc.nal.usda.gov/food-details/170853/nutrients
+FC002149,batch-4,USDA,169056,"Salad dressing, coleslaw",Spreads & Dressings,https://fdc.nal.usda.gov/food-details/169056/nutrients
+FC002150,batch-4,USDA,169875,"Salad dressing, sweet and sour",Spreads & Dressings,https://fdc.nal.usda.gov/food-details/169875/nutrients
+FC002151,batch-4,USDA,173581,"Butter, light, stick, with salt",Spreads & Dressings,https://fdc.nal.usda.gov/food-details/173581/nutrients
+FC002152,batch-4,USDA,167704,"Salad dressing, bacon and tomato",Spreads & Dressings,https://fdc.nal.usda.gov/food-details/167704/nutrients
+FC002153,batch-4,USDA,169895,"Salad dressing, buttermilk, lite",Spreads & Dressings,https://fdc.nal.usda.gov/food-details/169895/nutrients
+FC002154,batch-4,USDA,171005,"Salad dressing, russian dressing",Spreads & Dressings,https://fdc.nal.usda.gov/food-details/171005/nutrients
+FC002155,batch-4,USDA,171415,"Margarine,spread, 35-39% fat, tub",Spreads & Dressings,https://fdc.nal.usda.gov/food-details/171415/nutrients
+FC002156,batch-4,USDA,173594,"Salad dressing, mayonnaise, light",Spreads & Dressings,https://fdc.nal.usda.gov/food-details/173594/nutrients
+FC002157,batch-4,USDA,171044,"Salad dressing, poppyseed, creamy",Spreads & Dressings,https://fdc.nal.usda.gov/food-details/171044/nutrients
+FC002158,batch-4,USDA,172344,"Butter, light, stick, without salt",Spreads & Dressings,https://fdc.nal.usda.gov/food-details/172344/nutrients
+FC002159,batch-4,USDA,171416,"Salad dressing, french, home recipe",Spreads & Dressings,https://fdc.nal.usda.gov/food-details/171416/nutrients
+FC002160,batch-4,USDA,171009,"Salad dressing, mayonnaise, regular",Spreads & Dressings,https://fdc.nal.usda.gov/food-details/171009/nutrients
+FC002161,batch-4,USDA,169057,"Salad dressing, green goddess, regular",Spreads & Dressings,https://fdc.nal.usda.gov/food-details/169057/nutrients
+FC002162,batch-4,USDA,171043,"Salad dressing, honey mustard, regular",Spreads & Dressings,https://fdc.nal.usda.gov/food-details/171043/nutrients
+FC002163,batch-4,USDA,171444,"Salad dressing, mayonnaise-type, light",Spreads & Dressings,https://fdc.nal.usda.gov/food-details/171444/nutrients
+FC002164,batch-4,USDA,173592,"Salad dressing, ranch dressing, regular",Spreads & Dressings,https://fdc.nal.usda.gov/food-details/173592/nutrients
+FC002165,batch-4,USDA,169055,"Salad dressing, caesar dressing, regular",Spreads & Dressings,https://fdc.nal.usda.gov/food-details/169055/nutrients
+FC002166,batch-4,USDA,171417,"Salad dressing, home recipe, vinegar and oil",Spreads & Dressings,https://fdc.nal.usda.gov/food-details/171417/nutrients
+FC002167,batch-4,USDA,171006,"Salad dressing, sesame seed dressing, regular",Spreads & Dressings,https://fdc.nal.usda.gov/food-details/171006/nutrients
+FC002168,batch-4,USDA,171406,"Salad dressing, mayonnaise, imitation, soybean",Spreads & Dressings,https://fdc.nal.usda.gov/food-details/171406/nutrients
+FC002169,batch-4,USDA,167674,"Restaurant, Chinese, lemon chicken",Prepared Foods,https://fdc.nal.usda.gov/food-details/167674/nutrients
+FC002170,batch-4,USDA,169026,"Restaurant, family style, coleslaw",Prepared Foods,https://fdc.nal.usda.gov/food-details/169026/nutrients
+FC002171,batch-4,USDA,167679,"Restaurant, Chinese, orange chicken",Prepared Foods,https://fdc.nal.usda.gov/food-details/167679/nutrients
+FC002172,batch-4,USDA,168087,"Restaurant, Chinese, sesame chicken",Prepared Foods,https://fdc.nal.usda.gov/food-details/168087/nutrients
+FC002173,batch-4,USDA,167676,"Restaurant, Chinese, kung pao chicken",Prepared Foods,https://fdc.nal.usda.gov/food-details/167676/nutrients
+FC002174,batch-4,USDA,169848,"Restaurant, family style, hash browns",Prepared Foods,https://fdc.nal.usda.gov/food-details/169848/nutrients
+FC002175,batch-4,USDA,169027,"Restaurant, family style, onion rings",Prepared Foods,https://fdc.nal.usda.gov/food-details/169027/nutrients
+FC002176,batch-4,USDA,168083,"Restaurant, Chinese, chicken chow mein",Prepared Foods,https://fdc.nal.usda.gov/food-details/168083/nutrients
+FC002177,batch-4,USDA,169850,"Restaurant, Italian, lasagna with meat",Prepared Foods,https://fdc.nal.usda.gov/food-details/169850/nutrients
+FC002178,batch-4,USDA,169836,"Restaurant, family style, french fries",Prepared Foods,https://fdc.nal.usda.gov/food-details/169836/nutrients
+FC002179,batch-4,USDA,168072,"Restaurant, Chinese, beef and vegetables",Prepared Foods,https://fdc.nal.usda.gov/food-details/168072/nutrients
+FC002180,batch-4,USDA,167667,"Restaurant, Chinese, egg rolls, assorted",Prepared Foods,https://fdc.nal.usda.gov/food-details/167667/nutrients
+FC002181,batch-4,USDA,168082,"Restaurant, Chinese, sweet and sour pork",Prepared Foods,https://fdc.nal.usda.gov/food-details/168082/nutrients
+FC002182,batch-4,USDA,169847,"Restaurant, family style, chicken tenders",Prepared Foods,https://fdc.nal.usda.gov/food-details/169847/nutrients
+FC002183,batch-4,USDA,168080,"Restaurant, Chinese, shrimp and vegetables",Prepared Foods,https://fdc.nal.usda.gov/food-details/168080/nutrients
+FC002184,batch-4,USDA,167678,"Restaurant, Chinese, chicken and vegetables",Prepared Foods,https://fdc.nal.usda.gov/food-details/167678/nutrients
+FC002185,batch-4,USDA,168081,"Restaurant, Chinese, sweet and sour chicken",Prepared Foods,https://fdc.nal.usda.gov/food-details/168081/nutrients
+FC002186,batch-4,USDA,167668,"Restaurant, Chinese, fried rice, without meat",Prepared Foods,https://fdc.nal.usda.gov/food-details/167668/nutrients
+FC002187,batch-4,USDA,167680,"Restaurant, Italian, spaghetti with meat sauce",Prepared Foods,https://fdc.nal.usda.gov/food-details/167680/nutrients
+FC002188,batch-4,USDA,169015,"Restaurant, family style, fried mozzarella sticks",Prepared Foods,https://fdc.nal.usda.gov/food-details/169015/nutrients
+FC002189,batch-4,USDA,169029,"Restaurant, family style, spaghetti and meatballs",Prepared Foods,https://fdc.nal.usda.gov/food-details/169029/nutrients
+FC002190,batch-4,USDA,168062,"Restaurant, Italian, chicken parmesan without pasta",Prepared Foods,https://fdc.nal.usda.gov/food-details/168062/nutrients
+FC002191,batch-4,USDA,169028,"Restaurant, family style, chili with meat and beans",Prepared Foods,https://fdc.nal.usda.gov/food-details/169028/nutrients
+FC002192,batch-4,USDA,169838,"Restaurant, family style, shrimp, breaded and fried",Prepared Foods,https://fdc.nal.usda.gov/food-details/169838/nutrients
+FC002193,batch-4,USDA,167677,"Restaurant, Chinese, vegetable lo mein, without meat",Prepared Foods,https://fdc.nal.usda.gov/food-details/167677/nutrients
+FC002194,batch-4,USDA,171603,"Sauce, alfredo mix, dry",Soups & Sauces,https://fdc.nal.usda.gov/food-details/171603/nutrients
+FC002195,batch-4,USDA,171186,"Sauce, hot chile, sriracha",Soups & Sauces,https://fdc.nal.usda.gov/food-details/171186/nutrients
+FC002196,batch-4,USDA,171825,"Sauce, steak, tomato based",Soups & Sauces,https://fdc.nal.usda.gov/food-details/171825/nutrients
+FC002197,batch-4,USDA,171823,"Sauce, duck, ready-to-serve",Soups & Sauces,https://fdc.nal.usda.gov/food-details/171823/nutrients
+FC002198,batch-4,USDA,172879,"Sauce, plum, ready-to-serve",Soups & Sauces,https://fdc.nal.usda.gov/food-details/172879/nutrients
+FC002199,batch-4,USDA,171584,"Sauce, cheese sauce mix, dry",Soups & Sauces,https://fdc.nal.usda.gov/food-details/171584/nutrients
+FC002200,batch-4,USDA,174524,"Sauce, salsa, ready-to-serve",Soups & Sauces,https://fdc.nal.usda.gov/food-details/174524/nutrients
+FC002201,batch-4,USDA,171561,"Soup, beef broth, cubed, dry",Soups & Sauces,https://fdc.nal.usda.gov/food-details/171561/nutrients
+FC002202,batch-4,USDA,171191,"Sauce, cheese, ready-to-serve",Soups & Sauces,https://fdc.nal.usda.gov/food-details/171191/nutrients
+FC002203,batch-4,USDA,172886,"Sauce, hoisin, ready-to-serve",Soups & Sauces,https://fdc.nal.usda.gov/food-details/172886/nutrients
+FC002204,batch-4,USDA,174526,"Sauce, homemade, white, thick",Soups & Sauces,https://fdc.nal.usda.gov/food-details/174526/nutrients
+FC002205,batch-4,USDA,174529,"Sauce, oyster, ready-to-serve",Soups & Sauces,https://fdc.nal.usda.gov/food-details/174529/nutrients
+FC002206,batch-4,USDA,171826,"Sauce, tartar, ready-to-serve",Soups & Sauces,https://fdc.nal.usda.gov/food-details/171826/nutrients
+FC002207,batch-4,USDA,174525,"Sauce, homemade, white, medium",Soups & Sauces,https://fdc.nal.usda.gov/food-details/174525/nutrients
+FC002208,batch-4,USDA,171563,"Soup, chicken broth cubes, dry",Soups & Sauces,https://fdc.nal.usda.gov/food-details/171563/nutrients
+FC002209,batch-4,USDA,171551,"Soup, onion, canned, condensed",Soups & Sauces,https://fdc.nal.usda.gov/food-details/171551/nutrients

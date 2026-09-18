@@ -265,4 +265,51 @@ class FoodDatabaseTests(unittest.TestCase):
         cabbage=[p for p in parts if p['estimate_id']=='EST_PERSONAL_018_V1']
         self.assertIn('FC000285',[p['ingredient_food_id'] for p in cabbage])
 
+    def test_ph_expansion_preserves_prior_records_and_portions(self):
+        old=read_csv(RESEARCH/'2026-09-17-ph-restaurants-sources/foods.csv')
+        self.assertEqual(len(old),1809)
+        self.assertEqual(read_csv(DB/'foods.csv')[:1809],old)
+        for name in ['other_food_values.csv','portions.csv','verification-evidence.csv']:
+            old=read_csv(RESEARCH/'2026-09-17-ph-restaurants-sources'/name)
+            self.assertEqual(read_csv(DB/name)[:len(old)],old)
+        additions=read_csv(DB/'expansion-ph-restaurants-sources.csv')
+        self.assertEqual(len(additions),400)
+        count=0
+        for r in additions:
+            resolved=self.catalog.resolve(r['food_id'])
+            if resolved['requires_identity_selection']:
+                self.assertEqual(resolved['confidence']['level'],'Unrated')
+                self.assertTrue(all(n['value_per_100g'] is None for n in resolved['nutrients'].values()))
+            if r['source']!='USDA':continue
+            original={p['id']:p for p in self.usda[r['source_food_id']]['portions']}
+            for p in self.catalog.portions:
+                if p['food_id']==r['food_id'] and p['data_status']=='OTHER_SOURCE_PORTION':
+                    source=original[p['portion_id'].split('_USDA_')[1]]
+                    self.assertEqual(p['edible_weight_g'],source['gram_weight']);self.assertEqual(p['quantity'],source['amount']);count+=1
+        self.assertEqual(count,738)
+
+    def test_ph_restaurant_models_recompute_and_never_resolve_by_default(self):
+        from decimal import ROUND_HALF_UP
+        models=read_csv(DB/'ph-restaurant-estimates.csv');parts=read_csv(DB/'ph-restaurant-components.csv')
+        self.assertEqual(len(models),110);self.assertEqual(len(parts),475)
+        self.assertEqual(len({r['brand'] for r in models}),7)
+        estimates={r['estimate_id']:r for r in self.catalog.estimates}
+        for m in models:
+            selected=[p for p in parts if p['estimate_id']==m['estimate_id']]
+            mass=sum(Decimal(p['edible_grams']) for p in selected)
+            self.assertEqual(mass,Decimal(m['modeled_mass_g']))
+            self.assertEqual(self.catalog.resolve(m['food_id'])['label'],'Unavailable')
+            result=self.catalog.resolve(m['food_id'],estimate_id=m['estimate_id'])
+            self.assertEqual(result['confidence']['level'],'Low')
+            for p in selected:
+                source=self.catalog.resolve(p['ingredient_food_id'])
+                self.assertEqual(p['ingredient_name'],self.catalog.foods[p['ingredient_food_id']]['name'])
+                for f in FIELDS:
+                    v=source['nutrients'][f]['value_per_100g']
+                    self.assertEqual(p[f],'' if v is None else str(v))
+            for f in FIELDS:
+                expected='' if any(p[f]=='' for p in selected) else str((sum(Decimal(p[f])*Decimal(p['edible_grams']) for p in selected)/mass).quantize(Decimal('.0001'),rounding=ROUND_HALF_UP))
+                self.assertEqual(estimates[m['estimate_id']][f],expected)
+            self.assertFalse(any(p['food_id']==m['food_id'] and p['data_status']=='OTHER_SOURCE_PORTION' for p in self.catalog.portions))
+
 if __name__=='__main__': unittest.main()

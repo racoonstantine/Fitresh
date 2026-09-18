@@ -1,0 +1,16 @@
+#personalFoodDialog{width:min(640px,94vw);max-height:90dvh;box-sizing:border-box;border:1px solid var(--line,#ddd);border-radius:12px;background:var(--paper,#fff);color:var(--ink,#222);padding:20px;overflow:auto}
+#personalFoodDialog::backdrop{background:rgba(0,0,0,.45)}
+#personalFoodDialog header{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:12px}
+#personalFoodDialog h2,#personalFoodDialog h3{margin:0;font-size:20px}
+#personalFoodDialog h3{font-size:16px;margin-top:22px}
+#personalFoodDialog label{display:block;font-size:13px;margin-top:10px}
+#personalFoodDialog [hidden]{display:none!important}
+#personalFoodDialog input:not([type=checkbox]),#personalFoodDialog select,#personalFoodDialog textarea{display:block;width:100%;box-sizing:border-box;padding:9px;margin-top:4px;border:1px solid var(--line,#ccc);border-radius:6px;background:var(--paper,#fff);color:inherit;font:inherit}
+#personalFoodDialog fieldset{border:0;padding:0;margin:0;min-width:0}
+#personalFoodDialog .pf-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 12px}
+#personalFoodDialog .pf-note{font-size:12px;line-height:1.5;color:var(--ink-soft,#555)}
+#personalFoodDialog .pf-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+#personalFoodDialog .pf-library-item{padding:12px 0;border-bottom:1px solid var(--line,#ddd)}
+#personalFoodDialog #pfStatus{font-size:13px;line-height:1.5;min-height:20px;margin:10px 0}
+#personalFoodDialog button{cursor:pointer}
+.personal-food-open{margin:8px 0}

@@ -4,6 +4,8 @@ import hashlib
 import json
 import re
 import unicodedata
+import argparse
+from datetime import date
 from collections import defaultdict
 from food_db_sources import DB, ROOT, RESEARCH, read_csv
 from resolve_food import FoodCatalog
@@ -16,7 +18,8 @@ def write_csv(path,rows,fields=None):
     with path.open('w',encoding='utf-8',newline='') as f:
         w=csv.DictWriter(f,fieldnames=fields or list(rows[0]));w.writeheader();w.writerows(rows)
 
-def main():
+def main(review_date=None):
+    review_date=date.fromisoformat(review_date).isoformat() if review_date else date.today().isoformat()
     catalog=FoodCatalog(); aliases=read_csv(DB/'aliases.csv')
     before=(DB/'aliases.csv').read_bytes()
     backup=RESEARCH/'aliases-before-search-audit.csv'
@@ -29,7 +32,7 @@ def main():
         if not key[1] or key in seen:return
         seen.add(key)
         aliases.append(dict(food_id=fid,alias=alias,source_url=url,data_status='SEARCH_ALIAS_REVIEWED',notes=reason))
-        additions.append(dict(food_id=fid,alias=alias,source_url=url,reason=reason,date='2026-09-17'))
+        additions.append(dict(food_id=fid,alias=alias,source_url=url,reason=reason,date=review_date))
     fnri=json.loads((RESEARCH/'catalog.json').read_text(encoding='utf-8'))
     official_names={}
     for fid,row in catalog.foods.items():
@@ -42,6 +45,12 @@ def main():
         if official_names[fid]:
             for name in common.split('/'):
                 add(fid,name.strip(),row['source_url'],'Separate slash-delimited official common names; retain comma-qualified preparation and plant part.')
+            # A broad discovery term may match several preparations. The result
+            # always retains the complete source identity; never auto-select it.
+            local=common.split('/')[0].strip()
+            root=local.split(',')[0].strip()
+            if root!=local:
+                add(fid,root,row['source_url'],'Source common-name discovery without comma qualifiers; display full preparation and never auto-select.')
     # Spellings supported by the starter's own munggo/monggo aliases. Apply the
     # token change only to actual munggo aliases, keeping all qualifiers intact.
     for a in list(aliases):
@@ -81,6 +90,7 @@ def main():
         resolved=catalog.resolve(fid)
         if resolved['requires_identity_selection'] or any(resolved['nutrients'][f]['value_per_100g'] is None for f in ['kcal_100g','protein_g_100g','fat_g_100g','carbs_g_100g']):continue
         foods[fid]=dict(food_id=fid,name=resolved['name'],source='catalog',brand=None,canonical_amount=100,canonical_unit='g',
+            local_name=(official_names[fid].split('/')[0].strip() if official_names[fid] else None),
             label=resolved['label'],complete=resolved['complete'],confidence=resolved['confidence'],
             aliases=list(dict.fromkeys(by_food[fid])),
             portions=[p for p in catalog.portions if p['food_id']==fid and p['data_status']=='OTHER_SOURCE_PORTION' and float(p['edible_weight_g'] or 0)>0],
@@ -99,4 +109,6 @@ def main():
     (DB/'alias-audit-summary.json').write_text(json.dumps(summary,indent=2)+'\n',encoding='utf-8')
     print(json.dumps(dict(summary,added_this_run=len(aliases)-original_count),indent=2))
 
-if __name__=='__main__':main()
+if __name__=='__main__':
+    parser=argparse.ArgumentParser();parser.add_argument('--review-date',help='ISO date for newly added aliases; defaults to today')
+    main(parser.parse_args().review_date)

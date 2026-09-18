@@ -1,0 +1,53 @@
+source,source_food_id,name,reason
+FNRI,D261,"Yam bean, pod",Outside this batch; separate preparation/identity review needed.
+FNRI,D296,"Bitter melon/gourd, wild, fruit, raw",Outside this batch; separate preparation/identity review needed.
+FNRI,G164,"Flatfish/Brill, rough-scaled, dried",Duplicate source descriptions; do not count ambiguous identities twice.
+FNRI,G165,"Flatfish/Brill, rough-scaled, dried",Duplicate source descriptions; do not count ambiguous identities twice.
+FNRI,G196,"Sardine, fimbriated, fry, dried",Duplicate source descriptions; do not count ambiguous identities twice.
+FNRI,G197,"Sardine, fimbriated, fry, dried",Duplicate source descriptions; do not count ambiguous identities twice.
+FNRI,G199,"Sardine, Indian, dried",Duplicate source descriptions; do not count ambiguous identities twice.
+FNRI,G200,"Sardine, Indian, dried",Duplicate source descriptions; do not count ambiguous identities twice.
+FNRI,G215,"Slipmouth, common, dried",Duplicate source descriptions; do not count ambiguous identities twice.
+FNRI,G216,"Slipmouth, common, dried",Duplicate source descriptions; do not count ambiguous identities twice.
+FNRI,R036,"Beef w/ gravy, cnd",Source sugar exceeds carbohydrate; defer without altering source.
+FNRI,R090,"Gelatin drink, w/ MLP",Source sugar exceeds carbohydrate; defer without altering source.
+FNRI,C015,"Coastal jack-bean seed, dried, boiled",Outside this batch; separate preparation/identity review needed.
+FNRI,C014,"Coastal jack-bean seed, dried",Outside this batch; separate preparation/identity review needed.
+FNRI,C050,"Velvet bean seed, dried",Outside this batch; separate preparation/identity review needed.
+FNRI,B017,White spot arum,Outside this batch; separate preparation/identity review needed.
+FNRI,B019,"Yam, nami",Outside this batch; separate preparation/identity review needed.
+FNRI,B038,"Yam, nami, brined",Outside this batch; separate preparation/identity review needed.
+FNRI,B039,"Yam, nami, dried",Outside this batch; separate preparation/identity review needed.
+FNRI,F123,"Duck, wild, breast",Outside this batch; separate preparation/identity review needed.
+FNRI,F124,"Duck, wild, thigh",Outside this batch; separate preparation/identity review needed.
+FNRI,F139,Moor hen breast,Outside this batch; separate preparation/identity review needed.
+FNRI,F140,Moor hen gizzard,Outside this batch; separate preparation/identity review needed.
+FNRI,F141,Moor hen liver,Outside this batch; separate preparation/identity review needed.
+FNRI,F142,Moor hen thigh,Outside this batch; separate preparation/identity review needed.
+FNRI,F207,Snipe lean meat,Outside this batch; separate preparation/identity review needed.
+FNRI,F211,Venison rib,Outside this batch; separate preparation/identity review needed.
+FNRI,F212,Venison thigh,Outside this batch; separate preparation/identity review needed.
+FNRI,F263,Venison jerky,Outside this batch; separate preparation/identity review needed.
+FNRI,T001,Azolla pinnata,Outside this batch; separate preparation/identity review needed.
+FNRI,T006,Chlorella,Outside this batch; separate preparation/identity review needed.
+FNRI,J018,"Milk, human",Outside this batch; separate preparation/identity review needed.
+FNRI,J021,"Milk, pwdr, infant formula",Outside this batch; separate preparation/identity review needed.
+FNRI,S001,"Beef w/ veg, str",Outside this batch; separate preparation/identity review needed.
+FNRI,S002,"Beef, egg noodle, veg, str",Outside this batch; separate preparation/identity review needed.
+FNRI,S003,"Carrot, str",Outside this batch; separate preparation/identity review needed.
+FNRI,S004,"Cereals, applesce & banana, str",Outside this batch; separate preparation/identity review needed.
+FNRI,S005,"Chicken noodle, str",Outside this batch; separate preparation/identity review needed.
+FNRI,S006,"Chicken w/ veg, str",Outside this batch; separate preparation/identity review needed.
+FNRI,S007,"Chicken, asparagus, str",Outside this batch; separate preparation/identity review needed.
+FNRI,S008,"Cream chicken soup, str",Outside this batch; separate preparation/identity review needed.
+FNRI,S009,"Custard pudding, choco, str",Outside this batch; separate preparation/identity review needed.
+FNRI,S010,"Custard pudding, vanilla, str",Outside this batch; separate preparation/identity review needed.
+FNRI,S011,"Fruit w/ tapioca, str",Outside this batch; separate preparation/identity review needed.
+FNRI,S013,"Mango & papaya, str",Outside this batch; separate preparation/identity review needed.
+FNRI,S014,"Mango, str",Outside this batch; separate preparation/identity review needed.
+FNRI,S015,"Mixed fruits, str",Outside this batch; separate preparation/identity review needed.
+FNRI,S016,"Mixed veg, str",Outside this batch; separate preparation/identity review needed.
+FNRI,S017,"Peach, str",Outside this batch; separate preparation/identity review needed.
+FNRI,S018,"Rice w/ chicken, str",Outside this batch; separate preparation/identity review needed.
+FNRI,S019,"Squash, str",Outside this batch; separate preparation/identity review needed.
+FNRI,S021,"Veg, liver & bacon, str",Outside this batch; separate preparation/identity review needed.

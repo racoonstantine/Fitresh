@@ -1,0 +1,8 @@
+brand,url,reviewed_date,scope,access_note
+Jollibee,https://order.jollibee.com/en/ph/menu,2026-09-17,Menu identity and qualitative description only; no full PH nutrition panel obtained.,Official menu page reviewed.
+McDonald's,https://www.foodpanda.ph/restaurant/mulw/mcdonalds-ayala-malls-manila-bay-mulw,2026-09-17,Menu identity and qualitative description only; no full PH nutrition panel obtained.,Merchant branch delivery listing; official PH site separately checked.
+KFC,https://www.kfc.com.ph/en/menu,2026-09-17,Menu identity and qualitative description only; no full PH nutrition panel obtained.,Official menu search-index text available; direct fetch returned 403.
+Mang Inasal,https://www.manginasal.ph/menu,2026-09-17,Menu identity and qualitative description only; no full PH nutrition panel obtained.,Official menu page reviewed.
+Chowking,https://www.chowking.ph/menu/allergen-declaration,2026-09-17,Menu identity and qualitative description only; no full PH nutrition panel obtained.,Official menu page reviewed.
+Ramen Kuroda,https://www.kuroda.ph/menu,2026-09-17,Menu identity and qualitative description only; no full PH nutrition panel obtained.,Official menu page reviewed.
+Ramen Nagi,https://n-nagi.com/english/,2026-09-17,Menu identity and qualitative description only; no full PH nutrition panel obtained.,Official global overseas-menu description; not PH nutrition.

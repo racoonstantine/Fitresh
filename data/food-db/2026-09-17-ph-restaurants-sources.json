@@ -1,0 +1,14 @@
+{
+  "expansion_id": "2026-09-17-ph-restaurants-sources",
+  "added": 400,
+  "fnri": 49,
+  "usda": 351,
+  "total": 2209,
+  "original_records_preserved": 1809,
+  "household_portions_added": 738,
+  "estimates_added": 0,
+  "added_fnri_statuses": {
+    "VERIFIED_FNRI": 36,
+    "PARTIAL_VERIFIED_FNRI": 13
+  }
+}

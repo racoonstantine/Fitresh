@@ -1,74 +1,299 @@
 normalized_alias,food_ids,handling
-abitsuwelas,FC000267;FC000303;FC000340;FC000802,Show separate labeled choices; never merge or auto-select.
+abitsuwelas,FC000267;FC000303;FC000340;FC000802;FC002397,Show separate labeled choices; never merge or auto-select.
+abitsuwelas buto,FC000225;FC000233;FC000247;FC000734;FC000735;FC000736,Show separate labeled choices; never merge or auto-select.
+abokado,FC000125;FC000126,Show separate labeled choices; never merge or auto-select.
 abukado,FC000087;FC000125;FC000126,Show separate labeled choices; never merge or auto-select.
+alagaw dahon,FC002326;FC002369,Show separate labeled choices; never merge or auto-select.
+alakaak,FC002442;FC002477,Show separate labeled choices; never merge or auto-select.
+alamang,FC000498;FC000523,Show separate labeled choices; never merge or auto-select.
 alimango,FC000059;FC000112;FC000113,Show separate labeled choices; never merge or auto-select.
+alimango laman,FC000113;FC000450;FC000502,Show separate labeled choices; never merge or auto-select.
 alimasag,FC000059;FC000112;FC000113,Show separate labeled choices; never merge or auto-select.
+alimasag laman,FC000112;FC000449,Show separate labeled choices; never merge or auto-select.
+alokon bulaklak,FC001813;FC001814,Show separate labeled choices; never merge or auto-select.
+alokon dahon,FC002329;FC002373,Show separate labeled choices; never merge or auto-select.
+alugbati dahon,FC000776;FC000777,Show separate labeled choices; never merge or auto-select.
+alumahan,FC000051;FC000508;FC000509,Show separate labeled choices; never merge or auto-select.
+ampalaya bunga,FC000063;FC000250,Show separate labeled choices; never merge or auto-select.
+ampalaya dahon,FC000321;FC000345,Show separate labeled choices; never merge or auto-select.
+apahap,FC000468;FC000521,Show separate labeled choices; never merge or auto-select.
+apulid lamang ugat,FC000810;FC000811,Show separate labeled choices; never merge or auto-select.
+arina,FC000172;FC000705,Show separate labeled choices; never merge or auto-select.
+arina trigo,FC000718;FC000719,Show separate labeled choices; never merge or auto-select.
+aseytuna,FC001817;FC001818,Show separate labeled choices; never merge or auto-select.
+asukal,FC000969;FC000972;FC000973,Show separate labeled choices; never merge or auto-select.
 avocado,FC000087;FC000125;FC000126,Show separate labeled choices; never merge or auto-select.
+ayungin,FC002468;FC002497,Show separate labeled choices; never merge or auto-select.
+baboy atay,FC000041;FC000392;FC000393;FC000394,Show separate labeled choices; never merge or auto-select.
+baboy balat,FC000042;FC001841,Show separate labeled choices; never merge or auto-select.
+baboy bato,FC000391;FC000431,Show separate labeled choices; never merge or auto-select.
+baboy bitukang maliit,FC000893;FC000894,Show separate labeled choices; never merge or auto-select.
+baboy kasim,FC000395;FC000433,Show separate labeled choices; never merge or auto-select.
+baboy liempo,FC000035;FC000036;FC000037;FC000350;FC000351;FC000384,Show separate labeled choices; never merge or auto-select.
+baboy paypay,FC000038;FC000102;FC000385;FC000386;FC000387;FC000388;FC000389;FC000390,Show separate labeled choices; never merge or auto-select.
+baboy tenga,FC000427;FC000428,Show separate labeled choices; never merge or auto-select.
+bagoong hipon,FC000613;FC000614;FC000990,Show separate labeled choices; never merge or auto-select.
+baino dahon,FC002325;FC002366,Show separate labeled choices; never merge or auto-select.
+baka atay,FC000033;FC000372,Show separate labeled choices; never merge or auto-select.
+baka dila,FC000380;FC000414,Show separate labeled choices; never merge or auto-select.
+baka dugo,FC001827;FC002546,Show separate labeled choices; never merge or auto-select.
+baka goto,FC000381;FC000415,Show separate labeled choices; never merge or auto-select.
+baka kenchi,FC000376;FC000408,Show separate labeled choices; never merge or auto-select.
+baka laman,FC000030;FC000031;FC000032;FC000371,Show separate labeled choices; never merge or auto-select.
+baka lapay,FC002544;FC002555,Show separate labeled choices; never merge or auto-select.
+baka librilyo,FC002542;FC002553,Show separate labeled choices; never merge or auto-select.
+baka mansanilya,FC002543;FC002554,Show separate labeled choices; never merge or auto-select.
+baka paypay,FC000370;FC000398,Show separate labeled choices; never merge or auto-select.
+baka pierna corta at pierna larga,FC000373;FC000374;FC000375;FC000406,Show separate labeled choices; never merge or auto-select.
 baka tadyang,FC000403;FC000409,Show separate labeled choices; never merge or auto-select.
+baka tagiliran,FC000377;FC000378;FC000379;FC000399;FC000404;FC000410,Show separate labeled choices; never merge or auto-select.
+baka utak,FC002541;FC002547,Show separate labeled choices; never merge or auto-select.
+bakokong moro,FC000939;FC002491,Show separate labeled choices; never merge or auto-select.
+balay,FC002437;FC002438;FC002439,Show separate labeled choices; never merge or auto-select.
+banak,FC000936;FC002487,Show separate labeled choices; never merge or auto-select.
+bangus,FC000046;FC000047;FC000048;FC000452;FC000473;FC000510;FC000511,Show separate labeled choices; never merge or auto-select.
 batad,FC001311;FC001312,Show separate labeled choices; never merge or auto-select.
+bataw bunga,FC000258;FC000288,Show separate labeled choices; never merge or auto-select.
+bawang dahon,FC000327;FC000767,Show separate labeled choices; never merge or auto-select.
 bayabas,FC000084;FC000123;FC000124,Show separate labeled choices; never merge or auto-select.
+bibingkang galapong,FC000163;FC000701,Show separate labeled choices; never merge or auto-select.
+bigas,FC000001;FC000002;FC000004;FC000180;FC000190;FC000191;FC000192;FC000193,Show separate labeled choices; never merge or auto-select.
+bigas mais pinaghalo 1 1,FC000181;FC000194,Show separate labeled choices; never merge or auto-select.
 bihon,FC000014;FC000689,Show separate labeled choices; never merge or auto-select.
-biko,FC000162;FC000697,Show separate labeled choices; never merge or auto-select.
+biko,FC000162;FC000697;FC000698,Show separate labeled choices; never merge or auto-select.
+bisugo,FC000937;FC002488,Show separate labeled choices; never merge or auto-select.
+bitilla,FC002456;FC002490,Show separate labeled choices; never merge or auto-select.
+biyang puti,FC000926;FC002481,Show separate labeled choices; never merge or auto-select.
 bok choy pechay,FC000066;FC000114;FC000115;FC000142;FC000143,Show separate labeled choices; never merge or auto-select.
+buko,FC000231;FC000232,Show separate labeled choices; never merge or auto-select.
 butse,FC000708;FC000709,Show separate labeled choices; never merge or auto-select.
+calico plant leaves,FC002363;FC002364,Show separate labeled choices; never merge or auto-select.
+calico plant lvs,FC002363;FC002364,Show separate labeled choices; never merge or auto-select.
 canton,FC000015;FC000131;FC000132;FC000133;FC000147,Show separate labeled choices; never merge or auto-select.
 chicharon,FC000360;FC000910,Show separate labeled choices; never merge or auto-select.
 chicken meat,FC000029;FC000101,Show separate labeled choices; never merge or auto-select.
 chicken tinola,FC001267;FC001268,Show separate labeled choices; never merge or auto-select.
 chicken whole meat,FC000029;FC000101,Show separate labeled choices; never merge or auto-select.
 coconut milk,FC000097;FC000144;FC000145,Show separate labeled choices; never merge or auto-select.
+common hog plum fruit,FC002430;FC002431,Show separate labeled choices; never merge or auto-select.
+common hog plum leaves,FC002410;FC002411,Show separate labeled choices; never merge or auto-select.
+common hog plum lvs,FC002410;FC002411,Show separate labeled choices; never merge or auto-select.
 crab,FC000059;FC000112;FC000113,Show separate labeled choices; never merge or auto-select.
 cuchinta,FC000166;FC000704,Show separate labeled choices; never merge or auto-select.
+dalag,FC000480;FC000481;FC000947,Show separate labeled choices; never merge or auto-select.
+dalagang bukid,FC000543;FC002474,Show separate labeled choices; never merge or auto-select.
+dalandan,FC000578;FC000579,Show separate labeled choices; never merge or auto-select.
+dampalit dahon,FC002337;FC002392,Show separate labeled choices; never merge or auto-select.
+dayap,FC000831;FC002419,Show separate labeled choices; never merge or auto-select.
+dilis,FC000055;FC000488;FC000499;FC000532,Show separate labeled choices; never merge or auto-select.
 egg noodles cooked,FC000015;FC000131;FC000132;FC000133;FC000147,Show separate labeled choices; never merge or auto-select.
+ensaymada,FC000008;FC000656,Show separate labeled choices; never merge or auto-select.
+fiddlehead fern leaves,FC000263;FC000297,Show separate labeled choices; never merge or auto-select.
+fiddlehead fern lvs,FC000263;FC000297,Show separate labeled choices; never merge or auto-select.
 filipino sausage,FC000043;FC000103;FC000104;FC000105,Show separate labeled choices; never merge or auto-select.
 fish sauce,FC000100;FC000146,Show separate labeled choices; never merge or auto-select.
-garbansos,FC000224;FC000229,Show separate labeled choices; never merge or auto-select.
+gabi,FC000091;FC000201,Show separate labeled choices; never merge or auto-select.
+gabi dahon,FC000278;FC000310;FC000315,Show separate labeled choices; never merge or auto-select.
+gabi tangkay,FC000279;FC000311,Show separate labeled choices; never merge or auto-select.
+galunggong,FC000050;FC000474;FC000475,Show separate labeled choices; never merge or auto-select.
+garbansos,FC000224;FC000229;FC000237,Show separate labeled choices; never merge or auto-select.
 gata,FC000097;FC000144;FC000145,Show separate labeled choices; never merge or auto-select.
+gatas,FC000093;FC000094;FC000127;FC000128;FC000129;FC000130;FC000603;FC000604;FC000605;FC000607;FC000949;FC000950,Show separate labeled choices; never merge or auto-select.
 gatas na pulbos,FC000095;FC000127;FC000128;FC000129;FC000130,Show separate labeled choices; never merge or auto-select.
 giniling na baboy,FC000040;FC000138;FC000139,Show separate labeled choices; never merge or auto-select.
 giniling na baka,FC000034;FC000134;FC000135;FC000136;FC000137,Show separate labeled choices; never merge or auto-select.
 ginisang monggo,FC001274;FC001275;FC001276;FC001277,Show separate labeled choices; never merge or auto-select.
 ginisang munggo,FC001274;FC001275;FC001276;FC001277,Show separate labeled choices; never merge or auto-select.
+gisantes,FC000238;FC000753,Show separate labeled choices; never merge or auto-select.
 ground beef,FC000034;FC000134;FC000135;FC000136;FC000137,Show separate labeled choices; never merge or auto-select.
 ground pork,FC000040;FC000138;FC000139,Show separate labeled choices; never merge or auto-select.
 guava,FC000084;FC000123;FC000124,Show separate labeled choices; never merge or auto-select.
-hipon,FC000057;FC000109;FC000110;FC000111,Show separate labeled choices; never merge or auto-select.
-kamoteng kahoy,FC000090;FC000198;FC000206,Show separate labeled choices; never merge or auto-select.
+halaan,FC000448;FC000460,Show separate labeled choices; never merge or auto-select.
+hasa hasa,FC000451;FC000462;FC000505;FC000506,Show separate labeled choices; never merge or auto-select.
+hipon,FC000057;FC000109;FC000110;FC000111;FC000454;FC000455;FC000497,Show separate labeled choices; never merge or auto-select.
+hito,FC000458;FC000500,Show separate labeled choices; never merge or auto-select.
+imbao,FC000486;FC000490,Show separate labeled choices; never merge or auto-select.
+isdang loro,FC002453;FC002489,Show separate labeled choices; never merge or auto-select.
+ispinaka dahon,FC000780;FC000781,Show separate labeled choices; never merge or auto-select.
+itlog,FC000016;FC000017;FC000018;FC000438;FC000441;FC000442;FC000443;FC000445;FC000446;FC000447;FC000948,Show separate labeled choices; never merge or auto-select.
+johey oak,FC002416;FC002534;FC002538,Show separate labeled choices; never merge or auto-select.
+kabasi,FC000924;FC002479;FC002480,Show separate labeled choices; never merge or auto-select.
+kabuti,FC000293;FC000314;FC000820,Show separate labeled choices; never merge or auto-select.
+kadyos bunga,FC000789;FC000790,Show separate labeled choices; never merge or auto-select.
+kadyos buto,FC000744;FC000745;FC000791,Show separate labeled choices; never merge or auto-select.
+kakaw,FC000647;FC001001,Show separate labeled choices; never merge or auto-select.
+kakawati bulaklak,FC002333;FC002379,Show separate labeled choices; never merge or auto-select.
+kalabasa bulaklak,FC000306;FC000342,Show separate labeled choices; never merge or auto-select.
+kalabasa bunga,FC000064;FC000270;FC000806,Show separate labeled choices; never merge or auto-select.
+kalabasa dahon,FC000271;FC000307,Show separate labeled choices; never merge or auto-select.
+kalabaw laman,FC000857;FC000858;FC000863;FC000864,Show separate labeled choices; never merge or auto-select.
+kalamay,FC000710;FC000711,Show separate labeled choices; never merge or auto-select.
+kalaso,FC000933;FC002485,Show separate labeled choices; never merge or auto-select.
+kamatis,FC000061;FC000280;FC000809,Show separate labeled choices; never merge or auto-select.
+kamias,FC000822;FC000844,Show separate labeled choices; never merge or auto-select.
+kamote,FC000088;FC000089;FC000200;FC000208;FC000209;FC000210,Show separate labeled choices; never merge or auto-select.
+kamote dahon,FC000276;FC000277;FC000308;FC000309,Show separate labeled choices; never merge or auto-select.
+kamoteng kahoy,FC000090;FC000198;FC000206;FC000211;FC000212;FC000213;FC000214;FC000215;FC000216;FC002323;FC002359,Show separate labeled choices; never merge or auto-select.
+kamyas,FC000822;FC000978,Show separate labeled choices; never merge or auto-select.
+kanduli,FC000459;FC000501,Show separate labeled choices; never merge or auto-select.
 kangkong,FC000073;FC000119,Show separate labeled choices; never merge or auto-select.
-labanos,FC000266;FC000302;FC000794,Show separate labeled choices; never merge or auto-select.
+kangkong dahon,FC000119;FC000275,Show separate labeled choices; never merge or auto-select.
+kaong,FC000838;FC000839,Show separate labeled choices; never merge or auto-select.
+karot,FC000067;FC000324,Show separate labeled choices; never merge or auto-select.
+kasuy talbos,FC002322;FC002358,Show separate labeled choices; never merge or auto-select.
+katuray bulaklak,FC000797;FC000798,Show separate labeled choices; never merge or auto-select.
+katuray dahon,FC002338;FC002396,Show separate labeled choices; never merge or auto-select.
+kaymito,FC000587;FC000588,Show separate labeled choices; never merge or auto-select.
+kinchay dahon at tangkay,FC000325;FC000760,Show separate labeled choices; never merge or auto-select.
+koles maluko talbos,FC002331;FC002375,Show separate labeled choices; never merge or auto-select.
+kuhol,FC000944;FC002460,Show separate labeled choices; never merge or auto-select.
+kulitis dahon,FC000799;FC000800,Show separate labeled choices; never merge or auto-select.
+kundol bunga,FC000813;FC000814,Show separate labeled choices; never merge or auto-select.
+kutsay dahon,FC000332;FC000773,Show separate labeled choices; never merge or auto-select.
+labahita,FC002464;FC002495,Show separate labeled choices; never merge or auto-select.
+labanos,FC000266;FC000302;FC000794;FC001823,Show separate labeled choices; never merge or auto-select.
+labong,FC000248;FC000282;FC000816;FC000817,Show separate labeled choices; never merge or auto-select.
+ladyfinger,FC000262;FC000295,Show separate labeled choices; never merge or auto-select.
 laman ng baboy,FC000039;FC000102,Show separate labeled choices; never merge or auto-select.
+langis,FC000098;FC000642,Show separate labeled choices; never merge or auto-select.
+langka buto,FC000331;FC000772,Show separate labeled choices; never merge or auto-select.
 lapas,FC000537;FC000538,Show separate labeled choices; never merge or auto-select.
+lapu lapu,FC000461;FC000503,Show separate labeled choices; never merge or auto-select.
 lean pork,FC000039;FC000102,Show separate labeled choices; never merge or auto-select.
-longanisa,FC000043;FC000103;FC000104;FC000105,Show separate labeled choices; never merge or auto-select.
+lechon manok,FC000348;FC000349,Show separate labeled choices; never merge or auto-select.
+limon,FC000830;FC002418,Show separate labeled choices; never merge or auto-select.
+longanisa,FC000043;FC000103;FC000104;FC000105;FC000362;FC000363;FC000367,Show separate labeled choices; never merge or auto-select.
 longganisa,FC000043;FC000103;FC000104;FC000105,Show separate labeled choices; never merge or auto-select.
-mangga,FC000080;FC000120;FC000121;FC000122,Show separate labeled choices; never merge or auto-select.
+lugaw,FC000626;FC000707,Show separate labeled choices; never merge or auto-select.
+lumpia,FC000620;FC001029;FC001030;FC001031;FC001045;FC001046,Show separate labeled choices; never merge or auto-select.
+mais,FC000183;FC000184;FC000187;FC000188,Show separate labeled choices; never merge or auto-select.
+mais sa busal,FC000005;FC000185;FC000186,Show separate labeled choices; never merge or auto-select.
+maja,FC000678;FC001199,Show separate labeled choices; never merge or auto-select.
+maja blanca,FC000677;FC001198,Show separate labeled choices; never merge or auto-select.
+malasugi,FC000484;FC002496,Show separate labeled choices; never merge or auto-select.
+malunggay bunga,FC000330;FC000771,Show separate labeled choices; never merge or auto-select.
+malunggay dahon,FC000074;FC000257;FC000328;FC000329;FC000769;FC000770,Show separate labeled choices; never merge or auto-select.
+mamale,FC002470;FC002471,Show separate labeled choices; never merge or auto-select.
+mami,FC000690;FC000691;FC001201,Show separate labeled choices; never merge or auto-select.
+mangga,FC000080;FC000120;FC000121;FC000122;FC000569;FC000570;FC000571;FC000572;FC000573;FC000574,Show separate labeled choices; never merge or auto-select.
+mangga talbos,FC002332;FC002378,Show separate labeled choices; never merge or auto-select.
 mango ripe,FC000080;FC000120;FC000121;FC000122,Show separate labeled choices; never merge or auto-select.
+mani,FC000022;FC000226;FC000227;FC000742;FC000743;FC001213,Show separate labeled choices; never merge or auto-select.
 manok,FC000029;FC000101,Show separate labeled choices; never merge or auto-select.
+manok bituka,FC000876;FC000877,Show separate labeled choices; never merge or auto-select.
+manok laman,FC000382;FC000383;FC000423,Show separate labeled choices; never merge or auto-select.
+manok paa,FC000417;FC000418,Show separate labeled choices; never merge or auto-select.
+mansanas,FC000551;FC000552,Show separate labeled choices; never merge or auto-select.
+mansanitas,FC000828;FC000848,Show separate labeled choices; never merge or auto-select.
+matang baka,FC000467;FC000519;FC000520,Show separate labeled choices; never merge or auto-select.
+maya maya,FC000465;FC000513,Show separate labeled choices; never merge or auto-select.
+miki,FC000150;FC000693,Show separate labeled choices; never merge or auto-select.
 misua,FC000149;FC000692,Show separate labeled choices; never merge or auto-select.
+mlp,FC002517;FC002523;FC002524;FC002526;FC002527,Show separate labeled choices; never merge or auto-select.
+monggo buto,FC000021;FC000234;FC000738;FC000739;FC000740;FC000741;FC000779,Show separate labeled choices; never merge or auto-select.
+munggo buto,FC000021;FC000234;FC000738;FC000739;FC000740;FC000741;FC000779,Show separate labeled choices; never merge or auto-select.
+mustasa dahon,FC000261;FC000294;FC001815;FC001816,Show separate labeled choices; never merge or auto-select.
+niyog,FC000097;FC000144;FC000145;FC000230;FC000644,Show separate labeled choices; never merge or auto-select.
 niyog gata,FC000097;FC000144;FC000145,Show separate labeled choices; never merge or auto-select.
+olasiman dahon,FC000792;FC000793,Show separate labeled choices; never merge or auto-select.
+oriles,FC000930;FC002483,Show separate labeled choices; never merge or auto-select.
+paayap bunga,FC000763;FC000764,Show separate labeled choices; never merge or auto-select.
+paayap buto,FC000733;FC000765,Show separate labeled choices; never merge or auto-select.
+paayap dahon,FC002324;FC002361,Show separate labeled choices; never merge or auto-select.
+paging,FC002463;FC002494,Show separate labeled choices; never merge or auto-select.
 pakbet,FC001278;FC001279,Show separate labeled choices; never merge or auto-select.
+palitaw,FC000167;FC000712,Show separate labeled choices; never merge or auto-select.
+palos,FC000920;FC002478,Show separate labeled choices; never merge or auto-select.
 pancit canton noodles,FC000015;FC000131;FC000132;FC000133;FC000147,Show separate labeled choices; never merge or auto-select.
 pansit bihon,FC001300;FC001301,Show separate labeled choices; never merge or auto-select.
+pasionaryang mabaho,FC000584;FC000585,Show separate labeled choices; never merge or auto-select.
+pastilyas,FC000956;FC000957;FC001849;FC001850,Show separate labeled choices; never merge or auto-select.
+patani bunga,FC000774;FC000775,Show separate labeled choices; never merge or auto-select.
+patatas,FC000199;FC000207,Show separate labeled choices; never merge or auto-select.
 patis,FC000100;FC000146,Show separate labeled choices; never merge or auto-select.
+patola bunga,FC000269;FC000305,Show separate labeled choices; never merge or auto-select.
+patola dahon,FC000341;FC000805,Show separate labeled choices; never merge or auto-select.
 pechay,FC000066;FC000114;FC000115;FC000142;FC000143,Show separate labeled choices; never merge or auto-select.
+pechay baguio,FC000065;FC000255,Show separate labeled choices; never merge or auto-select.
+petsay dahon,FC000114;FC000264,Show separate labeled choices; never merge or auto-select.
+petsay tangkay,FC000115;FC000265,Show separate labeled choices; never merge or auto-select.
+philippine fig,FC002334;FC002381,Show separate labeled choices; never merge or auto-select.
+pipino,FC000287;FC000819,Show separate labeled choices; never merge or auto-select.
 pork adobo,FC001261;FC001262,Show separate labeled choices; never merge or auto-select.
 pork lean meat,FC000039;FC000102,Show separate labeled choices; never merge or auto-select.
 pork sinigang,FC001269;FC001270,Show separate labeled choices; never merge or auto-select.
 powdered milk,FC000095;FC000127;FC000128;FC000129;FC000130,Show separate labeled choices; never merge or auto-select.
+pusit,FC000058;FC000456;FC000476,Show separate labeled choices; never merge or auto-select.
+puso,FC000249;FC000283,Show separate labeled choices; never merge or auto-select.
+puto puti,FC000165;FC000703,Show separate labeled choices; never merge or auto-select.
+puto seko,FC000717;FC001204,Show separate labeled choices; never merge or auto-select.
+remolacha,FC000756;FC000757,Show separate labeled choices; never merge or auto-select.
+repolyo,FC000252;FC000285;FC000323;FC000347,Show separate labeled choices; never merge or auto-select.
 ripe mango,FC000080;FC000120;FC000121;FC000122,Show separate labeled choices; never merge or auto-select.
+saging,FC000076;FC000077;FC000078;FC000079;FC000553;FC000554;FC000555;FC000556;FC000557;FC000558;FC000559;FC000560,Show separate labeled choices; never merge or auto-select.
+sago,FC000204;FC000218,Show separate labeled choices; never merge or auto-select.
+salay salay aso,FC000917;FC002476,Show separate labeled choices; never merge or auto-select.
+salmon,FC002457;FC002492,Show separate labeled choices; never merge or auto-select.
 saluyot,FC000259;FC000290,Show separate labeled choices; never merge or auto-select.
-sardinas,FC000054;FC000106;FC000107;FC000108,Show separate labeled choices; never merge or auto-select.
+samaral,FC000941;FC002493,Show separate labeled choices; never merge or auto-select.
+sampalok,FC000548;FC000591;FC000592;FC000975,Show separate labeled choices; never merge or auto-select.
+sampalok dahon,FC002341;FC002403,Show separate labeled choices; never merge or auto-select.
+sardinas,FC000054;FC000106;FC000107;FC000108;FC000518,Show separate labeled choices; never merge or auto-select.
 sardines,FC000054;FC000106;FC000107;FC000108,Show separate labeled choices; never merge or auto-select.
+sayote bunga,FC000075;FC000254,Show separate labeled choices; never merge or auto-select.
+sayote dahon,FC000326;FC000761,Show separate labeled choices; never merge or auto-select.
 shrimp,FC000057;FC000109;FC000110;FC000111,Show separate labeled choices; never merge or auto-select.
+sibuyas,FC000068;FC000069;FC000296;FC000333;FC000334;FC000335;FC000336;FC000782,Show separate labeled choices; never merge or auto-select.
 sigarilyas,FC000281;FC000313,Show separate labeled choices; never merge or auto-select.
+sili,FC000299;FC000300;FC000301;FC000337;FC000338;FC000339;FC000784;FC000785;FC000786,Show separate labeled choices; never merge or auto-select.
 sili sweet,FC000300;FC000301;FC000338;FC000339;FC000785;FC000786,Show separate labeled choices; never merge or auto-select.
+siniguelas talbos,FC002339;FC002398,Show separate labeled choices; never merge or auto-select.
+siopao,FC000618;FC000619,Show separate labeled choices; never merge or auto-select.
 sitaw,FC000071;FC000072;FC000116;FC000117;FC000118,Show separate labeled choices; never merge or auto-select.
+sitaw bunga,FC000116;FC000117;FC000118;FC000272;FC000273;FC000274,Show separate labeled choices; never merge or auto-select.
+sitaw buto,FC000344;FC000750;FC000808,Show separate labeled choices; never merge or auto-select.
+sitaw talbos,FC000343;FC000807,Show separate labeled choices; never merge or auto-select.
+sitsaro,FC000268;FC000304,Show separate labeled choices; never merge or auto-select.
 skipjack,FC000052;FC000140;FC000141,Show separate labeled choices; never merge or auto-select.
 skipjack tuna,FC000052;FC000140;FC000141,Show separate labeled choices; never merge or auto-select.
+sorbetes,FC000600;FC000601,Show separate labeled choices; never merge or auto-select.
+sotanghon,FC000148;FC000156,Show separate labeled choices; never merge or auto-select.
+spanish joint fir leaves,FC002320;FC002349,Show separate labeled choices; never merge or auto-select.
+spanish joint fir lvs,FC002320;FC002349,Show separate labeled choices; never merge or auto-select.
 string beans,FC000071;FC000116;FC000117;FC000118,Show separate labeled choices; never merge or auto-select.
+sugpo,FC000110;FC000534,Show separate labeled choices; never merge or auto-select.
+suka,FC000615;FC000991;FC000992,Show separate labeled choices; never merge or auto-select.
+sunset muskmallow leaves,FC002330;FC002374,Show separate labeled choices; never merge or auto-select.
+sunset muskmallow lvs,FC002330;FC002374,Show separate labeled choices; never merge or auto-select.
+tabagak,FC000495;FC000516,Show separate labeled choices; never merge or auto-select.
 taho,FC000242;FC000243,Show separate labeled choices; never merge or auto-select.
+tahong,FC000060;FC000453,Show separate labeled choices; never merge or auto-select.
+talaba,FC000464;FC000512,Show separate labeled choices; never merge or auto-select.
+talakitok,FC000535;FC000536;FC000546;FC002475,Show separate labeled choices; never merge or auto-select.
+talilong,FC000935;FC002486,Show separate labeled choices; never merge or auto-select.
+talinum dahon,FC000787;FC000788,Show separate labeled choices; never merge or auto-select.
+talong,FC000062;FC000256,Show separate labeled choices; never merge or auto-select.
+tambakol,FC000053;FC000531,Show separate labeled choices; never merge or auto-select.
+tamban,FC000106;FC000517,Show separate labeled choices; never merge or auto-select.
+tamling dahon,FC002342;FC002404,Show separate labeled choices; never merge or auto-select.
+tangigi,FC000463;FC000507,Show separate labeled choices; never merge or auto-select.
+tanglad dahon,FC000985;FC000986,Show separate labeled choices; never merge or auto-select.
+tapa,FC000045;FC000899;FC001348,Show separate labeled choices; never merge or auto-select.
+tawilis,FC000466;FC000514;FC000515,Show separate labeled choices; never merge or auto-select.
+tikoy,FC000699;FC000700,Show separate labeled choices; never merge or auto-select.
+tocino,FC000044;FC000361;FC001830,Show separate labeled choices; never merge or auto-select.
 tofu,FC000019;FC000020,Show separate labeled choices; never merge or auto-select.
+toge,FC000260;FC000292,Show separate labeled choices; never merge or auto-select.
+tonto,FC000539;FC002473,Show separate labeled choices; never merge or auto-select.
 tugi,FC000724;FC000725,Show separate labeled choices; never merge or auto-select.
-ubi,FC000092;FC000202,Show separate labeled choices; never merge or auto-select.
+tulingan,FC000470;FC000530,Show separate labeled choices; never merge or auto-select.
+tulya,FC000485;FC000489,Show separate labeled choices; never merge or auto-select.
+tupa biyas,FC000885;FC000886,Show separate labeled choices; never merge or auto-select.
+ubi,FC000092;FC000202;FC000219;FC000220,Show separate labeled choices; never merge or auto-select.
+upo bunga,FC000251;FC000284,Show separate labeled choices; never merge or auto-select.
+upo dahon,FC000322;FC000346,Show separate labeled choices; never merge or auto-select.
+uray dahon,FC002340;FC002399,Show separate labeled choices; never merge or auto-select.
+utaw buto,FC000228;FC000236;FC000747;FC000748;FC000749;FC000803;FC000804,Show separate labeled choices; never merge or auto-select.
 water spinach,FC000073;FC000119,Show separate labeled choices; never merge or auto-select.
+yabyaban,FC000222;FC000729,Show separate labeled choices; never merge or auto-select.
 yardlong bean,FC000072;FC000116;FC000117;FC000118,Show separate labeled choices; never merge or auto-select.

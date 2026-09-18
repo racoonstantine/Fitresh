@@ -1,0 +1,55 @@
+food_id,kind,group,name,source_food_id,source_url,estimate_id,modeled_mass_g
+FC002820,reference,USDA,"Restaurant, Chinese, general tso's chicken",167675,https://fdc.nal.usda.gov/food-details/167675/nutrients,,
+FC002821,reference,USDA,"Restaurant, Chinese, vegetable chow mein, without meat or noodles",168084,https://fdc.nal.usda.gov/food-details/168084/nutrients,,
+FC002822,reference,USDA,"Noodles, chinese, chow mein",168905,https://fdc.nal.usda.gov/food-details/168905/nutrients,,
+FC002823,reference,USDA,"Noodles, japanese, soba, dry",168906,https://fdc.nal.usda.gov/food-details/168906/nutrients,,
+FC002824,reference,USDA,"Noodles, japanese, somen, dry",168908,https://fdc.nal.usda.gov/food-details/168908/nutrients,,
+FC002825,reference,USDA,"Broccoli, chinese, cooked",169392,https://fdc.nal.usda.gov/food-details/169392/nutrients,,
+FC002826,reference,USDA,"Rice, white, steamed, Chinese restaurant",169712,https://fdc.nal.usda.gov/food-details/169712/nutrients,,
+FC002827,reference,USDA,"Noodles, flat, crunchy, Chinese restaurant",169735,https://fdc.nal.usda.gov/food-details/169735/nutrients,,
+FC002828,reference,USDA,"Cabbage, japanese style, fresh, pickled",169890,https://fdc.nal.usda.gov/food-details/169890/nutrients,,
+FC002829,reference,USDA,"Sauce, teriyaki, ready-to-serve",171167,https://fdc.nal.usda.gov/food-details/171167/nutrients,,
+FC002830,reference,USDA,"Soup, wonton, Chinese restaurant",171821,https://fdc.nal.usda.gov/food-details/171821/nutrients,,
+FC002831,reference,USDA,"Bread, naan, plain, commercially prepared, refrigerated",171845,https://fdc.nal.usda.gov/food-details/171845/nutrients,,
+FC002832,reference,USDA,"Hummus, home prepared",172454,https://fdc.nal.usda.gov/food-details/172454/nutrients,,
+FC002833,reference,USDA,"Falafel, home-prepared",172455,https://fdc.nal.usda.gov/food-details/172455/nutrients,,
+FC002834,reference,USDA,"Bread, pita, white, unenriched",172816,https://fdc.nal.usda.gov/food-details/172816/nutrients,,
+FC002835,reference,USDA,"Sauce, teriyaki, ready-to-serve, reduced sodium",172890,https://fdc.nal.usda.gov/food-details/172890/nutrients,,
+FC002836,reference,USDA,"Bread, naan, whole wheat, commercially prepared, refrigerated",174077,https://fdc.nal.usda.gov/food-details/174077/nutrients,,
+FC002837,reference,USDA,Chickpea flour (besan),174288,https://fdc.nal.usda.gov/food-details/174288/nutrients,,
+FC002838,reference,USDA,"Hummus, commercial",174289,https://fdc.nal.usda.gov/food-details/174289/nutrients,,
+FC002839,reference,USDA,"Soup, egg drop, Chinese restaurant",174807,https://fdc.nal.usda.gov/food-details/174807/nutrients,,
+FC002840,restaurant,Botejyu,Botejyu Philippines Teriyaki Chicken Salad (estimate),EST_WORLD_20260918_001_V1,https://botejyu.com.ph/,EST_WORLD_20260918_001_V1,245
+FC002841,restaurant,Botejyu,Botejyu Philippines Chawanmushi Egg Custard (estimate),EST_WORLD_20260918_002_V1,https://botejyu.com.ph/,EST_WORLD_20260918_002_V1,229
+FC002842,restaurant,Botejyu,Botejyu Philippines Cheesy Pork Belly Tonpei (estimate),EST_WORLD_20260918_003_V1,https://botejyu.com.ph/,EST_WORLD_20260918_003_V1,214
+FC002843,restaurant,Botejyu,Botejyu Philippines Tamagoyaki (estimate),EST_WORLD_20260918_004_V1,https://botejyu.com.ph/,EST_WORLD_20260918_004_V1,186
+FC002844,restaurant,Panda Express,"Panda Express Philippines Orange Chicken, entree only (estimate)",EST_WORLD_20260918_005_V1,https://www.pandaexpress.com.ph/our-food,EST_WORLD_20260918_005_V1,159
+FC002845,restaurant,Panda Express,"Panda Express Philippines Kung Pao Chicken, entree only (estimate)",EST_WORLD_20260918_006_V1,https://www.pandaexpress.com.ph/our-food,EST_WORLD_20260918_006_V1,224
+FC002846,restaurant,Panda Express,"Panda Express Philippines Chow Mein, noodles only (estimate)",EST_WORLD_20260918_007_V1,https://www.pandaexpress.com.ph/our-food,EST_WORLD_20260918_007_V1,279
+FC002847,restaurant,Panda Express,"Panda Express Philippines Fried Rice, rice only (estimate)",EST_WORLD_20260918_008_V1,https://www.pandaexpress.com.ph/our-food,EST_WORLD_20260918_008_V1,312
+FC002848,restaurant,Royal Indian Curry House by Swaadisht,"Royal Indian Curry House by Swaadisht Philippines Murg Makhani Butter Chicken, curry only (estimate)",EST_WORLD_20260918_009_V1,https://www.foodpanda.ph/restaurant/ue3h/royal-indian-curry-house-by-swaadisht-ue3h,EST_WORLD_20260918_009_V1,318
+FC002849,restaurant,Royal Indian Curry House by Swaadisht,"Royal Indian Curry House by Swaadisht Philippines Chicken Biryani, rice and boneless chicken (estimate)",EST_WORLD_20260918_010_V1,https://www.foodpanda.ph/restaurant/ue3h/royal-indian-curry-house-by-swaadisht-ue3h,EST_WORLD_20260918_010_V1,395
+FC002850,restaurant,Royal Indian Curry House by Swaadisht,"Royal Indian Curry House by Swaadisht Philippines Egg Biryani, rice and egg (estimate)",EST_WORLD_20260918_011_V1,https://www.foodpanda.ph/restaurant/ue3h/royal-indian-curry-house-by-swaadisht-ue3h,EST_WORLD_20260918_011_V1,374
+FC002851,restaurant,Royal Indian Curry House by Swaadisht,"Royal Indian Curry House by Swaadisht Philippines Prawn Curry, curry only (estimate)",EST_WORLD_20260918_012_V1,https://www.foodpanda.ph/restaurant/ue3h/royal-indian-curry-house-by-swaadisht-ue3h,EST_WORLD_20260918_012_V1,312
+FC002852,restaurant,Mister Kabab,"Mister Kabab Philippines Beef Special Chelo Kabab, modeled rice and beef (estimate)",EST_WORLD_20260918_013_V1,https://www.misterkabab.com.ph/,EST_WORLD_20260918_013_V1,448
+FC002853,restaurant,Mister Kabab,"Mister Kabab Philippines Chicken Special Chelo Kabab, modeled rice and chicken (estimate)",EST_WORLD_20260918_014_V1,https://www.misterkabab.com.ph/,EST_WORLD_20260918_014_V1,454
+FC002854,restaurant,Mister Kabab,Mister Kabab Philippines Shawarma Sandwich (estimate),EST_WORLD_20260918_015_V1,https://www.misterkabab.com.ph/,EST_WORLD_20260918_015_V1,226
+FC002855,restaurant,Mister Kabab,"Mister Kabab Philippines Chicken Barbecue, edible chicken only (estimate)",EST_WORLD_20260918_016_V1,https://www.misterkabab.com.ph/,EST_WORLD_20260918_016_V1,180
+FC002856,restaurant,Banana Leaf,Banana Leaf Philippines Malayan Seafood Laksa (estimate),EST_WORLD_20260918_017_V1,https://bananaleaf.com.ph/menu/,EST_WORLD_20260918_017_V1,542
+FC002857,restaurant,Banana Leaf,"Banana Leaf Philippines Hainanese Chicken Set Meal, modeled chicken and rice (estimate)",EST_WORLD_20260918_018_V1,https://bananaleaf.com.ph/menu/,EST_WORLD_20260918_018_V1,380
+FC002858,restaurant,Banana Leaf,Banana Leaf Philippines Malayan Chicken Curry with Potatoes (estimate),EST_WORLD_20260918_019_V1,https://bananaleaf.com.ph/menu/,EST_WORLD_20260918_019_V1,385
+FC002859,restaurant,Banana Leaf,Banana Leaf Philippines Penang Char Kway Teow (estimate),EST_WORLD_20260918_020_V1,https://bananaleaf.com.ph/menu/,EST_WORLD_20260918_020_V1,348
+FC002860,restaurant,Shake Shack,"Shake Shack Philippines ShackBurger, single sandwich (estimate)",EST_WORLD_20260918_021_V1,https://www.shakeshack.ph/,EST_WORLD_20260918_021_V1,218
+FC002861,restaurant,Shake Shack,"Shake Shack Philippines SmokeShack, single sandwich (estimate)",EST_WORLD_20260918_022_V1,https://www.shakeshack.ph/,EST_WORLD_20260918_022_V1,216
+FC002862,restaurant,Shake Shack,"Shake Shack Philippines Hamburger, single sandwich with lettuce and tomato (estimate)",EST_WORLD_20260918_023_V1,https://www.shakeshack.ph/,EST_WORLD_20260918_023_V1,180
+FC002863,restaurant,Shake Shack,"Shake Shack Philippines Grilled Cheese, sandwich only (estimate)",EST_WORLD_20260918_024_V1,https://www.shakeshack.ph/,EST_WORLD_20260918_024_V1,112
+FC002864,dish,Japanese,"Oyakodon, chicken and egg over rice (Japanese) (estimate)",EST_WORLD_20260918_025_V1,https://www.justonecookbook.com/oyakodon/,EST_WORLD_20260918_025_V1,460
+FC002865,dish,Japanese,"Gyudon, beef and onion over rice (Japanese) (estimate)",EST_WORLD_20260918_026_V1,https://www.justonecookbook.com/gyudon/,EST_WORLD_20260918_026_V1,410
+FC002866,dish,Chinese,"Mapo tofu, pork version, no rice (Chinese) (estimate)",EST_WORLD_20260918_027_V1,https://thewoksoflife.com/ma-po-tofu-real-deal/,EST_WORLD_20260918_027_V1,429
+FC002867,dish,Chinese,Shrimp and egg fried rice (Chinese) (estimate),EST_WORLD_20260918_028_V1,https://thewoksoflife.com/shrimp-fried-rice/,EST_WORLD_20260918_028_V1,389
+FC002868,dish,Indian,"Chana masala, chickpea curry, no rice (Indian) (estimate)",EST_WORLD_20260918_029_V1,https://www.indianhealthyrecipes.com/chana-masala/,EST_WORLD_20260918_029_V1,433
+FC002869,dish,Indian,"Chicken biryani, modeled boneless rice mixture (Indian) (estimate)",EST_WORLD_20260918_030_V1,https://www.indianhealthyrecipes.com/chicken-biryani-recipe/,EST_WORLD_20260918_030_V1,466
+FC002870,dish,Middle Eastern,"Chicken shawarma, meat only (Middle Eastern) (estimate)",EST_WORLD_20260918_031_V1,https://www.themediterraneandish.com/grilled-chicken-shawarma/,EST_WORLD_20260918_031_V1,201
+FC002871,dish,Middle Eastern,"Chicken kofta kebab, meat only (Middle Eastern) (estimate)",EST_WORLD_20260918_032_V1,https://www.themediterraneandish.com/grilled-chicken-kofta/,EST_WORLD_20260918_032_V1,229
+FC002872,dish,Singaporean,"Hainanese chicken rice, modeled boneless mixture (Singaporean) (estimate)",EST_WORLD_20260918_033_V1,https://www.visitsingapore.com/content/dam/desktop/global/about-singapore/traveller-information/466-tos-singaporelbb-2015-complete-small.pdf,EST_WORLD_20260918_033_V1,374
+FC002873,dish,Singaporean,"Laksa, shrimp coconut noodle soup (Singaporean) (estimate)",EST_WORLD_20260918_034_V1,https://www.visitsingapore.com/content/dam/desktop/global/about-singapore/traveller-information/466-tos-singaporelbb-2015-complete-small.pdf,EST_WORLD_20260918_034_V1,562

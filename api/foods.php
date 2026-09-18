@@ -55,6 +55,7 @@ function food_with_nutrients(PDO $pdo, int $foodId): array
             $food['confidence'] = $snapshot['confidence'] ?? null;
             $food['nutrient_provenance'] = $snapshot['nutrient_provenance'];
             $food['portions'] = $snapshot['portions'] ?? [];
+            $food['local_name'] = $snapshot['local_name'] ?? null;
         } catch (Throwable $e) {
             $food['label'] = 'Catalog — source details unavailable';
         }
