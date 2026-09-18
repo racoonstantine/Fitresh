@@ -138,7 +138,7 @@
     display:flex;align-items:center;gap:20px;flex-shrink:0;
     padding:12px 20px;background:var(--color-surface);
   }
-  .topbar-brand{display:flex;align-items:center;gap:9px;font-family:var(--font-heading);font-size:17px;flex-shrink:0;}
+  .topbar-brand{display:flex;align-items:center;gap:9px;font-family:var(--font-heading);font-size:17px;flex-shrink:0;cursor:pointer;}
   .topbar-brand .ring{width:22px;height:22px;border-radius:50%;background:var(--color-accent);flex-shrink:0;}
   .tab-nav{display:flex;gap:6px;flex:1;flex-wrap:wrap;}
   .tab-nav-btn{
@@ -4968,6 +4968,7 @@ async function startApp(){
   }
   document.getElementById('tabNavTop').addEventListener('click', onTabNavClick);
   document.getElementById('tabNavBottom').addEventListener('click', onTabNavClick);
+  document.querySelector('.topbar-brand').addEventListener('click', ()=> showView('today'));
 
   // Account sub-nav: Snapshot / My data / Goals / Account / Feedback
   const accountViewPanels = {
