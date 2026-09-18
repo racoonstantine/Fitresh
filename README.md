@@ -920,6 +920,46 @@ section. Steps and Calories burned didn't have a recommended-value
 callout at all before; now they show the same 10,000-steps / 400-kcal
 baseline used elsewhere in the app.
 
+## Workout plans (Phase 1 of the Train page redesign)
+
+Introduces a user-editable weekly schedule, replacing the old
+always-the-same-for-everyone `weekPlan` constant. Stored as a small JSON
+blob (`user_data` resource `workoutPlan`), same pattern as fasting/water/
+sleep — no new DB table, since this is config, not a log of completed work.
+
+- **No Plan Yet** — a genuinely new account sees this instead of a
+  schedule, with a "Create Workout Plan" button.
+- **Migration** — an account with any prior activity (history or checked
+  exercises) keeps its exact old schedule as its starting plan the first
+  time this loads, decided once and saved, so nothing changes for anyone
+  already using the app. Verified directly: seeded a user with prior
+  history and confirmed their mini-calendar came out identical to the old
+  hardcoded schedule.
+- **Preset** — four starting schedules (Balanced = the old default,
+  Strength A, Strength B, Cardio), each a full week built from the
+  existing Strength/Cardio content — no new exercises authored.
+- **Custom** — build your own week: name it (≤10 characters, for the
+  mini-calendar), and per day pick Rest, Other (with a note), or one or
+  more activities from the Exercise & activity library (multiple per day
+  is supported — e.g. "Goblet Squat, Running" the same day). Verified
+  end-to-end including the multi-activity add/remove/search flow.
+- **Just Open** — no fixed schedule; each day's label comes from whatever
+  was actually logged that date, live. Verified: logging a session
+  immediately updates that day's mini-calendar tile and the Today banner
+  with no separate save step.
+- "Go" on a legacy-type day behaves exactly as before (opens that
+  Strength/Cardio tab). "Go" on a library-type day scrolls to the Exercise
+  & activity library section.
+
+**Deliberately out of scope for this pass** (flagged, not forgotten): the
+dedicated "My Workout Page" that the Today banner's "Go" will eventually
+open instead of scrolling within the Train tab, and moving the AI
+prompt-assist logging there. Also, library-type plan days don't yet count
+toward the dashboard's workout-day stats or streaks (only legacy-type days
+do) — those read the plan through `planDayFor()`, which only recognizes
+legacy days for now. Both are natural next steps once this foundation is
+confirmed working for real usage.
+
 ## Local development
 
 There's no build step. To preview the frontend against a local PHP server:
