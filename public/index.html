@@ -237,6 +237,7 @@
   .goal-field input{width:100%;border:none;background:transparent;font-family:var(--font-heading);font-size:16px;margin-top:2px;padding:2px 0;color:var(--ink);}
   .goal-field input:focus{outline:none;}
   .goal-field-unit{padding:1px 4px;border:1px solid var(--line);border-radius:4px;background:var(--paper);font-size:10px;flex-shrink:0;}
+  .goal-field-hint{font-size:9.5px;color:var(--forest-dark);font-weight:600;text-transform:none;letter-spacing:0;white-space:nowrap;flex-shrink:0;}
   *{box-sizing:border-box;}
   html, body{
     height:100%;
@@ -678,7 +679,7 @@
     <div style="background:var(--paper-raised);border:1px solid var(--line);border-radius:8px;padding:16px;">
       <form id="onboardingForm">
         <label style="font-size:11px;color:var(--ink-soft);">Username (optional, 6+ characters, must be unique)</label>
-        <input type="text" id="obUsername" autocomplete="username" minlength="6" maxlength="30" placeholder="e.g. winresh_fit" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;margin-bottom:10px;">
+        <input type="text" id="obUsername" autocomplete="username" maxlength="30" placeholder="e.g. winresh_fit" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;margin-bottom:10px;">
 
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px;">
           <div>
@@ -691,7 +692,7 @@
           </div>
           <div>
             <label style="font-size:11px;color:var(--ink-soft);">Age</label>
-            <input type="number" id="obAge" min="10" max="110" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;">
+            <input type="number" id="obAge" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;">
           </div>
         </div>
 
@@ -704,10 +705,10 @@
                 <option value="ft">ft/in</option>
               </select>
             </div>
-            <input type="number" id="obHeight" min="100" max="250" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;">
+            <input type="number" id="obHeight" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;">
             <div id="obHeightFtWrap" style="display:none;gap:6px;margin-top:2px;">
-              <input type="number" id="obHeightFt" placeholder="ft" min="3" max="8" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);">
-              <input type="number" id="obHeightIn" placeholder="in" min="0" max="11" step="0.1" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);">
+              <input type="number" id="obHeightFt" placeholder="ft" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);">
+              <input type="number" id="obHeightIn" placeholder="in" step="0.1" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);">
             </div>
           </div>
           <div>
@@ -720,6 +721,19 @@
             </select>
           </div>
         </div>
+
+        <label style="font-size:11px;color:var(--ink-soft);">Diet style (optional — sets a starting macro split, editable later on Goals)</label>
+        <select id="obDietPreset" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;margin-bottom:10px;">
+          <option value="open" selected>No specific diet</option>
+          <option value="balanced">Balanced</option>
+          <option value="lowcarb">Low-Carb</option>
+          <option value="keto">Keto</option>
+          <option value="highprotein">High-Protein</option>
+          <option value="mediterranean">Mediterranean</option>
+          <option value="vegetarian">Vegetarian</option>
+          <option value="vegan">Vegan</option>
+          <option value="custom">Custom split</option>
+        </select>
 
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:6px;">
           <div>
@@ -1212,18 +1226,26 @@
             </div>
           </div>
 
-          <div style="font-size:11px;color:var(--ink-soft);margin:12px 0 4px;" id="goalProteinNote"></div>
-          <div class="goal-grid">
+          <div class="goal-grid" style="margin-top:12px;">
             <div class="goal-field">
-              <label>Protein (g)</label>
+              <div class="goal-field-head">
+                <label>Protein (g)</label>
+                <span class="goal-field-hint" id="goalProteinHint"></span>
+              </div>
               <input type="number" id="goalProteinCustom">
             </div>
             <div class="goal-field">
-              <label>Carbs (g)</label>
+              <div class="goal-field-head">
+                <label>Carbs (g)</label>
+                <span class="goal-field-hint" id="goalCarbsHint"></span>
+              </div>
               <input type="number" id="goalCarbsCustom">
             </div>
             <div class="goal-field">
-              <label>Fat (g)</label>
+              <div class="goal-field-head">
+                <label>Fat (g)</label>
+                <span class="goal-field-hint" id="goalFatHint"></span>
+              </div>
               <input type="number" id="goalFatCustom">
             </div>
           </div>
@@ -1269,11 +1291,17 @@
           <div class="goals-category-title">Train</div>
           <div class="goal-grid">
             <div class="goal-field">
-              <label>Steps</label>
+              <div class="goal-field-head">
+                <label>Steps</label>
+                <span class="goal-field-hint" id="goalStepsHint"></span>
+              </div>
               <input type="number" id="goalSteps">
             </div>
             <div class="goal-field">
-              <label>Calories burned</label>
+              <div class="goal-field-head">
+                <label>Calories burned</label>
+                <span class="goal-field-hint" id="goalCalorieBurnHint"></span>
+              </div>
               <input type="number" id="goalCalorieBurn">
             </div>
           </div>
@@ -3800,7 +3828,7 @@ function renderAccountGoals(){
 
   if(!t){
     document.getElementById('goalEnergyNote').textContent = 'Set up your profile (age, height, weight) to see recommended targets.';
-    document.getElementById('goalProteinNote').textContent = '';
+    ['goalProteinHint','goalCarbsHint','goalFatHint'].forEach(id => document.getElementById(id).textContent = '');
     document.getElementById('goalEnergyRecommended').textContent = '—';
     document.getElementById('goalEnergyCustom').value = profile.customCalorieTarget || '';
     document.getElementById('goalProteinCustom').value = profile.customProteinTarget || '';
@@ -3820,9 +3848,9 @@ function renderAccountGoals(){
     const recProtein = preset.proteinPct != null ? Math.round(cal * preset.proteinPct / 4) : t.recommendedProteinTarget;
     const recCarbs = preset.carbsPct != null ? Math.round(cal * preset.carbsPct / 4) : 180;
     const recFat = preset.fatPct != null ? Math.round(cal * preset.fatPct / 9) : Math.round(cal * 0.3 / 9);
-    document.getElementById('goalProteinNote').textContent = preset.proteinPct != null
-      ? `Recommended from your ${preset.label} split: ${recProtein}g protein / ${recCarbs}g carbs / ${recFat}g fat.`
-      : `Recommended: ${recProtein}g protein (1.8g/kg), ${recCarbs}g carbs, ${recFat}g fat (~30% of energy).`;
+    document.getElementById('goalProteinHint').textContent = `Rec ${recProtein}g`;
+    document.getElementById('goalCarbsHint').textContent = `Rec ${recCarbs}g`;
+    document.getElementById('goalFatHint').textContent = `Rec ${recFat}g`;
     document.getElementById('goalProteinCustom').value = profile.customProteinTarget || recProtein;
     document.getElementById('goalCarbsCustom').value = profile.customCarbTarget || recCarbs;
     document.getElementById('goalFatCustom').value = profile.customFatTarget || recFat;
@@ -3838,7 +3866,9 @@ function renderAccountGoals(){
   document.getElementById('goalTargetWeight').value = profile.goalWeightKg ? Math.round(kgToDisplayWeight(profile.goalWeightKg) * 10) / 10 : '';
   document.getElementById('goalSleepHours').value = profile.sleepGoalHours || 8;
   document.getElementById('goalSteps').value = profile.stepsGoal || 10000;
+  document.getElementById('goalStepsHint').textContent = 'Rec 10,000';
   document.getElementById('goalCalorieBurn').value = profile.calorieBurnGoal || 400;
+  document.getElementById('goalCalorieBurnHint').textContent = 'Rec 400';
   document.getElementById('goalWater').value = profile.waterGoalMl || 2500;
   document.getElementById('goalFastingHours').value = fastingState.goalHours || 16;
 
@@ -5293,6 +5323,7 @@ function showOnboarding(){
   document.getElementById('obGender').value = p.gender || '';
   document.getElementById('obAge').value = p.age || '';
   document.getElementById('obActivity').value = p.activityLevel || 'light';
+  document.getElementById('obDietPreset').value = p.dietPreset || 'open';
 
   obWeightUnitPrev = p.weightUnit || 'kg';
   obHeightUnitPrev = p.heightUnit || 'cm';
@@ -5330,7 +5361,7 @@ async function showAppFor(user){
   // Client-side visibility only -- api/admin.php re-checks this server-side
   // on every request, so hiding/showing this tab is purely cosmetic.
   const adminBtn = document.getElementById('adminSubnavBtn');
-  if(adminBtn) adminBtn.style.display = (user.email || '').toLowerCase() === 'sherwin.llona@gmail.com' ? '' : 'none';
+  if(adminBtn) adminBtn.style.display = (user.email || '').toLowerCase() === 'sherwinllona@gmail.com' ? '' : 'none';
   await startApp();
   if(window.workoutLibraryStart) window.workoutLibraryStart();
   if(!userProfile){
@@ -5467,6 +5498,7 @@ async function checkAuthAndStart(){
         weightUnit: wUnit,
         heightUnit: hUnit,
         activityLevel: document.getElementById('obActivity').value,
+        dietPreset: document.getElementById('obDietPreset').value,
         currentWeightKg: currentWeightKgVal,
         goalWeightKg: goalWeightKgVal,
         notes: document.getElementById('obNotes').value.trim() || null

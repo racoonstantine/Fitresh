@@ -14,7 +14,7 @@ if (empty($_SESSION['user_id'])) {
 // console for a single-admin invite-only app. If this ever needs more than
 // one admin, move this to an `is_admin` column on `users` instead of
 // growing this list.
-const ADMIN_EMAILS = ['sherwin.llona@gmail.com'];
+const ADMIN_EMAILS = ['sherwinllona@gmail.com'];
 
 $pdo = get_db();
 $userId = (int)$_SESSION['user_id'];

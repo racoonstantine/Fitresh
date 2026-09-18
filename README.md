@@ -885,6 +885,41 @@ confirmation-token flow, a UI for it, resend handling, etc.). Worth a
 dedicated follow-up if self-service reset becomes a priority; for now the
 admin-driven reset covers the immediate need.
 
+## Fixed: onboarding "Save & continue" silently doing nothing
+
+Root cause: `min`/`max`/`minlength` attributes on the onboarding form's
+username/age/height fields. If a value violated one of those (a username
+under 6 characters, an age outside 10–110, etc.), the browser's *native*
+validation silently blocked the form's `submit` event from ever firing —
+our own JS handler (which shows a real error message) never ran, so the
+button looked like it just didn't work. Reproduced directly: entering a
+3-character username together with an out-of-range age produced exactly
+this silent non-response before the fix.
+
+Removed those constraints from the onboarding form specifically. Username
+length is still enforced — just server-side (`auth.php`'s existing
+`validate_username`), which now actually gets a chance to run and show its
+real error ("Username must be 6-30 characters.") instead of the browser
+eating the submit silently. Age/height have no meaningful validation to
+lose; a stray value there was never worth blocking the whole profile save
+over. Verified end-to-end: the exact repro (short username + age 5) now
+shows the real error message and the form is fully save-able once fixed.
+
+Also added a **Diet style** picker to this same onboarding form (same 9
+options as the Goals page: Balanced, Low-Carb, Keto, High-Protein,
+Mediterranean, Vegetarian, Vegan, Custom split, or none), so a new user can
+set it during first-time setup instead of only discovering it later on
+Goals. Both write to the same `profile.dietPreset` field.
+
+## Goals page: recommended values shown beside each field
+
+Protein/Carbs/Fat/Steps/Calories-burned each now show their recommended
+value as a small hint next to that field's own label (e.g. "PROTEIN (G)
+_Rec 135g_") instead of one combined sentence above the whole macro
+section. Steps and Calories burned didn't have a recommended-value
+callout at all before; now they show the same 10,000-steps / 400-kcal
+baseline used elsewhere in the app.
+
 ## Local development
 
 There's no build step. To preview the frontend against a local PHP server:
