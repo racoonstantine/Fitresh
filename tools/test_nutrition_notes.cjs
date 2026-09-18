@@ -15,9 +15,12 @@ const context = vm.createContext({});
 vm.runInContext(code, context);
 const { macroBarRow, buildNutritionNotes } = context;
 
-// --- macroBarRow: range mode must flag red both under the floor AND over the ceiling ---
+// --- macroBarRow: range mode is three-state -- orange under the floor, green
+// within range, red over the ceiling ---
 // Under floor.
-assert.ok(macroBarRow('Protein', 80, 120, 140, 'g', 'range').includes('#B4472A'), 'range mode should be red when under the floor');
+const underFloor = macroBarRow('Protein', 80, 120, 140, 'g', 'range');
+assert.ok(underFloor.includes('var(--ochre)'), 'range mode should be orange when under the floor');
+assert.ok(!underFloor.includes('#B4472A'));
 // Within range.
 assert.ok(macroBarRow('Protein', 130, 120, 140, 'g', 'range').includes('var(--forest)'), 'range mode should be green within range');
 assert.ok(!macroBarRow('Protein', 130, 120, 140, 'g', 'range').includes('#B4472A'));
