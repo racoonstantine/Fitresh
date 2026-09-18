@@ -965,16 +965,6 @@
     </section>
 
     <section class="block" style="margin-bottom:18px;">
-      <div class="hub-card open-steps-screen-link" id="trainStepsCard" style="cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;">
-        <div>
-          <div class="block-title" style="margin:0;">👣 Steps</div>
-          <div class="glance-card-sub" id="trainStepsSub" style="margin-top:2px;">—</div>
-        </div>
-        <div style="font-family:var(--font-heading);font-size:22px;" id="trainStepsValue">—</div>
-      </div>
-    </section>
-
-    <section class="block" style="margin-bottom:18px;">
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
         <div class="block-title" style="margin:0;flex:1;">Workout Dashboard</div>
         <select id="dashRange" style="padding:7px 10px;border:1px solid var(--line);border-radius:6px;font-size:12.5px;font-weight:600;">
@@ -991,14 +981,15 @@
 
     <section class="block" id="workoutLibrary"></section>
 
-    <div class="tabs" id="tabs" style="scroll-margin-top:12px;margin-top:16px;">
+    <div class="block-title" id="sessionPlanHeading" style="margin-top:16px;scroll-margin-top:12px;">Today's Plan</div>
+    <div class="tabs" id="tabs" style="display:none;">
       <button class="tab" data-day="A">Strength A</button>
       <button class="tab" data-day="B">Strength B</button>
       <button class="tab" data-day="steady">Cardio Steady</button>
       <button class="tab" data-day="interval">Cardio Intervals</button>
     </div>
 
-    <section class="block">
+    <section class="block" id="warmupBlock">
       <div class="block-title">Warm-up · 5–7 min, every session</div>
       <table class="warmup">
         <tr><td>March in place / light jog</td><td>1 min</td></tr>
@@ -1017,11 +1008,21 @@
       <div id="exerciseList"></div>
       <div class="note">Rest 45–60 sec between sets. Pick a weight where the last 2–3 reps feel hard but your form stays clean.</div>
       <div id="strengthStatsBlock" style="margin-top:12px;"></div>
+      <button class="today-btn" id="strengthCompleteLogBtn" style="width:100%;margin-top:12px;padding:11px 0;">✅ Plan Completed &amp; Log</button>
+      <div class="note" id="strengthLoggedNote" style="margin-top:6px;"></div>
     </section>
 
     <section class="block" id="cardioBlock" style="display:none;">
       <div class="block-title" id="cardioTitle">Cardio</div>
       <div class="cardio-card" id="cardioContent"></div>
+    </section>
+
+    <section class="block" id="customPlanBlock" style="display:none;">
+      <div class="block-title" id="customPlanTitle">Custom plan</div>
+      <div id="customPlanList"></div>
+      <div class="note">Rest 45–60 sec between sets. Pick a weight where the last 2–3 reps feel hard but your form stays clean.</div>
+      <button class="today-btn" id="customPlanCompleteLogBtn" style="width:100%;margin-top:12px;padding:11px 0;">✅ Plan Completed &amp; Log</button>
+      <div class="note" id="customPlanLoggedNote" style="margin-top:6px;"></div>
     </section>
 
     <section class="block">
@@ -2007,6 +2008,14 @@ function planDayFor(dayIdx, dStr){
   const plan = getWorkoutPlan(entry.planId);
   return (plan && plan.kind === 'legacy') ? plan.legacyKey : null;
 }
+// Same lookup as planDayFor, but returns the scheduled Workout Plan itself
+// (legacy or custom) rather than only a legacy key -- used wherever the
+// dashboard needs to say what's planned regardless of plan kind.
+function scheduledPlanFor(dayIdx, dStr){
+  const entry = effectiveDayEntry(dStr, dayIdx);
+  if(!entry || entry.type !== 'workoutPlan') return null;
+  return getWorkoutPlan(entry.planId);
+}
 
 function toLocalDateStr(d){
   const y = d.getFullYear();
@@ -2032,7 +2041,7 @@ let nutriSelectedDate = null; // set on init to today; navigable via prev/next
 let dashSelectedDate = null; // workout dashboard day-view selected date
 function scrollToWorkout(){
   try{
-    const el = document.getElementById('tabs');
+    const el = document.getElementById('sessionPlanHeading');
     if(el && el.scrollIntoView) el.scrollIntoView({behavior:'smooth', block:'start'});
   }catch(e){}
 }
@@ -2771,7 +2780,7 @@ async function saveHistory(){
   try{ await window.storage.set(STORAGE_PREFIX + 'history', JSON.stringify(historyLog), false); }catch(e){}
 }
 
-function upsertSessionLog(dateStr, dayId, exercisesSnapshot, notes, stats){
+function upsertSessionLog(dateStr, dayId, exercisesSnapshot, notes, stats, labelOverride){
   const existing = historyLog.find(e => e.date === dateStr && e.day === dayId);
   const finalNotes = notes !== undefined ? notes : (existing ? existing.notes : '');
   const finalStats = stats !== undefined ? stats : (existing ? existing.stats : null);
@@ -2779,7 +2788,7 @@ function upsertSessionLog(dateStr, dayId, exercisesSnapshot, notes, stats){
   historyLog.push({
     date: dateStr,
     day: dayId,
-    label: tabLabels[dayId] || 'Custom / Deviation',
+    label: labelOverride || tabLabels[dayId] || 'Custom / Deviation',
     exercises: exercisesSnapshot,
     notes: finalNotes || '',
     stats: finalStats || null,
@@ -3939,16 +3948,6 @@ function renderBodySleepCard(){
   renderTrendLineChart(chartEl, recent.map(s => ({y: s.hours, label: formatDateLabel(s.date)})), {goalValue: goalHrs});
 }
 
-function renderTrainStepsCard(){
-  const valEl = document.getElementById('trainStepsValue');
-  const subEl = document.getElementById('trainStepsSub');
-  if(!valEl) return;
-  const today = dateStrForOffset(0);
-  const stepsToday = stepsLog[today] || 0;
-  const stepsTarget = (userHealthTargets && userHealthTargets.stepsGoal) || 10000;
-  valEl.textContent = stepsToday.toLocaleString();
-  subEl.textContent = `Target: ${stepsTarget.toLocaleString()}${stepsToday >= stepsTarget ? ' ✓' : ''}`;
-}
 function renderAccountSnapshot(){
   const greetingCard = document.getElementById('snapshotGreetingCard');
   const profileCard = document.getElementById('snapshotProfileCard');
@@ -4442,17 +4441,25 @@ function renderDashboard(){
     const dayEntries = historyLog.filter(e => e.date === dashSelectedDate);
     const realSessions = dayEntries.filter(e => e.day !== 'custom');
     const planIdx = new Date(dashSelectedDate + 'T00:00:00').getDay();
-    const plannedType = planDayFor(planIdx, dashSelectedDate);
+    const scheduledPlan = scheduledPlanFor(planIdx, dashSelectedDate);
     const dayCal = dayEntries.reduce((sum,e)=> sum + (e.stats && e.stats.calories ? parseFloat(e.stats.calories)||0 : 0), 0);
     const hrList = dayEntries.filter(e=>e.stats && e.stats.hr).map(e=>parseFloat(e.stats.hr));
     const dayAvgHR = hrList.length ? Math.round(hrList.reduce((a,b)=>a+b,0)/hrList.length) : null;
-    const status = realSessions.length ? 'Done' : (plannedType ? 'Missed' : 'Rest day');
-    const statusColor = realSessions.length ? 'var(--forest-dark)' : (plannedType ? '#B4472A' : 'var(--ink-soft)');
+    const status = realSessions.length ? 'Done' : (scheduledPlan ? 'Missed' : 'Rest day');
+    const statusColor = realSessions.length ? 'var(--forest-dark)' : (scheduledPlan ? '#B4472A' : 'var(--ink-soft)');
+    const distList = dayEntries.filter(e=>e.stats && e.stats.distance).map(e=>parseFloat(e.stats.distance)||0);
+    const dayDistance = distList.length ? distList.reduce((a,b)=>a+b,0) : null;
+    const recoveryList = dayEntries.filter(e=>e.stats && e.stats.recoveryHr).map(e=>parseFloat(e.stats.recoveryHr)||0);
+    const dayRecovery = recoveryList.length ? Math.round(recoveryList.reduce((a,b)=>a+b,0)/recoveryList.length) : null;
+    const dayStepsCount = stepsLog[dashSelectedDate] || 0;
 
     document.getElementById('dashCards').innerHTML = `
       <div class="dash-card"><div class="dash-num" style="color:${statusColor};font-size:16px;">${status}</div><div class="dash-label">Session status</div></div>
       <div class="dash-card"><div class="dash-num">${dayCal > 0 ? Math.round(dayCal) : '—'}</div><div class="dash-label">Kcal burned</div></div>
       <div class="dash-card"><div class="dash-num">${dayAvgHR || '—'}</div><div class="dash-label">Avg HR (bpm)</div></div>
+      <div class="dash-card open-steps-screen-link" style="cursor:pointer;"><div class="dash-num">${dayStepsCount ? dayStepsCount.toLocaleString() : '—'}</div><div class="dash-label">Steps</div></div>
+      <div class="dash-card"><div class="dash-num">${dayDistance ? dayDistance.toFixed(1) : '—'}</div><div class="dash-label">Distance (km)</div></div>
+      <div class="dash-card"><div class="dash-num">${dayRecovery !== null ? dayRecovery : '—'}</div><div class="dash-label">Recovery (Δbpm)</div></div>
     `;
 
     if(dayEntries.length){
@@ -4481,8 +4488,8 @@ function renderDashboard(){
         dh.classList.toggle('expanded', open);
       });
     } else {
-      detailEl.innerHTML = plannedType
-        ? `<div class="dash-empty">No session logged for this day (${tabLabels[plannedType]} was planned).</div>`
+      detailEl.innerHTML = scheduledPlan
+        ? `<div class="dash-empty">No session logged for this day (${foodSearchEscape(scheduledPlan.name)} was planned).</div>`
         : `<div class="dash-empty">Rest day, nothing planned.</div>`;
     }
 
@@ -4901,6 +4908,13 @@ function renderStrength(day){
     </button>
   `;
   document.getElementById('logStrengthStatsBtn').addEventListener('click', ()=> openStatsForm(day));
+
+  const loggedNote = document.getElementById('strengthLoggedNote');
+  if(loggedNote){
+    loggedNote.textContent = strengthExisting
+      ? `Logged today at ${new Date(strengthExisting.loggedAt).toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'})} (${strengthExisting.exercises.length} exercise${strengthExisting.exercises.length===1?'':'s'})`
+      : '';
+  }
 }
 
 function renderCardio(kind){
@@ -4971,6 +4985,172 @@ function renderCardio(kind){
 
   document.getElementById('logStatsBtn').addEventListener('click', ()=> openStatsForm(kind));
 }
+
+// ---------- Today's scheduled session (Workout Plan, legacy or custom) ----------
+// Replaces manual day-tab switching: the Train page now always shows whatever
+// the Training Plan (with today's override applied) says is scheduled, so
+// there's nothing for the user to pick -- just what's actually planned.
+function renderTodaysSession(){
+  const dStr = dateStrForOffset(0);
+  const dayIdx = new Date().getDay();
+  const entry = effectiveDayEntry(dStr, dayIdx);
+  const heading = document.getElementById('sessionPlanHeading');
+  const warmup = document.getElementById('warmupBlock');
+  const strengthBlock = document.getElementById('strengthBlock');
+  const cardioBlock = document.getElementById('cardioBlock');
+  const customBlock = document.getElementById('customPlanBlock');
+
+  if(!entry || entry.type !== 'workoutPlan'){
+    if(heading) heading.textContent = entry && entry.type === 'rest' ? "Today: Rest day" : "No workout scheduled today";
+    if(warmup) warmup.style.display = 'none';
+    if(strengthBlock) strengthBlock.style.display = 'none';
+    if(cardioBlock) cardioBlock.style.display = 'none';
+    if(customBlock) customBlock.style.display = 'none';
+    return;
+  }
+  const plan = getWorkoutPlan(entry.planId);
+  if(!plan){
+    if(heading) heading.textContent = "Today's plan was removed";
+    if(warmup) warmup.style.display = 'none';
+    if(strengthBlock) strengthBlock.style.display = 'none';
+    if(cardioBlock) cardioBlock.style.display = 'none';
+    if(customBlock) customBlock.style.display = 'none';
+    return;
+  }
+
+  if(heading) heading.textContent = "Today's Plan: " + plan.name;
+  if(plan.kind === 'legacy'){
+    if(customBlock) customBlock.style.display = 'none';
+    if(warmup) warmup.style.display = 'block';
+    setDay(plan.legacyKey);
+  } else {
+    if(warmup) warmup.style.display = 'block';
+    if(strengthBlock) strengthBlock.style.display = 'none';
+    if(cardioBlock) cardioBlock.style.display = 'none';
+    if(customBlock) customBlock.style.display = 'block';
+    renderCustomPlanSession(plan);
+  }
+}
+
+const GENERIC_EXERCISE_ICON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 6.5l11 11M4 9l3-3M17 20l3-3M2 11l3.5-3.5M18.5 7.5L22 4M3 21l4-4M17 3l4 4"/><circle cx="6" cy="6" r="1.8"/><circle cx="18" cy="18" r="1.8"/></svg>`;
+function customItemId(plan, idx){ return 'custom_' + plan.id + '_' + idx; }
+let activeCustomPlan = null;
+function renderCustomPlanSession(plan){
+  activeCustomPlan = plan;
+  document.getElementById('customPlanTitle').textContent = plan.name + ' · custom plan';
+  const list = document.getElementById('customPlanList');
+  list.innerHTML = '';
+  (plan.items || []).forEach((item, idx)=>{
+    const id = customItemId(plan, idx);
+    const name = item.name || (window.workoutActivityName ? window.workoutActivityName(item.activityId) : item.activityId) || 'Exercise';
+    const cue = (window.workoutActivityInstructions ? window.workoutActivityInstructions(item.activityId) : '') || 'No form notes yet for this exercise -- check "See example photos" below for proper technique.';
+    const isDone = !!checkedState[id];
+    const savedW = (window.savedWeights && window.savedWeights[id]) || '';
+    const card = document.createElement('div');
+    card.className = 'ex-card';
+    card.innerHTML = `
+      <div class="ex-head" data-id="${id}">
+        <div class="ex-icon" style="display:flex;align-items:center;justify-content:center;color:var(--forest-dark);width:52px;height:52px;">${GENERIC_EXERCISE_ICON.replace('<svg ', '<svg style="width:28px;height:28px;" ')}</div>
+        <div class="ex-info">
+          <div class="ex-name">${foodSearchEscape(name)}</div>
+          <div class="ex-scheme">${foodSearchEscape(item.target || '')}</div>
+        </div>
+        <svg class="caret" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+        <button class="ex-check ${isDone?'done':''}" data-check="${id}">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+        </button>
+      </div>
+      <div class="ex-detail" data-detail="${id}">
+        <div class="ex-detail-inner">
+          <div class="ex-icon-large" style="display:flex;align-items:center;justify-content:center;color:var(--forest-dark);">${GENERIC_EXERCISE_ICON.replace('<svg ', '<svg style="width:64px;height:64px;" ')}</div>
+          <strong>Form cue:</strong> ${foodSearchEscape(cue)}
+          <div>
+            <a class="img-link" href="https://www.google.com/search?tbm=isch&q=${encodeURIComponent(name + ' proper form exercise')}" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+              See example photos
+            </a>
+          </div>
+          <div class="weight-row">
+            <label for="w-${id}">Weight used (kg):</label>
+            <input type="number" id="w-${id}" data-weight="${id}" value="${savedW}" placeholder="e.g. 8" min="0" step="0.5">
+          </div>
+        </div>
+      </div>
+    `;
+    list.appendChild(card);
+  });
+
+  list.querySelectorAll('.ex-head').forEach(head=>{
+    head.addEventListener('click', (e)=>{
+      if(e.target.closest('[data-check]')) return;
+      const id = head.dataset.id;
+      const detail = list.querySelector(`[data-detail="${id}"]`);
+      const open = detail.classList.toggle('open');
+      head.classList.toggle('expanded', open);
+    });
+  });
+  list.querySelectorAll('[data-check]').forEach(btn=>{
+    btn.addEventListener('click', (e)=>{
+      e.stopPropagation();
+      const id = btn.dataset.check;
+      checkedState[id] = !checkedState[id];
+      btn.classList.toggle('done', checkedState[id]);
+      saveChecked();
+    });
+  });
+  list.querySelectorAll('[data-weight]').forEach(inp=>{
+    inp.addEventListener('change', ()=>{
+      window.savedWeights = window.savedWeights || {};
+      window.savedWeights[inp.dataset.weight] = inp.value;
+      saveWeights();
+    });
+  });
+
+  const dStr = dateStrForOffset(0);
+  const existing = historyLog.find(e => e.date === dStr && e.day === 'plan:' + plan.id);
+  document.getElementById('customPlanLoggedNote').textContent = existing
+    ? `Logged today at ${new Date(existing.loggedAt).toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'})} (${existing.exercises.length} exercise${existing.exercises.length===1?'':'s'})`
+    : '';
+}
+document.getElementById('customPlanCompleteLogBtn').addEventListener('click', ()=>{
+  const plan = activeCustomPlan;
+  if(!plan) return;
+  const dStr = dateStrForOffset(0);
+  const dayId = 'plan:' + plan.id;
+  const doneItems = (plan.items || []).filter((item, idx)=> checkedState[customItemId(plan, idx)]);
+  const snapshot = doneItems.map((item)=>{
+    const idx = plan.items.indexOf(item);
+    return {
+      name: item.name || (window.workoutActivityName ? window.workoutActivityName(item.activityId) : item.activityId),
+      weight: (window.savedWeights && window.savedWeights[customItemId(plan, idx)]) || ''
+    };
+  });
+  checkedState[dStr + '_' + dayId + '_done'] = snapshot.length > 0;
+  saveChecked();
+  upsertSessionLog(dStr, dayId, snapshot, undefined, undefined, plan.name);
+  renderTally();
+  renderDashboard();
+  renderHistory();
+  renderWeekPlan();
+  renderCustomPlanSession(plan);
+});
+document.getElementById('strengthCompleteLogBtn').addEventListener('click', ()=>{
+  const day = currentDay;
+  if(!dayData[day]) return;
+  const dStr = dateStrForOffset(0);
+  const doneExercises = dayData[day].exercises.filter(ex=>checkedState[ex.id]).map(ex=>({
+    name: ex.name,
+    weight: (window.savedWeights && window.savedWeights[ex.id]) || ''
+  }));
+  checkedState[dStr + '_' + day + '_done'] = doneExercises.length > 0;
+  saveChecked();
+  upsertSessionLog(dStr, day, doneExercises);
+  renderTally();
+  renderDashboard();
+  renderHistory();
+  renderWeekPlan();
+  renderStrength(day);
+});
 
 // ---------- Shared "log stats from watch" form (used by both strength and cardio days) ----------
 let activeStatsContext = null; // 'A'|'B'|'steady'|'interval' -- which session the shared form is currently editing
@@ -5197,7 +5377,7 @@ async function startApp(){
     });
     document.getElementById('scrollArea').scrollTop = 0;
     if(view === 'body'){ renderBodyPlaceholders(); renderBodySleepCard(); }
-    if(view === 'train'){ renderTrainStepsCard(); }
+    if(view === 'train'){ renderDashboard(); renderTodaysSession(); }
     if(view === 'insights'){ renderInsights(); renderSummary(); }
     if(view === 'account') showAccountView(currentAccountView);
   }
@@ -5262,14 +5442,10 @@ async function startApp(){
   renderWeightSection();
   renderNutrition();
   renderFasting();
-  const todayIdx = new Date().getDay();
-  const startDay = planDayFor(todayIdx, dateStrForOffset(0)) || 'A';
-  document.querySelector(`.tab[data-day="${startDay}"]`).classList.add('active');
-  setDay(startDay);
+  renderTodaysSession();
   renderTally();
   renderBodyPlaceholders();
   renderBodySleepCard();
-  renderTrainStepsCard();
   document.getElementById('exportBtn').addEventListener('click', exportLogCSV);
 
   const customForm = document.getElementById('customForm');
@@ -6880,7 +7056,7 @@ async function checkAuthAndStart(){
     saveStepsLog();
     renderStepsHistory();
     renderTodayGlance();
-    renderTrainStepsCard();
+    renderDashboard();
     errEl.style.color = 'var(--forest-dark)';
     errEl.textContent = `Saved — ${count.toLocaleString()} steps logged for ${formatDateLabel(stepsSelectedDate)}.`;
     errEl.style.display = 'block';
@@ -7052,8 +7228,13 @@ async function checkAuthAndStart(){
     const a = workoutCatalog.find(x => x.id === id);
     return a ? a.name : id;
   }
+  function workoutActivityInstructions(id){
+    const a = workoutCatalog.find(x => x.id === id);
+    return a ? (a.instructions || '') : '';
+  }
   window.loadWorkoutCatalog = loadWorkoutCatalog;
   window.workoutActivityName = workoutActivityName;
+  window.workoutActivityInstructions = workoutActivityInstructions;
 
   function planDayLabel(entry){
     if(!entry) return 'Not set';
@@ -7069,22 +7250,16 @@ async function checkAuthAndStart(){
   function planDayHasAction(entry){
     return !!entry && entry.type === 'workoutPlan';
   }
-  // Legacy-backed presets (all four starting Workout Plans) still have a
-  // real interactive logging surface -- the existing Strength/Cardio tabs,
-  // checkboxes and "log stats from watch" included -- so "Go" opens that
-  // directly. Custom Workout Plans don't have that surface yet (that's the
-  // next phase's dedicated page), so "Go" opens the reference/detail view
-  // in the Workout Plan library instead.
+  // The Today banner's "Go" button always refers to today's own scheduled
+  // entry, which renderTodaysSession() already shows -- both legacy presets
+  // (Strength/Cardio tabs) and custom plans have a real interactive logging
+  // surface now, so "Go" just makes sure it's rendered and scrolls to it.
   function goToPlanDay(entry){
     if(!entry || entry.type !== 'workoutPlan') return;
     const plan = getWorkoutPlan(entry.planId);
     if(!plan) return;
-    if(plan.kind === 'legacy'){
-      setDay(plan.legacyKey);
-      scrollToWorkout();
-    } else {
-      window.openWorkoutPlanLibraryScreen(entry.planId);
-    }
+    renderTodaysSession();
+    scrollToWorkout();
   }
   const LEGACY_TO_WORKOUT_PLAN = {A: 'strengthA', B: 'strengthB', steady: 'cardioSteady', interval: 'cardioInterval'};
   // Open mode has no fixed schedule -- each day's label comes from whatever
@@ -7132,6 +7307,7 @@ async function checkAuthAndStart(){
     document.getElementById('dayOverridePanel').style.display = 'none';
     renderWeekPlan();
     renderDashboard();
+    if(overrideDate === dateStrForOffset(0)) renderTodaysSession();
   });
   document.getElementById('dayOverrideClearBtn').addEventListener('click', async ()=>{
     if(!overrideDate || !userTrainingPlan) return;
@@ -7140,6 +7316,7 @@ async function checkAuthAndStart(){
     document.getElementById('dayOverridePanel').style.display = 'none';
     renderWeekPlan();
     renderDashboard();
+    if(overrideDate === dateStrForOffset(0)) renderTodaysSession();
   });
   window.openDayOverridePanel = openDayOverridePanel;
 
@@ -7202,6 +7379,7 @@ async function checkAuthAndStart(){
         await saveTrainingPlan();
         renderWeekPlan();
         renderDashboard();
+        renderTodaysSession();
         closeWorkoutPlanScreen();
       });
     });
@@ -7251,6 +7429,7 @@ async function checkAuthAndStart(){
     await saveTrainingPlan();
     renderWeekPlan();
     renderDashboard();
+    renderTodaysSession();
     closeWorkoutPlanScreen();
   });
 
@@ -7259,6 +7438,7 @@ async function checkAuthAndStart(){
     await saveTrainingPlan();
     renderWeekPlan();
     renderDashboard();
+    renderTodaysSession();
     closeWorkoutPlanScreen();
   });
 
@@ -7326,6 +7506,7 @@ async function checkAuthAndStart(){
       await saveCustomWorkoutPlans();
       renderWplSelect();
       renderWeekPlan();
+      renderTodaysSession();
     }
   });
   document.getElementById('wplNewBtn').addEventListener('click', ()=> openWplBuilder(null));
@@ -7406,6 +7587,7 @@ async function checkAuthAndStart(){
     document.getElementById('wplSelect').value = savedId;
     renderWplDetail(savedId);
     renderWeekPlan();
+    renderTodaysSession();
   });
   document.getElementById('wplBuilderCancelBtn').addEventListener('click', ()=>{
     document.getElementById('wplBuilder').style.display = 'none';
