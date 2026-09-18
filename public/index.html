@@ -846,8 +846,21 @@
         <input type="number" step="0.1" id="weighInKg" placeholder="kg" style="width:80px;padding:8px;border:1px solid var(--line);border-radius:5px;font-family:var(--font-body);font-size:13px;background:var(--paper-raised);">
         <button class="timer-btn start" id="addWeighInBtn" style="flex:0 0 70px;">Add</button>
       </div>
-      <div style="font-size:11px;color:var(--ink-soft);margin-top:6px;">Tap a past entry below to edit it, or ✕ to remove it.</div>
-      <div id="weighInList" style="margin-top:8px;"></div>
+      <div class="log-head" data-weighin-history-toggle="1" style="padding:8px 0 0;cursor:pointer;margin-top:6px;border-top:1px solid var(--line);">
+        <div style="flex:1;font-size:12px;font-weight:600;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.04em;">Weigh-in History</div>
+        <svg class="log-caret" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+      <div class="log-detail" data-weighin-history-detail="1">
+        <div style="padding-top:10px;">
+          <div style="font-size:11px;color:var(--ink-soft);margin-bottom:6px;">Tap a past entry below to edit it, or ✕ to remove it.</div>
+          <div id="weighInList"></div>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:8px;">
+            <button class="day-nav-btn" id="weighInHistPrev" type="button"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+            <div style="font-size:11.5px;color:var(--ink-soft);" id="weighInHistPageLabel"></div>
+            <button class="day-nav-btn" id="weighInHistNext" type="button"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></button>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section class="block" style="margin-bottom:18px;">
@@ -971,7 +984,8 @@
     </section>
 
     <section class="block" id="logSessionSection" style="margin-top:16px;scroll-margin-top:12px;">
-      <div class="block-title">Log a Session</div>
+      <button type="button" id="logSessionToggleBtn" class="timer-btn start" style="width:100%;">+ Log a Session</button>
+      <div id="logSessionPanel" style="display:none;margin-top:12px;">
       <div id="logSessionOptions" style="display:flex;flex-direction:column;gap:2px;margin-bottom:8px;"></div>
 
       <div id="logSessionPlanPicker" style="display:none;margin-bottom:10px;">
@@ -1015,6 +1029,7 @@
         </button>
         <div class="note" id="manualExStatsNote" style="margin-top:4px;"></div>
         <button class="today-btn" id="manualExSaveBtn" type="button" style="width:100%;margin-top:10px;padding:11px 0;display:none;">Save session</button>
+      </div>
       </div>
     </section>
 
@@ -1070,7 +1085,7 @@
     </section>
 
     <section class="block" id="loggedTodaySection" style="margin-bottom:18px;">
-      <div class="block-title">Logged Training Today</div>
+      <div class="block-title" id="loggedTodayTitle">Logged Training Today</div>
       <div id="loggedTodayList"></div>
     </section>
 
@@ -1702,6 +1717,10 @@
     <div id="sleepFactNote" class="note" style="margin-bottom:14px;"></div>
     <div class="hub-card">
       <div id="sleepDayNav" style="display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:12px;"></div>
+      <div style="text-align:center;margin-bottom:14px;">
+        <div style="font-family:var(--font-heading);font-size:32px;line-height:1;" id="sleepTotalHoursValue">—</div>
+        <div style="font-size:12px;color:var(--ink-soft);margin-top:2px;" id="sleepTotalHoursCommentary"></div>
+      </div>
       <div class="start-end-row" style="display:flex;gap:8px;">
         <div style="flex:1;min-width:0;">
           <label style="font-size:11px;color:var(--ink-soft);">Bedtime</label>
@@ -2100,6 +2119,7 @@ function formatDateLabel(dateStr){
 }
 let nutriSelectedDate = null; // set on init to today; navigable via prev/next
 let dashSelectedDate = null; // workout dashboard day-view selected date
+let weighInHistPage = 0; // Weigh-in History pagination -- 0 = most recent 5
 let weekStripAnchorDate = null; // which week the Training Plan calendar strip shows; null = today's week
 function scrollToWorkout(){
   try{
@@ -2579,7 +2599,12 @@ async function renderTodayGlance(){
   const todayIdx = new Date().getDay();
   const scheduledPlanToday = scheduledPlanFor(todayIdx, today);
   const loggedToday = historyLog.filter(e => e.date === today);
-  const exerciseDone = scheduledPlanToday ? loggedToday.length > 0 : null;
+  const realLoggedToday = loggedToday.filter(isRealSessionEntry);
+  // "Done" just means something real was actually logged today, whether or
+  // not it was scheduled -- Open-mode days have no scheduledPlanToday at
+  // all, so gating on that alone left them stuck showing "not done" even
+  // after logging a custom plan or manual exercise.
+  const exerciseDone = realLoggedToday.length > 0;
   const planLabel = scheduledPlanToday ? scheduledPlanToday.name : (loggedToday.length ? loggedToday[0].label : 'Rest day');
 
   const caloriesBurned = historyLog.filter(e => e.date === today)
@@ -2613,38 +2638,6 @@ async function renderTodayGlance(){
       <div class="glance-bar-track"><div class="glance-bar-fill" style="width:${Math.min(100, calTarget ? combined.calories/calTarget*100 : 0)}%;background:var(--ochre);"></div></div>
       <div class="glance-card-sub">Target: ${Math.round(calTarget).toLocaleString()} kcal</div>
     </div>
-    <div class="glance-card open-water-screen-link" style="cursor:pointer;">
-      <div class="glance-card-head">
-        <span class="glance-card-label">\u{1F4A7} Water</span>
-        <div style="display:flex;gap:5px;">
-          <button class="glance-water-btn" id="glanceWaterMinus" type="button" ${waterMl<=0?'disabled':''}>−</button>
-          <button class="glance-water-btn" id="glanceWaterPlus" type="button">+</button>
-        </div>
-      </div>
-      <div class="glance-card-value">${fmtL(waterMl)} L</div>
-      <div class="glance-bar-track"><div class="glance-bar-fill" style="width:${Math.min(100, waterTarget ? waterMl/waterTarget*100 : 0)}%;background:#4A90D9;"></div></div>
-      <div class="glance-card-sub">Target: ${(waterTarget/1000).toFixed(1)} L · +/− adds a glass (250ml)</div>
-    </div>
-  `;
-  document.getElementById('glanceWaterPlus').addEventListener('click', ()=> addWaterMl(250));
-  document.getElementById('glanceWaterMinus').addEventListener('click', ()=> addWaterMl(-250));
-
-  const updateGlanceFast = ()=>{
-    const valEl = document.getElementById('glanceFastValue');
-    const barEl = document.getElementById('glanceFastBar');
-    const subEl = document.getElementById('glanceFastSub');
-    const feedValEl = document.getElementById('todayLogFastValue');
-    if(!valEl) return;
-    const lastFast = nutriEntry && nutriEntry.fastHours ? parseFloat(nutriEntry.fastHours) : null;
-    const info = fastingSummaryText(lastFast);
-    valEl.textContent = info.value;
-    if(feedValEl) feedValEl.textContent = info.value;
-    barEl.style.width = info.pct + '%';
-    subEl.textContent = info.sub;
-  };
-
-  const midGrid = document.getElementById('glanceGridMid');
-  midGrid.innerHTML = `
     <div class="glance-card" data-nav-view="food" style="cursor:pointer;">
       <div class="glance-card-label" style="margin-bottom:4px;">\u{1F3AF} Macronutrients</div>
       <div style="display:flex;justify-content:space-around;">
@@ -2665,9 +2658,39 @@ async function renderTodayGlance(){
         </div>
       </div>
     </div>
+  `;
+
+  const updateGlanceFast = ()=>{
+    const valEl = document.getElementById('glanceFastValue');
+    const barEl = document.getElementById('glanceFastBar');
+    const subEl = document.getElementById('glanceFastSub');
+    const feedValEl = document.getElementById('todayLogFastValue');
+    if(!valEl) return;
+    const lastFast = nutriEntry && nutriEntry.fastHours ? parseFloat(nutriEntry.fastHours) : null;
+    const info = fastingSummaryText(lastFast);
+    valEl.textContent = info.value;
+    if(feedValEl) feedValEl.textContent = info.value;
+    barEl.style.width = info.pct + '%';
+    subEl.textContent = info.sub;
+  };
+
+  const midGrid = document.getElementById('glanceGridMid');
+  midGrid.innerHTML = `
+    <div class="glance-card open-water-screen-link" style="cursor:pointer;">
+      <div class="glance-card-head">
+        <span class="glance-card-label">\u{1F4A7} Water</span>
+        <div style="display:flex;gap:5px;">
+          <button class="glance-water-btn" id="glanceWaterMinus" type="button" ${waterMl<=0?'disabled':''}>−</button>
+          <button class="glance-water-btn" id="glanceWaterPlus" type="button">+</button>
+        </div>
+      </div>
+      <div class="glance-card-value">${fmtL(waterMl)} L</div>
+      <div class="glance-bar-track"><div class="glance-bar-fill" style="width:${Math.min(100, waterTarget ? waterMl/waterTarget*100 : 0)}%;background:#4A90D9;"></div></div>
+      <div class="glance-card-sub">Target: ${(waterTarget/1000).toFixed(1)} L · +/− adds a glass (250ml)</div>
+    </div>
     <div class="glance-card" data-nav-view="train" style="cursor:pointer;">
-      <div class="glance-card-head"><span class="glance-card-label">\u{1F3C3} Exercise</span></div>
-      ${scheduledPlanToday ? `
+      <div class="glance-card-head"><span class="glance-card-label">\u{1F3C3} Workout</span></div>
+      ${(scheduledPlanToday || loggedToday.length) ? `
         <div style="background:${exerciseDone?'rgba(47,111,78,0.12)':'var(--paper)'};border:1px solid ${exerciseDone?'var(--forest)':'var(--line)'};border-radius:8px;padding:10px;display:flex;align-items:center;gap:8px;">
           <span style="font-size:16px;">${exerciseDone?'✅':'⭕'}</span>
           <div>
@@ -2700,6 +2723,8 @@ async function renderTodayGlance(){
       <div class="glance-card-sub">Target: ${stepsTarget.toLocaleString()}</div>
     </div>
   `;
+  document.getElementById('glanceWaterPlus').addEventListener('click', ()=> addWaterMl(250));
+  document.getElementById('glanceWaterMinus').addEventListener('click', ()=> addWaterMl(-250));
 
   const qaGrid = document.getElementById('quickActionsGrid');
   qaGrid.innerHTML = `
@@ -2736,7 +2761,7 @@ async function renderTodayGlance(){
     {icon: '\u{1F37D}', title: 'Food', sub: mealItemCount ? `${mealItemCount} item${mealItemCount===1?'':'s'} logged` : 'Not logged yet', value: hasFoodToday ? `${Math.round(combined.calories)} kcal` : '—'},
     {icon: '\u{1F4A7}', title: 'Water', sub: waterMl ? `${waterMl}ml logged` : 'Not logged yet', value: `${fmtL(waterMl)} L`},
     {icon: '\u{1F4CB}', title: 'Weight', sub: todaysWeighIn ? 'Logged' : 'Not logged today', value: todaysWeighIn ? formatWeightKg(todaysWeighIn.kg) : '—'},
-    {icon: '\u{1F3C3}', title: 'Exercise', sub: loggedToday.length ? `${planLabel} — ${loggedToday.length} logged` : (scheduledPlanToday ? planLabel : 'Rest day'), value: scheduledPlanToday ? (exerciseDone ? 'Completed' : 'Not done') : (loggedToday.length ? 'Logged' : '—')},
+    {icon: '\u{1F3C3}', title: 'Workout', sub: loggedToday.length ? `${planLabel} — ${loggedToday.length} logged` : (scheduledPlanToday ? planLabel : 'Rest day'), value: scheduledPlanToday ? (exerciseDone ? 'Completed' : 'Not done') : (loggedToday.length ? 'Logged' : '—')},
     {icon: '⏱', title: 'Fasting', sub: fastingState.startIso ? 'In progress' : (nutriEntry && nutriEntry.fastHours ? 'Logged' : 'Not started'), value: '', liveId: 'todayLogFastValue'},
     {icon: '\u{1F634}', title: 'Sleep', sub: sleepEntry ? (sleepEntry.startIso && sleepEntry.endIso ? `${fmtClock(sleepEntry.startIso)} – ${fmtClock(sleepEntry.endIso)}` : 'Logged') : 'Not logged yet', value: sleepEntry ? formatSleepHours(sleepEntry.hours) : '—'}
   ];
@@ -4666,13 +4691,24 @@ function renderWeightSection(){
     emptyText: 'Log at least 2 weigh-ins to see your trend line.'
   });
 
-  // Recent entries list
+  // Recent entries list -- paged 5 at a time, most recent page first.
   const listEl = document.getElementById('weighInList');
+  const pageLabelEl = document.getElementById('weighInHistPageLabel');
+  const prevBtn = document.getElementById('weighInHistPrev');
+  const nextBtn = document.getElementById('weighInHistNext');
+  const PAGE_SIZE = 5;
   if(sorted.length === 0){
     listEl.innerHTML = `<div class="dash-empty">No weigh-ins logged yet.</div>`;
+    pageLabelEl.textContent = '';
+    prevBtn.disabled = true;
+    nextBtn.disabled = true;
   } else {
-    const recent = [...sorted].reverse().slice(0,8);
-    listEl.innerHTML = recent.map((entry, idx)=>{
+    const reversed = [...sorted].reverse(); // newest first
+    const pageCount = Math.max(1, Math.ceil(reversed.length / PAGE_SIZE));
+    weighInHistPage = Math.min(Math.max(0, weighInHistPage), pageCount - 1);
+    const pageStart = weighInHistPage * PAGE_SIZE;
+    const pageItems = reversed.slice(pageStart, pageStart + PAGE_SIZE);
+    listEl.innerHTML = pageItems.map((entry)=>{
       const prevIdx = sorted.findIndex(s=>s.date===entry.date) - 1;
       const prev = prevIdx >= 0 ? sorted[prevIdx].kg : null;
       let deltaHtml = '';
@@ -4708,6 +4744,9 @@ function renderWeightSection(){
         renderTodayGlance();
       });
     });
+    pageLabelEl.textContent = `${pageStart + 1}-${pageStart + pageItems.length} of ${reversed.length}`;
+    prevBtn.disabled = weighInHistPage >= pageCount - 1; // "prev" = further back in time = higher page index
+    nextBtn.disabled = weighInHistPage <= 0;
   }
 }
 
@@ -4736,6 +4775,7 @@ function renderDashboard(){
       weekStripAnchorDate = dashSelectedDate;
       renderDashboard();
       renderWeekPlan();
+      renderTodaysSession();
     });
     if(!isToday){
       document.getElementById('dashNextDay').addEventListener('click', ()=>{
@@ -4743,12 +4783,14 @@ function renderDashboard(){
         weekStripAnchorDate = dashSelectedDate;
         renderDashboard();
         renderWeekPlan();
+        renderTodaysSession();
       });
       document.getElementById('dashJumpToday').addEventListener('click', ()=>{
         dashSelectedDate = todayStr;
         weekStripAnchorDate = null;
         renderDashboard();
         renderWeekPlan();
+        renderTodaysSession();
       });
     }
 
@@ -5338,32 +5380,43 @@ function renderCardio(kind){
 }
 
 // ---------- Log a Session (mode picker + rest/manual logging) ----------
-function renderLogSessionOptions(hasSchedule){
+function renderLogSessionOptions(hasSchedule, dStr, isToday){
   const el = document.getElementById('logSessionOptions');
   const pickerWrap = document.getElementById('logSessionPlanPicker');
   const restWrap = document.getElementById('logSessionRestPanel');
   const manualWrap = document.getElementById('logSessionManualPanel');
   if(!el) return;
+  dStr = dStr || activeSessionDate();
+  isToday = isToday !== undefined ? isToday : dStr === dateStrForOffset(0);
 
-  const options = hasSchedule
-    ? [{value: 'plan', icon: '🏋️', label: 'Use Workout Today Plan'}, {value: 'rest', icon: '😴', label: 'Rest'}]
-    : [{value: 'plan', icon: '📋', label: 'Select workout plan'}, {value: 'rest', icon: '😴', label: 'Rest'}, {value: 'manual', icon: '✍️', label: 'Add manual exercise'}];
+  // A past/future day only ever offers Rest or a manual entry -- the
+  // tick-to-complete plan checklist is today-only (see logSessionModeNonToday).
+  const options = !isToday
+    ? [{value: 'rest', icon: '😴', label: 'Rest'}, {value: 'manual', icon: '✍️', label: 'Add manual exercise'}]
+    : hasSchedule
+      ? [{value: 'plan', icon: '🏋️', label: 'Use Workout Today Plan'}, {value: 'rest', icon: '😴', label: 'Rest'}]
+      : [{value: 'plan', icon: '📋', label: 'Select workout plan'}, {value: 'rest', icon: '😴', label: 'Rest'}, {value: 'manual', icon: '✍️', label: 'Add manual exercise'}];
 
+  const activeMode = isToday ? logSessionMode : logSessionModeNonToday;
   el.innerHTML = options.map(o => `
     <label style="display:flex;align-items:center;gap:8px;padding:5px 2px;cursor:pointer;font-size:13px;">
-      <input type="radio" name="logSessionMode" value="${o.value}" ${logSessionMode === o.value ? 'checked' : ''}>
+      <input type="radio" name="logSessionMode" value="${o.value}" ${activeMode === o.value ? 'checked' : ''}>
       <span style="font-size:15px;">${o.icon}</span> ${o.label}
     </label>
   `).join('');
   el.querySelectorAll('input[name="logSessionMode"]').forEach(r=>{
     r.addEventListener('change', async ()=>{
+      if(!isToday){
+        logSessionModeNonToday = r.value;
+        renderTodaysSession();
+        return;
+      }
       logSessionMode = r.value;
       if(logSessionMode !== 'plan') logSessionSelectedPlanId = null;
       // Switching back to the plan while today has a Rest deviation on
       // record means "no, use the plan after all" -- clear it rather than
       // leaving the radio pointed at a plan that still resolves to Rest.
       if(logSessionMode === 'plan' && hasSchedule && userTrainingPlan && userTrainingPlan.overrides){
-        const dStr = dateStrForOffset(0);
         const ov = userTrainingPlan.overrides[dStr];
         if(ov && ov.type === 'rest'){
           delete userTrainingPlan.overrides[dStr];
@@ -5375,7 +5428,7 @@ function renderLogSessionOptions(hasSchedule){
     });
   });
 
-  const showPicker = !hasSchedule && logSessionMode === 'plan';
+  const showPicker = isToday && !hasSchedule && activeMode === 'plan';
   pickerWrap.style.display = showPicker ? 'block' : 'none';
   if(showPicker){
     const sel = document.getElementById('logSessionPlanSelect');
@@ -5389,13 +5442,13 @@ function renderLogSessionOptions(hasSchedule){
     }
   }
 
-  restWrap.style.display = logSessionMode === 'rest' ? 'block' : 'none';
-  manualWrap.style.display = (!hasSchedule && logSessionMode === 'manual') ? 'block' : 'none';
+  restWrap.style.display = activeMode === 'rest' ? 'block' : 'none';
+  manualWrap.style.display = ((!isToday || !hasSchedule) && activeMode === 'manual') ? 'block' : 'none';
 }
 
 document.getElementById('logSessionRestSaveBtn').addEventListener('click', async ()=>{
   const note = document.getElementById('logSessionRestNotes').value.trim();
-  const dStr = dateStrForOffset(0);
+  const dStr = activeSessionDate();
   const hasSchedule = !!(userTrainingPlan && userTrainingPlan.presetKey && userTrainingPlan.presetKey !== 'open');
   if(hasSchedule){
     userTrainingPlan.overrides = userTrainingPlan.overrides || {};
@@ -5421,7 +5474,7 @@ document.getElementById('logSessionRestSaveBtn').addEventListener('click', async
 // plans/days never mixes them up; nothing is saved to history until "Plan
 // Completed & Log" actually logs the day, at which point the key is cleared.
 let extraExercisesByPlanDay = {};
-function extraExKey(scope){ return dateStrForOffset(0) + ':' + scope; }
+function extraExKey(scope){ return activeSessionDate() + ':' + scope; }
 function renderExtraExercises(scope){
   const key = extraExKey(scope);
   const list = extraExercisesByPlanDay[key] || [];
@@ -5488,7 +5541,7 @@ function renderManualExStatsNote(){
   if(!el) return;
   el.textContent = manualExPendingStats ? '📊 Stats attached — will be saved with this session.' : '';
 }
-document.getElementById('manualExStatsBtn').addEventListener('click', ()=> openStatsForm('manual-pending'));
+document.getElementById('manualExStatsBtn').addEventListener('click', ()=> openStatsForm('manual-pending', activeSessionDate()));
 document.getElementById('manualExSearchToggle').addEventListener('click', ()=>{
   const input = document.getElementById('manualExSearchInput');
   const showing = input.style.display !== 'none';
@@ -5547,7 +5600,7 @@ document.getElementById('manualExAddBtn').addEventListener('click', ()=>{
 });
 document.getElementById('manualExSaveBtn').addEventListener('click', ()=>{
   if(!manualExPending.length) return;
-  const dStr = dateStrForOffset(0);
+  const dStr = activeSessionDate();
   const snapshot = manualExPending.map(ex => ({
     name: ex.name,
     weight: ex.weight || '',
@@ -5571,7 +5624,7 @@ document.getElementById('manualExSaveBtn').addEventListener('click', ()=>{
 
 // ---------- "Logged Training Today" -- today's entries, editable in place ----------
 function loggedTodayEntries(){
-  const dStr = dateStrForOffset(0);
+  const dStr = activeSessionDate();
   return historyLog.map((e, idx) => ({e, idx})).filter(({e}) => e.date === dStr);
 }
 // Which fields make sense to edit per activity category -- keeps the
@@ -5599,7 +5652,8 @@ function renderLoggedToday(){
   if(!el) return;
   const rows = loggedTodayEntries();
   if(!rows.length){
-    el.innerHTML = `<div class="dash-empty">Nothing logged yet today.</div>`;
+    const isToday = activeSessionDate() === dateStrForOffset(0);
+    el.innerHTML = `<div class="dash-empty">Nothing logged ${isToday ? 'yet today' : `for ${formatDateLabel(activeSessionDate())}`}.</div>`;
     return;
   }
   el.innerHTML = rows.map(({e, idx}) => {
@@ -5723,10 +5777,49 @@ let logSessionMode = 'plan';
 // separate from the Training Plan schedule -- nothing is saved until the
 // user actually logs against it.
 let logSessionSelectedPlanId = null;
+// Separate radio memory for when the Workout Dashboard's Daily view is
+// showing a past/future day -- the tick-to-complete plan checklist is a
+// single shared checkedState, so it only ever means "today"; another
+// day's Log a Session only offers Rest/manual entry, tracked here instead
+// of overwriting logSessionMode (so today's own selection isn't disturbed
+// by paging away and back).
+let logSessionModeNonToday = 'rest';
+
+// The date the whole "Log a Session" / checklist / Logged Training section
+// operates on -- follows the Workout Dashboard's Daily-view day nav
+// (dashSelectedDate) instead of always being today.
+function activeSessionDate(){ return dashSelectedDate || dateStrForOffset(0); }
+
+// "Log a Session" is collapsed behind a button, like "Log a meal (full
+// page)" on Food -- collapseLogSessionPanel() is also called when leaving
+// the Train tab, so it's never left open (or pointed at a stale
+// selection) when the user comes back.
+function collapseLogSessionPanel(){
+  const panel = document.getElementById('logSessionPanel');
+  const btn = document.getElementById('logSessionToggleBtn');
+  if(panel) panel.style.display = 'none';
+  if(btn) btn.textContent = '+ Log a Session';
+  logSessionMode = 'plan';
+  logSessionModeNonToday = 'rest';
+  logSessionSelectedPlanId = null;
+}
+document.getElementById('logSessionToggleBtn').addEventListener('click', ()=>{
+  const panel = document.getElementById('logSessionPanel');
+  const btn = document.getElementById('logSessionToggleBtn');
+  const showing = panel.style.display !== 'none';
+  if(showing){
+    collapseLogSessionPanel();
+  } else {
+    panel.style.display = 'block';
+    btn.textContent = '− Log a Session';
+    renderTodaysSession();
+  }
+});
 
 function renderTodaysSession(){
-  const dStr = dateStrForOffset(0);
-  const dayIdx = new Date().getDay();
+  const dStr = activeSessionDate();
+  const isToday = dStr === dateStrForOffset(0);
+  const dayIdx = new Date(dStr + 'T00:00:00').getDay();
   const hasSchedule = !!(userTrainingPlan && userTrainingPlan.presetKey && userTrainingPlan.presetKey !== 'open');
   if(!renderTodaysSession._initialized){
     renderTodaysSession._initialized = true;
@@ -5735,7 +5828,10 @@ function renderTodaysSession(){
       logSessionMode = (seedEntry && seedEntry.type === 'rest') ? 'rest' : 'plan';
     }
   }
-  renderLogSessionOptions(hasSchedule);
+  renderLogSessionOptions(hasSchedule, dStr, isToday);
+
+  const titleEl = document.getElementById('loggedTodayTitle');
+  if(titleEl) titleEl.textContent = isToday ? 'Logged Training Today' : `Logged Training — ${formatDateLabel(dStr)}`;
 
   const heading = document.getElementById('sessionPlanHeading');
   const warmup = document.getElementById('warmupBlock');
@@ -5748,6 +5844,22 @@ function renderTodaysSession(){
     if(cardioBlock) cardioBlock.style.display = 'none';
     if(customBlock) customBlock.style.display = 'none';
   };
+
+  if(!isToday){
+    // Past/future day: the tick-to-complete checklist only ever applies to
+    // today (see logSessionModeNonToday above), so this is Rest/manual
+    // entry plus a read-only note about what was scheduled -- actually
+    // editing that day's logged exercises happens in "Logged Training"
+    // below, which already supports any date.
+    hideAllExerciseBlocks();
+    if(heading){
+      heading.style.display = '';
+      const entry = hasSchedule ? effectiveDayEntry(dStr, dayIdx) : (userTrainingPlan && userTrainingPlan.presetKey === 'open' ? window.openModeDayEntry(dStr) : null);
+      heading.textContent = `${formatDateLabel(dStr)}: ${entry ? window.planDayLabel(entry) : 'Rest day'}`;
+    }
+    renderLoggedToday();
+    return;
+  }
 
   if(logSessionMode === 'rest'){
     if(heading){ heading.textContent = 'Rest day'; heading.style.display = ''; }
@@ -6272,7 +6384,20 @@ async function startApp(){
       btn.classList.toggle('active', btn.dataset.view === view);
     });
     document.getElementById('scrollArea').scrollTop = 0;
-    if(view === 'body'){ renderBodyPlaceholders(); renderBodySleepCard(); }
+    if(view !== 'body'){
+      // Weigh-in History defaults to collapsed and stays that way -- leaving
+      // the Body tab always closes it back up rather than remembering it
+      // was left open.
+      const wiDetail = document.querySelector('[data-weighin-history-detail="1"]');
+      const wiHead = document.querySelector('[data-weighin-history-toggle="1"]');
+      if(wiDetail) wiDetail.classList.remove('open');
+      if(wiHead) wiHead.classList.remove('expanded');
+      weighInHistPage = 0;
+    }
+    if(view !== 'train'){
+      collapseLogSessionPanel();
+    }
+    if(view === 'body'){ renderBodyPlaceholders(); renderBodySleepCard(); renderWeightSection(); }
     if(view === 'train'){ renderDashboard(); renderTodaysSession(); }
     if(view === 'insights'){ renderInsights(); renderSummary(); }
     if(view === 'account') showAccountView(currentAccountView);
@@ -6372,8 +6497,23 @@ async function startApp(){
     addWeighIn(dateInput.value || dateStrForOffset(0), kg);
     kgInput.value = '';
     dateInput.value = dateStrForOffset(0);
+    weighInHistPage = 0;
     renderWeightSection();
     renderTodayGlance();
+  });
+
+  document.querySelector('[data-weighin-history-toggle="1"]').addEventListener('click', function(){
+    const detail = document.querySelector('[data-weighin-history-detail="1"]');
+    const open = detail.classList.toggle('open');
+    this.classList.toggle('expanded', open);
+  });
+  document.getElementById('weighInHistPrev').addEventListener('click', ()=>{
+    weighInHistPage++;
+    renderWeightSection();
+  });
+  document.getElementById('weighInHistNext').addEventListener('click', ()=>{
+    weighInHistPage--;
+    renderWeightSection();
   });
 
   document.getElementById('summaryRange').addEventListener('change', renderSummary);
@@ -8045,7 +8185,35 @@ async function checkAuthAndStart(){
     }
     document.getElementById('sleepStartInputScreen').value = toLocalInput(start);
     document.getElementById('sleepEndInputScreen').value = toLocalInput(end);
+    updateSleepTotalDisplay();
   }
+
+  function updateSleepTotalDisplay(){
+    const valEl = document.getElementById('sleepTotalHoursValue');
+    const noteEl = document.getElementById('sleepTotalHoursCommentary');
+    if(!valEl) return;
+    const startD = new Date(document.getElementById('sleepStartInputScreen').value);
+    const endD = new Date(document.getElementById('sleepEndInputScreen').value);
+    if(isNaN(startD.getTime()) || isNaN(endD.getTime()) || endD <= startD){
+      valEl.textContent = '—';
+      noteEl.textContent = endD <= startD && !isNaN(startD.getTime()) && !isNaN(endD.getTime()) ? 'Wake time must be after bedtime.' : '';
+      return;
+    }
+    const hours = (endD - startD) / 3600000;
+    const goalHours = (userProfile && userProfile.sleepGoalHours) || 8;
+    valEl.textContent = formatSleepHours(hours);
+    const diff = hours - goalHours;
+    if(Math.abs(diff) < 0.25){
+      noteEl.textContent = `✓ Right at your ${goalHours}h goal.`;
+    } else if(diff < 0){
+      noteEl.textContent = `${formatSleepHours(Math.abs(diff))} under your ${goalHours}h goal.`;
+    } else {
+      noteEl.textContent = `${formatSleepHours(diff)} over your ${goalHours}h goal.`;
+    }
+  }
+  ['sleepStartInputScreen', 'sleepEndInputScreen'].forEach(id=>{
+    document.getElementById(id).addEventListener('input', updateSleepTotalDisplay);
+  });
 
   document.getElementById('sleepScreenSaveBtn').addEventListener('click', ()=>{
     const errEl = document.getElementById('sleepScreenError');
