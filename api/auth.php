@@ -13,13 +13,7 @@ function send_approval_request_email(string $email, string $displayName, string 
     if (!$adminEmail) {
         return;
     }
-    // The client-supplied Host header is NOT trustworthy for building a link
-    // an admin will click -- a forged Host would poison the approve/reject
-    // URLs in this email, handing the approval token to an attacker's
-    // domain instead of ours. Prefer a fixed, server-configured hostname;
-    // only fall back to the request Host (still stripped of CR/LF) if the
-    // admin hasn't set one yet.
-    $host = mail_header_safe((string)($config['app_host'] ?? ($_SERVER['HTTP_HOST'] ?? '')));
+    $host = app_host();
     $approveUrl = "https://{$host}/api/approve.php?token={$token}&action=approve";
     $rejectUrl = "https://{$host}/api/approve.php?token={$token}&action=reject";
 
@@ -30,9 +24,30 @@ function send_approval_request_email(string $email, string $displayName, string 
         . "Email: {$email}\n\n"
         . "Approve: {$approveUrl}\n\n"
         . "Reject: {$rejectUrl}\n";
-    $headers = "From: no-reply@{$host}\r\nContent-Type: text/plain; charset=utf-8";
 
-    @mail($adminEmail, $subject, $body, $headers);
+    send_app_email($adminEmail, $subject, $body);
+}
+
+function send_password_reset_request_email(string $email, string $displayName, string $token): void
+{
+    $config = get_config();
+    $adminEmail = $config['admin_email'] ?? null;
+    if (!$adminEmail) {
+        return;
+    }
+    $host = app_host();
+    $approveUrl = "https://{$host}/api/approve_reset.php?token={$token}&action=approve";
+    $rejectUrl = "https://{$host}/api/approve_reset.php?token={$token}&action=reject";
+
+    $subject = "Full Circle: password reset request from " . mail_header_safe($displayName);
+    $body = "A password reset was requested for this account:\n\n"
+        . "Name: {$displayName}\n"
+        . "Email: {$email}\n\n"
+        . "Approve (emails the user a link to set a new password): {$approveUrl}\n\n"
+        . "Reject: {$rejectUrl}\n\n"
+        . "This request expires in 7 days if left unapproved.\n";
+
+    send_app_email($adminEmail, $subject, $body);
 }
 
 // Returns an error message, or null if the username is valid and free to use by $userId.
@@ -110,6 +125,47 @@ switch ($action) {
         session_regenerate_id(true);
         $_SESSION['user_id'] = (int)$user['id'];
         json_respond(['id' => (int)$user['id'], 'email' => $email, 'display_name' => $user['display_name'], 'username' => $user['username']]);
+    }
+
+    case 'request_password_reset': {
+        if (!password_resets_available($pdo)) {
+            json_respond(['error' => 'Password reset isn\'t set up on this server yet -- contact the admin directly.'], 503);
+        }
+        $email = trim(strtolower((string)($input['email'] ?? '')));
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            json_respond(['error' => 'Enter a valid email address.'], 400);
+        }
+
+        $stmt = $pdo->prepare('SELECT id, display_name, status FROM users WHERE email = ?');
+        $stmt->execute([$email]);
+        $user = $stmt->fetch();
+        if (!$user) {
+            json_respond(['error' => 'No account found with that email.'], 404);
+        }
+        if ($user['status'] !== 'approved') {
+            json_respond(['error' => 'This account isn\'t approved yet, so there\'s nothing to reset -- contact the admin.'], 403);
+        }
+
+        // One outstanding request at a time -- stops someone from spamming
+        // the admin's inbox with repeat requests for the same account.
+        $stmt = $pdo->prepare(
+            "SELECT id FROM password_resets WHERE user_id = ? AND status IN ('pending', 'approved') AND expires_at > NOW()"
+        );
+        $stmt->execute([$user['id']]);
+        if ($stmt->fetch()) {
+            json_respond(['error' => 'A password reset request is already pending for this account. Wait for the admin to approve it, or contact them directly.'], 409);
+        }
+
+        $adminToken = bin2hex(random_bytes(32));
+        $stmt = $pdo->prepare(
+            'INSERT INTO password_resets (user_id, admin_token, status, requested_at, expires_at)
+             VALUES (?, ?, ?, NOW(), DATE_ADD(NOW(), INTERVAL 7 DAY))'
+        );
+        $stmt->execute([$user['id'], $adminToken, 'pending']);
+
+        send_password_reset_request_email($email, $user['display_name'], $adminToken);
+
+        json_respond(['ok' => true, 'message' => "A password reset request has been sent for admin approval. You'll get an email with a link to set a new password once it's approved."]);
     }
 
     case 'logout': {

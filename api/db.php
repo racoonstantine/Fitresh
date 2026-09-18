@@ -79,6 +79,43 @@ function mail_header_safe(string $value): string
     return trim(str_replace(["\r", "\n"], '', $value));
 }
 
+// The server-configured hostname for building links in outgoing emails
+// (approve/reject, password reset). Deliberately NOT the request's Host
+// header -- that's client-supplied and a forged one would poison the link
+// with an attacker's domain instead of ours.
+function app_host(): string
+{
+    $config = get_config();
+    return mail_header_safe((string)($config['app_host'] ?? ($_SERVER['HTTP_HOST'] ?? '')));
+}
+
+// Thin wrapper around mail() so every outgoing email (signup approval,
+// password reset) builds its From header the same way and via the same
+// server-configured host.
+function send_app_email(string $to, string $subject, string $body): void
+{
+    $host = app_host();
+    $headers = "From: no-reply@{$host}\r\nContent-Type: text/plain; charset=utf-8";
+    @mail($to, mail_header_safe($subject), $body, $headers);
+}
+
+// Same "hasn't been migrated on this server yet" guard used elsewhere
+// (personal_foods_available) -- lets self-service password reset degrade
+// to a clear error instead of a fatal SQL error if migration 006 hasn't
+// been applied yet.
+function password_resets_available(PDO $pdo): bool
+{
+    try {
+        $pdo->query('SELECT id FROM password_resets LIMIT 0');
+        return true;
+    } catch (PDOException $e) {
+        if ($e->getCode() === '42S02' || str_contains($e->getMessage(), 'no such table')) {
+            return false;
+        }
+        throw $e;
+    }
+}
+
 // GETs a URL server-side for calling external food-data APIs (Open Food
 // Facts, and USDA later). Prefers curl -- some PHP builds have curl but not
 // the openssl stream wrapper file_get_contents needs for https://, which
