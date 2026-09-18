@@ -23,7 +23,12 @@ for(const [id,name,category,focus,equipment] of [
  ['walking','Walking','cardio','Aerobic endurance','None'],['running','Running','cardio','Aerobic endurance','None'],['cycling','Cycling','cardio','Aerobic endurance','Bicycle or stationary bike'],['rowing','Rowing','cardio','Aerobic endurance','Rowing machine'],['swimming','Swimming','cardio','Aerobic endurance','Pool'],['elliptical','Elliptical','cardio','Aerobic endurance','Elliptical'],['jump-rope','Jump rope','cardio','Conditioning, coordination','Jump rope'],
  ['basketball','Basketball','sport','Conditioning, coordination','Ball and court'],['pickleball','Pickleball','sport','Agility, coordination','Paddle, ball and court'],['tennis','Tennis','sport','Agility, coordination','Racket, ball and court'],['badminton','Badminton','sport','Agility, coordination','Racket and court'],['football','Football / soccer','sport','Conditioning, coordination','Ball and field'],['volleyball','Volleyball','sport','Coordination, jumping','Ball and court'],['yoga','Yoga','mobility','Mobility, balance','Mat'],['stretching','Stretching','mobility','Flexibility','None'],['mobility','Mobility practice','mobility','Range of motion','None']
 ]) activities.push({id,name,category,focus,equipment,movement:category,tracking:'session',instructions:'Record your completed session. Add optional measurements only when available.',loadConvention:''});
-const quote=s=>"'"+String(s).replace(/'/g,"''")+"'";
+const catalog=require('./workout_catalog.cjs').enrich(activities);
+templates.push(...require('./workout_preparation.cjs').templates);
+catalog.templates=templates;
+fs.mkdirSync('data/workouts',{recursive:true});
+fs.writeFileSync('data/workouts/catalog.json',JSON.stringify(catalog,null,2)+'\n');
+const quote=s=>"'"+String(s).replace(/\\/g,'\\\\').replace(/'/g,"''")+"'";
 const sql=['-- Run after 004_workout_library.sql. Rerunnable shared catalog seed.'];
 for(const a of activities) sql.push(`INSERT INTO workout_activities (id,name,category,definition) VALUES (${[a.id,a.name,a.category,JSON.stringify(a)].map(quote).join(',')}) ON DUPLICATE KEY UPDATE name=VALUES(name),category=VALUES(category),definition=VALUES(definition);`);
 for(const t of templates) sql.push(`INSERT INTO workout_templates (id,name,definition) VALUES (${[t.id,t.name,JSON.stringify(t)].map(quote).join(',')}) ON DUPLICATE KEY UPDATE name=VALUES(name),definition=VALUES(definition);`);

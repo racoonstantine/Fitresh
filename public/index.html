@@ -979,8 +979,6 @@
       <div class="weight-progress" id="weightProgress"></div>
     </section>
 
-    <section class="block" id="workoutLibrary"></section>
-
     <div class="block-title" id="sessionPlanHeading" style="margin-top:16px;scroll-margin-top:12px;">Today's Plan</div>
     <div class="tabs" id="tabs" style="display:none;">
       <button class="tab" data-day="A">Strength A</button>
@@ -5836,7 +5834,6 @@ async function showAppFor(user){
   const adminBtn = document.getElementById('adminSubnavBtn');
   if(adminBtn) adminBtn.style.display = (user.email || '').toLowerCase() === 'sherwinllona@gmail.com' ? '' : 'none';
   await startApp();
-  if(window.workoutLibraryStart) window.workoutLibraryStart();
   if(!userProfile){
     showOnboarding();
   } else {
@@ -7986,8 +7983,6 @@ checkAuthAndStart();
   updateDisplay();
 })();
 </script>
-<link rel="stylesheet" href="workouts.css">
-<script src="workouts.js"></script>
 <link rel="stylesheet" href="personal-foods.css">
 <script src="personal-foods.js"></script>
 </body>

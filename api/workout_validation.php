@@ -55,6 +55,16 @@ function validate_workout(array $data, array $catalog): array {
                 $metrics[$key] = workout_number($m, $key, $bounds[0], $bounds[1]);
             }
             if ($metrics['durationSeconds'] === null) throw new InvalidArgumentException('Enter activity duration');
+            // Catalog-declared session metrics are the only additional accepted measurements.
+            foreach ($activity['measurements'] ?? [] as $definition) {
+                $key = $definition['key'];
+                if (($definition['scope'] ?? '') !== 'session' || array_key_exists($key, $metrics)) continue;
+                $metrics[$key] = workout_number($m, $key, (float)$definition['min'], (float)$definition['max'], (bool)($definition['integer'] ?? false));
+                if (($definition['required'] ?? false) && $metrics[$key] === null) throw new InvalidArgumentException('Enter '.$key);
+            }
+            if (isset($metrics['successes']) && (!isset($metrics['attempts']) || $metrics['successes'] > $metrics['attempts'])) {
+                throw new InvalidArgumentException('Successful attempts require attempts and cannot exceed them');
+            }
         }
         $clean[] = ['activityId' => $activity['id'], 'snapshot' => $activity, 'sets' => $sets, 'metrics' => $metrics];
     }

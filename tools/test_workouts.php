@@ -24,3 +24,23 @@ check(validate_workout($hold,$catalog)['items'][0]['sets'][0]['reps']===null,'Ti
 $body=array_replace($base,['items'=>[['activityId'=>'b','sets'=>[['reps'=>10,'weightKg'=>80]]]]]);
 check(validate_workout($body,$catalog)['items'][0]['sets'][0]['weightKg']===null,'Do not count body mass as load');
 echo "PASS: volume, dates, ranges, required values, null metrics, timed sets, and bodyweight handling.\n";
+$expanded=json_decode(file_get_contents(__DIR__.'/../data/workouts/catalog.json'),true);
+$lookup=[];
+foreach($expanded['activities'] as $a) $lookup[$a['id']]=$a;
+$sport=array_replace($base,['items'=>[['activityId'=>'basketball-shooting','metrics'=>['durationSeconds'=>1200,'attempts'=>50,'successes'=>30]]]]);
+$validated=validate_workout($sport,$lookup);
+check($validated['items'][0]['metrics']['successes']===30.0,'Preserve sport-specific fields');
+$sport['items'][0]['metrics']['successes']=51;rejects($sport,$lookup);
+$sport['items'][0]['metrics']['successes']=1.5;rejects($sport,$lookup);
+unset($sport['items'][0]['metrics']['attempts']);$sport['items'][0]['metrics']['successes']=1;rejects($sport,$lookup);
+foreach($lookup as $a){
+ $i=['activityId'=>$a['id']];
+ if($a['tracking']==='session'){
+  $i['metrics']=['durationSeconds'=>600];
+  foreach($a['measurements'] as $m)if(!isset($i['metrics'][$m['key']]))$i['metrics'][$m['key']]=max(1,$m['min']);
+ }else{$i['sets']=[['reps'=>10,'weightKg'=>5,'durationSeconds'=>20]];}
+ $r=validate_workout(array_replace($base,['items'=>[$i]]),$lookup);
+ check($r['items'][0]['activityId']===$a['id'],'Catalog activity validates');
+ if($a['tracking']==='session')foreach($i['metrics'] as $k=>$v)check($r['items'][0]['metrics'][$k]===$v*1.0,'Preserve '.$k);
+}
+echo "PASS: all expanded activities validate and all declared session measurements survive normalization.\n";

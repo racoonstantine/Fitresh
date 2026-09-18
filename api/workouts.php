@@ -30,7 +30,15 @@ try {
             }
         }
         unset($session);
-        json_respond(['activities'=>array_values($catalog),'templates'=>$templates,'sessions'=>$sessions]);
+        json_respond([
+            'schemaVersion'=>2,
+            'sources'=>[
+                ['id'=>'acsm-2026','url'=>'https://acsm.org/resistance-training-guidelines-update-2026/'],
+                ['id'=>'aha-warm-cool','url'=>'https://www.heart.org/en/healthy-living/exercise-and-physical-activity/fitness-basics/warm-up-cool-down']
+            ],
+            'recommendationPolicy'=>['audience'=>'generally healthy adults','genderBasedLoading'=>false,'absoluteStartingLoads'=>false,'note'=>'Editable app defaults; choose loads using ability and observed performance.'],
+            'activities'=>array_values($catalog),'templates'=>$templates,'sessions'=>$sessions
+        ]);
     }
     $raw = file_get_contents('php://input', false, null, 0, 262145);
     if (strlen($raw) > 262144) json_respond(['error'=>'Request too large'],413);
