@@ -1,7 +1,7 @@
 /* Personal definitions are user-entered evidence, never shared catalog edits. */
 (() => {
   'use strict';
-  const fields=[['ENERC_KCAL','Calories (kcal)',true],['PROCNT','Protein (g)',true],['CHOCDF','Carbs (g)',true],['FAT','Fat (g)',true],['FIBTG','Fiber (g)'],['SUGAR','Sugar (g)'],['NA','Sodium (mg)'],['CHOLE','Cholesterol (mg)']];
+  const fields=[['ENERC_KCAL','Calories (kcal)',true],['PROCNT','Protein (g)'],['CHOCDF','Carbs (g)'],['FAT','Fat (g)'],['FIBTG','Fiber (g)'],['SUGAR','Sugar (g)'],['NA','Sodium (mg)'],['CHOLE','Cholesterol (mg)']];
   const dialog=document.createElement('dialog');dialog.id='personalFoodDialog';dialog.setAttribute('aria-labelledby','pfTitle');
   dialog.innerHTML=`<header><h2 id="pfTitle">My foods</h2><button type="button" id="pfClose" class="timer-btn" aria-label="Close personal foods">Close</button></header>
     <p class="pf-note">Create a private food from its nutrition label. Enter all values for the same serving. Your entries are labeled “User entered.”</p>
@@ -37,6 +37,11 @@
     if(definition){
       for(const key of ['name','brand','serving_label','serving_measure','serving_size','source_url','notes'])form.elements[key].value=definition[key]??'';
       for(const [code] of fields)form.elements[code].value=definition.nutrients?.[code]??'';
+    } else {
+      // Leeway for someone who just wants to log the food and doesn't know
+      // (or care about) macros yet -- calories is the only thing required,
+      // so default it to 0 rather than making them type it every time.
+      form.elements.ENERC_KCAL.value='0';
     }
     form.elements.submit_for_review.checked=false;preview();
   }

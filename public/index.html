@@ -412,6 +412,7 @@
     padding:8px 2px;text-align:center;cursor:pointer;
   }
   .week-day.today{border-color:var(--ochre);background:rgba(201,138,58,0.1);}
+  .week-day.selected{border-color:#3D7A99;background:rgba(61,122,153,0.12);box-shadow:0 0 0 1px #3D7A99;}
   .week-day.done{border-color:var(--forest);}
   .week-day-name{font-size:10px;color:var(--ink-soft);text-transform:uppercase;font-weight:600;}
   .week-day-type{font-size:9px;color:var(--ink-soft);margin-top:2px;line-height:1.2;min-height:22px;}
@@ -885,47 +886,11 @@
             <option value="snack">Snack</option>
           </select>
           <input type="text" id="foodSearchInput" placeholder="Search a food — e.g. chicken breast" autocomplete="off" style="flex:1;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:13px;">
+          <button type="button" id="foodSearchBtn" class="timer-btn" style="flex:0 0 auto;padding:8px 12px;" title="Search now">🔍</button>
         </div>
         <div id="foodSearchResults"></div>
         <div id="foodSearchStatus" style="font-size:12px;color:var(--ink-soft);display:none;margin-top:4px;"></div>
         <button class="timer-btn reset" id="createCustomFoodBtn" type="button" style="width:100%;margin-top:10px;">+ Add a custom food</button>
-
-        <div id="customFoodForm" style="display:none;margin-top:12px;padding-top:12px;border-top:1px solid var(--line);">
-          <label style="font-size:11px;color:var(--ink-soft);">Food name</label>
-          <input type="text" id="cfName" placeholder="e.g. Mom's chicken adobo" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;margin-bottom:10px;">
-          <div style="display:flex;gap:8px;margin-bottom:10px;">
-            <div style="flex:1;">
-              <label style="font-size:11px;color:var(--ink-soft);">Per amount</label>
-              <input type="number" id="cfAmount" value="100" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;">
-            </div>
-            <div style="flex:1;">
-              <label style="font-size:11px;color:var(--ink-soft);">Unit</label>
-              <select id="cfUnit" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;">
-                <option value="g">grams</option>
-                <option value="ml">ml</option>
-                <option value="serving">serving</option>
-              </select>
-            </div>
-          </div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px;">
-            <div><label style="font-size:11px;color:var(--ink-soft);">Calories</label><input type="number" id="cfCalories" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;"></div>
-            <div><label style="font-size:11px;color:var(--ink-soft);">Protein (g)</label><input type="number" id="cfProtein" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;"></div>
-            <div><label style="font-size:11px;color:var(--ink-soft);">Fat (g)</label><input type="number" id="cfFat" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;"></div>
-            <div><label style="font-size:11px;color:var(--ink-soft);">Carbs (g)</label><input type="number" id="cfCarbs" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;"></div>
-          </div>
-          <div style="font-size:11px;color:var(--ink-soft);margin-bottom:6px;">More nutrients (optional)</div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px;">
-            <div><label style="font-size:11px;color:var(--ink-soft);">Fiber (g)</label><input type="number" id="cfFiber" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;"></div>
-            <div><label style="font-size:11px;color:var(--ink-soft);">Sugar (g)</label><input type="number" id="cfSugar" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;"></div>
-            <div><label style="font-size:11px;color:var(--ink-soft);">Sodium (mg)</label><input type="number" id="cfSodium" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;"></div>
-            <div><label style="font-size:11px;color:var(--ink-soft);">Cholesterol (mg)</label><input type="number" id="cfCholesterol" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;"></div>
-          </div>
-          <div id="cfError" style="display:none;font-size:11.5px;color:#B4472A;margin-bottom:8px;"></div>
-          <div style="display:flex;gap:8px;">
-            <button class="timer-btn start" id="cfSaveBtn" type="button" style="flex:1;">Save &amp; log</button>
-            <button class="timer-btn reset" id="cfCancelBtn" type="button" style="flex:1;">Cancel</button>
-          </div>
-        </div>
       </div>
 
       <div class="hub-card" id="todayMealsCard" style="margin-top:14px;"></div>
@@ -957,18 +922,22 @@
           </div>
         </div>
         <div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap;">
-          <div class="hub-card" id="workoutTodayTile" style="flex:1;min-width:140px;cursor:pointer;">
+          <div class="hub-card" id="workoutTodayTile" style="flex:1;min-width:130px;cursor:pointer;padding:14px;margin-bottom:0;">
             <div style="font-size:10px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.04em;">Workout Today</div>
             <div style="font-weight:700;font-family:var(--font-heading);margin-top:2px;font-size:14px;" id="workoutTodayTileName">—</div>
             <div style="font-size:11px;color:var(--forest-dark);margin-top:4px;">Edit ›</div>
           </div>
-          <div class="hub-card" id="trainingPlanTile" style="flex:1;min-width:140px;cursor:pointer;">
+          <div class="hub-card" id="trainingPlanTile" style="flex:1;min-width:130px;cursor:pointer;padding:14px;margin-bottom:0;">
             <div style="font-size:10px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.04em;">Training Plan</div>
             <div style="font-weight:700;font-family:var(--font-heading);margin-top:2px;font-size:14px;" id="trainingPlanTileName">—</div>
             <div style="font-size:11px;color:var(--forest-dark);margin-top:4px;">Edit ›</div>
           </div>
+          <div class="hub-card" id="trainingProgramBtn" type="button" title="Coming soon" style="flex:1;min-width:130px;padding:14px;margin-bottom:0;cursor:not-allowed;background:rgba(107,91,149,0.1);border-color:rgba(107,91,149,0.3);">
+            <div style="font-size:10px;color:#6B5B95;text-transform:uppercase;letter-spacing:.04em;">Training Program</div>
+            <div style="font-weight:700;font-family:var(--font-heading);margin-top:2px;font-size:14px;color:#6B5B95;opacity:0.7;">Coming soon</div>
+            <div style="font-size:11px;color:#6B5B95;opacity:0.7;margin-top:4px;">Locked</div>
+          </div>
         </div>
-        <button class="img-link" id="trainingProgramBtn" type="button" disabled title="Coming soon" style="opacity:0.45;cursor:not-allowed;margin-top:8px;">Training Program</button>
       </div>
     </section>
 
@@ -1012,11 +981,11 @@
           <option value="sport">Sport</option>
           <option value="mobility">Mobility</option>
         </select>
-        <button type="button" id="manualExSearchToggle" class="img-link" style="cursor:pointer;margin-bottom:8px;">🔍 Search library instead</button>
-        <div id="manualExSearchWrap" style="display:none;margin-bottom:8px;">
-          <input type="text" id="manualExSearchInput" placeholder="Search activity library" style="width:100%;padding:7px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:13px;">
-          <div id="manualExSearchResults" style="margin-top:6px;"></div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+          <button type="button" id="manualExSearchToggle" class="img-link" style="cursor:pointer;flex:0 0 auto;">🔍 Search library instead</button>
+          <input type="text" id="manualExSearchInput" placeholder="Search activity library" style="display:none;flex:1;min-width:0;padding:7px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:13px;">
         </div>
+        <div id="manualExSearchResults" style="margin-bottom:8px;"></div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
           <div><label style="font-size:11px;color:var(--ink-soft);">Sets</label><input type="number" id="manualExSets" min="0" style="width:100%;padding:7px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:13px;"></div>
           <div><label style="font-size:11px;color:var(--ink-soft);">Reps</label><input type="number" id="manualExReps" min="0" style="width:100%;padding:7px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:13px;"></div>
@@ -1056,6 +1025,9 @@
       <div id="exerciseList"></div>
       <div class="note">Rest 45–60 sec between sets. Pick a weight where the last 2–3 reps feel hard but your form stays clean.</div>
       <div id="strengthStatsBlock" style="margin-top:12px;"></div>
+      <div id="extraEx-strength" data-extra-container="strength"></div>
+      <button class="img-link" data-extra-add-toggle="strength" type="button" style="cursor:pointer;margin-top:8px;">➕ Add Exercise (today only)</button>
+      <div data-extra-form="strength" style="display:none;margin-top:8px;"></div>
       <button class="today-btn" id="strengthCompleteLogBtn" style="width:100%;margin-top:12px;padding:11px 0;">✅ Plan Completed &amp; Log</button>
       <div class="note" id="strengthLoggedNote" style="margin-top:6px;"></div>
     </section>
@@ -1069,6 +1041,10 @@
       <div class="block-title" id="customPlanTitle">Custom plan</div>
       <div id="customPlanList"></div>
       <div class="note">Rest 45–60 sec between sets. Pick a weight where the last 2–3 reps feel hard but your form stays clean.</div>
+      <div id="extraEx-custom" data-extra-container="custom"></div>
+      <button class="img-link" data-extra-add-toggle="custom" type="button" style="cursor:pointer;margin-top:8px;">➕ Add Exercise (today only)</button>
+      <div data-extra-form="custom" style="display:none;margin-top:8px;"></div>
+      <div id="customPlanStatsBlock" style="margin-top:12px;"></div>
       <button class="today-btn" id="customPlanCompleteLogBtn" style="width:100%;margin-top:12px;padding:11px 0;">✅ Plan Completed &amp; Log</button>
       <div class="note" id="customPlanLoggedNote" style="margin-top:6px;"></div>
     </section>
@@ -1530,7 +1506,10 @@
 
     <div id="lmSearchMode">
       <div id="lmRecentFavorites" style="margin-bottom:10px;"></div>
-      <input type="text" id="lmSearchInput" placeholder="Search a food — e.g. chicken breast, rice, adobo" autocomplete="off" style="width:100%;padding:9px 10px;border:1px solid var(--line);border-radius:6px;background:var(--paper);font-size:13.5px;">
+      <div style="display:flex;gap:8px;">
+        <input type="text" id="lmSearchInput" placeholder="Search a food — e.g. chicken breast, rice, adobo" autocomplete="off" style="flex:1;padding:9px 10px;border:1px solid var(--line);border-radius:6px;background:var(--paper);font-size:13.5px;">
+        <button type="button" id="lmSearchBtn" class="timer-btn" style="flex:0 0 auto;padding:9px 12px;" title="Search now">🔍</button>
+      </div>
       <div id="lmSearchStatus" style="font-size:12px;color:var(--ink-soft);display:none;margin-top:6px;"></div>
       <div id="lmSearchResults"></div>
     </div>
@@ -2092,6 +2071,7 @@ function formatDateLabel(dateStr){
 }
 let nutriSelectedDate = null; // set on init to today; navigable via prev/next
 let dashSelectedDate = null; // workout dashboard day-view selected date
+let weekStripAnchorDate = null; // which week the Training Plan calendar strip shows; null = today's week
 function scrollToWorkout(){
   try{
     const el = document.getElementById('sessionPlanHeading');
@@ -2107,6 +2087,19 @@ let historyLog = [];
 // completed session for streaks, dashboards, or the workout-vs-sedentary
 // nutrition target split.
 function isRealSessionEntry(e){ return e.day !== 'custom' && e.day !== 'rest'; }
+// Formats an exercise entry's name plus whichever metrics it actually has
+// (weight/sets/reps for strength, duration/distance for cardio, intensity
+// for sports) -- every field is optional, so only present ones show.
+function exerciseSummaryText(ex){
+  const parts = [];
+  if(ex.weight) parts.push(ex.weight + 'kg');
+  if(ex.sets) parts.push(ex.sets + ' sets');
+  if(ex.reps) parts.push(ex.reps + ' reps');
+  if(ex.duration) parts.push(ex.duration + ' min');
+  if(ex.distance) parts.push(ex.distance + ' km');
+  if(ex.intensity) parts.push('intensity ' + ex.intensity);
+  return ex.name + (parts.length ? ' — ' + parts.join(' · ') : '');
+}
 let weighIns = []; // [{date:'YYYY-MM-DD', kg: number}]
 // Generic fallback goal until a profile with its own goalWeightKg is set (see updateWeightGoalsFromProfile).
 let GOAL_WEIGHT = 85;
@@ -4567,16 +4560,22 @@ function renderDashboard(){
     `;
     document.getElementById('dashPrevDay').addEventListener('click', ()=>{
       dashSelectedDate = addDaysToDate(dashSelectedDate, -1);
+      weekStripAnchorDate = dashSelectedDate;
       renderDashboard();
+      renderWeekPlan();
     });
     if(!isToday){
       document.getElementById('dashNextDay').addEventListener('click', ()=>{
         dashSelectedDate = addDaysToDate(dashSelectedDate, 1);
+        weekStripAnchorDate = dashSelectedDate;
         renderDashboard();
+        renderWeekPlan();
       });
       document.getElementById('dashJumpToday').addEventListener('click', ()=>{
         dashSelectedDate = todayStr;
+        weekStripAnchorDate = null;
         renderDashboard();
+        renderWeekPlan();
       });
     }
 
@@ -4614,7 +4613,7 @@ function renderDashboard(){
           <div class="log-detail open" data-dashdetail-detail="1">
             <div style="padding-top:4px;">
               ${dayEntries.map(e => {
-                const exList = e.exercises && e.exercises.length ? e.exercises.map(ex=>`<div class="log-line">- ${foodSearchEscape(ex.name)}${ex.weight ? ' — ' + foodSearchEscape(ex.weight) + (typeof ex.weight === 'string' && ex.weight.includes('kg') ? '' : 'kg') : ''}</div>`).join('') : '';
+                const exList = e.exercises && e.exercises.length ? e.exercises.map(ex=>`<div class="log-line">- ${foodSearchEscape(exerciseSummaryText(ex))}</div>`).join('') : '';
                 const s = e.stats;
                 const statLine = s ? [s.distance?s.distance+'km':'', s.duration?s.duration:'', s.calories?s.calories+'kcal':'', s.hr?s.hr+'bpm':''].filter(Boolean).join(' · ') : '';
                 return `<div style="margin-bottom:8px;"><strong style="font-size:12.5px;color:var(--ink);">${foodSearchEscape(e.label)}</strong>${statLine ? `<div style="font-size:11.5px;color:var(--ink-soft);">${statLine}</div>` : ''}${exList}${e.notes ? `<div class="log-note" style="font-size:11.5px;">${foodSearchEscape(e.notes)}</div>` : ''}</div>`;
@@ -4749,19 +4748,26 @@ function renderWeekPlan(){
   if(overridePanel) overridePanel.style.display = 'none';
   if(!hasPlan) return;
 
+  const todayStr = dateStrForOffset(0);
   const todayIdx = new Date().getDay();
   const isOpen = userTrainingPlan.presetKey === 'open';
+  // The strip normally shows the week containing today, but paging through
+  // past/future days on the Workout Dashboard (Daily view) moves it to
+  // whichever week contains the day currently selected there instead.
+  const anchorStr = weekStripAnchorDate || todayStr;
+  const anchorIdx = new Date(anchorStr + 'T00:00:00').getDay();
   const strip = document.getElementById('weekStrip');
   strip.innerHTML = '';
   weekPlan.forEach((base, i)=>{
-    const dStr = dateStrForOffset(i - todayIdx);
+    const dStr = addDaysToDate(anchorStr, i - anchorIdx);
     const entry = isOpen ? window.openModeDayEntry(dStr) : effectiveDayEntry(dStr, i);
     const plan = entry && entry.type === 'workoutPlan' ? getWorkoutPlan(entry.planId) : null;
     const legacyKey = plan && plan.kind === 'legacy' ? plan.legacyKey : null;
     const done = legacyKey ? !!checkedState[dStr + '_' + legacyKey + '_done'] : false;
     const hasOverride = !isOpen && userTrainingPlan.overrides && userTrainingPlan.overrides[dStr];
+    const isSelected = dStr === anchorStr && anchorStr !== todayStr;
     const cell = document.createElement('div');
-    cell.className = 'week-day' + (i===todayIdx ? ' today' : '') + (done ? ' done' : '');
+    cell.className = 'week-day' + (dStr === todayStr ? ' today' : '') + (isSelected ? ' selected' : '') + (done ? ' done' : '');
     cell.style.cursor = 'pointer';
     cell.title = 'Tap to correct what actually happened this day';
     cell.innerHTML = `
@@ -4826,7 +4832,7 @@ function renderHistory(){
     const s = entry.stats;
     const quickStat = s ? [s.distance ? s.distance+'km':'', s.calories ? s.calories+'kcal':'', s.hr ? s.hr+'bpm':''].filter(Boolean).join(' · ') : '';
     const exList = entry.exercises && entry.exercises.length
-      ? entry.exercises.map(ex => `<div class="log-line">- ${ex.name}${ex.weight ? ' — ' + ex.weight + 'kg' : ''}</div>`).join('')
+      ? entry.exercises.map(ex => `<div class="log-line">- ${foodSearchEscape(exerciseSummaryText(ex))}</div>`).join('')
       : '';
     const statLines = s ? [
       s.distance ? `Distance: ${s.distance} km` : '',
@@ -5081,6 +5087,7 @@ function renderStrength(day){
       ? `Logged today at ${new Date(strengthExisting.loggedAt).toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'})} (${strengthExisting.exercises.length} exercise${strengthExisting.exercises.length===1?'':'s'})`
       : '';
   }
+  renderExtraExercises('strength');
 }
 
 function renderCardio(kind){
@@ -5163,13 +5170,13 @@ function renderLogSessionOptions(hasSchedule){
   if(!el) return;
 
   const options = hasSchedule
-    ? [{value: 'plan', label: 'Use Workout Today Plan'}, {value: 'rest', label: 'Rest'}]
-    : [{value: 'plan', label: 'Select workout plan'}, {value: 'rest', label: 'Rest'}, {value: 'manual', label: 'Add manual exercise'}];
+    ? [{value: 'plan', icon: '🏋️', label: 'Use Workout Today Plan'}, {value: 'rest', icon: '😴', label: 'Rest'}]
+    : [{value: 'plan', icon: '📋', label: 'Select workout plan'}, {value: 'rest', icon: '😴', label: 'Rest'}, {value: 'manual', icon: '✍️', label: 'Add manual exercise'}];
 
   el.innerHTML = options.map(o => `
     <label style="display:flex;align-items:center;gap:8px;padding:5px 2px;cursor:pointer;font-size:13px;">
       <input type="radio" name="logSessionMode" value="${o.value}" ${logSessionMode === o.value ? 'checked' : ''}>
-      ${o.label}
+      <span style="font-size:15px;">${o.icon}</span> ${o.label}
     </label>
   `).join('');
   el.querySelectorAll('input[name="logSessionMode"]').forEach(r=>{
@@ -5233,12 +5240,78 @@ document.getElementById('logSessionRestSaveBtn').addEventListener('click', async
   renderTodayGlance();
 });
 
+// ---------- Extra exercises added to a Workout Plan for today only ----------
+// Keyed by today's date + which block ('strength' or 'custom') so switching
+// plans/days never mixes them up; nothing is saved to history until "Plan
+// Completed & Log" actually logs the day, at which point the key is cleared.
+let extraExercisesByPlanDay = {};
+function extraExKey(scope){ return dateStrForOffset(0) + ':' + scope; }
+function renderExtraExercises(scope){
+  const key = extraExKey(scope);
+  const list = extraExercisesByPlanDay[key] || [];
+  const el = document.getElementById('extraEx-' + scope);
+  if(!el) return;
+  el.innerHTML = list.map((ex, i) => `
+    <div class="ex-card" style="padding:8px 10px;display:flex;justify-content:space-between;align-items:center;gap:8px;">
+      <div style="font-size:12.5px;flex:1;">${foodSearchEscape(ex.name)}${ex.weight ? ' — ' + foodSearchEscape(ex.weight) + 'kg' : ''}${ex.sets ? ' · ' + ex.sets + ' sets' : ''}${ex.reps ? ' × ' + ex.reps + ' reps' : ''}${ex.duration ? ' · ' + ex.duration + ' min' : ''}</div>
+      <button type="button" data-remove-extra-ex="${i}" data-extra-scope="${scope}" style="background:none;border:none;color:inherit;cursor:pointer;font-size:14px;">✕</button>
+    </div>
+  `).join('');
+  el.querySelectorAll('[data-remove-extra-ex]').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      extraExercisesByPlanDay[key].splice(parseInt(btn.dataset.removeExtraEx, 10), 1);
+      renderExtraExercises(scope);
+    });
+  });
+}
+function extraExerciseFormHtml(scope){
+  return `
+    <input type="text" data-extra-name="${scope}" placeholder="Activity name" style="width:100%;padding:7px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:13px;margin-bottom:6px;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+      <input type="number" data-extra-sets="${scope}" placeholder="Sets" min="0" style="width:100%;padding:7px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:13px;">
+      <input type="number" data-extra-reps="${scope}" placeholder="Reps" min="0" style="width:100%;padding:7px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:13px;">
+      <input type="number" data-extra-weight="${scope}" placeholder="Weight (kg)" min="0" step="0.5" style="width:100%;padding:7px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:13px;">
+      <input type="number" data-extra-duration="${scope}" placeholder="Duration (min)" min="0" style="width:100%;padding:7px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:13px;">
+    </div>
+    <button type="button" data-extra-save="${scope}" class="timer-btn start" style="width:100%;margin-top:8px;">+ Add to today's session</button>
+  `;
+}
+document.querySelectorAll('[data-extra-add-toggle]').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    const scope = btn.dataset.extraAddToggle;
+    const formEl = document.querySelector(`[data-extra-form="${scope}"]`);
+    const showing = formEl.style.display !== 'none';
+    if(showing){ formEl.style.display = 'none'; formEl.innerHTML = ''; return; }
+    formEl.innerHTML = extraExerciseFormHtml(scope);
+    formEl.style.display = 'block';
+    formEl.querySelector(`[data-extra-save="${scope}"]`).addEventListener('click', ()=>{
+      const name = formEl.querySelector(`[data-extra-name="${scope}"]`).value.trim();
+      if(!name) return;
+      const key = extraExKey(scope);
+      extraExercisesByPlanDay[key] = extraExercisesByPlanDay[key] || [];
+      extraExercisesByPlanDay[key].push({
+        name,
+        sets: formEl.querySelector(`[data-extra-sets="${scope}"]`).value,
+        reps: formEl.querySelector(`[data-extra-reps="${scope}"]`).value,
+        weight: formEl.querySelector(`[data-extra-weight="${scope}"]`).value,
+        duration: formEl.querySelector(`[data-extra-duration="${scope}"]`).value
+      });
+      renderExtraExercises(scope);
+      formEl.style.display = 'none';
+      formEl.innerHTML = '';
+    });
+  });
+});
+
 // ---------- Manual exercise entry (Open mode, no library-backed Workout Plan) ----------
 let manualExPending = [];
 let manualExChosenActivityId = null;
 document.getElementById('manualExSearchToggle').addEventListener('click', ()=>{
-  const wrap = document.getElementById('manualExSearchWrap');
-  wrap.style.display = wrap.style.display === 'none' ? 'block' : 'none';
+  const input = document.getElementById('manualExSearchInput');
+  const showing = input.style.display !== 'none';
+  input.style.display = showing ? 'none' : 'block';
+  if(showing){ input.value = ''; document.getElementById('manualExSearchResults').innerHTML = ''; }
+  else input.focus();
 });
 document.getElementById('manualExSearchInput').addEventListener('input', (e)=>{
   const q = e.target.value.trim().toLowerCase();
@@ -5316,6 +5389,26 @@ function loggedTodayEntries(){
   const dStr = dateStrForOffset(0);
   return historyLog.map((e, idx) => ({e, idx})).filter(({e}) => e.date === dStr);
 }
+// Which fields make sense to edit per activity category -- keeps the
+// Logged Training Today edit form from showing every possible metric for
+// every exercise regardless of whether it applies.
+const LOGGEDTODAY_CATEGORY_FIELDS = {
+  strength: [['sets', 'Sets'], ['reps', 'Reps'], ['weight', 'Weight (kg)']],
+  cardio: [['duration', 'Duration (min)'], ['distance', 'Distance (km)']],
+  sports: [['duration', 'Duration (min)'], ['intensity', 'Intensity (1-10)']],
+  other: [['sets', 'Sets'], ['reps', 'Reps'], ['weight', 'Weight (kg)'], ['duration', 'Duration (min)'], ['distance', 'Distance (km)']]
+};
+function guessLoggedTodayCategory(ex){
+  if(ex.category && LOGGEDTODAY_CATEGORY_FIELDS[ex.category]) return ex.category;
+  if(ex.distance) return 'cardio';
+  if(ex.duration && !ex.sets && !ex.reps && !ex.weight) return 'cardio';
+  if(ex.sets || ex.reps || ex.weight) return 'strength';
+  return 'other';
+}
+function loggedTodayFieldsHtml(idx, exi, ex, cat){
+  const fields = LOGGEDTODAY_CATEGORY_FIELDS[cat] || LOGGEDTODAY_CATEGORY_FIELDS.other;
+  return fields.map(([key, label]) => `<input type="text" data-loggedtoday-field="${idx}:${exi}:${key}" value="${foodSearchEscape(ex[key] || '')}" placeholder="${label}" style="width:110px;padding:5px 6px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:12px;">`).join('');
+}
 function renderLoggedToday(){
   const el = document.getElementById('loggedTodayList');
   if(!el) return;
@@ -5325,12 +5418,25 @@ function renderLoggedToday(){
     return;
   }
   el.innerHTML = rows.map(({e, idx}) => {
-    const exRows = (e.exercises || []).map((ex, exi) => `
-      <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;padding:4px 0;">
-        <span style="font-size:12.5px;flex:1;">${foodSearchEscape(ex.name)}</span>
-        <input type="text" data-loggedtoday-weight="${idx}:${exi}" value="${foodSearchEscape(ex.weight || '')}" placeholder="kg" style="width:70px;padding:5px 6px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:12px;">
+    const exRows = (e.exercises || []).map((ex, exi) => {
+      const cat = guessLoggedTodayCategory(ex);
+      return `
+      <div style="padding:6px 0;border-bottom:1px solid var(--line);">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:5px;">
+          <span style="font-size:12.5px;flex:1;">${foodSearchEscape(ex.name)}</span>
+          <select data-loggedtoday-category="${idx}:${exi}" style="padding:4px 6px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:11px;">
+            <option value="strength" ${cat==='strength'?'selected':''}>Strength</option>
+            <option value="cardio" ${cat==='cardio'?'selected':''}>Cardio</option>
+            <option value="sports" ${cat==='sports'?'selected':''}>Sports</option>
+            <option value="other" ${cat==='other'?'selected':''}>Other</option>
+          </select>
+        </div>
+        <div data-loggedtoday-fields="${idx}:${exi}" style="display:flex;flex-wrap:wrap;gap:6px;">
+          ${loggedTodayFieldsHtml(idx, exi, ex, cat)}
+        </div>
       </div>
-    `).join('');
+    `;
+    }).join('');
     return `
     <div class="log-row">
       <div class="log-head" data-loggedtoday-toggle="${idx}">
@@ -5360,15 +5466,36 @@ function renderLoggedToday(){
       head.classList.toggle('expanded', open);
     });
   });
+  el.querySelectorAll('[data-loggedtoday-category]').forEach(sel=>{
+    sel.addEventListener('change', ()=>{
+      const [idx, exi] = sel.dataset.loggedtodayCategory.split(':');
+      const entry = historyLog[parseInt(idx, 10)];
+      const ex = entry && entry.exercises[parseInt(exi, 10)];
+      if(!ex) return;
+      // Read back whatever's currently typed under the old category before
+      // swapping fields, so switching categories doesn't drop unsaved input.
+      const fieldsEl = el.querySelector(`[data-loggedtoday-fields="${idx}:${exi}"]`);
+      fieldsEl.querySelectorAll('[data-loggedtoday-field]').forEach(inp=>{
+        const key = inp.dataset.loggedtodayField.split(':')[2];
+        ex[key] = inp.value;
+      });
+      fieldsEl.innerHTML = loggedTodayFieldsHtml(idx, exi, ex, sel.value);
+    });
+  });
   el.querySelectorAll('[data-loggedtoday-save]').forEach(btn=>{
     btn.addEventListener('click', (e)=>{
       e.stopPropagation();
       const idx = parseInt(btn.dataset.loggedtodaySave, 10);
       const entry = historyLog[idx];
       if(!entry) return;
-      el.querySelectorAll(`[data-loggedtoday-weight^="${idx}:"]`).forEach(inp=>{
-        const exi = parseInt(inp.dataset.loggedtodayWeight.split(':')[1], 10);
-        if(entry.exercises[exi]) entry.exercises[exi].weight = inp.value;
+      el.querySelectorAll(`[data-loggedtoday-category^="${idx}:"]`).forEach(sel=>{
+        const exi = parseInt(sel.dataset.loggedtodayCategory.split(':')[1], 10);
+        if(entry.exercises[exi]) entry.exercises[exi].category = sel.value;
+      });
+      el.querySelectorAll(`[data-loggedtoday-field^="${idx}:"]`).forEach(inp=>{
+        const [, exiStr, key] = inp.dataset.loggedtodayField.split(':');
+        const exi = parseInt(exiStr, 10);
+        if(entry.exercises[exi]) entry.exercises[exi][key] = inp.value;
       });
       const notesEl = el.querySelector(`[data-loggedtoday-notes="${idx}"]`);
       entry.notes = notesEl ? notesEl.value : entry.notes;
@@ -5564,10 +5691,31 @@ function renderCustomPlanSession(plan){
   });
 
   const dStr = dateStrForOffset(0);
-  const existing = historyLog.find(e => e.date === dStr && e.day === 'plan:' + plan.id);
+  const dayId = 'plan:' + plan.id;
+  const existing = historyLog.find(e => e.date === dStr && e.day === dayId);
   document.getElementById('customPlanLoggedNote').textContent = existing
     ? `Logged today at ${new Date(existing.loggedAt).toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'})} (${existing.exercises.length} exercise${existing.exercises.length===1?'':'s'})`
     : '';
+  renderExtraExercises('custom');
+
+  const customStats = existing ? existing.stats : null;
+  const customStatsEl = document.getElementById('customPlanStatsBlock');
+  customStatsEl.innerHTML = `
+    ${customStats ? `
+    <div class="cardio-row" style="border-bottom:none;flex-wrap:wrap;gap:6px 14px;padding-bottom:8px;">
+      ${customStats.duration ? `<span style="font-size:12px;color:var(--ink-soft);">⏱ ${customStats.duration}</span>` : ''}
+      ${customStats.calories ? `<span style="font-size:12px;color:var(--ink-soft);">🔥 ${customStats.calories} kcal</span>` : ''}
+      ${customStats.hr ? `<span style="font-size:12px;color:var(--ink-soft);">♥ ${customStats.hr} bpm</span>` : ''}
+      ${customStats.maxHr ? `<span style="font-size:12px;color:var(--ink-soft);">♥ max ${customStats.maxHr} bpm</span>` : ''}
+      ${customStats.trainingStress ? `<span style="font-size:12px;color:var(--ink-soft);">📈 TSS ${customStats.trainingStress}</span>` : ''}
+      ${customStats.recoveryHr ? `<span style="font-size:12px;color:var(--ink-soft);">↘ HR recovery ${customStats.recoveryHr} bpm</span>` : ''}
+    </div>` : ''}
+    <button class="img-link" id="logCustomPlanStatsBtn" style="cursor:pointer;">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+      ${customStats ? 'Edit watch stats' : 'Log stats from watch'}
+    </button>
+  `;
+  document.getElementById('logCustomPlanStatsBtn').addEventListener('click', ()=> openStatsForm(dayId));
 }
 document.getElementById('customPlanCompleteLogBtn').addEventListener('click', ()=>{
   const plan = activeCustomPlan;
@@ -5582,9 +5730,13 @@ document.getElementById('customPlanCompleteLogBtn').addEventListener('click', ()
       weight: (window.savedWeights && window.savedWeights[customItemId(plan, idx)]) || ''
     };
   });
+  const extraKey = extraExKey('custom');
+  const extras = extraExercisesByPlanDay[extraKey] || [];
+  snapshot.push(...extras);
   checkedState[dStr + '_' + dayId + '_done'] = snapshot.length > 0;
   saveChecked();
   upsertSessionLog(dStr, dayId, snapshot, undefined, undefined, plan.name);
+  delete extraExercisesByPlanDay[extraKey];
   renderTally();
   renderDashboard();
   renderHistory();
@@ -5601,9 +5753,13 @@ document.getElementById('strengthCompleteLogBtn').addEventListener('click', ()=>
     name: ex.name,
     weight: (window.savedWeights && window.savedWeights[ex.id]) || ''
   }));
+  const extraKey = extraExKey('strength');
+  const extras = extraExercisesByPlanDay[extraKey] || [];
+  doneExercises.push(...extras);
   checkedState[dStr + '_' + day + '_done'] = doneExercises.length > 0;
   saveChecked();
   upsertSessionLog(dStr, day, doneExercises);
+  delete extraExercisesByPlanDay[extraKey];
   renderTally();
   renderDashboard();
   renderHistory();
@@ -5697,7 +5853,9 @@ document.getElementById('saveStatsBtn').onclick = ()=>{
   renderHistory();
   renderWeekPlan();
   if(isToday){
-    if(isStrengthDay) renderStrength(contextId); else renderCardio(contextId);
+    if(isStrengthDay) renderStrength(contextId);
+    else if(cardioData[contextId]) renderCardio(contextId);
+    else if(activeCustomPlan) renderCustomPlanSession(activeCustomPlan);
   }
   renderLoggedToday();
   renderTodayGlance();
@@ -6604,7 +6762,20 @@ async function checkAuthAndStart(){
   document.getElementById('foodSearchInput').addEventListener('input', (e)=>{
     clearTimeout(searchDebounce);
     const q = e.target.value.trim();
-    searchDebounce = setTimeout(()=> searchFoodsCombined(q), 350);
+    searchDebounce = setTimeout(()=> searchFoodsCombined(q), 500);
+  });
+  // Manual fallback -- searches immediately (no debounce wait) and works as
+  // a retry after a dropped/slow search without needing to edit the text.
+  document.getElementById('foodSearchBtn').addEventListener('click', ()=>{
+    clearTimeout(searchDebounce);
+    searchFoodsCombined(document.getElementById('foodSearchInput').value.trim());
+  });
+  document.getElementById('foodSearchInput').addEventListener('keydown', (e)=>{
+    if(e.key === 'Enter'){
+      e.preventDefault();
+      clearTimeout(searchDebounce);
+      searchFoodsCombined(e.target.value.trim());
+    }
   });
 
   ['input','change'].forEach(eventName => document.getElementById('foodSearchResults').addEventListener(eventName, e=>{
@@ -6682,64 +6853,12 @@ async function checkAuthAndStart(){
     }
   });
 
+  // "My foods · Create food" (personal-foods.js) already covers this --
+  // private, reusable by name in search, versioned, and with an opt-in
+  // submission queue for admin review -- so this button opens that instead
+  // of the ad-hoc one-off form it used to show.
   document.getElementById('createCustomFoodBtn').addEventListener('click', ()=>{
-    const form = document.getElementById('customFoodForm');
-    form.style.display = form.style.display === 'none' ? 'block' : 'none';
-  });
-  document.getElementById('cfCancelBtn').addEventListener('click', ()=>{
-    document.getElementById('customFoodForm').style.display = 'none';
-  });
-  document.getElementById('cfSaveBtn').addEventListener('click', async ()=>{
-    const name = document.getElementById('cfName').value.trim();
-    const errEl = document.getElementById('cfError');
-    errEl.style.display = 'none';
-    if(!name) return;
-    const calories = parseFloat(document.getElementById('cfCalories').value);
-    if(!calories || calories <= 0){
-      errEl.textContent = 'Enter the calories for this food — a custom food needs at least a calorie estimate to be useful in your log.';
-      errEl.style.display = 'block';
-      return;
-    }
-    const btn = document.getElementById('cfSaveBtn');
-    btn.disabled = true;
-    btn.textContent = 'Saving…';
-    try{
-      const amount = parseFloat(document.getElementById('cfAmount').value) || 100;
-      const unit = document.getElementById('cfUnit').value;
-      const {ok, data: food} = await safeFetchJson('api/foods.php?action=create_custom', {
-        method: 'POST', credentials: 'same-origin', headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({
-          name, canonical_amount: amount, canonical_unit: unit,
-          nutrients: {
-            ENERC_KCAL: calories,
-            PROCNT: parseFloat(document.getElementById('cfProtein').value) || 0,
-            FAT: parseFloat(document.getElementById('cfFat').value) || 0,
-            CHOCDF: parseFloat(document.getElementById('cfCarbs').value) || 0,
-            FIBTG: parseFloat(document.getElementById('cfFiber').value) || null,
-            SUGAR: parseFloat(document.getElementById('cfSugar').value) || null,
-            NA: parseFloat(document.getElementById('cfSodium').value) || null,
-            CHOLE: parseFloat(document.getElementById('cfCholesterol').value) || null
-          }
-        })
-      });
-      if(!ok || food.error || !food.id) throw new Error(food.error || 'Could not save this food — try again.');
-      const {ok: logOk, data: logged} = await safeFetchJson('api/meals.php?action=log', {
-        method: 'POST', credentials: 'same-origin', headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({date: nutriSelectedDate || dateStrForOffset(0), meal_type: document.getElementById('mealLogType').value, component: {food_id: food.id, amount, unit}})
-      });
-      if(!logOk || logged.error) throw new Error(logged.error || 'Food was saved but could not be logged — try adding it again.');
-      recordRecentFood({name, canonical_unit: unit, canonical_amount: amount, nutrients: {ENERC_KCAL: calories}}, food.id);
-      document.getElementById('customFoodForm').style.display = 'none';
-      ['cfName', 'cfCalories', 'cfProtein', 'cfFat', 'cfCarbs', 'cfFiber', 'cfSugar', 'cfSodium', 'cfCholesterol'].forEach(id => document.getElementById(id).value = '');
-      document.getElementById('cfAmount').value = 100;
-      renderTodayMeals();
-      renderNutrition();
-    }catch(err){
-      alert(err.message || 'Could not save — try again.');
-    }finally{
-      btn.disabled = false;
-      btn.textContent = 'Save & log';
-    }
+    if(window.personalFoods) window.personalFoods.open();
   });
 })();
 
@@ -6803,7 +6922,18 @@ async function checkAuthAndStart(){
   document.getElementById('lmSearchInput').addEventListener('input', (e)=>{
     clearTimeout(lmSearchDebounce);
     const q = e.target.value.trim();
-    lmSearchDebounce = setTimeout(()=> lmSearchFoods(q), 350);
+    lmSearchDebounce = setTimeout(()=> lmSearchFoods(q), 500);
+  });
+  document.getElementById('lmSearchBtn').addEventListener('click', ()=>{
+    clearTimeout(lmSearchDebounce);
+    lmSearchFoods(document.getElementById('lmSearchInput').value.trim());
+  });
+  document.getElementById('lmSearchInput').addEventListener('keydown', (e)=>{
+    if(e.key === 'Enter'){
+      e.preventDefault();
+      clearTimeout(lmSearchDebounce);
+      lmSearchFoods(e.target.value.trim());
+    }
   });
 
   async function lmSearchFoods(query){

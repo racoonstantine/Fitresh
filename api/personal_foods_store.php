@@ -31,7 +31,10 @@ function validate_personal_food(array $input): array {
     foreach (['ENERC_KCAL','PROCNT','CHOCDF','FAT','FIBTG','SUGAR','NA','CHOLE'] as $code) {
         $v=$raw[$code] ?? null;
         if ($v === '' || $v === null) {
-            if (in_array($code,['ENERC_KCAL','PROCNT','CHOCDF','FAT'],true)) throw new InvalidArgumentException('Calories, protein, carbs and fat are required. Enter 0 when the label states zero.');
+            // Calories is the only nutrient a food needs to be useful in the
+            // log at all -- someone who just wants a quick calorie estimate
+            // shouldn't have to fill in protein/carbs/fat they don't know.
+            if ($code === 'ENERC_KCAL') throw new InvalidArgumentException('Calories is required. Enter 0 when the label states zero.');
             $d['nutrients'][$code]=null;continue;
         }
         if (is_bool($v) || !is_scalar($v)) throw new InvalidArgumentException('Invalid nutrient value.');
@@ -39,7 +42,7 @@ function validate_personal_food(array $input): array {
         if ($v === false || !is_finite($v) || $v<0 || $v>99999999 || ($measure!=='serving' && $v*100/$size>99999999)) throw new InvalidArgumentException('Nutrition values must be finite, nonnegative and within range.');
         $d['nutrients'][$code]=$v;
     }
-    if ($d['nutrients']['SUGAR'] !== null && $d['nutrients']['SUGAR']>$d['nutrients']['CHOCDF']+.1) throw new InvalidArgumentException('Sugar exceeds total carbohydrate. Check the label and serving basis.');
+    if ($d['nutrients']['SUGAR'] !== null && $d['nutrients']['CHOCDF'] !== null && $d['nutrients']['SUGAR']>$d['nutrients']['CHOCDF']+.1) throw new InvalidArgumentException('Sugar exceeds total carbohydrate. Check the label and serving basis.');
     return $d;
 }
 

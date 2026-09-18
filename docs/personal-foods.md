@@ -1,6 +1,6 @@
 # Personal foods and review queue
 
-Users can open **My foods · Create food** from either food-search screen, enter nutrition per serving, and save a private entry. Search results also offer **Save a personal copy**. Calories, protein, carbohydrates and fat are required; optional nutrients stay unknown when blank. Explicit zero values are retained.
+Users can open **My foods · Create food** from either food-search screen, enter nutrition per serving, and save a private entry. Search results also offer **Save a personal copy**. Only calories is required (it defaults to 0 in the form so someone who just wants to log the food, macros unknown, doesn't have to type it); protein, carbohydrates, fat and every other nutrient stay unknown when left blank. Explicit zero values are retained.
 
 A serving may have a known gram or milliliter amount. These entries support serving conversion to their recorded measure; gram entries also support ounces. Without a weight or volume, logging is by servings. No density is guessed between grams and milliliters.
 

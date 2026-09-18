@@ -43,7 +43,12 @@ $stale=array_replace($edit,['request_key'=>'44444444-4444-4444-8444-444444444444
 fails(fn()=>save_personal_food($pdo,1,$stale),'Stale edit must be rejected');
 check((int)$pdo->query('SELECT COUNT(*) FROM foods')->fetchColumn()===3,'Rejected edits must leave no partial food');
 foreach([['serving_size'=>0],['serving_size'=>-1],['serving_measure'=>'oz'],['source_url'=>'javascript:alert(1)'],['name'=>str_repeat('a',201)]] as $bad)fails(fn()=>validate_personal_food(array_replace($input,$bad)),'Invalid fields accepted');
-foreach([null,-1,INF,NAN,true,[]] as $bad){$v=$input;$v['nutrients']['PROCNT']=$bad;fails(fn()=>validate_personal_food($v),'Invalid nutrient accepted');}
+// PROCNT is optional now -- null must be accepted (unknown protein), but
+// still-invalid values (negative/non-finite/wrong type) must still fail.
+$v=$input;$v['nutrients']['PROCNT']=null;check(validate_personal_food($v)['nutrients']['PROCNT']===null,'Optional nutrient left blank must be accepted');
+foreach([-1,INF,NAN,true,[]] as $bad){$v=$input;$v['nutrients']['PROCNT']=$bad;fails(fn()=>validate_personal_food($v),'Invalid nutrient accepted');}
+// Calories is still the one required nutrient.
+$v=$input;$v['nutrients']['ENERC_KCAL']=null;fails(fn()=>validate_personal_food($v),'Missing calories must still be rejected');
 $v=$input;$v['nutrients']['SUGAR']=10;fails(fn()=>validate_personal_food($v),'Sugar/carbohydrate inconsistency accepted');
 $v=$input;$v['serving_measure']='serving';unset($v['serving_size']);$d=validate_personal_food($v);check(personal_food_canonical($d)['canonical_amount']===1,'Unknown weight stays one serving');
 $v=$input;$v['serving_measure']='ml';$v['serving_size']=250;$d=validate_personal_food($v);$ml=personal_food_canonical($d);check($ml['nutrients']['ENERC_KCAL']===48.0,'Volume normalization');
