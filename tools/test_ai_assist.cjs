@@ -6,6 +6,14 @@ const vm = require('node:vm');
 const assert = require('node:assert/strict');
 
 const html = fs.readFileSync('public/index.html', 'utf8');
+// parseLabeledReply/firstNumber/copyTextToClipboard are shared globals (used
+// by both the food and stats AI-assist flows), declared once near
+// foodSearchEscape rather than inside either flow's own block.
+const startShared = html.indexOf("function parseLabeledReply");
+const endShared = html.indexOf("// ====", startShared);
+if (startShared === -1 || endShared === -1) throw new Error('Could not locate shared AI-assist helpers in index.html');
+const sharedCode = html.slice(startShared, endShared);
+
 const start = html.indexOf("function buildFoodAiPrompt");
 const end = html.indexOf("document.getElementById('aiFoodGenerateBtn')");
 if (start === -1 || end === -1) throw new Error('Could not locate AI food-assist block in index.html');
@@ -17,7 +25,7 @@ if (start2 === -1 || end2 === -1) throw new Error('Could not locate AI stats-ass
 const statsCode = html.slice(start2, end2);
 
 const context = vm.createContext({});
-vm.runInContext(foodCode + '\n' + statsCode, context);
+vm.runInContext(sharedCode + '\n' + foodCode + '\n' + statsCode, context);
 const { buildFoodAiPrompt, parseLabeledReply, firstNumber, buildStatsAiPrompt, splitFoodReplyBlocks } = context;
 
 // --- Prompt generation ---
@@ -98,10 +106,17 @@ assert.equal(splitFoodReplyBlocks("Sorry, I can't help with that.").length, 0);
 
 // --- Prompt generation + parsing (workout) ---
 const sp1 = buildStatsAiPrompt('30 minute easy jog outdoors');
-assert.ok(sp1.includes('Activity: 30 minute easy jog outdoors'));
+assert.ok(sp1.includes('Additional details from the user: 30 minute easy jog outdoors'));
 assert.ok(!sp1.includes('please attach it to this chat'), 'should not ask for photo when description given');
 const sp2 = buildStatsAiPrompt('');
 assert.ok(sp2.includes('please attach it to this chat'));
+assert.ok(sp2.includes('ASK ME for it before estimating'), 'prompt must tell the AI to ask for duration if missing, per explicit user request');
+
+// Workout details (exercises actually done) must be woven into the prompt,
+// not just whatever free text the user typed -- this was the reported
+// "prompt looks incomplete" issue.
+const sp3 = buildStatsAiPrompt('', 'Strength A: Goblet Squat, Push-up');
+assert.ok(sp3.includes('Workout logged in the app: Strength A: Goblet Squat, Push-up'));
 
 const statsReply = `Here's my best guess based on that description:\nDistance: 5.0\nDuration: 30:00\nCalories: 300 kcal\nAvg HR: 140 bpm\nAvg Pace: 6'00"\nSteps: 4500\nMax HR: 155 bpm\nElevation gain: 20 m`;
 const sf = parseLabeledReply(statsReply, ['Distance','Duration','Calories','Avg HR','Avg Pace','Steps','Max HR','Elevation gain']);
