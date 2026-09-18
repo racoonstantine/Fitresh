@@ -60,7 +60,12 @@ function require_json_request(): void
     if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
         return;
     }
-    if (stripos($_SERVER['CONTENT_TYPE'] ?? '', 'application/json') !== 0) {
+    // Some SAPI/webserver combinations (PHP-FPM behind certain proxies, in
+    // particular) only populate HTTP_CONTENT_TYPE, not CONTENT_TYPE -- check
+    // both so a legitimate request never gets rejected over which key the
+    // header landed in.
+    $contentType = $_SERVER['CONTENT_TYPE'] ?? $_SERVER['HTTP_CONTENT_TYPE'] ?? '';
+    if (stripos($contentType, 'application/json') !== 0) {
         json_respond(['error' => 'JSON required'], 415);
     }
 }

@@ -810,6 +810,81 @@ in an emulated 375px-wide viewport: before the fix the page's scroll width
 exceeded the viewport; after, it exactly matches with no horizontal
 overflow.
 
+## Investigating a reported "The string did not match the expected pattern" save error
+
+Reported on iOS Safari when saving a multi-item meal log (some items with
+sodium/fiber/sugar via the "More macros" section). I could not reproduce
+the exact error text: I rebuilt the reported scenario byte-for-byte in a
+local harness (identical items, amounts, and macros) and the save
+completed correctly every time. I also searched every custom error message
+in the codebase (frontend and PHP) for this exact wording and found none —
+it reads like a native browser/JS runtime message, not one of ours, most
+likely a `JSON.parse()` failure surfacing through `res.json()` with
+WebKit's own (differently-worded, more cryptic) error text for a
+non-JSON server response.
+
+Rather than leave that as a dead end, two real, verifiable improvements
+came out of the investigation:
+
+- **`safeFetchJson()`** (in `public/index.html`) reads a response as text
+  first and only parses it as JSON afterward, so if the server ever returns
+  something that isn't valid JSON — an HTML error page, a truncated
+  response, a PHP warning printed before the JSON body — the user sees a
+  clear "the server sent back something unexpected" message instead of a
+  raw, cryptic native parse error. Applied to the Log Meal save flow, the
+  Food tab's quick-log confirm, and the custom-food save flow. Verified by
+  temporarily forcing one of these requests to return a broken response and
+  confirming the message shown was the clear one, not a native exception.
+- Two of those same flows had a **real latent bug**: they read `food.id`
+  from the create/save response without checking `food.error`, so a
+  legitimate server-side rejection (e.g. a validation error) fell through
+  silently — the custom-food save flow in particular would then log a
+  broken, nameless "manual" meal component instead of surfacing the actual
+  error. Both now check `ok`/`.error` explicitly and throw the real message.
+- `require_json_request()` (the CSRF check added in the security review
+  above) now also checks `HTTP_CONTENT_TYPE` as a fallback alongside
+  `CONTENT_TYPE`, since some PHP-FPM/webserver combinations only populate
+  one or the other — a defensive fix in case that variance was ever
+  rejecting a legitimate request.
+
+If this recurs, the cPanel PHP error log for the exact timestamp of a
+failed save would give a definitive root cause — that's the one thing I
+couldn't check from here.
+
+## "Account" tab renamed to "Me"
+
+The bottom-nav/top-nav tab (Snapshot / My data / Goals / Account settings /
+Feedback) is now labeled "Me", since account settings are just one of
+several things inside it. The nested "Account" sub-tab (the actual
+email/password/display-name settings) keeps its name, since that one
+specifically is about the account.
+
+## Admin console (hardcoded to one account, for now)
+
+A new "Admin" sub-tab under **Me**, visible only when the logged-in
+account's email is `sherwin.llona@gmail.com` (hardcoded in both
+`public/index.html`, for the tab's visibility, and `api/admin.php`, which
+is the actual enforcement point — it re-checks the caller's email fresh
+from the database on every request, so the client-side check is cosmetic
+only, not the security boundary). Shows every account's email, username,
+display name, signup date, approval status, and a "days logged" count
+(currently scoped to the new search-based food log via `meal_entries` —
+the one activity metric available from a plain SQL count without parsing
+every account's legacy JSON blobs; it undercounts anyone who only ever
+used manual/quick-log paths). Each account has a "Reset password" button
+that generates a random temporary password server-side and shows it once
+to the admin to relay directly — verified end-to-end, including that a
+non-admin account gets a 403 from `api/admin.php` for both the overview
+and the reset action.
+
+This intentionally does **not** email the new password automatically, or
+build a self-service "forgot password" flow — both need a way to know an
+email address is genuinely reachable by its owner (email verification),
+which doesn't exist yet and is a real feature in its own right (a
+confirmation-token flow, a UI for it, resend handling, etc.). Worth a
+dedicated follow-up if self-service reset becomes a priority; for now the
+admin-driven reset covers the immediate need.
+
 ## Local development
 
 There's no build step. To preview the frontend against a local PHP server:

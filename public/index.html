@@ -759,7 +759,7 @@
       <button class="tab-nav-btn" data-view="food" type="button">Food</button>
       <button class="tab-nav-btn" data-view="train" type="button">Train</button>
       <button class="tab-nav-btn" data-view="insights" type="button">Insights</button>
-      <button class="tab-nav-btn" data-view="account" type="button">Account</button>
+      <button class="tab-nav-btn" data-view="account" type="button">Me</button>
     </nav>
     <div class="topbar-user">
       <button class="theme-toggle" id="themeToggle" title="Toggle dark/light">
@@ -1130,6 +1130,7 @@
       <button class="subnav-btn" data-account-view="goals" type="button">Goals</button>
       <button class="subnav-btn" data-account-view="settings" type="button">Account</button>
       <button class="subnav-btn" data-account-view="feedback" type="button">Feedback</button>
+      <button class="subnav-btn" id="adminSubnavBtn" data-account-view="admin" type="button" style="display:none;">Admin</button>
     </nav>
 
     <div id="accountSnapshot">
@@ -1335,6 +1336,15 @@
         </div>
       </section>
     </div>
+
+    <div id="accountAdmin" style="display:none;">
+      <section class="block" style="margin-top:16px;margin-bottom:18px;">
+        <div class="block-title">Admin — user base</div>
+        <div class="note" style="margin-bottom:10px;">Visible only to the account this is hardcoded to. "Days logged" counts distinct days with at least one search-logged food entry — it undercounts anyone who only ever used manual/quick-log paths.</div>
+        <div id="adminStatus" style="font-size:12px;color:var(--ink-soft);"></div>
+        <div id="adminUserList"></div>
+      </section>
+    </div>
   </div><!-- /panelAccount -->
 
   <footer>Tap a checkmark to log the exercise. Tap the card to see form cues. Your data is saved to your account.</footer>
@@ -1364,7 +1374,7 @@
     </button>
     <button class="bottom-nav-btn" data-view="account" type="button">
       <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-6 8-6s8 2 8 6"/></svg>
-      <span>Account</span>
+      <span>Me</span>
     </button>
   </nav>
 </div><!-- /app-shell-v2 -->
@@ -1668,6 +1678,26 @@ const STORAGE_PREFIX = 'log:';
 // the /api/data.php endpoint so each logged-in user gets their own data.
 function handleUnauthorized(){
   showLoginScreen('Your session expired — log in again.');
+}
+// fetch() + res.json() assumes the server always returns valid JSON. If it
+// ever doesn't -- a proxy/CDN error page, a truncated response, a PHP
+// warning printed before the JSON body -- res.json() throws a raw native
+// parse error whose wording varies by browser engine and reads as
+// meaningless noise to a user (e.g. a cryptic "did not match the expected
+// pattern" instead of anything actionable). Read the body as text first so
+// we can tell "the server rejected this" apart from "the server broke" and
+// surface a clear message either way instead of leaking the native error.
+async function safeFetchJson(url, options){
+  const res = await fetch(url, options);
+  const text = await res.text();
+  let data = {};
+  if(text){
+    try { data = JSON.parse(text); }
+    catch(e){
+      throw new Error(`The server sent back something unexpected (status ${res.status}) — try again in a moment.`);
+    }
+  }
+  return { ok: res.ok, status: res.status, data };
 }
 window.storage = {
   async get(key){
@@ -3824,6 +3854,60 @@ function renderAccountSettings(){
   document.getElementById('acctError').style.display = 'none';
 }
 
+// Admin console: hardcoded-visibility (see showAppFor) but the real
+// authorization boundary is server-side in api/admin.php, which re-checks
+// the caller's own email fresh from the DB on every request. This UI gate
+// is just so non-admin accounts don't see a tab that would 403 anyway.
+async function renderAdminPanel(){
+  const statusEl = document.getElementById('adminStatus');
+  const listEl = document.getElementById('adminUserList');
+  statusEl.textContent = 'Loading…';
+  listEl.innerHTML = '';
+  try{
+    const {ok, data} = await safeFetchJson('api/admin.php?action=overview', {credentials: 'same-origin'});
+    if(!ok || data.error) throw new Error(data.error || 'Could not load the user list.');
+    statusEl.textContent = `${data.users.length} account${data.users.length === 1 ? '' : 's'}.`;
+    const statusLabel = {approved: 'Approved', pending: 'Pending', rejected: 'Rejected'};
+    listEl.innerHTML = data.users.map(u => `
+      <div class="hub-card" style="margin-top:10px;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px;">
+          <div style="min-width:0;">
+            <div style="font-weight:600;font-size:13.5px;">${foodSearchEscape(u.display_name)} ${u.username ? `<span style="color:var(--ink-soft);font-weight:400;">@${foodSearchEscape(u.username)}</span>` : ''}</div>
+            <div style="font-size:12px;color:var(--ink-soft);margin-top:2px;">${foodSearchEscape(u.email)}</div>
+          </div>
+          <span class="tag ${u.status === 'approved' ? 'tag-accent-2' : 'tag-accent'}" style="flex-shrink:0;">${statusLabel[u.status] || u.status}</span>
+        </div>
+        <div style="font-size:11.5px;color:var(--ink-soft);margin-top:8px;">Signed up ${formatDateLabel(String(u.created_at).slice(0,10))} · ${u.days_logged} day${u.days_logged === 1 ? '' : 's'} logged</div>
+        <button type="button" class="timer-btn reset" data-admin-reset="${u.id}" data-admin-email="${foodSearchEscape(u.email)}" style="width:100%;margin-top:10px;padding:7px 0;font-size:12.5px;">Reset password</button>
+      </div>
+    `).join('');
+  }catch(err){
+    statusEl.textContent = err.message || 'Could not load the user list.';
+  }
+}
+document.getElementById('adminUserList').addEventListener('click', async (e)=>{
+  const btn = e.target.closest('[data-admin-reset]');
+  if(!btn) return;
+  const userId = parseInt(btn.dataset.adminReset, 10);
+  const email = btn.dataset.adminEmail;
+  if(!confirm(`Reset the password for ${email}? This immediately invalidates their current password.`)) return;
+  btn.disabled = true;
+  btn.textContent = 'Resetting…';
+  try{
+    const {ok, data} = await safeFetchJson('api/admin.php?action=reset_password', {
+      method: 'POST', credentials: 'same-origin', headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({action: 'reset_password', user_id: userId})
+    });
+    if(!ok || data.error) throw new Error(data.error || 'Could not reset this password.');
+    alert(`New temporary password for ${data.email}:\n\n${data.temp_password}\n\nShare this with them directly -- it won't be shown again.`);
+  }catch(err){
+    alert(err.message || 'Could not reset this password.');
+  }finally{
+    btn.disabled = false;
+    btn.textContent = 'Reset password';
+  }
+});
+
 function renderInsights(){
   const el = document.getElementById('insightsContent');
   if(!el) return;
@@ -4888,7 +4972,8 @@ async function startApp(){
   // Account sub-nav: Snapshot / My data / Goals / Account / Feedback
   const accountViewPanels = {
     snapshot: 'accountSnapshot', mydata: 'accountMyData',
-    goals: 'accountGoals', settings: 'accountSettings', feedback: 'accountFeedback'
+    goals: 'accountGoals', settings: 'accountSettings', feedback: 'accountFeedback',
+    admin: 'accountAdmin'
   };
   let currentAccountView = 'snapshot';
   function showAccountView(view){
@@ -4903,6 +4988,7 @@ async function startApp(){
     if(view === 'snapshot') renderAccountSnapshot();
     if(view === 'goals') renderAccountGoals();
     if(view === 'settings') renderAccountSettings();
+    if(view === 'admin') renderAdminPanel();
   }
   window.showAccountView = showAccountView;
   document.getElementById('accountSubnav').addEventListener('click', (e)=>{
@@ -5240,6 +5326,10 @@ async function showAppFor(user){
   currentUser = user;
   document.getElementById('loginScreen').style.display = 'none';
   document.getElementById('userBadge').textContent = user.display_name || user.email;
+  // Client-side visibility only -- api/admin.php re-checks this server-side
+  // on every request, so hiding/showing this tab is purely cosmetic.
+  const adminBtn = document.getElementById('adminSubnavBtn');
+  if(adminBtn) adminBtn.style.display = (user.email || '').toLowerCase() === 'sherwin.llona@gmail.com' ? '' : 'none';
   await startApp();
   if(window.workoutLibraryStart) window.workoutLibraryStart();
   if(!userProfile){
@@ -5671,20 +5761,18 @@ async function checkAuthAndStart(){
       try{
         let foodId = row.id;
         if(row._origin === 'off' || row._origin === 'catalog'){
-          const res = await fetch('api/foods.php?action=save_external', {
+          const {ok, data} = await safeFetchJson('api/foods.php?action=save_external', {
             method: 'POST', credentials: 'same-origin', headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({source: row._origin === 'catalog' ? 'catalog' : 'off', external_id: row.external_id, name: row.name, brand: row.brand, canonical_unit: row.canonical_unit, nutrients: row.nutrients})
           });
-          const data = await res.json();
-          if(!res.ok || data.error || !data.id) throw new Error(data.error || 'Food could not be saved');
+          if(!ok || data.error || !data.id) throw new Error(data.error || 'Food could not be saved');
           foodId = data.id;
         }
-        const logResponse = await fetch('api/meals.php?action=log', {
+        const {ok: logOk, data: logged} = await safeFetchJson('api/meals.php?action=log', {
           method: 'POST', credentials: 'same-origin', headers: {'Content-Type': 'application/json'},
           body: JSON.stringify({date: nutriSelectedDate || dateStrForOffset(0), meal_type: document.getElementById('mealLogType').value, component: {food_id: foodId, ...measurement.request}})
         });
-        const logged = await logResponse.json();
-        if(!logResponse.ok || logged.error) throw new Error(logged.error || 'Meal could not be logged');
+        if(!logOk || logged.error) throw new Error(logged.error || 'Meal could not be logged');
         recordRecentFood(row, foodId);
         ++foodSearchGeneration;
         document.getElementById('foodSearchInput').value = '';
@@ -5693,6 +5781,7 @@ async function checkAuthAndStart(){
         renderTodayMeals();
         renderNutrition();
       }catch(err){
+        alert(err.message || 'Could not save this food — try again.');
         confirmBtn.textContent = 'Failed — try again';
         confirmBtn.disabled = false;
       }
@@ -5732,7 +5821,7 @@ async function checkAuthAndStart(){
     try{
       const amount = parseFloat(document.getElementById('cfAmount').value) || 100;
       const unit = document.getElementById('cfUnit').value;
-      const res = await fetch('api/foods.php?action=create_custom', {
+      const {ok, data: food} = await safeFetchJson('api/foods.php?action=create_custom', {
         method: 'POST', credentials: 'same-origin', headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
           name, canonical_amount: amount, canonical_unit: unit,
@@ -5748,11 +5837,12 @@ async function checkAuthAndStart(){
           }
         })
       });
-      const food = await res.json();
-      await fetch('api/meals.php?action=log', {
+      if(!ok || food.error || !food.id) throw new Error(food.error || 'Could not save this food — try again.');
+      const {ok: logOk, data: logged} = await safeFetchJson('api/meals.php?action=log', {
         method: 'POST', credentials: 'same-origin', headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({date: nutriSelectedDate || dateStrForOffset(0), meal_type: document.getElementById('mealLogType').value, component: {food_id: food.id, amount, unit}})
       });
+      if(!logOk || logged.error) throw new Error(logged.error || 'Food was saved but could not be logged — try adding it again.');
       recordRecentFood({name, canonical_unit: unit, canonical_amount: amount, nutrients: {ENERC_KCAL: calories}}, food.id);
       document.getElementById('customFoodForm').style.display = 'none';
       ['cfName', 'cfCalories', 'cfProtein', 'cfFat', 'cfCarbs', 'cfFiber', 'cfSugar', 'cfSodium', 'cfCholesterol'].forEach(id => document.getElementById(id).value = '');
@@ -5760,7 +5850,7 @@ async function checkAuthAndStart(){
       renderTodayMeals();
       renderNutrition();
     }catch(err){
-      alert('Could not save — try again.');
+      alert(err.message || 'Could not save — try again.');
     }finally{
       btn.disabled = false;
       btn.textContent = 'Save & log';
@@ -6189,14 +6279,14 @@ async function checkAuthAndStart(){
         if(it.source === 'library'){
           foodId = it.payload.id;
         } else if(it.source === 'catalog' || it.source === 'off'){
-          const res = await fetch('api/foods.php?action=save_external', {
+          const {ok, data: food} = await safeFetchJson('api/foods.php?action=save_external', {
             method: 'POST', credentials: 'same-origin', headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({source: it.source, external_id: it.payload.external_id, name: it.payload.name, brand: it.payload.brand, canonical_unit: it.payload.canonical_unit, nutrients: it.payload.nutrients})
           });
-          const food = await res.json();
+          if(!ok || food.error || !food.id) throw new Error(food.error || `Could not save "${it.name}" — try again.`);
           foodId = food.id;
         } else {
-          const res = await fetch('api/foods.php?action=create_custom', {
+          const {ok, data: food} = await safeFetchJson('api/foods.php?action=create_custom', {
             method: 'POST', credentials: 'same-origin', headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
               name: it.name, canonical_amount: it.amount, canonical_unit: it.unit,
@@ -6206,16 +6296,14 @@ async function checkAuthAndStart(){
               }
             })
           });
-          const food = await res.json();
+          if(!ok || food.error || !food.id) throw new Error(food.error || `Could not save "${it.name}" — try again.`);
           foodId = food.id;
         }
-        if(!foodId) throw new Error('Could not save this food. Please retry.');
-        const logResponse = await fetch('api/meals.php?action=log', {
+        const {ok: logOk, data: logged} = await safeFetchJson('api/meals.php?action=log', {
           method: 'POST', credentials: 'same-origin', headers: {'Content-Type': 'application/json'},
           body: JSON.stringify({date, meal_type: mealType, component: {food_id: foodId, ...(it.measurement || {amount: it.amount, unit: it.unit})}})
         });
-        const logged = await logResponse.json();
-        if(!logResponse.ok || logged.error) throw new Error(logged.error || 'Meal could not be logged');
+        if(!logOk || logged.error) throw new Error(logged.error || `"${it.name}" could not be logged — try again.`);
         recordRecentFood({name: it.name, canonical_unit: it.unit, canonical_amount: it.amount, nutrients: {ENERC_KCAL: it.kcal, PROCNT: it.protein, FAT: it.fat, CHOCDF: it.carbs}}, foodId);
         lmItems.splice(lmItems.indexOf(it), 1);
       }
