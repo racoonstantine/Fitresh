@@ -937,7 +937,7 @@
       <div class="block-title">Weekly Plan</div>
       <div id="noWorkoutPlanPanel" class="hub-card" style="display:none;text-align:center;">
         <div style="font-size:13px;color:var(--ink-soft);margin-bottom:10px;">No Plan Yet</div>
-        <button class="timer-btn start" id="createPlanBtn" type="button" style="width:auto;padding-inline:20px;">Create Workout Plan</button>
+        <button class="timer-btn start" id="createTrainingPlanBtn" type="button" style="width:auto;padding-inline:20px;">Create Training Plan</button>
       </div>
       <div id="workoutPlanBody">
         <div class="today-callout" id="todayCallout">
@@ -948,7 +948,19 @@
           <button class="today-btn" id="todayBtn">Start</button>
         </div>
         <div class="week-strip" id="weekStrip"></div>
-        <button class="img-link" id="editPlanBtn" type="button" style="margin-top:8px;cursor:pointer;">Edit workout plan</button>
+        <div id="dayOverridePanel" style="display:none;margin-top:10px;padding:10px;background:var(--paper-raised);border:1px solid var(--line);border-radius:8px;">
+          <div style="font-size:11.5px;color:var(--ink-soft);margin-bottom:6px;" id="dayOverrideLabel"></div>
+          <select id="dayOverrideSelect" style="width:100%;padding:6px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:12.5px;"></select>
+          <div style="display:flex;gap:8px;margin-top:8px;">
+            <button type="button" id="dayOverrideSaveBtn" class="timer-btn start" style="flex:1;padding:6px 0;font-size:12px;">Save</button>
+            <button type="button" id="dayOverrideClearBtn" class="timer-btn reset" style="flex:1;padding:6px 0;font-size:12px;">Clear override</button>
+          </div>
+        </div>
+        <div style="display:flex;gap:6px;margin-top:10px;flex-wrap:wrap;">
+          <button class="img-link" id="editWorkoutPlanBtn" type="button" style="cursor:pointer;">Edit Workout Plan</button>
+          <button class="img-link" id="editTrainingPlanBtn" type="button" style="cursor:pointer;">Edit Training Plan</button>
+          <button class="img-link" id="trainingProgramBtn" type="button" disabled title="Coming soon" style="opacity:0.45;cursor:not-allowed;">Training Program</button>
+        </div>
       </div>
     </section>
 
@@ -1663,7 +1675,7 @@
 <div id="workoutPlanScreen" class="fullscreen-modal" style="display:none;">
   <div class="fullscreen-modal-header">
     <button type="button" id="workoutPlanScreenClose" class="modal-close-btn">✕</button>
-    <div class="fullscreen-modal-title">Workout Plan</div>
+    <div class="fullscreen-modal-title">Training Plan</div>
     <div style="width:32px;"></div>
   </div>
   <div class="fullscreen-modal-body">
@@ -1681,6 +1693,7 @@
     <div id="wpCustomMode" style="display:none;">
       <label style="font-size:11px;color:var(--ink-soft);">Plan name (max 10 characters, shown on the weekly calendar)</label>
       <input type="text" id="wpCustomName" maxlength="10" placeholder="e.g. MyPlan" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;margin-bottom:12px;">
+      <div class="note" style="margin-bottom:10px;">Pick a Workout Plan for each day — build new ones first via <b>Edit Workout Plan</b> on the Train tab if you don't see what you need yet.</div>
       <div id="wpCustomDays"></div>
       <button class="timer-btn start" id="wpCustomSaveBtn" type="button" style="width:100%;margin-top:14px;">Save custom plan</button>
     </div>
@@ -1691,6 +1704,36 @@
     </div>
 
     <div id="wpError" style="display:none;font-size:12px;color:#B4472A;margin-top:10px;"></div>
+  </div>
+</div>
+
+<div id="workoutPlanLibraryScreen" class="fullscreen-modal" style="display:none;">
+  <div class="fullscreen-modal-header">
+    <button type="button" id="workoutPlanLibraryClose" class="modal-close-btn">✕</button>
+    <div class="fullscreen-modal-title">Workout Plans</div>
+    <div style="width:32px;"></div>
+  </div>
+  <div class="fullscreen-modal-body">
+    <div class="note" style="margin-bottom:10px;">A Workout Plan is one full session — its exercises/activities and targets. Presets can't be edited; Custom plans are yours to build and change.</div>
+    <div style="display:flex;gap:8px;margin-bottom:12px;">
+      <select id="wplSelect" style="flex:1;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:13.5px;"></select>
+      <button type="button" id="wplNewBtn" class="timer-btn start" style="width:auto;padding-inline:14px;">+ New</button>
+    </div>
+    <div id="wplDetail"></div>
+
+    <div id="wplBuilder" style="display:none;margin-top:14px;padding-top:14px;border-top:1px solid var(--line);">
+      <label style="font-size:11px;color:var(--ink-soft);">Plan name</label>
+      <input type="text" id="wplBuilderName" maxlength="40" placeholder="e.g. Upper Body Blast" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;margin-bottom:10px;">
+      <div id="wplBuilderItems"></div>
+      <label style="font-size:11px;color:var(--ink-soft);display:block;margin-top:8px;">Search library to add exercises/activities</label>
+      <input type="text" id="wplBuilderSearch" placeholder="e.g. squat, running, pickleball…" autocomplete="off" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:13px;margin-top:2px;">
+      <div id="wplBuilderResults"></div>
+      <div style="display:flex;gap:8px;margin-top:12px;">
+        <button type="button" id="wplBuilderSaveBtn" class="timer-btn start" style="flex:1;">Save workout plan</button>
+        <button type="button" id="wplBuilderCancelBtn" class="timer-btn reset" style="flex:1;">Cancel</button>
+      </div>
+    </div>
+    <div id="wplError" style="display:none;font-size:12px;color:#B4472A;margin-top:10px;"></div>
   </div>
 </div>
 
@@ -1856,70 +1899,113 @@ const weekPlan = [
 const tabLabels = {A:'Strength A', B:'Strength B', steady:'Cardio Steady', interval:'Cardio Intervals'};
 
 // ============================================================================
-// Workout plans -- a user-editable weekly schedule (day-of-week -> what to
-// do), replacing the old always-the-same-for-everyone `weekPlan` above with
-// something each account can pick/build for themselves.
-//
-// Storage shape (user_data resource 'workoutPlan'), days[] indexed like
-// Date.getDay() (0=Sun..6=Sat), matching weekPlan's own order:
-//   { presetKey: 'balanced'|'strengthA'|'strengthB'|'cardio'|'custom'|'open'|null,
-//     name: string,          // display name, <=10 chars, shown on the mini-calendar
-//     days: [ dayEntry, ... ] }
-// dayEntry is one of:
-//   {type:'legacy', key:'A'|'B'|'steady'|'interval'}  -- reuses the existing
-//     Strength/Cardio tabs & all their checkbox/history machinery untouched.
-//   {type:'library', activityIds:['a1','walking']}    -- one or more
-//     activities from the new Exercise & activity library (multiple allowed
-//     per day); "Go" scrolls to the library to log them.
-//   {type:'rest'} | {type:'other', note:string} | null (nothing set)
+// Entity model, three levels (per the app's own definitions):
+//   Exercise/Activity -- a single movement (the 32-item library, unchanged).
+//   Workout Plan      -- one training session: one or more exercises/
+//                         activities with their sets/reps/target. Presets
+//                         reuse the existing Strength A/B + Cardio Steady/
+//                         Interval content untouched and aren't editable;
+//                         Custom ones are user-built from the library, named,
+//                         saved, and editable.
+//   Training Plan     -- a weekly schedule (day-of-week -> which Workout
+//                         Plan, or Rest/Other), replacing the old
+//                         always-the-same-for-everyone `weekPlan` above with
+//                         something each account picks/builds for itself.
+// Training Program (multi-week phases) is a future addition, not built yet.
 // ============================================================================
-const PRESET_PLANS = {
-  balanced: { label: 'Balanced', name: 'Balanced', days: [
-    {type:'rest'}, {type:'legacy', key:'A'}, {type:'legacy', key:'steady'}, {type:'rest'},
-    {type:'legacy', key:'B'}, {type:'legacy', key:'interval'}, {type:'legacy', key:'A'}
+
+// ---- Workout Plan (session-level) ----
+const WORKOUT_PLAN_PRESETS = {
+  strengthA: {id: 'strengthA', name: 'Strength A', kind: 'legacy', legacyKey: 'A'},
+  strengthB: {id: 'strengthB', name: 'Strength B', kind: 'legacy', legacyKey: 'B'},
+  cardioSteady: {id: 'cardioSteady', name: 'Cardio Steady', kind: 'legacy', legacyKey: 'steady'},
+  cardioInterval: {id: 'cardioInterval', name: 'Cardio Intervals', kind: 'legacy', legacyKey: 'interval'}
+};
+// Custom workout plans: [{id, name, items:[{activityId, target, setCount}]}]
+let customWorkoutPlans = [];
+async function loadCustomWorkoutPlans(){
+  try{
+    const res = await window.storage.get(STORAGE_PREFIX + 'customWorkoutPlans', false);
+    customWorkoutPlans = res && res.value ? JSON.parse(res.value) : [];
+  }catch(e){ customWorkoutPlans = []; }
+}
+async function saveCustomWorkoutPlans(){
+  try{ await window.storage.set(STORAGE_PREFIX + 'customWorkoutPlans', JSON.stringify(customWorkoutPlans), false); }catch(e){}
+}
+function getWorkoutPlan(id){
+  if(!id) return null;
+  return WORKOUT_PLAN_PRESETS[id] || customWorkoutPlans.find(p => p.id === id) || null;
+}
+function allWorkoutPlans(){
+  return [...Object.values(WORKOUT_PLAN_PRESETS), ...customWorkoutPlans];
+}
+
+// ---- Training Plan (weekly schedule) ----
+// days[] indexed like Date.getDay() (0=Sun..6=Sat), matching weekPlan's order.
+// dayEntry is one of:
+//   {type:'workoutPlan', planId}  -- references a Workout Plan (preset or custom).
+//   {type:'rest'} | {type:'other', note:string} | null (nothing set)
+// overrides{'YYYY-MM-DD': dayEntry} corrects a single date without touching
+// the recurring weekly pattern (e.g. "planned Rest, actually did Strength B").
+const TRAINING_PLAN_PRESETS = {
+  moderate: {label: 'Moderate', name: 'Moderate', days: [
+    {type:'rest'}, {type:'workoutPlan', planId:'strengthA'}, {type:'workoutPlan', planId:'cardioSteady'}, {type:'rest'},
+    {type:'workoutPlan', planId:'strengthB'}, {type:'workoutPlan', planId:'cardioInterval'}, {type:'workoutPlan', planId:'strengthA'}
   ]},
-  strengthA: { label: 'Strength A', name: 'StrengthA', days: [
-    {type:'rest'}, {type:'legacy', key:'A'}, {type:'rest'}, {type:'legacy', key:'A'},
-    {type:'rest'}, {type:'legacy', key:'A'}, {type:'rest'}
+  intense: {label: 'Intense', name: 'Intense', days: [
+    {type:'rest'}, {type:'workoutPlan', planId:'strengthA'}, {type:'workoutPlan', planId:'strengthB'}, {type:'workoutPlan', planId:'cardioInterval'},
+    {type:'workoutPlan', planId:'strengthA'}, {type:'workoutPlan', planId:'strengthB'}, {type:'workoutPlan', planId:'cardioInterval'}
   ]},
-  strengthB: { label: 'Strength B', name: 'StrengthB', days: [
-    {type:'rest'}, {type:'legacy', key:'B'}, {type:'rest'}, {type:'legacy', key:'B'},
-    {type:'rest'}, {type:'legacy', key:'B'}, {type:'rest'}
+  cardioFocused: {label: 'Cardio Focused', name: 'CardioFcs', days: [
+    {type:'rest'}, {type:'workoutPlan', planId:'cardioSteady'}, {type:'rest'}, {type:'workoutPlan', planId:'cardioInterval'},
+    {type:'rest'}, {type:'workoutPlan', planId:'cardioSteady'}, {type:'workoutPlan', planId:'cardioInterval'}
   ]},
-  cardio: { label: 'Cardio', name: 'Cardio', days: [
-    {type:'rest'}, {type:'rest'}, {type:'legacy', key:'steady'}, {type:'rest'},
-    {type:'legacy', key:'interval'}, {type:'rest'}, {type:'legacy', key:'steady'}
+  loseWeight: {label: 'Lose Weight', name: 'LoseWt', days: [
+    {type:'rest'}, {type:'workoutPlan', planId:'cardioSteady'}, {type:'workoutPlan', planId:'strengthA'}, {type:'workoutPlan', planId:'cardioInterval'},
+    {type:'rest'}, {type:'workoutPlan', planId:'strengthB'}, {type:'workoutPlan', planId:'cardioSteady'}
   ]}
 };
-let userWorkoutPlan = null; // null until loadWorkoutPlan() resolves
-async function loadWorkoutPlan(){
+let userTrainingPlan = null; // null until loadTrainingPlan() resolves
+async function loadTrainingPlan(){
   try{
-    const res = await window.storage.get(STORAGE_PREFIX + 'workoutPlan', false);
+    const res = await window.storage.get(STORAGE_PREFIX + 'trainingPlan', false);
     if(res && res.value){
-      userWorkoutPlan = JSON.parse(res.value);
+      userTrainingPlan = JSON.parse(res.value);
       return;
     }
   }catch(e){}
   // Never saved before -- decide once. An account with prior activity keeps
-  // exactly its old always-on schedule as its starting plan (nothing changes
-  // for anyone already using the app); a genuinely new account starts blank.
+  // exactly its old always-on schedule (Moderate matches it) as its starting
+  // plan, so nothing changes for anyone already using the app; a genuinely
+  // new account starts blank.
   const hasPriorActivity = historyLog.length > 0 || Object.keys(checkedState).length > 0;
-  userWorkoutPlan = hasPriorActivity
-    ? { presetKey: 'balanced', name: PRESET_PLANS.balanced.name, days: PRESET_PLANS.balanced.days.slice() }
-    : { presetKey: null, name: '', days: [null,null,null,null,null,null,null] };
-  await saveWorkoutPlan();
+  userTrainingPlan = hasPriorActivity
+    ? { presetKey: 'moderate', name: TRAINING_PLAN_PRESETS.moderate.name, days: TRAINING_PLAN_PRESETS.moderate.days.slice(), overrides: {} }
+    : { presetKey: null, name: '', days: [null,null,null,null,null,null,null], overrides: {} };
+  await saveTrainingPlan();
 }
-async function saveWorkoutPlan(){
-  try{ await window.storage.set(STORAGE_PREFIX + 'workoutPlan', JSON.stringify(userWorkoutPlan), false); }catch(e){}
+async function saveTrainingPlan(){
+  try{ await window.storage.set(STORAGE_PREFIX + 'trainingPlan', JSON.stringify(userTrainingPlan), false); }catch(e){}
 }
-// Effective legacy-day key for a given Date.getDay() index, for every place
-// that still only understands the old 'A'/'B'/'steady'/'interval' concept
-// (dashboard cards, insights, history). Library/rest/other/unset days read
-// as null (a rest day) at these call sites for now -- richer library-day
-// dashboard integration is a follow-up, not part of this first pass.
-function planDayFor(dayIdx){
-  const entry = userWorkoutPlan && userWorkoutPlan.days ? userWorkoutPlan.days[dayIdx] : null;
-  return (entry && entry.type === 'legacy') ? entry.key : null;
+// The entry actually in effect for a specific date: a per-date override wins
+// over the recurring weekly pattern, so logging something different than
+// planned on one day doesn't require editing the whole week.
+function effectiveDayEntry(dStr, dayIdx){
+  const plan = userTrainingPlan;
+  if(!plan) return null;
+  if(plan.overrides && plan.overrides[dStr]) return plan.overrides[dStr];
+  return (plan.days || [])[dayIdx] || null;
+}
+// Effective legacy-day key for a given date, for every place that still only
+// understands the old 'A'/'B'/'steady'/'interval' concept (dashboard cards,
+// insights, history). Custom-plan/rest/other/unset days read as null (a rest
+// day) at these call sites for now -- richer custom-plan dashboard
+// integration is a follow-up, not part of this pass.
+function planDayFor(dayIdx, dStr){
+  const entry = effectiveDayEntry(dStr || dateStrForOffset(dayIdx - new Date().getDay()), dayIdx);
+  if(!entry || entry.type !== 'workoutPlan') return null;
+  const plan = getWorkoutPlan(entry.planId);
+  return (plan && plan.kind === 'legacy') ? plan.legacyKey : null;
 }
 
 function toLocalDateStr(d){
@@ -2402,7 +2488,7 @@ async function renderTodayGlance(){
   const weightDelta = (latestW && prevW) ? (latestW.kg - prevW.kg) : null;
 
   const todayIdx = new Date().getDay();
-  const plannedType = planDayFor(todayIdx);
+  const plannedType = planDayFor(todayIdx, today);
   const exerciseDone = plannedType ? !!checkedState[today + '_' + plannedType + '_done'] : null;
   const planLabel = plannedType ? tabLabels[plannedType] : 'Rest day';
 
@@ -2949,6 +3035,10 @@ function buildNutritionNotes(vals, t, hasItemized){
 
 let foodSearchResultsCache = [];
 let foodSearchGeneration = 0;
+function foodDisplayName(row){
+  const name=String(row.name || ''), local=String(row.local_name || '').trim();
+  return local && local.toLocaleLowerCase()!==name.trim().toLocaleLowerCase() ? `${local} · ${name}` : name;
+}
 function foodSearchEscape(value){
   return String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 }
@@ -3202,7 +3292,7 @@ async function saveFavoriteFoods(){
 }
 function foodSnapshot(row, foodId){
   return {
-    id: foodId, name: row.name, brand: row.brand || null,
+    id: foodId, name: row.name, local_name: row.local_name || null, brand: row.brand || null,
     canonical_unit: row.canonical_unit || 'g', canonical_amount: row.canonical_amount || 100,
     personal_food: row.personal_food || null, label: row.label || null,
     nutrients: row.nutrients || {}, portions: row.portions || [], _origin: 'library'
@@ -3241,7 +3331,7 @@ function renderRecentFavorites(kind){
         <div class="recent-food-chip" data-idx="${i}" style="flex:0 0 auto;display:flex;align-items:center;gap:6px;padding:6px 10px;border:1px solid var(--line);border-radius:20px;background:var(--paper-raised);font-size:12px;white-space:nowrap;cursor:pointer;">
           <span style="color:var(--ink-soft);">${renderFoodIconSvg(getFoodIcon(f), 16)}</span>
           <span class="recent-food-star" data-idx="${i}" style="cursor:pointer;color:${isFavoriteFood(f.id) ? 'var(--ochre)' : 'var(--ink-soft)'};">${isFavoriteFood(f.id) ? '★' : '☆'}</span>
-          <span class="recent-food-name" data-idx="${i}">${foodSearchEscape(f.name)}</span>
+          <span class="recent-food-name" data-idx="${i}">${foodSearchEscape(foodDisplayName(f))}</span>
         </div>
       `).join('')}
     </div>
@@ -3395,7 +3485,7 @@ function renderFoodSearchResults(){
           <div style="display:flex;align-items:center;gap:8px;min-width:0;">
             <span style="color:var(--ink-soft);flex-shrink:0;">${renderFoodIconSvg(getFoodIcon(r), 20)}</span>
             <div style="min-width:0;">
-              <div style="font-weight:600;font-size:13.5px;">${foodSearchEscape(r.name)}</div>
+              <div style="font-weight:600;font-size:13.5px;">${foodSearchEscape(foodDisplayName(r))}</div>
               <div style="font-size:11.5px;color:var(--ink-soft);">${foodSearchEscape(sub)}</div>
               ${r.label ? `<div style="font-size:11.5px;color:var(--ink-soft);">${foodSearchEscape(r.label)}${r.complete === false ? ' · Some nutrients unavailable' : ''}</div>` : ''}
               ${r.confidence ? `<div style="font-size:11.5px;color:var(--ink-soft);" title="${foodSearchEscape(r.confidence.reason)}">${foodSearchEscape(r.confidence.level)} reference confidence</div>` : ''}
@@ -4095,7 +4185,7 @@ function renderSummary(){
   const workoutDays = new Set(workoutEntries.map(e=>e.date)).size;
   const plannedDays = dateList.filter(d => {
     const idx = new Date(d + 'T00:00:00').getDay();
-    return !!planDayFor(idx);
+    return !!planDayFor(idx, d);
   }).length;
 
   // Nutrition in range
@@ -4352,7 +4442,7 @@ function renderDashboard(){
     const dayEntries = historyLog.filter(e => e.date === dashSelectedDate);
     const realSessions = dayEntries.filter(e => e.day !== 'custom');
     const planIdx = new Date(dashSelectedDate + 'T00:00:00').getDay();
-    const plannedType = planDayFor(planIdx);
+    const plannedType = planDayFor(planIdx, dashSelectedDate);
     const dayCal = dayEntries.reduce((sum,e)=> sum + (e.stats && e.stats.calories ? parseFloat(e.stats.calories)||0 : 0), 0);
     const hrList = dayEntries.filter(e=>e.stats && e.stats.hr).map(e=>parseFloat(e.stats.hr));
     const dayAvgHR = hrList.length ? Math.round(hrList.reduce((a,b)=>a+b,0)/hrList.length) : null;
@@ -4411,7 +4501,7 @@ function renderDashboard(){
   for(let i=0;i<windowDays;i++){
     const dStr = dateStrForOffset(-i);
     const idx = new Date(dStr + 'T00:00:00').getDay();
-    const planDay = planDayFor(idx);
+    const planDay = planDayFor(idx, dStr);
     if(!planDay) continue;
     weekPlanned++;
     if(checkedState[dStr + '_' + planDay + '_done']) weekDone++;
@@ -4421,8 +4511,8 @@ function renderDashboard(){
   let streak = 0;
   for(let back=0; back<60; back++){
     const idx = ((todayIdx - back) % 7 + 7) % 7;
-    const planDay = planDayFor(idx);
     const dStr = dateStrForOffset(-back);
+    const planDay = planDayFor(idx, dStr);
     if(!planDay){
       continue; // rest day, doesn't count or break
     }
@@ -4503,35 +4593,44 @@ function renderDashboard(){
 function renderWeekPlan(){
   const noPlanPanel = document.getElementById('noWorkoutPlanPanel');
   const planBody = document.getElementById('workoutPlanBody');
-  const hasPlan = !!(userWorkoutPlan && userWorkoutPlan.presetKey);
+  const hasPlan = !!(userTrainingPlan && userTrainingPlan.presetKey);
   if(noPlanPanel) noPlanPanel.style.display = hasPlan ? 'none' : 'block';
   if(planBody) planBody.style.display = hasPlan ? 'block' : 'none';
+  const overridePanel = document.getElementById('dayOverridePanel');
+  if(overridePanel) overridePanel.style.display = 'none';
   if(!hasPlan) return;
 
   const todayIdx = new Date().getDay();
-  const isOpen = userWorkoutPlan.presetKey === 'open';
-  const days = userWorkoutPlan.days || [];
+  const isOpen = userTrainingPlan.presetKey === 'open';
   const strip = document.getElementById('weekStrip');
   strip.innerHTML = '';
   weekPlan.forEach((base, i)=>{
     const dStr = dateStrForOffset(i - todayIdx);
-    const entry = isOpen ? window.openModeDayEntry(dStr) : days[i];
-    const legacyKey = entry && entry.type === 'legacy' ? entry.key : null;
+    const entry = isOpen ? window.openModeDayEntry(dStr) : effectiveDayEntry(dStr, i);
+    const plan = entry && entry.type === 'workoutPlan' ? getWorkoutPlan(entry.planId) : null;
+    const legacyKey = plan && plan.kind === 'legacy' ? plan.legacyKey : null;
     const done = legacyKey ? !!checkedState[dStr + '_' + legacyKey + '_done'] : false;
+    const hasOverride = !isOpen && userTrainingPlan.overrides && userTrainingPlan.overrides[dStr];
     const cell = document.createElement('div');
     cell.className = 'week-day' + (i===todayIdx ? ' today' : '') + (done ? ' done' : '');
+    cell.style.cursor = 'pointer';
+    cell.title = 'Tap to correct what actually happened this day';
     cell.innerHTML = `
-      <div class="week-day-name">${base.name}</div>
+      <div class="week-day-name">${base.name}${hasOverride ? ' *' : ''}</div>
       <div class="week-day-type">${window.planDayLabel(entry)}</div>
       <div class="week-day-dot"></div>
     `;
-    if(window.planDayHasAction(entry)){
-      cell.addEventListener('click', ()=> window.goToPlanDay(entry));
+    // Every cell opens the deviation-override panel (even Rest/unset days --
+    // that's exactly how you'd record "planned Rest, actually worked out").
+    // Open mode has no recurring pattern to override, so its cells are just
+    // a live read-only reflection of what was logged.
+    if(!isOpen){
+      cell.addEventListener('click', ()=> window.openDayOverridePanel(dStr, base.name));
     }
     strip.appendChild(cell);
   });
 
-  const todayEntry = isOpen ? window.openModeDayEntry(dateStrForOffset(0)) : days[todayIdx];
+  const todayEntry = isOpen ? window.openModeDayEntry(dateStrForOffset(0)) : effectiveDayEntry(dateStrForOffset(0), todayIdx);
   document.getElementById('todayPlanText').textContent = window.planDayLabel(todayEntry);
   const btn = document.getElementById('todayBtn');
   if(window.planDayHasAction(todayEntry)){
@@ -5152,7 +5251,8 @@ async function startApp(){
   await loadSteps();
   await loadRecentFoods();
   await loadFavoriteFoods();
-  await loadWorkoutPlan();
+  await loadCustomWorkoutPlans();
+  await loadTrainingPlan();
   if(window.loadWorkoutCatalog) await window.loadWorkoutCatalog();
 
 
@@ -5163,7 +5263,7 @@ async function startApp(){
   renderNutrition();
   renderFasting();
   const todayIdx = new Date().getDay();
-  const startDay = planDayFor(todayIdx) || 'A';
+  const startDay = planDayFor(todayIdx, dateStrForOffset(0)) || 'A';
   document.querySelector(`.tab[data-day="${startDay}"]`).classList.add('active');
   setDay(startDay);
   renderTally();
@@ -5208,7 +5308,7 @@ async function startApp(){
   document.getElementById('nutriRange').addEventListener('change', renderNutrition);
   document.getElementById('dashRange').addEventListener('change', renderDashboard);
 
-  const BACKUP_RESOURCES = ['nutrition', 'weighins', 'history', 'checked', 'weights', 'theme', 'profile', 'fasting', 'water', 'sleep', 'steps', 'recentFoods', 'favoriteFoods', 'workoutPlan'];
+  const BACKUP_RESOURCES = ['nutrition', 'weighins', 'history', 'checked', 'weights', 'theme', 'profile', 'fasting', 'water', 'sleep', 'steps', 'recentFoods', 'favoriteFoods', 'workoutPlan', 'trainingPlan', 'customWorkoutPlans'];
 
   document.getElementById('exportBackupBtn').addEventListener('click', async ()=>{
     const backup = {};
@@ -6124,7 +6224,7 @@ async function checkAuthAndStart(){
             <div style="display:flex;align-items:center;gap:8px;min-width:0;">
               <span style="color:var(--ink-soft);flex-shrink:0;">${renderFoodIconSvg(getFoodIcon(r), 20)}</span>
               <div style="min-width:0;">
-                <div style="font-weight:600;font-size:13.5px;">${foodSearchEscape(r.name)}</div>
+                <div style="font-weight:600;font-size:13.5px;">${foodSearchEscape(foodDisplayName(r))}</div>
                 <div style="font-size:11.5px;color:var(--ink-soft);">${foodSearchEscape(sub)}${r.complete === false ? ' · Some nutrients unavailable' : ''}</div>
                 ${r.confidence ? `<div style="font-size:11.5px;color:var(--ink-soft);" title="${foodSearchEscape(r.confidence.reason)}">${foodSearchEscape(r.confidence.level)} reference confidence</div>` : ''}
                 <button type="button" class="timer-btn" data-personal-copy="${i}" data-personal-surface="lm">Save a personal copy</button>
@@ -6937,7 +7037,7 @@ async function checkAuthAndStart(){
   });
 })();
 
-/* ---------- Workout Plan (weekly schedule: preset / custom / open) ---------- */
+/* ---------- Training Plan (weekly schedule) + Workout Plan library ---------- */
 (function(){
   let workoutCatalog = [];
   async function loadWorkoutCatalog(){
@@ -6960,24 +7060,33 @@ async function checkAuthAndStart(){
     if(entry.type === 'none-logged') return 'Nothing logged';
     if(entry.type === 'rest') return 'Rest';
     if(entry.type === 'other') return entry.note || 'Other';
-    if(entry.type === 'legacy') return tabLabels[entry.key] || entry.key;
-    if(entry.type === 'library') return (entry.activityIds || []).map(workoutActivityName).join(', ') || 'Activity';
+    if(entry.type === 'workoutPlan'){
+      const plan = getWorkoutPlan(entry.planId);
+      return plan ? plan.name : 'Plan removed';
+    }
     return 'Rest';
   }
   function planDayHasAction(entry){
-    return !!entry && (entry.type === 'legacy' || entry.type === 'library');
+    return !!entry && entry.type === 'workoutPlan';
   }
+  // Legacy-backed presets (all four starting Workout Plans) still have a
+  // real interactive logging surface -- the existing Strength/Cardio tabs,
+  // checkboxes and "log stats from watch" included -- so "Go" opens that
+  // directly. Custom Workout Plans don't have that surface yet (that's the
+  // next phase's dedicated page), so "Go" opens the reference/detail view
+  // in the Workout Plan library instead.
   function goToPlanDay(entry){
-    if(!entry) return;
-    if(entry.type === 'legacy'){
-      setDay(entry.key);
+    if(!entry || entry.type !== 'workoutPlan') return;
+    const plan = getWorkoutPlan(entry.planId);
+    if(!plan) return;
+    if(plan.kind === 'legacy'){
+      setDay(plan.legacyKey);
       scrollToWorkout();
-    } else if(entry.type === 'library'){
-      window.showView('train');
-      const lib = document.getElementById('workoutLibrary');
-      if(lib && lib.scrollIntoView) lib.scrollIntoView({behavior: 'smooth', block: 'start'});
+    } else {
+      window.openWorkoutPlanLibraryScreen(entry.planId);
     }
   }
+  const LEGACY_TO_WORKOUT_PLAN = {A: 'strengthA', B: 'strengthB', steady: 'cardioSteady', interval: 'cardioInterval'};
   // Open mode has no fixed schedule -- each day's label comes from whatever
   // was actually logged that date in the legacy history log. New
   // workout-library sessions aren't reflected here yet (they live in a
@@ -6985,16 +7094,59 @@ async function checkAuthAndStart(){
   // not an oversight, and worth revisiting once history is unified.
   function openModeDayEntry(dStr){
     const entry = historyLog.find(e => e.date === dStr && e.day !== 'custom');
-    return entry ? {type: 'legacy', key: entry.day} : {type: 'none-logged'};
+    const planId = entry ? LEGACY_TO_WORKOUT_PLAN[entry.day] : null;
+    return planId ? {type: 'workoutPlan', planId} : {type: 'none-logged'};
   }
   window.planDayLabel = planDayLabel;
   window.planDayHasAction = planDayHasAction;
   window.goToPlanDay = goToPlanDay;
   window.openModeDayEntry = openModeDayEntry;
 
+  // ---------- Per-date deviation override on the weekly calendar ----------
+  // Click any day cell (planned or not) to correct what actually happened
+  // that date without editing the whole recurring week.
+  let overrideDate = null;
+  function openDayOverridePanel(dStr, dayName){
+    overrideDate = dStr;
+    const panel = document.getElementById('dayOverridePanel');
+    const sel = document.getElementById('dayOverrideSelect');
+    const current = userTrainingPlan && userTrainingPlan.overrides ? userTrainingPlan.overrides[dStr] : null;
+    sel.innerHTML = `<option value="unset">Not set</option><option value="rest">Rest</option>` +
+      allWorkoutPlans().map(p => `<option value="wp:${p.id}">${foodSearchEscape(p.name)}${p.kind === 'legacy' ? ' (preset)' : ''}</option>`).join('');
+    sel.value = current ? (current.type === 'workoutPlan' ? `wp:${current.planId}` : current.type) : 'unset';
+    document.getElementById('dayOverrideLabel').textContent = `What actually happened on ${dayName}?`;
+    panel.style.display = 'block';
+  }
+  document.getElementById('dayOverrideSaveBtn').addEventListener('click', async ()=>{
+    if(!overrideDate || !userTrainingPlan) return;
+    const v = document.getElementById('dayOverrideSelect').value;
+    userTrainingPlan.overrides = userTrainingPlan.overrides || {};
+    if(v === 'unset'){
+      delete userTrainingPlan.overrides[overrideDate];
+    } else if(v === 'rest'){
+      userTrainingPlan.overrides[overrideDate] = {type: 'rest'};
+    } else {
+      userTrainingPlan.overrides[overrideDate] = {type: 'workoutPlan', planId: v.slice(3)};
+    }
+    await saveTrainingPlan();
+    document.getElementById('dayOverridePanel').style.display = 'none';
+    renderWeekPlan();
+    renderDashboard();
+  });
+  document.getElementById('dayOverrideClearBtn').addEventListener('click', async ()=>{
+    if(!overrideDate || !userTrainingPlan) return;
+    if(userTrainingPlan.overrides) delete userTrainingPlan.overrides[overrideDate];
+    await saveTrainingPlan();
+    document.getElementById('dayOverridePanel').style.display = 'none';
+    renderWeekPlan();
+    renderDashboard();
+  });
+  window.openDayOverridePanel = openDayOverridePanel;
+
+  // ---------- Training Plan screen (Preset / Custom / Just Open) ----------
   window.openWorkoutPlanScreen = function(){
     document.getElementById('wpError').style.display = 'none';
-    const p = userWorkoutPlan || {presetKey: null, days: []};
+    const p = userTrainingPlan || {presetKey: null, days: []};
     if(p.presetKey === 'custom'){
       wpSetMode('custom');
       document.getElementById('wpCustomName').value = p.name || '';
@@ -7013,8 +7165,9 @@ async function checkAuthAndStart(){
     document.getElementById('workoutPlanScreen').style.display = 'none';
   }
   document.getElementById('workoutPlanScreenClose').addEventListener('click', closeWorkoutPlanScreen);
-  document.getElementById('createPlanBtn').addEventListener('click', window.openWorkoutPlanScreen);
-  document.getElementById('editPlanBtn').addEventListener('click', window.openWorkoutPlanScreen);
+  document.getElementById('createTrainingPlanBtn').addEventListener('click', window.openWorkoutPlanScreen);
+  document.getElementById('editTrainingPlanBtn').addEventListener('click', window.openWorkoutPlanScreen);
+  document.getElementById('trainingProgramBtn').addEventListener('click', (e)=>{ e.preventDefault(); });
 
   function wpSetMode(mode){
     document.querySelectorAll('#wpModeTabs .main-tab').forEach(btn=>{
@@ -7035,7 +7188,7 @@ async function checkAuthAndStart(){
   }
   function renderWpPresetList(){
     const el = document.getElementById('wpPresetList');
-    el.innerHTML = Object.entries(PRESET_PLANS).map(([key, preset]) => `
+    el.innerHTML = Object.entries(TRAINING_PLAN_PRESETS).map(([key, preset]) => `
       <div class="hub-card" style="margin-bottom:10px;">
         <div style="font-weight:700;font-family:var(--font-heading);margin-bottom:4px;">${preset.label}</div>
         <div style="line-height:1.8;">${miniWeekPreview(preset.days)}</div>
@@ -7044,9 +7197,9 @@ async function checkAuthAndStart(){
     `).join('');
     el.querySelectorAll('[data-use-preset]').forEach(btn=>{
       btn.addEventListener('click', async ()=>{
-        const preset = PRESET_PLANS[btn.dataset.usePreset];
-        userWorkoutPlan = {presetKey: btn.dataset.usePreset, name: preset.name, days: preset.days.slice()};
-        await saveWorkoutPlan();
+        const preset = TRAINING_PLAN_PRESETS[btn.dataset.usePreset];
+        userTrainingPlan = {presetKey: btn.dataset.usePreset, name: preset.name, days: preset.days.slice(), overrides: (userTrainingPlan && userTrainingPlan.overrides) || {}};
+        await saveTrainingPlan();
         renderWeekPlan();
         renderDashboard();
         closeWorkoutPlanScreen();
@@ -7055,80 +7208,33 @@ async function checkAuthAndStart(){
   }
 
   // Local draft state for the Custom builder -- only written to
-  // userWorkoutPlan on explicit "Save custom plan", so backing out (closing
-  // the screen, switching to another mode) never half-saves a plan.
+  // userTrainingPlan on explicit "Save custom plan", so backing out (closing
+  // the screen, switching to another mode) never half-saves a plan. Each
+  // day just picks a Workout Plan (or Rest) -- build the Workout Plan itself
+  // first via "Edit Workout Plan" if it doesn't exist yet.
   let wpCustomDays = weekPlan.map(() => null);
   function renderWpCustomDays(){
     const el = document.getElementById('wpCustomDays');
+    const plans = allWorkoutPlans();
     el.innerHTML = weekPlan.map((base, i) => {
       const entry = wpCustomDays[i];
-      const kind = entry ? entry.type : 'unset';
-      const chips = entry && entry.type === 'library' ? entry.activityIds.map((id, ai) => `
-        <span class="tag" style="display:inline-flex;align-items:center;gap:4px;margin:2px 4px 2px 0;">
-          ${foodSearchEscape(workoutActivityName(id))}
-          <button type="button" data-remove-activity="${i}:${ai}" style="background:none;border:none;color:inherit;cursor:pointer;padding:0;font-size:11px;">✕</button>
-        </span>
-      `).join('') : '';
+      const kind = !entry ? 'unset' : entry.type;
       return `
-        <div class="hub-card" style="margin-bottom:8px;">
-          <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:8px;">
-            <strong style="font-family:var(--font-heading);">${base.name}</strong>
-            <select data-day-type="${i}" style="padding:4px 6px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:12px;">
-              <option value="unset" ${kind==='unset'?'selected':''}>Not set</option>
-              <option value="rest" ${kind==='rest'?'selected':''}>Rest</option>
-              <option value="library" ${kind==='library'?'selected':''}>Activities from library</option>
-              <option value="other" ${kind==='other'?'selected':''}>Other</option>
-            </select>
-          </div>
-          ${kind === 'other' ? `<input type="text" data-other-note="${i}" value="${foodSearchEscape(entry.note || '')}" placeholder="e.g. Yoga class" style="width:100%;padding:6px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:12.5px;">` : ''}
-          ${kind === 'library' ? `
-            <div>${chips}</div>
-            <input type="text" data-activity-search="${i}" placeholder="Search activities to add…" autocomplete="off" style="width:100%;padding:6px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:12.5px;margin-top:4px;">
-            <div data-activity-results="${i}" style="max-height:120px;overflow-y:auto;margin-top:4px;"></div>
-          ` : ''}
+        <div class="hub-card" style="margin-bottom:8px;display:flex;justify-content:space-between;align-items:center;gap:8px;">
+          <strong style="font-family:var(--font-heading);flex-shrink:0;">${base.name}</strong>
+          <select data-day-plan="${i}" style="flex:1;min-width:0;padding:6px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:12.5px;">
+            <option value="unset" ${kind === 'unset' ? 'selected' : ''}>Not set</option>
+            <option value="rest" ${kind === 'rest' ? 'selected' : ''}>Rest</option>
+            ${plans.map(p => `<option value="wp:${p.id}" ${kind === 'workoutPlan' && entry.planId === p.id ? 'selected' : ''}>${foodSearchEscape(p.name)}${p.kind === 'legacy' ? ' (preset)' : ''}</option>`).join('')}
+          </select>
         </div>
       `;
     }).join('');
-
-    el.querySelectorAll('[data-day-type]').forEach(sel=>{
+    el.querySelectorAll('[data-day-plan]').forEach(sel=>{
       sel.addEventListener('change', ()=>{
-        const i = parseInt(sel.dataset.dayType, 10);
-        const kind = sel.value;
-        wpCustomDays[i] = kind === 'unset' ? null
-          : kind === 'rest' ? {type: 'rest'}
-          : kind === 'other' ? {type: 'other', note: ''}
-          : {type: 'library', activityIds: []};
-        renderWpCustomDays();
-      });
-    });
-    el.querySelectorAll('[data-other-note]').forEach(inp=>{
-      inp.addEventListener('input', ()=>{
-        const i = parseInt(inp.dataset.otherNote, 10);
-        wpCustomDays[i].note = inp.value;
-      });
-    });
-    el.querySelectorAll('[data-remove-activity]').forEach(btn=>{
-      btn.addEventListener('click', ()=>{
-        const [i, ai] = btn.dataset.removeActivity.split(':').map(Number);
-        wpCustomDays[i].activityIds.splice(ai, 1);
-        renderWpCustomDays();
-      });
-    });
-    el.querySelectorAll('[data-activity-search]').forEach(inp=>{
-      inp.addEventListener('input', ()=>{
-        const i = parseInt(inp.dataset.activitySearch, 10);
-        const resultsEl = el.querySelector(`[data-activity-results="${i}"]`);
-        const q = inp.value.trim().toLowerCase();
-        if(!q){ resultsEl.innerHTML = ''; return; }
-        const matches = workoutCatalog.filter(a => a.name.toLowerCase().includes(q) && !wpCustomDays[i].activityIds.includes(a.id)).slice(0, 8);
-        resultsEl.innerHTML = matches.map(a => `<button type="button" class="timer-btn" data-add-activity="${a.id}" style="display:block;width:100%;text-align:left;margin-top:3px;padding:6px 8px;font-size:12px;">+ ${foodSearchEscape(a.name)}</button>`).join('') || '<div class="dash-empty" style="padding:6px 0;">No matches.</div>';
-        resultsEl.querySelectorAll('[data-add-activity]').forEach(addBtn=>{
-          addBtn.addEventListener('click', ()=>{
-            wpCustomDays[i].activityIds.push(addBtn.dataset.addActivity);
-            inp.value = '';
-            renderWpCustomDays();
-          });
-        });
+        const i = parseInt(sel.dataset.dayPlan, 10);
+        const v = sel.value;
+        wpCustomDays[i] = v === 'unset' ? null : v === 'rest' ? {type: 'rest'} : {type: 'workoutPlan', planId: v.slice(3)};
       });
     });
   }
@@ -7141,20 +7247,187 @@ async function checkAuthAndStart(){
       errEl.style.display = 'block';
       return;
     }
-    userWorkoutPlan = {presetKey: 'custom', name, days: wpCustomDays.slice()};
-    await saveWorkoutPlan();
+    userTrainingPlan = {presetKey: 'custom', name, days: wpCustomDays.slice(), overrides: (userTrainingPlan && userTrainingPlan.overrides) || {}};
+    await saveTrainingPlan();
     renderWeekPlan();
     renderDashboard();
     closeWorkoutPlanScreen();
   });
 
   document.getElementById('wpOpenSaveBtn').addEventListener('click', async ()=>{
-    userWorkoutPlan = {presetKey: 'open', name: 'Open', days: weekPlan.map(() => null)};
-    await saveWorkoutPlan();
+    userTrainingPlan = {presetKey: 'open', name: 'Open', days: weekPlan.map(() => null), overrides: (userTrainingPlan && userTrainingPlan.overrides) || {}};
+    await saveTrainingPlan();
     renderWeekPlan();
     renderDashboard();
     closeWorkoutPlanScreen();
   });
+
+  // ---------- Workout Plan library screen (browse presets, build/edit Custom) ----------
+  function renderWplSelect(){
+    const sel = document.getElementById('wplSelect');
+    const current = sel.value;
+    sel.innerHTML = allWorkoutPlans().map(p => `<option value="${p.id}">${foodSearchEscape(p.name)}${p.kind === 'legacy' ? ' (preset)' : ''}</option>`).join('');
+    if(current && getWorkoutPlan(current)) sel.value = current;
+    renderWplDetail(sel.value);
+  }
+  function renderWplDetail(planId){
+    const detailEl = document.getElementById('wplDetail');
+    const plan = getWorkoutPlan(planId);
+    if(!plan){ detailEl.innerHTML = '<div class="dash-empty">No workout plans yet -- tap + New to build one.</div>'; return; }
+    if(plan.kind === 'legacy'){
+      if(dayData[plan.legacyKey]){
+        const day = dayData[plan.legacyKey];
+        detailEl.innerHTML = `
+          <div style="font-size:11px;color:var(--ink-soft);margin-bottom:8px;">${foodSearchEscape(day.title || '')} · preset, not editable</div>
+          ${day.exercises.map(ex => `
+            <div class="hub-card" style="margin-bottom:6px;">
+              <div style="font-weight:600;">${foodSearchEscape(ex.name)}</div>
+              <div style="font-size:11.5px;color:var(--ink-soft);margin-top:2px;">${foodSearchEscape(ex.scheme)}</div>
+            </div>
+          `).join('')}
+        `;
+      } else if(cardioData[plan.legacyKey]){
+        const c = cardioData[plan.legacyKey];
+        detailEl.innerHTML = `
+          <div style="font-size:11px;color:var(--ink-soft);margin-bottom:8px;">${foodSearchEscape(c.title || '')} · preset, not editable</div>
+          ${c.phases.map(ph => `
+            <div class="hub-card" style="margin-bottom:6px;display:flex;justify-content:space-between;gap:8px;">
+              <div><div style="font-weight:600;">${foodSearchEscape(ph.phase)}</div><div style="font-size:11.5px;color:var(--ink-soft);">${foodSearchEscape(ph.detail)}</div></div>
+              <div style="font-size:12px;color:var(--ink-soft);white-space:nowrap;">${foodSearchEscape(ph.time)}</div>
+            </div>
+          `).join('')}
+        `;
+      } else {
+        detailEl.innerHTML = '<div class="dash-empty">Preset details unavailable.</div>';
+      }
+    } else {
+      detailEl.innerHTML = `
+        ${plan.items.map(it => `
+          <div class="hub-card" style="margin-bottom:6px;">
+            <div style="font-weight:600;">${foodSearchEscape(workoutActivityName(it.activityId))}</div>
+            <div style="font-size:11.5px;color:var(--ink-soft);margin-top:2px;">${foodSearchEscape(it.target || '')}${it.setCount ? ' · ' + it.setCount + ' sets' : ''}</div>
+          </div>
+        `).join('') || '<div class="dash-empty">No exercises added yet -- Edit to add some.</div>'}
+        <div style="display:flex;gap:8px;margin-top:10px;">
+          <button type="button" class="timer-btn" data-edit-wpl="${plan.id}" style="flex:1;">Edit</button>
+          <button type="button" class="timer-btn reset" data-delete-wpl="${plan.id}" style="flex:1;">Delete</button>
+        </div>
+      `;
+    }
+  }
+  document.getElementById('wplSelect').addEventListener('change', (e)=> renderWplDetail(e.target.value));
+  document.getElementById('wplDetail').addEventListener('click', async (e)=>{
+    const editBtn = e.target.closest('[data-edit-wpl]');
+    if(editBtn){ openWplBuilder(editBtn.dataset.editWpl); return; }
+    const delBtn = e.target.closest('[data-delete-wpl]');
+    if(delBtn){
+      if(!confirm('Delete this workout plan? Any Training Plan day using it will show "Not set" until you pick something else.')) return;
+      customWorkoutPlans = customWorkoutPlans.filter(p => p.id !== delBtn.dataset.deleteWpl);
+      await saveCustomWorkoutPlans();
+      renderWplSelect();
+      renderWeekPlan();
+    }
+  });
+  document.getElementById('wplNewBtn').addEventListener('click', ()=> openWplBuilder(null));
+
+  let wplBuilderItems = [];
+  let wplBuilderEditingId = null;
+  function openWplBuilder(existingId){
+    wplBuilderEditingId = existingId || null;
+    const existing = existingId ? customWorkoutPlans.find(p => p.id === existingId) : null;
+    document.getElementById('wplBuilderName').value = existing ? existing.name : '';
+    wplBuilderItems = existing ? existing.items.map(it => ({...it})) : [];
+    document.getElementById('wplBuilderSearch').value = '';
+    document.getElementById('wplBuilderResults').innerHTML = '';
+    document.getElementById('wplError').style.display = 'none';
+    renderWplBuilderItems();
+    document.getElementById('wplBuilder').style.display = 'block';
+  }
+  function renderWplBuilderItems(){
+    const el = document.getElementById('wplBuilderItems');
+    el.innerHTML = wplBuilderItems.map((it, i) => `
+      <div class="hub-card" style="margin-bottom:6px;display:flex;justify-content:space-between;align-items:center;gap:8px;">
+        <div style="min-width:0;flex:1;">
+          <div style="font-weight:600;font-size:13px;">${foodSearchEscape(workoutActivityName(it.activityId))}</div>
+          <input type="text" data-item-target="${i}" value="${foodSearchEscape(it.target || '')}" placeholder="e.g. 3 x 12-15" style="width:100%;padding:4px 6px;border:1px solid var(--line);border-radius:4px;background:var(--paper);font-size:11.5px;margin-top:3px;">
+        </div>
+        <button type="button" data-remove-wpl-item="${i}" style="background:none;border:none;color:inherit;cursor:pointer;font-size:14px;flex-shrink:0;">✕</button>
+      </div>
+    `).join('') || '<div class="dash-empty">Search below to add exercises/activities.</div>';
+    el.querySelectorAll('[data-item-target]').forEach(inp=>{
+      inp.addEventListener('input', ()=>{ wplBuilderItems[parseInt(inp.dataset.itemTarget, 10)].target = inp.value; });
+    });
+    el.querySelectorAll('[data-remove-wpl-item]').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        wplBuilderItems.splice(parseInt(btn.dataset.removeWplItem, 10), 1);
+        renderWplBuilderItems();
+      });
+    });
+  }
+  document.getElementById('wplBuilderSearch').addEventListener('input', (e)=>{
+    const q = e.target.value.trim().toLowerCase();
+    const resultsEl = document.getElementById('wplBuilderResults');
+    if(!q){ resultsEl.innerHTML = ''; return; }
+    const matches = workoutCatalog.filter(a => a.name.toLowerCase().includes(q)).slice(0, 8);
+    resultsEl.innerHTML = matches.map(a => `<button type="button" class="timer-btn" data-add-wpl-item="${a.id}" style="display:block;width:100%;text-align:left;margin-top:3px;padding:6px 8px;font-size:12px;">+ ${foodSearchEscape(a.name)}</button>`).join('') || '<div class="dash-empty" style="padding:6px 0;">No matches.</div>';
+    resultsEl.querySelectorAll('[data-add-wpl-item]').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        wplBuilderItems.push({activityId: btn.dataset.addWplItem, target: '', setCount: 3});
+        document.getElementById('wplBuilderSearch').value = '';
+        resultsEl.innerHTML = '';
+        renderWplBuilderItems();
+      });
+    });
+  });
+  document.getElementById('wplBuilderSaveBtn').addEventListener('click', async ()=>{
+    const errEl = document.getElementById('wplError');
+    errEl.style.display = 'none';
+    const name = document.getElementById('wplBuilderName').value.trim();
+    if(!name){
+      errEl.textContent = 'Give your workout plan a name.';
+      errEl.style.display = 'block';
+      return;
+    }
+    if(!wplBuilderItems.length){
+      errEl.textContent = 'Add at least one exercise or activity.';
+      errEl.style.display = 'block';
+      return;
+    }
+    const savedId = wplBuilderEditingId || ('cwp-' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6));
+    if(wplBuilderEditingId){
+      const idx = customWorkoutPlans.findIndex(p => p.id === wplBuilderEditingId);
+      if(idx !== -1) customWorkoutPlans[idx] = {id: savedId, name, items: wplBuilderItems.slice()};
+    } else {
+      customWorkoutPlans.push({id: savedId, name, items: wplBuilderItems.slice()});
+    }
+    await saveCustomWorkoutPlans();
+    document.getElementById('wplBuilder').style.display = 'none';
+    renderWplSelect();
+    document.getElementById('wplSelect').value = savedId;
+    renderWplDetail(savedId);
+    renderWeekPlan();
+  });
+  document.getElementById('wplBuilderCancelBtn').addEventListener('click', ()=>{
+    document.getElementById('wplBuilder').style.display = 'none';
+  });
+
+  window.openWorkoutPlanLibraryScreen = function(preselectId){
+    const openIt = ()=>{
+      renderWplSelect();
+      if(preselectId && getWorkoutPlan(preselectId)){
+        document.getElementById('wplSelect').value = preselectId;
+        renderWplDetail(preselectId);
+      }
+    };
+    document.getElementById('wplBuilder').style.display = 'none';
+    document.getElementById('wplError').style.display = 'none';
+    if(!workoutCatalog.length){ loadWorkoutCatalog().then(openIt); } else { openIt(); }
+    document.getElementById('workoutPlanLibraryScreen').style.display = 'flex';
+  };
+  document.getElementById('workoutPlanLibraryClose').addEventListener('click', ()=>{
+    document.getElementById('workoutPlanLibraryScreen').style.display = 'none';
+  });
+  document.getElementById('editWorkoutPlanBtn').addEventListener('click', ()=> window.openWorkoutPlanLibraryScreen());
 })();
 
 /* ---------- Water (dedicated full-page day-nav editor + history) ---------- */

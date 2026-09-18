@@ -960,6 +960,54 @@ do) — those read the plan through `planDayFor()`, which only recognizes
 legacy days for now. Both are natural next steps once this foundation is
 confirmed working for real usage.
 
+## Workout Plan entity + Training Plan rename (Phase 2 of the Train redesign)
+
+Introduces a proper three-level entity model, per the app's own definitions:
+**Exercise/Activity** (the 32-item library, unchanged) → **Workout Plan**
+(one session: exercises/activities + targets) → **Training Plan** (the
+weekly schedule — this is what Phase 1 called "workoutPlan"; renamed here
+since that name actually belongs to the new session-level entity).
+**Training Program** (multi-week phases) is a future fourth level; there's
+just a disabled placeholder button for it on Train for now.
+
+- **Workout Plan** — four presets (Strength A/B, Cardio Steady/Intervals),
+  built from the exact existing exercise/cardio-phase content, not
+  editable. Custom plans are user-built: search the activity library, add
+  items with a target (e.g. "3 x 12-15"), name it, save — stored as
+  `customWorkoutPlans` (`user_data`). A new "Workout Plans" screen lets you
+  browse any plan's content (presets show their real warm-up/exercise or
+  cardio-phase detail) and edit/delete your own.
+- **Training Plan** — same weekly-schedule concept as Phase 1, but each day
+  now references a Workout Plan by ID instead of embedding legacy/library
+  data directly, which also simplified the Custom day editor down to a
+  single per-day dropdown (was a whole multi-activity picker before).
+  Presets renamed/reshaped to Moderate/Intense/Cardio Focused/Lose Weight
+  (samples — easy to adjust later); Moderate matches the old default
+  schedule, so migration is unaffected. Storage moved from resource
+  `workoutPlan` to `trainingPlan` — low-risk since that data was only a few
+  hours old at the time of this rename.
+- **Deviation overrides** — tap any day on the mini-calendar (not just
+  today) to record what actually happened, independent of the recurring
+  weekly pattern — e.g. "planned Rest, actually did Strength B" — without
+  touching the rest of the week. Marked with a small `*` on the calendar.
+- Train tab now shows three buttons: **Edit Workout Plan**, **Edit Training
+  Plan**, and a disabled **Training Program** placeholder.
+
+Verified end-to-end in a local harness: migration still preserves an
+existing account's exact prior schedule (now under the Moderate preset), a
+brand-new account still sees "No Plan Yet", creating/editing/deleting a
+custom Workout Plan works (including the library search-and-add flow) and
+correctly disappears from a Training Plan day once deleted (falls back to
+a "Plan removed" label rather than breaking), and the day-override
+add/clear round-trip works without touching neighboring days.
+
+**Deliberately deferred** (same items flagged at the end of Phase 1, now
+more concretely specified): making the Workout Plan detail page the actual
+interactive logging surface (replacing the old Strength/Cardio tabs at the
+bottom of Train), and restructuring "Log a Session" into Manual + AI
+Assist tabs with the activity library hidden behind a "Search library"
+button instead of always visible on the main Train page.
+
 ## Local development
 
 There's no build step. To preview the frontend against a local PHP server:
