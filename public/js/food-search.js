@@ -93,6 +93,24 @@ function renderRecentFavorites(kind){
   });
 }
 
+// The closing status line for a finished search. Open Food Facts is an outside
+// service: when it is unreachable we say so (instead of silently showing only
+// local results), and when nothing matched at all we point at the ways to log
+// the food yourself. Returns '' when there is nothing extra to say.
+function foodSearchOutcomeHtml({hasResults, offline, suggestionsHtml}){
+  const fallback = 'Try another name, or log it yourself: '
+    + '<button type="button" class="timer-btn" data-food-fallback="manual">Manual Log</button> '
+    + '<button type="button" class="timer-btn" data-food-fallback="ai">AI Assist</button>';
+  const didYouMean = suggestionsHtml ? `Did you mean ${suggestionsHtml}? ` : '';
+  if(!hasResults){
+    return didYouMean + (offline
+      ? `No local match, and the online food search is offline. ${fallback}`
+      : `No matching foods. ${fallback}`);
+  }
+  if(offline) return didYouMean + 'The online food search is offline — showing local results only.';
+  return '';
+}
+
 async function searchFoodsCombined(query){
   const generation = ++foodSearchGeneration;
   const statusEl = document.getElementById('foodSearchStatus');
@@ -105,7 +123,7 @@ async function searchFoodsCombined(query){
   try{
     const remoteSearch = Promise.all([
       fetch(`api/foods.php?action=search_library&q=${encodeURIComponent(query)}`, {credentials:'same-origin'}).then(r=>r.json()).catch(()=>({results:[]})),
-      fetch(`api/food_search.php?q=${encodeURIComponent(query)}`, {credentials:'same-origin'}).then(r=>r.json()).catch(()=>({results:[]}))
+      fetch(`api/food_search.php?q=${encodeURIComponent(query)}`, {credentials:'same-origin'}).then(r=>r.json()).catch(()=>({results:[], error:'offline'}))
     ]);
     const localRes = await fetch(`api/food_catalog.php?q=${encodeURIComponent(query)}&include_estimates=${document.getElementById('foodIncludeEstimates')?.checked ? '1' : '0'}`, {credentials:'same-origin'}).then(r=>r.json()).catch(()=>({results:[], error:'Local food search is temporarily unavailable.'}));
     if(generation !== foodSearchGeneration) return;
@@ -127,13 +145,16 @@ async function searchFoodsCombined(query){
     if(localRes.error){
       statusEl.textContent = localRes.error;
       statusEl.style.display = 'block';
-    } else if(local.length || suggestions){
-      statusEl.style.display = 'block';
-    } else if(offRes.error && !external.length){
-      statusEl.textContent = offRes.error;
-      statusEl.style.display = 'block';
     } else {
-      statusEl.style.display = 'none';
+      const outcome = foodSearchOutcomeHtml({hasResults: foodSearchResultsCache.length > 0, offline: !!offRes.error, suggestionsHtml: suggestions});
+      if(outcome){
+        statusEl.innerHTML = outcome;
+        statusEl.style.display = 'block';
+      } else if(local.length || suggestions){
+        statusEl.style.display = 'block';
+      } else {
+        statusEl.style.display = 'none';
+      }
     }
   }catch(e){
     if(generation !== foodSearchGeneration) return;

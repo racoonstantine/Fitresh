@@ -32,6 +32,8 @@
   }));
 
   document.getElementById('foodSearchStatus').addEventListener('click', e=>{
+    const fallback = e.target.closest('[data-food-fallback]');
+    if(fallback){ window.openLogMealScreen(undefined, fallback.dataset.foodFallback); return; }
     const suggestion = e.target.closest('[data-food-suggestion]');
     if(!suggestion) return;
     const query = suggestion.dataset.foodSuggestion;
@@ -115,7 +117,7 @@
   let lmSearchResultsCache = [];
   let lmSearchGeneration = 0;
 
-  window.openLogMealScreen = function(mealType){
+  window.openLogMealScreen = function(mealType, mode){
     lmItems = [];
     document.getElementById('lmDate').value = nutriSelectedDate || dateStrForOffset(0);
     document.getElementById('lmMealType').value = mealType || document.getElementById('mealLogType').value || 'breakfast';
@@ -134,7 +136,7 @@
     document.getElementById('aiFoodPromptWrap').style.display = 'none';
     document.getElementById('aiFoodParseError').style.display = 'none';
     document.getElementById('aiFoodParseSuccess').style.display = 'none';
-    lmSetMode('search');
+    lmSetMode(mode || 'search');
     renderLmMealItems();
     renderRecentFavorites('lm');
     document.getElementById('logMealScreen').style.display = 'flex';
@@ -160,6 +162,8 @@
 
   let lmSearchDebounce;
   document.getElementById('lmSearchStatus').addEventListener('click', e=>{
+    const fallback = e.target.closest('[data-food-fallback]');
+    if(fallback){ lmSetMode(fallback.dataset.foodFallback); return; }
     const suggestion = e.target.closest('[data-food-suggestion]');
     if(!suggestion) return;
     clearTimeout(lmSearchDebounce);
@@ -204,7 +208,7 @@
       statusEl.innerHTML = localRes.error ? foodSearchEscape(localRes.error) : (suggestions ? `Did you mean ${suggestions}?` : (local.length ? 'Choose the preparation and edible part that match your food.' : 'Checking other sources…'));
       const [libRes, offRes] = await Promise.all([
         fetch(`api/foods.php?action=search_library&q=${encodeURIComponent(query)}`, {credentials:'same-origin'}).then(r=>r.json()).catch(()=>({results:[]})),
-        fetch(`api/food_search.php?q=${encodeURIComponent(query)}`, {credentials:'same-origin'}).then(r=>r.json()).catch(()=>({results:[]}))
+        fetch(`api/food_search.php?q=${encodeURIComponent(query)}`, {credentials:'same-origin'}).then(r=>r.json()).catch(()=>({results:[], error:'offline'}))
       ]);
       if(generation !== lmSearchGeneration) return;
       if([...resultsEl.querySelectorAll('.food-result-amount')].some(el => el.style.display === 'block')) return;
@@ -213,13 +217,18 @@
       const localIds = new Set(local.map(r => r.external_id));
       lmSearchResultsCache = [...local, ...library.filter(r => !(r.source === 'catalog' && localIds.has(r.external_id))), ...external];
       renderLmSearchResults();
-      if(localRes.error || local.length || suggestions){
+      if(localRes.error){
         statusEl.style.display = 'block';
-      } else if(offRes.error){
-        statusEl.textContent = offRes.error;
       } else {
-        statusEl.textContent = lmSearchResultsCache.length ? '' : 'No matching foods. Try another name or a more specific preparation.';
-        statusEl.style.display = lmSearchResultsCache.length ? 'none' : 'block';
+        const outcome = foodSearchOutcomeHtml({hasResults: lmSearchResultsCache.length > 0, offline: !!offRes.error, suggestionsHtml: suggestions});
+        if(outcome){
+          statusEl.innerHTML = outcome;
+          statusEl.style.display = 'block';
+        } else if(local.length || suggestions){
+          statusEl.style.display = 'block';
+        } else {
+          statusEl.style.display = 'none';
+        }
       }
     }catch(e){
       if(generation !== lmSearchGeneration) return;
