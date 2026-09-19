@@ -3,6 +3,7 @@
   let fsSelectedDate = null;
 
   window.openFastingScreen = function(){
+    editLockResetAll();
     fsSelectedDate = dateStrForOffset(0);
     document.getElementById('fsFactNote').textContent = randomFact(FASTING_FACTS);
     renderFastingScreenMain();
@@ -95,6 +96,11 @@
     document.getElementById('fsPastStart').value = toLocalInput(start);
     document.getElementById('fsPastEnd').value = toLocalInput(end);
     renderFsDaySummary();
+    applyEditLock(document.getElementById('fsEditBlock'), {
+      key: 'fast:' + fsSelectedDate,
+      baseLocked: fsSelectedDate !== todayStr && !!existing,
+      summary: existing ? `⏱ <strong>${formatFastHours(parseNum(existing.fastHours))}</strong> fast logged` : '⏱ Fast logged'
+    });
   }
 
   document.body.addEventListener('click', (e)=>{
@@ -196,11 +202,13 @@
     const hours = (endD - startD) / 3600000;
     const dateKey = toLocalDateStr(endD);
     upsertNutritionFields(dateKey, { fastHours: hours.toFixed(2) });
+    editLockRelock('fast:' + fsSelectedDate);
+    editLockRelock('fast:' + dateKey);
     renderNutrition();
     renderTodayGlance();
     renderFastingHistory();
     renderFasting();
-    renderFsDaySummary();
+    renderFsPastForm();
     errEl.style.color = 'var(--forest-dark)';
     errEl.textContent = `Saved — ${formatFastHours(hours)} logged for ${formatDateLabel(dateKey)}.`;
     errEl.style.display = 'block';
@@ -243,6 +251,7 @@
   let stepsSelectedDate = null;
 
   window.openStepsScreen = function(){
+    editLockResetAll();
     stepsSelectedDate = dateStrForOffset(0);
     document.getElementById('stepsFactNote').textContent = randomFact(STEPS_FACTS);
     renderStepsDayNav();
@@ -288,7 +297,15 @@
 
   function renderStepsForm(){
     document.getElementById('stepsError').style.display = 'none';
-    document.getElementById('stepsCountInput').value = stepsLog[stepsSelectedDate] || '';
+    const logged = stepsLog[stepsSelectedDate];
+    document.getElementById('stepsCountInput').value = logged || '';
+    // A past day that already has steps logged is shown read-only until the
+    // pencil Edit button is pressed.
+    applyEditLock(document.getElementById('stepsEditBlock'), {
+      key: 'steps:' + stepsSelectedDate,
+      baseLocked: stepsSelectedDate !== dateStrForOffset(0) && logged !== undefined,
+      summary: `👟 <strong>${fmtNum(logged)}</strong> steps logged`
+    });
   }
 
   document.getElementById('stepsSaveBtn').addEventListener('click', ()=>{
@@ -302,6 +319,8 @@
     }
     stepsLog[stepsSelectedDate] = count;
     saveStepsLog();
+    editLockRelock('steps:' + stepsSelectedDate);
+    renderStepsForm();
     renderStepsHistory();
     renderTodayGlance();
     renderDashboard();
@@ -348,6 +367,7 @@
   let sleepSelectedDate = null;
 
   window.openSleepScreen = function(){
+    editLockResetAll();
     sleepSelectedDate = dateStrForOffset(0);
     document.getElementById('sleepFactNote').textContent = randomFact(SLEEP_FACTS);
     renderSleepDayNav();
@@ -407,6 +427,11 @@
     document.getElementById('sleepStartInputScreen').value = toLocalInput(start);
     document.getElementById('sleepEndInputScreen').value = toLocalInput(end);
     updateSleepTotalDisplay();
+    applyEditLock(document.getElementById('sleepEditBlock'), {
+      key: 'sleep:' + sleepSelectedDate,
+      baseLocked: sleepSelectedDate !== dateStrForOffset(0) && !!(existing && existing.startIso && existing.endIso),
+      summary: existing && existing.hours ? `😴 <strong>${formatSleepHours(existing.hours)}</strong> logged` : '😴 Sleep logged'
+    });
   }
 
   function updateSleepTotalDisplay(){
@@ -449,6 +474,8 @@
     const hours = (endD - startD) / 3600000;
     sleepLog[sleepSelectedDate] = { startIso: startD.toISOString(), endIso: endD.toISOString(), hours };
     saveSleepLog();
+    editLockRelock('sleep:' + sleepSelectedDate);
+    renderSleepForm();
     renderSleepHistory();
     renderTodayGlance();
     renderBodySleepCard();

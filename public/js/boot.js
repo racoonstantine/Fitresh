@@ -4,6 +4,7 @@
   const fmtL = ml => (ml / 1000).toFixed(2).replace(/\.?0+$/, '') || '0';
 
   window.openWaterScreen = function(){
+    editLockResetAll();
     waterSelectedDate = dateStrForOffset(0);
     document.getElementById('waterFactNote').textContent = randomFact(WATER_FACTS);
     renderWaterDayNav();
@@ -59,6 +60,13 @@
     document.getElementById('waterScreenSub').textContent = `Target: ${(target/1000).toFixed(1)} L`;
     document.getElementById('waterScreenBar').style.width = Math.min(100, target ? ml/target*100 : 0) + '%';
     document.getElementById('waterManualMl').value = '';
+    // A past day that already has water logged is read-only until the pencil
+    // Edit button is pressed (then +/− and the exact-amount box appear).
+    applyEditLock([document.getElementById('waterAdjustBlock'), document.getElementById('waterManualBlock')], {
+      key: 'water:' + waterSelectedDate,
+      baseLocked: waterSelectedDate !== dateStrForOffset(0) && waterLog[waterSelectedDate] !== undefined,
+      summary: `💧 <strong>${fmtL(ml)} L</strong> logged`
+    });
   }
 
   function adjustWater(deltaMl){

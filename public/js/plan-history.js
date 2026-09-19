@@ -121,8 +121,7 @@ function renderHistory(){
           ${statLines}
           ${entry.notes ? `<div class="log-note">${foodSearchEscape(entry.notes)}</div>` : ''}
           <div style="display:flex;gap:8px;margin-top:8px;">
-            <button class="img-link" data-hist-edit-toggle="${idx}" type="button" style="cursor:pointer;flex:1;">Edit</button>
-            <button class="wi-del" data-hist-delete="${idx}" type="button" title="Delete session">✕ Delete</button>
+            <button class="img-link" data-hist-edit-toggle="${idx}" type="button" style="cursor:pointer;flex:1;">✎ Edit</button>
           </div>
           <div data-hist-edit-form="${idx}" style="display:none;margin-top:10px;padding-top:10px;border-top:1px solid var(--line);">
             ${editExRows}
@@ -131,6 +130,7 @@ function renderHistory(){
             <div style="display:flex;gap:8px;margin-top:8px;">
               <button class="timer-btn start" data-hist-save="${idx}" type="button" style="flex:1;">Save changes</button>
               <button class="timer-btn reset" data-hist-edit-stats="${idx}" type="button" style="flex:1;">Edit watch stats</button>
+              <button class="wi-del" data-hist-delete="${idx}" type="button" title="Delete session">✕ Delete</button>
             </div>
           </div>
         </div>

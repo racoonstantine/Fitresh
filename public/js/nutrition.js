@@ -31,7 +31,7 @@ async function renderTodayMeals(){
       <div style="margin-bottom:10px;">
         <div style="font-size:11px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.06em;font-weight:700;margin-bottom:4px;">${typeLabels[entry.meal_type] || entry.meal_type}</div>
         ${entry.components.map(c => `
-          <div class="meal-component-row" data-id="${c.id}" style="padding:6px 0;border-bottom:1px dashed var(--line);cursor:pointer;">
+          <div class="meal-component-row" data-id="${c.id}" style="padding:6px 0;border-bottom:1px dashed var(--line);">
             <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;">
               <div style="display:flex;align-items:center;gap:8px;min-width:0;">
                 <span style="color:var(--ink-soft);">${renderFoodIconSvg(getFoodIcon({name: c.name}), 18)}</span>
@@ -39,7 +39,7 @@ async function renderTodayMeals(){
               </div>
               <div style="display:flex;align-items:center;gap:8px;flex-shrink:0;">
                 <span style="font-size:12.5px;color:var(--ink-soft);">${fmtNum(c.nutrients.ENERC_KCAL || 0)} kcal</span>
-                <button class="wi-del meal-delete" data-id="${c.id}" type="button" title="Remove">✕</button>
+                <button class="edit-lock-btn meal-edit-toggle" data-id="${c.id}" type="button" title="Edit this food" aria-label="Edit ${foodSearchEscape(c.name)}">✎</button>
               </div>
             </div>
             <div style="font-size:10.5px;color:var(--ink-soft);margin-top:2px;">${Math.round((c.nutrients.PROCNT || 0) * 10) / 10}g protein · ${Math.round((c.nutrients.FAT || 0) * 10) / 10}g fat · ${Math.round((c.nutrients.CHOCDF || 0) * 10) / 10}g carbs</div>
@@ -50,6 +50,7 @@ async function renderTodayMeals(){
                 ${MEAL_TYPE_ORDER.map(mt => `<option value="${mt}" ${mt === entry.meal_type ? 'selected' : ''}>${typeLabels[mt] || mt}</option>`).join('')}
               </select>
               <button class="timer-btn start meal-save-amount" data-id="${c.id}" data-unit="${c.unit}" type="button" style="flex:1;padding:6px 0;font-size:12px;">Save</button>
+              <button class="wi-del meal-delete" data-id="${c.id}" type="button" title="Remove this food">✕ Remove</button>
             </div>
           </div>
         `).join('')}
@@ -76,10 +77,11 @@ async function renderTodayMeals(){
         renderNutrition();
       });
     });
-    card.querySelectorAll('.meal-component-row').forEach(row=>{
-      row.addEventListener('click', (e)=>{
-        if(e.target.closest('.meal-delete') || e.target.closest('.meal-component-edit')) return;
-        const id = row.dataset.id;
+    // Logged foods are read-only until the pencil is pressed.
+    card.querySelectorAll('.meal-edit-toggle').forEach(btn=>{
+      btn.addEventListener('click', (e)=>{
+        e.stopPropagation();
+        const id = btn.dataset.id;
         card.querySelectorAll('.meal-component-edit').forEach(el=>{
           el.style.display = (el.dataset.editId === id && el.style.display !== 'flex') ? 'flex' : 'none';
         });
