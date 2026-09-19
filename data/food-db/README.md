@@ -9,6 +9,46 @@ The workbook is a historical starter, not a synchronized view of this directory.
 
 ## Current coverage
 
+The **2026-09-18 pantry/cafe batch adds 68 identities**: one exact Athlene ACTIVE
+Whey Chocolate manufacturer-label reference and 67 explicitly selected
+estimates. Current totals: **2,941 foods**, **2,535 default-searchable foods**,
+**382 estimate records**, **379 estimate-only foods eligible for opt-in app
+search**, and **6,184 aliases**. All 2,873 pre-batch food rows are preserved.
+
+Coverage includes Nescafe mixes, Lucky Me dry/prepared noodles, SkyFlakes, Fita,
+Oishi, Jack n Jill snacks/chocolate, Century Tuna, 555, Argentina, Maling chicken
+luncheon meat, NutriAsia condiments, Goldilocks, kakanin topping combinations,
+Starbucks, PICKUP COFFEE, protein shakes, and soft drinks. Existing classic
+kakanin and Athlene isolate identities remain unchanged.
+
+Both app search screens now have an **Include estimates** checkbox, off by
+default. Results show Estimated, Low confidence, assumptions and limitations.
+Selecting and saving one preserves its exact estimate ID and nutrient
+provenance in an immutable snapshot. Old saved meals still use their original
+snapshot. The active snapshot is `e394abd1956d130eff5a69cf` (schema 2, separate
+`foods` and `estimate_foods` collections). A food with multiple competing
+estimates is not automatically offered as a single choice. The partial peanut
+estimate is still resolver-only; Cobra/Sting sugar-water models have unknown
+core nutrients and remain validator-only, not eligible for app logging.
+
+Nine soft-drink entries preserve official PH per-mL label facts in
+`pantry-published-labels.csv`. Their per-100-g representations are explicitly
+**Low-confidence density approximations**, assuming 1.00 g/mL, not measured
+densities. They do not provide ml, can or bottle conversions. Athlene ACTIVE
+Whey Chocolate has a published 32.4 g powder serving; fiber is unlisted and
+remains unknown. Other package/cafe models are ingredient or category proxies,
+not claimed manufacturer nutrition; their quantities and cooked yields are
+documented assumptions.
+
+Audit files: `pantry-expansion.csv`, `pantry-estimate-components.csv`,
+`pantry-published-labels.csv`, `pantry-identity-review.csv`,
+`pantry-online-source-audit.csv`, and `2026-09-18-pantry-cafes.json`.
+Builder: `tools/expand_pantry_foods.py`; tests: `tools/test_pantry_foods.py`,
+`tools/test_estimate_search.php` and both frontend search-flow tests.
+These are local changes; no production deployment is implied.
+
+### Previous world-cuisine update
+
 The **2026-09-18 world-cuisine batch adds 54 identities**, bringing the catalog
 to **2,873 foods**, **2,534 default-searchable references**, **315 explicit
 estimates**, and **6,079 aliases**. The 54 additions comprise 20 exact USDA SR
@@ -38,7 +78,7 @@ Batch records: `world-expansion-54.csv`, `world-reference-review.csv`,
 `world-estimate-components.csv`, and `2026-09-18-world-foods-54.json`.
 Reproducible builders are `tools/world_food_sources.py`,
 `tools/world_food_plans.py` and `tools/expand_world_foods.py`; integrity checks
-are in `tools/test_world_foods.py`. The active immutable search snapshot is
+are in `tools/test_world_foods.py`. That batch's immutable search snapshot is
 `491cd9c83ec97255ba0647b5`. Existing meal snapshots remain unchanged.
 
 ### Previous bilingual and regional updates

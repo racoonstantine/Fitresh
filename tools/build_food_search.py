@@ -85,18 +85,27 @@ def main(review_date=None):
     collision_rows=[dict(normalized_alias=a,food_ids=';'.join(sorted(ids)),handling='Show separate labeled choices; never merge or auto-select.') for a,ids in sorted(collisions.items()) if len(ids)>1]
     write_csv(DB/'alias-collisions.csv',collision_rows)
     codes={'kcal_100g':'ENERC_KCAL','protein_g_100g':'PROCNT','fat_g_100g':'FAT','carbs_g_100g':'CHOCDF','fiber_g_100g':'FIBTG','sugar_g_100g':'SUGAR','sodium_mg_100g':'NA','cholesterol_mg_100g':'CHOLE'}
-    foods={}
+    foods={}; estimate_foods={}
     for fid in catalog.foods:
         resolved=catalog.resolve(fid)
+        target=foods
+        if catalog.foods[fid]['data_status']=='ESTIMATE_ONLY':
+            choices=[e for e in catalog.estimates if e['food_id']==fid and e['review_status'] in ['AI_REVIEWED_NOT_HUMAN_VERIFIED','HUMAN_REVIEWED_ESTIMATE'] and e['selection_policy']=='EXPLICIT_ESTIMATE_SELECTION']
+            # Never silently select among competing recipe estimates.
+            if len(choices)!=1:continue
+            resolved=catalog.resolve(fid,estimate_id=choices[0]['estimate_id']);target=estimate_foods
         if resolved['requires_identity_selection'] or any(resolved['nutrients'][f]['value_per_100g'] is None for f in ['kcal_100g','protein_g_100g','fat_g_100g','carbs_g_100g']):continue
-        foods[fid]=dict(food_id=fid,name=resolved['name'],source='catalog',brand=None,canonical_amount=100,canonical_unit='g',
+        target[fid]=dict(food_id=fid,name=resolved['name'],source='catalog',brand=None,canonical_amount=100,canonical_unit='g',
             local_name=(official_names[fid].split('/')[0].strip() if official_names[fid] else None),
             label=resolved['label'],complete=resolved['complete'],confidence=resolved['confidence'],
             aliases=list(dict.fromkeys(by_food[fid])),
             portions=[p for p in catalog.portions if p['food_id']==fid and p['data_status']=='OTHER_SOURCE_PORTION' and float(p['edible_weight_g'] or 0)>0],
             nutrients={code:resolved['nutrients'][field]['value_per_100g'] for field,code in codes.items()},
             nutrient_provenance={code:resolved['nutrients'][field] for field,code in codes.items()})
-    payload=dict(schema_version=1,foods=foods)
+        if target is estimate_foods:
+            target[fid]['estimate']=resolved['estimate']
+            target[fid]['portions']=[]
+    payload=dict(schema_version=2,foods=foods,estimate_foods=estimate_foods)
     encoded=json.dumps(payload,ensure_ascii=False,sort_keys=True,separators=(',',':')).encode('utf-8')
     version=hashlib.sha256(encoded).hexdigest()[:24]
     history=ROOT/'api/catalog-history';history.mkdir(exist_ok=True)
@@ -105,7 +114,7 @@ def main(review_date=None):
     else:snapshot.write_bytes(encoded)
     (ROOT/'api/catalog-active.json').write_text(json.dumps({'version':version})+'\n',encoding='utf-8')
     summary=dict(foods_audited=len(audit),foods_with_official_common_names=sum(bool(r['official_common_names']) for r in audit),
-        total_alias_rows=len(aliases),shared_aliases=len(collision_rows),searchable_foods=len(foods),snapshot_version=version)
+        total_alias_rows=len(aliases),shared_aliases=len(collision_rows),searchable_foods=len(foods),opt_in_estimate_foods=len(estimate_foods),snapshot_version=version)
     (DB/'alias-audit-summary.json').write_text(json.dumps(summary,indent=2)+'\n',encoding='utf-8')
     print(json.dumps(dict(summary,added_this_run=len(aliases)-original_count),indent=2))
 

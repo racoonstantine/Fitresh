@@ -1,0 +1,69 @@
+food_id,name,group,kind,estimate_id,modeled_mass_g,source_url
+FC002874,"Athlene ACTIVE Whey Protein, Chocolate, dry powder",Whey protein,manufacturer_label,,,https://athlene.com.ph/cdn/shop/products/choco_small_3.png?v=1697512683&width=1946
+FC002875,"NESCAFE Original, dry coffee mix (estimate)",Coffee mixes,estimate,EST_PANTRY_20260918_001_V1,100,https://www.nescafe.com/ph/coffees/formats/instant-coffee
+FC002876,"NESCAFE Creamy White, dry coffee mix (estimate)",Coffee mixes,estimate,EST_PANTRY_20260918_002_V1,100,https://www.nescafe.com/ph/coffees/formats/instant-coffee
+FC002877,"NESCAFE Creamy Latte, dry coffee mix (estimate)",Coffee mixes,estimate,EST_PANTRY_20260918_003_V1,100,https://www.nescafe.com/ph/coffees/formats/instant-coffee
+FC002878,"Lucky Me Pancit Canton Original, dry noodles and seasoning (estimate)",Instant noodles,estimate,EST_PANTRY_20260918_004_V1,100,https://verification.fda.gov.ph/FoodProduct_Lowriskview.php?ACCOUNTCODE=FR-4000013266042&export=pdf
+FC002879,"Lucky Me Pancit Canton Original, prepared 2.5x dry-mass yield (estimate)",Instant noodles,estimate,EST_PANTRY_20260918_005_V1,250,https://verification.fda.gov.ph/FoodProduct_Lowriskview.php?ACCOUNTCODE=FR-4000013266042&export=pdf
+FC002880,"Lucky Me Pancit Canton Chilimansi, dry noodles and seasoning (estimate)",Instant noodles,estimate,EST_PANTRY_20260918_006_V1,100,https://verification.fda.gov.ph/All_FoodProductsview.php?ACCOUNTCODE=FR-4000008765235&export=pdf
+FC002881,"Lucky Me Pancit Canton Chilimansi, prepared 2.5x dry-mass yield (estimate)",Instant noodles,estimate,EST_PANTRY_20260918_007_V1,250,https://verification.fda.gov.ph/All_FoodProductsview.php?ACCOUNTCODE=FR-4000008765235&export=pdf
+FC002882,SkyFlakes Original crackers (estimate),Biscuits,estimate,EST_PANTRY_20260918_008_V1,100,https://mondenissin.com/our-brands/
+FC002883,Fita Original crackers (estimate),Biscuits,estimate,EST_PANTRY_20260918_009_V1,100,https://mondenissin.com/our-brands/
+FC002884,M.Y. San Grahams (estimate),Biscuits,estimate,EST_PANTRY_20260918_010_V1,100,https://mondenissin.com/our-brands/
+FC002885,"Jack n Jill Piattos, cheese flavor (estimate)",Snacks and chocolate,estimate,EST_PANTRY_20260918_011_V1,100,https://www.urc.com.ph/stories/life-fun/experience-the-joy-of-snacking-anytime-anywhere-with-urc-grab-n-go-trucks
+FC002886,"Jack n Jill Chippy, barbecue flavor (estimate)",Snacks and chocolate,estimate,EST_PANTRY_20260918_012_V1,100,https://www.urc.com.ph/stories/life-fun/experience-the-joy-of-snacking-anytime-anywhere-with-urc-grab-n-go-trucks
+FC002887,"Jack n Jill Nova, modeled multigrain chips (estimate)",Snacks and chocolate,estimate,EST_PANTRY_20260918_013_V1,100,https://www.urc.com.ph/stories/life-fun/experience-the-joy-of-snacking-anytime-anywhere-with-urc-grab-n-go-trucks
+FC002888,"Jack n Jill Cream-O, chocolate sandwich cookies (estimate)",Snacks and chocolate,estimate,EST_PANTRY_20260918_014_V1,100,https://www.urc.com.ph/stories/life-fun/experience-the-joy-of-snacking-anytime-anywhere-with-urc-grab-n-go-trucks
+FC002889,"Jack n Jill Cloud 9, chocolate caramel peanut bar (estimate)",Snacks and chocolate,estimate,EST_PANTRY_20260918_015_V1,100,https://www.urc.com.ph/stories/life-fun/experience-the-joy-of-snacking-anytime-anywhere-with-urc-grab-n-go-trucks
+FC002890,"Oishi Prawn Crackers, original (estimate)",Snacks and chocolate,estimate,EST_PANTRY_20260918_016_V1,100,https://www.oishi.com.ph/products/oishi-prawn-crackers/
+FC002891,"Century Tuna Flakes in Oil, undrained (estimate)",Canned goods,estimate,EST_PANTRY_20260918_017_V1,100,https://www.centurypacific.com.ph/brands/
+FC002892,"Century Tuna Flakes in Brine, undrained (estimate)",Canned goods,estimate,EST_PANTRY_20260918_018_V1,100,https://www.centurypacific.com.ph/brands/
+FC002893,"555 Sardines in Tomato Sauce, undrained (estimate)",Canned goods,estimate,EST_PANTRY_20260918_019_V1,100,https://www.centurypacific.com.ph/brands/
+FC002894,"Argentina Corned Beef, as canned (estimate)",Canned goods,estimate,EST_PANTRY_20260918_020_V1,100,https://www.centurypacific.com.ph/brands/
+FC002895,"Argentina Beef Loaf, as canned (estimate)",Canned goods,estimate,EST_PANTRY_20260918_021_V1,100,https://www.centurypacific.com.ph/brands/
+FC002896,"555 Carne Norte, as canned (estimate)",Canned goods,estimate,EST_PANTRY_20260918_022_V1,100,https://www.centurypacific.com.ph/brands/
+FC002897,"Maling Chicken Luncheon Meat, as canned (estimate)",Canned goods,estimate,EST_PANTRY_20260918_023_V1,100,https://verification.fda.gov.ph/FoodProduct_Highriskview.php?ACCOUNTCODE=FR-4000008566085&export=pdf
+FC002898,UFC Tamis Anghang Banana Catsup (estimate),Condiments,estimate,EST_PANTRY_20260918_024_V1,100,https://online.flippingbook.com/view/252312515/
+FC002899,Datu Puti Soy Sauce (estimate),Condiments,estimate,EST_PANTRY_20260918_025_V1,100,https://online.flippingbook.com/view/252312515/
+FC002900,Silver Swan Soy Sauce (estimate),Condiments,estimate,EST_PANTRY_20260918_026_V1,100,https://online.flippingbook.com/view/252312515/
+FC002901,Datu Puti White Vinegar (estimate),Condiments,estimate,EST_PANTRY_20260918_027_V1,100,https://online.flippingbook.com/view/252312515/
+FC002902,Datu Puti Fish Sauce (estimate),Condiments,estimate,EST_PANTRY_20260918_028_V1,100,https://online.flippingbook.com/view/252312515/
+FC002903,Goldilocks Classic Polvoron (estimate),Merienda and desserts,estimate,EST_PANTRY_20260918_029_V1,100,https://www.goldilocks.com.ph/mobile/products/bakeshop/snacks-pasalubong
+FC002904,Goldilocks Cookies and Cream Polvoron (estimate),Merienda and desserts,estimate,EST_PANTRY_20260918_030_V1,100,https://www.goldilocks.com.ph/mobile/products/bakeshop/snacks-pasalubong
+FC002905,Goldilocks Classic Puto (estimate),Merienda and desserts,estimate,EST_PANTRY_20260918_031_V1,100,https://www.goldilocks.com.ph/mobile/products/bakeshop/snacks-pasalubong
+FC002906,Goldilocks Butter Puto (estimate),Merienda and desserts,estimate,EST_PANTRY_20260918_032_V1,100,https://www.goldilocks.com.ph/mobile/products/bakeshop/snacks-pasalubong
+FC002907,Goldilocks Leche Flan (estimate),Merienda and desserts,estimate,EST_PANTRY_20260918_033_V1,100,https://www.goldilocks.com.ph/mobile/products/bakeshop/snacks-pasalubong
+FC002908,Biko with condensed milk topping (estimate),Merienda and desserts,estimate,EST_PANTRY_20260918_034_V1,120,https://i.fnri.dost.gov.ph/fct/library/report/3130
+FC002909,Suman sa ibos with ripe mango (estimate),Merienda and desserts,estimate,EST_PANTRY_20260918_035_V1,180,https://i.fnri.dost.gov.ph/fct/library/report/3153
+FC002910,Kutsinta with condensed milk topping (estimate),Merienda and desserts,estimate,EST_PANTRY_20260918_036_V1,120,https://i.fnri.dost.gov.ph/fct/library/report/3141
+FC002911,Palitaw with condensed milk topping (estimate),Merienda and desserts,estimate,EST_PANTRY_20260918_037_V1,120,https://i.fnri.dost.gov.ph/fct/library/report/3150
+FC002912,Turon with vanilla ice cream (estimate),Merienda and desserts,estimate,EST_PANTRY_20260918_038_V1,160,https://i.fnri.dost.gov.ph/fct/library/report/3684
+FC002913,Banana cue with vanilla ice cream (estimate),Merienda and desserts,estimate,EST_PANTRY_20260918_039_V1,160,https://i.fnri.dost.gov.ph/fct/library/report/3683
+FC002914,Starbucks Philippines Iced Caffe Latte (estimate),Coffee shops,estimate,EST_PANTRY_20260918_040_V1,320,https://www.starbucks.ph/menu
+FC002915,Starbucks Philippines Iced Caramel Macchiato (estimate),Coffee shops,estimate,EST_PANTRY_20260918_041_V1,355,https://www.starbucks.ph/menu
+FC002916,"Starbucks Philippines Caffe Mocha, modeled milk and chocolate (estimate)",Coffee shops,estimate,EST_PANTRY_20260918_042_V1,295,https://www.starbucks.ph/menu
+FC002917,"Starbucks Philippines Cappuccino, hot (estimate)",Coffee shops,estimate,EST_PANTRY_20260918_043_V1,200,https://www.starbucks.ph/menu
+FC002918,"Starbucks Philippines Hot Brewed Coffee, unsweetened (estimate)",Coffee shops,estimate,EST_PANTRY_20260918_044_V1,100,https://www.starbucks.ph/menu
+FC002919,"Starbucks Philippines Coffee Frappuccino, modeled blended drink (estimate)",Coffee shops,estimate,EST_PANTRY_20260918_045_V1,340,https://www.starbucks.ph/menu
+FC002920,"Starbucks Philippines Caramel Frappuccino, modeled blended drink (estimate)",Coffee shops,estimate,EST_PANTRY_20260918_046_V1,385,https://www.starbucks.ph/menu
+FC002921,"Starbucks Philippines Chocolate Cream Frappuccino, modeled blended drink (estimate)",Coffee shops,estimate,EST_PANTRY_20260918_047_V1,355,https://www.starbucks.ph/menu
+FC002922,"PICKUP COFFEE Kape Kastila, iced (estimate)",Coffee shops,estimate,EST_PANTRY_20260918_048_V1,325,https://pickup-coffee.com/menu/
+FC002923,PICKUP COFFEE Iced Caramel Macchiato (estimate),Coffee shops,estimate,EST_PANTRY_20260918_049_V1,330,https://pickup-coffee.com/menu/
+FC002924,PICKUP COFFEE Iced White Mocha Latte (estimate),Coffee shops,estimate,EST_PANTRY_20260918_050_V1,330,https://pickup-coffee.com/menu/
+FC002925,PICKUP COFFEE Iced Latte (estimate),Coffee shops,estimate,EST_PANTRY_20260918_051_V1,310,https://pickup-coffee.com/menu/
+FC002926,"PICKUP COFFEE Cappuccino, hot (estimate)",Coffee shops,estimate,EST_PANTRY_20260918_052_V1,190,https://pickup-coffee.com/menu/
+FC002927,PICKUP COFFEE Iced Dark Chocolate Latte (estimate),Coffee shops,estimate,EST_PANTRY_20260918_053_V1,330,https://pickup-coffee.com/menu/
+FC002928,"Cobra Energy Drink, original modeled sweetened liquid (estimate)",Energy and sweet drinks,estimate,EST_PANTRY_20260918_054_V1,100,https://www.7-eleven.com.ph/promos/participating-items-for-run-2026/
+FC002929,"Sting Energy Drink Strawberry, modeled sweetened liquid (estimate)",Energy and sweet drinks,estimate,EST_PANTRY_20260918_055_V1,100,https://www.7-eleven.com.ph/promos/participating-items-for-run-2026/
+FC002930,"C2 lemon green tea, modeled sweetened drink (estimate)",Energy and sweet drinks,estimate,EST_PANTRY_20260918_056_V1,100,https://www.urc.com.ph/stories/life-fun/experience-the-joy-of-snacking-anytime-anywhere-with-urc-grab-n-go-trucks
+FC002931,"Athlene ACTIVE Whey Chocolate shake, 32.4 g powder plus 250 g water (estimate)",Protein shakes,estimate,EST_PANTRY_20260918_057_V1,282.4,https://athlene.com.ph/products/active-whey-protein
+FC002932,"Athlene ACTIVE Whey Chocolate shake, 32.4 g powder plus 250 g whole milk (estimate)",Protein shakes,estimate,EST_PANTRY_20260918_058_V1,282.4,https://athlene.com.ph/products/active-whey-protein
+FC002933,"Coca-Cola Original Taste Philippines, label-derived density approximation (estimate)",Cola and soft drinks,estimate,EST_DRINK_LABEL_20260918_001_V1,237,https://www.coca-cola.com/ph/en/brands/coca-cola
+FC002934,"Coca-Cola Light Taste Philippines, label-derived density approximation (estimate)",Cola and soft drinks,estimate,EST_DRINK_LABEL_20260918_002_V1,320,https://www.coca-cola.com/ph/en/brands/coca-cola
+FC002935,"Coca-Cola Zero Sugar Philippines, label-derived density approximation (estimate)",Cola and soft drinks,estimate,EST_DRINK_LABEL_20260918_003_V1,320,https://www.coca-cola.com/ph/en/brands/coca-cola
+FC002936,"Sprite, 240 mL label formulation Philippines, label-derived density approximation (estimate)",Cola and soft drinks,estimate,EST_DRINK_LABEL_20260918_004_V1,240,https://www.coca-cola.com/ph/en/brands/sprite
+FC002937,"Sprite Zero Philippines, label-derived density approximation (estimate)",Cola and soft drinks,estimate,EST_DRINK_LABEL_20260918_005_V1,320,https://www.coca-cola.com/ph/en/brands/sprite
+FC002938,"Royal Tru-Orange Philippines, label-derived density approximation (estimate)",Cola and soft drinks,estimate,EST_DRINK_LABEL_20260918_006_V1,237,https://www.coca-cola.com/ph/en/brands/royal
+FC002939,"Royal Zero Sugar Philippines, label-derived density approximation (estimate)",Cola and soft drinks,estimate,EST_DRINK_LABEL_20260918_007_V1,320,https://www.coca-cola.com/ph/en/brands/royal
+FC002940,"Royal Tru-Grape Philippines, label-derived density approximation (estimate)",Cola and soft drinks,estimate,EST_DRINK_LABEL_20260918_008_V1,320,https://www.coca-cola.com/ph/en/brands/royal
+FC002941,"Royal Tru-Lemon Philippines, label-derived density approximation (estimate)",Cola and soft drinks,estimate,EST_DRINK_LABEL_20260918_009_V1,237,https://www.coca-cola.com/ph/en/brands/royal

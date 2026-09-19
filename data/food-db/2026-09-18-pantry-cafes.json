@@ -1,0 +1,31 @@
+{
+  "batch": "2026-09-18-pantry-cafes",
+  "added": 68,
+  "total_foods": 2941,
+  "manufacturer_labels": 1,
+  "explicit_estimates": 67,
+  "by_group": {
+    "Whey protein": 1,
+    "Coffee mixes": 3,
+    "Instant noodles": 4,
+    "Biscuits": 3,
+    "Snacks and chocolate": 6,
+    "Canned goods": 7,
+    "Condiments": 5,
+    "Merienda and desserts": 11,
+    "Coffee shops": 14,
+    "Energy and sweet drinks": 3,
+    "Protein shakes": 2,
+    "Cola and soft drinks": 9
+  },
+  "baseline_sha256": {
+    "foods.csv": "7d4f3224c66e89803e2586b5fa647e78f893fd17cbcf27fa901976b623f39d92",
+    "aliases.csv": "bd7cd87fefc0dfe7461769261f70624cda5581051a7afbca6e9ae4b788901e18",
+    "portions.csv": "36901f6144a6cfc642f592b1083b15a799083059b71d35f88c7b09c51bae81d6",
+    "changes.csv": "45ccaeeb52c0921eefe0bf7903b970a8fb74d5fa1e4d5620e0c86b54d82d4a9a",
+    "other_food_values.csv": "ed40a86f4cb17275a0dabfbfc2fc62633e5235b3a168d5643ac455730dea7083",
+    "food_estimates.csv": "b8401d20aa91958dcb3690eccf96226e67448aac2a66f9582fd9e268cffa2371",
+    "estimate_inputs.csv": "2bf9cf94126d2e56d85545c1472aa11dbf897eca52ebc8d18fc66d676ed68ec1"
+  },
+  "deployed": false
+}

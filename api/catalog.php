@@ -23,25 +23,27 @@ function catalog_load(?string $version = null): array {
         if (substr(hash('sha256', $raw), 0, 24) !== $version) throw new RuntimeException('Catalog integrity check failed');
         $cache[$version] = json_decode($raw, true, 512, JSON_THROW_ON_ERROR);
     }
-    return ['version' => $version, 'foods' => $cache[$version]['foods']];
+    return ['version' => $version, 'foods' => $cache[$version]['foods'], 'estimate_foods' => $cache[$version]['estimate_foods'] ?? []];
 }
 
 function catalog_food(string $externalId): array {
     if (!preg_match('/^([a-f0-9]{24}):(FC[0-9]{6})$/D', $externalId, $match)) throw new InvalidArgumentException('Invalid catalog food');
     $catalog = catalog_load($match[1]);
-    if (!isset($catalog['foods'][$match[2]])) throw new InvalidArgumentException('Unknown catalog food');
-    $food = $catalog['foods'][$match[2]];
+    $food = $catalog['foods'][$match[2]] ?? $catalog['estimate_foods'][$match[2]] ?? null;
+    if ($food === null) throw new InvalidArgumentException('Unknown catalog food');
     unset($food['aliases']);
     $food['external_id'] = $externalId;
     return $food;
 }
 
-function catalog_search(string $query, int $limit = 30): array {
+function catalog_search(string $query, int $limit = 30, bool $includeEstimates = false): array {
     $query = catalog_normalize($query);
     if (strlen($query) < 2 || strlen($query) > 120) return ['results'=>[], 'suggestions'=>[]];
     $catalog = catalog_load(); $results = []; $vocabulary = [];
     $tokens = explode(' ', $query);
-    foreach ($catalog['foods'] as $id => $food) {
+    $searchFoods = $catalog['foods'];
+    if ($includeEstimates) $searchFoods += $catalog['estimate_foods'];
+    foreach ($searchFoods as $id => $food) {
         $terms = array_map('catalog_normalize', array_merge([$food['name']], $food['aliases']));
         $allTokens = [];
         foreach ($terms as $term) {

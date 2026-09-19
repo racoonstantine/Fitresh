@@ -1,5 +1,6 @@
 """Data integrity and fallback behavior checks; no network or database writes."""
 import unittest
+import json
 from decimal import Decimal
 from food_db_sources import DB, RESEARCH, FIELDS, read_csv, load_sources
 from resolve_food import FoodCatalog
@@ -19,6 +20,14 @@ class FoodDatabaseTests(unittest.TestCase):
             self.assertIn(v['parent_food_id'],ids); self.assertIn(v['variant_food_id'],ids)
         for r in self.catalog.other:
             self.assertIn(r['food_id'],ids)
+            if r['source_food_id']=='ATHLENE_ACTIVE_WHEY_CHOCOLATE_32_4G':
+                label=next(x for x in read_csv(DB/'pantry-published-labels.csv') if x['food_id']==r['food_id'])
+                self.assertEqual(label['serving_unit'],'g')
+                values=json.loads(label['nutrients_json'])
+                for field in FIELDS:
+                    if values[field]=='':self.assertEqual(r[field],'')
+                    else:self.assertAlmostEqual(float(r[field]),float(values[field])*100/float(label['serving_amount']),places=4)
+                continue
             if r['source_food_id']=='HSC_BLUE_MARLIN_FRESH':
                 label=next(x for x in read_csv(DB/'external-label-facts.csv') if x['food_id']==r['food_id'])
                 for field in FIELDS:

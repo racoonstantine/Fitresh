@@ -36,6 +36,15 @@ async function test(name, endMarker, prefix, statusId, resultsId, renderer) {
   release();await old;
   assert.equal(context[prefix+'ResultsCache'][0].name,'newquery','Stale responses must not replace current results');
   assert.equal(context.foodSearchEscape('<script>'), '&lt;script&gt;');
+  const optId=name==='lmSearchFoods'?'lmIncludeEstimates':'foodIncludeEstimates';
+  elements[optId]={checked:false};
+  const estimated={name:'KFC (estimate)',label:'Estimated',external_id:'v:FC002260',nutrients:{ENERC_KCAL:269}};
+  context.fetch=async url=>({json:async()=>url.includes('food_catalog')?{results:url.includes('include_estimates=1')?[estimated]:[]}:url.includes('search_library')?{results:[estimated]}:{results:[]}});
+  await context[name]('kfc');assert.equal(context[prefix+'ResultsCache'].length,0,'Default search hides saved estimates too');
+  elements[optId].checked=true;
+  await context[name]('kfc');assert.ok(context[prefix+'ResultsCache'].some(r=>r.label==='Estimated'),'Opt-in request includes estimates');
+  elements[optId].checked=false;
+  await context[name]('kfc');assert.equal(context[prefix+'ResultsCache'].length,0,'Unchecking removes estimates');
 }
 (async()=>{
   await test('searchFoodsCombined','// Scales a result', 'foodSearch','foodSearchStatus','foodSearchResults','renderFoodSearchResults');
