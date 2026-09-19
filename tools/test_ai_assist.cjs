@@ -160,3 +160,18 @@ assert.equal(context.sanitizeNumText('1.2.3'), '1.23');
 assert.equal(context.sanitizeNumText('--5'), '-5');
 assert.equal(context.sanitizeNumText('5-'), '5');
 console.log('PASS: thousands-separator parsing and formatting.');
+
+// --- Accidentally pasting the prompt instead of the AI's reply ---
+const { looksLikePastedPrompt } = context;
+const foodPrompt = buildFoodAiPrompt('Chicken Adobo', '250g', 'home-cooked');
+const statsPrompt = buildStatsAiPrompt('30 minute easy jog');
+assert.ok(looksLikePastedPrompt(foodPrompt, foodPrompt), 'the whole food prompt');
+assert.ok(looksLikePastedPrompt(statsPrompt, statsPrompt), 'the whole stats prompt');
+assert.ok(looksLikePastedPrompt(foodPrompt.split('\n').slice(0, 3).join('\n'), foodPrompt), 'just the opening lines of the prompt');
+assert.ok(looksLikePastedPrompt('Food: <food name>\nCalories: <number> kcal', ''), 'unfilled placeholders');
+assert.ok(looksLikePastedPrompt('Distance: <km, e.g. 5.2>\nDuration: <hh:mm:ss or mm:ss, e.g. 32:10>', ''), 'unfilled stats placeholders');
+assert.ok(!looksLikePastedPrompt(reply1, foodPrompt), 'a real food reply passes');
+assert.ok(!looksLikePastedPrompt('Distance: 5.2\nDuration: 32:10\nCalories: 380 kcal\nAvg HR: 141 bpm', statsPrompt), 'a real stats reply passes');
+assert.ok(!looksLikePastedPrompt('Food: Chicken Adobo\nAmount: 250g\nCalories: 410 kcal', foodPrompt), 'reply that starts like the prompt but is filled in passes');
+assert.ok(!looksLikePastedPrompt('', foodPrompt), 'empty is handled elsewhere');
+console.log('PASS: pasted-prompt detection.');

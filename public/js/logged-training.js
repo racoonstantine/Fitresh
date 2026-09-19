@@ -37,6 +37,15 @@ function loggedEntryEmoji(e){
   if(first) return activityEmoji(first.name, guessLoggedTodayCategory(first));
   return e.day === 'custom' ? '✍️' : '🏋️';
 }
+// Colour family for a card's edge: rest, cardio, strength, or other.
+function loggedEntryKind(e){
+  if(e.day === 'rest') return 'rest';
+  if(e.day === 'A' || e.day === 'B') return 'strength';
+  if(e.day === 'steady' || e.day === 'interval') return 'cardio';
+  const first = e.exercises && e.exercises[0];
+  const cat = first ? guessLoggedTodayCategory(first) : 'other';
+  return cat === 'strength' ? 'strength' : (cat === 'cardio' ? 'cardio' : 'other');
+}
 // "⏱ 45:00 · 🔥 1,180 kcal · 📍 5.2 km · 👟 6,800 steps · ♥ 132 bpm" -- only what exists.
 function loggedStatsLine(stats){
   if(!stats) return '';
@@ -146,7 +155,7 @@ function renderLoggedToday(){
     const statsLine = loggedStatsLine(e.stats);
     const count = e.exercises && e.exercises.length ? ` · ${e.exercises.length} exercise${e.exercises.length === 1 ? '' : 's'}` : '';
     return `
-    <div class="log-row" data-lt-key="${foodSearchEscape(key)}">
+    <div class="log-row" data-kind="${loggedEntryKind(e)}" data-lt-key="${foodSearchEscape(key)}">
       <div class="log-head ${open ? 'expanded' : ''}" data-loggedtoday-toggle="${idx}" style="align-items:center;">
         <span class="lt-icon">${loggedEntryEmoji(e)}</span>
         <div style="flex:1;min-width:0;">

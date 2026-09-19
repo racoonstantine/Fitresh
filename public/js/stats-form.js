@@ -215,6 +215,11 @@ document.getElementById('aiStatsParseBtn').addEventListener('click', ()=>{
   const reply = document.getElementById('aiStatsReplyIn').value;
   const errEl = document.getElementById('aiStatsParseError');
   errEl.style.display = 'none';
+  if(looksLikePastedPrompt(reply, document.getElementById('aiStatsPromptOut').value)){
+    errEl.textContent = PASTED_PROMPT_MESSAGE;
+    errEl.style.display = 'block';
+    return;
+  }
   const fields = parseLabeledReply(reply, ['Distance','Duration','Calories','Avg HR','Avg Pace','Steps','Max HR','Elevation gain']);
   const hasAny = Object.values(fields).some(v => v);
   if(!reply.trim() || !hasAny){

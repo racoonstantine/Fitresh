@@ -76,4 +76,12 @@ state.historyLog = [{date: '2026-09-19', day: 'rest'}];
 assert.equal(state.dayPlanState('2026-09-19').state, 'rest', 'a logged Rest counts as rest');
 assert.equal(state.dayPlanState('2026-09-20').state, 'open', 'other dates are unaffected');
 
+// AI Assist session prompt: the shared stats prompt plus a short workout-name line.
+const aiCtx = vm.createContext({buildStatsAiPrompt: (d, w) => 'intro\nDistance: <km, e.g. 5.2>\nDuration: <x>' + (d ? '\nDESC ' + d : '')});
+vm.runInContext(slice('function buildSessionAiPrompt', 'function resetAiSessionFlow'), aiCtx);
+const sessionPrompt = aiCtx.buildSessionAiPrompt('45 min jog', '');
+assert.match(sessionPrompt, /Workout: <short name, e\.g\. Evening jog>\nDistance: <km/, 'asks for a workout name just before Distance');
+assert.match(sessionPrompt, /DESC 45 min jog/);
+assert.equal(sessionPrompt.split('Workout:').length, 2, 'name line added exactly once');
+
 console.log('PASS: Train panel logic (library search, icons, stats line, metrics, Open/Rest/Planned state).');

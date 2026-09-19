@@ -708,6 +708,20 @@ function firstNumber(str){
   const m = (str || '').match(/-?\d[\d,]*(?:\.\d+)?|-?\.\d+/);
   return m ? parseNum(m[0]) : NaN;
 }
+// True when the text pasted as "the AI's reply" is really the prompt we
+// generated (or a chunk of it) -- an easy slip, since the prompt sits right
+// above the reply box. Telltales: unfilled template placeholders such as
+// "<number>", phrases only the prompt contains, or text that is a slice of it.
+const PASTED_PROMPT_MESSAGE = "This looks like the prompt itself, not your AI's reply. Paste the prompt into your AI chat (ChatGPT, Gemini, etc.) first, then copy the answer it gives you and paste that here.";
+function looksLikePastedPrompt(reply, promptText){
+  const text = String(reply || '').trim();
+  if(!text) return false;
+  if(/<\s*(number|food name|estimated weight|km|hh:mm:ss|per km|short name)/i.test(text)) return true;
+  if(/estimation assistant|reply with only/i.test(text)) return true;
+  const squash = s => String(s || '').replace(/\s+/g, ' ').trim().toLowerCase();
+  const prompt = squash(promptText), body = squash(text);
+  return !!prompt && body.length >= 40 && prompt.includes(body.slice(0, 80));
+}
 function copyTextToClipboard(text, btnEl){
   const done = ()=>{
     const original = btnEl.textContent;

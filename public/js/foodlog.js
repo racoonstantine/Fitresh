@@ -490,6 +490,11 @@
     const successEl = document.getElementById('aiFoodParseSuccess');
     errEl.style.display = 'none';
     successEl.style.display = 'none';
+    if(looksLikePastedPrompt(reply, document.getElementById('aiFoodPromptOut').value)){
+      errEl.textContent = PASTED_PROMPT_MESSAGE;
+      errEl.style.display = 'block';
+      return;
+    }
     const items = splitFoodReplyBlocks(reply);
     if(!reply.trim() || items.length === 0){
       errEl.textContent = "Couldn't find any food items in that reply -- make sure the AI replied using the format from the generated prompt, then try again.";

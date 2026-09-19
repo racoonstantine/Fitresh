@@ -10,6 +10,7 @@ async function test(name, endMarker, prefix, statusId, resultsId, renderer) {
   const start = html.indexOf('async function '+name+'(');
   const code = html.slice(start, html.indexOf(endMarker, start));
   const elements = Object.fromEntries([statusId,resultsId].map(id=>[id,{style:{},innerHTML:'',textContent:'',querySelectorAll:()=>[]} ]));
+  for(const id of ['foodFavBtn','lmFavBtn'])elements[id]={classList:{add(){},remove(){},contains(){return false;}}};
   const context = vm.createContext({document:{getElementById:id=>elements[id]},Set,console});
   context[prefix+'Generation']=0;context[prefix+'ResultsCache']=[];
   context[renderer]=()=>{};

@@ -13,9 +13,9 @@
 //   ai      -- Use AI Assist (estimate / read watch stats, optionally with a name)
 
 const LOG_SESSION_MODES = [
-  {value: 'plan', icon: '📋', label: 'Select Workout Routine'},
-  {value: 'rest', icon: '😴', label: 'Rest'},
-  {value: 'manual', icon: '✍️', label: 'Add Manual Exercise'},
+  {value: 'plan', icon: '📋', label: 'Select Workout Routine', note: 'Follow or log a saved routine'},
+  {value: 'rest', icon: '😴', label: 'Rest', note: 'Take a recovery day'},
+  {value: 'manual', icon: '✍️', label: 'Add Manual Exercise', note: 'Log exercises you did'},
   {value: 'ai', icon: '🤖', label: 'Use AI Assist', note: 'Good for estimating and reading health-watch stats data'}
 ];
 
@@ -71,8 +71,9 @@ const LSP_INPUT_STYLE = 'padding:7px 8px;border:1px solid var(--line);border-rad
 
 function logSessionPanelHtml(){
   return `
-    <button type="button" id="logSessionToggleBtn" class="timer-btn start" style="width:100%;">+ Log a Session</button>
+    <button type="button" id="logSessionToggleBtn" class="timer-btn start lsp-toggle" style="width:100%;">+ Log a Session</button>
     <div id="logSessionPanel" style="display:none;margin-top:12px;">
+      <div class="lsp-title">How do you want to log it?</div>
       <div id="logSessionOptions" class="lsp-opts"></div>
 
       <div id="logSessionPlanPicker" style="display:none;margin-bottom:10px;">
@@ -104,12 +105,39 @@ function logSessionPanelHtml(){
       </div>
 
       <div id="logSessionAiPanel" style="display:none;margin-bottom:6px;">
-        <div class="note" style="margin-bottom:8px;">Good for estimating and reading health-watch stats data. Describe the session (or share your watch numbers) with an AI chat, paste its reply back, and the stats fill in.</div>
-        <label style="font-size:11px;color:var(--ink-soft);">What did you do? (optional)</label>
-        <input type="text" id="aiSessName" placeholder="e.g. Evening jog, Yoga class" style="width:100%;${LSP_INPUT_STYLE}margin:2px 0 8px;">
-        <button class="timer-btn start" id="aiSessOpenBtn" type="button" style="width:100%;">🤖 Open AI Assist / log watch stats</button>
-        <div class="note" id="manualExStatsNote" style="margin-top:6px;"></div>
-        <button class="today-btn" id="aiSessSaveBtn" type="button" style="width:100%;margin-top:10px;padding:11px 0;display:none;">Save session</button>
+        <div class="ai-guide">
+          <strong>🤖 AI Assist</strong> — good for estimating and reading health-watch stats data.
+          <ol>
+            <li>Describe what you did below</li>
+            <li>Copy the prompt into your AI chat (ChatGPT, Gemini…)</li>
+            <li>Paste its reply back, review the numbers, save</li>
+          </ol>
+        </div>
+        <label class="lsp-label" for="aiSessDesc">What did you do?</label>
+        <textarea id="aiSessDesc" rows="3" placeholder="e.g. Strength: squats 3×10 @ 20 kg, rows 3×12 @ 15 kg. 45 min total. Felt strong, knees a bit tight." style="width:100%;${LSP_INPUT_STYLE}margin-top:2px;resize:vertical;"></textarea>
+        <div class="ai-tips">💡 Include the type of workout, sets · reps · weight, duration, and how it felt. For a better estimate, attach a screenshot of your sports-watch summary to your AI chat.</div>
+        <button class="timer-btn start" id="aiSessGenerateBtn" type="button" style="width:100%;">✨ Generate prompt</button>
+
+        <div id="aiSessPromptWrap" style="display:none;margin-top:12px;">
+          <label class="lsp-label" for="aiSessPromptOut">Copy this into your AI chat</label>
+          <textarea id="aiSessPromptOut" rows="7" readonly style="width:100%;${LSP_INPUT_STYLE}background:var(--paper-raised);margin-top:2px;font-size:12px;font-family:monospace;"></textarea>
+          <button type="button" id="aiSessCopyBtn" class="timer-btn" style="width:100%;margin-top:6px;">📋 Copy prompt</button>
+          <div id="aiSessCopied" class="note" style="margin-top:6px;"></div>
+
+          <label class="lsp-label" for="aiSessReplyIn" style="margin-top:12px;display:block;">Paste the AI's reply here</label>
+          <textarea id="aiSessReplyIn" rows="6" placeholder="Paste the reply from ChatGPT / Gemini / etc. here" style="width:100%;${LSP_INPUT_STYLE}margin-top:2px;resize:vertical;"></textarea>
+          <div id="aiSessParseError" class="note" style="display:none;color:#B4472A;margin-top:6px;"></div>
+          <button type="button" id="aiSessParseBtn" class="timer-btn start" style="width:100%;margin-top:8px;">Parse &amp; review</button>
+        </div>
+
+        <div id="aiSessReview" style="display:none;margin-top:14px;">
+          <div class="lsp-title" style="margin-bottom:6px;">Review before saving</div>
+          <label class="lsp-label" for="aiRevName">Session name</label>
+          <input type="text" id="aiRevName" placeholder="e.g. Evening jog" style="width:100%;${LSP_INPUT_STYLE}margin:2px 0 8px;">
+          <div id="aiRevFields" style="display:grid;grid-template-columns:1fr 1fr;gap:8px;"></div>
+          <div id="aiSessSaveError" class="note" style="display:none;color:#B4472A;margin-top:8px;"></div>
+          <button class="today-btn" id="aiSessSaveBtn" type="button" style="width:100%;margin-top:10px;padding:11px 0;">Save session</button>
+        </div>
       </div>
     </div>`;
 }
@@ -151,8 +179,8 @@ function resetLogSessionPanel(){
   const set = (id, value) => { const el = document.getElementById(id); if(el) el.value = value; };
   set('manualExName', '');
   set('logSessionRestNotes', '');
-  set('aiSessName', '');
   set('manualExCategory', 'strength');
+  resetAiSessionFlow();
   const clear = id => { const el = document.getElementById(id); if(el) el.innerHTML = ''; };
   clear('manualExSearchResults');
   clear('logSessionPastRoutine');
@@ -170,9 +198,10 @@ function renderLogSessionOptions(hasSchedule, dStr, isToday){
   isToday = isToday !== undefined ? isToday : dStr === dateStrForOffset(0);
 
   el.innerHTML = LOG_SESSION_MODES.map(m => `
-    <button type="button" class="lsp-opt ${logSessionMode === m.value ? 'active' : ''}" data-lsp-mode="${m.value}" aria-pressed="${logSessionMode === m.value}">
+    <button type="button" class="lsp-opt lsp-${m.value} ${logSessionMode === m.value ? 'active' : ''}" data-lsp-mode="${m.value}" aria-pressed="${logSessionMode === m.value}">
       <span class="lsp-opt-icon">${m.icon}</span>
       <span class="lsp-opt-text"><strong>${m.label}</strong>${m.note ? `<small>${m.note}</small>` : ''}</span>
+      <span class="lsp-opt-check" aria-hidden="true">✓</span>
     </button>`).join('');
   el.querySelectorAll('[data-lsp-mode]').forEach(btn => {
     btn.addEventListener('click', async ()=>{
@@ -284,20 +313,93 @@ function renderManualFields(){
     <div><label style="font-size:11px;color:var(--ink-soft);">${label}</label>
     <input type="text" inputmode="decimal" data-num data-manual-field="${key}" min="0" value="${foodSearchEscape(keep[key] || '')}" style="width:100%;${LSP_INPUT_STYLE}"></div>`).join('');
 }
+// (Called by the stats form when it attaches stats to a pending session.)
 function renderManualExStatsNote(){
-  const el = document.getElementById('manualExStatsNote');
-  if(el){
-    el.textContent = manualExPendingStats
-      ? '📊 Stats attached — will be saved with this session' + (manualExPending.length ? ` along with ${manualExPending.length} exercise${manualExPending.length === 1 ? '' : 's'}.` : '.')
-      : '';
-  }
   refreshSessionSaveButtons();
 }
 function refreshSessionSaveButtons(){
   const manualBtn = document.getElementById('manualExSaveBtn');
-  const aiBtn = document.getElementById('aiSessSaveBtn');
   if(manualBtn) manualBtn.style.display = (manualExPending.length || manualExPendingStats) ? 'block' : 'none';
-  if(aiBtn) aiBtn.style.display = (manualExPendingStats || manualExPending.length) ? 'block' : 'none';
+}
+
+// ---- AI Assist: describe -> generate prompt -> paste reply -> review -> save ----
+const AI_REVIEW_FIELDS = [
+  ['duration', 'Duration (h:mm:ss or mm:ss)', false, null, null],
+  ['distance', 'Distance (km)', true, 0, 1000],
+  ['calories', 'Calories (kcal)', true, 0, 20000],
+  ['hr', 'Avg HR (bpm)', true, 20, 260],
+  ['maxHr', 'Max HR (bpm)', true, 20, 260],
+  ['steps', 'Steps', true, 0, 200000],
+  ['pace', 'Avg pace (per km)', false, null, null],
+  ['elevation', 'Elevation gain (m)', true, 0, 20000]
+];
+function buildSessionAiPrompt(desc, exerciseSummary){
+  // Same stats prompt the watch-stats form uses, plus a short workout name.
+  return buildStatsAiPrompt(desc, exerciseSummary).replace(
+    'Distance: <km, e.g. 5.2>', 'Workout: <short name, e.g. Evening jog>\nDistance: <km, e.g. 5.2>');
+}
+function resetAiSessionFlow(){
+  const set = (id, v) => { const el = document.getElementById(id); if(el) el.value = v; };
+  ['aiSessDesc', 'aiSessPromptOut', 'aiSessReplyIn', 'aiRevName'].forEach(id => set(id, ''));
+  const show = (id, on) => { const el = document.getElementById(id); if(el) el.style.display = on ? 'block' : 'none'; };
+  show('aiSessPromptWrap', false); show('aiSessReview', false); show('aiSessParseError', false); show('aiSessSaveError', false);
+  const copied = document.getElementById('aiSessCopied'); if(copied) copied.textContent = '';
+  const fields = document.getElementById('aiRevFields'); if(fields) fields.innerHTML = '';
+}
+function generateAiSessionPrompt(){
+  const desc = document.getElementById('aiSessDesc').value.trim();
+  const pending = manualExPending.map(ex => exerciseSummaryText(ex)).join(', ');
+  const out = document.getElementById('aiSessPromptOut');
+  out.value = buildSessionAiPrompt(desc, pending);
+  document.getElementById('aiSessPromptWrap').style.display = 'block';
+  document.getElementById('aiSessReview').style.display = 'none';
+  // Copy straight away -- this click is the gesture the browser needs -- and say so.
+  copyTextToClipboard(out.value, document.getElementById('aiSessCopyBtn'));
+  document.getElementById('aiSessCopied').textContent = '📋 Prompt copied — paste it into your AI chat, then paste its reply below.';
+  document.getElementById('aiSessReplyIn').focus();
+}
+function parseAiSessionReply(){
+  const errEl = document.getElementById('aiSessParseError');
+  errEl.style.display = 'none';
+  const reply = document.getElementById('aiSessReplyIn').value;
+  const fail = message => { errEl.textContent = message; errEl.style.display = 'block'; };
+  if(!reply.trim()) return fail("Paste your AI's reply first.");
+  if(looksLikePastedPrompt(reply, document.getElementById('aiSessPromptOut').value)) return fail(PASTED_PROMPT_MESSAGE);
+  const statLabels = ['Distance', 'Duration', 'Calories', 'Avg HR', 'Avg Pace', 'Steps', 'Max HR', 'Elevation gain'];
+  const fields = parseLabeledReply(reply, ['Workout', ...statLabels]);
+  if(!statLabels.some(k => fields[k])){
+    return fail("Couldn't find any recognizable stats in that reply — make sure the AI replied using the format from the generated prompt, then try again.");
+  }
+  const num = v => { const n = firstNumber(v); return Number.isNaN(n) ? '' : String(n); };
+  const desc = document.getElementById('aiSessDesc').value.trim();
+  const values = {
+    duration: (fields.Duration || '').replace(/[^0-9:]/g, ''), distance: num(fields.Distance), calories: num(fields.Calories),
+    hr: num(fields['Avg HR']), maxHr: num(fields['Max HR']), steps: num(fields.Steps),
+    pace: fields['Avg Pace'] || '', elevation: num(fields['Elevation gain'])
+  };
+  document.getElementById('aiRevName').value = (fields.Workout || desc.split(/[.\n]/)[0] || '').trim().slice(0, 60);
+  document.getElementById('aiRevFields').innerHTML = AI_REVIEW_FIELDS.map(([key, label, numeric, min, max]) => `
+    <div><label class="lsp-label">${label}</label>
+    <input type="text" ${numeric ? `inputmode="decimal" data-num min="${min}" max="${max}"` : ''} data-ai-field="${key}" value="${foodSearchEscape(values[key])}" style="width:100%;${LSP_INPUT_STYLE}"></div>`).join('');
+  document.getElementById('aiSessSaveError').style.display = 'none';
+  const review = document.getElementById('aiSessReview');
+  review.style.display = 'block';
+  review.scrollIntoView({behavior: 'smooth', block: 'nearest'});
+}
+function saveAiSession(){
+  const errEl = document.getElementById('aiSessSaveError');
+  errEl.style.display = 'none';
+  const wrap = document.getElementById('aiRevFields');
+  const fail = message => { errEl.textContent = message; errEl.style.display = 'block'; };
+  if(!validateNumFields(wrap)){
+    const bad = wrap.querySelector('input:invalid');
+    return fail((bad && bad.validationMessage) || 'Check the numbers you entered.');
+  }
+  const stats = {trainingStress: '', recoveryHr: '', hrZones: {}};
+  wrap.querySelectorAll('[data-ai-field]').forEach(inp => { stats[inp.dataset.aiField] = inp.value.trim(); });
+  if(stats.duration && !/^\d{1,2}(:\d{2}){1,2}$/.test(stats.duration)) return fail('Duration should look like 45:00 or 1:05:30 (or be left blank).');
+  manualExPendingStats = stats;
+  saveManualSession(document.getElementById('aiRevName').value);
 }
 function renderManualExPending(){
   const el = document.getElementById('manualExPending');
@@ -409,8 +511,13 @@ function wireLogSessionPanel(){
   document.getElementById('manualExSearchBtn').addEventListener('click', ()=>{ clearTimeout(searchTimer); runManualSearch(true); });
   document.getElementById('manualExAddBtn').addEventListener('click', addManualExercise);
   document.getElementById('manualExSaveBtn').addEventListener('click', ()=> saveManualSession(''));
-  document.getElementById('aiSessSaveBtn').addEventListener('click', ()=> saveManualSession(document.getElementById('aiSessName').value));
-  document.getElementById('aiSessOpenBtn').addEventListener('click', ()=> openStatsForm('manual-pending', activeSessionDate()));
+  document.getElementById('aiSessGenerateBtn').addEventListener('click', generateAiSessionPrompt);
+  document.getElementById('aiSessCopyBtn').addEventListener('click', e => {
+    copyTextToClipboard(document.getElementById('aiSessPromptOut').value, e.currentTarget);
+    document.getElementById('aiSessCopied').textContent = '📋 Prompt copied.';
+  });
+  document.getElementById('aiSessParseBtn').addEventListener('click', parseAiSessionReply);
+  document.getElementById('aiSessSaveBtn').addEventListener('click', saveAiSession);
 
   document.getElementById('logSessionRestSaveBtn').addEventListener('click', async ()=>{
     const note = document.getElementById('logSessionRestNotes').value.trim();
