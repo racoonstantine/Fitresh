@@ -58,7 +58,7 @@
     const target = waterTargetMl();
     document.getElementById('waterScreenValue').textContent = `${fmtL(ml)} L`;
     document.getElementById('waterScreenSub').textContent = `Target: ${(target/1000).toFixed(1)} L`;
-    document.getElementById('waterScreenBar').style.width = Math.min(100, target ? ml/target*100 : 0) + '%';
+    applyBarFill(document.getElementById('waterScreenBar'), target ? ml/target*100 : 0, '#4A90D9', 'good');
     document.getElementById('waterManualMl').value = '';
     // A past day that already has water logged is read-only until the pencil
     // Edit button is pressed (then +/− and the exact-amount box appear).

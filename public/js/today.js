@@ -73,13 +73,26 @@ function updateTodayClock(){
   });
 }
 setInterval(updateTodayClock, 30000);
-function glanceRing(pct, colorVar, size, centerHtml){
-  const clamped = Math.max(0, Math.min(100, pct || 0));
+// A progress ring. Pass the raw percentage; overKind ('bad' for a limit such as
+// carbs/fat, 'good' for a target such as protein/steps) makes going past 100%
+// wrap around as a second lap in the over colour, with a round cap at its tip.
+function glanceRing(pct, colorVar, size, centerHtml, overKind){
+  const raw = Math.max(0, pct || 0);
+  const clamped = Math.min(100, raw);
+  const over = overKind && raw > 100 ? Math.min(raw - 100, 100) : 0;
+  const overColor = OVER_COLORS[overKind];
+  const fill = over
+    ? `conic-gradient(${overColor} ${over * 3.6}deg, ${colorVar} 0deg)`
+    : `conic-gradient(${colorVar} ${clamped * 3.6}deg, var(--line) 0deg)`;
+  const cap = over
+    ? `<span aria-hidden="true" style="position:absolute;inset:0;transform:rotate(${over * 3.6}deg);pointer-events:none;"><i style="position:absolute;top:-1px;left:50%;width:8px;height:8px;margin-left:-4px;border-radius:50%;background:${overColor};box-shadow:0 0 0 1.5px var(--paper-raised);"></i></span>`
+    : '';
   return `
-    <div style="width:${size}px;height:${size}px;border-radius:50%;background:conic-gradient(${colorVar} ${clamped * 3.6}deg, var(--line) 0deg);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+    <div${over ? ` title="${Math.round(raw - 100)}% over"` : ''} style="position:relative;width:${size}px;height:${size}px;border-radius:50%;background:${fill};display:flex;align-items:center;justify-content:center;flex-shrink:0;">
       <div style="width:${size - 12}px;height:${size - 12}px;border-radius:50%;background:var(--paper-raised);display:flex;flex-direction:column;align-items:center;justify-content:center;">
         ${centerHtml}
       </div>
+      ${cap}
     </div>
   `;
 }
@@ -147,6 +160,14 @@ async function renderTodayGlance(){
   const stepsToday = stepsLog[today] || 0;
   const stepsTarget = (userHealthTargets && userHealthTargets.stepsGoal) || 10000;
 
+  // Workout tile: always an icon + title + one line, whatever the day is.
+  const planEmoji = /cardio|run|walk|cycl|swim|row/i.test(planLabel) ? activityEmoji(planLabel, 'cardio') : activityEmoji(planLabel, 'strength');
+  const workoutTile = (scheduledPlanToday || realLoggedToday.length)
+    ? {icon: exerciseDone ? '✅' : planEmoji, title: planLabel, sub: exerciseDone ? 'Completed' : 'Not done yet', done: exerciseDone}
+    : todayPlanState.state === 'rest' ? {icon: '😴', title: 'Rest day', sub: 'Recharge — nothing planned', done: false}
+    : todayPlanState.state === 'other' ? {icon: '📝', title: todayPlanState.label, sub: 'Planned for today', done: false}
+    : {icon: '🧭', title: 'Open', sub: 'Nothing planned — log what you do', done: false};
+  const intake = intakeInsight(combined.calories, calTarget);
   grid.innerHTML = `
     <div class="glance-card" data-nav-view="body" style="cursor:pointer;">
       <div class="glance-card-head"><span class="glance-card-label">\u{1F4E6} Weight</span></div>
@@ -159,31 +180,32 @@ async function renderTodayGlance(){
     <div class="glance-card open-fasting-screen-link" style="cursor:pointer;">
       <div class="glance-card-head"><span class="glance-card-label">⏱ Fasting</span></div>
       <div class="glance-card-value" id="glanceFastValue">—</div>
-      <div class="glance-bar-track"><div class="glance-bar-fill" id="glanceFastBar" style="width:0%;background:var(--forest);"></div></div>
+      ${glanceBarHtml(0, 'var(--forest)', 'good', 'glanceFastBar')}
       <div class="glance-card-sub" id="glanceFastSub">Goal: ${fastingState.goalHours || 16} hours</div>
     </div>
     <div class="glance-card" data-nav-view="food" style="cursor:pointer;">
       <div class="glance-card-head"><span class="glance-card-label">\u{1F37D} Food Intake</span></div>
       <div class="glance-card-value">${fmtNum(combined.calories)} kcal</div>
-      <div class="glance-bar-track"><div class="glance-bar-fill" style="width:${Math.min(100, calTarget ? combined.calories/calTarget*100 : 0)}%;background:var(--ochre);"></div></div>
+      ${glanceBarHtml(calTarget ? combined.calories/calTarget*100 : 0, 'var(--ochre)', 'bad')}
       <div class="glance-card-sub">Target: ${fmtNum(calTarget)} kcal</div>
+      ${intake ? `<div class="glance-insight" style="color:${intake.color};"><span class="glance-insight-icon">${intake.icon}</span><div><strong>${foodSearchEscape(intake.headline)}</strong><div class="glance-card-sub">${foodSearchEscape(intake.comment)}</div></div></div>` : ''}
     </div>
     <div class="glance-card" data-nav-view="food" style="cursor:pointer;">
       <div class="glance-card-label" style="margin-bottom:4px;">\u{1F3AF} Macronutrients</div>
       <div style="display:flex;justify-content:space-around;">
         <div class="glance-ring-row">
           <div class="glance-card-sub" style="margin-bottom:2px;">Carbs</div>
-          ${glanceRing(carbsTarget ? combined.carbs/carbsTarget*100 : 0, 'var(--ochre)', 64, `<div style="font-weight:700;font-size:13px;">${Math.round(combined.carbs)}g</div>`)}
+          ${glanceRing(carbsTarget ? combined.carbs/carbsTarget*100 : 0, 'var(--ochre)', 64, `<div style="font-weight:700;font-size:13px;">${Math.round(combined.carbs)}g</div>`, 'bad')}
           <div class="glance-card-sub" style="margin-top:2px;">/ ${carbsTarget}g</div>
         </div>
         <div class="glance-ring-row">
           <div class="glance-card-sub" style="margin-bottom:2px;">Protein</div>
-          ${glanceRing(proteinTarget ? combined.protein/proteinTarget*100 : 0, 'var(--forest)', 64, `<div style="font-weight:700;font-size:13px;">${Math.round(combined.protein)}g</div>`)}
+          ${glanceRing(proteinTarget ? combined.protein/proteinTarget*100 : 0, 'var(--forest)', 64, `<div style="font-weight:700;font-size:13px;">${Math.round(combined.protein)}g</div>`, 'good')}
           <div class="glance-card-sub" style="margin-top:2px;">/ ${proteinTarget}g</div>
         </div>
         <div class="glance-ring-row">
           <div class="glance-card-sub" style="margin-bottom:2px;">Fat</div>
-          ${glanceRing(fatTarget ? combined.fat/fatTarget*100 : 0, '#B4472A', 64, `<div style="font-weight:700;font-size:13px;">${Math.round(combined.fat)}g</div>`)}
+          ${glanceRing(fatTarget ? combined.fat/fatTarget*100 : 0, '#B4472A', 64, `<div style="font-weight:700;font-size:13px;">${Math.round(combined.fat)}g</div>`, 'bad')}
           <div class="glance-card-sub" style="margin-top:2px;">/ ${fatTarget}g</div>
         </div>
       </div>
@@ -198,7 +220,7 @@ async function renderTodayGlance(){
     const lastFast = nutriEntry && nutriEntry.fastHours ? parseNum(nutriEntry.fastHours) : null;
     const info = fastingSummaryText(lastFast);
     valEl.textContent = info.value;
-    barEl.style.width = info.pct + '%';
+    applyBarFill(barEl, info.rawPct !== undefined ? info.rawPct : info.pct, 'var(--forest)', 'good');
     subEl.textContent = info.sub;
   };
 
@@ -213,24 +235,22 @@ async function renderTodayGlance(){
         </div>
       </div>
       <div class="glance-card-value">${fmtL(waterMl)} L</div>
-      <div class="glance-bar-track"><div class="glance-bar-fill" style="width:${Math.min(100, waterTarget ? waterMl/waterTarget*100 : 0)}%;background:#4A90D9;"></div></div>
+      ${glanceBarHtml(waterTarget ? waterMl/waterTarget*100 : 0, '#4A90D9', 'good')}
       <div class="glance-card-sub">Target: ${(waterTarget/1000).toFixed(1)} L · +/− adds a glass (250ml)</div>
     </div>
     <div class="glance-card" data-nav-view="train" style="cursor:pointer;">
       <div class="glance-card-head"><span class="glance-card-label">\u{1F3C3} Workout</span></div>
-      ${(scheduledPlanToday || loggedToday.length) ? `
-        <div style="background:${exerciseDone?'rgba(47,111,78,0.12)':'var(--paper)'};border:1px solid ${exerciseDone?'var(--forest)':'var(--line)'};border-radius:8px;padding:10px;display:flex;align-items:center;gap:8px;">
-          <span style="font-size:16px;">${exerciseDone?'✅':'⭕'}</span>
-          <div>
-            <div style="font-weight:700;font-size:13px;">${planLabel}</div>
-            <div class="glance-card-sub">${exerciseDone ? 'Completed' : 'Not done yet'}</div>
-          </div>
+      <div style="background:${workoutTile.done ? 'rgba(47,111,78,0.12)' : 'var(--paper)'};border:1px solid ${workoutTile.done ? 'var(--forest)' : 'var(--line)'};border-radius:8px;padding:10px;display:flex;align-items:center;gap:10px;">
+        <span style="font-size:22px;line-height:1;">${workoutTile.icon}</span>
+        <div>
+          <div style="font-weight:700;font-size:13px;">${foodSearchEscape(workoutTile.title)}</div>
+          <div class="glance-card-sub">${foodSearchEscape(workoutTile.sub)}</div>
         </div>
-      ` : `<div class="glance-card-sub" style="padding:10px 0;">${foodSearchEscape(todayPlanState.state === 'rest' ? 'Rest day.' : (todayPlanState.state === 'other' ? todayPlanState.label : 'Open — nothing planned.'))}</div>`}
+      </div>
     </div>
     <div class="glance-card" data-nav-view="train" style="align-items:center;cursor:pointer;">
       <div class="glance-card-label" style="align-self:flex-start;">\u{1F525} Calories Burned</div>
-      ${glanceRing(Math.min(100, caloriesBurned/calorieBurnTarget*100), '#B4472A', 84, `<div style="font-family:var(--font-heading);font-size:20px;">${fmtNum(caloriesBurned)}</div><div style="font-size:9.5px;color:var(--ink-soft);">kcal</div>`)}
+      ${glanceRing(calorieBurnTarget ? caloriesBurned/calorieBurnTarget*100 : 0, '#B4472A', 84, `<div style="font-family:var(--font-heading);font-size:20px;">${fmtNum(caloriesBurned)}</div><div style="font-size:9.5px;color:var(--ink-soft);">kcal</div>`, 'good')}
       <div class="glance-card-sub">Target: ${fmtNum(calorieBurnTarget)} kcal</div>
     </div>
     <div class="glance-card open-sleep-screen-link" style="cursor:pointer;">
@@ -247,7 +267,7 @@ async function renderTodayGlance(){
     </div>
     <div class="glance-card open-steps-screen-link" style="align-items:center;cursor:pointer;">
       <div class="glance-card-label" style="align-self:flex-start;">\u{1F463} Steps</div>
-      ${glanceRing(Math.min(100, stepsTarget ? stepsToday/stepsTarget*100 : 0), '#4A90D9', 84, `<div style="font-family:var(--font-heading);font-size:18px;">${fmtNum(stepsToday)}</div><div style="font-size:9.5px;color:var(--ink-soft);">steps</div>`)}
+      ${glanceRing(stepsTarget ? stepsToday/stepsTarget*100 : 0, '#4A90D9', 84, `<div style="font-family:var(--font-heading);font-size:18px;">${fmtNum(stepsToday)}</div><div style="font-size:9.5px;color:var(--ink-soft);">steps</div>`, 'good')}
       <div class="glance-card-sub">Target: ${fmtNum(stepsTarget)}</div>
     </div>
   `;

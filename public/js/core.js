@@ -386,7 +386,8 @@ function fastingSummaryText(lastLoggedHours){
       active: true,
       value: `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`,
       sub: `${pct.toFixed(0)}% of ${goalHrs}h · ends ~${formatClockTime(targetEnd)}`,
-      pct: Math.min(100, pct)
+      pct: Math.min(100, pct),
+      rawPct: pct
     };
   }
   const goalHrs = fastingState.goalHours || 16;
@@ -396,7 +397,8 @@ function fastingSummaryText(lastLoggedHours){
       active: false,
       value: formatFastHours(lastLoggedHours),
       sub: `${pct.toFixed(0)}% of ${goalHrs}h goal`,
-      pct: Math.min(100, pct)
+      pct: Math.min(100, pct),
+      rawPct: pct
     };
   }
   return {active: false, value: 'Not started', sub: `Goal: ${goalHrs} hours`, pct: 0};

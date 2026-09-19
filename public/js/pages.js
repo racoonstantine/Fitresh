@@ -170,7 +170,7 @@
       const h = Math.floor(elapsedMs/3600000), m = Math.floor((elapsedMs%3600000)/60000), s = Math.floor((elapsedMs%60000)/1000);
       const targetEnd = new Date(start.getTime() + goalHrs * 3600000);
       document.getElementById('fsElapsed').textContent = `${pad2(h)}:${pad2(m)}:${pad2(s)}`;
-      document.getElementById('fsProgressBar').style.width = Math.min(100, elapsedHrs/goalHrs*100) + '%';
+      applyBarFill(document.getElementById('fsProgressBar'), elapsedHrs/goalHrs*100, 'var(--forest)', 'good');
       document.getElementById('fsPct').textContent = `${Math.min(100, elapsedHrs/goalHrs*100).toFixed(0)}% of ${goalHrs}h goal · ends ~${formatClockTime(targetEnd)}${elapsedHrs>=goalHrs ? ' — reached!' : ''}`;
     };
     renderTick();
