@@ -12,7 +12,7 @@ const CARDIO_ACTIVITY_FALLBACK = [
 ];
 function cardioActivityChoices(){
   const catalog = window.getWorkoutCatalog ? window.getWorkoutCatalog() : [];
-  const fromCatalog = catalog.filter(a => a.category === 'cardio' && !a.phase).map(a => ({id: a.id, name: a.name}));
+  const fromCatalog = catalog.filter(a => a.category === 'cardio' && (!a.phase || a.phase === 'main')).map(a => ({id: a.id, name: a.name}));
   return fromCatalog.length ? fromCatalog : CARDIO_ACTIVITY_FALLBACK;
 }
 function cardioListPref(){

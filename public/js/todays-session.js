@@ -1,21 +1,16 @@
-// ---------- Today's scheduled session (Workout Plan, legacy or custom) ----------
+// ---------- Today's scheduled session (Workout Routine, legacy or custom) ----------
 // Replaces manual day-tab switching: the Train page now always shows whatever
 // the Training Plan (with today's override applied) says is scheduled, so
 // there's nothing for the user to pick -- just what's actually planned.
-// Which "Log a Session" radio is active -- 'plan' (use/pick a Workout Plan),
-// 'rest', or 'manual' (Open mode's free-form entry, no library plan involved).
+// Which "Log a Session" option is active -- 'plan' (use/pick a Workout
+// Routine), 'rest', 'manual' (free-form exercise entry) or 'ai' (AI Assist /
+// watch stats). See log-session-panel.js.
 let logSessionMode = 'plan';
-// Open mode only: a plan picked one-off for today via "Select workout plan",
-// separate from the Training Plan schedule -- nothing is saved until the
-// user actually logs against it.
+// A routine picked one-off via "Select Workout Routine", separate from the
+// Training Plan schedule -- nothing is saved until the user actually logs
+// against it. On today it swaps the checklist below; on any other date it
+// drives the "which did you do?" logger inside the panel.
 let logSessionSelectedPlanId = null;
-// Separate radio memory for when the Workout Dashboard's Daily view is
-// showing a past/future day -- the tick-to-complete plan checklist is a
-// single shared checkedState, so it only ever means "today"; another
-// day's Log a Session only offers Rest/manual entry, tracked here instead
-// of overwriting logSessionMode (so today's own selection isn't disturbed
-// by paging away and back).
-let logSessionModeNonToday = 'rest';
 
 // The date the whole "Log a Session" / checklist / Logged Training section
 // operates on -- follows the Workout Dashboard's Daily-view day nav
@@ -32,8 +27,10 @@ function collapseLogSessionPanel(){
   if(panel) panel.style.display = 'none';
   if(btn) btn.textContent = '+ Log a Session';
   logSessionMode = 'plan';
-  logSessionModeNonToday = 'rest';
   logSessionSelectedPlanId = null;
+  // Wipe the panel's fields too, so nothing typed lingers after a save or a
+  // move to another tab.
+  if(typeof resetLogSessionPanel === 'function') resetLogSessionPanel();
 }
 document.getElementById('logSessionToggleBtn').addEventListener('click', ()=>{
   const panel = document.getElementById('logSessionPanel');
@@ -79,15 +76,14 @@ function renderTodaysSession(){
 
   if(!isToday){
     // Past/future day: the tick-to-complete checklist only ever applies to
-    // today (see logSessionModeNonToday above), so this is Rest/manual
-    // entry plus a read-only note about what was scheduled -- actually
-    // editing that day's logged exercises happens in "Logged Training"
-    // below, which already supports any date.
+    // today, so the panel's "Select Workout Routine" logs from a checklist
+    // inside the panel, and actually editing that day's logged exercises
+    // happens in "Logged Training" below, which supports any date.
     hideAllExerciseBlocks();
     if(heading){
       heading.style.display = '';
       const entry = hasSchedule ? effectiveDayEntry(dStr, dayIdx) : (userTrainingPlan && userTrainingPlan.presetKey === 'open' ? window.openModeDayEntry(dStr) : null);
-      heading.textContent = `${formatDateLabel(dStr)}: ${entry ? window.planDayLabel(entry) : 'Rest day'}`;
+      heading.textContent = `${formatDateLabel(dStr)}: ${entry ? window.planDayLabel(entry) : dayPlanState(dStr).label}`;
     }
     renderLoggedToday();
     return;
@@ -99,11 +95,9 @@ function renderTodaysSession(){
     renderLoggedToday();
     return;
   }
-  if(logSessionMode === 'manual'){
-    // The manual-exercise form has its own "Add a Manual Exercise" header
-    // right above it (inside #logSessionManualPanel) -- showing this one
-    // too, with nothing else on the page below it, just left a stray
-    // floating heading.
+  if(logSessionMode === 'manual' || logSessionMode === 'ai'){
+    // These panels sit right under the option buttons -- a plan heading with
+    // nothing below it just left a stray floating heading.
     if(heading) heading.style.display = 'none';
     hideAllExerciseBlocks();
     renderLoggedToday();
@@ -113,29 +107,29 @@ function renderTodaysSession(){
   // logSessionMode === 'plan'
   if(heading) heading.style.display = '';
   let entry;
-  if(hasSchedule){
-    entry = effectiveDayEntry(dStr, dayIdx);
-  } else if(logSessionSelectedPlanId){
+  if(logSessionSelectedPlanId){
     entry = {type: 'workoutPlan', planId: logSessionSelectedPlanId};
+  } else if(hasSchedule){
+    entry = effectiveDayEntry(dStr, dayIdx);
   } else {
     entry = null;
   }
 
   if(!entry || entry.type !== 'workoutPlan'){
-    if(heading) heading.textContent = entry && entry.type === 'rest' ? "Today: Rest day" : (hasSchedule ? "No workout scheduled today" : "Pick a workout plan above to get started");
+    if(heading) heading.textContent = entry && entry.type === 'rest' ? "Today: Rest day" : (hasSchedule ? "No workout scheduled today" : "Pick a workout routine above to get started");
     hideAllExerciseBlocks();
     renderLoggedToday();
     return;
   }
   const plan = getWorkoutPlan(entry.planId);
   if(!plan){
-    if(heading) heading.textContent = "Today's plan was removed";
+    if(heading) heading.textContent = "Today's routine was removed";
     hideAllExerciseBlocks();
     renderLoggedToday();
     return;
   }
 
-  if(heading) heading.textContent = "Today's Plan: " + plan.name;
+  if(heading) heading.textContent = "Today's Routine: " + plan.name;
   if(plan.kind === 'legacy'){
     if(customBlock) customBlock.style.display = 'none';
     if(warmup) warmup.style.display = 'block';
@@ -155,7 +149,7 @@ function customItemId(plan, idx){ return 'custom_' + plan.id + '_' + idx; }
 let activeCustomPlan = null;
 function renderCustomPlanSession(plan){
   activeCustomPlan = plan;
-  document.getElementById('customPlanTitle').textContent = plan.name + ' · custom plan';
+  document.getElementById('customPlanTitle').textContent = plan.name + ' · custom routine';
   const list = document.getElementById('customPlanList');
   list.innerHTML = '';
   (plan.items || []).forEach((item, idx)=>{

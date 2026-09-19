@@ -343,57 +343,9 @@
       <div class="weight-progress" id="weightProgress"></div>
     </section>
 
-    <section class="block" id="logSessionSection" style="margin-top:16px;scroll-margin-top:12px;">
-      <button type="button" id="logSessionToggleBtn" class="timer-btn start" style="width:100%;">+ Log a Session</button>
-      <div id="logSessionPanel" style="display:none;margin-top:12px;">
-      <div id="logSessionOptions" style="display:flex;flex-direction:column;gap:2px;margin-bottom:8px;"></div>
+    <section class="block" id="logSessionSection" style="margin-top:16px;scroll-margin-top:12px;"></section>
 
-      <div id="logSessionPlanPicker" style="display:none;margin-bottom:10px;">
-        <label style="font-size:11px;color:var(--ink-soft);">Choose a workout plan for today</label>
-        <select id="logSessionPlanSelect" style="width:100%;padding:7px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:13px;margin-top:2px;"></select>
-      </div>
-
-      <div id="logSessionRestPanel" style="display:none;margin-bottom:10px;">
-        <label style="font-size:11px;color:var(--ink-soft);">Notes (optional)</label>
-        <textarea id="logSessionRestNotes" rows="2" placeholder="e.g. sore legs, taking it easy today" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:13px;margin-top:2px;resize:vertical;"></textarea>
-        <button class="timer-btn start" id="logSessionRestSaveBtn" type="button" style="width:100%;margin-top:8px;">Save rest day</button>
-      </div>
-
-      <div id="logSessionManualPanel" style="display:none;margin-bottom:6px;">
-        <div class="block-title" style="margin-bottom:8px;">Add a Manual Exercise</div>
-        <label style="font-size:11px;color:var(--ink-soft);">Activity name</label>
-        <input type="text" id="manualExName" placeholder="e.g. Kettlebell swings" style="width:100%;padding:7px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:13px;margin-top:2px;margin-bottom:6px;">
-        <label style="font-size:11px;color:var(--ink-soft);">Category</label>
-        <select id="manualExCategory" style="width:100%;padding:7px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:13px;margin-top:2px;margin-bottom:8px;">
-          <option value="strength">Strength</option>
-          <option value="cardio">Cardio</option>
-          <option value="sport">Sport</option>
-          <option value="mobility">Mobility</option>
-        </select>
-        <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
-          <button type="button" id="manualExSearchToggle" class="img-link" style="cursor:pointer;flex:0 0 auto;">🔍 Search library instead</button>
-          <input type="text" id="manualExSearchInput" placeholder="Search activity library" style="display:none;flex:1;min-width:0;padding:7px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:13px;">
-        </div>
-        <div id="manualExSearchResults" style="margin-bottom:8px;"></div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
-          <div><label style="font-size:11px;color:var(--ink-soft);">Sets</label><input type="text" inputmode="decimal" data-num id="manualExSets" min="0" style="width:100%;padding:7px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:13px;"></div>
-          <div><label style="font-size:11px;color:var(--ink-soft);">Reps</label><input type="text" inputmode="decimal" data-num id="manualExReps" min="0" style="width:100%;padding:7px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:13px;"></div>
-          <div><label style="font-size:11px;color:var(--ink-soft);">Weight (kg)</label><input type="text" inputmode="decimal" data-num id="manualExWeight" min="0" step="0.5" style="width:100%;padding:7px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:13px;"></div>
-          <div><label style="font-size:11px;color:var(--ink-soft);">Duration (min)</label><input type="text" inputmode="decimal" data-num id="manualExDuration" min="0" style="width:100%;padding:7px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:13px;"></div>
-        </div>
-        <button class="timer-btn start" id="manualExAddBtn" type="button" style="width:100%;margin-top:8px;">+ Add exercise</button>
-        <div id="manualExPending" style="margin-top:10px;"></div>
-        <button class="img-link" id="manualExStatsBtn" type="button" style="cursor:pointer;margin-top:8px;">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-          🤖 AI Assist / Log stats from watch
-        </button>
-        <div class="note" id="manualExStatsNote" style="margin-top:4px;"></div>
-        <button class="today-btn" id="manualExSaveBtn" type="button" style="width:100%;margin-top:10px;padding:11px 0;display:none;">Save session</button>
-      </div>
-      </div>
-    </section>
-
-    <div class="block-title" id="sessionPlanHeading" style="scroll-margin-top:12px;">Today's Plan</div>
+    <div class="block-title" id="sessionPlanHeading" style="scroll-margin-top:12px;">Today's Routine</div>
     <div class="tabs" id="tabs" style="display:none;">
       <button class="tab" data-day="A">Strength A</button>
       <button class="tab" data-day="B">Strength B</button>
@@ -1236,7 +1188,9 @@
 <script src="js/weight-dashboard.js"></script>
 <script src="js/plan-history.js"></script>
 <script src="js/cardio-activity.js"></script>
-<script src="js/log-session.js"></script>
+<script src="js/log-session-panel.js"></script>
+<script src="js/extra-exercises.js"></script>
+<script src="js/logged-training.js"></script>
 <script src="js/todays-session.js"></script>
 <script src="js/stats-form.js"></script>
 <script src="js/app-start.js"></script>
