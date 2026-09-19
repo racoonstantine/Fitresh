@@ -32,7 +32,7 @@
     $('pfPreview').textContent=unit!=='serving' && size>0 && cal!=='' ? `${Number(cal)} kcal per ${size} ${unit} → ${(Number(cal)*100/size).toFixed(1)} kcal per 100 ${unit}. Original serving values are kept.` : 'Nutrition will be saved for one described serving.';
     $('pfSave').textContent=form.elements.submit_for_review.checked ? 'Save and submit for review' : previous ? 'Save new private version' : 'Save private food';
   }
-  function fill(definition=null,id=0){
+  function fill(definition=null,id=0,opts={}){
     form.reset();previous=id;requestKey=crypto.randomUUID();
     if(definition){
       for(const key of ['name','brand','serving_label','serving_measure','serving_size','source_url','notes'])form.elements[key].value=definition[key]??'';
@@ -43,7 +43,8 @@
       // so default it to 0 rather than making them type it every time.
       form.elements.ENERC_KCAL.value='0';
     }
-    form.elements.submit_for_review.checked=false;preview();
+    // "Submit Custom Food" opens the form with the review box already ticked.
+    form.elements.submit_for_review.checked=!!opts.submit;preview();
   }
   async function load(){
     const response=await fetch('api/personal_foods.php',{credentials:'same-origin'}),data=await response.json();
@@ -62,8 +63,8 @@
       const actions=document.createElement('div');actions.className='pf-actions';actions.append(edit,use);item.append(name,detail,actions);el.appendChild(item);
     }
   }
-  async function open(definition=null){
-    if(busy)return;opener=document.activeElement;fill(definition);status('Loading your library…');$('pfFields').disabled=true;
+  async function open(definition=null,opts={}){
+    if(busy)return;opener=document.activeElement;fill(definition,0,opts);status('Loading your library…');$('pfFields').disabled=true;
     if(!dialog.open)dialog.showModal();
     try{await load();status(definition?'Personal copy: check the serving and label before saving.':'');$('pfFields').disabled=false;form.elements.name.focus();}
     catch(e){status(e.message,true);}
@@ -105,10 +106,5 @@
   $('pfNew').addEventListener('click',()=>{fill();status('');});
   $('pfClose').addEventListener('click',()=>dialog.close());
   dialog.addEventListener('close',()=>opener?.focus());
-  for(const id of ['foodSearchInput','lmSearchInput']){
-    const input=$(id);if(!input)continue;
-    const button=document.createElement('button');button.type='button';button.className='timer-btn personal-food-open';button.textContent='My foods · Create food';button.addEventListener('click',()=>open());
-    const anchor=id==='foodSearchInput'?input.parentElement:input;anchor.insertAdjacentElement('afterend',button);
-  }
   window.personalFoods={open,openCopy};
 })();

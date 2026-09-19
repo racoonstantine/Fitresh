@@ -82,9 +82,20 @@ async function call(base, path, { method = 'GET', body, headers = {}, as } = {})
     const range = await call(b, `/api/meals.php?action=range_totals&start=${today}&end=${today}`);
     assert.strictEqual(range.status, 200);
   });
-  check('custom food create', async () => {
-    const r = await call(b, '/api/foods.php?action=create_custom', { method: 'POST', body: { name: 'Smoke Bar', canonical_amount: 50, canonical_unit: 'g', nutrients: { ENERC_KCAL: 200, PROCNT: 10, FAT: 8, CHOCDF: 20 } } });
-    assert.ok(r.json && r.json.id, r.text.slice(0, 300));
+  check('custom food create + origin tags + Favorites grouping (my_foods)', async () => {
+    const make = (name, origin) => call(b, '/api/foods.php?action=create_custom', { method: 'POST', body: { name, origin, canonical_amount: 50, canonical_unit: 'g', nutrients: { ENERC_KCAL: 200, PROCNT: 10, FAT: 8, CHOCDF: 20 } } });
+    const plain = await make('Smoke Bar', undefined);
+    assert.ok(plain.json && plain.json.id, plain.text.slice(0, 300));
+    assert.equal(plain.json.source, 'custom');
+    assert.equal((await make('Smoke Manual', 'manual')).json.source, 'manual');
+    assert.equal((await make('Smoke AI', 'ai')).json.source, 'ai');
+    assert.equal((await make('Smoke Bogus', 'admin')).json.source, 'custom', 'unknown origins fall back to custom');
+    const mine = await call(b, '/api/foods.php?action=my_foods');
+    assert.strictEqual(mine.status, 200, mine.text.slice(0, 200));
+    const names = g => mine.json.groups[g].map(f => f.name);
+    assert.ok(names('ai').includes('Smoke AI') && !names('manual').includes('Smoke AI'));
+    assert.ok(names('manual').includes('Smoke Manual') && names('manual').includes('Smoke Bar'), 'old custom rows count as manual');
+    assert.ok(mine.json.groups.manual[0].nutrients.ENERC_KCAL > 0, 'nutrients included');
   });
   let personalId;
   check('personal food save + retry idempotency + list', async () => {
@@ -100,6 +111,8 @@ async function call(base, path, { method = 'GET', body, headers = {}, as } = {})
     assert.strictEqual(again.json.food.food_id, personalId);
     const list = await call(b, '/api/personal_foods.php');
     assert.ok(list.json.foods.some(f => f.food_id === personalId));
+    const mine = await call(b, '/api/foods.php?action=my_foods');
+    assert.ok(mine.json.groups.personal.some(f => f.name === 'Smoke Whey'), 'personal food is in the Custom foods group');
   });
   let sessionId = '22222222-2222-4222-8222-222222222222';
   check('workout library loads and a session saves/lists/deletes', async () => {
@@ -127,6 +140,8 @@ async function call(base, path, { method = 'GET', body, headers = {}, as } = {})
     assert.ok(!pf.json.foods.some(f => f.food_id === personalId));
     const w = await call(b, '/api/workouts.php', { as: other });
     assert.ok(!w.json.sessions.length);
+    const theirs = await call(b, '/api/foods.php?action=my_foods', { as: other });
+    assert.ok(Object.values(theirs.json.groups).every(list => list.length === 0), 'my_foods only returns your own foods');
   });
   check('signup lands pending and cannot log in', async () => {
     const r = await call(b, '/api/auth.php?action=register', { method: 'POST', body: { email: 'new@example.com', password: 'longenough1', display_name: 'New' }, as: '' });

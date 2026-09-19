@@ -88,6 +88,27 @@ if ($method === 'GET' && $action === 'search_library') {
     json_respond(['results' => $results]);
 }
 
+if ($method === 'GET' && $action === 'my_foods') {
+    // The user's own foods for the Favorites view, grouped by how they were made:
+    // personal (label-entered "Custom Food"), manual entries and AI-assist entries.
+    // Older manual entries were saved with source 'custom' and count as manual.
+    $currentFilter = personal_foods_available($pdo) ? ' AND NOT EXISTS (SELECT 1 FROM personal_food_versions v WHERE v.food_id=foods.id AND v.is_current=0)' : '';
+    $stmt = $pdo->prepare(
+        "SELECT id, source FROM foods
+         WHERE owner_user_id = ? AND source IN ('personal','custom','manual','ai')" . $currentFilter . '
+         ORDER BY updated_at DESC, id DESC LIMIT 90'
+    );
+    $stmt->execute([$userId]);
+    $groups = ['personal' => [], 'manual' => [], 'ai' => []];
+    foreach ($stmt->fetchAll() as $row) {
+        $key = $row['source'] === 'personal' ? 'personal' : ($row['source'] === 'ai' ? 'ai' : 'manual');
+        if (count($groups[$key]) < 30) {
+            $groups[$key][] = food_with_nutrients($pdo, (int)$row['id']);
+        }
+    }
+    json_respond(['groups' => $groups]);
+}
+
 if ($method === 'POST' && $action === 'save_external') {
     // Persist a result from food_search.php into our own library the first time it's actually logged.
     $source = (string)($input['source'] ?? 'off');
@@ -154,8 +175,11 @@ if ($method === 'POST' && $action === 'create_custom') {
         'INSERT INTO foods (owner_user_id, source, external_id, name, brand, canonical_amount, canonical_unit, created_at, updated_at)
          VALUES (?, ?, NULL, ?, NULL, ?, ?, NOW(), NOW())'
     );
+    // 'manual' / 'ai' record how the food was entered (Favorites groups by it);
+    // anything else keeps the original 'custom'.
+    $origin = in_array(($input['origin'] ?? ''), ['manual', 'ai'], true) ? $input['origin'] : 'custom';
     $stmt->execute([
-        $userId, 'custom', $name,
+        $userId, $origin, $name,
         (float)($input['canonical_amount'] ?? 100),
         (string)($input['canonical_unit'] ?? 'g'),
     ]);

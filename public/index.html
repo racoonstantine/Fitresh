@@ -271,12 +271,13 @@
             <option value="snack">Snack</option>
           </select>
           <input type="text" id="foodSearchInput" placeholder="Search a food — e.g. chicken breast" autocomplete="off" style="flex:1;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:13px;">
-          <button type="button" id="foodSearchBtn" class="timer-btn" style="flex:0 0 auto;padding:8px 12px;" title="Search now">🔍</button>
+          <button type="button" id="foodSearchBtn" class="timer-btn" style="flex:0 0 auto;padding:8px 12px;" title="Search now" aria-label="Search now">🔍</button>
+          <button type="button" id="foodFavBtn" class="timer-btn fav-toggle" style="flex:0 0 auto;padding:8px 12px;" title="Favorites and saved foods" aria-label="Show favorites and saved foods">⭐</button>
         </div>
         <label style="display:block;font-size:12px;margin-bottom:10px;"><input type="checkbox" id="foodIncludeEstimates" checked> Include estimates · Low confidence, unverified recipes</label>
         <div id="foodSearchResults"></div>
         <div id="foodSearchStatus" style="font-size:12px;color:var(--ink-soft);display:none;margin-top:4px;"></div>
-        <button class="timer-btn reset" id="createCustomFoodBtn" type="button" style="width:100%;margin-top:10px;">+ Add a custom food</button>
+        <button class="timer-btn reset" id="openManualLogBtn" type="button" style="width:100%;margin-top:10px;">✍️ Manual Log</button>
       </div>
 
       <div class="hub-card" id="todayMealsCard" style="margin-top:14px;"></div>
@@ -854,16 +855,17 @@
     </div>
 
     <div class="main-nav" id="lmModeTabs" style="margin-bottom:12px;">
-      <button class="main-tab active" data-lm-mode="search" type="button">Search Food</button>
-      <button class="main-tab" data-lm-mode="manual" type="button">Manual Log</button>
-      <button class="main-tab" data-lm-mode="ai" type="button">AI Assist</button>
+      <button class="main-tab active" data-lm-mode="search" type="button">🔍 Search Food</button>
+      <button class="main-tab" data-lm-mode="manual" type="button">✍️ Manual Log</button>
+      <button class="main-tab" data-lm-mode="ai" type="button">🤖 AI Assist</button>
     </div>
 
     <div id="lmSearchMode">
       <div id="lmRecentFavorites" style="margin-bottom:10px;"></div>
       <div style="display:flex;gap:8px;">
         <input type="text" id="lmSearchInput" placeholder="Search a food — e.g. chicken breast, rice, adobo" autocomplete="off" style="flex:1;padding:9px 10px;border:1px solid var(--line);border-radius:6px;background:var(--paper);font-size:13.5px;">
-        <button type="button" id="lmSearchBtn" class="timer-btn" style="flex:0 0 auto;padding:9px 12px;" title="Search now">🔍</button>
+        <button type="button" id="lmSearchBtn" class="timer-btn" style="flex:0 0 auto;padding:9px 12px;" title="Search now" aria-label="Search now">🔍</button>
+        <button type="button" id="lmFavBtn" class="timer-btn fav-toggle" style="flex:0 0 auto;padding:9px 12px;" title="Favorites and saved foods" aria-label="Show favorites and saved foods">⭐</button>
       </div>
       <label style="display:block;font-size:12px;margin:8px 0;"><input type="checkbox" id="lmIncludeEstimates" checked> Include estimates · Low confidence, unverified recipes</label>
       <div id="lmSearchStatus" style="font-size:12px;color:var(--ink-soft);display:none;margin-top:6px;"></div>
@@ -935,6 +937,12 @@
 
     <div id="lmSaveStatus" style="display:none;font-size:12px;color:#B4472A;margin-top:10px;"></div>
     <button type="button" id="lmSaveBtn" class="timer-btn start" style="width:100%;margin-top:14px;" disabled>Save to Log</button>
+
+    <div class="submit-food-card">
+      <div class="submit-food-title">📮 Submit Custom Food</div>
+      <p>Do you have a food that isn't on the list? Help us keep our listing accurate — submit your custom food to us and we'll review it for publishing on the food list.</p>
+      <button type="button" id="lmSubmitCustomFoodBtn" class="timer-btn" style="width:100%;">+ Submit a custom food</button>
+    </div>
   </div>
 </div>
 

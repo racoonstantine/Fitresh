@@ -81,8 +81,9 @@ function renderRecentFavorites(kind){
     nameEl.addEventListener('click', () => {
       const snap = items[parseInt(nameEl.dataset.idx, 10)];
       if(kind === 'lm'){
-        lmSearchResultsCache = [snap, ...lmSearchResultsCache.filter(r => r.id !== snap.id)];
-        renderLmSearchResults();
+        // The Log Meal screen's result list is private to its own code; it
+        // exposes this hook (lmShowFoods) so the chips can reach it.
+        window.lmShowFoods([snap], true);
       } else {
         foodSearchResultsCache = [snap, ...foodSearchResultsCache.filter(r => r.id !== snap.id)];
         renderFoodSearchResults();
@@ -92,6 +93,33 @@ function renderRecentFavorites(kind){
     });
   });
 }
+
+// The Favorites view: starred foods first, then the user's own foods grouped by
+// how they were made (label-entered "custom", manual entry, AI assist). Each row
+// carries a _group label; the result renderers print a heading when it changes.
+async function loadFavoritesView(){
+  let groups = {};
+  try{
+    const res = await fetch('api/foods.php?action=my_foods', {credentials: 'same-origin'});
+    if(res.ok) groups = (await res.json()).groups || {};
+  }catch(e){}
+  const seen = new Set();
+  const out = [];
+  const add = (list, label) => (list || []).forEach(f => {
+    if(f.id !== undefined && f.id !== null){ if(seen.has(f.id)) return; seen.add(f.id); }
+    out.push({...f, _origin: 'library', _group: label});
+  });
+  add(favoriteFoods, '⭐ Favorites');
+  add((groups.personal || []).filter(hasUsableNutrients), '🛠️ Custom foods');
+  add((groups.manual || []).filter(hasUsableNutrients), '✍️ Manual entries');
+  add((groups.ai || []).filter(hasUsableNutrients), '🤖 AI assist entries');
+  return out;
+}
+function foodGroupHeadingHtml(label){
+  return `<div class="food-group-heading">${foodSearchEscape(label)}</div>`;
+}
+const FAVORITES_EMPTY_TEXT = 'Nothing here yet — ⭐ a food, or add one with Manual Log or AI Assist and it will show up here.';
+const FAVORITES_HINT_TEXT = 'Your favorites and saved foods — tap one to log it.';
 
 // The closing status line for a finished search. Open Food Facts is an outside
 // service: when it is unreachable we say so (instead of silently showing only
@@ -113,6 +141,8 @@ function foodSearchOutcomeHtml({hasResults, offline, suggestionsHtml}){
 
 async function searchFoodsCombined(query){
   const generation = ++foodSearchGeneration;
+  const favBtn = document.getElementById('foodFavBtn');
+  if(favBtn) favBtn.classList.remove('active');
   const statusEl = document.getElementById('foodSearchStatus');
   const resultsEl = document.getElementById('foodSearchResults');
   if(query.trim().length < 2){ foodSearchResultsCache = []; resultsEl.innerHTML = ''; statusEl.style.display = 'none'; return; }
@@ -242,6 +272,8 @@ function foodSearchCloseBar(){
 // results, status line and (optionally) the typed query.
 function clearFoodSearch(clearInput){
   ++foodSearchGeneration;
+  const favBtn = document.getElementById('foodFavBtn');
+  if(favBtn) favBtn.classList.remove('active');
   foodSearchResultsCache = [];
   const resultsEl = document.getElementById('foodSearchResults');
   const statusEl = document.getElementById('foodSearchStatus');
@@ -257,7 +289,10 @@ function renderFoodSearchResults(){
   const resultsEl = document.getElementById('foodSearchResults');
   if(!resultsEl) return;
   if(!foodSearchResultsCache.length){ resultsEl.innerHTML = ''; return; }
+  let lastGroup = null;
   resultsEl.innerHTML = foodSearchCloseBar() + foodSearchResultsCache.map((r, i) => {
+    const heading = (r._group && r._group !== lastGroup) ? foodGroupHeadingHtml(r._group) : '';
+    lastGroup = r._group || null;
     const canonicalAmount = r.canonical_amount || 100;
     const canonicalUnit = r.canonical_unit || 'g';
     const hasNutrients = r.nutrients && r.nutrients.ENERC_KCAL !== undefined && r.nutrients.ENERC_KCAL !== null;
@@ -265,7 +300,7 @@ function renderFoodSearchResults(){
       ? `${r.brand ? r.brand + ' · ' : ''}${Math.round(r.nutrients.ENERC_KCAL)} kcal / ${canonicalAmount}${canonicalUnit}`
       : (r.brand || (r._origin === 'library' ? 'Your library' : 'No calorie data'));
     return `
-      <div class="food-result-row" data-idx="${i}" style="padding:9px 4px;border-bottom:1px solid var(--line);cursor:pointer;">
+      ${heading}<div class="food-result-row" data-idx="${i}" style="padding:9px 4px;border-bottom:1px solid var(--line);cursor:pointer;">
         <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;">
           <div style="display:flex;align-items:center;gap:8px;min-width:0;">
             <span style="color:var(--ink-soft);flex-shrink:0;">${renderFoodIconSvg(getFoodIcon(r), 20)}</span>

@@ -106,8 +106,28 @@
   // private, reusable by name in search, versioned, and with an opt-in
   // submission queue for admin review -- so this button opens that instead
   // of the ad-hoc one-off form it used to show.
-  document.getElementById('createCustomFoodBtn').addEventListener('click', ()=>{
-    if(window.personalFoods) window.personalFoods.open();
+  document.getElementById('openManualLogBtn').addEventListener('click', ()=> window.openLogMealScreen(undefined, 'manual'));
+  document.getElementById('lmSubmitCustomFoodBtn').addEventListener('click', ()=>{
+    if(window.personalFoods) window.personalFoods.open(null, {submit: true});
+  });
+
+  // Favorites: the dropdown lists starred foods plus the user's own custom,
+  // manual and AI-assist foods (see loadFavoritesView).
+  document.getElementById('foodFavBtn').addEventListener('click', async ()=>{
+    const btn = document.getElementById('foodFavBtn');
+    const statusEl = document.getElementById('foodSearchStatus');
+    if(btn.classList.contains('active')){ clearFoodSearch(false); return; }
+    const generation = ++foodSearchGeneration;
+    btn.classList.add('active');
+    foodSearchResultsCache = [];
+    document.getElementById('foodSearchResults').innerHTML = '';
+    statusEl.textContent = 'Loading favorites…';
+    statusEl.style.display = 'block';
+    const list = await loadFavoritesView();
+    if(generation !== foodSearchGeneration) return;
+    foodSearchResultsCache = list;
+    renderFoodSearchResults();
+    statusEl.textContent = list.length ? FAVORITES_HINT_TEXT : FAVORITES_EMPTY_TEXT;
   });
 })();
 
@@ -116,6 +136,17 @@
   let lmItems = []; // {name, amount, unit, nutrients (already scaled to amount), source: 'catalog'|'off'|'library'|'manual', payload}
   let lmSearchResultsCache = [];
   let lmSearchGeneration = 0;
+  // Lets code outside this screen (the recent/favorite chips) put foods in the
+  // result list and open the first one's amount panel.
+  window.lmShowFoods = function(list, openFirst){
+    ++lmSearchGeneration;
+    lmSearchResultsCache = list.filter(Boolean);
+    renderLmSearchResults();
+    if(openFirst){
+      const panel = document.querySelector('#lmSearchResults .food-result-amount[data-idx="0"]');
+      if(panel){ panel.style.display = 'block'; panel.scrollIntoView({behavior: 'smooth', block: 'center'}); }
+    }
+  };
 
   window.openLogMealScreen = function(mealType, mode){
     lmItems = [];
@@ -179,6 +210,29 @@
     clearTimeout(lmSearchDebounce);
     lmSearchFoods(document.getElementById('lmSearchInput').value.trim());
   });
+  document.getElementById('lmFavBtn').addEventListener('click', async ()=>{
+    const btn = document.getElementById('lmFavBtn');
+    const statusEl = document.getElementById('lmSearchStatus');
+    if(btn.classList.contains('active')){
+      btn.classList.remove('active');
+      ++lmSearchGeneration;
+      lmSearchResultsCache = [];
+      document.getElementById('lmSearchResults').innerHTML = '';
+      statusEl.style.display = 'none';
+      return;
+    }
+    const generation = ++lmSearchGeneration;
+    btn.classList.add('active');
+    lmSearchResultsCache = [];
+    document.getElementById('lmSearchResults').innerHTML = '';
+    statusEl.textContent = 'Loading favorites…';
+    statusEl.style.display = 'block';
+    const list = await loadFavoritesView();
+    if(generation !== lmSearchGeneration) return;
+    lmSearchResultsCache = list;
+    renderLmSearchResults();
+    statusEl.textContent = list.length ? FAVORITES_HINT_TEXT : FAVORITES_EMPTY_TEXT;
+  });
   document.getElementById('lmSearchBtn').addEventListener('click', ()=>{
     clearTimeout(lmSearchDebounce);
     lmSearchFoods(document.getElementById('lmSearchInput').value.trim());
@@ -193,6 +247,7 @@
 
   async function lmSearchFoods(query){
     const generation = ++lmSearchGeneration;
+    document.getElementById('lmFavBtn').classList.remove('active');
     const statusEl = document.getElementById('lmSearchStatus');
     const resultsEl = document.getElementById('lmSearchResults');
     if(query.length < 2){ lmSearchResultsCache = []; resultsEl.innerHTML = ''; statusEl.style.display = 'none'; return; }
@@ -239,7 +294,10 @@
   function renderLmSearchResults(){
     const resultsEl = document.getElementById('lmSearchResults');
     if(!lmSearchResultsCache.length){ resultsEl.innerHTML = ''; return; }
+    let lastGroup = null;
     resultsEl.innerHTML = foodSearchCloseBar() + lmSearchResultsCache.map((r, i) => {
+      const heading = (r._group && r._group !== lastGroup) ? foodGroupHeadingHtml(r._group) : '';
+      lastGroup = r._group || null;
       const canonicalAmount = r.canonical_amount || 100;
       const canonicalUnit = r.canonical_unit || 'g';
       const hasNutrients = r.nutrients && r.nutrients.ENERC_KCAL !== undefined && r.nutrients.ENERC_KCAL !== null;
@@ -247,7 +305,7 @@
         ? `${r.label ? r.label + ' · ' : (r.brand ? r.brand + ' · ' : '')}${Math.round(r.nutrients.ENERC_KCAL)} kcal / ${canonicalAmount}${canonicalUnit}`
         : (r.brand || (r._origin === 'library' ? 'Your library' : 'No calorie data'));
       return `
-        <div class="food-result-row" data-idx="${i}" style="padding:9px 4px;border-bottom:1px solid var(--line);cursor:pointer;">
+        ${heading}<div class="food-result-row" data-idx="${i}" style="padding:9px 4px;border-bottom:1px solid var(--line);cursor:pointer;">
           <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;">
             <div style="display:flex;align-items:center;gap:8px;min-width:0;">
               <span style="color:var(--ink-soft);flex-shrink:0;">${renderFoodIconSvg(getFoodIcon(r), 20)}</span>
@@ -345,7 +403,8 @@
       sodium: parseNum(document.getElementById('lmManualSodium').value) || null,
       fiber: parseNum(document.getElementById('lmManualFiber').value) || null,
       sugar: parseNum(document.getElementById('lmManualSugar').value) || null,
-      source: 'manual'
+      source: 'manual',
+      origin: 'manual'
     });
     ['lmManualName','lmManualCal','lmManualProtein','lmManualFat','lmManualCarbs','lmManualSodium','lmManualFiber','lmManualSugar'].forEach(id => document.getElementById(id).value = '');
     document.getElementById('lmManualAmount').value = 100;
@@ -463,7 +522,8 @@
         sodium: isNaN(sodium) ? null : sodium,
         fiber: isNaN(fiber) ? null : fiber,
         sugar: isNaN(sugar) ? null : sugar,
-        source: 'manual'
+        source: 'manual',
+        origin: 'ai'
       });
       added++;
     });
@@ -537,7 +597,7 @@
           const {ok, data: food} = await safeFetchJson('api/foods.php?action=create_custom', {
             method: 'POST', credentials: 'same-origin', headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
-              name: it.name, canonical_amount: it.amount, canonical_unit: it.unit,
+              name: it.name, canonical_amount: it.amount, canonical_unit: it.unit, origin: it.origin,
               nutrients: {
                 ENERC_KCAL: it.kcal, PROCNT: it.protein, FAT: it.fat, CHOCDF: it.carbs,
                 FIBTG: it.fiber || null, SUGAR: it.sugar || null, NA: it.sodium || null
