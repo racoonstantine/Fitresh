@@ -1,4 +1,4 @@
-/* ---------- Training Plan (weekly schedule) + Workout Plan library ---------- */
+/* ---------- Training Plan (weekly schedule) + Workout Routine library ---------- */
 (function(){
   let workoutCatalog = [];
   async function loadWorkoutCatalog(){
@@ -30,7 +30,7 @@
     if(entry.type === 'other') return entry.note || 'Other';
     if(entry.type === 'workoutPlan'){
       const plan = getWorkoutPlan(entry.planId);
-      return plan ? plan.name : 'Plan removed';
+      return plan ? plan.name : 'Routine removed';
     }
     return 'Rest';
   }
@@ -50,7 +50,7 @@
   }
   const LEGACY_TO_WORKOUT_PLAN = {A: 'strengthA', B: 'strengthB', steady: 'cardioSteady', interval: 'cardioInterval'};
   // Open mode has no fixed schedule -- each day's label comes from whatever
-  // was actually logged that date: a legacy or custom Workout Plan resolves
+  // was actually logged that date: a legacy or custom Workout Routine resolves
   // back to a real plan reference (so "Go" / detail views work same as a
   // scheduled day); a Rest log or manual/deviation entry has no such plan,
   // so it just carries its own label through as "logged" -- the calendar
@@ -179,8 +179,8 @@
   // Local draft state for the Custom builder -- only written to
   // userTrainingPlan on explicit "Save custom plan", so backing out (closing
   // the screen, switching to another mode) never half-saves a plan. Each
-  // day just picks a Workout Plan (or Rest) -- build the Workout Plan itself
-  // first via "Edit Workout Plan" if it doesn't exist yet.
+  // day just picks a Workout Routine (or Rest) -- build the Workout Routine itself
+  // first via "Edit Workout Routine" if it doesn't exist yet.
   let wpCustomDays = weekPlan.map(() => null);
   function renderWpCustomDays(){
     const el = document.getElementById('wpCustomDays');
@@ -233,7 +233,7 @@
     closeWorkoutPlanScreen();
   });
 
-  // ---------- Workout Plan library screen (browse presets, build/edit Custom) ----------
+  // ---------- Workout Routine library screen (browse presets, build/edit Custom) ----------
   function renderWplSelect(){
     const sel = document.getElementById('wplSelect');
     const current = sel.value;
@@ -244,7 +244,7 @@
   function renderWplDetail(planId){
     const detailEl = document.getElementById('wplDetail');
     const plan = getWorkoutPlan(planId);
-    if(!plan){ detailEl.innerHTML = '<div class="dash-empty">No workout plans yet -- tap + New to build one.</div>'; return; }
+    if(!plan){ detailEl.innerHTML = '<div class="dash-empty">No workout routines yet -- tap + New to build one.</div>'; return; }
     if(plan.kind === 'legacy'){
       if(dayData[plan.legacyKey]){
         const day = dayData[plan.legacyKey];
@@ -292,7 +292,7 @@
     if(editBtn){ openWplBuilder(editBtn.dataset.editWpl); return; }
     const delBtn = e.target.closest('[data-delete-wpl]');
     if(delBtn){
-      if(!confirm('Delete this workout plan? Any Training Plan day using it will show "Not set" until you pick something else.')) return;
+      if(!confirm('Delete this workout routine? Any Training Plan day using it will show "Not set" until you pick something else.')) return;
       customWorkoutPlans = customWorkoutPlans.filter(p => p.id !== delBtn.dataset.deleteWpl);
       await saveCustomWorkoutPlans();
       renderWplSelect();
@@ -356,7 +356,7 @@
     errEl.style.display = 'none';
     const name = document.getElementById('wplBuilderName').value.trim();
     if(!name){
-      errEl.textContent = 'Give your workout plan a name.';
+      errEl.textContent = 'Give your workout routine a name.';
       errEl.style.display = 'block';
       return;
     }

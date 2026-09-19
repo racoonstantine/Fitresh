@@ -469,12 +469,6 @@
   .qa-tile-title{font-weight:700;font-size:13px;}
   .qa-tile-sub{font-size:11px;color:var(--ink-soft);}
 
-  .today-log-row{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px dashed var(--line);}
-  .today-log-row:last-child{border-bottom:none;}
-  .today-log-icon{width:30px;height:30px;border-radius:50%;background:var(--paper);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px;}
-  .today-log-title{font-size:13px;font-weight:600;}
-  .today-log-sub{font-size:11px;color:var(--ink-soft);}
-  .today-log-value{font-size:12.5px;font-weight:600;text-align:right;white-space:nowrap;margin-left:auto;}
 
   .fullscreen-modal{
     position:fixed;inset:0;z-index:200;background:var(--paper);

@@ -194,11 +194,6 @@
       <div class="qa-grid" id="quickActionsGrid"></div>
     </section>
 
-    <section class="block" style="margin-bottom:18px;">
-      <div class="block-title">Today's Log</div>
-      <div id="todayLogFeed"></div>
-    </section>
-
   </div><!-- /panelToday -->
 
   <div id="panelBody" style="display:none;">
@@ -428,7 +423,7 @@
       <div id="extraEx-strength" data-extra-container="strength"></div>
       <button class="img-link" data-extra-add-toggle="strength" type="button" style="cursor:pointer;margin-top:8px;">➕ Add Exercise (today only)</button>
       <div data-extra-form="strength" style="display:none;margin-top:8px;"></div>
-      <button class="today-btn" id="strengthCompleteLogBtn" style="width:100%;margin-top:12px;padding:11px 0;">✅ Plan Completed &amp; Log</button>
+      <button class="today-btn" id="strengthCompleteLogBtn" style="width:100%;margin-top:12px;padding:11px 0;">✅ Routine Completed &amp; Log</button>
       <div class="note" id="strengthLoggedNote" style="margin-top:6px;"></div>
     </section>
 
@@ -438,14 +433,14 @@
     </section>
 
     <section class="block" id="customPlanBlock" style="display:none;">
-      <div class="block-title" id="customPlanTitle">Custom plan</div>
+      <div class="block-title" id="customPlanTitle">Custom routine</div>
       <div id="customPlanList"></div>
       <div class="note">Rest 45–60 sec between sets. Pick a weight where the last 2–3 reps feel hard but your form stays clean.</div>
       <div id="extraEx-custom" data-extra-container="custom"></div>
       <button class="img-link" data-extra-add-toggle="custom" type="button" style="cursor:pointer;margin-top:8px;">➕ Add Exercise (today only)</button>
       <div data-extra-form="custom" style="display:none;margin-top:8px;"></div>
       <div id="customPlanStatsBlock" style="margin-top:12px;"></div>
-      <button class="today-btn" id="customPlanCompleteLogBtn" style="width:100%;margin-top:12px;padding:11px 0;">✅ Plan Completed &amp; Log</button>
+      <button class="today-btn" id="customPlanCompleteLogBtn" style="width:100%;margin-top:12px;padding:11px 0;">✅ Routine Completed &amp; Log</button>
       <div class="note" id="customPlanLoggedNote" style="margin-top:6px;"></div>
     </section>
 
@@ -1139,7 +1134,7 @@
     <div id="wpCustomMode" style="display:none;">
       <label style="font-size:11px;color:var(--ink-soft);">Plan name (max 10 characters, shown on the weekly calendar)</label>
       <input type="text" id="wpCustomName" maxlength="10" placeholder="e.g. MyPlan" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;margin-bottom:12px;">
-      <div class="note" style="margin-bottom:10px;">Pick a Workout Plan for each day — build new ones first via <b>Edit Workout Plan</b> on the Train tab if you don't see what you need yet.</div>
+      <div class="note" style="margin-bottom:10px;">Pick a Workout Routine for each day — build new ones first via <b>Workout Routines</b> on the Train tab if you don't see what you need yet.</div>
       <div id="wpCustomDays"></div>
       <button class="timer-btn start" id="wpCustomSaveBtn" type="button" style="width:100%;margin-top:14px;">Save custom plan</button>
     </div>
@@ -1156,11 +1151,11 @@
 <div id="workoutPlanLibraryScreen" class="fullscreen-modal" style="display:none;">
   <div class="fullscreen-modal-header">
     <button type="button" id="workoutPlanLibraryClose" class="modal-close-btn">✕</button>
-    <div class="fullscreen-modal-title">Workout Plans</div>
+    <div class="fullscreen-modal-title">Workout Routines</div>
     <div style="width:32px;"></div>
   </div>
   <div class="fullscreen-modal-body">
-    <div class="note" style="margin-bottom:10px;">A Workout Plan is one full session — its exercises/activities and targets. Presets can't be edited; Custom plans are yours to build and change.</div>
+    <div class="note" style="margin-bottom:10px;">A Workout Routine is one full session — its exercises/activities and targets. Presets can't be edited; Custom routines are yours to build and change.</div>
     <div style="display:flex;gap:8px;margin-bottom:12px;">
       <select id="wplSelect" style="flex:1;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:13.5px;"></select>
       <button type="button" id="wplNewBtn" class="timer-btn start" style="width:auto;padding-inline:14px;">+ New</button>
@@ -1168,14 +1163,14 @@
     <div id="wplDetail"></div>
 
     <div id="wplBuilder" style="display:none;margin-top:14px;padding-top:14px;border-top:1px solid var(--line);">
-      <label style="font-size:11px;color:var(--ink-soft);">Plan name</label>
+      <label style="font-size:11px;color:var(--ink-soft);">Routine name</label>
       <input type="text" id="wplBuilderName" maxlength="40" placeholder="e.g. Upper Body Blast" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;margin-bottom:10px;">
       <div id="wplBuilderItems"></div>
       <label style="font-size:11px;color:var(--ink-soft);display:block;margin-top:8px;">Search library to add exercises/activities</label>
       <input type="text" id="wplBuilderSearch" placeholder="e.g. squat, running, pickleball…" autocomplete="off" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:13px;margin-top:2px;">
       <div id="wplBuilderResults"></div>
       <div style="display:flex;gap:8px;margin-top:12px;">
-        <button type="button" id="wplBuilderSaveBtn" class="timer-btn start" style="flex:1;">Save workout plan</button>
+        <button type="button" id="wplBuilderSaveBtn" class="timer-btn start" style="flex:1;">Save workout routine</button>
         <button type="button" id="wplBuilderCancelBtn" class="timer-btn reset" style="flex:1;">Cancel</button>
       </div>
     </div>

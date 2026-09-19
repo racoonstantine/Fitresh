@@ -134,7 +134,8 @@ async function renderTodayGlance(){
   // all, so gating on that alone left them stuck showing "not done" even
   // after logging a custom plan or manual exercise.
   const exerciseDone = realLoggedToday.length > 0;
-  const planLabel = scheduledPlanToday ? scheduledPlanToday.name : (loggedToday.length ? loggedToday[0].label : 'Rest day');
+  const todayPlanState = dayPlanState(today);
+  const planLabel = scheduledPlanToday ? scheduledPlanToday.name : (loggedToday.length ? loggedToday[0].label : todayPlanState.label);
 
   const caloriesBurned = historyLog.filter(e => e.date === today)
     .reduce((sum,e)=> sum + (e.stats && e.stats.calories ? parseNum(e.stats.calories) || 0 : 0), 0);
@@ -193,12 +194,10 @@ async function renderTodayGlance(){
     const valEl = document.getElementById('glanceFastValue');
     const barEl = document.getElementById('glanceFastBar');
     const subEl = document.getElementById('glanceFastSub');
-    const feedValEl = document.getElementById('todayLogFastValue');
     if(!valEl) return;
     const lastFast = nutriEntry && nutriEntry.fastHours ? parseNum(nutriEntry.fastHours) : null;
     const info = fastingSummaryText(lastFast);
     valEl.textContent = info.value;
-    if(feedValEl) feedValEl.textContent = info.value;
     barEl.style.width = info.pct + '%';
     subEl.textContent = info.sub;
   };
@@ -227,7 +226,7 @@ async function renderTodayGlance(){
             <div class="glance-card-sub">${exerciseDone ? 'Completed' : 'Not done yet'}</div>
           </div>
         </div>
-      ` : `<div class="glance-card-sub" style="padding:10px 0;">Rest day — nothing planned.</div>`}
+      ` : `<div class="glance-card-sub" style="padding:10px 0;">${foodSearchEscape(todayPlanState.state === 'rest' ? 'Rest day.' : (todayPlanState.state === 'other' ? todayPlanState.label : 'Open — nothing planned.'))}</div>`}
     </div>
     <div class="glance-card" data-nav-view="train" style="align-items:center;cursor:pointer;">
       <div class="glance-card-label" style="align-self:flex-start;">\u{1F525} Calories Burned</div>
@@ -282,28 +281,6 @@ async function renderTodayGlance(){
     viewDetailsLink._wired = true;
     viewDetailsLink.addEventListener('click', (e)=>{ e.preventDefault(); window.showView('insights'); });
   }
-
-  const feedEl = document.getElementById('todayLogFeed');
-  const todaysWeighIn = weighIns.find(w => w.date === today);
-  const mealItemCount = (dayRes.entries || []).reduce((sum,e)=> sum + e.components.length, 0) + (nutriEntry && nutriEntry.meal ? 1 : 0);
-  const rows = [
-    {icon: '\u{1F37D}', title: 'Food', sub: mealItemCount ? `${mealItemCount} item${mealItemCount===1?'':'s'} logged` : 'Not logged yet', value: hasFoodToday ? `${fmtNum(combined.calories)} kcal` : '—'},
-    {icon: '\u{1F4A7}', title: 'Water', sub: waterMl ? `${waterMl}ml logged` : 'Not logged yet', value: `${fmtL(waterMl)} L`},
-    {icon: '\u{1F4CB}', title: 'Weight', sub: todaysWeighIn ? 'Logged' : 'Not logged today', value: todaysWeighIn ? formatWeightKg(todaysWeighIn.kg) : '—'},
-    {icon: '\u{1F3C3}', title: 'Workout', sub: loggedToday.length ? `${planLabel} — ${loggedToday.length} logged` : (scheduledPlanToday ? planLabel : 'Rest day'), value: scheduledPlanToday ? (exerciseDone ? 'Completed' : 'Not done') : (loggedToday.length ? 'Logged' : '—')},
-    {icon: '⏱', title: 'Fasting', sub: fastingState.startIso ? 'In progress' : (nutriEntry && nutriEntry.fastHours ? 'Logged' : 'Not started'), value: '', liveId: 'todayLogFastValue'},
-    {icon: '\u{1F634}', title: 'Sleep', sub: sleepEntry ? (sleepEntry.startIso && sleepEntry.endIso ? `${fmtClock(sleepEntry.startIso)} – ${fmtClock(sleepEntry.endIso)}` : 'Logged') : 'Not logged yet', value: sleepEntry ? formatSleepHours(sleepEntry.hours) : '—'}
-  ];
-  feedEl.innerHTML = rows.map(r => `
-    <div class="today-log-row">
-      <div class="today-log-icon">${r.icon}</div>
-      <div style="flex:1;">
-        <div class="today-log-title">${r.title}</div>
-        <div class="today-log-sub">${r.sub}</div>
-      </div>
-      <div class="today-log-value" ${r.liveId ? `id="${r.liveId}"` : ''}>${r.value}</div>
-    </div>
-  `).join('');
 
   updateGlanceFast();
   if(fastingState.startIso){

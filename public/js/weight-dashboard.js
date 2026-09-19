@@ -142,8 +142,13 @@ function renderDashboard(){
     const dayCal = dayEntries.reduce((sum,e)=> sum + (e.stats && e.stats.calories ? parseNum(e.stats.calories)||0 : 0), 0);
     const hrList = dayEntries.filter(e=>e.stats && e.stats.hr).map(e=>parseNum(e.stats.hr));
     const dayAvgHR = hrList.length ? Math.round(hrList.reduce((a,b)=>a+b,0)/hrList.length) : null;
-    const status = realSessions.length ? 'Done' : (scheduledPlan ? 'Missed' : 'Rest day');
-    const statusColor = realSessions.length ? 'var(--forest-dark)' : (scheduledPlan ? '#B4472A' : 'var(--ink-soft)');
+    const dayState = dayPlanState(dashSelectedDate);
+    const isPastDay = dashSelectedDate < todayStr;
+    // Only a past planned day is "Missed"; today/future is still "Planned".
+    const status = realSessions.length ? 'Done'
+      : (dayState.state === 'planned' ? (isPastDay ? 'Missed' : 'Planned')
+      : (dayState.state === 'rest' ? 'Rest day' : (dayState.state === 'other' ? dayState.label : 'Open')));
+    const statusColor = realSessions.length ? 'var(--forest-dark)' : (dayState.state === 'planned' && isPastDay ? '#B4472A' : 'var(--ink-soft)');
     const distList = dayEntries.filter(e=>e.stats && e.stats.distance).map(e=>parseNum(e.stats.distance)||0);
     const dayDistance = distList.length ? distList.reduce((a,b)=>a+b,0) : null;
     const recoveryList = dayEntries.filter(e=>e.stats && e.stats.recoveryHr).map(e=>parseNum(e.stats.recoveryHr)||0);
@@ -187,7 +192,7 @@ function renderDashboard(){
     } else {
       detailEl.innerHTML = scheduledPlan
         ? `<div class="dash-empty">No session logged for this day (${foodSearchEscape(scheduledPlan.name)} was planned).</div>`
-        : `<div class="dash-empty">Rest day, nothing planned.</div>`;
+        : `<div class="dash-empty">${foodSearchEscape(dayState.state === 'rest' ? 'Rest day.' : (dayState.state === 'other' ? dayState.label : 'Open — nothing planned.'))}</div>`;
     }
 
     document.getElementById('weightProgress').innerHTML = '';

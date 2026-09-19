@@ -115,7 +115,7 @@ const tabLabels = {A:'Strength A', B:'Strength B', steady:'Cardio Steady', inter
 // ============================================================================
 // Entity model, three levels (per the app's own definitions):
 //   Exercise/Activity -- a single movement (the 32-item library, unchanged).
-//   Workout Plan      -- one training session: one or more exercises/
+//   Workout Routine      -- one training session: one or more exercises/
 //                         activities with their sets/reps/target. Presets
 //                         reuse the existing Strength A/B + Cardio Steady/
 //                         Interval content untouched and aren't editable;
@@ -128,7 +128,7 @@ const tabLabels = {A:'Strength A', B:'Strength B', steady:'Cardio Steady', inter
 // Training Program (multi-week phases) is a future addition, not built yet.
 // ============================================================================
 
-// ---- Workout Plan (session-level) ----
+// ---- Workout Routine (session-level) ----
 const WORKOUT_PLAN_PRESETS = {
   strengthA: {id: 'strengthA', name: 'Strength A', kind: 'legacy', legacyKey: 'A'},
   strengthB: {id: 'strengthB', name: 'Strength B', kind: 'legacy', legacyKey: 'B'},
@@ -157,7 +157,7 @@ function allWorkoutPlans(){
 // ---- Training Plan (weekly schedule) ----
 // days[] indexed like Date.getDay() (0=Sun..6=Sat), matching weekPlan's order.
 // dayEntry is one of:
-//   {type:'workoutPlan', planId}  -- references a Workout Plan (preset or custom).
+//   {type:'workoutPlan', planId}  -- references a Workout Routine (preset or custom).
 //   {type:'rest'} | {type:'other', note:string} | null (nothing set)
 // overrides{'YYYY-MM-DD': dayEntry} corrects a single date without touching
 // the recurring weekly pattern (e.g. "planned Rest, actually did Strength B").
@@ -221,13 +221,30 @@ function planDayFor(dayIdx, dStr){
   const plan = getWorkoutPlan(entry.planId);
   return (plan && plan.kind === 'legacy') ? plan.legacyKey : null;
 }
-// Same lookup as planDayFor, but returns the scheduled Workout Plan itself
+// Same lookup as planDayFor, but returns the scheduled Workout Routine itself
 // (legacy or custom) rather than only a legacy key -- used wherever the
 // dashboard needs to say what's planned regardless of plan kind.
 function scheduledPlanFor(dayIdx, dStr){
   const entry = effectiveDayEntry(dStr, dayIdx);
   if(!entry || entry.type !== 'workoutPlan') return null;
   return getWorkoutPlan(entry.planId);
+}
+
+// What the training plan says about a date, for the Today tile, the Train
+// dashboard and headings. 'planned' = a Workout Routine is scheduled;
+// 'rest' = an explicit Rest day (scheduled, overridden, or logged as Rest);
+// 'other' = a custom note; 'open' = nothing planned (Open mode, or a weekday
+// left unset) -- the same thing the weekly calendar labels "Open".
+function dayPlanState(dStr){
+  const idx = new Date(dStr + 'T00:00:00').getDay();
+  const plan = scheduledPlanFor(idx, dStr);
+  if(plan) return {state: 'planned', plan, label: plan.name};
+  const entry = effectiveDayEntry(dStr, idx);
+  if((entry && entry.type === 'rest') || historyLog.some(e => e.date === dStr && e.day === 'rest')){
+    return {state: 'rest', plan: null, label: 'Rest day'};
+  }
+  if(entry && entry.type === 'other') return {state: 'other', plan: null, label: entry.note || 'Other'};
+  return {state: 'open', plan: null, label: 'Open — nothing planned'};
 }
 
 function toLocalDateStr(d){
