@@ -91,6 +91,9 @@ async function startApp(){
     if(view !== 'train'){
       collapseLogSessionPanel();
     }
+    // Leaving the Food tab drops any half-finished search so it isn't still
+    // open (with stale results) when the user comes back.
+    if(view !== 'food') clearFoodSearch(true);
     if(view === 'body'){ renderBodyPlaceholders(); renderBodySleepCard(); renderWeightSection(); }
     if(view === 'train'){ renderDashboard(); renderTodaysSession(); }
     if(view === 'insights'){ renderInsights(); renderSummary(); }

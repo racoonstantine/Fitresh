@@ -191,23 +191,52 @@ function scaledFoodMacros(r, amount){
   const canonical = r.canonical_amount || 100;
   const factor = canonical > 0 ? amount / canonical : 0;
   const n = r.nutrients || {};
+  // Sodium/fiber/cholesterol can be genuinely unknown (null) -- keep that
+  // distinct from a real zero instead of coercing it to 0.
+  const optional = (code, digits) => (n[code] === null || n[code] === undefined) ? null : +((n[code] * factor).toFixed(digits));
   return {
     kcal: Math.round((n.ENERC_KCAL || 0) * factor),
     protein: +(((n.PROCNT || 0) * factor).toFixed(1)),
     fat: +(((n.FAT || 0) * factor).toFixed(1)),
-    carbs: +(((n.CHOCDF || 0) * factor).toFixed(1))
+    carbs: +(((n.CHOCDF || 0) * factor).toFixed(1)),
+    sodium: optional('NA', 0),
+    fiber: optional('FIBTG', 1),
+    cholesterol: optional('CHOLE', 0)
   };
 }
 function macroPreviewText(r, amount){
   const m = scaledFoodMacros(r, amount);
-  return `${m.kcal} kcal · ${m.protein}g protein · ${m.fat}g fat · ${m.carbs}g carbs`;
+  const extra = (value, unit, label) => value === null ? `${label} n/a` : `${value}${unit} ${label}`;
+  return `${m.kcal} kcal · ${m.protein}g protein · ${m.fat}g fat · ${m.carbs}g carbs`
+    + ` · ${extra(m.sodium, 'mg', 'sodium')} · ${extra(m.fiber, 'g', 'fiber')} · ${extra(m.cholesterol, 'mg', 'cholesterol')}`;
+}
+
+// Shared "close search results" bar shown above any non-empty result list.
+function foodSearchCloseBar(){
+  return '<div style="display:flex;justify-content:flex-end;margin:2px 0 4px;">'
+    + '<button type="button" class="timer-btn food-search-close" aria-label="Close search results" title="Close search results" style="width:auto;flex:0 0 auto;padding:4px 10px;">✕ Close</button></div>';
+}
+
+// Empties the Food tab search: cancels any in-flight lookup, clears the
+// results, status line and (optionally) the typed query.
+function clearFoodSearch(clearInput){
+  ++foodSearchGeneration;
+  foodSearchResultsCache = [];
+  const resultsEl = document.getElementById('foodSearchResults');
+  const statusEl = document.getElementById('foodSearchStatus');
+  if(resultsEl) resultsEl.innerHTML = '';
+  if(statusEl) statusEl.style.display = 'none';
+  if(clearInput){
+    const input = document.getElementById('foodSearchInput');
+    if(input) input.value = '';
+  }
 }
 
 function renderFoodSearchResults(){
   const resultsEl = document.getElementById('foodSearchResults');
   if(!resultsEl) return;
   if(!foodSearchResultsCache.length){ resultsEl.innerHTML = ''; return; }
-  resultsEl.innerHTML = foodSearchResultsCache.map((r, i) => {
+  resultsEl.innerHTML = foodSearchCloseBar() + foodSearchResultsCache.map((r, i) => {
     const canonicalAmount = r.canonical_amount || 100;
     const canonicalUnit = r.canonical_unit || 'g';
     const hasNutrients = r.nutrients && r.nutrients.ENERC_KCAL !== undefined && r.nutrients.ENERC_KCAL !== null;

@@ -39,6 +39,7 @@
     searchFoodsCombined(query);
   });
   document.getElementById('foodSearchResults').addEventListener('click', async (e)=>{
+    if(e.target.closest('.food-search-close')){ clearFoodSearch(false); return; }
     const copyBtn=e.target.closest('[data-personal-copy]');
     if(copyBtn){e.stopPropagation();window.personalFoods.openCopy(foodSearchResultsCache[Number(copyBtn.dataset.personalCopy)]);return;}
     const cancelBtn = e.target.closest('.food-log-cancel');
@@ -229,7 +230,7 @@
   function renderLmSearchResults(){
     const resultsEl = document.getElementById('lmSearchResults');
     if(!lmSearchResultsCache.length){ resultsEl.innerHTML = ''; return; }
-    resultsEl.innerHTML = lmSearchResultsCache.map((r, i) => {
+    resultsEl.innerHTML = foodSearchCloseBar() + lmSearchResultsCache.map((r, i) => {
       const canonicalAmount = r.canonical_amount || 100;
       const canonicalUnit = r.canonical_unit || 'g';
       const hasNutrients = r.nutrients && r.nutrients.ENERC_KCAL !== undefined && r.nutrients.ENERC_KCAL !== null;
@@ -271,6 +272,13 @@
     if(row) updateFoodMeasurement(row, panel);
   }));
   document.getElementById('lmSearchResults').addEventListener('click', async (e)=>{
+    if(e.target.closest('.food-search-close')){
+      ++lmSearchGeneration;
+      lmSearchResultsCache = [];
+      document.getElementById('lmSearchResults').innerHTML = '';
+      document.getElementById('lmSearchStatus').style.display = 'none';
+      return;
+    }
     const copyBtn=e.target.closest('[data-personal-copy]');
     if(copyBtn){e.stopPropagation();window.personalFoods.openCopy(lmSearchResultsCache[Number(copyBtn.dataset.personalCopy)]);return;}
     const addBtn = e.target.closest('.lm-add-search-item');
