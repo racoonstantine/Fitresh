@@ -172,6 +172,24 @@ function renderAccountSettings(){
 // authorization boundary is server-side in api/admin.php, which re-checks
 // the caller's own email fresh from the DB on every request. This UI gate
 // is just so non-admin accounts don't see a tab that would 403 anyway.
+// Filters the admin table rows by name, username or email as you type.
+function applyAdminFilter(){
+  const input = document.getElementById('adminFilter');
+  const q = input ? input.value.trim().toLowerCase() : '';
+  const rows = document.querySelectorAll('#adminUserList [data-admin-row]');
+  let shown = 0;
+  rows.forEach(row => {
+    const match = !q || row.dataset.adminRow.includes(q);
+    row.style.display = match ? '' : 'none';
+    if(match) shown++;
+  });
+  const statusEl = document.getElementById('adminStatus');
+  if(statusEl && rows.length){
+    statusEl.textContent = q ? `${shown} of ${rows.length} account${rows.length === 1 ? '' : 's'}.` : `${rows.length} account${rows.length === 1 ? '' : 's'}.`;
+  }
+}
+document.getElementById('adminFilter').addEventListener('input', applyAdminFilter);
+
 async function renderAdminPanel(){
   const statusEl = document.getElementById('adminStatus');
   const listEl = document.getElementById('adminUserList');
@@ -181,20 +199,26 @@ async function renderAdminPanel(){
     const {ok, data} = await safeFetchJson('api/admin.php?action=overview', {credentials: 'same-origin'});
     if(!ok || data.error) throw new Error(data.error || 'Could not load the user list.');
     statusEl.textContent = `${data.users.length} account${data.users.length === 1 ? '' : 's'}.`;
+    document.getElementById('adminFilter').value = '';
     const statusLabel = {approved: 'Approved', pending: 'Pending', rejected: 'Rejected'};
-    listEl.innerHTML = data.users.map(u => `
-      <div class="hub-card" style="margin-top:10px;">
-        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px;">
-          <div style="min-width:0;">
-            <div style="font-weight:600;font-size:13.5px;">${foodSearchEscape(u.display_name)} ${u.username ? `<span style="color:var(--ink-soft);font-weight:400;">@${foodSearchEscape(u.username)}</span>` : ''}</div>
-            <div style="font-size:12px;color:var(--ink-soft);margin-top:2px;">${foodSearchEscape(u.email)}</div>
-          </div>
-          <span class="tag ${u.status === 'approved' ? 'tag-accent-2' : 'tag-accent'}" style="flex-shrink:0;">${statusLabel[u.status] || u.status}</span>
-        </div>
-        <div style="font-size:11.5px;color:var(--ink-soft);margin-top:8px;">Signed up ${formatDateLabel(String(u.created_at).slice(0,10))} · ${u.days_logged} day${u.days_logged === 1 ? '' : 's'} logged</div>
-        <button type="button" class="timer-btn reset" data-admin-reset="${u.id}" data-admin-email="${foodSearchEscape(u.email)}" style="width:100%;margin-top:10px;padding:7px 0;font-size:12.5px;">Reset password</button>
-      </div>
-    `).join('');
+    const shortDate = iso => { const d = new Date(String(iso).slice(0, 10) + 'T00:00:00'); return isNaN(d) ? '—' : d.toLocaleDateString('en-GB', {day: 'numeric', month: 'short', year: '2-digit'}); };
+    // A compact table: one line per account instead of a card each.
+    listEl.innerHTML = `
+      <div class="admin-table-wrap">
+        <table class="admin-table">
+          <thead><tr><th>User</th><th>Status</th><th>Joined</th><th class="num">Days</th><th></th></tr></thead>
+          <tbody>${data.users.map(u => `
+            <tr data-admin-row="${foodSearchEscape((u.display_name + ' ' + (u.username || '') + ' ' + u.email).toLowerCase())}">
+              <td><div class="ad-name">${foodSearchEscape(u.display_name)}${u.username ? ` <span>@${foodSearchEscape(u.username)}</span>` : ''}</div><div class="ad-email">${foodSearchEscape(u.email)}</div></td>
+              <td><span class="ad-status ad-status-${foodSearchEscape(u.status)}">${statusLabel[u.status] || foodSearchEscape(u.status)}</span></td>
+              <td class="nowrap">${shortDate(u.created_at)}</td>
+              <td class="num">${u.days_logged}</td>
+              <td class="act"><button type="button" class="ad-btn" data-admin-reset="${u.id}" data-admin-email="${foodSearchEscape(u.email)}" title="Reset password for ${foodSearchEscape(u.email)}">Reset</button></td>
+            </tr>`).join('')}
+          </tbody>
+        </table>
+      </div>`;
+    applyAdminFilter();
   }catch(err){
     statusEl.textContent = err.message || 'Could not load the user list.';
   }
@@ -206,7 +230,7 @@ document.getElementById('adminUserList').addEventListener('click', async (e)=>{
   const email = btn.dataset.adminEmail;
   if(!confirm(`Reset the password for ${email}? This immediately invalidates their current password.`)) return;
   btn.disabled = true;
-  btn.textContent = 'Resetting…';
+  btn.textContent = '…';
   try{
     const {ok, data} = await safeFetchJson('api/admin.php?action=reset_password', {
       method: 'POST', credentials: 'same-origin', headers: {'Content-Type': 'application/json'},
@@ -218,7 +242,7 @@ document.getElementById('adminUserList').addEventListener('click', async (e)=>{
     alert(err.message || 'Could not reset this password.');
   }finally{
     btn.disabled = false;
-    btn.textContent = 'Reset password';
+    btn.textContent = 'Reset';
   }
 });
 

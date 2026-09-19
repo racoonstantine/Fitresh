@@ -35,7 +35,7 @@ async function renderTodayMeals(){
             <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;">
               <div style="display:flex;align-items:center;gap:8px;min-width:0;">
                 <span style="color:var(--ink-soft);">${renderFoodIconSvg(getFoodIcon({name: c.name}), 18)}</span>
-                <div style="font-size:13px;min-width:0;">${foodSearchEscape(c.name)} <span style="color:var(--ink-soft);font-size:11.5px;">(${foodSearchEscape(c.amount)}${foodSearchEscape(c.unit)})</span></div>
+                <div style="font-size:13px;min-width:0;">${foodSearchEscape(c.name)}${foodOriginTagHtml(c.food_source)} <span style="color:var(--ink-soft);font-size:11.5px;">(${foodSearchEscape(c.amount)}${foodSearchEscape(c.unit)})</span></div>
               </div>
               <div style="display:flex;align-items:center;gap:8px;flex-shrink:0;">
                 <span style="font-size:12.5px;color:var(--ink-soft);">${fmtNum(c.nutrients.ENERC_KCAL || 0)} kcal</span>

@@ -78,6 +78,7 @@ async function call(base, path, { method = 'GET', body, headers = {}, as } = {})
     const day = await call(b, `/api/meals.php?action=day&date=${today}`);
     assert.strictEqual(day.json.entries.length, 1, 'two logs under one meal type should group');
     assert.strictEqual(day.json.entries[0].components.length, 2);
+    assert.strictEqual(day.json.entries[0].components[0].food_source, 'catalog', 'logged components report how the food was made');
     assert.ok(day.json.totals.ENERC_KCAL > 0);
     const range = await call(b, `/api/meals.php?action=range_totals&start=${today}&end=${today}`);
     assert.strictEqual(range.status, 200);

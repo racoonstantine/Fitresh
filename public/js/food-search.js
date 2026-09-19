@@ -6,6 +6,7 @@
 // measure-picker/confirm/save logic instead of a separate code path.
 let recentFoods = [];
 let favoriteFoods = [];
+let foodFavorites = null; // the Food tab's Favorites dropdown controller (see foodlog.js)
 async function loadRecentFoods(){
   try{
     const res = await window.storage.get(STORAGE_PREFIX + 'recentFoods', false);
@@ -30,7 +31,8 @@ function foodSnapshot(row, foodId){
     canonical_unit: row.canonical_unit || 'g', canonical_amount: row.canonical_amount || 100,
     personal_food: row.personal_food || null, label: row.label || null,
     confidence: row.confidence || null, estimate: row.estimate || null,
-    nutrients: row.nutrients || {}, portions: row.portions || [], _origin: 'library'
+    nutrients: row.nutrients || {}, portions: row.portions || [], _origin: 'library',
+    source: row.source || null
   };
 }
 function recordRecentFood(row, foodId){
@@ -66,7 +68,7 @@ function renderRecentFavorites(kind){
         <div class="recent-food-chip" data-idx="${i}" style="flex:0 0 auto;display:flex;align-items:center;gap:6px;padding:6px 10px;border:1px solid var(--line);border-radius:20px;background:var(--paper-raised);font-size:12px;white-space:nowrap;cursor:pointer;">
           <span style="color:var(--ink-soft);">${renderFoodIconSvg(getFoodIcon(f), 16)}</span>
           <span class="recent-food-star" data-idx="${i}" style="cursor:pointer;color:${isFavoriteFood(f.id) ? 'var(--ochre)' : 'var(--ink-soft)'};">${isFavoriteFood(f.id) ? '★' : '☆'}</span>
-          <span class="recent-food-name" data-idx="${i}">${foodSearchEscape(foodDisplayName(f))}</span>
+          <span class="recent-food-name" data-idx="${i}">${foodSearchEscape(foodDisplayName(f))}</span>${foodOriginTagHtml(f.source)}
         </div>
       `).join('')}
     </div>
@@ -94,32 +96,152 @@ function renderRecentFavorites(kind){
   });
 }
 
-// The Favorites view: starred foods first, then the user's own foods grouped by
-// how they were made (label-entered "custom", manual entry, AI assist). Each row
-// carries a _group label; the result renderers print a heading when it changes.
+// Small tag on foods the user made themselves: manual entries read "My Entry",
+// AI-assist entries read "AI Assist" (older manual foods were saved as 'custom').
+function foodOriginTagHtml(source){
+  if(source === 'ai') return ' <span class="food-tag food-tag-ai">AI Assist</span>';
+  if(source === 'manual' || source === 'custom') return ' <span class="food-tag food-tag-mine">My Entry</span>';
+  return '';
+}
+const FOOD_COPY_ICON = '<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg>';
+
+// One search/favorites result row, shared by the Food tab and the Log Meal page.
+// subHtml: the small lines under the name; actionsHtml: the buttons under the
+// amount panel (Save/Cancel on the Food tab, "+ Add to meal" on Log Meal).
+function foodResultRowHtml(r, i, {surface, heading, subHtml, actionsHtml}){
+  const canonicalAmount = r.canonical_amount || 100;
+  const name = foodSearchEscape(foodDisplayName(r));
+  return `
+    ${heading || ''}<div class="food-result-row" data-idx="${i}">
+      <div class="frr-main">
+        <span class="frr-icon">${renderFoodIconSvg(getFoodIcon(r), 20)}</span>
+        <div class="frr-text">
+          <div class="frr-name">${name}${foodOriginTagHtml(r.source)}</div>
+          ${subHtml}
+          ${r.confidence ? `<div class="frr-sub" title="${foodSearchEscape(r.confidence.reason)}">${foodSearchEscape(r.confidence.level)} confidence</div>` : ''}
+          ${r.estimate ? `<details onclick="event.stopPropagation()"><summary>Estimate assumptions and limitations</summary><p style="font-size:12px;">${foodSearchEscape(r.estimate.assumptions)}</p><p style="font-size:12px;">${foodSearchEscape(r.estimate.limitations)}</p></details>` : ''}
+        </div>
+        <button type="button" class="food-copy-btn" data-personal-copy="${i}" data-personal-surface="${surface}" title="Save a personal copy" aria-label="Save a personal copy of ${name}">${FOOD_COPY_ICON}</button>
+        <svg class="frr-chevron" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg>
+      </div>
+      <div class="food-result-amount" data-idx="${i}" style="display:none;margin-top:10px;">
+        ${foodAmountRowHtml(r, i, canonicalAmount)}
+        <div class="food-macro-preview" data-idx="${i}">${macroPreviewText(r, canonicalAmount)}</div>
+        ${actionsHtml}
+      </div>
+    </div>`;
+}
+
+// ---- Favorites view ----
+// Starred foods first, then the user's own foods grouped by how they were made.
+// Each row carries a _group label; the renderers print a heading when it changes.
+const FAVORITE_GROUPS = {
+  fav: '⭐ Favorites',
+  personal: '🛠️ Custom foods',
+  manual: '✍️ My entries',
+  ai: '🤖 AI Assist entries'
+};
+const FAVORITE_GROUP_TONE = Object.fromEntries(Object.entries(FAVORITE_GROUPS).map(([tone, label]) => [label, tone]));
 async function loadFavoritesView(){
   let groups = {};
   try{
     const res = await fetch('api/foods.php?action=my_foods', {credentials: 'same-origin'});
     if(res.ok) groups = (await res.json()).groups || {};
   }catch(e){}
+  // Chips saved before foods were tagged have no source yet: fill it in from
+  // what the server knows, so they get their My Entry / AI Assist tag too.
+  const sourceById = new Map();
+  for(const list of Object.values(groups)) for(const f of (list || [])) sourceById.set(f.id, f.source);
+  let patched = false;
+  for(const list of [favoriteFoods, recentFoods]){
+    for(const f of list){
+      if(!f.source && sourceById.has(f.id)){ f.source = sourceById.get(f.id); patched = true; }
+    }
+  }
+  if(patched){ saveFavoriteFoods(); saveRecentFoods(); renderRecentFavorites('food'); renderRecentFavorites('lm'); }
+
   const seen = new Set();
   const out = [];
   const add = (list, label) => (list || []).forEach(f => {
     if(f.id !== undefined && f.id !== null){ if(seen.has(f.id)) return; seen.add(f.id); }
     out.push({...f, _origin: 'library', _group: label});
   });
-  add(favoriteFoods, '⭐ Favorites');
-  add((groups.personal || []).filter(hasUsableNutrients), '🛠️ Custom foods');
-  add((groups.manual || []).filter(hasUsableNutrients), '✍️ Manual entries');
-  add((groups.ai || []).filter(hasUsableNutrients), '🤖 AI assist entries');
+  add(favoriteFoods, FAVORITE_GROUPS.fav);
+  add((groups.personal || []).filter(hasUsableNutrients), FAVORITE_GROUPS.personal);
+  add((groups.manual || []).filter(hasUsableNutrients), FAVORITE_GROUPS.manual);
+  add((groups.ai || []).filter(hasUsableNutrients), FAVORITE_GROUPS.ai);
   return out;
 }
 function foodGroupHeadingHtml(label){
-  return `<div class="food-group-heading">${foodSearchEscape(label)}</div>`;
+  const tone = FAVORITE_GROUP_TONE[label] || 'fav';
+  return `<div class="food-group-heading" data-tone="${tone}"><span>${foodSearchEscape(label)}</span></div>`;
 }
 const FAVORITES_EMPTY_TEXT = 'Nothing here yet — ⭐ a food, or add one with Manual Log or AI Assist and it will show up here.';
 const FAVORITES_HINT_TEXT = 'Your favorites and saved foods — tap one to log it.';
+const FAVORITES_PAGE = 5;
+
+// Drives one Favorites dropdown (Food tab or Log Meal): loads the list, keeps a
+// filter box, shows the first 5 with "Show more", and puts the thin coloured
+// frame around the panel while it is open. cfg supplies the surface's elements
+// and its private cache/render hooks.
+function createFavoritesController(cfg){
+  let all = [], expanded = false;
+  const el = id => document.getElementById(id);
+  const filtered = () => {
+    const q = el(cfg.filterId).value.trim().toLowerCase();
+    return q ? all.filter(r => (foodDisplayName(r) + ' ' + (r.brand || '')).toLowerCase().includes(q)) : all;
+  };
+  function apply(){
+    const list = filtered();
+    const shown = expanded ? list : list.slice(0, FAVORITES_PAGE);
+    cfg.setCache(shown);
+    cfg.render();
+    const results = el(cfg.resultsId);
+    const hidden = list.length - shown.length;
+    if(!list.length){
+      results.insertAdjacentHTML('beforeend', `<div class="fav-empty">${el(cfg.filterId).value.trim() ? 'No matches — try another word.' : ''}</div>`);
+    } else if(hidden > 0 || (expanded && list.length > FAVORITES_PAGE)){
+      results.insertAdjacentHTML('beforeend', `<button type="button" class="fav-more-btn" data-fav-more>${expanded ? 'Show less' : `Show more (${hidden} more)`}</button>`);
+    }
+    el(cfg.countId).textContent = `${list.length} item${list.length === 1 ? '' : 's'}`;
+  }
+  function deactivate(){
+    el(cfg.btnId).classList.remove('active');
+    el(cfg.toolsId).style.display = 'none';
+    el(cfg.panelId).classList.remove('fav-active');
+    el(cfg.filterId).value = '';
+    expanded = false;
+  }
+  async function open(){
+    const statusEl = el(cfg.statusId);
+    const generation = cfg.bump();
+    el(cfg.btnId).classList.add('active');
+    el(cfg.panelId).classList.add('fav-active');
+    el(cfg.toolsId).style.display = 'flex';
+    el(cfg.filterId).value = '';
+    expanded = false;
+    cfg.setCache([]);
+    el(cfg.resultsId).innerHTML = '';
+    statusEl.textContent = 'Loading favorites…';
+    statusEl.style.display = 'block';
+    all = await loadFavoritesView();
+    if(generation !== cfg.generation()) return;
+    apply();
+    statusEl.textContent = all.length ? FAVORITES_HINT_TEXT : FAVORITES_EMPTY_TEXT;
+  }
+  function toggle(){
+    if(el(cfg.btnId).classList.contains('active')) cfg.closeAll();
+    else open();
+  }
+  el(cfg.btnId).addEventListener('click', toggle);
+  el(cfg.filterId).addEventListener('input', ()=>{ expanded = false; apply(); });
+  el(cfg.resultsId).addEventListener('click', e => {
+    if(!e.target.closest('[data-fav-more]')) return;
+    expanded = !expanded;
+    apply();
+  });
+  return {open, deactivate, toggle};
+}
 
 // The closing status line for a finished search. Open Food Facts is an outside
 // service: when it is unreachable we say so (instead of silently showing only
@@ -141,8 +263,7 @@ function foodSearchOutcomeHtml({hasResults, offline, suggestionsHtml}){
 
 async function searchFoodsCombined(query){
   const generation = ++foodSearchGeneration;
-  const favBtn = document.getElementById('foodFavBtn');
-  if(favBtn) favBtn.classList.remove('active');
+  if(typeof foodFavorites !== 'undefined' && foodFavorites) foodFavorites.deactivate();
   const statusEl = document.getElementById('foodSearchStatus');
   const resultsEl = document.getElementById('foodSearchResults');
   if(query.trim().length < 2){ foodSearchResultsCache = []; resultsEl.innerHTML = ''; statusEl.style.display = 'none'; return; }
@@ -205,12 +326,15 @@ function foodMeasureOptions(r){
   } else if(base === 'oz') options.push({value:'g',label:'g',factor:1/28.349523125});
   return options;
 }
-function foodMeasureControls(r, i){
-  return `<div style="margin-top:6px;min-width:0;flex:1;">
-    <label>Measure <select class="food-unit-input" data-idx="${i}" aria-label="Food measure" style="max-width:100%;">${foodMeasureOptions(r).map(o=>`<option value="${foodSearchEscape(o.value)}">${foodSearchEscape(o.label)}</option>`).join('')}</select></label>
-    <label class="food-personal-weight" style="display:none;margin-top:6px;">My measured edible grams per piece / ml <input type="text" inputmode="decimal" data-num class="food-weight-input" min="0.000001" step="any" aria-label="Measured grams per piece or ml" style="width:90px;"></label>
-    <div class="food-measure-note" style="font-size:11.5px;color:var(--ink-soft);margin-top:5px;">Saved in ${foodSearchEscape(r.canonical_unit || 'g')}. Use edible weight.</div>
-  </div>`;
+// Amount and Measure sit side by side as two equal-height, labelled fields;
+// the personal-weight field and the "saved in" note run full width beneath.
+function foodAmountRowHtml(r, i, amount){
+  return `<div class="food-amount-row">
+    <label class="fc-field fc-amount"><span>Amount</span><input type="text" inputmode="decimal" data-num min="0.000001" step="any" aria-label="Food amount" class="food-amount-input fc-input" data-idx="${i}" value="${foodSearchEscape(String(amount))}"></label>
+    <label class="fc-field fc-grow"><span>Measure</span><select class="food-unit-input fc-input" data-idx="${i}" aria-label="Food measure">${foodMeasureOptions(r).map(o=>`<option value="${foodSearchEscape(o.value)}">${foodSearchEscape(o.label)}</option>`).join('')}</select></label>
+  </div>
+  <label class="food-personal-weight fc-field" style="display:none;margin-top:8px;"><span>My measured edible grams per piece / ml</span><input type="text" inputmode="decimal" data-num class="food-weight-input fc-input" min="0.000001" step="any" aria-label="Measured grams per piece or ml"></label>
+  <div class="food-measure-note">Saved in ${foodSearchEscape(r.canonical_unit || 'g')}. Use edible weight.</div>`;
 }
 function foodMeasurement(r, panel){
   const amount = Number(panel.querySelector('.food-amount-input').value);
@@ -272,8 +396,7 @@ function foodSearchCloseBar(){
 // results, status line and (optionally) the typed query.
 function clearFoodSearch(clearInput){
   ++foodSearchGeneration;
-  const favBtn = document.getElementById('foodFavBtn');
-  if(favBtn) favBtn.classList.remove('active');
+  if(typeof foodFavorites !== 'undefined' && foodFavorites) foodFavorites.deactivate();
   foodSearchResultsCache = [];
   const resultsEl = document.getElementById('foodSearchResults');
   const statusEl = document.getElementById('foodSearchStatus');
@@ -299,35 +422,14 @@ function renderFoodSearchResults(){
     const sub = hasNutrients
       ? `${r.brand ? r.brand + ' · ' : ''}${Math.round(r.nutrients.ENERC_KCAL)} kcal / ${canonicalAmount}${canonicalUnit}`
       : (r.brand || (r._origin === 'library' ? 'Your library' : 'No calorie data'));
-    return `
-      ${heading}<div class="food-result-row" data-idx="${i}" style="padding:9px 4px;border-bottom:1px solid var(--line);cursor:pointer;">
-        <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;">
-          <div style="display:flex;align-items:center;gap:8px;min-width:0;">
-            <span style="color:var(--ink-soft);flex-shrink:0;">${renderFoodIconSvg(getFoodIcon(r), 20)}</span>
-            <div style="min-width:0;">
-              <div style="font-weight:600;font-size:13.5px;">${foodSearchEscape(foodDisplayName(r))}</div>
-              <div style="font-size:11.5px;color:var(--ink-soft);">${foodSearchEscape(sub)}</div>
-              ${r.label ? `<div style="font-size:11.5px;color:var(--ink-soft);">${foodSearchEscape(r.label)}${r.complete === false ? ' · Some nutrients unavailable' : ''}</div>` : ''}
-              ${r.confidence ? `<div style="font-size:11.5px;color:var(--ink-soft);" title="${foodSearchEscape(r.confidence.reason)}">${foodSearchEscape(r.confidence.level)} confidence</div>` : ''}
-              ${r.estimate ? `<details onclick="event.stopPropagation()"><summary>Estimate assumptions and limitations</summary><p style="font-size:12px;">${foodSearchEscape(r.estimate.assumptions)}</p><p style="font-size:12px;">${foodSearchEscape(r.estimate.limitations)}</p></details>` : ''}
-              <button type="button" class="timer-btn" data-personal-copy="${i}" data-personal-surface="food">Save a personal copy</button>
-            </div>
-          </div>
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" style="width:16px;height:16px;stroke:var(--ink-soft);flex-shrink:0;"><path d="M9 18l6-6-6-6"/></svg>
-        </div>
-        <div class="food-result-amount" data-idx="${i}" style="display:none;margin-top:8px;">
-          <div style="display:flex;gap:8px;align-items:center;">
-            <input type="text" inputmode="decimal" data-num min="0.000001" step="any" aria-label="Food amount" class="food-amount-input" data-idx="${i}" value="${canonicalAmount}" style="width:80px;padding:6px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:13px;">
-            ${foodMeasureControls(r, i)}
-          </div>
-          <div class="food-macro-preview" data-idx="${i}" style="font-size:11.5px;color:var(--ink-soft);margin-top:8px;">${macroPreviewText(r, canonicalAmount)}</div>
-          <div style="display:flex;gap:8px;margin-top:8px;">
-            <button class="timer-btn start food-log-confirm" data-idx="${i}" type="button" style="flex:1;padding:7px 0;">Save</button>
-            <button class="timer-btn reset food-log-cancel" data-idx="${i}" type="button" style="flex:1;padding:7px 0;">Cancel</button>
-          </div>
-        </div>
-      </div>
-    `;
+    return foodResultRowHtml(r, i, {
+      surface: 'food', heading,
+      subHtml: `<div class="frr-sub">${foodSearchEscape(sub)}</div>${r.label ? `<div class="frr-sub">${foodSearchEscape(r.label)}${r.complete === false ? ' · Some nutrients unavailable' : ''}</div>` : ''}`,
+      actionsHtml: `<div class="food-action-row">
+          <button class="timer-btn start food-log-confirm" data-idx="${i}" type="button">Save</button>
+          <button class="timer-btn reset food-log-cancel" data-idx="${i}" type="button">Cancel</button>
+        </div>`
+    });
   }).join('');
 }
 

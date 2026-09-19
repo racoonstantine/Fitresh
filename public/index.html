@@ -275,7 +275,13 @@
           <button type="button" id="foodFavBtn" class="timer-btn fav-toggle" style="flex:0 0 auto;padding:8px 12px;" title="Favorites and saved foods" aria-label="Show favorites and saved foods">⭐</button>
         </div>
         <label style="display:block;font-size:12px;margin-bottom:10px;"><input type="checkbox" id="foodIncludeEstimates" checked> Include estimates · Low confidence, unverified recipes</label>
-        <div id="foodSearchResults"></div>
+        <div id="foodResultsPanel" class="results-panel">
+          <div id="foodFavTools" class="fav-tools" style="display:none;">
+            <input type="search" id="foodFavFilter" placeholder="Filter favorites &amp; saved foods…" aria-label="Filter favorites and saved foods" autocomplete="off">
+            <span id="foodFavCount" class="fav-count"></span>
+          </div>
+          <div id="foodSearchResults"></div>
+        </div>
         <div id="foodSearchStatus" style="font-size:12px;color:var(--ink-soft);display:none;margin-top:4px;"></div>
         <button class="timer-btn reset" id="openManualLogBtn" type="button" style="width:100%;margin-top:10px;">✍️ Manual Log</button>
       </div>
@@ -774,7 +780,10 @@
       <section class="block" style="margin-top:16px;margin-bottom:18px;">
         <div class="block-title">Admin — user base</div>
         <div class="note" style="margin-bottom:10px;">Visible only to the account this is hardcoded to. "Days logged" counts distinct days with at least one search-logged food entry — it undercounts anyone who only ever used manual/quick-log paths.</div>
-        <div id="adminStatus" style="font-size:12px;color:var(--ink-soft);"></div>
+        <div class="admin-toolbar">
+          <input type="search" id="adminFilter" placeholder="Filter by name, username or email…" aria-label="Filter accounts" autocomplete="off">
+          <div id="adminStatus"></div>
+        </div>
         <div id="adminUserList"></div>
       </section>
     </div>
@@ -869,7 +878,13 @@
       </div>
       <label style="display:block;font-size:12px;margin:8px 0;"><input type="checkbox" id="lmIncludeEstimates" checked> Include estimates · Low confidence, unverified recipes</label>
       <div id="lmSearchStatus" style="font-size:12px;color:var(--ink-soft);display:none;margin-top:6px;"></div>
-      <div id="lmSearchResults"></div>
+      <div id="lmResultsPanel" class="results-panel">
+        <div id="lmFavTools" class="fav-tools" style="display:none;">
+          <input type="search" id="lmFavFilter" placeholder="Filter favorites &amp; saved foods…" aria-label="Filter favorites and saved foods" autocomplete="off">
+          <span id="lmFavCount" class="fav-count"></span>
+        </div>
+        <div id="lmSearchResults"></div>
+      </div>
     </div>
 
     <div id="lmAiMode" style="display:none;">

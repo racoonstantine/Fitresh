@@ -8,7 +8,9 @@ assert.equal(ctx.foodDisplayName({name:'Cabbage, green',local_name:'Repolyo, ber
 assert.equal(ctx.foodDisplayName({name:'My food'}),'My food');
 assert.equal(ctx.foodDisplayName({name:'Okra',local_name:'okra'}),'Okra');
 assert.equal(ctx.foodSearchEscape(ctx.foodDisplayName({name:'<img>',local_name:'<script>'})),'&lt;script&gt; · &lt;img&gt;');
-assert.equal((html.match(/foodSearchEscape\(foodDisplayName\(r\)\)/g)||[]).length,2);
+// Both result screens render rows through the one shared, escaping template.
+assert.equal((html.match(/foodSearchEscape\(foodDisplayName\(r\)\)/g)||[]).length,1);
+assert.equal((html.match(/return foodResultRowHtml\(r, i,/g)||[]).length,2);
 const active=JSON.parse(fs.readFileSync('api/catalog-active.json','utf8')).version;
 const before=JSON.parse(fs.readFileSync('api/catalog-history/09af77faeebeea1e07575de4.json','utf8')).foods;
 const after=JSON.parse(fs.readFileSync(`api/catalog-history/${active}.json`,'utf8')).foods;

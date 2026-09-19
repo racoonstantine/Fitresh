@@ -63,11 +63,15 @@ function manualCategoryForCatalog(catalogCategory){
 }
 
 // ---- state shared with the stats form (stats-form.js reads/writes these) ----
+// Whether an option has been picked. Until then the panel shows the four big
+// tiles; once one is picked only it stays (with an X to go back).
+let lspChosen = false;
 let manualExPending = [];
 let manualExChosenActivityId = null;
 let manualExPendingStats = null; // set via the shared AI-assist/watch-stats form; attached on Save session
 
-const LSP_INPUT_STYLE = 'padding:7px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:13px;';
+const LSP_INPUT_STYLE = 'height:40px;box-sizing:border-box;padding:0 10px;border:1px solid var(--line);border-radius:8px;background:var(--paper);color:var(--ink);font-size:13px;font-family:inherit;';
+const LSP_AREA_STYLE = 'padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--paper);color:var(--ink);font-size:13px;font-family:inherit;';
 
 function logSessionPanelHtml(){
   return `
@@ -84,7 +88,7 @@ function logSessionPanelHtml(){
 
       <div id="logSessionRestPanel" style="display:none;margin-bottom:10px;">
         <label style="font-size:11px;color:var(--ink-soft);">Notes (optional)</label>
-        <textarea id="logSessionRestNotes" rows="2" placeholder="e.g. sore legs, taking it easy today" style="width:100%;${LSP_INPUT_STYLE}margin-top:2px;resize:vertical;"></textarea>
+        <textarea id="logSessionRestNotes" rows="2" placeholder="e.g. sore legs, taking it easy today" style="width:100%;${LSP_AREA_STYLE}margin-top:2px;resize:vertical;"></textarea>
         <button class="timer-btn start" id="logSessionRestSaveBtn" type="button" style="width:100%;margin-top:8px;">Save rest day</button>
       </div>
 
@@ -94,10 +98,10 @@ function logSessionPanelHtml(){
             ${Object.entries(MANUAL_CATEGORIES).map(([k, c]) => `<option value="${k}">${c.label}</option>`).join('')}
           </select>
           <input type="text" id="manualExName" aria-label="Activity name" placeholder="Activity name — searches the library" autocomplete="off" style="flex:1;min-width:0;${LSP_INPUT_STYLE}">
-          <button type="button" id="manualExSearchBtn" class="timer-btn" aria-label="Search the library" title="Search the library" style="flex:0 0 auto;width:auto;padding:7px 11px;">🔍</button>
+          <button type="button" id="manualExSearchBtn" class="timer-btn" aria-label="Search the library" title="Search the library" style="flex:0 0 auto;width:auto;height:40px;padding:0 14px;">🔍</button>
         </div>
         <div id="manualExSearchResults" style="margin:6px 0;"></div>
-        <div id="manualExFields" style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px;"></div>
+        <div id="manualExFields" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(112px,1fr));gap:10px;margin-top:10px;"></div>
         <div id="manualExError" class="note" style="display:none;color:#B4472A;margin-top:6px;"></div>
         <button class="timer-btn start" id="manualExAddBtn" type="button" style="width:100%;margin-top:8px;">+ Add exercise</button>
         <div id="manualExPending" style="margin-top:10px;"></div>
@@ -114,18 +118,18 @@ function logSessionPanelHtml(){
           </ol>
         </div>
         <label class="lsp-label" for="aiSessDesc">What did you do?</label>
-        <textarea id="aiSessDesc" rows="3" placeholder="e.g. Strength: squats 3×10 @ 20 kg, rows 3×12 @ 15 kg. 45 min total. Felt strong, knees a bit tight." style="width:100%;${LSP_INPUT_STYLE}margin-top:2px;resize:vertical;"></textarea>
+        <textarea id="aiSessDesc" rows="3" placeholder="e.g. Strength: squats 3×10 @ 20 kg, rows 3×12 @ 15 kg. 45 min total. Felt strong, knees a bit tight." style="width:100%;${LSP_AREA_STYLE}margin-top:2px;resize:vertical;"></textarea>
         <div class="ai-tips">💡 Include the type of workout, sets · reps · weight, duration, and how it felt. For a better estimate, attach a screenshot of your sports-watch summary to your AI chat.</div>
         <button class="timer-btn start" id="aiSessGenerateBtn" type="button" style="width:100%;">✨ Generate prompt</button>
 
         <div id="aiSessPromptWrap" style="display:none;margin-top:12px;">
           <label class="lsp-label" for="aiSessPromptOut">Copy this into your AI chat</label>
-          <textarea id="aiSessPromptOut" rows="7" readonly style="width:100%;${LSP_INPUT_STYLE}background:var(--paper-raised);margin-top:2px;font-size:12px;font-family:monospace;"></textarea>
+          <textarea id="aiSessPromptOut" rows="7" readonly style="width:100%;${LSP_AREA_STYLE}background:var(--paper-raised);margin-top:2px;font-size:12px;font-family:monospace;"></textarea>
           <button type="button" id="aiSessCopyBtn" class="timer-btn" style="width:100%;margin-top:6px;">📋 Copy prompt</button>
           <div id="aiSessCopied" class="note" style="margin-top:6px;"></div>
 
           <label class="lsp-label" for="aiSessReplyIn" style="margin-top:12px;display:block;">Paste the AI's reply here</label>
-          <textarea id="aiSessReplyIn" rows="6" placeholder="Paste the reply from ChatGPT / Gemini / etc. here" style="width:100%;${LSP_INPUT_STYLE}margin-top:2px;resize:vertical;"></textarea>
+          <textarea id="aiSessReplyIn" rows="6" placeholder="Paste the reply from ChatGPT / Gemini / etc. here" style="width:100%;${LSP_AREA_STYLE}margin-top:2px;resize:vertical;"></textarea>
           <div id="aiSessParseError" class="note" style="display:none;color:#B4472A;margin-top:6px;"></div>
           <button type="button" id="aiSessParseBtn" class="timer-btn start" style="width:100%;margin-top:8px;">Parse &amp; review</button>
         </div>
@@ -173,6 +177,7 @@ function finishLogSessionSave(){
 // Clears every field/result/selection in the panel and returns it to the
 // first option. Called whenever the panel collapses (including on tab change).
 function resetLogSessionPanel(){
+  lspChosen = false;
   manualExPending = [];
   manualExPendingStats = null;
   manualExChosenActivityId = null;
@@ -197,14 +202,29 @@ function renderLogSessionOptions(hasSchedule, dStr, isToday){
   dStr = dStr || activeSessionDate();
   isToday = isToday !== undefined ? isToday : dStr === dateStrForOffset(0);
 
-  el.innerHTML = LOG_SESSION_MODES.map(m => `
-    <button type="button" class="lsp-opt lsp-${m.value} ${logSessionMode === m.value ? 'active' : ''}" data-lsp-mode="${m.value}" aria-pressed="${logSessionMode === m.value}">
-      <span class="lsp-opt-icon">${m.icon}</span>
-      <span class="lsp-opt-text"><strong>${m.label}</strong>${m.note ? `<small>${m.note}</small>` : ''}</span>
-      <span class="lsp-opt-check" aria-hidden="true">✓</span>
-    </button>`).join('');
+  const active = LOG_SESSION_MODES.find(m => m.value === logSessionMode) || LOG_SESSION_MODES[0];
+  const titleEl = document.querySelector('#logSessionPanel .lsp-title');
+  if(titleEl) titleEl.style.display = lspChosen ? 'none' : 'block';
+  if(!lspChosen){
+    el.className = 'lsp-opts';
+    el.innerHTML = LOG_SESSION_MODES.map(m => `
+      <button type="button" class="lsp-opt lsp-${m.value}" data-lsp-mode="${m.value}">
+        <span class="lsp-opt-icon">${m.icon}</span>
+        <span class="lsp-opt-text"><strong>${m.label}</strong>${m.note ? `<small>${m.note}</small>` : ''}</span>
+      </button>`).join('');
+  } else {
+    // One option is in use: show just it, with an X to close it and see the choices again.
+    el.className = 'lsp-chosen-wrap';
+    el.innerHTML = `
+      <div class="lsp-chosen lsp-${active.value}">
+        <span class="lsp-opt-icon">${active.icon}</span>
+        <span class="lsp-opt-text"><strong>${active.label}</strong>${active.note ? `<small>${active.note}</small>` : ''}</span>
+        <button type="button" class="lsp-close" data-lsp-close title="Close and choose another option" aria-label="Close and choose another option">✕</button>
+      </div>`;
+  }
   el.querySelectorAll('[data-lsp-mode]').forEach(btn => {
     btn.addEventListener('click', async ()=>{
+      lspChosen = true;
       logSessionMode = btn.dataset.lspMode;
       if(logSessionMode !== 'plan') logSessionSelectedPlanId = null;
       // Switching back to the routine while today has a Rest deviation on
@@ -221,14 +241,21 @@ function renderLogSessionOptions(hasSchedule, dStr, isToday){
       renderTodaysSession();
     });
   });
+  const closeBtn = el.querySelector('[data-lsp-close]');
+  if(closeBtn) closeBtn.addEventListener('click', ()=>{
+    logSessionMode = 'plan';
+    logSessionSelectedPlanId = null;
+    resetLogSessionPanel();   // wipes anything typed and returns to the four tiles
+    renderTodaysSession();
+  });
 
   const show = (id, on) => { const node = document.getElementById(id); if(node) node.style.display = on ? 'block' : 'none'; };
-  show('logSessionPlanPicker', logSessionMode === 'plan');
-  show('logSessionRestPanel', logSessionMode === 'rest');
-  show('logSessionManualPanel', logSessionMode === 'manual');
-  show('logSessionAiPanel', logSessionMode === 'ai');
+  show('logSessionPlanPicker', lspChosen && logSessionMode === 'plan');
+  show('logSessionRestPanel', lspChosen && logSessionMode === 'rest');
+  show('logSessionManualPanel', lspChosen && logSessionMode === 'manual');
+  show('logSessionAiPanel', lspChosen && logSessionMode === 'ai');
 
-  if(logSessionMode === 'plan'){
+  if(lspChosen && logSessionMode === 'plan'){
     const scheduled = hasSchedule && isToday ? scheduledPlanFor(new Date(dStr + 'T00:00:00').getDay(), dStr) : null;
     document.getElementById('logSessionPlanLabel').textContent = isToday
       ? (scheduled ? 'Use a different routine today (optional)' : 'Choose a routine for today')
@@ -268,7 +295,7 @@ function pastRoutineItems(plan){
 function renderPastRoutineLogger(dStr, isToday){
   const wrap = document.getElementById('logSessionPastRoutine');
   if(!wrap) return;
-  const plan = (!isToday && logSessionMode === 'plan' && logSessionSelectedPlanId) ? getWorkoutPlan(logSessionSelectedPlanId) : null;
+  const plan = (lspChosen && !isToday && logSessionMode === 'plan' && logSessionSelectedPlanId) ? getWorkoutPlan(logSessionSelectedPlanId) : null;
   if(!plan){ wrap.style.display = 'none'; wrap.innerHTML = ''; return; }
   const isCardioKind = plan.kind === 'legacy' && cardioData[plan.legacyKey];
   const items = pastRoutineItems(plan);
@@ -283,7 +310,7 @@ function renderPastRoutineLogger(dStr, isToday){
         <input type="checkbox" data-past-item="${i}" checked> <span>${activityEmoji(it.name, it.category)} ${foodSearchEscape(it.name)}</span>
       </label>`).join('') || '<div class="dash-empty">This routine has no exercises.</div>'}
     <label style="font-size:11px;color:var(--ink-soft);display:block;margin-top:8px;">Notes (optional)</label>
-    <textarea id="pastRoutineNotes" rows="2" style="width:100%;${LSP_INPUT_STYLE}margin-top:2px;resize:vertical;"></textarea>
+    <textarea id="pastRoutineNotes" rows="2" style="width:100%;${LSP_AREA_STYLE}margin-top:2px;resize:vertical;"></textarea>
     <button class="timer-btn start" id="pastRoutineSaveBtn" type="button" style="width:100%;margin-top:8px;">Log ${foodSearchEscape(plan.name)} for ${foodSearchEscape(formatDateLabel(dStr))}</button>`;
   document.getElementById('pastRoutineSaveBtn').addEventListener('click', ()=>{
     const dayId = plan.kind === 'legacy' ? plan.legacyKey : 'plan:' + plan.id;
@@ -310,7 +337,7 @@ function renderManualFields(){
   const keep = {};
   wrap.querySelectorAll('input[data-manual-field]').forEach(inp => { keep[inp.dataset.manualField] = inp.value; });
   wrap.innerHTML = cat.fields.map(([key, label]) => `
-    <div><label style="font-size:11px;color:var(--ink-soft);">${label}</label>
+    <div class="fc-field"><span>${label}</span>
     <input type="text" inputmode="decimal" data-num data-manual-field="${key}" min="0" value="${foodSearchEscape(keep[key] || '')}" style="width:100%;${LSP_INPUT_STYLE}"></div>`).join('');
 }
 // (Called by the stats form when it attaches stats to a pending session.)

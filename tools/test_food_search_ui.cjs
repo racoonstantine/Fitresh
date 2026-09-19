@@ -13,6 +13,7 @@ async function test(name, endMarker, prefix, statusId, resultsId, renderer) {
   for(const id of ['foodFavBtn','lmFavBtn'])elements[id]={classList:{add(){},remove(){},contains(){return false;}}};
   const context = vm.createContext({document:{getElementById:id=>elements[id]},Set,console});
   context[prefix+'Generation']=0;context[prefix+'ResultsCache']=[];
+  context.lmFavorites={deactivate(){}};context.foodFavorites={deactivate(){}};
   context[renderer]=()=>{};
   context.fetch=async url=>({json:async()=>url.includes('food_catalog')?{results:[],suggestions:['sayote']}:{results:[]}});
   vm.runInContext(escape+code,context);

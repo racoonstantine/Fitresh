@@ -43,11 +43,13 @@ function component_summary(PDO $pdo, array $component): array
     $totals = [];
     if ($component['food_id']) {
         add_scaled_nutrients($pdo, $totals, (int)$component['food_id'], (float)$component['amount']);
-        $stmt = $pdo->prepare('SELECT name, brand FROM foods WHERE id = ?');
+        $stmt = $pdo->prepare('SELECT name, brand, source FROM foods WHERE id = ?');
         $stmt->execute([$component['food_id']]);
         $food = $stmt->fetch();
         $name = $food ? $food['name'] : $component['custom_name'];
+        $foodSource = $food ? $food['source'] : null;
     } else {
+        $foodSource = null;
         $totals = [
             'ENERC_KCAL' => (float)($component['manual_calories'] ?? 0),
             'PROCNT' => (float)($component['manual_protein'] ?? 0),
@@ -62,6 +64,8 @@ function component_summary(PDO $pdo, array $component): array
         'amount' => (float)$component['amount'],
         'unit' => $component['unit'],
         'source' => $component['source'],
+        // How the food itself was made ('ai' / 'manual' entries get a tag in the UI).
+        'food_source' => $foodSource,
         'nutrients' => $totals,
     ];
 }

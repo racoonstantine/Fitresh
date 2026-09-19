@@ -7,8 +7,11 @@ remote side; SFTP doesn't invoke a shell at all).
 config.local.php lives only on the server and is intentionally never touched
 here, so a deploy can never overwrite or delete your DB credentials.
 """
+import io
 import os
 import paramiko
+
+from cache_bust import add_cache_busting
 
 HOST = os.environ["SSH_HOST"]
 PORT = int(os.environ["SSH_PORT"])
@@ -50,6 +53,13 @@ def upload_dir(sftp, local_dir, remote_dir, exclude):
         remote_path = f"{remote_dir}/{entry}"
         if os.path.isdir(local_path):
             upload_dir(sftp, local_path, remote_path, exclude)
+        elif entry == "index.html" and local_dir == "public":
+            # Uploaded with content-hashed asset URLs so browsers never keep an
+            # old app.css / js/*.js next to new HTML (see cache_bust.py).
+            with open(local_path, encoding="utf-8") as handle:
+                html = add_cache_busting(handle.read(), local_dir)
+            print(f"Uploading {local_path} (cache-busted) -> {remote_path}")
+            sftp.putfo(io.BytesIO(html.encode("utf-8")), remote_path)
         else:
             print(f"Uploading {local_path} -> {remote_path}")
             sftp.put(local_path, remote_path)

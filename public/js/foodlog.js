@@ -112,22 +112,15 @@
   });
 
   // Favorites: the dropdown lists starred foods plus the user's own custom,
-  // manual and AI-assist foods (see loadFavoritesView).
-  document.getElementById('foodFavBtn').addEventListener('click', async ()=>{
-    const btn = document.getElementById('foodFavBtn');
-    const statusEl = document.getElementById('foodSearchStatus');
-    if(btn.classList.contains('active')){ clearFoodSearch(false); return; }
-    const generation = ++foodSearchGeneration;
-    btn.classList.add('active');
-    foodSearchResultsCache = [];
-    document.getElementById('foodSearchResults').innerHTML = '';
-    statusEl.textContent = 'Loading favorites…';
-    statusEl.style.display = 'block';
-    const list = await loadFavoritesView();
-    if(generation !== foodSearchGeneration) return;
-    foodSearchResultsCache = list;
-    renderFoodSearchResults();
-    statusEl.textContent = list.length ? FAVORITES_HINT_TEXT : FAVORITES_EMPTY_TEXT;
+  // manual and AI-assist foods, with a filter box and "show more" (see
+  // createFavoritesController in food-search.js).
+  foodFavorites = createFavoritesController({
+    btnId: 'foodFavBtn', toolsId: 'foodFavTools', filterId: 'foodFavFilter', countId: 'foodFavCount',
+    panelId: 'foodResultsPanel', resultsId: 'foodSearchResults', statusId: 'foodSearchStatus',
+    bump: () => ++foodSearchGeneration, generation: () => foodSearchGeneration,
+    setCache: list => { foodSearchResultsCache = list; },
+    render: () => renderFoodSearchResults(),
+    closeAll: () => clearFoodSearch(false)
   });
 })();
 
@@ -140,6 +133,9 @@
   // result list and open the first one's amount panel.
   window.lmShowFoods = function(list, openFirst){
     ++lmSearchGeneration;
+    document.getElementById('lmFavBtn').classList.remove('active');
+    document.getElementById('lmFavTools').style.display = 'none';
+    document.getElementById('lmResultsPanel').classList.remove('fav-active');
     lmSearchResultsCache = list.filter(Boolean);
     renderLmSearchResults();
     if(openFirst){
@@ -210,28 +206,19 @@
     clearTimeout(lmSearchDebounce);
     lmSearchFoods(document.getElementById('lmSearchInput').value.trim());
   });
-  document.getElementById('lmFavBtn').addEventListener('click', async ()=>{
-    const btn = document.getElementById('lmFavBtn');
-    const statusEl = document.getElementById('lmSearchStatus');
-    if(btn.classList.contains('active')){
-      btn.classList.remove('active');
+  const lmFavorites = createFavoritesController({
+    btnId: 'lmFavBtn', toolsId: 'lmFavTools', filterId: 'lmFavFilter', countId: 'lmFavCount',
+    panelId: 'lmResultsPanel', resultsId: 'lmSearchResults', statusId: 'lmSearchStatus',
+    bump: () => ++lmSearchGeneration, generation: () => lmSearchGeneration,
+    setCache: list => { lmSearchResultsCache = list; },
+    render: () => renderLmSearchResults(),
+    closeAll: () => {
+      lmFavorites.deactivate();
       ++lmSearchGeneration;
       lmSearchResultsCache = [];
       document.getElementById('lmSearchResults').innerHTML = '';
-      statusEl.style.display = 'none';
-      return;
+      document.getElementById('lmSearchStatus').style.display = 'none';
     }
-    const generation = ++lmSearchGeneration;
-    btn.classList.add('active');
-    lmSearchResultsCache = [];
-    document.getElementById('lmSearchResults').innerHTML = '';
-    statusEl.textContent = 'Loading favorites…';
-    statusEl.style.display = 'block';
-    const list = await loadFavoritesView();
-    if(generation !== lmSearchGeneration) return;
-    lmSearchResultsCache = list;
-    renderLmSearchResults();
-    statusEl.textContent = list.length ? FAVORITES_HINT_TEXT : FAVORITES_EMPTY_TEXT;
   });
   document.getElementById('lmSearchBtn').addEventListener('click', ()=>{
     clearTimeout(lmSearchDebounce);
@@ -247,7 +234,7 @@
 
   async function lmSearchFoods(query){
     const generation = ++lmSearchGeneration;
-    document.getElementById('lmFavBtn').classList.remove('active');
+    lmFavorites.deactivate();
     const statusEl = document.getElementById('lmSearchStatus');
     const resultsEl = document.getElementById('lmSearchResults');
     if(query.length < 2){ lmSearchResultsCache = []; resultsEl.innerHTML = ''; statusEl.style.display = 'none'; return; }
@@ -304,31 +291,11 @@
       const sub = hasNutrients
         ? `${r.label ? r.label + ' · ' : (r.brand ? r.brand + ' · ' : '')}${Math.round(r.nutrients.ENERC_KCAL)} kcal / ${canonicalAmount}${canonicalUnit}`
         : (r.brand || (r._origin === 'library' ? 'Your library' : 'No calorie data'));
-      return `
-        ${heading}<div class="food-result-row" data-idx="${i}" style="padding:9px 4px;border-bottom:1px solid var(--line);cursor:pointer;">
-          <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;">
-            <div style="display:flex;align-items:center;gap:8px;min-width:0;">
-              <span style="color:var(--ink-soft);flex-shrink:0;">${renderFoodIconSvg(getFoodIcon(r), 20)}</span>
-              <div style="min-width:0;">
-                <div style="font-weight:600;font-size:13.5px;">${foodSearchEscape(foodDisplayName(r))}</div>
-                <div style="font-size:11.5px;color:var(--ink-soft);">${foodSearchEscape(sub)}${r.complete === false ? ' · Some nutrients unavailable' : ''}</div>
-                ${r.confidence ? `<div style="font-size:11.5px;color:var(--ink-soft);" title="${foodSearchEscape(r.confidence.reason)}">${foodSearchEscape(r.confidence.level)} confidence</div>` : ''}
-                ${r.estimate ? `<details onclick="event.stopPropagation()"><summary>Estimate assumptions and limitations</summary><p style="font-size:12px;">${foodSearchEscape(r.estimate.assumptions)}</p><p style="font-size:12px;">${foodSearchEscape(r.estimate.limitations)}</p></details>` : ''}
-                <button type="button" class="timer-btn" data-personal-copy="${i}" data-personal-surface="lm">Save a personal copy</button>
-              </div>
-            </div>
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" style="width:16px;height:16px;stroke:var(--ink-soft);flex-shrink:0;"><path d="M9 18l6-6-6-6"/></svg>
-          </div>
-          <div class="food-result-amount" data-idx="${i}" style="display:none;margin-top:8px;">
-            <div style="display:flex;gap:8px;align-items:center;">
-              <input type="text" inputmode="decimal" data-num min="0.000001" step="any" aria-label="Food amount" class="food-amount-input" data-idx="${i}" value="${canonicalAmount}" style="width:80px;padding:6px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:13px;">
-              ${foodMeasureControls(r, i)}
-            </div>
-            <div class="food-macro-preview" data-idx="${i}" style="font-size:11.5px;color:var(--ink-soft);margin-top:8px;">${macroPreviewText(r, canonicalAmount)}</div>
-            <button class="timer-btn start lm-add-search-item" data-idx="${i}" type="button" style="width:100%;margin-top:8px;padding:7px 0;">+ Add to meal</button>
-          </div>
-        </div>
-      `;
+      return foodResultRowHtml(r, i, {
+        surface: 'lm', heading,
+        subHtml: `<div class="frr-sub">${foodSearchEscape(sub)}${r.complete === false ? ' · Some nutrients unavailable' : ''}</div>`,
+        actionsHtml: `<button class="timer-btn start lm-add-search-item food-action-full" data-idx="${i}" type="button">+ Add to meal</button>`
+      });
     }).join('');
   }
 
@@ -556,7 +523,7 @@
     el.innerHTML = lmItems.map((it, i) => `
       <div class="lm-item-row">
         <div>
-          <div class="lm-item-name">${foodSearchEscape(it.name)}</div>
+          <div class="lm-item-name">${foodSearchEscape(it.name)}${foodOriginTagHtml(it.origin || (it.payload && it.payload.source))}</div>
           <div class="lm-item-sub">${it.amount}${it.unit} · ${fmtNum(it.kcal)} kcal · ${it.protein}g P / ${it.fat}g F / ${it.carbs}g C</div>
           ${(it.sodium || it.fiber || it.sugar) ? `<div class="lm-item-sub">${it.sodium ? Math.round(it.sodium) + 'mg sodium' : ''}${(it.sodium && (it.fiber || it.sugar)) ? ' · ' : ''}${it.fiber ? it.fiber.toFixed(1) + 'g fiber' : ''}${(it.fiber && it.sugar) ? ' · ' : ''}${it.sugar ? it.sugar.toFixed(1) + 'g sugar' : ''}</div>` : ''}
         </div>
@@ -617,7 +584,7 @@
           body: JSON.stringify({date, meal_type: mealType, component: {food_id: foodId, ...(it.measurement || {amount: it.amount, unit: it.unit})}})
         });
         if(!logOk || logged.error) throw new Error(logged.error || `"${it.name}" could not be logged — try again.`);
-        recordRecentFood({name: it.name, canonical_unit: it.unit, canonical_amount: it.amount, nutrients: {ENERC_KCAL: it.kcal, PROCNT: it.protein, FAT: it.fat, CHOCDF: it.carbs}}, foodId);
+        recordRecentFood({name: it.name, canonical_unit: it.unit, canonical_amount: it.amount, source: it.origin || (it.payload && it.payload.source) || null, nutrients: {ENERC_KCAL: it.kcal, PROCNT: it.protein, FAT: it.fat, CHOCDF: it.carbs}}, foodId);
         lmItems.splice(lmItems.indexOf(it), 1);
       }
       const notes = document.getElementById('lmNotes').value.trim();
