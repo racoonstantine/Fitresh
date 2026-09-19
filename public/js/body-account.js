@@ -160,7 +160,31 @@ function renderAccountGoals(){
   document.getElementById('goalsSavedMsg').style.display = 'none';
 }
 
+// "Help improve the food list": whether this user's AI Assist / My Entry foods
+// may be included in the admin's twice-monthly review. Off unless switched on.
+let userSharing = {foods: false};
+async function loadSharing(){
+  try{
+    const res = await window.storage.get(STORAGE_PREFIX + 'sharing', false);
+    const parsed = res && res.value ? JSON.parse(res.value) : null;
+    userSharing = {foods: !!(parsed && parsed.foods === true)};
+  }catch(e){ userSharing = {foods: false}; }
+}
+async function saveSharing(){
+  return window.storage.set(STORAGE_PREFIX + 'sharing', JSON.stringify(userSharing), false);
+}
+document.getElementById('acctShareFoods').addEventListener('change', async (e)=>{
+  const statusEl = document.getElementById('acctShareStatus');
+  userSharing = {foods: e.target.checked};
+  statusEl.textContent = 'Saving…';
+  const ok = await saveSharing();
+  statusEl.textContent = ok ? (userSharing.foods ? 'Thanks — your AI Assist and My Entry foods will be included.' : 'Okay — your foods are not included.') : 'Could not save that — try again.';
+  if(!ok){ userSharing = {foods: !e.target.checked}; e.target.checked = userSharing.foods; }
+});
+
 function renderAccountSettings(){
+  document.getElementById('acctShareFoods').checked = !!userSharing.foods;
+  document.getElementById('acctShareStatus').textContent = '';
   document.getElementById('acctDisplayName').value = (currentUser && currentUser.display_name) || '';
   document.getElementById('acctUsername').value = (currentUser && currentUser.username) || '';
   document.getElementById('acctEmail').value = (currentUser && currentUser.email) || '';
@@ -189,6 +213,66 @@ function applyAdminFilter(){
   }
 }
 document.getElementById('adminFilter').addEventListener('input', applyAdminFilter);
+
+// ---- Food review (admin): shared AI Assist / My Entry foods ----
+async function renderAdminFoodReview(){
+  const statusEl = document.getElementById('adminReviewStatus');
+  const listEl = document.getElementById('adminReviewList');
+  statusEl.textContent = 'Loading…';
+  listEl.innerHTML = '';
+  try{
+    const {ok, data} = await safeFetchJson('api/food_review.php?action=candidates', {credentials: 'same-origin'});
+    if(!ok || data.error) throw new Error(data.error || 'Could not load the food review.');
+    if(!data.available){
+      statusEl.textContent = 'Food review needs database migration 007 (db/migrations/007_food_review.sql) before it can run.';
+      return;
+    }
+    const rows = data.candidates;
+    statusEl.textContent = `${data.opted_in} user${data.opted_in === 1 ? '' : 's'} opted in · ${rows.length} food${rows.length === 1 ? '' : 's'} to review.`;
+    if(!rows.length){
+      listEl.innerHTML = '<div class="dash-empty">Nothing to review yet — a food appears here once ' + data.min_users + ' different opted-in users have made it.</div>';
+      return;
+    }
+    const med = (c, code) => c.nutrients[code] ? fmtNumMax(c.nutrients[code].median) : '—';
+    listEl.innerHTML = `
+      <div class="admin-table-wrap">
+        <table class="admin-table">
+          <thead><tr><th>Food</th><th class="num">Users</th><th>Mix</th><th class="num">kcal</th><th class="num">P</th><th class="num">F</th><th class="num">C</th><th></th></tr></thead>
+          <tbody>${rows.map(c => `
+            <tr>
+              <td><div class="ad-name">${foodSearchEscape(c.name)}${c.status === 'sent' ? ' <span>· sent</span>' : ''}</div><div class="ad-email">${foodSearchEscape(c.basis)}</div></td>
+              <td class="num">${c.users}</td>
+              <td class="nowrap">${c.ai_users ? `<span class="food-tag food-tag-ai">AI ${c.ai_users}</span>` : ''}${c.manual_users ? `<span class="food-tag food-tag-mine">Mine ${c.manual_users}</span>` : ''}</td>
+              <td class="num" title="range ${c.nutrients.ENERC_KCAL ? c.nutrients.ENERC_KCAL.min + '–' + c.nutrients.ENERC_KCAL.max : '—'}">${med(c, 'ENERC_KCAL')}${c.flag === 'high_variance' ? ` <span class="ad-flag" title="Users disagree by about ${c.kcal_spread_pct}% on calories">⚠ ±${c.kcal_spread_pct}%</span>` : ''}</td>
+              <td class="num">${med(c, 'PROCNT')}</td><td class="num">${med(c, 'FAT')}</td><td class="num">${med(c, 'CHOCDF')}</td>
+              <td class="act nowrap">
+                <button type="button" class="ad-btn" data-review-decide="reviewed" data-review-key="${foodSearchEscape(c.key)}" data-review-unit="${foodSearchEscape(c.unit_kind)}" title="Mark as reviewed (removes it from this list)">Reviewed</button>
+                <button type="button" class="ad-btn" data-review-decide="dismissed" data-review-key="${foodSearchEscape(c.key)}" data-review-unit="${foodSearchEscape(c.unit_kind)}" title="Dismiss (removes it from this list)">Dismiss</button>
+              </td>
+            </tr>`).join('')}
+          </tbody>
+        </table>
+      </div>`;
+  }catch(err){
+    statusEl.textContent = err.message || 'Could not load the food review.';
+  }
+}
+document.getElementById('adminReviewList').addEventListener('click', async (e)=>{
+  const btn = e.target.closest('[data-review-decide]');
+  if(!btn) return;
+  btn.disabled = true;
+  try{
+    const {ok, data} = await safeFetchJson('api/food_review.php', {
+      method: 'POST', credentials: 'same-origin', headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({action: 'decide', norm_key: btn.dataset.reviewKey, unit_kind: btn.dataset.reviewUnit, decision: btn.dataset.reviewDecide})
+    });
+    if(!ok || data.error) throw new Error(data.error || 'Could not save that.');
+    renderAdminFoodReview();
+  }catch(err){
+    alert(err.message || 'Could not save that.');
+    btn.disabled = false;
+  }
+});
 
 async function renderAdminPanel(){
   const statusEl = document.getElementById('adminStatus');
@@ -219,6 +303,7 @@ async function renderAdminPanel(){
         </table>
       </div>`;
     applyAdminFilter();
+    renderAdminFoodReview();
   }catch(err){
     statusEl.textContent = err.message || 'Could not load the user list.';
   }

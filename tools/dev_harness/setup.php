@@ -43,14 +43,14 @@ $replacement = "require_once __DIR__ . '/harness_sqlite_pdo.php';\n"
     . "function get_db(): PDO\n{\n    static \$pdo = null;\n    if (\$pdo === null) {\n        \$pdo = harness_open(get_config()['sqlite_path']);\n    }\n    return \$pdo;\n}\n\n";
 file_put_contents("$tmp/api/db.php", substr($db, 0, $start) . $replacement . substr($db, $end));
 
-// admin.php hardcodes the owner's email; point the copy at the harness admin.
-$adminSrc = (string)file_get_contents("$tmp/api/admin.php");
+// admin_guard.php hardcodes the owner's email; point the copy at the harness admin.
+$adminSrc = (string)file_get_contents("$tmp/api/admin_guard.php");
 $patched = preg_replace('/const ADMIN_EMAILS = \[[^\]]*\];/', "const ADMIN_EMAILS = ['admin@example.com'];", $adminSrc, 1, $n);
 if ($n !== 1) {
-    fwrite(STDERR, "setup: could not patch ADMIN_EMAILS in api/admin.php -- update tools/dev_harness/setup.php\n");
+    fwrite(STDERR, "setup: could not patch ADMIN_EMAILS in api/admin_guard.php -- update tools/dev_harness/setup.php\n");
     exit(1);
 }
-file_put_contents("$tmp/api/admin.php", $patched);
+file_put_contents("$tmp/api/admin_guard.php", $patched);
 
 $dbFile = "$tmp/harness.sqlite";
 $config = [

@@ -149,6 +149,7 @@ async function startApp(){
   await loadSteps();
   await loadRecentFoods();
   await loadFavoriteFoods();
+  await loadSharing();
   await loadCustomWorkoutPlans();
   await loadTrainingPlan();
   if(window.loadWorkoutCatalog) await window.loadWorkoutCatalog();

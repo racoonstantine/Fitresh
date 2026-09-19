@@ -1,33 +1,14 @@
 <?php
 declare(strict_types=1);
 require __DIR__ . '/db.php';
+require __DIR__ . '/admin_guard.php';
 
 header('Content-Type: application/json');
 start_app_session();
 require_json_request();
 
-if (empty($_SESSION['user_id'])) {
-    json_respond(['error' => 'Not logged in'], 401);
-}
-
-// Hardcoded on purpose for now, per the owner's request -- a small, private
-// console for a single-admin invite-only app. If this ever needs more than
-// one admin, move this to an `is_admin` column on `users` instead of
-// growing this list.
-const ADMIN_EMAILS = ['sherwinllona@gmail.com'];
-
 $pdo = get_db();
-$userId = (int)$_SESSION['user_id'];
-
-// Re-check the admin's own email fresh from the DB on every request rather
-// than trusting anything client-supplied or cached in the session, so this
-// can't be spoofed by editing session/local state.
-$stmt = $pdo->prepare('SELECT email FROM users WHERE id = ?');
-$stmt->execute([$userId]);
-$me = $stmt->fetch();
-if (!$me || !in_array(strtolower((string)$me['email']), ADMIN_EMAILS, true)) {
-    json_respond(['error' => 'Not authorized'], 403);
-}
+$userId = require_admin_user($pdo);
 
 $method = $_SERVER['REQUEST_METHOD'];
 $input = $method === 'POST' ? (json_decode(file_get_contents('php://input'), true) ?? []) : [];

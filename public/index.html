@@ -6,6 +6,12 @@
 <meta name="color-scheme" content="light dark">
 <meta name="description" content="Full Circle — a personal workout, nutrition, fasting, and weight tracker.">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<!-- iOS ignores SVG icons and would show a plain letter tile without this. -->
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-title" content="Full Circle">
+<meta name="application-name" content="Full Circle">
+<meta name="theme-color" content="#F5EAD8">
 <title>Full Circle — Health &amp; Fitness Tracker</title>
 <link rel="stylesheet" href="app.css">
 </head>
@@ -263,16 +269,16 @@
       <button type="button" id="openLogMealBtn" class="timer-btn start" style="width:100%;margin-bottom:12px;">+ Log a meal (full page)</button>
       <div class="hub-card">
         <div id="foodRecentFavorites" style="margin-bottom:10px;"></div>
-        <div style="display:flex;gap:8px;margin-bottom:10px;">
-          <select id="mealLogType" style="flex:0 0 120px;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:13px;">
+        <div class="search-row food-search-row">
+          <select id="mealLogType" class="search-select">
             <option value="breakfast">Breakfast</option>
             <option value="lunch">Lunch</option>
             <option value="dinner">Dinner</option>
             <option value="snack">Snack</option>
           </select>
-          <input type="text" id="foodSearchInput" placeholder="Search a food — e.g. chicken breast" autocomplete="off" style="flex:1;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:13px;">
-          <button type="button" id="foodSearchBtn" class="timer-btn" style="flex:0 0 auto;padding:8px 12px;" title="Search now" aria-label="Search now">🔍</button>
-          <button type="button" id="foodFavBtn" class="timer-btn fav-toggle" style="flex:0 0 auto;padding:8px 12px;" title="Favorites and saved foods" aria-label="Show favorites and saved foods">⭐</button>
+          <input type="text" id="foodSearchInput" placeholder="Search a food — e.g. chicken breast" autocomplete="off" class="search-input">
+          <button type="button" id="foodSearchBtn" class="timer-btn search-btn" title="Search now" aria-label="Search now">🔍</button>
+          <button type="button" id="foodFavBtn" class="timer-btn fav-toggle search-btn" title="Favorites and saved foods" aria-label="Show favorites and saved foods">⭐</button>
         </div>
         <label style="display:block;font-size:12px;margin-bottom:10px;"><input type="checkbox" id="foodIncludeEstimates" checked> Include estimates · Low confidence, unverified recipes</label>
         <div id="foodResultsPanel" class="results-panel">
@@ -758,6 +764,18 @@
           <a href="#" id="logoutLink" style="display:block;text-align:center;margin-top:14px;font-size:12.5px;color:var(--color-accent-700);">Log out</a>
         </div>
       </section>
+
+      <section class="block" style="margin-bottom:18px;">
+        <div class="block-title">Help improve the food list</div>
+        <div class="hub-card">
+          <label class="share-row">
+            <input type="checkbox" id="acctShareFoods">
+            <span><strong>Include my AI Assist and My Entry foods</strong> in the twice-monthly food review</span>
+          </label>
+          <p class="share-note">When this is on, the names and nutrition numbers of foods you create with AI Assist or Manual Log can be compared with what other people entered, so we can spot common foods worth adding with verified values. Nothing that identifies you is included, and nothing is published until a person has checked it against a real source. Off by default; you can change it any time.</p>
+          <div id="acctShareStatus" class="share-status"></div>
+        </div>
+      </section>
     </div>
 
     <div id="accountFeedback" style="display:none;">
@@ -785,6 +803,13 @@
           <div id="adminStatus"></div>
         </div>
         <div id="adminUserList"></div>
+      </section>
+
+      <section class="block" id="adminFoodReview" style="margin-bottom:18px;">
+        <div class="block-title">Food review — shared entries</div>
+        <div class="note" style="margin-bottom:10px;">AI Assist / My Entry foods that at least 3 different opted-in users made on their own, compared per 100 g (or per serving). Values are user estimates: check each against a real source before adding it to the list. A digest of new items is emailed on the 1st and 16th (see docs/food-review.md).</div>
+        <div id="adminReviewStatus" class="admin-review-status"></div>
+        <div id="adminReviewList"></div>
       </section>
     </div>
   </div><!-- /panelAccount -->
@@ -871,10 +896,10 @@
 
     <div id="lmSearchMode">
       <div id="lmRecentFavorites" style="margin-bottom:10px;"></div>
-      <div style="display:flex;gap:8px;">
-        <input type="text" id="lmSearchInput" placeholder="Search a food — e.g. chicken breast, rice, adobo" autocomplete="off" style="flex:1;padding:9px 10px;border:1px solid var(--line);border-radius:6px;background:var(--paper);font-size:13.5px;">
-        <button type="button" id="lmSearchBtn" class="timer-btn" style="flex:0 0 auto;padding:9px 12px;" title="Search now" aria-label="Search now">🔍</button>
-        <button type="button" id="lmFavBtn" class="timer-btn fav-toggle" style="flex:0 0 auto;padding:9px 12px;" title="Favorites and saved foods" aria-label="Show favorites and saved foods">⭐</button>
+      <div class="search-row">
+        <input type="text" id="lmSearchInput" placeholder="Search a food — e.g. chicken breast, rice, adobo" autocomplete="off" class="search-input">
+        <button type="button" id="lmSearchBtn" class="timer-btn search-btn" title="Search now" aria-label="Search now">🔍</button>
+        <button type="button" id="lmFavBtn" class="timer-btn fav-toggle search-btn" title="Favorites and saved foods" aria-label="Show favorites and saved foods">⭐</button>
       </div>
       <label style="display:block;font-size:12px;margin:8px 0;"><input type="checkbox" id="lmIncludeEstimates" checked> Include estimates · Low confidence, unverified recipes</label>
       <div id="lmSearchStatus" style="font-size:12px;color:var(--ink-soft);display:none;margin-top:6px;"></div>

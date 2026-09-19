@@ -283,6 +283,7 @@
     if(!lmSearchResultsCache.length){ resultsEl.innerHTML = ''; return; }
     let lastGroup = null;
     resultsEl.innerHTML = foodSearchCloseBar() + lmSearchResultsCache.map((r, i) => {
+      if(r._more) return foodFavMoreHtml(r);
       const heading = (r._group && r._group !== lastGroup) ? foodGroupHeadingHtml(r._group) : '';
       lastGroup = r._group || null;
       const canonicalAmount = r.canonical_amount || 100;

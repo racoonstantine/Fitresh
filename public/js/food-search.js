@@ -172,20 +172,26 @@ async function loadFavoritesView(){
   add((groups.ai || []).filter(hasUsableNutrients), FAVORITE_GROUPS.ai);
   return out;
 }
+// End-of-group "Show more / Show less" button, carried in the result list as a
+// pseudo row ({_more: true, ...}) so it lands right under its own group.
+function foodFavMoreHtml(r){
+  return `<button type="button" class="fav-more-btn" data-fav-more="${r._tone}">${r._open ? 'Show less' : `Show more (${r._hidden} more)`}</button>`;
+}
 function foodGroupHeadingHtml(label){
   const tone = FAVORITE_GROUP_TONE[label] || 'fav';
   return `<div class="food-group-heading" data-tone="${tone}"><span>${foodSearchEscape(label)}</span></div>`;
 }
 const FAVORITES_EMPTY_TEXT = 'Nothing here yet — ⭐ a food, or add one with Manual Log or AI Assist and it will show up here.';
 const FAVORITES_HINT_TEXT = 'Your favorites and saved foods — tap one to log it.';
-const FAVORITES_PAGE = 5;
+const FAVORITES_PAGE = 3; // rows shown per group before its own "Show more"
 
 // Drives one Favorites dropdown (Food tab or Log Meal): loads the list, keeps a
 // filter box, shows the first 5 with "Show more", and puts the thin coloured
 // frame around the panel while it is open. cfg supplies the surface's elements
 // and its private cache/render hooks.
 function createFavoritesController(cfg){
-  let all = [], expanded = false;
+  let all = [];
+  const expandedGroups = new Set(); // tones of groups showing all their rows
   const el = id => document.getElementById(id);
   const filtered = () => {
     const q = el(cfg.filterId).value.trim().toLowerCase();
@@ -193,15 +199,19 @@ function createFavoritesController(cfg){
   };
   function apply(){
     const list = filtered();
-    const shown = expanded ? list : list.slice(0, FAVORITES_PAGE);
-    cfg.setCache(shown);
+    const rows = [];
+    for(const label of Object.values(FAVORITE_GROUPS)){
+      const inGroup = list.filter(r => r._group === label);
+      if(!inGroup.length) continue;
+      const tone = FAVORITE_GROUP_TONE[label];
+      const open = expandedGroups.has(tone);
+      rows.push(...(open ? inGroup : inGroup.slice(0, FAVORITES_PAGE)));
+      if(inGroup.length > FAVORITES_PAGE) rows.push({_more: true, _group: label, _tone: tone, _open: open, _hidden: inGroup.length - FAVORITES_PAGE});
+    }
+    cfg.setCache(rows);
     cfg.render();
-    const results = el(cfg.resultsId);
-    const hidden = list.length - shown.length;
     if(!list.length){
-      results.insertAdjacentHTML('beforeend', `<div class="fav-empty">${el(cfg.filterId).value.trim() ? 'No matches — try another word.' : ''}</div>`);
-    } else if(hidden > 0 || (expanded && list.length > FAVORITES_PAGE)){
-      results.insertAdjacentHTML('beforeend', `<button type="button" class="fav-more-btn" data-fav-more>${expanded ? 'Show less' : `Show more (${hidden} more)`}</button>`);
+      el(cfg.resultsId).insertAdjacentHTML('beforeend', `<div class="fav-empty">${el(cfg.filterId).value.trim() ? 'No matches — try another word.' : ''}</div>`);
     }
     el(cfg.countId).textContent = `${list.length} item${list.length === 1 ? '' : 's'}`;
   }
@@ -210,7 +220,7 @@ function createFavoritesController(cfg){
     el(cfg.toolsId).style.display = 'none';
     el(cfg.panelId).classList.remove('fav-active');
     el(cfg.filterId).value = '';
-    expanded = false;
+    expandedGroups.clear();
   }
   async function open(){
     const statusEl = el(cfg.statusId);
@@ -219,7 +229,7 @@ function createFavoritesController(cfg){
     el(cfg.panelId).classList.add('fav-active');
     el(cfg.toolsId).style.display = 'flex';
     el(cfg.filterId).value = '';
-    expanded = false;
+    expandedGroups.clear();
     cfg.setCache([]);
     el(cfg.resultsId).innerHTML = '';
     statusEl.textContent = 'Loading favorites…';
@@ -234,10 +244,12 @@ function createFavoritesController(cfg){
     else open();
   }
   el(cfg.btnId).addEventListener('click', toggle);
-  el(cfg.filterId).addEventListener('input', ()=>{ expanded = false; apply(); });
+  el(cfg.filterId).addEventListener('input', ()=>{ expandedGroups.clear(); apply(); });
   el(cfg.resultsId).addEventListener('click', e => {
-    if(!e.target.closest('[data-fav-more]')) return;
-    expanded = !expanded;
+    const more = e.target.closest('[data-fav-more]');
+    if(!more) return;
+    const tone = more.dataset.favMore;
+    if(expandedGroups.has(tone)) expandedGroups.delete(tone); else expandedGroups.add(tone);
     apply();
   });
   return {open, deactivate, toggle};
@@ -414,6 +426,7 @@ function renderFoodSearchResults(){
   if(!foodSearchResultsCache.length){ resultsEl.innerHTML = ''; return; }
   let lastGroup = null;
   resultsEl.innerHTML = foodSearchCloseBar() + foodSearchResultsCache.map((r, i) => {
+    if(r._more) return foodFavMoreHtml(r);
     const heading = (r._group && r._group !== lastGroup) ? foodGroupHeadingHtml(r._group) : '';
     lastGroup = r._group || null;
     const canonicalAmount = r.canonical_amount || 100;

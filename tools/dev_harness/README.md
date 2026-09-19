@@ -15,7 +15,7 @@ Accounts (password `testpass123`):
 |---|---|
 | `tester@example.com` | 28 days of weigh-ins, 14 days of nutrition/water/steps/sleep, 4 history entries, Moderate training plan |
 | `other@example.com` | empty (onboarding and ownership checks) |
-| `admin@example.com` | admin console (the copy of `admin.php` is patched to this address) |
+| `admin@example.com` | admin console (the copy of `admin_guard.php` is patched to this address) |
 
 Fixture dates are relative to today, but the content is deterministic. Edit `fixtures.php`.
 Today itself is left empty on purpose so the log/save flows can be tried.

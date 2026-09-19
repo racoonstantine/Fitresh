@@ -163,6 +163,45 @@ async function call(base, path, { method = 'GET', body, headers = {}, as } = {})
     assert.ok(denied.status === 403 || denied.status === 401, 'status ' + denied.status);
   });
 
+  check('food review: opt-in sharing, candidates for the admin, cron digest, decisions', async () => {
+    const { spawnSync } = require('child_process');
+    const login = async email => (await call(b, '/api/auth.php?action=login', { method: 'POST', body: { email, password: h.password }, as: '' })).cookie;
+    const cookies = { tester: await login('tester@example.com'), other: await login('other@example.com'), admin: await login('admin@example.com') };
+    // 'sharing' is an accepted per-user setting; each user makes the same dish with a slightly different value
+    let i = 0;
+    for (const who of ['tester', 'other', 'admin']) {
+      const set = await call(b, '/api/data.php', { method: 'POST', as: cookies[who], body: { resource: 'sharing', value: JSON.stringify({ foods: true }) } });
+      assert.strictEqual(set.status, 200, set.text);
+      const made = await call(b, '/api/foods.php?action=create_custom', { method: 'POST', as: cookies[who], body: { name: 'Review Adobo Bowl', origin: i % 2 ? 'manual' : 'ai', canonical_amount: 150, canonical_unit: 'g', nutrients: { ENERC_KCAL: 300 + i * 15, PROCNT: 20, FAT: 10, CHOCDF: 30 } } });
+      assert.ok(made.json && made.json.id, made.text);
+      i++;
+    }
+    // only the admin may read the review
+    assert.strictEqual((await call(b, '/api/food_review.php?action=candidates', { as: cookies.tester })).status, 403);
+    const list = await call(b, '/api/food_review.php?action=candidates', { as: cookies.admin });
+    assert.strictEqual(list.status, 200, list.text);
+    assert.strictEqual(list.json.available, true);
+    const cand = list.json.candidates.find(c => c.name === 'Review Adobo Bowl');
+    assert.ok(cand, 'three users made it, so it is a candidate');
+    assert.strictEqual(cand.users, 3);
+    assert.strictEqual(cand.basis, 'per 100 g');
+    assert.strictEqual(cand.nutrients.ENERC_KCAL.median, 210, '315 kcal per 150 g -> 210 per 100 g median');
+    assert.ok(!JSON.stringify(list.json).includes('@example.com'), 'no user identifiers in the review');
+    // the cron script (CLI only) prints the digest in --dry-run and records nothing
+    const dry = spawnSync('php', [require('path').join(h.tmp, 'api', 'food_review_digest.php'), '--dry-run'], { encoding: 'utf8' });
+    assert.strictEqual(dry.status, 0, dry.stderr);
+    assert.ok(dry.stdout.includes('Review Adobo Bowl') && dry.stdout.includes('Nothing is published automatically'), dry.stdout.slice(0, 300));
+    assert.strictEqual((await call(b, '/api/food_review_digest.php', { as: cookies.admin })).status, 403, 'not runnable over HTTP');
+    // decide: hidden afterwards; bad input rejected
+    assert.strictEqual((await call(b, '/api/food_review.php', { method: 'POST', as: cookies.admin, body: { action: 'decide', norm_key: cand.key, unit_kind: 'g', decision: 'nope' } })).status, 400);
+    const decided = await call(b, '/api/food_review.php', { method: 'POST', as: cookies.admin, body: { action: 'decide', norm_key: cand.key, unit_kind: 'g', decision: 'reviewed' } });
+    assert.strictEqual(decided.status, 200, decided.text);
+    const after = await call(b, '/api/food_review.php?action=candidates', { as: cookies.admin });
+    assert.ok(!after.json.candidates.some(c => c.name === 'Review Adobo Bowl'), 'reviewed candidates disappear');
+    // opting out removes a user's vote
+    assert.strictEqual((await call(b, '/api/data.php', { method: 'POST', as: cookies.other, body: { resource: 'sharing', value: JSON.stringify({ foods: false }) } })).status, 200);
+  });
+
   let failed = 0;
   try {
     for (const [name, fn] of step) {
