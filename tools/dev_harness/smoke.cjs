@@ -1,0 +1,160 @@
+// API smoke test against the dev harness (real api/*.php on SQLite + fixtures).
+//   node tools/dev_harness/smoke.cjs
+// Starts its own harness on a spare port, runs login/data/food/meal/workout/
+// personal-food/ownership checks, then tears everything down.
+const assert = require('assert');
+const { start } = require('./start.cjs');
+
+let cookie = '';
+async function call(base, path, { method = 'GET', body, headers = {}, as } = {}) {
+  const res = await fetch(base + path, {
+    method,
+    headers: { ...(body ? { 'Content-Type': 'application/json' } : {}), ...(as ?? cookie ? { Cookie: as ?? cookie } : {}), ...headers },
+    body: body ? JSON.stringify(body) : undefined,
+    redirect: 'manual',
+  });
+  const set = res.headers.get('set-cookie');
+  const text = await res.text();
+  let json = null;
+  try { json = JSON.parse(text); } catch (e) {}
+  return { status: res.status, json, text, cookie: set ? set.split(';')[0] : null };
+}
+
+(async () => {
+  const h = await start({ port: 8130 + Math.floor(Math.random() * 50) });
+  const step = [];
+  const check = (name, fn) => step.push([name, fn]);
+  const b = h.url;
+  const today = new Date().toISOString().slice(0, 10);
+  let other = '';
+
+  check('unauthenticated data call is 401', async () => {
+    assert.strictEqual((await call(b, '/api/data.php?resource=profile')).status, 401);
+  });
+  check('wrong password is rejected', async () => {
+    const r = await call(b, '/api/auth.php?action=login', { method: 'POST', body: { email: 'tester@example.com', password: 'nope' } });
+    assert.strictEqual(r.status, 401);
+  });
+  check('login as tester', async () => {
+    const r = await call(b, '/api/auth.php?action=login', { method: 'POST', body: { email: 'tester@example.com', password: h.password } });
+    assert.strictEqual(r.status, 200, r.text);
+    cookie = r.cookie;
+    assert.strictEqual(r.json.username, 'tester');
+  });
+  check('all fixture resources load', async () => {
+    for (const k of ['profile', 'weighins', 'nutrition', 'water', 'steps', 'sleep', 'history', 'fasting', 'trainingPlan']) {
+      const r = await call(b, `/api/data.php?resource=${k}`);
+      assert.ok(r.json && r.json.value, `${k} missing`);
+      JSON.parse(r.json.value);
+    }
+  });
+  check('data upsert (ON DUPLICATE KEY path) overwrites', async () => {
+    for (const ml of [250, 500]) {
+      const r = await call(b, '/api/data.php', { method: 'POST', body: { resource: 'water', value: JSON.stringify({ [today]: ml }) } });
+      assert.strictEqual(r.status, 200, r.text);
+    }
+    const v = JSON.parse((await call(b, '/api/data.php?resource=water')).json.value);
+    assert.strictEqual(v[today], 500);
+  });
+  check('non-JSON POST is rejected (CSRF guard)', async () => {
+    const res = await fetch(b + '/api/data.php', { method: 'POST', headers: { Cookie: cookie, 'Content-Type': 'text/plain' }, body: '{}' });
+    assert.strictEqual(res.status, 415);
+  });
+  let catalogFood;
+  check('catalog search finds adobo', async () => {
+    const r = await call(b, '/api/food_catalog.php?q=adobo');
+    assert.ok(r.json.results.length > 0, r.text.slice(0, 200));
+    catalogFood = r.json.results[0];
+  });
+  check('save catalog food + log a meal + read the day back', async () => {
+    const f = catalogFood;
+    const save = await call(b, '/api/foods.php?action=save_external', { method: 'POST', body: { source: 'catalog', external_id: f.external_id, name: f.name, brand: f.brand, canonical_unit: f.canonical_unit, canonical_amount: f.canonical_amount, nutrients: f.nutrients } });
+    assert.ok(save.json && save.json.id, save.text.slice(0, 300));
+    const log = await call(b, '/api/meals.php?action=log', { method: 'POST', body: { date: today, meal_type: 'lunch', component: { food_id: save.json.id, amount: 150, unit: 'g' } } });
+    assert.strictEqual(log.status, 200, log.text.slice(0, 300));
+    // same date+type must reuse the entry (the <=> null-safe compare path)
+    const log2 = await call(b, '/api/meals.php?action=log', { method: 'POST', body: { date: today, meal_type: 'lunch', component: { food_id: save.json.id, amount: 50, unit: 'g' } } });
+    assert.strictEqual(log2.status, 200, log2.text.slice(0, 300));
+    const day = await call(b, `/api/meals.php?action=day&date=${today}`);
+    assert.strictEqual(day.json.entries.length, 1, 'two logs under one meal type should group');
+    assert.strictEqual(day.json.entries[0].components.length, 2);
+    assert.ok(day.json.totals.ENERC_KCAL > 0);
+    const range = await call(b, `/api/meals.php?action=range_totals&start=${today}&end=${today}`);
+    assert.strictEqual(range.status, 200);
+  });
+  check('custom food create', async () => {
+    const r = await call(b, '/api/foods.php?action=create_custom', { method: 'POST', body: { name: 'Smoke Bar', canonical_amount: 50, canonical_unit: 'g', nutrients: { ENERC_KCAL: 200, PROCNT: 10, FAT: 8, CHOCDF: 20 } } });
+    assert.ok(r.json && r.json.id, r.text.slice(0, 300));
+  });
+  let personalId;
+  check('personal food save + retry idempotency + list', async () => {
+    const g = await call(b, '/api/personal_foods.php');
+    const csrf = g.json.csrf_token;
+    const input = { name: 'Smoke Whey', brand: '', serving_label: '1 scoop', serving_measure: 'g', serving_size: 30, source_url: '', notes: '', nutrients: { ENERC_KCAL: 120, PROCNT: 24, CHOCDF: 3, FAT: 1 }, request_key: '11111111-1111-4111-8111-111111111111', submit_for_review: false };
+    const noCsrf = await call(b, '/api/personal_foods.php', { method: 'POST', body: input });
+    assert.strictEqual(noCsrf.status, 403);
+    const a = await call(b, '/api/personal_foods.php', { method: 'POST', body: input, headers: { 'X-CSRF-Token': csrf } });
+    assert.strictEqual(a.status, 200, a.text.slice(0, 300));
+    personalId = a.json.food.food_id;
+    const again = await call(b, '/api/personal_foods.php', { method: 'POST', body: input, headers: { 'X-CSRF-Token': csrf } });
+    assert.strictEqual(again.json.food.food_id, personalId);
+    const list = await call(b, '/api/personal_foods.php');
+    assert.ok(list.json.foods.some(f => f.food_id === personalId));
+  });
+  let sessionId = '22222222-2222-4222-8222-222222222222';
+  check('workout library loads and a session saves/lists/deletes', async () => {
+    const lib = await call(b, '/api/workouts.php');
+    assert.ok(lib.json.activities.length >= 100 && lib.json.templates.length > 0);
+    const act = lib.json.activities.find(a => a.category === 'strength');
+    const save = await call(b, '/api/workouts.php', { method: 'POST', body: { action: 'save', id: sessionId, date: today, title: 'Smoke session', style: 'straight', notes: '', timezone: 'UTC', items: [{ activityId: act.id, metrics: {}, sets: [{ reps: 10, weightKg: 20, durationSeconds: null }] }] } });
+    assert.strictEqual(save.status, 200, save.text.slice(0, 300));
+    // re-save same id (ON DUPLICATE KEY UPDATE id=id + FOR UPDATE path)
+    const again = await call(b, '/api/workouts.php', { method: 'POST', body: { action: 'save', id: sessionId, date: today, title: 'Smoke session v2', style: 'straight', notes: 'x', timezone: 'UTC', items: [{ activityId: act.id, metrics: {}, sets: [{ reps: 8, weightKg: 22, durationSeconds: null }] }] } });
+    assert.strictEqual(again.status, 200, again.text.slice(0, 300));
+    const after = await call(b, '/api/workouts.php');
+    const s = after.json.sessions.find(x => x.id === sessionId);
+    assert.ok(s && s.title === 'Smoke session v2' && s.items[0].sets[0].reps === 8);
+    const del = await call(b, '/api/workouts.php', { method: 'POST', body: { action: 'delete', id: sessionId } });
+    assert.strictEqual(del.status, 200);
+  });
+  check('another user cannot see or touch tester data', async () => {
+    const r = await call(b, '/api/auth.php?action=login', { method: 'POST', body: { email: 'other@example.com', password: h.password }, as: '' });
+    assert.strictEqual(r.status, 200);
+    other = r.cookie;
+    const prof = await call(b, '/api/data.php?resource=profile', { as: other });
+    assert.strictEqual(prof.json.value, null);
+    const pf = await call(b, '/api/personal_foods.php', { as: other });
+    assert.ok(!pf.json.foods.some(f => f.food_id === personalId));
+    const w = await call(b, '/api/workouts.php', { as: other });
+    assert.ok(!w.json.sessions.length);
+  });
+  check('signup lands pending and cannot log in', async () => {
+    const r = await call(b, '/api/auth.php?action=register', { method: 'POST', body: { email: 'new@example.com', password: 'longenough1', display_name: 'New' }, as: '' });
+    assert.strictEqual(r.status, 200, r.text.slice(0, 200));
+    assert.ok(r.json.pending);
+    const l = await call(b, '/api/auth.php?action=login', { method: 'POST', body: { email: 'new@example.com', password: 'longenough1' }, as: '' });
+    assert.strictEqual(l.status, 403);
+  });
+  check('password reset request (DATE_ADD path)', async () => {
+    const r = await call(b, '/api/auth.php?action=request_password_reset', { method: 'POST', body: { email: 'other@example.com' }, as: '' });
+    assert.ok(r.status === 200, r.text.slice(0, 200));
+  });
+  check('admin can list users; regular user cannot', async () => {
+    const a = await call(b, '/api/auth.php?action=login', { method: 'POST', body: { email: 'admin@example.com', password: h.password }, as: '' });
+    const list = await call(b, '/api/admin.php?action=overview', { as: a.cookie });
+    assert.strictEqual(list.status, 200, list.text.slice(0, 200));
+    const denied = await call(b, '/api/admin.php?action=overview');
+    assert.ok(denied.status === 403 || denied.status === 401, 'status ' + denied.status);
+  });
+
+  let failed = 0;
+  try {
+    for (const [name, fn] of step) {
+      try { await fn(); console.log('  ok   ' + name); }
+      catch (e) { failed++; console.log('  FAIL ' + name + '\n       ' + String(e.message).split('\n')[0]); }
+    }
+  } finally { h.stop(); }
+  if (failed) { console.log(`\n${failed} of ${step.length} smoke checks failed`); process.exit(1); }
+  console.log(`\nPASS: ${step.length} harness smoke checks (auth, data store, catalog, meals, workouts, personal foods, ownership, admin).`);
+  setTimeout(() => process.exit(0), 500);
+})().catch(e => { console.error(e); process.exit(1); });
