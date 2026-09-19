@@ -116,10 +116,10 @@ function extraExerciseFormHtml(scope){
   return `
     <input type="text" data-extra-name="${scope}" placeholder="Activity name" style="width:100%;padding:7px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:13px;margin-bottom:6px;">
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
-      <input type="number" data-extra-sets="${scope}" placeholder="Sets" min="0" style="width:100%;padding:7px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:13px;">
-      <input type="number" data-extra-reps="${scope}" placeholder="Reps" min="0" style="width:100%;padding:7px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:13px;">
-      <input type="number" data-extra-weight="${scope}" placeholder="Weight (kg)" min="0" step="0.5" style="width:100%;padding:7px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:13px;">
-      <input type="number" data-extra-duration="${scope}" placeholder="Duration (min)" min="0" style="width:100%;padding:7px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:13px;">
+      <input type="text" inputmode="decimal" data-num data-extra-sets="${scope}" placeholder="Sets" min="0" style="width:100%;padding:7px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:13px;">
+      <input type="text" inputmode="decimal" data-num data-extra-reps="${scope}" placeholder="Reps" min="0" style="width:100%;padding:7px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:13px;">
+      <input type="text" inputmode="decimal" data-num data-extra-weight="${scope}" placeholder="Weight (kg)" min="0" step="0.5" style="width:100%;padding:7px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:13px;">
+      <input type="text" inputmode="decimal" data-num data-extra-duration="${scope}" placeholder="Duration (min)" min="0" style="width:100%;padding:7px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:13px;">
     </div>
     <button type="button" data-extra-save="${scope}" class="timer-btn start" style="width:100%;margin-top:8px;">+ Add to today's session</button>
   `;
@@ -264,7 +264,7 @@ function guessLoggedTodayCategory(ex){
 }
 function loggedTodayFieldsHtml(idx, exi, ex, cat){
   const fields = LOGGEDTODAY_CATEGORY_FIELDS[cat] || LOGGEDTODAY_CATEGORY_FIELDS.other;
-  return fields.map(([key, label]) => `<input type="text" data-loggedtoday-field="${idx}:${exi}:${key}" value="${foodSearchEscape(ex[key] || '')}" placeholder="${label}" style="width:110px;padding:5px 6px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:12px;">`).join('');
+  return fields.map(([key, label]) => `<input type="text" inputmode="decimal" data-num data-loggedtoday-field="${idx}:${exi}:${key}" value="${foodSearchEscape(ex[key] || '')}" placeholder="${label}" style="width:110px;padding:5px 6px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:12px;">`).join('');
 }
 function renderLoggedToday(){
   const el = document.getElementById('loggedTodayList');

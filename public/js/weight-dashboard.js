@@ -72,7 +72,7 @@ function renderWeightSection(){
         if(e.target.closest('[data-del-weight]')) return;
         document.getElementById('weighInDate').value = row.dataset.editWeight;
         const kgInput = document.getElementById('weighInKg');
-        kgInput.value = Math.round(kgToDisplayWeight(parseFloat(row.dataset.editKg)) * 10) / 10;
+        kgInput.value = Math.round(kgToDisplayWeight(parseNum(row.dataset.editKg)) * 10) / 10;
         kgInput.focus();
         if(kgInput.scrollIntoView) kgInput.scrollIntoView({behavior:'smooth', block:'center'});
       });
@@ -139,22 +139,22 @@ function renderDashboard(){
     const realSessions = dayEntries.filter(isRealSessionEntry);
     const planIdx = new Date(dashSelectedDate + 'T00:00:00').getDay();
     const scheduledPlan = scheduledPlanFor(planIdx, dashSelectedDate);
-    const dayCal = dayEntries.reduce((sum,e)=> sum + (e.stats && e.stats.calories ? parseFloat(e.stats.calories)||0 : 0), 0);
-    const hrList = dayEntries.filter(e=>e.stats && e.stats.hr).map(e=>parseFloat(e.stats.hr));
+    const dayCal = dayEntries.reduce((sum,e)=> sum + (e.stats && e.stats.calories ? parseNum(e.stats.calories)||0 : 0), 0);
+    const hrList = dayEntries.filter(e=>e.stats && e.stats.hr).map(e=>parseNum(e.stats.hr));
     const dayAvgHR = hrList.length ? Math.round(hrList.reduce((a,b)=>a+b,0)/hrList.length) : null;
     const status = realSessions.length ? 'Done' : (scheduledPlan ? 'Missed' : 'Rest day');
     const statusColor = realSessions.length ? 'var(--forest-dark)' : (scheduledPlan ? '#B4472A' : 'var(--ink-soft)');
-    const distList = dayEntries.filter(e=>e.stats && e.stats.distance).map(e=>parseFloat(e.stats.distance)||0);
+    const distList = dayEntries.filter(e=>e.stats && e.stats.distance).map(e=>parseNum(e.stats.distance)||0);
     const dayDistance = distList.length ? distList.reduce((a,b)=>a+b,0) : null;
-    const recoveryList = dayEntries.filter(e=>e.stats && e.stats.recoveryHr).map(e=>parseFloat(e.stats.recoveryHr)||0);
+    const recoveryList = dayEntries.filter(e=>e.stats && e.stats.recoveryHr).map(e=>parseNum(e.stats.recoveryHr)||0);
     const dayRecovery = recoveryList.length ? Math.round(recoveryList.reduce((a,b)=>a+b,0)/recoveryList.length) : null;
     const dayStepsCount = stepsLog[dashSelectedDate] || 0;
 
     document.getElementById('dashCards').innerHTML = `
       <div class="dash-card"><div class="dash-num" style="color:${statusColor};font-size:16px;">${status}</div><div class="dash-label">Session status</div></div>
-      <div class="dash-card"><div class="dash-num">${dayCal > 0 ? Math.round(dayCal) : '—'}</div><div class="dash-label">Kcal burned</div></div>
+      <div class="dash-card"><div class="dash-num">${dayCal > 0 ? fmtNum(dayCal) : '—'}</div><div class="dash-label">Kcal burned</div></div>
       <div class="dash-card"><div class="dash-num">${dayAvgHR || '—'}</div><div class="dash-label">Avg HR (bpm)</div></div>
-      <div class="dash-card open-steps-screen-link" style="cursor:pointer;"><div class="dash-num">${dayStepsCount ? dayStepsCount.toLocaleString() : '—'}</div><div class="dash-label">Steps</div></div>
+      <div class="dash-card open-steps-screen-link" style="cursor:pointer;"><div class="dash-num">${dayStepsCount ? fmtNum(dayStepsCount) : '—'}</div><div class="dash-label">Steps</div></div>
       <div class="dash-card"><div class="dash-num">${dayDistance ? dayDistance.toFixed(1) : '—'}</div><div class="dash-label">Distance (km)</div></div>
       <div class="dash-card"><div class="dash-num">${dayRecovery !== null ? dayRecovery : '—'}</div><div class="dash-label">Recovery (Δbpm)</div></div>
     `;
@@ -236,9 +236,9 @@ function renderDashboard(){
   for(let i=0;i<windowDays;i++){
     const dStr = dateStrForOffset(-i);
     historyLog.filter(e => e.date === dStr && e.stats).forEach(e=>{
-      if(e.stats.distance) windowDistance += parseFloat(e.stats.distance) || 0;
-      if(e.stats.calories) windowCalories += parseFloat(e.stats.calories) || 0;
-      if(e.stats.hr) hrReadings.push(parseFloat(e.stats.hr));
+      if(e.stats.distance) windowDistance += parseNum(e.stats.distance) || 0;
+      if(e.stats.calories) windowCalories += parseNum(e.stats.calories) || 0;
+      if(e.stats.hr) hrReadings.push(parseNum(e.stats.hr));
     });
   }
   const avgHR = hrReadings.length ? Math.round(hrReadings.reduce((a,b)=>a+b,0) / hrReadings.length) : null;
@@ -262,7 +262,7 @@ function renderDashboard(){
       <div class="dash-label">Km${rangeLabel}</div>
     </div>
     <div class="dash-card">
-      <div class="dash-num">${windowCalories > 0 ? Math.round(windowCalories) : '—'}</div>
+      <div class="dash-num">${windowCalories > 0 ? fmtNum(windowCalories) : '—'}</div>
       <div class="dash-label">Kcal${rangeLabel}</div>
     </div>
     <div class="dash-card">
@@ -277,14 +277,14 @@ function renderDashboard(){
   const weights = window.savedWeights || {};
   const nameMap = {};
   dayData.A.exercises.concat(dayData.B.exercises).forEach(ex=>{ nameMap[ex.id] = ex.name; });
-  const entries = Object.entries(weights).filter(([id,v])=>v && parseFloat(v) > 0 && nameMap[id]);
+  const entries = Object.entries(weights).filter(([id,v])=>v && parseNum(v) > 0 && nameMap[id]);
   const wpEl = document.getElementById('weightProgress');
   if(entries.length === 0){
     wpEl.innerHTML = `<div class="dash-empty">Log weights on your exercises to see progression here.</div>`;
   } else {
-    const maxVal = Math.max(...entries.map(([id,v])=>parseFloat(v)));
+    const maxVal = Math.max(...entries.map(([id,v])=>parseNum(v)));
     wpEl.innerHTML = entries.map(([id,v])=>{
-      const pct = Math.max(8, (parseFloat(v) / maxVal) * 100);
+      const pct = Math.max(8, (parseNum(v) / maxVal) * 100);
       return `
         <div class="wp-row">
           <div class="wp-name">${nameMap[id]}</div>

@@ -38,13 +38,13 @@ async function renderTodayMeals(){
                 <div style="font-size:13px;min-width:0;">${foodSearchEscape(c.name)} <span style="color:var(--ink-soft);font-size:11.5px;">(${foodSearchEscape(c.amount)}${foodSearchEscape(c.unit)})</span></div>
               </div>
               <div style="display:flex;align-items:center;gap:8px;flex-shrink:0;">
-                <span style="font-size:12.5px;color:var(--ink-soft);">${Math.round(c.nutrients.ENERC_KCAL || 0)} kcal</span>
+                <span style="font-size:12.5px;color:var(--ink-soft);">${fmtNum(c.nutrients.ENERC_KCAL || 0)} kcal</span>
                 <button class="wi-del meal-delete" data-id="${c.id}" type="button" title="Remove">✕</button>
               </div>
             </div>
             <div style="font-size:10.5px;color:var(--ink-soft);margin-top:2px;">${Math.round((c.nutrients.PROCNT || 0) * 10) / 10}g protein · ${Math.round((c.nutrients.FAT || 0) * 10) / 10}g fat · ${Math.round((c.nutrients.CHOCDF || 0) * 10) / 10}g carbs</div>
             <div class="meal-component-edit" data-edit-id="${c.id}" style="display:none;margin-top:6px;gap:8px;align-items:center;flex-wrap:wrap;">
-              <input type="number" class="meal-edit-amount" data-edit-id="${c.id}" value="${c.amount}" style="width:80px;padding:6px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:12.5px;">
+              <input type="text" inputmode="decimal" data-num class="meal-edit-amount" data-edit-id="${c.id}" value="${c.amount}" style="width:80px;padding:6px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:12.5px;">
               <span style="font-size:11.5px;color:var(--ink-soft);">${c.unit}</span>
               <select class="meal-edit-type" data-edit-id="${c.id}" style="padding:6px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:12.5px;">
                 ${MEAL_TYPE_ORDER.map(mt => `<option value="${mt}" ${mt === entry.meal_type ? 'selected' : ''}>${typeLabels[mt] || mt}</option>`).join('')}
@@ -61,7 +61,7 @@ async function renderTodayMeals(){
       ${rows}
       <div style="display:flex;justify-content:space-between;font-weight:700;padding-top:8px;font-size:13.5px;">
         <span>Total</span>
-        <span>${Math.round(t.ENERC_KCAL || 0)} kcal · ${Math.round(t.PROCNT || 0)}g protein</span>
+        <span>${fmtNum(t.ENERC_KCAL || 0)} kcal · ${fmtNum(t.PROCNT || 0)}g protein</span>
       </div>
       ${diaryHtml}
     `;
@@ -91,7 +91,7 @@ async function renderTodayMeals(){
         const id = btn.dataset.id;
         const input = card.querySelector(`.meal-edit-amount[data-edit-id="${id}"]`);
         const typeSelect = card.querySelector(`.meal-edit-type[data-edit-id="${id}"]`);
-        const amount = parseFloat(input.value);
+        const amount = parseNum(input.value);
         if(!amount || amount <= 0) return;
         btn.disabled = true;
         btn.textContent = 'Saving…';
@@ -198,7 +198,7 @@ async function renderNutrition(){
       bannerEl.innerHTML = `
         <div style="background:var(--paper-raised);border:1px solid var(--line);border-radius:8px;padding:12px;text-align:center;">
           <div style="font-size:12.5px;color:var(--ink-soft);">No entry logged for ${dayWord}.</div>
-          <div style="font-size:11.5px;color:var(--ink-soft);margin-top:2px;">${isTodaySel ? 'You have' : 'That day had'} the full ${t.calMin}-${t.calMax} kcal / ${t.proteinMin}-${t.proteinMax}g protein target ${isTodaySel ? 'still to hit' : 'to hit'}.</div>
+          <div style="font-size:11.5px;color:var(--ink-soft);margin-top:2px;">${isTodaySel ? 'You have' : 'That day had'} the full ${fmtNum(t.calMin)}-${fmtNum(t.calMax)} kcal / ${t.proteinMin}-${t.proteinMax}g protein target ${isTodaySel ? 'still to hit' : 'to hit'}.</div>
           ${dayTypeNote}
         </div>
       `;
@@ -210,7 +210,7 @@ async function renderNutrition(){
           </div>
           <div style="display:flex;justify-content:space-between;font-size:12.5px;margin-bottom:4px;">
             <span style="color:var(--ink-soft);">Calories</span>
-            <span style="color:var(--ink);font-weight:600;">${Math.round(eatenCal)} / ${t.calMin}-${t.calMax} kcal ${calMet ? '' : `(${Math.round(remCal)} more needed)`}</span>
+            <span style="color:var(--ink);font-weight:600;">${fmtNum(eatenCal)} / ${fmtNum(t.calMin)}-${fmtNum(t.calMax)} kcal ${calMet ? '' : `(${fmtNum(remCal)} more needed)`}</span>
           </div>
           <div style="display:flex;justify-content:space-between;font-size:12.5px;">
             <span style="color:var(--ink-soft);">Protein</span>
@@ -279,7 +279,7 @@ async function renderNutrition(){
     return vals.length ? vals.reduce((a,b)=>a+b,0) / vals.length : null;
   };
   const avgCal = avg('calories'), avgProtein = avg('protein'), avgFat = avg('fat'), avgCarbs = avg('carbs');
-  const fastVals = recent.map(e => parseFloat(e.fastHours)).filter(v => !isNaN(v));
+  const fastVals = recent.map(e => parseNum(e.fastHours)).filter(v => !isNaN(v));
   const avgFast = fastVals.length ? fastVals.reduce((a,b)=>a+b,0) / fastVals.length : null;
   const daysMetProtein = combinedList.filter(e => e.protein >= getTargets(e.date).proteinMin).length;
   const daysMetCal = combinedList.filter(e => e.calories >= getTargets(e.date).calMin).length;
@@ -291,7 +291,7 @@ async function renderNutrition(){
   clearInterval(nutriFastTickInterval);
   const isTodaySelected = range === 'day' && selectedDate === dateStrForOffset(0);
   document.getElementById('nutriCards').innerHTML = `
-    <div class="dash-card"><div class="dash-num" style="color:${calColor};">${avgCal !== null ? Math.round(avgCal) : '—'}</div><div class="dash-label">${range==='day' ? 'Kcal today' : 'Avg kcal'+cardLabel}</div></div>
+    <div class="dash-card"><div class="dash-num" style="color:${calColor};">${avgCal !== null ? fmtNum(avgCal) : '—'}</div><div class="dash-label">${range==='day' ? 'Kcal today' : 'Avg kcal'+cardLabel}</div></div>
     <div class="dash-card"><div class="dash-num" style="color:${proteinColor};">${avgProtein !== null ? avgProtein.toFixed(1) : '—'}</div><div class="dash-label">${range==='day' ? 'Protein today' : 'Avg protein'+cardLabel}</div></div>
     <div class="dash-card ${isTodaySelected ? 'open-fasting-screen-link' : ''}" ${isTodaySelected ? 'style="cursor:pointer;"' : ''}>
       <div class="dash-num" id="nutriFastValue">${avgFast !== null ? formatFastHours(avgFast) : '—'}</div>
@@ -304,7 +304,7 @@ async function renderNutrition(){
   `;
   if(isTodaySelected){
     const todayEntryForFast = sorted.find(e => e.date === selectedDate);
-    const lastFast = todayEntryForFast && todayEntryForFast.fastHours ? parseFloat(todayEntryForFast.fastHours) : null;
+    const lastFast = todayEntryForFast && todayEntryForFast.fastHours ? parseNum(todayEntryForFast.fastHours) : null;
     const updateNutriFast = ()=>{
       const valEl = document.getElementById('nutriFastValue');
       const subEl = document.getElementById('nutriFastSub');

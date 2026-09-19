@@ -7,7 +7,7 @@ async function importStructuredData(data, statusEl){
     data.weighIns.forEach(w=>{
       if(!w || !w.date || w.kg === undefined || w.kg === null) return;
       weighIns = weighIns.filter(e => e.date !== w.date);
-      weighIns.push({date: w.date, kg: parseFloat(w.kg)});
+      weighIns.push({date: w.date, kg: parseNum(w.kg)});
     });
     weighIns.sort((a,b)=> a.date < b.date ? -1 : 1);
     await saveWeighIns();
@@ -26,7 +26,7 @@ async function importStructuredData(data, statusEl){
         }
       }
       if(hours !== undefined && hours !== null){
-        sleepLog[s.date] = {startIso, endIso, hours: parseFloat(hours)};
+        sleepLog[s.date] = {startIso, endIso, hours: parseNum(hours)};
       }
     });
     await saveSleepLog();
@@ -43,7 +43,7 @@ async function importStructuredData(data, statusEl){
   if(Array.isArray(data.water)){
     data.water.forEach(w=>{
       if(w && w.date && w.ml !== undefined && w.ml !== null){
-        waterLog[w.date] = parseInt(w.ml, 10);
+        waterLog[w.date] = Math.round(parseNum(w.ml));
       }
     });
     await saveWater();
@@ -72,7 +72,7 @@ async function importStructuredData(data, statusEl){
           const item = items[itemIdx];
           if(!item || !item.name) continue;
           setStatus(`Importing food — day ${dayIdx + 1}/${data.nutritionDays.length} (${day.date}), item ${itemIdx + 1}/${items.length}: ${item.name}`);
-          const amount = parseFloat(item.amount) || 100;
+          const amount = parseNum(item.amount) || 100;
           const unit = item.unit || 'g';
           try{
             const createRes = await fetch('api/foods.php?action=create_custom', {
@@ -80,14 +80,14 @@ async function importStructuredData(data, statusEl){
               body: JSON.stringify({
                 name: item.name, canonical_amount: amount, canonical_unit: unit,
                 nutrients: {
-                  ENERC_KCAL: parseFloat(item.calories) || 0,
-                  PROCNT: parseFloat(item.protein) || 0,
-                  FAT: parseFloat(item.fat) || 0,
-                  CHOCDF: parseFloat(item.carbs) || 0,
-                  FIBTG: (item.fiber !== undefined && item.fiber !== null) ? parseFloat(item.fiber) : null,
-                  SUGAR: (item.sugar !== undefined && item.sugar !== null) ? parseFloat(item.sugar) : null,
-                  NA: (item.sodiumMg !== undefined && item.sodiumMg !== null) ? parseFloat(item.sodiumMg) : null,
-                  CHOLE: (item.cholesterolMg !== undefined && item.cholesterolMg !== null) ? parseFloat(item.cholesterolMg) : null
+                  ENERC_KCAL: parseNum(item.calories) || 0,
+                  PROCNT: parseNum(item.protein) || 0,
+                  FAT: parseNum(item.fat) || 0,
+                  CHOCDF: parseNum(item.carbs) || 0,
+                  FIBTG: (item.fiber !== undefined && item.fiber !== null) ? parseNum(item.fiber) : null,
+                  SUGAR: (item.sugar !== undefined && item.sugar !== null) ? parseNum(item.sugar) : null,
+                  NA: (item.sodiumMg !== undefined && item.sodiumMg !== null) ? parseNum(item.sodiumMg) : null,
+                  CHOLE: (item.cholesterolMg !== undefined && item.cholesterolMg !== null) ? parseNum(item.cholesterolMg) : null
                 }
               })
             });
@@ -360,9 +360,9 @@ async function checkAuthAndStart(){
       const hUnit = document.getElementById('obHeightUnit').value;
       const heightCm = hUnit === 'ft'
         ? feetInchesToCm(document.getElementById('obHeightFt').value, document.getElementById('obHeightIn').value)
-        : (parseFloat(document.getElementById('obHeight').value) || null);
-      const rawCurrent = parseFloat(document.getElementById('obCurrentWeight').value);
-      const rawGoal = parseFloat(document.getElementById('obGoalWeight').value);
+        : (parseNum(document.getElementById('obHeight').value) || null);
+      const rawCurrent = parseNum(document.getElementById('obCurrentWeight').value);
+      const rawGoal = parseNum(document.getElementById('obGoalWeight').value);
       const currentWeightKgVal = isNaN(rawCurrent) ? null : (wUnit === 'lbs' ? lbsToKg(rawCurrent) : rawCurrent);
       const goalWeightKgVal = isNaN(rawGoal) ? null : (wUnit === 'lbs' ? lbsToKg(rawGoal) : rawGoal);
 
@@ -414,7 +414,7 @@ async function checkAuthAndStart(){
     if(newUnit === obWeightUnitPrev){ return; }
     ['obCurrentWeight', 'obGoalWeight'].forEach(id=>{
       const input = document.getElementById(id);
-      const val = parseFloat(input.value);
+      const val = parseNum(input.value);
       if(isNaN(val)) return;
       const kg = obWeightUnitPrev === 'lbs' ? lbsToKg(val) : val;
       input.value = Math.round((newUnit === 'lbs' ? kgToLbs(kg) : kg) * 10) / 10;
@@ -429,7 +429,7 @@ async function checkAuthAndStart(){
     if(obHeightUnitPrev === 'ft'){
       cm = feetInchesToCm(document.getElementById('obHeightFt').value, document.getElementById('obHeightIn').value);
     } else {
-      const val = parseFloat(document.getElementById('obHeight').value);
+      const val = parseNum(document.getElementById('obHeight').value);
       cm = isNaN(val) ? null : val;
     }
     if(cm){
@@ -453,21 +453,21 @@ async function checkAuthAndStart(){
 (function(){
   document.getElementById('saveGoalsBtn').addEventListener('click', async ()=>{
     const profile = {...(userProfile || {})};
-    profile.customCalorieTarget = parseFloat(document.getElementById('goalEnergyCustom').value) || null;
-    profile.customProteinTarget = parseFloat(document.getElementById('goalProteinCustom').value) || null;
-    profile.customCarbTarget = parseFloat(document.getElementById('goalCarbsCustom').value) || null;
-    profile.customFatTarget = parseFloat(document.getElementById('goalFatCustom').value) || null;
-    profile.customSodiumTarget = parseFloat(document.getElementById('goalSodiumCustom').value) || null;
-    profile.customFiberTarget = parseFloat(document.getElementById('goalFiberCustom').value) || null;
-    profile.customSugarTarget = parseFloat(document.getElementById('goalSugarCustom').value) || null;
+    profile.customCalorieTarget = parseNum(document.getElementById('goalEnergyCustom').value) || null;
+    profile.customProteinTarget = parseNum(document.getElementById('goalProteinCustom').value) || null;
+    profile.customCarbTarget = parseNum(document.getElementById('goalCarbsCustom').value) || null;
+    profile.customFatTarget = parseNum(document.getElementById('goalFatCustom').value) || null;
+    profile.customSodiumTarget = parseNum(document.getElementById('goalSodiumCustom').value) || null;
+    profile.customFiberTarget = parseNum(document.getElementById('goalFiberCustom').value) || null;
+    profile.customSugarTarget = parseNum(document.getElementById('goalSugarCustom').value) || null;
     profile.dietPreset = document.getElementById('goalDietPreset').value;
     const newWeightUnit = document.getElementById('goalWeightUnit').value;
     profile.weightUnit = newWeightUnit;
-    const rawGoalWeight = parseFloat(document.getElementById('goalTargetWeight').value);
+    const rawGoalWeight = parseNum(document.getElementById('goalTargetWeight').value);
     profile.goalWeightKg = isNaN(rawGoalWeight) ? null : (newWeightUnit === 'lbs' ? lbsToKg(rawGoalWeight) : rawGoalWeight);
-    profile.sleepGoalHours = parseFloat(document.getElementById('goalSleepHours').value) || null;
+    profile.sleepGoalHours = parseNum(document.getElementById('goalSleepHours').value) || null;
     profile.stepsGoal = parseInt(document.getElementById('goalSteps').value, 10) || null;
-    profile.calorieBurnGoal = parseFloat(document.getElementById('goalCalorieBurn').value) || null;
+    profile.calorieBurnGoal = parseNum(document.getElementById('goalCalorieBurn').value) || null;
     profile.waterGoalMl = parseInt(document.getElementById('goalWater').value, 10) || null;
     if(!userProfile && (profile.customCalorieTarget || profile.customProteinTarget)){
       const err = document.getElementById('goalsError');
@@ -477,7 +477,7 @@ async function checkAuthAndStart(){
     }
     await saveProfile(profile);
 
-    const fastingHoursVal = parseFloat(document.getElementById('goalFastingHours').value) || 16;
+    const fastingHoursVal = parseNum(document.getElementById('goalFastingHours').value) || 16;
     fastingState.goalHours = fastingHoursVal;
     await saveFasting();
 
@@ -520,7 +520,7 @@ async function checkAuthAndStart(){
     const newUnit = e.target.value;
     if(newUnit === goalWeightUnitPrev) return;
     const input = document.getElementById('goalTargetWeight');
-    const val = parseFloat(input.value);
+    const val = parseNum(input.value);
     if(!isNaN(val)){
       const kg = goalWeightUnitPrev === 'lbs' ? lbsToKg(val) : val;
       input.value = Math.round((newUnit === 'lbs' ? kgToLbs(kg) : kg) * 10) / 10;

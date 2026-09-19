@@ -111,11 +111,11 @@ const WORKOUT_TREND_SERIES = [
 ];
 function dayWorkoutStatTotals(dStr){
   const dayEntries = historyLog.filter(e => e.date === dStr && e.stats);
-  const calories = dayEntries.reduce((sum, e) => sum + (parseFloat(e.stats.calories) || 0), 0);
-  const distance = dayEntries.reduce((sum, e) => sum + (parseFloat(e.stats.distance) || 0), 0);
-  const hrList = dayEntries.filter(e => e.stats.hr).map(e => parseFloat(e.stats.hr));
+  const calories = dayEntries.reduce((sum, e) => sum + (parseNum(e.stats.calories) || 0), 0);
+  const distance = dayEntries.reduce((sum, e) => sum + (parseNum(e.stats.distance) || 0), 0);
+  const hrList = dayEntries.filter(e => e.stats.hr).map(e => parseNum(e.stats.hr));
   const hr = hrList.length ? hrList.reduce((a, b) => a + b, 0) / hrList.length : 0;
-  const recoveryList = dayEntries.filter(e => e.stats.recoveryHr).map(e => parseFloat(e.stats.recoveryHr));
+  const recoveryList = dayEntries.filter(e => e.stats.recoveryHr).map(e => parseNum(e.stats.recoveryHr));
   const recovery = recoveryList.length ? recoveryList.reduce((a, b) => a + b, 0) / recoveryList.length : 0;
   const steps = stepsLog[dStr] || 0;
   return {calories, hr, steps, distance, recovery, hasAny: calories > 0 || hr > 0 || steps > 0 || distance > 0 || recovery > 0};

@@ -157,7 +157,7 @@ function foodMeasureOptions(r){
 function foodMeasureControls(r, i){
   return `<div style="margin-top:6px;min-width:0;flex:1;">
     <label>Measure <select class="food-unit-input" data-idx="${i}" aria-label="Food measure" style="max-width:100%;">${foodMeasureOptions(r).map(o=>`<option value="${foodSearchEscape(o.value)}">${foodSearchEscape(o.label)}</option>`).join('')}</select></label>
-    <label class="food-personal-weight" style="display:none;margin-top:6px;">My measured edible grams per piece / ml <input type="number" class="food-weight-input" min="0.000001" step="any" aria-label="Measured grams per piece or ml" style="width:90px;"></label>
+    <label class="food-personal-weight" style="display:none;margin-top:6px;">My measured edible grams per piece / ml <input type="text" inputmode="decimal" data-num class="food-weight-input" min="0.000001" step="any" aria-label="Measured grams per piece or ml" style="width:90px;"></label>
     <div class="food-measure-note" style="font-size:11.5px;color:var(--ink-soft);margin-top:5px;">Saved in ${foodSearchEscape(r.canonical_unit || 'g')}. Use edible weight.</div>
   </div>`;
 }
@@ -261,7 +261,7 @@ function renderFoodSearchResults(){
         </div>
         <div class="food-result-amount" data-idx="${i}" style="display:none;margin-top:8px;">
           <div style="display:flex;gap:8px;align-items:center;">
-            <input type="number" min="0.000001" step="any" aria-label="Food amount" class="food-amount-input" data-idx="${i}" value="${canonicalAmount}" style="width:80px;padding:6px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:13px;">
+            <input type="text" inputmode="decimal" data-num min="0.000001" step="any" aria-label="Food amount" class="food-amount-input" data-idx="${i}" value="${canonicalAmount}" style="width:80px;padding:6px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:13px;">
             ${foodMeasureControls(r, i)}
           </div>
           <div class="food-macro-preview" data-idx="${i}" style="font-size:11.5px;color:var(--ink-soft);margin-top:8px;">${macroPreviewText(r, canonicalAmount)}</div>

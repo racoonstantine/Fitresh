@@ -120,10 +120,10 @@ function renderAccountGoals(){
     document.getElementById('goalFatCustom').value = profile.customFatTarget || '';
   } else {
     const directionLabel = t.goalDirection === 'lose'
-      ? `${t.recommendedCalorieTarget} kcal maintenance, less a deficit toward your goal weight.`
+      ? `${fmtNum(t.recommendedCalorieTarget)} kcal maintenance, less a deficit toward your goal weight.`
       : (t.goalDirection === 'gain'
-        ? `${t.recommendedCalorieTarget} kcal, a surplus toward your goal weight.`
-        : `${t.recommendedCalorieTarget} kcal maintenance.`);
+        ? `${fmtNum(t.recommendedCalorieTarget)} kcal, a surplus toward your goal weight.`
+        : `${fmtNum(t.recommendedCalorieTarget)} kcal maintenance.`);
     document.getElementById('goalEnergyNote').textContent = directionLabel;
     document.getElementById('goalEnergyRecommended').textContent = t.recommendedCalorieTarget;
     document.getElementById('goalEnergyCustom').value = profile.customCalorieTarget || t.recommendedCalorieTarget;

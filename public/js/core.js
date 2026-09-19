@@ -302,8 +302,8 @@ function cmToFeetInches(cm){
   return {feet, inches};
 }
 function feetInchesToCm(feet, inches){
-  const ft = parseFloat(feet) || 0;
-  const inch = parseFloat(inches) || 0;
+  const ft = parseNum(feet) || 0;
+  const inch = parseNum(inches) || 0;
   if(!ft && !inch) return null;
   return (ft * 12 + inch) * 2.54;
 }
@@ -315,7 +315,7 @@ function kgToDisplayWeight(kg){
   return weightUnit() === 'lbs' ? kgToLbs(kg) : kg;
 }
 function displayWeightToKg(value){
-  const num = parseFloat(value);
+  const num = parseNum(value);
   if(isNaN(num)) return null;
   return weightUnit() === 'lbs' ? lbsToKg(num) : num;
 }
@@ -431,10 +431,10 @@ async function fetchMealTotals(dateList){
 function combinedDayTotals(dateStr, nutriEntry){
   const m = mealTotalsByDate[dateStr] || {};
   return {
-    calories: (nutriEntry ? (parseFloat(nutriEntry.calories) || 0) : 0) + (m.ENERC_KCAL || 0),
-    protein: (nutriEntry ? (parseFloat(nutriEntry.protein) || 0) : 0) + (m.PROCNT || 0),
-    fat: (nutriEntry ? (parseFloat(nutriEntry.fat) || 0) : 0) + (m.FAT || 0),
-    carbs: (nutriEntry ? (parseFloat(nutriEntry.carbs) || 0) : 0) + (m.CHOCDF || 0),
+    calories: (nutriEntry ? (parseNum(nutriEntry.calories) || 0) : 0) + (m.ENERC_KCAL || 0),
+    protein: (nutriEntry ? (parseNum(nutriEntry.protein) || 0) : 0) + (m.PROCNT || 0),
+    fat: (nutriEntry ? (parseNum(nutriEntry.fat) || 0) : 0) + (m.FAT || 0),
+    carbs: (nutriEntry ? (parseNum(nutriEntry.carbs) || 0) : 0) + (m.CHOCDF || 0),
     // Sodium/fiber/sugar only ever come from itemized food-search logging (m.*) --
     // the legacy quick-log day entry never captured these.
     sodium: m.NA || 0,
@@ -529,7 +529,7 @@ function renderFasting(){
     const sel = document.getElementById('fastGoalSelect');
     sel.value = String(fastingState.goalHours || 16);
     document.getElementById('startFastBtn').addEventListener('click', ()=>{
-      fastingState = { startIso: new Date().toISOString(), goalHours: parseFloat(sel.value) || 16 };
+      fastingState = { startIso: new Date().toISOString(), goalHours: parseNum(sel.value) || 16 };
       saveFasting();
       renderFasting();
     });

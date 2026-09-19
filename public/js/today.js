@@ -104,10 +104,10 @@ async function renderTodayGlance(){
   }catch(e){}
   const mealTotals = dayRes.totals || {};
   const combined = {
-    calories: (nutriEntry ? parseFloat(nutriEntry.calories) || 0 : 0) + (mealTotals.ENERC_KCAL || 0),
-    protein: (nutriEntry ? parseFloat(nutriEntry.protein) || 0 : 0) + (mealTotals.PROCNT || 0),
-    fat: (nutriEntry ? parseFloat(nutriEntry.fat) || 0 : 0) + (mealTotals.FAT || 0),
-    carbs: (nutriEntry ? parseFloat(nutriEntry.carbs) || 0 : 0) + (mealTotals.CHOCDF || 0)
+    calories: (nutriEntry ? parseNum(nutriEntry.calories) || 0 : 0) + (mealTotals.ENERC_KCAL || 0),
+    protein: (nutriEntry ? parseNum(nutriEntry.protein) || 0 : 0) + (mealTotals.PROCNT || 0),
+    fat: (nutriEntry ? parseNum(nutriEntry.fat) || 0 : 0) + (mealTotals.FAT || 0),
+    carbs: (nutriEntry ? parseNum(nutriEntry.carbs) || 0 : 0) + (mealTotals.CHOCDF || 0)
   };
   const hasFoodToday = !!nutriEntry || (dayRes.entries || []).some(e => e.components.length);
 
@@ -137,7 +137,7 @@ async function renderTodayGlance(){
   const planLabel = scheduledPlanToday ? scheduledPlanToday.name : (loggedToday.length ? loggedToday[0].label : 'Rest day');
 
   const caloriesBurned = historyLog.filter(e => e.date === today)
-    .reduce((sum,e)=> sum + (e.stats && e.stats.calories ? parseFloat(e.stats.calories) || 0 : 0), 0);
+    .reduce((sum,e)=> sum + (e.stats && e.stats.calories ? parseNum(e.stats.calories) || 0 : 0), 0);
   const calorieBurnTarget = (userProfile && userProfile.calorieBurnGoal) || 400;
   const sleepGoalHours = (userProfile && userProfile.sleepGoalHours) || 8;
 
@@ -163,9 +163,9 @@ async function renderTodayGlance(){
     </div>
     <div class="glance-card" data-nav-view="food" style="cursor:pointer;">
       <div class="glance-card-head"><span class="glance-card-label">\u{1F37D} Food Intake</span></div>
-      <div class="glance-card-value">${Math.round(combined.calories)} kcal</div>
+      <div class="glance-card-value">${fmtNum(combined.calories)} kcal</div>
       <div class="glance-bar-track"><div class="glance-bar-fill" style="width:${Math.min(100, calTarget ? combined.calories/calTarget*100 : 0)}%;background:var(--ochre);"></div></div>
-      <div class="glance-card-sub">Target: ${Math.round(calTarget).toLocaleString()} kcal</div>
+      <div class="glance-card-sub">Target: ${fmtNum(calTarget)} kcal</div>
     </div>
     <div class="glance-card" data-nav-view="food" style="cursor:pointer;">
       <div class="glance-card-label" style="margin-bottom:4px;">\u{1F3AF} Macronutrients</div>
@@ -195,7 +195,7 @@ async function renderTodayGlance(){
     const subEl = document.getElementById('glanceFastSub');
     const feedValEl = document.getElementById('todayLogFastValue');
     if(!valEl) return;
-    const lastFast = nutriEntry && nutriEntry.fastHours ? parseFloat(nutriEntry.fastHours) : null;
+    const lastFast = nutriEntry && nutriEntry.fastHours ? parseNum(nutriEntry.fastHours) : null;
     const info = fastingSummaryText(lastFast);
     valEl.textContent = info.value;
     if(feedValEl) feedValEl.textContent = info.value;
@@ -231,8 +231,8 @@ async function renderTodayGlance(){
     </div>
     <div class="glance-card" data-nav-view="train" style="align-items:center;cursor:pointer;">
       <div class="glance-card-label" style="align-self:flex-start;">\u{1F525} Calories Burned</div>
-      ${glanceRing(Math.min(100, caloriesBurned/calorieBurnTarget*100), '#B4472A', 84, `<div style="font-family:var(--font-heading);font-size:20px;">${Math.round(caloriesBurned)}</div><div style="font-size:9.5px;color:var(--ink-soft);">kcal</div>`)}
-      <div class="glance-card-sub">Target: ${calorieBurnTarget} kcal</div>
+      ${glanceRing(Math.min(100, caloriesBurned/calorieBurnTarget*100), '#B4472A', 84, `<div style="font-family:var(--font-heading);font-size:20px;">${fmtNum(caloriesBurned)}</div><div style="font-size:9.5px;color:var(--ink-soft);">kcal</div>`)}
+      <div class="glance-card-sub">Target: ${fmtNum(calorieBurnTarget)} kcal</div>
     </div>
     <div class="glance-card open-sleep-screen-link" style="cursor:pointer;">
       <div class="glance-card-head"><span class="glance-card-label">\u{1F634} Sleep</span></div>
@@ -248,8 +248,8 @@ async function renderTodayGlance(){
     </div>
     <div class="glance-card open-steps-screen-link" style="align-items:center;cursor:pointer;">
       <div class="glance-card-label" style="align-self:flex-start;">\u{1F463} Steps</div>
-      ${glanceRing(Math.min(100, stepsTarget ? stepsToday/stepsTarget*100 : 0), '#4A90D9', 84, `<div style="font-family:var(--font-heading);font-size:18px;">${stepsToday.toLocaleString()}</div><div style="font-size:9.5px;color:var(--ink-soft);">steps</div>`)}
-      <div class="glance-card-sub">Target: ${stepsTarget.toLocaleString()}</div>
+      ${glanceRing(Math.min(100, stepsTarget ? stepsToday/stepsTarget*100 : 0), '#4A90D9', 84, `<div style="font-family:var(--font-heading);font-size:18px;">${fmtNum(stepsToday)}</div><div style="font-size:9.5px;color:var(--ink-soft);">steps</div>`)}
+      <div class="glance-card-sub">Target: ${fmtNum(stepsTarget)}</div>
     </div>
   `;
   document.getElementById('glanceWaterPlus').addEventListener('click', ()=> addWaterMl(250));
@@ -287,7 +287,7 @@ async function renderTodayGlance(){
   const todaysWeighIn = weighIns.find(w => w.date === today);
   const mealItemCount = (dayRes.entries || []).reduce((sum,e)=> sum + e.components.length, 0) + (nutriEntry && nutriEntry.meal ? 1 : 0);
   const rows = [
-    {icon: '\u{1F37D}', title: 'Food', sub: mealItemCount ? `${mealItemCount} item${mealItemCount===1?'':'s'} logged` : 'Not logged yet', value: hasFoodToday ? `${Math.round(combined.calories)} kcal` : '—'},
+    {icon: '\u{1F37D}', title: 'Food', sub: mealItemCount ? `${mealItemCount} item${mealItemCount===1?'':'s'} logged` : 'Not logged yet', value: hasFoodToday ? `${fmtNum(combined.calories)} kcal` : '—'},
     {icon: '\u{1F4A7}', title: 'Water', sub: waterMl ? `${waterMl}ml logged` : 'Not logged yet', value: `${fmtL(waterMl)} L`},
     {icon: '\u{1F4CB}', title: 'Weight', sub: todaysWeighIn ? 'Logged' : 'Not logged today', value: todaysWeighIn ? formatWeightKg(todaysWeighIn.kg) : '—'},
     {icon: '\u{1F3C3}', title: 'Workout', sub: loggedToday.length ? `${planLabel} — ${loggedToday.length} logged` : (scheduledPlanToday ? planLabel : 'Rest day'), value: scheduledPlanToday ? (exerciseDone ? 'Completed' : 'Not done') : (loggedToday.length ? 'Logged' : '—')},
@@ -589,7 +589,7 @@ function applyDietPreset(key){
   const preset = DIET_PRESETS[key] || DIET_PRESETS.open;
   if(preset.carbsPct == null) return;
   const calEl = document.getElementById('goalEnergyCustom');
-  const cal = parseFloat(calEl.value) || (userHealthTargets ? userHealthTargets.recommendedCalorieTarget : 2000);
+  const cal = parseNum(calEl.value) || (userHealthTargets ? userHealthTargets.recommendedCalorieTarget : 2000);
   document.getElementById('goalProteinCustom').value = Math.round(cal * preset.proteinPct / 4);
   document.getElementById('goalCarbsCustom').value = Math.round(cal * preset.carbsPct / 4);
   document.getElementById('goalFatCustom').value = Math.round(cal * preset.fatPct / 9);
@@ -609,14 +609,14 @@ function macroBarRow(label, value, min, max, unit, mode){
     : (value < min ? 'under' : (value <= max ? 'met' : 'over'));
   const fillColor = state === 'met' ? 'var(--forest)' : (state === 'under' ? 'var(--ochre)' : '#B4472A');
   const textColor = state === 'met' ? 'var(--forest-dark)' : (state === 'under' ? 'var(--ochre)' : '#B4472A');
-  const rangeLabel = mode === 'ceiling' ? `under ${max}${unit}` : `${min}-${max}${unit}`;
+  const rangeLabel = mode === 'ceiling' ? `under ${fmtNum(max)}${unit}` : `${fmtNum(min)}-${fmtNum(max)}${unit}`;
   // Round for display -- summed floats (e.g. 29.2 + 0.4) can otherwise print as 29.599999999999998.
   const displayValue = Math.round(value * 10) / 10;
   return `
     <div class="macro-target-row">
       <div class="macro-target-label">
         <span>${label}</span>
-        <span style="font-weight:600;color:${textColor};">${displayValue}${unit} <span style="color:var(--ink-soft);font-weight:400;">/ ${rangeLabel}</span></span>
+        <span style="font-weight:600;color:${textColor};">${fmtNumMax(displayValue)}${unit} <span style="color:var(--ink-soft);font-weight:400;">/ ${rangeLabel}</span></span>
       </div>
       <div class="macro-target-track">
         <div class="macro-target-zone" style="left:${zoneLeftPct}%;width:${zoneWidthPct}%;"></div>
@@ -637,7 +637,7 @@ function macroChip(label, value, target, unit, mode){
   return `
     <div style="flex:1;background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:6px 4px;text-align:center;">
       <div style="font-size:9.5px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.04em;">${label}</div>
-      <div style="font-size:12px;font-weight:600;color:${color};">${displayValue}<span style="font-weight:400;color:var(--ink-soft);">/${target}${unit}</span></div>
+      <div style="font-size:12px;font-weight:600;color:${color};">${fmtNumMax(displayValue)}<span style="font-weight:400;color:var(--ink-soft);">/${fmtNum(target)}${unit}</span></div>
     </div>
   `;
 }
@@ -653,7 +653,7 @@ function macroChip(label, value, target, unit, mode){
 function buildNutritionNotes(vals, t, hasItemized){
   const notes = [];
   if(vals.cal > t.calMax){
-    notes.push({icon: '⚠️', text: `Calories are ${Math.round(vals.cal - t.calMax)} kcal over today's ceiling — fine occasionally, but worth watching if it becomes a pattern.`});
+    notes.push({icon: '⚠️', text: `Calories are ${fmtNum(vals.cal - t.calMax)} kcal over today's ceiling — fine occasionally, but worth watching if it becomes a pattern.`});
   } else if(vals.cal < t.calMin){
     notes.push({icon: 'ℹ️', text: `Calories are under today's target — make sure you're eating enough to fuel the day.`});
   }
@@ -668,7 +668,7 @@ function buildNutritionNotes(vals, t, hasItemized){
   }
   if(hasItemized){
     if(vals.sodium > t.sodiumMax){
-      notes.push({icon: '⚠️', text: `Sodium is above today's limit (${Math.round(vals.sodium)}mg vs ${t.sodiumMax}mg) — go easy on processed, canned, or salty foods and drink extra water.`});
+      notes.push({icon: '⚠️', text: `Sodium is above today's limit (${fmtNum(vals.sodium)}mg vs ${fmtNum(t.sodiumMax)}mg) — go easy on processed, canned, or salty foods and drink extra water.`});
     }
     if(vals.sugar > t.sugarMax){
       notes.push({icon: '⚠️', text: `Sugar is above today's limit (${Math.round(vals.sugar)}g vs ${t.sugarMax}g) — sodas, desserts, and sweetened drinks are the usual culprits.`});
@@ -707,8 +707,9 @@ function parseLabeledReply(text, labels){
   return out;
 }
 function firstNumber(str){
-  const m = (str || '').match(/-?[\d.]+/);
-  return m ? parseFloat(m[0]) : NaN;
+  // Accepts thousands separators ("1,234 kcal" -> 1234) as well as plain and decimal numbers.
+  const m = (str || '').match(/-?\d[\d,]*(?:\.\d+)?|-?\.\d+/);
+  return m ? parseNum(m[0]) : NaN;
 }
 function copyTextToClipboard(text, btnEl){
   const done = ()=>{

@@ -25,7 +25,10 @@ if (start2 === -1 || end2 === -1) throw new Error('Could not locate AI stats-ass
 const statsCode = html.slice(start2, end2);
 
 const context = vm.createContext({});
-vm.runInContext(sharedCode + '\n' + foodCode + '\n' + statsCode, context);
+// parseNum/fmtNum live in public/js/numbers.js (minus its DOM listener).
+const numbersSrc = fs.readFileSync('public/js/numbers.js', 'utf8');
+const numbersCode = numbersSrc.slice(0, numbersSrc.indexOf("document.addEventListener"));
+vm.runInContext(numbersCode + '\n' + sharedCode + '\n' + foodCode + '\n' + statsCode, context);
 const { buildFoodAiPrompt, parseLabeledReply, firstNumber, buildStatsAiPrompt, splitFoodReplyBlocks } = context;
 
 // --- Prompt generation ---
@@ -129,3 +132,31 @@ assert.equal(firstNumber(sf['Max HR']), 155);
 assert.equal(firstNumber(sf['Elevation gain']), 20);
 
 console.log('PASS: AI prompt-assist generation + parsing (food + workout), incl. photo-hint and no-JSON checks.');
+
+// --- Thousands separators in AI replies / typed numbers ---
+assert.equal(firstNumber('1,234 kcal'), 1234, 'comma thousands in a reply');
+assert.equal(firstNumber('about 12,345.6 steps'), 12345.6);
+assert.equal(firstNumber('2,500'), 2500);
+assert.equal(firstNumber('~350 kcal'), 350);
+assert.equal(firstNumber('.5 g'), 0.5);
+assert.equal(firstNumber('-3.2'), -3.2);
+assert.ok(Number.isNaN(firstNumber('n/a')));
+assert.equal(context.parseNum('1,200.5'), 1200.5);
+assert.equal(context.parseNum(' 1 200 '), 1200);
+assert.ok(Number.isNaN(context.parseNum('')));
+assert.equal(context.fmtNum(1234567), '1,234,567');
+assert.equal(context.fmtNum(1234.5, 1), '1,234.5');
+assert.equal(context.fmtNum(999), '999');
+assert.equal(context.fmtNum(null), '—');
+assert.equal(context.fmtNum('2,500'), '2,500');
+assert.equal(context.fmtNumMax(1200.5), '1,200.5');
+assert.equal(context.fmtNumMax(1200), '1,200');
+assert.equal(context.fmtNumMax(0.25, 2), '0.25');
+// Typed/pasted input is reduced to a plain number.
+assert.equal(context.sanitizeNumText('1,234.5'), '1234.5');
+assert.equal(context.sanitizeNumText('12abc,000'), '12000');
+assert.equal(context.sanitizeNumText(' 2 500 '), '2500');
+assert.equal(context.sanitizeNumText('1.2.3'), '1.23');
+assert.equal(context.sanitizeNumText('--5'), '-5');
+assert.equal(context.sanitizeNumText('5-'), '5');
+console.log('PASS: thousands-separator parsing and formatting.');

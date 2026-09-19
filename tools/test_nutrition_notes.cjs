@@ -12,6 +12,9 @@ if (start === -1 || end === -1) throw new Error('Could not locate macroBarRow/bu
 const code = html.slice(start, end);
 
 const context = vm.createContext({});
+// fmtNum/parseNum come from public/js/numbers.js (minus its DOM listener).
+const numbersSrc = fs.readFileSync('public/js/numbers.js', 'utf8');
+vm.runInContext(numbersSrc.slice(0, numbersSrc.indexOf('document.addEventListener')), context);
 vm.runInContext(code, context);
 const { macroBarRow, buildNutritionNotes } = context;
 
@@ -61,3 +64,9 @@ const notes4 = buildNutritionNotes({cal: 900, protein: 130, fat: 60, carbs: 20, 
 assert.ok(notes4.some(n => n.text.includes('under today\'s target') && n.icon === 'ℹ️'));
 
 console.log('PASS: macro-bar range-mode ceiling fix + nutrition guidance notes.');
+
+// Thousands separators on the calorie bar: a 1,900-2,200 kcal target reads with commas.
+const calBar = macroBarRow('Calories', 2050, 1900, 2200, ' kcal', 'range');
+assert.ok(calBar.includes('2,050 kcal') && calBar.includes('1,900-2,200 kcal'), 'calorie bar should use thousands separators');
+assert.ok(macroBarRow('Sodium', 1234.5, 0, 2300, 'mg', 'ceiling').includes('1,234.5mg') && macroBarRow('Sodium', 1234.5, 0, 2300, 'mg', 'ceiling').includes('under 2,300mg'));
+console.log('PASS: thousands separators on calorie/sodium bars.');

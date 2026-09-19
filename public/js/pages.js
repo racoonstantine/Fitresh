@@ -54,12 +54,12 @@
   function renderFsDaySummary(){
     const el = document.getElementById('fsDaySummary');
     if(!el) return;
-    const entry = nutritionLog.find(e => e.date === fsSelectedDate && e.fastHours && parseFloat(e.fastHours) > 0);
+    const entry = nutritionLog.find(e => e.date === fsSelectedDate && e.fastHours && parseNum(e.fastHours) > 0);
     if(!entry){
       el.innerHTML = `<div style="font-size:12.5px;color:var(--ink-soft);">No fast logged for this day yet.</div>`;
       return;
     }
-    const hours = parseFloat(entry.fastHours);
+    const hours = parseNum(entry.fastHours);
     const goalHrs = fastingState.goalHours || 16;
     const pct = hours / goalHrs * 100;
     let commentary, color;
@@ -83,7 +83,7 @@
     const todayStr = dateStrForOffset(0);
     let end, hours;
     if(existing){
-      hours = parseFloat(existing.fastHours);
+      hours = parseNum(existing.fastHours);
       // Exact start/end aren't stored for a plain duration -- reconstruct a
       // reasonable window (still freely editable) rather than leaving it blank.
       end = fsSelectedDate === todayStr ? new Date() : new Date(fsSelectedDate + 'T08:00:00');
@@ -123,7 +123,7 @@
       `;
       document.getElementById('fsGoalSelect').value = String(fastingState.goalHours || 16);
       document.getElementById('fsStartFastBtn').addEventListener('click', ()=>{
-        fastingState = { startIso: new Date().toISOString(), goalHours: parseFloat(document.getElementById('fsGoalSelect').value) || 16 };
+        fastingState = { startIso: new Date().toISOString(), goalHours: parseNum(document.getElementById('fsGoalSelect').value) || 16 };
         saveFasting();
         renderFasting();
         renderTodayGlance();
@@ -208,8 +208,8 @@
 
   function renderFastingHistory(){
     const fasts = nutritionLog
-      .filter(e => e.fastHours && parseFloat(e.fastHours) > 0)
-      .map(e => ({date: e.date, hours: parseFloat(e.fastHours)}))
+      .filter(e => e.fastHours && parseNum(e.fastHours) > 0)
+      .map(e => ({date: e.date, hours: parseNum(e.fastHours)}))
       .sort((a,b)=> a.date < b.date ? 1 : -1);
 
     const chartEl = document.getElementById('fsHistoryChart');
@@ -306,7 +306,7 @@
     renderTodayGlance();
     renderDashboard();
     errEl.style.color = 'var(--forest-dark)';
-    errEl.textContent = `Saved — ${count.toLocaleString()} steps logged for ${formatDateLabel(stepsSelectedDate)}.`;
+    errEl.textContent = `Saved — ${fmtNum(count)} steps logged for ${formatDateLabel(stepsSelectedDate)}.`;
     errEl.style.display = 'block';
   });
 
@@ -330,7 +330,7 @@
       listEl.innerHTML = entries.slice(0, 10).map(s => `
         <div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px dashed var(--line);font-size:12.5px;">
           <span style="color:var(--ink-soft);">${formatDateLabel(s.date)}</span>
-          <span style="font-weight:600;">${s.count.toLocaleString()}</span>
+          <span style="font-weight:600;">${fmtNum(s.count)}</span>
         </div>
       `).join('');
     }

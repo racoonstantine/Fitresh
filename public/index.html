@@ -70,7 +70,7 @@
           </div>
           <div>
             <label style="font-size:11px;color:var(--ink-soft);">Age</label>
-            <input type="number" id="obAge" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;">
+            <input type="text" inputmode="decimal" data-num id="obAge" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;">
           </div>
         </div>
 
@@ -83,10 +83,10 @@
                 <option value="ft">ft/in</option>
               </select>
             </div>
-            <input type="number" id="obHeight" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;">
+            <input type="text" inputmode="decimal" data-num id="obHeight" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;">
             <div id="obHeightFtWrap" style="display:none;gap:6px;margin-top:2px;">
-              <input type="number" id="obHeightFt" placeholder="ft" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);">
-              <input type="number" id="obHeightIn" placeholder="in" step="0.1" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);">
+              <input type="text" inputmode="decimal" data-num id="obHeightFt" placeholder="ft" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);">
+              <input type="text" inputmode="decimal" data-num id="obHeightIn" placeholder="in" step="0.1" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);">
             </div>
           </div>
           <div>
@@ -122,11 +122,11 @@
                 <option value="lbs">lb</option>
               </select>
             </div>
-            <input type="number" step="0.1" id="obCurrentWeight" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;">
+            <input type="text" inputmode="decimal" data-num step="0.1" id="obCurrentWeight" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;">
           </div>
           <div>
             <label style="font-size:11px;color:var(--ink-soft);" id="obGoalWeightLabel">Goal weight (kg)</label>
-            <input type="number" step="0.1" id="obGoalWeight" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;">
+            <input type="text" inputmode="decimal" data-num step="0.1" id="obGoalWeight" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;">
           </div>
         </div>
 
@@ -208,7 +208,7 @@
       <div id="weightChart" style="margin:14px 0 4px;"></div>
       <div style="display:flex;gap:8px;margin-top:10px;">
         <input type="date" id="weighInDate" style="flex:1;padding:8px;border:1px solid var(--line);border-radius:5px;font-family:var(--font-body);font-size:13px;background:var(--paper-raised);">
-        <input type="number" step="0.1" id="weighInKg" placeholder="kg" style="width:80px;padding:8px;border:1px solid var(--line);border-radius:5px;font-family:var(--font-body);font-size:13px;background:var(--paper-raised);">
+        <input type="text" inputmode="decimal" data-num step="0.1" id="weighInKg" placeholder="kg" style="width:80px;padding:8px;border:1px solid var(--line);border-radius:5px;font-family:var(--font-body);font-size:13px;background:var(--paper-raised);">
         <button class="timer-btn start" id="addWeighInBtn" style="flex:0 0 70px;">Add</button>
       </div>
       <div class="log-head" data-weighin-history-toggle="1" style="padding:8px 0 0;cursor:pointer;margin-top:6px;border-top:1px solid var(--line);">
@@ -381,10 +381,10 @@
         </div>
         <div id="manualExSearchResults" style="margin-bottom:8px;"></div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
-          <div><label style="font-size:11px;color:var(--ink-soft);">Sets</label><input type="number" id="manualExSets" min="0" style="width:100%;padding:7px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:13px;"></div>
-          <div><label style="font-size:11px;color:var(--ink-soft);">Reps</label><input type="number" id="manualExReps" min="0" style="width:100%;padding:7px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:13px;"></div>
-          <div><label style="font-size:11px;color:var(--ink-soft);">Weight (kg)</label><input type="number" id="manualExWeight" min="0" step="0.5" style="width:100%;padding:7px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:13px;"></div>
-          <div><label style="font-size:11px;color:var(--ink-soft);">Duration (min)</label><input type="number" id="manualExDuration" min="0" style="width:100%;padding:7px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:13px;"></div>
+          <div><label style="font-size:11px;color:var(--ink-soft);">Sets</label><input type="text" inputmode="decimal" data-num id="manualExSets" min="0" style="width:100%;padding:7px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:13px;"></div>
+          <div><label style="font-size:11px;color:var(--ink-soft);">Reps</label><input type="text" inputmode="decimal" data-num id="manualExReps" min="0" style="width:100%;padding:7px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:13px;"></div>
+          <div><label style="font-size:11px;color:var(--ink-soft);">Weight (kg)</label><input type="text" inputmode="decimal" data-num id="manualExWeight" min="0" step="0.5" style="width:100%;padding:7px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:13px;"></div>
+          <div><label style="font-size:11px;color:var(--ink-soft);">Duration (min)</label><input type="text" inputmode="decimal" data-num id="manualExDuration" min="0" style="width:100%;padding:7px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:13px;"></div>
         </div>
         <button class="timer-btn start" id="manualExAddBtn" type="button" style="width:100%;margin-top:8px;">+ Add exercise</button>
         <div id="manualExPending" style="margin-top:10px;"></div>
@@ -460,7 +460,7 @@
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
           <div>
             <label style="font-size:11px;color:var(--ink-soft);">Distance (km)</label>
-            <input type="number" step="0.01" id="statDistance" placeholder="2.58" style="width:100%;padding:7px 8px;border:1px solid var(--line);border-radius:5px;font-size:13px;background:var(--paper);margin-top:2px;">
+            <input type="text" inputmode="decimal" data-num step="0.01" id="statDistance" placeholder="2.58" style="width:100%;padding:7px 8px;border:1px solid var(--line);border-radius:5px;font-size:13px;background:var(--paper);margin-top:2px;">
           </div>
           <div>
             <label style="font-size:11px;color:var(--ink-soft);">Duration</label>
@@ -475,11 +475,11 @@
           </div>
           <div>
             <label style="font-size:11px;color:var(--ink-soft);">Total calories</label>
-            <input type="number" id="statCalories" placeholder="304" style="width:100%;padding:7px 8px;border:1px solid var(--line);border-radius:5px;font-size:13px;background:var(--paper);margin-top:2px;">
+            <input type="text" inputmode="decimal" data-num id="statCalories" placeholder="304" style="width:100%;padding:7px 8px;border:1px solid var(--line);border-radius:5px;font-size:13px;background:var(--paper);margin-top:2px;">
           </div>
           <div>
             <label style="font-size:11px;color:var(--ink-soft);">Avg heart rate</label>
-            <input type="number" id="statHR" placeholder="127" style="width:100%;padding:7px 8px;border:1px solid var(--line);border-radius:5px;font-size:13px;background:var(--paper);margin-top:2px;">
+            <input type="text" inputmode="decimal" data-num id="statHR" placeholder="127" style="width:100%;padding:7px 8px;border:1px solid var(--line);border-radius:5px;font-size:13px;background:var(--paper);margin-top:2px;">
           </div>
           <div>
             <label style="font-size:11px;color:var(--ink-soft);">Avg pace (/km)</label>
@@ -487,32 +487,32 @@
           </div>
           <div>
             <label style="font-size:11px;color:var(--ink-soft);">Steps</label>
-            <input type="number" id="statSteps" placeholder="3537" style="width:100%;padding:7px 8px;border:1px solid var(--line);border-radius:5px;font-size:13px;background:var(--paper);margin-top:2px;">
+            <input type="text" inputmode="decimal" data-num id="statSteps" placeholder="3537" style="width:100%;padding:7px 8px;border:1px solid var(--line);border-radius:5px;font-size:13px;background:var(--paper);margin-top:2px;">
           </div>
           <div>
             <label style="font-size:11px;color:var(--ink-soft);">Max heart rate</label>
-            <input type="number" id="statMaxHR" placeholder="144" style="width:100%;padding:7px 8px;border:1px solid var(--line);border-radius:5px;font-size:13px;background:var(--paper);margin-top:2px;">
+            <input type="text" inputmode="decimal" data-num id="statMaxHR" placeholder="144" style="width:100%;padding:7px 8px;border:1px solid var(--line);border-radius:5px;font-size:13px;background:var(--paper);margin-top:2px;">
           </div>
           <div>
             <label style="font-size:11px;color:var(--ink-soft);">Elevation gain (m)</label>
-            <input type="number" id="statElevation" placeholder="0" style="width:100%;padding:7px 8px;border:1px solid var(--line);border-radius:5px;font-size:13px;background:var(--paper);margin-top:2px;">
+            <input type="text" inputmode="decimal" data-num id="statElevation" placeholder="0" style="width:100%;padding:7px 8px;border:1px solid var(--line);border-radius:5px;font-size:13px;background:var(--paper);margin-top:2px;">
           </div>
           <div>
             <label style="font-size:11px;color:var(--ink-soft);">Training stress (0-10)</label>
-            <input type="number" step="0.1" id="statTrainingStress" placeholder="2.4" style="width:100%;padding:7px 8px;border:1px solid var(--line);border-radius:5px;font-size:13px;background:var(--paper);margin-top:2px;">
+            <input type="text" inputmode="decimal" data-num step="0.1" id="statTrainingStress" placeholder="2.4" style="width:100%;padding:7px 8px;border:1px solid var(--line);border-radius:5px;font-size:13px;background:var(--paper);margin-top:2px;">
           </div>
           <div>
             <label style="font-size:11px;color:var(--ink-soft);">HR recovery drop (bpm)</label>
-            <input type="number" id="statRecoveryHr" placeholder="7" style="width:100%;padding:7px 8px;border:1px solid var(--line);border-radius:5px;font-size:13px;background:var(--paper);margin-top:2px;">
+            <input type="text" inputmode="decimal" data-num id="statRecoveryHr" placeholder="7" style="width:100%;padding:7px 8px;border:1px solid var(--line);border-radius:5px;font-size:13px;background:var(--paper);margin-top:2px;">
           </div>
         </div>
         <div style="margin-top:10px;">
           <label style="font-size:11px;color:var(--ink-soft);">HR zone minutes — warm-up / fat-burning / aerobic / anaerobic</label>
           <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:2px;">
-            <input type="number" id="statHrZoneWarmup" placeholder="warm-up" style="width:100%;padding:7px 6px;border:1px solid var(--line);border-radius:5px;font-size:12.5px;background:var(--paper);">
-            <input type="number" id="statHrZoneFatBurn" placeholder="fat-burn" style="width:100%;padding:7px 6px;border:1px solid var(--line);border-radius:5px;font-size:12.5px;background:var(--paper);">
-            <input type="number" id="statHrZoneAerobic" placeholder="aerobic" style="width:100%;padding:7px 6px;border:1px solid var(--line);border-radius:5px;font-size:12.5px;background:var(--paper);">
-            <input type="number" id="statHrZoneAnaerobic" placeholder="anaerobic" style="width:100%;padding:7px 6px;border:1px solid var(--line);border-radius:5px;font-size:12.5px;background:var(--paper);">
+            <input type="text" inputmode="decimal" data-num id="statHrZoneWarmup" placeholder="warm-up" style="width:100%;padding:7px 6px;border:1px solid var(--line);border-radius:5px;font-size:12.5px;background:var(--paper);">
+            <input type="text" inputmode="decimal" data-num id="statHrZoneFatBurn" placeholder="fat-burn" style="width:100%;padding:7px 6px;border:1px solid var(--line);border-radius:5px;font-size:12.5px;background:var(--paper);">
+            <input type="text" inputmode="decimal" data-num id="statHrZoneAerobic" placeholder="aerobic" style="width:100%;padding:7px 6px;border:1px solid var(--line);border-radius:5px;font-size:12.5px;background:var(--paper);">
+            <input type="text" inputmode="decimal" data-num id="statHrZoneAnaerobic" placeholder="anaerobic" style="width:100%;padding:7px 6px;border:1px solid var(--line);border-radius:5px;font-size:12.5px;background:var(--paper);">
           </div>
         </div>
 
@@ -678,7 +678,7 @@
               </div>
               <div>
                 <div class="hub-tile-label">Your target</div>
-                <input type="number" id="goalEnergyCustom" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:4px;font-family:var(--font-heading);font-size:18px;">
+                <input type="text" inputmode="decimal" data-num id="goalEnergyCustom" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:4px;font-family:var(--font-heading);font-size:18px;">
               </div>
             </div>
           </div>
@@ -689,21 +689,21 @@
                 <label>Protein (g)</label>
                 <span class="goal-field-hint" id="goalProteinHint"></span>
               </div>
-              <input type="number" id="goalProteinCustom">
+              <input type="text" inputmode="decimal" data-num id="goalProteinCustom">
             </div>
             <div class="goal-field">
               <div class="goal-field-head">
                 <label>Carbs (g)</label>
                 <span class="goal-field-hint" id="goalCarbsHint"></span>
               </div>
-              <input type="number" id="goalCarbsCustom">
+              <input type="text" inputmode="decimal" data-num id="goalCarbsCustom">
             </div>
             <div class="goal-field">
               <div class="goal-field-head">
                 <label>Fat (g)</label>
                 <span class="goal-field-hint" id="goalFatHint"></span>
               </div>
-              <input type="number" id="goalFatCustom">
+              <input type="text" inputmode="decimal" data-num id="goalFatCustom">
             </div>
           </div>
 
@@ -711,15 +711,15 @@
           <div class="goal-grid" id="moreMacrosGrid" style="display:none;">
             <div class="goal-field">
               <label>Sodium (mg)</label>
-              <input type="number" id="goalSodiumCustom">
+              <input type="text" inputmode="decimal" data-num id="goalSodiumCustom">
             </div>
             <div class="goal-field">
               <label>Fiber (g)</label>
-              <input type="number" id="goalFiberCustom">
+              <input type="text" inputmode="decimal" data-num id="goalFiberCustom">
             </div>
             <div class="goal-field">
               <label>Sugar (g)</label>
-              <input type="number" id="goalSugarCustom">
+              <input type="text" inputmode="decimal" data-num id="goalSugarCustom">
             </div>
           </div>
         </div>
@@ -735,11 +735,11 @@
                   <option value="lbs">lb</option>
                 </select>
               </div>
-              <input type="number" step="0.1" id="goalTargetWeight">
+              <input type="text" inputmode="decimal" data-num step="0.1" id="goalTargetWeight">
             </div>
             <div class="goal-field">
               <label>Sleep (hours)</label>
-              <input type="number" step="0.5" id="goalSleepHours">
+              <input type="text" inputmode="decimal" data-num step="0.5" id="goalSleepHours">
             </div>
           </div>
         </div>
@@ -752,14 +752,14 @@
                 <label>Steps</label>
                 <span class="goal-field-hint" id="goalStepsHint"></span>
               </div>
-              <input type="number" id="goalSteps">
+              <input type="text" inputmode="decimal" data-num id="goalSteps">
             </div>
             <div class="goal-field">
               <div class="goal-field-head">
                 <label>Calories burned</label>
                 <span class="goal-field-hint" id="goalCalorieBurnHint"></span>
               </div>
-              <input type="number" id="goalCalorieBurn">
+              <input type="text" inputmode="decimal" data-num id="goalCalorieBurn">
             </div>
           </div>
         </div>
@@ -769,11 +769,11 @@
           <div class="goal-grid">
             <div class="goal-field">
               <label>Water (ml)</label>
-              <input type="number" id="goalWater">
+              <input type="text" inputmode="decimal" data-num id="goalWater">
             </div>
             <div class="goal-field">
               <label>Fasting goal (hours)</label>
-              <input type="number" step="0.5" id="goalFastingHours">
+              <input type="text" inputmode="decimal" data-num step="0.5" id="goalFastingHours">
             </div>
           </div>
         </div>
@@ -952,7 +952,7 @@
       <div style="display:flex;gap:8px;margin-bottom:10px;">
         <div style="flex:1;">
           <label style="font-size:11px;color:var(--ink-soft);">Amount</label>
-          <input type="number" id="lmManualAmount" value="100" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;">
+          <input type="text" inputmode="decimal" data-num id="lmManualAmount" value="100" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;">
         </div>
         <div style="flex:1;">
           <label style="font-size:11px;color:var(--ink-soft);">Unit</label>
@@ -964,16 +964,16 @@
         </div>
       </div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px;">
-        <div><label style="font-size:11px;color:var(--ink-soft);">Calories</label><input type="number" id="lmManualCal" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;"></div>
-        <div><label style="font-size:11px;color:var(--ink-soft);">Protein (g)</label><input type="number" id="lmManualProtein" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;"></div>
-        <div><label style="font-size:11px;color:var(--ink-soft);">Fat (g)</label><input type="number" id="lmManualFat" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;"></div>
-        <div><label style="font-size:11px;color:var(--ink-soft);">Carbs (g)</label><input type="number" id="lmManualCarbs" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;"></div>
+        <div><label style="font-size:11px;color:var(--ink-soft);">Calories</label><input type="text" inputmode="decimal" data-num id="lmManualCal" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;"></div>
+        <div><label style="font-size:11px;color:var(--ink-soft);">Protein (g)</label><input type="text" inputmode="decimal" data-num id="lmManualProtein" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;"></div>
+        <div><label style="font-size:11px;color:var(--ink-soft);">Fat (g)</label><input type="text" inputmode="decimal" data-num id="lmManualFat" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;"></div>
+        <div><label style="font-size:11px;color:var(--ink-soft);">Carbs (g)</label><input type="text" inputmode="decimal" data-num id="lmManualCarbs" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;"></div>
       </div>
       <button type="button" id="lmToggleMoreMacros" class="img-link" style="margin-bottom:8px;cursor:pointer;">More macros (sodium, fiber, sugar)</button>
       <div id="lmMoreMacros" style="display:none;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:10px;">
-        <div><label style="font-size:11px;color:var(--ink-soft);">Sodium (mg)</label><input type="number" id="lmManualSodium" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;"></div>
-        <div><label style="font-size:11px;color:var(--ink-soft);">Fiber (g)</label><input type="number" id="lmManualFiber" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;"></div>
-        <div><label style="font-size:11px;color:var(--ink-soft);">Sugar (g)</label><input type="number" id="lmManualSugar" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;"></div>
+        <div><label style="font-size:11px;color:var(--ink-soft);">Sodium (mg)</label><input type="text" inputmode="decimal" data-num id="lmManualSodium" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;"></div>
+        <div><label style="font-size:11px;color:var(--ink-soft);">Fiber (g)</label><input type="text" inputmode="decimal" data-num id="lmManualFiber" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;"></div>
+        <div><label style="font-size:11px;color:var(--ink-soft);">Sugar (g)</label><input type="text" inputmode="decimal" data-num id="lmManualSugar" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;"></div>
       </div>
       <div id="lmManualError" style="display:none;font-size:11.5px;color:#B4472A;margin-bottom:8px;"></div>
       <button type="button" id="lmManualAdd" class="timer-btn start" style="width:100%;">+ Add item</button>
@@ -1048,7 +1048,7 @@
     <div class="hub-card">
       <div id="stepsDayNav" style="display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:12px;"></div>
       <label style="font-size:11px;color:var(--ink-soft);">Step count</label>
-      <input type="number" id="stepsCountInput" min="0" step="1" placeholder="e.g. 8500" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;font-family:var(--font-heading);font-size:18px;">
+      <input type="text" inputmode="decimal" data-num id="stepsCountInput" min="0" step="1" placeholder="e.g. 8500" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;font-family:var(--font-heading);font-size:18px;">
       <div id="stepsError" style="display:none;font-size:11.5px;color:#B4472A;margin-top:8px;"></div>
       <button type="button" id="stepsSaveBtn" class="timer-btn start" style="width:100%;margin-top:10px;">Save steps</button>
       <div class="note" style="margin-top:8px;">Manual entry for now — automatic watch sync is a possible future update.</div>
@@ -1206,7 +1206,7 @@
         <div style="font-size:11px;color:var(--ink-soft);margin-top:6px;">+/− adds or removes a glass (250ml)</div>
       </div>
       <div style="display:flex;gap:8px;margin-top:14px;">
-        <input type="number" id="waterManualMl" min="0" step="50" placeholder="Set exact amount (ml)" style="flex:1;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);">
+        <input type="text" inputmode="decimal" data-num id="waterManualMl" min="0" step="50" placeholder="Set exact amount (ml)" style="flex:1;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);">
         <button type="button" id="waterManualSetBtn" class="timer-btn reset" style="flex:0 0 70px;">Set</button>
       </div>
     </div>
@@ -1229,6 +1229,7 @@
   </div>
 </div>
 
+<script src="js/numbers.js"></script>
 <script src="js/core.js"></script>
 <script src="js/today.js"></script>
 <script src="js/food-icons.js"></script>
@@ -1239,6 +1240,7 @@
 <script src="js/insights.js"></script>
 <script src="js/weight-dashboard.js"></script>
 <script src="js/plan-history.js"></script>
+<script src="js/cardio-activity.js"></script>
 <script src="js/log-session.js"></script>
 <script src="js/todays-session.js"></script>
 <script src="js/stats-form.js"></script>

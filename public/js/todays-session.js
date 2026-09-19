@@ -190,7 +190,7 @@ function renderCustomPlanSession(plan){
           </div>
           <div class="weight-row">
             <label for="w-${id}">Weight used (kg):</label>
-            <input type="number" id="w-${id}" data-weight="${id}" value="${savedW}" placeholder="e.g. 8" min="0" step="0.5">
+            <input type="text" inputmode="decimal" data-num id="w-${id}" data-weight="${id}" value="${savedW}" placeholder="e.g. 8" min="0" step="0.5">
           </div>
         </div>
       </div>
@@ -238,7 +238,7 @@ function renderCustomPlanSession(plan){
     ${customStats ? `
     <div class="cardio-row" style="border-bottom:none;flex-wrap:wrap;gap:6px 14px;padding-bottom:8px;">
       ${customStats.duration ? `<span style="font-size:12px;color:var(--ink-soft);">⏱ ${customStats.duration}</span>` : ''}
-      ${customStats.calories ? `<span style="font-size:12px;color:var(--ink-soft);">🔥 ${customStats.calories} kcal</span>` : ''}
+      ${customStats.calories ? `<span style="font-size:12px;color:var(--ink-soft);">🔥 ${fmtNum(customStats.calories)} kcal</span>` : ''}
       ${customStats.hr ? `<span style="font-size:12px;color:var(--ink-soft);">♥ ${customStats.hr} bpm</span>` : ''}
       ${customStats.maxHr ? `<span style="font-size:12px;color:var(--ink-soft);">♥ max ${customStats.maxHr} bpm</span>` : ''}
       ${customStats.trainingStress ? `<span style="font-size:12px;color:var(--ink-soft);">📈 TSS ${customStats.trainingStress}</span>` : ''}

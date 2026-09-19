@@ -123,7 +123,7 @@ document.getElementById('saveStatsBtn').onclick = ()=>{
   ];
   for(const [label, value, min, max] of numericChecks){
     if(value === '' || value === null || value === undefined) continue;
-    const n = parseFloat(value);
+    const n = parseNum(value);
     if(!Number.isFinite(n) || n < min || n > max){
       errEl.textContent = `${label} should be a number between ${min} and ${max} (or left blank).`;
       errEl.style.display = 'block';
@@ -155,6 +155,7 @@ document.getElementById('saveStatsBtn').onclick = ()=>{
     // overwriting them with today's live template.
     snapshot = existingEntry ? existingEntry.exercises : [];
   }
+  if(cardioData[contextId]) snapshot = syncCardioExercise(snapshot, newStats);
   saveChecked();
   upsertSessionLog(targetDate, contextId, snapshot, undefined, newStats);
   document.getElementById('cardioStatsForm').style.display = 'none';

@@ -97,10 +97,10 @@ function renderHistory(){
     const statLines = s ? [
       s.distance ? `Distance: ${s.distance} km` : '',
       s.duration ? `Duration: ${s.duration}` : '',
-      s.calories ? `Calories: ${s.calories} kcal` : '',
+      s.calories ? `Calories: ${fmtNum(s.calories)} kcal` : '',
       s.hr ? `Avg HR: ${s.hr} bpm` : '',
       s.pace ? `Pace: ${s.pace}/km` : '',
-      s.steps ? `Steps: ${s.steps}` : ''
+      s.steps ? `Steps: ${fmtNum(s.steps)}` : ''
     ].filter(Boolean).map(l => `<div class="log-line">${l}</div>`).join('') : '';
     const editExRows = (entry.exercises || []).map((ex, exi) => `
       <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;padding:4px 0;">
@@ -269,7 +269,7 @@ function renderStrength(day){
           </div>
           <div class="weight-row">
             <label for="w-${ex.id}">Weight used (kg):</label>
-            <input type="number" id="w-${ex.id}" data-weight="${ex.id}" value="${savedW}" placeholder="e.g. 8" min="0" step="0.5">
+            <input type="text" inputmode="decimal" data-num id="w-${ex.id}" data-weight="${ex.id}" value="${savedW}" placeholder="e.g. 8" min="0" step="0.5">
           </div>
         </div>
       </div>
@@ -328,7 +328,7 @@ function renderStrength(day){
     ${strengthStats ? `
     <div class="cardio-row" style="border-bottom:none;flex-wrap:wrap;gap:6px 14px;padding-bottom:8px;">
       ${strengthStats.duration ? `<span style="font-size:12px;color:var(--ink-soft);">⏱ ${strengthStats.duration}</span>` : ''}
-      ${strengthStats.calories ? `<span style="font-size:12px;color:var(--ink-soft);">🔥 ${strengthStats.calories} kcal</span>` : ''}
+      ${strengthStats.calories ? `<span style="font-size:12px;color:var(--ink-soft);">🔥 ${fmtNum(strengthStats.calories)} kcal</span>` : ''}
       ${strengthStats.hr ? `<span style="font-size:12px;color:var(--ink-soft);">♥ ${strengthStats.hr} bpm</span>` : ''}
       ${strengthStats.maxHr ? `<span style="font-size:12px;color:var(--ink-soft);">♥ max ${strengthStats.maxHr} bpm</span>` : ''}
       ${strengthStats.trainingStress ? `<span style="font-size:12px;color:var(--ink-soft);">📈 TSS ${strengthStats.trainingStress}</span>` : ''}
@@ -364,10 +364,10 @@ function renderCardio(kind){
     <div class="cardio-row" style="border-bottom:none;flex-wrap:wrap;gap:6px 14px;padding-top:10px;">
       ${stats.distance ? `<span style="font-size:12px;color:var(--ink-soft);">📍 ${stats.distance} km</span>` : ''}
       ${stats.duration ? `<span style="font-size:12px;color:var(--ink-soft);">⏱ ${stats.duration}</span>` : ''}
-      ${stats.calories ? `<span style="font-size:12px;color:var(--ink-soft);">🔥 ${stats.calories} kcal</span>` : ''}
+      ${stats.calories ? `<span style="font-size:12px;color:var(--ink-soft);">🔥 ${fmtNum(stats.calories)} kcal</span>` : ''}
       ${stats.hr ? `<span style="font-size:12px;color:var(--ink-soft);">♥ ${stats.hr} bpm</span>` : ''}
       ${stats.pace ? `<span style="font-size:12px;color:var(--ink-soft);">⚡ ${stats.pace}/km</span>` : ''}
-      ${stats.steps ? `<span style="font-size:12px;color:var(--ink-soft);">👟 ${stats.steps} steps</span>` : ''}
+      ${stats.steps ? `<span style="font-size:12px;color:var(--ink-soft);">👟 ${fmtNum(stats.steps)} steps</span>` : ''}
       ${stats.maxHr ? `<span style="font-size:12px;color:var(--ink-soft);">♥ max ${stats.maxHr} bpm</span>` : ''}
       ${stats.elevation ? `<span style="font-size:12px;color:var(--ink-soft);">⛰ ${stats.elevation} m</span>` : ''}
       ${stats.trainingStress ? `<span style="font-size:12px;color:var(--ink-soft);">📈 TSS ${stats.trainingStress}</span>` : ''}
@@ -384,7 +384,7 @@ function renderCardio(kind){
         </div>
         <div class="cardio-time">${p.time}</div>
       </div>
-    `).join('') + statsSummary +
+    `).join('') + statsSummary + cardioActivityControlsHtml() +
     `<div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;">
       <a class="img-link" href="https://www.google.com/search?tbm=isch&q=${encodeURIComponent(query)}" target="_blank" rel="noopener noreferrer">
         <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
@@ -405,7 +405,7 @@ function renderCardio(kind){
     checkedState[todayStr + '_' + kind + '_done'] = nowDone;
     saveChecked();
     if(nowDone){
-      upsertSessionLog(todayStr, kind, []);
+      upsertSessionLog(todayStr, kind, syncCardioExercise([], existingEntry ? existingEntry.stats : null));
     } else {
       removeSessionLog(todayStr, kind);
     }
@@ -419,5 +419,6 @@ function renderCardio(kind){
   });
 
   document.getElementById('logStatsBtn').addEventListener('click', ()=> openStatsForm(kind));
+  wireCardioActivityControls(kind);
 }
 

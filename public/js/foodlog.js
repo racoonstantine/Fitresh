@@ -254,7 +254,7 @@
           </div>
           <div class="food-result-amount" data-idx="${i}" style="display:none;margin-top:8px;">
             <div style="display:flex;gap:8px;align-items:center;">
-              <input type="number" min="0.000001" step="any" aria-label="Food amount" class="food-amount-input" data-idx="${i}" value="${canonicalAmount}" style="width:80px;padding:6px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:13px;">
+              <input type="text" inputmode="decimal" data-num min="0.000001" step="any" aria-label="Food amount" class="food-amount-input" data-idx="${i}" value="${canonicalAmount}" style="width:80px;padding:6px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:13px;">
               ${foodMeasureControls(r, i)}
             </div>
             <div class="food-macro-preview" data-idx="${i}" style="font-size:11.5px;color:var(--ink-soft);margin-top:8px;">${macroPreviewText(r, canonicalAmount)}</div>
@@ -319,23 +319,23 @@
     const errEl = document.getElementById('lmManualError');
     errEl.style.display = 'none';
     if(!name) return;
-    const kcal = parseFloat(document.getElementById('lmManualCal').value);
+    const kcal = parseNum(document.getElementById('lmManualCal').value);
     if(!kcal || kcal <= 0){
       errEl.textContent = 'Enter the calories for this item — it needs at least a calorie estimate to be useful in your log.';
       errEl.style.display = 'block';
       return;
     }
-    const amount = parseFloat(document.getElementById('lmManualAmount').value) || 100;
+    const amount = parseNum(document.getElementById('lmManualAmount').value) || 100;
     const unit = document.getElementById('lmManualUnit').value;
     lmItems.push({
       name, amount, unit,
       kcal,
-      protein: parseFloat(document.getElementById('lmManualProtein').value) || 0,
-      fat: parseFloat(document.getElementById('lmManualFat').value) || 0,
-      carbs: parseFloat(document.getElementById('lmManualCarbs').value) || 0,
-      sodium: parseFloat(document.getElementById('lmManualSodium').value) || null,
-      fiber: parseFloat(document.getElementById('lmManualFiber').value) || null,
-      sugar: parseFloat(document.getElementById('lmManualSugar').value) || null,
+      protein: parseNum(document.getElementById('lmManualProtein').value) || 0,
+      fat: parseNum(document.getElementById('lmManualFat').value) || 0,
+      carbs: parseNum(document.getElementById('lmManualCarbs').value) || 0,
+      sodium: parseNum(document.getElementById('lmManualSodium').value) || null,
+      fiber: parseNum(document.getElementById('lmManualFiber').value) || null,
+      sugar: parseNum(document.getElementById('lmManualSugar').value) || null,
       source: 'manual'
     });
     ['lmManualName','lmManualCal','lmManualProtein','lmManualFat','lmManualCarbs','lmManualSodium','lmManualFiber','lmManualSugar'].forEach(id => document.getElementById(id).value = '');
@@ -408,11 +408,11 @@
     copyTextToClipboard(document.getElementById('aiFoodPromptOut').value, e.currentTarget);
   });
   function amountRawToAmountUnit(amountRaw){
-    const m = (amountRaw || '').match(/^([\d.]+)\s*(g|gram|grams|gm|ml|millilit(?:er|re)s?)?/i);
+    const m = (amountRaw || '').match(/^(\d[\d,]*(?:\.\d+)?|\.\d+)\s*(g|gram|grams|gm|ml|millilit(?:er|re)s?)?/i);
     if(!m) return { amount: 100, unit: 'serving' };
     const unit = (m[2] || '').toLowerCase();
     return {
-      amount: parseFloat(m[1]),
+      amount: parseNum(m[1]),
       unit: unit.startsWith('g') ? 'g' : (unit.startsWith('m') ? 'ml' : 'serving')
     };
   }
@@ -483,7 +483,7 @@
       <div class="lm-item-row">
         <div>
           <div class="lm-item-name">${foodSearchEscape(it.name)}</div>
-          <div class="lm-item-sub">${it.amount}${it.unit} · ${Math.round(it.kcal)} kcal · ${it.protein}g P / ${it.fat}g F / ${it.carbs}g C</div>
+          <div class="lm-item-sub">${it.amount}${it.unit} · ${fmtNum(it.kcal)} kcal · ${it.protein}g P / ${it.fat}g F / ${it.carbs}g C</div>
           ${(it.sodium || it.fiber || it.sugar) ? `<div class="lm-item-sub">${it.sodium ? Math.round(it.sodium) + 'mg sodium' : ''}${(it.sodium && (it.fiber || it.sugar)) ? ' · ' : ''}${it.fiber ? it.fiber.toFixed(1) + 'g fiber' : ''}${(it.fiber && it.sugar) ? ' · ' : ''}${it.sugar ? it.sugar.toFixed(1) + 'g sugar' : ''}</div>` : ''}
         </div>
         <button type="button" class="lm-item-remove" data-remove-idx="${i}" title="Remove">✕</button>
@@ -499,7 +499,7 @@
       kcal: acc.kcal + it.kcal, protein: acc.protein + it.protein, fat: acc.fat + it.fat, carbs: acc.carbs + it.carbs
     }), {kcal:0, protein:0, fat:0, carbs:0});
     totalEl.style.display = 'flex';
-    totalEl.innerHTML = `<span>Meal total</span><span>${Math.round(totals.kcal)} kcal · ${totals.protein.toFixed(1)}g P / ${totals.fat.toFixed(1)}g F / ${totals.carbs.toFixed(1)}g C</span>`;
+    totalEl.innerHTML = `<span>Meal total</span><span>${fmtNum(totals.kcal)} kcal · ${totals.protein.toFixed(1)}g P / ${totals.fat.toFixed(1)}g F / ${totals.carbs.toFixed(1)}g C</span>`;
     saveBtn.disabled = false;
   }
 

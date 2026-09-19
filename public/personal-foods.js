@@ -11,9 +11,9 @@
       <label>Brand (optional)<input name="brand" maxlength="150"></label>
       <label>One serving is…<input name="serving_label" required maxlength="80" placeholder="e.g. 1 scoop, 2 biscuits or 1 bottle"></label>
       <div class="pf-grid"><label>Serving measurement<select name="serving_measure"><option value="serving">Serving only — weight unknown</option><option value="g">Grams (g)</option><option value="ml">Milliliters (ml)</option></select></label>
-      <label id="pfSizeLabel" hidden>Amount in one serving<input name="serving_size" type="number" min="0.01" max="100000" step="any" placeholder="e.g. 30"></label></div>
+      <label id="pfSizeLabel" hidden>Amount in one serving<input name="serving_size" type="text" inputmode="decimal" data-num min="0.01" max="100000" step="any" placeholder="e.g. 30"></label></div>
       <p class="pf-note">Without a measured weight or volume, log by servings. Grams and ml are not interchangeable.</p>
-      <strong>Nutrition per serving</strong><div class="pf-grid">${fields.map(([code,label,required])=>`<label>${label}${required?' *':' (optional)'}<input name="${code}" type="number" min="0" max="99999999" step="any" ${required?'required':''}></label>`).join('')}</div>
+      <strong>Nutrition per serving</strong><div class="pf-grid">${fields.map(([code,label,required])=>`<label>${label}${required?' *':' (optional)'}<input name="${code}" type="text" inputmode="decimal" data-num min="0" max="99999999" step="any" ${required?'required':''}></label>`).join('')}</div>
       <p class="pf-note">Enter 0 only when stated on the label. Leave unlisted optional nutrients blank.</p>
       <p class="pf-note" id="pfPreview"></p>
       <label>Source or label-photo link (optional)<input name="source_url" type="url" maxlength="2048" placeholder="https://…"></label>
@@ -77,7 +77,7 @@
   form.addEventListener('input',()=>{requestKey=crypto.randomUUID();preview();});
   form.addEventListener('change',preview);
   form.addEventListener('submit',async event=>{
-    event.preventDefault();if(busy||!form.reportValidity())return;
+    event.preventDefault();if(busy||!validateNumFields(form)||!form.reportValidity())return;
     const input={request_key:requestKey,previous_food_id:previous,submit_for_review:form.elements.submit_for_review.checked,nutrients:{}};
     for(const key of ['name','brand','serving_label','serving_measure','serving_size','source_url','notes'])input[key]=form.elements[key].value;
     for(const [code] of fields)input.nutrients[code]=form.elements[code].value===''?null:Number(form.elements[code].value);

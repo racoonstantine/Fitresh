@@ -20,14 +20,14 @@ function renderInsights(){
       <div class="block-title" style="margin:0 0 12px;">Your numbers</div>
       <div class="dash" style="grid-template-columns:repeat(3,1fr);">
         <div class="dash-card"><div class="dash-num">${t.bmi}</div><div class="dash-label">BMI</div></div>
-        <div class="dash-card"><div class="dash-num">${t.calorieTarget}</div><div class="dash-label">Daily kcal target</div></div>
+        <div class="dash-card"><div class="dash-num">${fmtNum(t.calorieTarget)}</div><div class="dash-label">Daily kcal target</div></div>
         <div class="dash-card"><div class="dash-num">${t.proteinTarget}g</div><div class="dash-label">Protein target</div></div>
       </div>
       <div style="display:flex;align-items:center;gap:8px;margin-top:14px;flex-wrap:wrap;">
         <span class="tag ${bmiTagClass}">${t.bmiCategory}</span>
         <span style="font-size:12.5px;color:var(--ink-soft);">${directionLabel}</span>
       </div>
-      <div style="font-size:12px;color:var(--ink-soft);margin-top:10px;">Resting (BMR) ${t.bmr} kcal · Active (TDEE) ${t.tdee} kcal · Water target ${(t.waterGoalMl/1000).toFixed(1)} L</div>
+      <div style="font-size:12px;color:var(--ink-soft);margin-top:10px;">Resting (BMR) ${fmtNum(t.bmr)} kcal · Active (TDEE) ${fmtNum(t.tdee)} kcal · Water target ${(t.waterGoalMl/1000).toFixed(1)} L</div>
       <button class="timer-btn reset" id="insightsEditBtn" type="button" style="width:auto;padding-inline:18px;margin-top:14px;">Edit profile</button>
     </div>
   `;
@@ -53,7 +53,7 @@ function renderSummary(){
   // Nutrition in range
   const nutriEntries = nutritionLog.filter(e => dateList.includes(e.date));
   const avg = (key) => {
-    const vals = nutriEntries.map(e=>parseFloat(e[key])).filter(v=>!isNaN(v));
+    const vals = nutriEntries.map(e=>parseNum(e[key])).filter(v=>!isNaN(v));
     return vals.length ? vals.reduce((a,b)=>a+b,0)/vals.length : null;
   };
   const avgCal = avg('calories'), avgProtein = avg('protein'), avgFast = avg('fastHours');
@@ -78,13 +78,13 @@ function renderSummary(){
 
   document.getElementById('summaryCards').innerHTML = `
     <div class="dash-card"><div class="dash-num">${workoutDays}/${plannedDays}</div><div class="dash-label">Workouts done</div></div>
-    <div class="dash-card"><div class="dash-num">${avgCal !== null ? Math.round(avgCal) : '—'}</div><div class="dash-label">Avg kcal</div></div>
+    <div class="dash-card"><div class="dash-num">${avgCal !== null ? fmtNum(avgCal) : '—'}</div><div class="dash-label">Avg kcal</div></div>
     <div class="dash-card"><div class="dash-num">${avgProtein !== null ? avgProtein.toFixed(1) : '—'}</div><div class="dash-label">Avg protein (g)</div></div>
     <div class="dash-card"><div class="dash-num">${avgFast !== null ? formatFastHours(avgFast) : '—'}</div><div class="dash-label">Avg fast</div></div>
     <div class="dash-card"><div class="dash-num">${weightChange !== null ? (weightChange > 0 ? '+' : '') + formatWeightKg(weightChange) : '—'}</div><div class="dash-label">Weight change</div></div>
     <div class="dash-card"><div class="dash-num">${nutriEntries.length}</div><div class="dash-label">Days nutrition logged</div></div>
     <div class="dash-card"><div class="dash-num">${avgSleep !== null ? formatSleepHours(avgSleep) : '—'}</div><div class="dash-label">Avg sleep</div></div>
-    <div class="dash-card"><div class="dash-num">${avgSteps !== null ? avgSteps.toLocaleString() : '—'}</div><div class="dash-label">Avg steps</div></div>
+    <div class="dash-card"><div class="dash-num">${avgSteps !== null ? fmtNum(avgSteps) : '—'}</div><div class="dash-label">Avg steps</div></div>
   `;
 
   // Day-by-day table
@@ -99,11 +99,11 @@ function renderSummary(){
       <div style="display:flex;gap:6px;padding:7px 4px;border-bottom:1px solid var(--line);align-items:center;">
         <div style="flex:0 0 76px;flex-shrink:0;color:var(--ink-soft);">${d}</div>
         <div style="flex:1 0 100px;color:${w ? 'var(--forest-dark)' : 'var(--ink-soft)'};">${w ? w.label : '—'}</div>
-        <div style="flex:0 0 60px;flex-shrink:0;text-align:right;color:${n && n.calories ? (parseFloat(n.calories) >= getTargets(d).calMin ? 'var(--forest-dark)' : '#B4472A') : 'var(--ink-soft)'};">${n && n.calories ? n.calories+'k' : '—'}</div>
+        <div style="flex:0 0 60px;flex-shrink:0;text-align:right;color:${n && n.calories ? (parseNum(n.calories) >= getTargets(d).calMin ? 'var(--forest-dark)' : '#B4472A') : 'var(--ink-soft)'};">${n && n.calories ? n.calories+'k' : '—'}</div>
         <div style="flex:0 0 55px;flex-shrink:0;text-align:right;color:var(--ink);">${wt ? formatWeightKg(wt.kg) : '—'}</div>
-        <div style="flex:0 0 50px;flex-shrink:0;text-align:right;color:var(--ink-soft);">${n && n.fastHours ? formatFastHours(parseFloat(n.fastHours)) : '—'}</div>
+        <div style="flex:0 0 50px;flex-shrink:0;text-align:right;color:var(--ink-soft);">${n && n.fastHours ? formatFastHours(parseNum(n.fastHours)) : '—'}</div>
         <div style="flex:0 0 55px;flex-shrink:0;text-align:right;color:var(--ink-soft);">${sl ? formatSleepHours(sl.hours) : '—'}</div>
-        <div style="flex:0 0 55px;flex-shrink:0;text-align:right;color:var(--ink-soft);">${st !== undefined ? st.toLocaleString() : '—'}</div>
+        <div style="flex:0 0 55px;flex-shrink:0;text-align:right;color:var(--ink-soft);">${st !== undefined ? fmtNum(st) : '—'}</div>
       </div>
     `;
   }).join('');
@@ -157,7 +157,7 @@ function renderTrendLineChart(containerEl, points, opts){
   const vals = points.map(p => p.y).concat(opts.goalValue !== undefined && opts.goalValue !== null ? [opts.goalValue] : []);
   const ticks = niceTicks(Math.min(...vals), Math.max(...vals), 4);
   const minV = ticks[0], maxV = ticks[ticks.length - 1];
-  const w = 300, h = 150, padL = 34, padR = 8, padT = 10, padB = 20;
+  const w = 300, h = 150, padL = 38, padR = 8, padT = 10, padB = 20;
   const plotW = w - padL - padR, plotH = h - padT - padB;
   const xStep = plotW / (points.length - 1);
   const yFor = v => padT + plotH - ((v - minV) / (maxV - minV || 1)) * plotH;
@@ -165,7 +165,7 @@ function renderTrendLineChart(containerEl, points, opts){
 
   const gridLines = ticks.map(t => `
     <line x1="${padL}" y1="${yFor(t)}" x2="${w - padR}" y2="${yFor(t)}" stroke="var(--line)" stroke-width="1"/>
-    <text x="${padL - 6}" y="${yFor(t) + 3}" text-anchor="end" font-size="9" fill="var(--ink-soft)">${t}</text>
+    <text x="${padL - 6}" y="${yFor(t) + 3}" text-anchor="end" font-size="9" fill="var(--ink-soft)">${fmtNumMax(t)}</text>
   `).join('');
   const goalLine = (opts.goalValue !== undefined && opts.goalValue !== null)
     ? `<line x1="${padL}" y1="${yFor(opts.goalValue)}" x2="${w - padR}" y2="${yFor(opts.goalValue)}" stroke="var(--ochre)" stroke-width="1.5" stroke-dasharray="4,3"/>`
