@@ -1,5 +1,5 @@
 const fs = require('node:fs'), vm = require('node:vm'), assert = require('node:assert/strict');
-const html = fs.readFileSync('public/index.html','utf8');
+const html = require('./app_source.cjs')();
 const code = html.slice(html.indexOf('function foodMeasureOptions('),html.indexOf('function scaledFoodMacros('));
 const context = vm.createContext({}); vm.runInContext(code,context);
 const food = {canonical_unit:'g', portions:[{portion_id:'three',description:'3 pieces',edible_weight_g:'90'}]};

@@ -1,7 +1,7 @@
 const fs = require('node:fs');
 const vm = require('node:vm');
 const assert = require('node:assert/strict');
-const html = fs.readFileSync('public/index.html', 'utf8');
+const html = require('./app_source.cjs')();
 // Parse every inline script, then exercise the actual search functions with
 // controlled responses; no authenticated account or live database is needed.
 for (const match of html.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/g)) new vm.Script(match[1]);

@@ -7,7 +7,7 @@ const fs = require('node:fs');
 const vm = require('node:vm');
 const assert = require('node:assert/strict');
 
-const html = fs.readFileSync('public/index.html', 'utf8');
+const html = require('./app_source.cjs')();
 const start = html.indexOf("const FOOD_ICON_SVG_PATHS");
 const end = html.indexOf("// Excludes results with no usable calorie data");
 if(start === -1 || end === -1) throw new Error('Could not locate food-icon classification block in index.html');

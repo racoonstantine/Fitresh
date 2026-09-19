@@ -5,7 +5,7 @@ const fs = require('node:fs');
 const vm = require('node:vm');
 const assert = require('node:assert/strict');
 
-const html = fs.readFileSync('public/index.html', 'utf8');
+const html = require('./app_source.cjs')();
 // parseLabeledReply/firstNumber/copyTextToClipboard are shared globals (used
 // by both the food and stats AI-assist flows), declared once near
 // foodSearchEscape rather than inside either flow's own block.

@@ -1,5 +1,5 @@
 const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict');
-const html=fs.readFileSync('public/index.html','utf8');
+const html=require('./app_source.cjs')();
 const start=html.indexOf('function foodDisplayName(');
 const end=html.indexOf('// ============================================================================',start);
 const ctx=vm.createContext({});vm.runInContext(html.slice(start,end),ctx);

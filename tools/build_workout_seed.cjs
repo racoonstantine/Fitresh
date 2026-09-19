@@ -1,7 +1,7 @@
 // Rebuild deterministic SQL from the original starter routines plus curated activity metadata.
 const fs = require('node:fs');
 const vm = require('node:vm');
-const html = fs.readFileSync('public/index.html','utf8');
+const html = require('./app_source.cjs')();
 const ctx = vm.createContext({});
 vm.runInContext(html.slice(html.indexOf('const dayData ='),html.indexOf('const cardioData ='))+';this.days=dayData;',ctx);
 const tags = [
