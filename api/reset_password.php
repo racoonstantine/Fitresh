@@ -12,13 +12,13 @@ header('Content-Type: text/html; charset=utf-8');
 
 function render_page(string $title, string $bodyHtml): void
 {
-    echo '<!doctype html><html><head><meta charset="utf-8"><title>Full Circle</title>'
+    echo '<!doctype html><html><head><meta charset="utf-8"><title>Fitresh</title>'
         . '<style>body{font-family:sans-serif;max-width:420px;margin:60px auto;padding:0 16px;color:#1F2A24}'
         . 'input{width:100%;padding:10px;margin-top:6px;margin-bottom:14px;border:1px solid #ccc;border-radius:6px;font-size:15px;box-sizing:border-box;}'
         . 'label{font-size:13px;color:#555;}'
         . 'button{width:100%;padding:11px;background:#2F6F4E;color:#fff;border:none;border-radius:6px;font-size:15px;cursor:pointer;}'
         . '.err{color:#B4472A;font-size:13px;margin-bottom:10px;}</style>'
-        . '</head><body><h2>Full Circle</h2><h3>' . htmlspecialchars($title) . '</h3>' . $bodyHtml . '</body></html>';
+        . '</head><body><h2>Fitresh</h2><h3>' . htmlspecialchars($title) . '</h3>' . $bodyHtml . '</body></html>';
     exit;
 }
 

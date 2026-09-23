@@ -1,4 +1,7 @@
-# Full Circle — Fitness Tracker
+# Fitresh — Fitness Tracker
+
+_(Formerly "Full Circle" — renamed in September 2026; "Full Circle" mentions elsewhere in this
+file's history/notes below refer to the app's earlier name.)_
 
 Multi-user workout, nutrition, fasting, and weight tracker. Static frontend
 (`public/`) + a small PHP/MySQL API (`api/`) so each account's data is private

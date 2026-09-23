@@ -1,0 +1,13 @@
+{
+  "name": "Fitresh",
+  "short_name": "Fitresh",
+  "description": "Fitresh — a personal workout, nutrition, fasting, and weight tracker.",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#F5EAD8",
+  "theme_color": "#0D3B2E",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

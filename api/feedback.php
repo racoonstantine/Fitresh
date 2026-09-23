@@ -43,7 +43,7 @@ if ($adminEmail) {
     $host = mail_header_safe((string)($config['app_host'] ?? ($_SERVER['HTTP_HOST'] ?? '')));
     $safeName = mail_header_safe($user['display_name']);
     $labels = ['idea' => 'An idea', 'problem' => 'A problem', 'data' => 'Data looks wrong'];
-    $subject = "Full Circle feedback ({$labels[$category]}) from {$safeName}";
+    $subject = "Fitresh feedback ({$labels[$category]}) from {$safeName}";
     $body = "From: {$user['display_name']} <{$user['email']}>\n"
         . "Category: {$labels[$category]}\n\n"
         . $message . "\n";

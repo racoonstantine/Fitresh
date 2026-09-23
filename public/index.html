@@ -4,15 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="light dark">
-<meta name="description" content="Full Circle — a personal workout, nutrition, fasting, and weight tracker.">
+<meta name="description" content="Fitresh — a personal workout, nutrition, fasting, and weight tracker.">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
 <!-- iOS ignores SVG icons and would show a plain letter tile without this. -->
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-<meta name="apple-mobile-web-app-title" content="Full Circle">
-<meta name="application-name" content="Full Circle">
-<meta name="theme-color" content="#F5EAD8">
-<title>Full Circle — Health &amp; Fitness Tracker</title>
+<meta name="apple-mobile-web-app-title" content="Fitresh">
+<meta name="application-name" content="Fitresh">
+<meta name="theme-color" content="#0D3B2E">
+<link rel="manifest" href="manifest.json">
+<title>Fitresh — Health &amp; Fitness Tracker</title>
 <link rel="stylesheet" href="app.css">
 </head>
 <body>
@@ -20,7 +21,7 @@
 <div id="loginScreen" style="display:flex;min-height:100%;align-items:center;justify-content:center;padding:24px 16px;">
   <div style="max-width:340px;width:100%;">
     <div class="eyebrow" style="text-align:center;">Personal Health Program</div>
-    <h1 style="text-align:center;">Full Circle</h1>
+    <h1 style="text-align:center;">Fitresh</h1>
     <div class="sub" style="text-align:center;margin-bottom:20px;">Sign in to see your own workouts, nutrition, and weight history.</div>
     <div style="background:var(--paper-raised);border:1px solid var(--line);border-radius:8px;padding:16px;">
       <div class="main-nav" id="authTabs" style="margin:0 0 14px;">
@@ -150,7 +151,7 @@
 <div id="appRoot" style="display:none;height:100%;">
 <div class="app-shell-v2">
   <header class="topbar">
-    <div class="topbar-brand"><span class="ring"></span> Full Circle</div>
+    <div class="topbar-brand"><span class="ring"></span> Fitresh</div>
     <nav class="tab-nav" id="tabNavTop">
       <button class="tab-nav-btn active" data-view="today" type="button">Today</button>
       <button class="tab-nav-btn" data-view="body" type="button">Body</button>
@@ -175,7 +176,7 @@
     <div class="day-header-row">
       <div>
         <div class="eyebrow">Personal Health Program</div>
-        <h3 style="margin:2px 0 0;">Full Circle</h3>
+        <h3 style="margin:2px 0 0;">Fitresh</h3>
         <div id="todayClock" style="font-size:12.5px;color:var(--ink-soft);margin-top:4px;"></div>
         <div class="day-header-sub tally-row">
           <span class="tally-label" id="tallyLabel">This week: 0/4 sessions</span>
@@ -584,7 +585,7 @@
         <div class="block-title">Import data from elsewhere</div>
         <div style="font-size:12.5px;color:var(--ink-soft);">
           Migrating history from another log or app? Upload a JSON file matching the
-          <a href="data-import-schema.md" target="_blank" rel="noopener noreferrer">Full Circle import schema</a>
+          <a href="data-import-schema.md" target="_blank" rel="noopener noreferrer">Fitresh import schema</a>
           — weigh-ins, sleep, fasting, water, day-by-day food (itemized, with macros), and workouts with stats
           all import at once. This can take a little while for a lot of history since each food item is logged
           one at a time.

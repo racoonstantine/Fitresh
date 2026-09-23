@@ -6,7 +6,7 @@
     --color-surface:#ebddc5;
     --color-text:#201e1d;
     --color-accent:#c67139;
-    --color-accent-2:#7a8a5e;
+    --color-accent-2:#22C55E;
     --color-divider: color-mix(in srgb, #201e1d 16%, transparent);
 
     --color-neutral-100:#f9f4ed;
@@ -29,15 +29,16 @@
     --color-accent-800:#643312;
     --color-accent-900:#402310;
 
-    --color-accent-2-100:#f0fae1;
-    --color-accent-2-200:#e1eecc;
-    --color-accent-2-300:#ccdbb2;
-    --color-accent-2-400:#aebf92;
-    --color-accent-2-500:#8fa073;
-    --color-accent-2-600:#728157;
-    --color-accent-2-700:#56633f;
-    --color-accent-2-800:#3d472b;
-    --color-accent-2-900:#272e1b;
+    /* Fitresh brand green (was an olive accent-2 family) */
+    --color-accent-2-100:#e6faef;
+    --color-accent-2-200:#c3f1d7;
+    --color-accent-2-300:#a7f3d0;
+    --color-accent-2-400:#6ee7a8;
+    --color-accent-2-500:#34b871;
+    --color-accent-2-600:#22c55e;
+    --color-accent-2-700:#189a5b;
+    --color-accent-2-800:#0f6b45;
+    --color-accent-2-900:#0d3b2e;
 
     --font-heading:"Caprasimo", system-ui, sans-serif;
     --font-body:"Figtree", system-ui, sans-serif;
@@ -67,7 +68,7 @@
     --color-surface:#2e2b25;
     --color-text:#f5ead8;
     --color-accent:#f6a06b;
-    --color-accent-2:#aebf92;
+    --color-accent-2:#6ee7a8;
     --color-divider: color-mix(in srgb, #f5ead8 16%, transparent);
 
     --color-neutral-100:#2b2822;
@@ -129,7 +130,7 @@
     padding:12px 20px;background:var(--color-surface);
   }
   .topbar-brand{display:flex;align-items:center;gap:9px;font-family:var(--font-heading);font-size:17px;flex-shrink:0;cursor:pointer;}
-  .topbar-brand .ring{width:22px;height:22px;border-radius:50%;background:var(--color-accent);flex-shrink:0;}
+  .topbar-brand .ring{width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg, var(--color-accent-2-900), var(--forest));flex-shrink:0;}
   .tab-nav{display:flex;gap:6px;flex:1;flex-wrap:wrap;}
   .tab-nav-btn{
     font-family:var(--font-body);font-weight:600;font-size:13.5px;

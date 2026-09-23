@@ -17,5 +17,5 @@ return [
     // a client can send as anything it wants -- an unset/wrong value here
     // would let a forged Host header redirect your approval token to an
     // attacker's domain instead of this one.
-    'app_host' => 'gedli.com',
+    'app_host' => 'fitresh.com',
 ];

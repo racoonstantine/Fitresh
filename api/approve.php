@@ -15,9 +15,9 @@ $action = (string)($_GET['action'] ?? '');
 
 function render_page(string $message): void
 {
-    echo '<!doctype html><html><head><meta charset="utf-8"><title>Full Circle</title>'
+    echo '<!doctype html><html><head><meta charset="utf-8"><title>Fitresh</title>'
         . '<style>body{font-family:sans-serif;max-width:480px;margin:80px auto;text-align:center;color:#1F2A24}</style>'
-        . '</head><body><h2>Full Circle</h2><p>' . htmlspecialchars($message) . '</p></body></html>';
+        . '</head><body><h2>Fitresh</h2><p>' . htmlspecialchars($message) . '</p></body></html>';
     exit;
 }
 

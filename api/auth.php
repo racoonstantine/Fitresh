@@ -18,7 +18,7 @@ function send_approval_request_email(string $email, string $displayName, string 
     $rejectUrl = "https://{$host}/api/approve.php?token={$token}&action=reject";
 
     $safeName = mail_header_safe($displayName);
-    $subject = "Full Circle: approve signup from {$safeName}";
+    $subject = "Fitresh: approve signup from {$safeName}";
     $body = "New signup waiting on your approval:\n\n"
         . "Name: {$displayName}\n"
         . "Email: {$email}\n\n"
@@ -39,7 +39,7 @@ function send_password_reset_request_email(string $email, string $displayName, s
     $approveUrl = "https://{$host}/api/approve_reset.php?token={$token}&action=approve";
     $rejectUrl = "https://{$host}/api/approve_reset.php?token={$token}&action=reject";
 
-    $subject = "Full Circle: password reset request from " . mail_header_safe($displayName);
+    $subject = "Fitresh: password reset request from " . mail_header_safe($displayName);
     $body = "A password reset was requested for this account:\n\n"
         . "Name: {$displayName}\n"
         . "Email: {$email}\n\n"

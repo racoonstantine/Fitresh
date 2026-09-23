@@ -1,10 +1,10 @@
-# Full Circle — Data Import Schema (v1.0)
+# Fitresh — Data Import Schema (v1.0)
 
-This is the JSON format Full Circle's **Account → My data → "Import structured
+This is the JSON format Fitresh's **Account → My data → "Import structured
 data (.json)"** button reads. If you're migrating history from another app,
 chat log, or spreadsheet, paste the prompt at the bottom of this file into
 that other tool (or hand it this whole file) and ask it to produce a JSON
-file in this exact shape — then upload it in Full Circle.
+file in this exact shape — then upload it in Fitresh.
 
 Every top-level key is optional — include only what you have. Dates are
 always `"YYYY-MM-DD"`. Anything you don't know, omit or set to `null` rather
