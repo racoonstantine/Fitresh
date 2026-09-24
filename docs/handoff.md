@@ -1,8 +1,9 @@
 # Fitresh — handoff (read this first in a new session)
 
-Fitresh (fitresh.com; formerly "Full Circle") is a multi-user workout / nutrition / fasting / weight
+Fitresh (live at https://fitresh.com; gedli.com 301-redirects to it; formerly "Full Circle") is a multi-user workout / nutrition / fasting / weight
 tracker: a static frontend in `public/` plus a small PHP + MySQL API in `api/`. Every push to
-`main` deploys to Namecheap over SFTP (GitHub Actions). `docs/history.md` is a long dated archive;
+`main` deploys to Namecheap over SFTP (GitHub Actions) into `/home/shergtjz/fitresh.com`
+(the `REMOTE_PATH` secret; server-only `api/config.local.php` lives there and is never deployed). `docs/history.md` is a long dated archive;
 you rarely need it.
 
 ## Safety net
@@ -68,10 +69,9 @@ run new HTML with old assets. New files under `public/` deploy automatically.
 
 ## Live-server to-do (only the owner can do these)
 1. Run `db/migrations/007_food_review.sql` in phpMyAdmin (005/006 were reported done).
-2. cPanel cron `0 8 1,16 * *` → `/usr/local/bin/php /home/shergtjz/public_html/api/food_review_digest.php`
+2. cPanel cron `0 8 1,16 * *` → `/usr/local/bin/php /home/shergtjz/fitresh.com/api/food_review_digest.php`
    (details in `docs/food-review.md`; test first with `--dry-run`).
-3. Point `fitresh.com` at the host + SSL; set `'app_host' => 'fitresh.com'` in the server's
-   `api/config.local.php` (approval / reset email links use it).
+3. Done: fitresh.com is the primary domain (`'app_host' => 'fitresh.com'` set), gedli.com redirects.
 
 ## State and known gaps
 - Done recently: split of `index.html` into `app.css` + 25 scripts; dev harness; thousands-separator
@@ -80,8 +80,17 @@ run new HTML with old assets. New files under `public/` deploy automatically.
   "show more"); food origin tags; food review pipeline (opt-in → admin table → half-monthly digest);
   compact admin table; over-target bars/rings; Today workout/food insight tiles; Fitresh rename,
   new leaf icon set, green palette (`--color-accent-2` family; orange kept as secondary).
-- Not done: the full visual redesign from the Fitresh concept mockups (white cards, ring dashboard,
-  different type); warm-up / cool-down sections on session cards (design proposed, awaiting go-ahead:
+- Visual redesign from `design_handoff_fitresh/` (README + `Fitresh.dc.html` mockups), done on `main`
+  in phases: **1** tokens/Outfit type/5-tab nav (no "Me" tab; avatar opens Account) and the dark
+  leaf-F logo (`public/mark.png`, cut from a low-res crop — swap for the original vector when
+  available; `icon-512`/favicon still old); **2** Today greeting + white glance cards; **3** white cards,
+  dark-green chips, Account chip rail. `api/data.php` needs no change.
+  **Remaining:** 4 Food meal-log bottom sheet (Search/Manual/AI) + floating "+ Log" button (replaces
+  rest-timer button); 5 Train (7-day strip, dark Today card, session sheet); 6 Account Goals layout,
+  BMI without "Overweight" chip; 7 polish/deep links. Also open: health-score ring (no backend
+  score; hide or define client-side), Body readiness card, Week/Month/Year control, line icons.
+  Workflow used: branch → `node tools/dev_harness/start.cjs --port 8124` → review locally → merge/push.
+- Not done: warm-up / cool-down sections on session cards (design proposed, awaiting go-ahead:
   collapsible recommended routine per session, tick-off, custom sets — catalog already holds 28
   activities / 12 templates in `data/workouts`); per-date tick-to-complete checklist on Train
   (only "today" ticks; other dates log via "Select Workout Routine" in the panel).
