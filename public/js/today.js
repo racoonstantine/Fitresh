@@ -68,6 +68,13 @@ function randomFact(arr){ return arr[Math.floor(Math.random() * arr.length)]; }
 function updateTodayClock(){
   const el = document.getElementById('todayClock');
   if(!el) return;
+  const greetEl = document.getElementById('todayGreeting');
+  if(greetEl){
+    const h = new Date().getHours();
+    const part = h < 12 ? 'Good morning' : (h < 18 ? 'Good afternoon' : 'Good evening');
+    const name = (typeof currentUser !== 'undefined' && currentUser && currentUser.display_name) ? currentUser.display_name.split(' ')[0] : '';
+    greetEl.textContent = name ? part + ', ' + name : part;
+  }
   el.textContent = new Date().toLocaleString(undefined, {
     weekday: 'long', month: 'long', day: 'numeric', hour: 'numeric', minute: '2-digit'
   });
