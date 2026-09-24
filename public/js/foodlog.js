@@ -172,6 +172,8 @@
     document.getElementById('logMealScreen').style.display = 'none';
   }
   document.getElementById('logMealClose').addEventListener('click', closeLogMealScreen);
+  document.getElementById('logMealScreen').addEventListener('click', e=>{ if(e.target.id === 'logMealScreen') closeLogMealScreen(); });
+  document.getElementById('logFab').addEventListener('click', ()=> window.openLogMealScreen());
 
   function lmSetMode(mode){
     document.querySelectorAll('#lmModeTabs .main-tab').forEach(btn=>{

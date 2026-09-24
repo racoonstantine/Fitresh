@@ -268,7 +268,7 @@
 
     <section class="block" style="margin-bottom:18px;">
       <div class="block-title">Log a food</div>
-      <button type="button" id="openLogMealBtn" class="timer-btn start" style="width:100%;margin-bottom:12px;">+ Log a meal (full page)</button>
+      <button type="button" id="openLogMealBtn" class="timer-btn start" style="width:100%;margin-bottom:12px;">+ Log a meal</button>
       <div class="hub-card">
         <div id="foodRecentFavorites" style="margin-bottom:10px;"></div>
         <div class="search-row food-search-row">
@@ -844,7 +844,9 @@
   </nav>
 </div><!-- /app-shell-v2 -->
 
-<div id="timerFab" title="Rest timer">
+<button type="button" id="logFab" aria-label="Log a meal"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg><span>Log</span></button>
+
+<div id="timerFab" title="Rest timer" style="display:none;">
   <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2M9 2h6M12 2v2"/></svg>
 </div>
 
@@ -872,7 +874,7 @@
 <div id="logMealScreen" class="fullscreen-modal" style="display:none;">
   <div class="fullscreen-modal-header">
     <button type="button" id="logMealClose" class="modal-close-btn">✕</button>
-    <div class="fullscreen-modal-title">Log Meal</div>
+    <div class="fullscreen-modal-title">Log meal</div>
     <div style="width:32px;"></div>
   </div>
   <div class="fullscreen-modal-body">

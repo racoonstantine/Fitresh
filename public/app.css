@@ -788,3 +788,38 @@
   .share-status{font-size:12px;color:var(--forest-dark);min-height:16px;margin-top:8px;}
   .admin-review-status{font-size:12px;color:var(--ink-soft);margin-bottom:8px;}
   .ad-flag{color:#F0B26A;font-size:10.5px;white-space:nowrap;}
+
+  /* Phase 4: meal-log bottom sheet + floating "+ Log" button */
+  #logFab{
+    position:fixed;z-index:150;right:20px;bottom:24px;height:58px;min-width:58px;padding:0 20px 0 16px;
+    border:none;border-radius:999px;background:#0D3B2E;color:#A7F3D0;cursor:pointer;
+    display:flex;align-items:center;gap:6px;font-family:var(--font-heading);font-weight:600;font-size:15px;
+    box-shadow:0 12px 24px -8px rgba(13,59,46,.55);
+  }
+  #logFab svg{width:22px;height:22px;stroke:#A7F3D0;}
+  @media (max-width: 760px){
+    #logFab{bottom:calc(104px + env(safe-area-inset-bottom));width:58px;padding:0;justify-content:center;}
+    #logFab span{display:none;}
+  }
+  #logMealScreen{background:rgba(86,100,95,.88);padding-top:28px;animation:sheetFade .28s ease;}
+  #logMealScreen .fullscreen-modal-header,
+  #logMealScreen .fullscreen-modal-body{background:var(--paper);max-width:600px;width:100%;margin-left:auto;margin-right:auto;box-sizing:border-box;}
+  #logMealScreen .fullscreen-modal-header{
+    position:relative;border-radius:28px 28px 0 0;border-bottom:none;padding:24px 20px 10px;
+    animation:sheetUp .28s cubic-bezier(.2,.8,.2,1);
+  }
+  #logMealScreen .fullscreen-modal-header::before{
+    content:"";position:absolute;top:9px;left:50%;width:40px;height:5px;margin-left:-20px;border-radius:3px;background:#D5DDD9;
+  }
+  #logMealScreen .fullscreen-modal-title{font-size:22px;}
+  #logMealScreen .modal-close-btn{width:36px;height:36px;background:#EEF2F0;border:none;}
+  #logMealScreen .fullscreen-modal-body{animation:sheetUp .28s cubic-bezier(.2,.8,.2,1);padding:4px 20px 28px;}
+  @keyframes sheetUp{from{transform:translateY(40px);opacity:.6;}to{transform:none;opacity:1;}}
+  @keyframes sheetFade{from{opacity:0;}to{opacity:1;}}
+  #logMealScreen #lmMealType,#logMealScreen #lmDate{border-radius:999px !important;border:none !important;background:#DCFCE7 !important;color:#14532D;font-weight:600;padding:10px 14px !important;}
+  #logMealScreen #lmModeTabs{background:#EEF2F0;border-radius:999px;padding:4px;gap:2px;}
+  #logMealScreen #lmModeTabs .main-tab{border-radius:999px;border:none;background:transparent;flex:1;}
+  #logMealScreen #lmModeTabs .main-tab.active{background:#fff;color:#0D3B2E;box-shadow:0 1px 3px rgba(13,59,46,.15);}
+  #logMealScreen .search-input{border-radius:999px;height:46px;border:1.5px solid var(--line);padding:0 16px;}
+  #logMealScreen .search-input:focus{border-color:#22C55E;outline:none;}
+  #logMealScreen #lmSaveBtn{height:50px;border-radius:999px;}
