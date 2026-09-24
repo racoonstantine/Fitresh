@@ -132,6 +132,7 @@
   }
   .topbar-brand{display:flex;align-items:center;gap:9px;font-family:var(--font-heading);font-weight:600;font-size:17px;letter-spacing:.22em;text-transform:uppercase;color:var(--color-accent-2-900);flex-shrink:0;cursor:pointer;}
   html[data-theme="dark"] .topbar-brand{color:#A7F3D0;}
+  .topbar-brand .brand-mark{width:28px;height:28px;flex-shrink:0;display:block;}
   .topbar-brand .ring{width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg, var(--color-accent-2-900), var(--forest));flex-shrink:0;}
   .tab-nav{display:flex;gap:6px;flex:1;flex-wrap:wrap;}
   .tab-nav-btn{
