@@ -1,23 +1,23 @@
-  @import url('https://fonts.googleapis.com/css2?family=Caprasimo&family=Figtree:wght@400;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Figtree:wght@400;500;600;700&display=swap');
 
   /* Organic design system — see design_handoff_full_circle_health/styles.css for the source tokens. */
   :root{
-    --color-bg:#f5ead8;
-    --color-surface:#ebddc5;
-    --color-text:#201e1d;
+    --color-bg:#F7F9F8;
+    --color-surface:#FFFFFF;
+    --color-text:#0F1F1A;
     --color-accent:#c67139;
     --color-accent-2:#22C55E;
-    --color-divider: color-mix(in srgb, #201e1d 16%, transparent);
+    --color-divider:#E1E9E5;
 
-    --color-neutral-100:#f9f4ed;
-    --color-neutral-200:#eee7db;
-    --color-neutral-300:#dcd3c4;
-    --color-neutral-400:#c0b6a5;
-    --color-neutral-500:#a19786;
-    --color-neutral-600:#82796a;
-    --color-neutral-700:#645c50;
-    --color-neutral-800:#474238;
-    --color-neutral-900:#2e2b25;
+    --color-neutral-100:#F7F9F8;
+    --color-neutral-200:#EEF2F0;
+    --color-neutral-300:#E1E9E5;
+    --color-neutral-400:#CBD8D2;
+    --color-neutral-500:#A9B8B1;
+    --color-neutral-600:#7A8984;
+    --color-neutral-700:#4A5A54;
+    --color-neutral-800:#2A3A34;
+    --color-neutral-900:#0F1F1A;
 
     --color-accent-100:#fff2eb;
     --color-accent-200:#ffe1d0;
@@ -40,23 +40,23 @@
     --color-accent-2-800:#0f6b45;
     --color-accent-2-900:#0d3b2e;
 
-    --font-heading:"Caprasimo", system-ui, sans-serif;
+    --font-heading:"Outfit", system-ui, sans-serif;
     --font-body:"Figtree", system-ui, sans-serif;
 
     --radius-sm:8px;
-    --radius-md:16px;
-    --radius-lg:28px;
-    --shadow-sm: 0 1px 2px color-mix(in srgb, #2e2b25 14%, transparent);
-    --shadow-md: 0 3px 10px color-mix(in srgb, #2e2b25 16%, transparent);
+    --radius-md:18px;
+    --radius-lg:22px;
+    --shadow-sm: 0 1px 2px rgba(13,59,46,.06);
+    --shadow-md: 0 6px 16px -8px rgba(13,59,46,.2);
     --shadow-lg: 0 12px 32px color-mix(in srgb, #2e2b25 22%, transparent);
 
     /* App-level aliases used throughout the existing markup */
     --paper:var(--color-bg);
-    --paper-raised:var(--color-neutral-100);
+    --paper-raised:#FFFFFF;
     --ink:var(--color-text);
     --ink-soft:var(--color-neutral-700);
     --forest:var(--color-accent-2);
-    --forest-dark:var(--color-accent-2-700);
+    --forest-dark:#15803D;
     --ochre:var(--color-accent);
     --line:var(--color-divider);
     --done:var(--color-accent-2);
@@ -64,19 +64,19 @@
     color-scheme: light;
   }
   html[data-theme="dark"]{
-    --color-bg:#211e1a;
-    --color-surface:#2e2b25;
-    --color-text:#f5ead8;
+    --color-bg:#0E1A16;
+    --color-surface:#16251F;
+    --color-text:#E8F1ED;
     --color-accent:#f6a06b;
     --color-accent-2:#6ee7a8;
-    --color-divider: color-mix(in srgb, #f5ead8 16%, transparent);
+    --color-divider:#26382F;
 
-    --color-neutral-100:#2b2822;
-    --color-neutral-200:#332f28;
-    --color-neutral-300:#453f35;
-    --color-neutral-400:#5c5548;
-    --color-neutral-700:#c0b6a5;
-    --color-neutral-800:#dcd3c4;
+    --color-neutral-100:#16251F;
+    --color-neutral-200:#1C2E27;
+    --color-neutral-300:#26382F;
+    --color-neutral-400:#3A4F45;
+    --color-neutral-700:#A9C0B5;
+    --color-neutral-800:#D0E0D8;
 
     --paper:var(--color-bg);
     --paper-raised:var(--color-neutral-100);
@@ -90,7 +90,7 @@
     --card-shadow: 0 1px 0 rgba(0,0,0,0.3);
     color-scheme: dark;
   }
-  html, body{ transition:background .2s ease, color .2s ease; background:#211e1a; }
+  html, body{ transition:background .2s ease, color .2s ease; background:#0E1A16; }
 
   /* Form elements don't inherit color/background from ancestors by default in most browsers —
      this is the fix for text disappearing depending on theme/device defaults. */
@@ -125,11 +125,13 @@
 
   /* Responsive tab shell: top tabs on desktop, bottom tabs on mobile */
   .app-shell-v2{display:flex;flex-direction:column;height:100%;}
+  .topbar-user #userBadge{display:none;}
   .topbar{
     display:flex;align-items:center;gap:20px;flex-shrink:0;
     padding:12px 20px;background:var(--color-surface);
   }
-  .topbar-brand{display:flex;align-items:center;gap:9px;font-family:var(--font-heading);font-size:17px;flex-shrink:0;cursor:pointer;}
+  .topbar-brand{display:flex;align-items:center;gap:9px;font-family:var(--font-heading);font-weight:600;font-size:17px;letter-spacing:.22em;text-transform:uppercase;color:var(--color-accent-2-900);flex-shrink:0;cursor:pointer;}
+  html[data-theme="dark"] .topbar-brand{color:#A7F3D0;}
   .topbar-brand .ring{width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg, var(--color-accent-2-900), var(--forest));flex-shrink:0;}
   .tab-nav{display:flex;gap:6px;flex:1;flex-wrap:wrap;}
   .tab-nav-btn{
@@ -137,13 +139,21 @@
     padding:8px 16px;border-radius:999px;border:none;background:transparent;
     color:var(--ink-soft);cursor:pointer;
   }
-  .tab-nav-btn.active{background:var(--color-accent);color:#fff;}
-  .tab-nav-btn:hover:not(.active){background:var(--color-accent-100);}
+  .tab-nav-btn.active{background:#DCFCE7;color:#0D3B2E;}
+  html[data-theme="dark"] .tab-nav-btn.active{background:#14532D;color:#DCFCE7;}
+  .tab-nav-btn:hover:not(.active){background:var(--color-neutral-200);}
   html[data-theme="dark"] .tab-nav-btn:hover:not(.active){background:rgba(255,255,255,0.08);}
   .topbar-user{display:flex;align-items:center;gap:10px;font-size:12px;color:var(--ink-soft);flex-shrink:0;}
   .topbar-user a{color:var(--color-accent-700);text-decoration:none;font-weight:600;}
   html[data-theme="dark"] .topbar-user a{color:var(--color-accent-300);}
   .topbar-user .theme-toggle{width:30px;height:30px;flex-shrink:0;}
+  .user-avatar{
+    width:40px;height:40px;border-radius:50%;border:none;padding:0;cursor:pointer;flex-shrink:0;
+    background:#DCFCE7;color:#0D3B2E;font-family:var(--font-heading);font-weight:600;font-size:16px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .user-avatar:focus-visible{outline:2px solid #22C55E;outline-offset:2px;}
+  html[data-theme="dark"] .user-avatar{background:#14532D;color:#DCFCE7;}
 
   .app-main-v2{flex:1;min-height:0;}
 
@@ -151,7 +161,6 @@
 
   @media (max-width: 760px){
     .tab-nav{display:none;}
-    .topbar-user #userBadge{display:none;}
     .bottom-nav{
       display:flex;flex-shrink:0;position:fixed;left:0;right:0;bottom:0;z-index:50;
       background:var(--color-surface);border-top:1px solid var(--line);
@@ -163,7 +172,8 @@
       color:var(--ink-soft);background:none;border:none;padding:6px 2px;cursor:pointer;
     }
     .bottom-nav-btn svg{width:20px;height:20px;stroke:currentColor;}
-    .bottom-nav-btn.active{color:var(--color-accent);}
+    .bottom-nav-btn.active{color:#15803D;}
+    html[data-theme="dark"] .bottom-nav-btn.active{color:#6ee7a8;}
     #scrollArea{padding-bottom:76px;}
   }
 

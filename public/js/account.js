@@ -187,10 +187,16 @@ function showOnboarding(){
   applyObUnitDisplay();
 }
 
+function setUserBadge(name){
+  document.getElementById('userBadge').textContent = name;
+  const initial = String(name || '').trim().charAt(0).toUpperCase();
+  document.getElementById('userAvatar').textContent = initial || '•';
+}
+
 async function showAppFor(user){
   currentUser = user;
   document.getElementById('loginScreen').style.display = 'none';
-  document.getElementById('userBadge').textContent = user.display_name || user.email;
+  setUserBadge(user.display_name || user.email);
   // Client-side visibility only -- api/admin.php re-checks this server-side
   // on every request, so hiding/showing this tab is purely cosmetic.
   const adminBtn = document.getElementById('adminSubnavBtn');
@@ -446,6 +452,7 @@ async function checkAuthAndStart(){
   });
 
   document.getElementById('userBadge').addEventListener('click', ()=> showView('account'));
+  document.getElementById('userAvatar').addEventListener('click', ()=> showView('account'));
   document.getElementById('userBadge').style.cursor = 'pointer';
 })();
 
@@ -571,7 +578,7 @@ async function checkAuthAndStart(){
       }
       currentUser.display_name = data.display_name;
       currentUser.username = data.username;
-      document.getElementById('userBadge').textContent = data.display_name;
+      setUserBadge(data.display_name);
       const statusEl = document.getElementById('acctUsernameStatus');
       statusEl.textContent = 'Saved ✓';
       statusEl.style.color = 'var(--forest-dark)';
