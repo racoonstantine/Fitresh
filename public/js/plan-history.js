@@ -22,26 +22,35 @@ function renderWeekPlan(){
     const dStr = addDaysToDate(anchorStr, i - anchorIdx);
     const entry = isOpen ? window.openModeDayEntry(dStr) : effectiveDayEntry(dStr, i);
     const plan = entry && entry.type === 'workoutPlan' ? getWorkoutPlan(entry.planId) : null;
-    // Same checkedState key scheme as log-session-panel.js/todays-session.js:
-    // legacy presets key on their fixed 'A'/'B'/'steady'/'interval' id, any
-    // other Workout Routine (custom) keys on 'plan:<id>'.
-    const dayId = plan ? (plan.kind === 'legacy' ? plan.legacyKey : 'plan:' + plan.id) : null;
-    const done = dayId ? !!checkedState[dStr + '_' + dayId + '_done'] : (isOpen && entry && entry.type === 'logged');
+    // "Done" means any real session was logged that date -- a scheduled
+    // Workout Routine, a manual entry, an AI Assist log, anything -- not
+    // just ones that happen to match a scheduled routine's checkedState key.
+    // That's the same signal the Workout Dashboard's "Session status" tile
+    // uses (see weight-dashboard.js), so a pickleball game logged as a
+    // deviation shows as done here too, not as missed.
+    const done = historyLog.some(e => e.date === dStr && isRealSessionEntry(e));
     const hasOverride = !isOpen && userTrainingPlan.overrides && userTrainingPlan.overrides[dStr];
     const isSelected = dStr === anchorStr && anchorStr !== todayStr;
     // Four states on the weekly calendar: a completed session that matches
     // what was scheduled (green), a completed session on a day that carries
-    // a deviation override -- planned Rest but trained, or a swapped routine
-    // (blue), a scheduled training day that passed with nothing logged
-    // (red, with an X), and an explicit Rest day (purple). Open mode has no
-    // schedule to deviate from or miss, so it only ever shows green/neutral.
+    // a deviation override -- planned Rest but trained, a swapped routine,
+    // or anything else actually logged that day (blue), a scheduled
+    // training day that passed with nothing logged (red, with an X), and an
+    // explicit Rest day (purple). Only today and past days are judged this
+    // way -- a future day hasn't happened yet, so it stays neutral even if
+    // it's scheduled as Rest or has a deviation override already set up for
+    // it. Open mode has no schedule to deviate from or miss, so it only
+    // ever shows green/neutral.
+    const isFuture = dStr > todayStr;
     let status = null;
-    if(done){
-      status = hasOverride ? 'blue' : 'green';
-    } else if(!isOpen && entry && entry.type === 'rest'){
-      status = 'purple';
-    } else if(!isOpen && plan && dStr < todayStr){
-      status = 'red';
+    if(!isFuture){
+      if(done){
+        status = hasOverride ? 'blue' : 'green';
+      } else if(!isOpen && entry && entry.type === 'rest'){
+        status = 'purple';
+      } else if(!isOpen && plan && dStr < todayStr){
+        status = 'red';
+      }
     }
     const cell = document.createElement('div');
     cell.className = 'week-day' + (dStr === todayStr ? ' today' : '') + (isSelected ? ' selected' : '') + (status ? ' status-' + status : '');
