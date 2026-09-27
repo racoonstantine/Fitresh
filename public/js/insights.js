@@ -27,7 +27,11 @@ function renderInsights(){
         <span class="tag ${bmiTagClass}">${t.bmiCategory}</span>
         <span style="font-size:12.5px;color:var(--ink-soft);">${directionLabel}</span>
       </div>
-      <div style="font-size:12px;color:var(--ink-soft);margin-top:10px;">Resting (BMR) ${fmtNum(t.bmr)} kcal · Active (TDEE) ${fmtNum(t.tdee)} kcal · Water target ${(t.waterGoalMl/1000).toFixed(1)} L</div>
+      <div class="mini-stat-row">
+        <div class="mini-stat"><div class="mini-stat-num">${fmtNum(t.bmr)}</div><div class="mini-stat-label">Resting · BMR</div></div>
+        <div class="mini-stat"><div class="mini-stat-num">${fmtNum(t.tdee)}</div><div class="mini-stat-label">Active · TDEE</div></div>
+        <div class="mini-stat"><div class="mini-stat-num">${(t.waterGoalMl/1000).toFixed(1)} L</div><div class="mini-stat-label">Water target</div></div>
+      </div>
       <button class="timer-btn reset" id="insightsEditBtn" type="button" style="width:auto;padding-inline:18px;margin-top:14px;">Edit profile</button>
     </div>
   `;

@@ -484,11 +484,34 @@
     errEl.style.display = 'block';
   });
 
+  // Rolling-average commentary for the sleep dashboard: how the last week
+  // of logged nights compares to goal, plus a nudge about consistency
+  // (night-to-night swings matter for sleep quality as much as the total).
+  function renderSleepHistoryInsight(entries){
+    const el = document.getElementById('sleepScreenInsight');
+    if(!el) return;
+    const goalHours = (userProfile && userProfile.sleepGoalHours) || 8;
+    const recent = [...entries].sort((a,b)=> a.date < b.date ? 1 : -1).slice(0, 7);
+    if(recent.length < 2){ el.innerHTML = ''; return; }
+    const avg = recent.reduce((sum, s) => sum + s.hours, 0) / recent.length;
+    const diff = avg - goalHours;
+    const spread = Math.max(...recent.map(s=>s.hours)) - Math.min(...recent.map(s=>s.hours));
+    let icon, headline, color;
+    if(Math.abs(diff) < 0.25){ icon = '✅'; headline = `${formatSleepHours(avg)} avg — right at goal`; color = 'var(--forest-dark)'; }
+    else if(diff < 0){ icon = '😴'; headline = `${formatSleepHours(avg)} avg — ${formatSleepHours(Math.abs(diff))} under goal`; color = OVER_COLORS.bad; }
+    else { icon = '💤'; headline = `${formatSleepHours(avg)} avg — ${formatSleepHours(diff)} over goal`; color = 'var(--ochre)'; }
+    const comment = spread >= 2.5
+      ? `Last ${recent.length} nights swing by ${formatSleepHours(spread)} — a steadier bedtime usually helps more than the total does.`
+      : `Last ${recent.length} nights, fairly consistent night to night.`;
+    el.innerHTML = `<div class="glance-insight" style="color:${color};margin-top:0;padding-top:0;border-top:none;margin-bottom:10px;"><span class="glance-insight-icon">${icon}</span><div><strong>${headline}</strong><div class="glance-card-sub">${comment}</div></div></div>`;
+  }
+
   function renderSleepHistory(){
     const entries = Object.entries(sleepLog)
       .map(([date, s]) => ({date, hours: s.hours}))
       .sort((a,b)=> a.date < b.date ? 1 : -1);
 
+    renderSleepHistoryInsight(entries);
     const chartEl = document.getElementById('sleepScreenChart');
     const recent = [...entries].reverse().slice(-14);
     renderTrendLineChart(chartEl, recent.map(s => ({y: s.hours, label: formatDateLabel(s.date)})), {

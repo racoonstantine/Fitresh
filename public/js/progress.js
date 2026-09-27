@@ -34,6 +34,30 @@ function intakeInsight(eaten, target){
     comment: 'Well above target — go easy for the rest of the day.', color: OVER_COLORS.bad};
 }
 
+// How last night's sleep compares to the goal, with a headline and a line
+// of commentary — mirrors intakeInsight() above but for sleep debt/surplus,
+// where "over" is good news rather than bad.
+function sleepInsight(hours, goalHours){
+  hours = Number(hours) || 0;
+  goalHours = Number(goalHours) || 8;
+  if(hours <= 0) return null;
+  const diff = hours - goalHours;
+  if(Math.abs(diff) < 0.25){
+    return {icon: '✅', headline: 'Right on target', comment: `Hit your ${formatSleepHours(goalHours)} goal — that's the sweet spot for recovery.`, color: 'var(--forest-dark)'};
+  }
+  if(diff < 0){
+    const short = Math.abs(diff);
+    if(short < 1){
+      return {icon: '🥱', headline: `${formatSleepHours(short)} short`, comment: 'A little under goal — try to wind down a bit earlier tonight.', color: 'var(--ochre)'};
+    }
+    return {icon: '😴', headline: `${formatSleepHours(short)} short`, comment: short >= 2.5 ? 'Well under goal — watch for its effect on energy and appetite today.' : 'Under goal — aim to catch up over the next night or two.', color: OVER_COLORS.bad};
+  }
+  if(diff <= 1){
+    return {icon: '👍', headline: `${formatSleepHours(diff)} over`, comment: 'A bit extra — fine once in a while.', color: 'var(--forest-dark)'};
+  }
+  return {icon: '💤', headline: `${formatSleepHours(diff)} over`, comment: 'Well over goal — could be catch-up sleep, or worth a look if it keeps happening.', color: 'var(--ochre)'};
+}
+
 // Fill for a bar: capped at full width, and once over target the last part
 // (sized by how far over) switches to the "over" colour.
 function barFillParts(pct, color, overKind){

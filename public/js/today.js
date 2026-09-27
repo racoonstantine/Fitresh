@@ -271,6 +271,7 @@ async function renderTodayGlance(){
         <div class="glance-card-sub">Not logged yet</div>
         <div class="glance-card-sub">Goal: ${sleepGoalHours}h</div>
       `}
+      ${sleepEntry ? (()=>{ const si = sleepInsight(sleepEntry.hours, sleepGoalHours); return si ? `<div class="glance-insight" style="color:${si.color};"><span class="glance-insight-icon">${si.icon}</span><div><strong>${foodSearchEscape(si.headline)}</strong><div class="glance-card-sub">${foodSearchEscape(si.comment)}</div></div></div>` : ''; })() : ''}
     </div>
     <div class="glance-card open-steps-screen-link" style="align-items:center;cursor:pointer;">
       <div class="glance-card-label" style="align-self:flex-start;">\u{1F463} Steps</div>
