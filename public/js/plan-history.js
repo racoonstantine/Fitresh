@@ -22,18 +22,35 @@ function renderWeekPlan(){
     const dStr = addDaysToDate(anchorStr, i - anchorIdx);
     const entry = isOpen ? window.openModeDayEntry(dStr) : effectiveDayEntry(dStr, i);
     const plan = entry && entry.type === 'workoutPlan' ? getWorkoutPlan(entry.planId) : null;
-    const legacyKey = plan && plan.kind === 'legacy' ? plan.legacyKey : null;
-    const done = legacyKey ? !!checkedState[dStr + '_' + legacyKey + '_done'] : false;
+    // Same checkedState key scheme as log-session-panel.js/todays-session.js:
+    // legacy presets key on their fixed 'A'/'B'/'steady'/'interval' id, any
+    // other Workout Routine (custom) keys on 'plan:<id>'.
+    const dayId = plan ? (plan.kind === 'legacy' ? plan.legacyKey : 'plan:' + plan.id) : null;
+    const done = dayId ? !!checkedState[dStr + '_' + dayId + '_done'] : (isOpen && entry && entry.type === 'logged');
     const hasOverride = !isOpen && userTrainingPlan.overrides && userTrainingPlan.overrides[dStr];
     const isSelected = dStr === anchorStr && anchorStr !== todayStr;
+    // Four states on the weekly calendar: a completed session that matches
+    // what was scheduled (green), a completed session on a day that carries
+    // a deviation override -- planned Rest but trained, or a swapped routine
+    // (blue), a scheduled training day that passed with nothing logged
+    // (red, with an X), and an explicit Rest day (purple). Open mode has no
+    // schedule to deviate from or miss, so it only ever shows green/neutral.
+    let status = null;
+    if(done){
+      status = hasOverride ? 'blue' : 'green';
+    } else if(!isOpen && entry && entry.type === 'rest'){
+      status = 'purple';
+    } else if(!isOpen && plan && dStr < todayStr){
+      status = 'red';
+    }
     const cell = document.createElement('div');
-    cell.className = 'week-day' + (dStr === todayStr ? ' today' : '') + (isSelected ? ' selected' : '') + (done ? ' done' : '');
+    cell.className = 'week-day' + (dStr === todayStr ? ' today' : '') + (isSelected ? ' selected' : '') + (status ? ' status-' + status : '');
     cell.style.cursor = 'pointer';
     cell.title = 'Tap to correct what actually happened this day';
     cell.innerHTML = `
       <div class="week-day-name">${base.name}${hasOverride ? ' *' : ''}</div>
       <div class="week-day-type">${window.planDayLabel(entry)}</div>
-      <div class="week-day-dot"></div>
+      <div class="week-day-dot">${status === 'red' ? '✕' : ''}</div>
     `;
     // Every cell opens the deviation-override panel (even Rest/unset days --
     // that's exactly how you'd record "planned Rest, actually worked out").

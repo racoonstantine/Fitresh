@@ -8,7 +8,8 @@ from cache_bust import add_cache_busting, file_hash  # noqa: E402
 
 with tempfile.TemporaryDirectory() as pub:
     os.makedirs(os.path.join(pub, "js"))
-    for name, body in {"app.css": "a{}", "js/core.js": "1", "personal-foods.js": "2"}.items():
+    files = {"app.css": "a{}", "js/core.js": "1", "personal-foods.js": "2", "favicon.svg": "<svg>a</svg>"}
+    for name, body in files.items():
         with open(os.path.join(pub, name), "w") as handle:
             handle.write(body)
     html = (
@@ -19,12 +20,14 @@ with tempfile.TemporaryDirectory() as pub:
         '<script src="js/missing.js"></script>\n'
         '<script src="https://cdn.example.com/x.js"></script>\n'
         '<link href="app.css?v=old" rel="stylesheet">\n'
+        '<img src="mark.png" alt="">\n'
     )
     out = add_cache_busting(html, pub)
     assert f'href="app.css?v={file_hash(os.path.join(pub, "app.css"))}"' in out
     assert f'src="js/core.js?v={file_hash(os.path.join(pub, "js/core.js"))}"' in out
     assert f'src="personal-foods.js?v={file_hash(os.path.join(pub, "personal-foods.js"))}"' in out
-    assert 'href="favicon.svg"' in out, "non js/css links are untouched"
+    assert f'href="favicon.svg?v={file_hash(os.path.join(pub, "favicon.svg"))}"' in out, "icon links (svg/png) are busted too, so iOS can't stick to a stale Add to Home Screen icon"
+    assert 'src="mark.png"' in out, "non script/link tags (e.g. <img>) are untouched"
     assert 'src="js/missing.js"' in out, "files that do not exist are left alone"
     assert 'src="https://cdn.example.com/x.js"' in out, "remote scripts are untouched"
     assert 'app.css?v=old' in out, "an existing query string is not double-stamped"
@@ -36,6 +39,7 @@ with tempfile.TemporaryDirectory() as pub:
     real = open(os.path.join(os.path.dirname(__file__), "..", "public", "index.html"), encoding="utf-8").read()
     busted = add_cache_busting(real, os.path.join(os.path.dirname(__file__), "..", "public"))
     import re
-    refs = re.findall(r'(?:src|href)="((?:js/)?[^"/?]+\.(?:js|css))\?v=[0-9a-f]{10}"', busted)
+    refs = re.findall(r'(?:src|href)="((?:js/)?[^"/?]+\.(?:js|css|png|svg))\?v=[0-9a-f]{10}"', busted)
     assert "app.css" in refs and "js/core.js" in refs and "personal-foods.js" in refs, refs
-print("PASS: deploy cache-busting stamps local .js/.css references with content hashes.")
+    assert "favicon.svg" in refs and "apple-touch-icon.png" in refs and "icon-192.png" in refs, refs
+print("PASS: deploy cache-busting stamps local .js/.css/.png/.svg references (incl. icons) with content hashes.")

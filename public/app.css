@@ -424,11 +424,27 @@
   }
   .week-day.today{border-color:var(--ochre);background:rgba(201,138,58,0.1);}
   .week-day.selected{border-color:#3D7A99;background:rgba(61,122,153,0.12);box-shadow:0 0 0 1px #3D7A99;}
-  .week-day.done{border-color:var(--forest);}
+  /* Weekly calendar deviation states: completed as planned (green), a
+     completed session on a day flagged with a deviation override -- planned
+     Rest but trained, or a swapped routine (blue), a scheduled training day
+     that passed with nothing logged (red, dot shows an X), an explicit Rest
+     day (purple). */
+  .week-day.status-green{border-color:var(--forest);}
+  .week-day.status-blue{border-color:#3D7A99;}
+  .week-day.status-red{border-color:#C0392B;}
+  .week-day.status-purple{border-color:#7C3AED;}
   .week-day-name{font-size:10px;color:var(--ink-soft);text-transform:uppercase;font-weight:600;}
   .week-day-type{font-size:9px;color:var(--ink-soft);margin-top:2px;line-height:1.2;min-height:22px;}
-  .week-day-dot{width:6px;height:6px;border-radius:50%;background:var(--line);margin:4px auto 0;}
-  .week-day.done .week-day-dot{background:var(--forest);}
+  .week-day-dot{
+    width:6px;height:6px;border-radius:50%;background:var(--line);margin:4px auto 0;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .week-day.status-green .week-day-dot{background:var(--forest);}
+  .week-day.status-blue .week-day-dot{background:#3D7A99;}
+  .week-day.status-purple .week-day-dot{background:#7C3AED;}
+  .week-day.status-red .week-day-dot{
+    width:12px;height:12px;background:#C0392B;color:#fff;font-size:8px;line-height:1;font-weight:700;
+  }
 
   .today-callout{
     display:flex;align-items:center;justify-content:space-between;gap:10px;

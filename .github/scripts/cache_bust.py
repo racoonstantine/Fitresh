@@ -6,12 +6,17 @@ with new HTML running against an old app.css/JS after a deploy. At deploy time
 every local <script src> / <link href> in index.html gets ?v=<content hash>,
 so a changed file always has a new URL. The repo copy of index.html is left
 untouched -- only the uploaded copy is rewritten.
+
+Icon links (favicon.svg, apple-touch-icon.png, icon-192.png) are included too:
+iOS in particular caches the "Add to Home Screen" icon by its URL essentially
+forever, so a redesigned icon with the same filename can keep showing the old
+art on a phone indefinitely unless the URL itself changes.
 """
 import hashlib
 import os
 import re
 
-_REF = re.compile(r'''(<(?:script|link)\b[^>]*?\b(?:src|href)=")([^"?#]+\.(?:js|css))(")''')
+_REF = re.compile(r'''(<(?:script|link)\b[^>]*?\b(?:src|href)=")([^"?#]+\.(?:js|css|png|svg))(")''')
 
 
 def file_hash(path):
