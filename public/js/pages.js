@@ -52,9 +52,20 @@
   // day-nav above -- shown between the date and the Start/End fields, so
   // navigating to a past day immediately surfaces that day's total fast and
   // how it stacked up against the goal, without scrolling to History.
+  // While today's timer is running the fast is saved by End Fast (with its
+  // real start/end), so the manual Start/End form is hidden for today -- it
+  // used to default to a goal-length window and Save would overwrite the
+  // fast with that instead of the actual elapsed time.
+  function fsTodayActive(){
+    return !!fastingState.startIso && fsSelectedDate === dateStrForOffset(0);
+  }
   function renderFsDaySummary(){
     const el = document.getElementById('fsDaySummary');
     if(!el) return;
+    if(fsTodayActive()){
+      el.innerHTML = `<div style="font-size:12.5px;color:var(--ink-soft);">Fast in progress &mdash; adjust the start time above, then tap End Fast to save it.</div>`;
+      return;
+    }
     const entry = nutritionLog.find(e => e.date === fsSelectedDate && e.fastHours && parseNum(e.fastHours) > 0);
     if(!entry){
       el.innerHTML = `<div style="font-size:12.5px;color:var(--ink-soft);">No fast logged for this day yet.</div>`;
@@ -82,25 +93,35 @@
     document.getElementById('fsPastError').style.display = 'none';
     const existing = nutritionLog.find(e => e.date === fsSelectedDate && e.fastHours);
     const todayStr = dateStrForOffset(0);
-    let end, hours;
-    if(existing){
-      hours = parseNum(existing.fastHours);
-      // Exact start/end aren't stored for a plain duration -- reconstruct a
-      // reasonable window (still freely editable) rather than leaving it blank.
-      end = fsSelectedDate === todayStr ? new Date() : new Date(fsSelectedDate + 'T08:00:00');
+    let end, hours, start;
+    if(existing && existing.fastStartIso && existing.fastEndIso){
+      // Fasts ended with the timer keep their real window.
+      start = new Date(existing.fastStartIso);
+      end = new Date(existing.fastEndIso);
     } else {
-      hours = 16;
+      if(existing){
+        hours = parseNum(existing.fastHours);
+        // Older entries only stored a duration -- reconstruct a reasonable
+        // window (still freely editable) rather than leaving it blank.
+      } else {
+        hours = fastingState.goalHours || 16;
+      }
       end = fsSelectedDate === todayStr ? new Date() : new Date(fsSelectedDate + 'T08:00:00');
+      start = new Date(end.getTime() - hours * 3600000);
     }
-    const start = new Date(end.getTime() - hours * 3600000);
     document.getElementById('fsPastStart').value = toLocalInput(start);
     document.getElementById('fsPastEnd').value = toLocalInput(end);
     renderFsDaySummary();
     applyEditLock(document.getElementById('fsEditBlock'), {
       key: 'fast:' + fsSelectedDate,
-      baseLocked: fsSelectedDate !== todayStr && !!existing,
+      baseLocked: !!existing,
       summary: existing ? `⏱ <strong>${formatFastHours(parseNum(existing.fastHours))}</strong> fast logged` : '⏱ Fast logged'
     });
+    if(fsTodayActive()){
+      const blk = document.getElementById('fsEditBlock');
+      blk.style.display = 'none';
+      if(blk.previousElementSibling && blk.previousElementSibling.classList.contains('edit-lock-bar')) blk.previousElementSibling.style.display = 'none';
+    }
   }
 
   document.body.addEventListener('click', (e)=>{
@@ -134,6 +155,7 @@
         renderFasting();
         renderTodayGlance();
         renderFastingScreenMain();
+        renderFsPastForm();
       });
       return;
     }
@@ -178,14 +200,14 @@
     document.getElementById('fsEndFastBtn').addEventListener('click', ()=>{
       const start = new Date(fastingState.startIso);
       const elapsedHrs = (Date.now() - start.getTime()) / 3600000;
-      upsertNutritionFields(dateStrForOffset(0), { fastHours: elapsedHrs.toFixed(2) });
+      upsertNutritionFields(dateStrForOffset(0), { fastHours: elapsedHrs.toFixed(2), fastStartIso: start.toISOString(), fastEndIso: new Date().toISOString() });
       fastingState = { startIso: null, goalHours: fastingState.goalHours || 16 };
       saveFasting();
       renderFasting();
       renderTodayGlance();
       renderFastingScreenMain();
       renderFastingHistory();
-      renderFsDaySummary();
+      renderFsPastForm();
     });
   }
 
@@ -201,7 +223,7 @@
     }
     const hours = (endD - startD) / 3600000;
     const dateKey = toLocalDateStr(endD);
-    upsertNutritionFields(dateKey, { fastHours: hours.toFixed(2) });
+    upsertNutritionFields(dateKey, { fastHours: hours.toFixed(2), fastStartIso: startD.toISOString(), fastEndIso: endD.toISOString() });
     editLockRelock('fast:' + fsSelectedDate);
     editLockRelock('fast:' + dateKey);
     renderNutrition();
