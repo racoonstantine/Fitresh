@@ -157,7 +157,7 @@ function renderAccountGoals(){
   document.getElementById('goalFastingHours').value = fastingState.goalHours || 16;
 
   document.getElementById('goalsError').style.display = 'none';
-  document.getElementById('goalsSavedMsg').style.display = 'none';
+  if(window.goalGatesLockAll) window.goalGatesLockAll();
 }
 
 // "Help improve the food list": whether this user's AI Assist / My Entry foods

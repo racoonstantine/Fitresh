@@ -458,36 +458,17 @@ async function checkAuthAndStart(){
 
 /* ---------- Account tab: Goals overrides, Account settings, Feedback ---------- */
 (function(){
-  document.getElementById('saveGoalsBtn').addEventListener('click', async ()=>{
-    const profile = {...(userProfile || {})};
-    profile.customCalorieTarget = parseNum(document.getElementById('goalEnergyCustom').value) || null;
-    profile.customProteinTarget = parseNum(document.getElementById('goalProteinCustom').value) || null;
-    profile.customCarbTarget = parseNum(document.getElementById('goalCarbsCustom').value) || null;
-    profile.customFatTarget = parseNum(document.getElementById('goalFatCustom').value) || null;
-    profile.customSodiumTarget = parseNum(document.getElementById('goalSodiumCustom').value) || null;
-    profile.customFiberTarget = parseNum(document.getElementById('goalFiberCustom').value) || null;
-    profile.customSugarTarget = parseNum(document.getElementById('goalSugarCustom').value) || null;
-    profile.dietPreset = document.getElementById('goalDietPreset').value;
-    const newWeightUnit = document.getElementById('goalWeightUnit').value;
-    profile.weightUnit = newWeightUnit;
-    const rawGoalWeight = parseNum(document.getElementById('goalTargetWeight').value);
-    profile.goalWeightKg = isNaN(rawGoalWeight) ? null : (newWeightUnit === 'lbs' ? lbsToKg(rawGoalWeight) : rawGoalWeight);
-    profile.sleepGoalHours = parseNum(document.getElementById('goalSleepHours').value) || null;
-    profile.stepsGoal = parseInt(document.getElementById('goalSteps').value, 10) || null;
-    profile.calorieBurnGoal = parseNum(document.getElementById('goalCalorieBurn').value) || null;
-    profile.waterGoalMl = parseInt(document.getElementById('goalWater').value, 10) || null;
-    if(!userProfile && (profile.customCalorieTarget || profile.customProteinTarget)){
-      const err = document.getElementById('goalsError');
-      err.textContent = 'Set up your personal profile first (age, height, weight) — energy and protein targets are calculated from it.';
-      err.style.display = 'block';
-      return;
-    }
-    await saveProfile(profile);
-
-    const fastingHoursVal = parseNum(document.getElementById('goalFastingHours').value) || 16;
-    fastingState.goalHours = fastingHoursVal;
-    await saveFasting();
-
+  // ---- Goals: every target is read-only until its pencil is tapped; ✓ saves just that field, ✕ reverts it ----
+  const G = id => document.getElementById(id);
+  const numOrNull = id => parseNum(G(id).value) || null;
+  function goalsToast(msg){
+    const el = G('goalsSavedMsg');
+    el.textContent = msg;
+    el.style.display = 'block';
+    clearTimeout(window.__goalsSavedTimeout);
+    window.__goalsSavedTimeout = setTimeout(()=>{ el.style.display = 'none'; }, 2200);
+  }
+  function goalsRerender(){
     renderAccountGoals();
     renderBodyPlaceholders();
     renderBodySleepCard();
@@ -497,28 +478,199 @@ async function checkAuthAndStart(){
     renderWeightSection();
     renderAccountSnapshot();
     if(document.getElementById('summaryCards')) renderSummary();
+  }
+  const gateDefs = [
+    {inputs:['goalDietPreset','goalProteinCustom','goalCarbsCustom','goalFatCustom'], editable:['goalDietPreset'],
+      commit(p){ p.dietPreset = G('goalDietPreset').value; p.customProteinTarget = numOrNull('goalProteinCustom'); p.customCarbTarget = numOrNull('goalCarbsCustom'); p.customFatTarget = numOrNull('goalFatCustom'); },
+      onCancel(){ renderDietPresetNote(G('goalDietPreset').value); }},
+    {inputs:['goalEnergyCustom'], commit(p){ p.customCalorieTarget = numOrNull('goalEnergyCustom'); }},
+    {inputs:['goalProteinCustom'], commit(p){ p.customProteinTarget = numOrNull('goalProteinCustom'); }},
+    {inputs:['goalCarbsCustom'], commit(p){ p.customCarbTarget = numOrNull('goalCarbsCustom'); }},
+    {inputs:['goalFatCustom'], commit(p){ p.customFatTarget = numOrNull('goalFatCustom'); }},
+    {inputs:['goalSodiumCustom'], commit(p){ p.customSodiumTarget = numOrNull('goalSodiumCustom'); }},
+    {inputs:['goalFiberCustom'], commit(p){ p.customFiberTarget = numOrNull('goalFiberCustom'); }},
+    {inputs:['goalSugarCustom'], commit(p){ p.customSugarTarget = numOrNull('goalSugarCustom'); }},
+    {inputs:['goalTargetWeight','goalWeightUnit'], editable:['goalTargetWeight','goalWeightUnit'],
+      commit(p){
+        const unit = G('goalWeightUnit').value;
+        p.weightUnit = unit;
+        const raw = parseNum(G('goalTargetWeight').value);
+        p.goalWeightKg = isNaN(raw) ? null : (unit === 'lbs' ? lbsToKg(raw) : raw);
+      },
+      capture(){ return {unit: G('goalWeightUnit').value, prev: goalWeightUnitPrev, val: G('goalTargetWeight').value}; },
+      restore(c){
+        G('goalWeightUnit').value = c.unit; goalWeightUnitPrev = c.prev; G('goalTargetWeight').value = c.val;
+        G('goalTargetWeightLabel').textContent = `Target weight (${c.unit === 'lbs' ? 'lb' : 'kg'})`;
+      }},
+    {inputs:['goalSleepHours'], commit(p){ p.sleepGoalHours = numOrNull('goalSleepHours'); }},
+    {inputs:['goalSteps'], commit(p){ p.stepsGoal = parseInt(G('goalSteps').value, 10) || null; }},
+    {inputs:['goalCalorieBurn'], commit(p){ p.calorieBurnGoal = numOrNull('goalCalorieBurn'); }},
+    {inputs:['goalWater'], commit(p){ p.waterGoalMl = parseInt(G('goalWater').value, 10) || null; }},
+    {inputs:['goalFastingHours'], skipProfile:true,
+      async afterSave(){ fastingState.goalHours = numOrNull('goalFastingHours') || 16; await saveFasting(); }}
+  ];
 
-    const savedMsg = document.getElementById('goalsSavedMsg');
-    savedMsg.style.display = 'block';
-    clearTimeout(window.__goalsSavedTimeout);
-    window.__goalsSavedTimeout = setTimeout(()=>{ savedMsg.style.display = 'none'; }, 2500);
-  });
+  // Puts the pencil / check / cross controls beside the field's label.
+  function gateHost(def){
+    const el = G(def.inputs[0]);
+    const field = el.closest('.goal-field');
+    if(field){
+      let head = field.querySelector('.goal-field-head');
+      if(!head){
+        head = document.createElement('div');
+        head.className = 'goal-field-head';
+        const lab = field.querySelector('label');
+        field.insertBefore(head, lab);
+        head.appendChild(lab);
+      }
+      return {host: head, box: field};
+    }
+    // Diet style and Daily energy sit in cards with a label just above the control.
+    const lab = el.previousElementSibling;
+    const wrap = document.createElement('div');
+    wrap.className = 'goal-head-wrap';
+    lab.parentNode.insertBefore(wrap, lab);
+    wrap.appendChild(lab);
+    return {host: wrap, box: el.closest('.hub-card') || el.parentNode};
+  }
 
-  document.getElementById('useRecommendedBtn').addEventListener('click', async ()=>{
+  async function commitGate(def){
+    const errEl = G('goalsError');
+    errEl.style.display = 'none';
     const profile = {...(userProfile || {})};
-    profile.customCalorieTarget = null;
-    profile.customProteinTarget = null;
-    profile.customCarbTarget = null;
-    profile.customFatTarget = null;
-    profile.customSodiumTarget = null;
-    profile.customFiberTarget = null;
-    profile.customSugarTarget = null;
-    profile.dietPreset = 'open';
-    await saveProfile(profile);
-    renderAccountGoals();
-    renderNutrition();
-    renderTodayGlance();
+    if(def.commit) def.commit(profile);
+    if(!userProfile && (profile.customCalorieTarget || profile.customProteinTarget)){
+      errEl.textContent = 'Set up your personal profile first (age, height, weight) — energy and protein targets are calculated from it.';
+      errEl.style.display = 'block';
+      return false;
+    }
+    if(!def.skipProfile) await saveProfile(profile);
+    if(def.afterSave) await def.afterSave();
+    goalsRerender();
+    goalsToast('✓ Goal saved');
+    return true;
+  }
+
+  gateDefs.forEach(def => {
+    const {host, box} = gateHost(def);
+    const editable = def.editable || def.inputs;
+    const ctl = document.createElement('span');
+    ctl.className = 'goal-ctl';
+    ctl.innerHTML = '<button type="button" class="goal-ctl-edit" title="Edit" aria-label="Edit this target">✎</button>' +
+      '<button type="button" class="goal-ctl-ok" title="Save" aria-label="Save" hidden>✓</button>' +
+      '<button type="button" class="goal-ctl-cancel" title="Cancel" aria-label="Cancel" hidden>✕</button>';
+    host.appendChild(ctl);
+    const editBtn = ctl.querySelector('.goal-ctl-edit'), okBtn = ctl.querySelector('.goal-ctl-ok'), cancelBtn = ctl.querySelector('.goal-ctl-cancel');
+    let snapshot = null;
+    def.setEditing = (on)=>{
+      editable.forEach(id => { const e = G(id); if(e.tagName === 'SELECT') e.disabled = !on; else e.readOnly = !on; });
+      box.classList.toggle('goal-editing', on);
+      editBtn.hidden = on; okBtn.hidden = !on; cancelBtn.hidden = !on;
+    };
+    def.setEditing(false);
+    editBtn.addEventListener('click', ()=>{
+      snapshot = def.capture ? def.capture() : def.inputs.map(id => G(id).value);
+      def.setEditing(true);
+      const first = G(editable[0]);
+      first.focus();
+      if(first.select) first.select();
+    });
+    cancelBtn.addEventListener('click', ()=>{
+      if(def.restore) def.restore(snapshot); else def.inputs.forEach((id, i)=>{ G(id).value = snapshot[i]; });
+      if(def.onCancel) def.onCancel();
+      def.setEditing(false);
+    });
+    okBtn.addEventListener('click', async ()=>{
+      okBtn.disabled = true;
+      try{ if(await commitGate(def)) def.setEditing(false); }
+      finally{ okBtn.disabled = false; }
+    });
+    editable.forEach(id => {
+      const e = G(id);
+      if(e.tagName === 'INPUT') e.addEventListener('keydown', (ev)=>{
+        if(ev.key === 'Enter'){ ev.preventDefault(); okBtn.click(); }
+        else if(ev.key === 'Escape'){ cancelBtn.click(); }
+      });
+    });
   });
+  // renderAccountGoals() repopulates the fields from the saved profile, so
+  // anything still mid-edit goes back to locked with it.
+  window.goalGatesLockAll = ()=> gateDefs.forEach(d => d.setEditing(false));
+
+  // ---- Use recommended: review what would change, then confirm ----
+  function recommendedGoalSet(){
+    recomputeHealthTargets();
+    const t = userHealthTargets;
+    const rec = {sodium: 2300, fiber: 30, sugar: 50, steps: 10000, burn: 400};
+    if(t){
+      rec.cal = t.recommendedCalorieTarget;
+      rec.protein = t.recommendedProteinTarget;
+      rec.carbs = 180;
+      rec.fat = Math.round(rec.cal * 0.3 / 9);
+    }
+    return rec;
+  }
+  function openRecommendedReview(){
+    window.goalGatesLockAll();
+    renderAccountGoals(); // discard any half-typed edits so "current" is what is saved
+    const rec = recommendedGoalSet();
+    const dietSel = G('goalDietPreset');
+    const rows = [];
+    const addRow = (label, cur, recVal, unit)=>{ if(recVal !== undefined) rows.push({label, cur, rec: recVal, unit: unit || ''}); };
+    rows.push({label: 'Diet style', cur: dietSel.options[dietSel.selectedIndex].text, rec: 'No specific diet', unit: '', same: dietSel.value === 'open'});
+    addRow('Daily energy', parseNum(G('goalEnergyCustom').value), rec.cal, ' kcal');
+    addRow('Protein', parseNum(G('goalProteinCustom').value), rec.protein, ' g');
+    addRow('Carbs', parseNum(G('goalCarbsCustom').value), rec.carbs, ' g');
+    addRow('Fat', parseNum(G('goalFatCustom').value), rec.fat, ' g');
+    addRow('Sodium', parseNum(G('goalSodiumCustom').value), rec.sodium, ' mg');
+    addRow('Fiber', parseNum(G('goalFiberCustom').value), rec.fiber, ' g');
+    addRow('Sugar', parseNum(G('goalSugarCustom').value), rec.sugar, ' g');
+    addRow('Steps', parseNum(G('goalSteps').value), rec.steps, '');
+    addRow('Calories burned', parseNum(G('goalCalorieBurn').value), rec.burn, ' kcal');
+    rows.forEach(r => { if(r.same === undefined) r.same = Number(r.cur) === Number(r.rec); });
+    const changed = rows.filter(r => !r.same);
+    const fmt = (v, u)=> (typeof v === 'number' ? fmtNum(v) : foodSearchEscape(String(v))) + u;
+    const overlay = document.createElement('div');
+    overlay.className = 'goal-modal-overlay';
+    overlay.innerHTML = `
+      <div class="goal-modal" role="dialog" aria-modal="true" aria-label="Use recommended targets">
+        <div class="goal-modal-title">Use recommended targets?</div>
+        <div class="goal-modal-note">This replaces your nutrition and activity targets with the values calculated from your profile. Your sleep, water, fasting and target-weight goals are not touched.${userHealthTargets ? '' : ' Set up your profile to also get recommended calories and macros.'}</div>
+        ${changed.length ? `<div class="goal-modal-list">${changed.map(r => `
+          <div class="goal-modal-row"><span>${r.label}</span><span><s>${fmt(r.cur, r.unit)}</s> → <strong>${fmt(r.rec, r.unit)}</strong></span></div>`).join('')}</div>
+          <div class="goal-modal-note">${rows.length - changed.length} other target${rows.length - changed.length === 1 ? '' : 's'} already match.</div>`
+          : `<div class="goal-modal-note"><strong>Everything already matches the recommendation.</strong></div>`}
+        <div class="goal-modal-actions">
+          <button type="button" class="timer-btn reset" data-act="cancel">${changed.length ? 'Cancel' : 'Close'}</button>
+          ${changed.length ? '<button type="button" class="timer-btn start" data-act="apply">Apply recommended</button>' : ''}
+        </div>
+      </div>`;
+    const close = ()=> overlay.remove();
+    overlay.addEventListener('click', async (e)=>{
+      if(e.target === overlay || e.target.closest('[data-act="cancel"]')){ close(); return; }
+      if(e.target.closest('[data-act="apply"]')){
+        const profile = {...(userProfile || {})};
+        profile.customCalorieTarget = null;
+        profile.customProteinTarget = null;
+        profile.customCarbTarget = null;
+        profile.customFatTarget = null;
+        profile.customSodiumTarget = null;
+        profile.customFiberTarget = null;
+        profile.customSugarTarget = null;
+        profile.dietPreset = 'open';
+        profile.stepsGoal = null;
+        profile.calorieBurnGoal = null;
+        await saveProfile(profile);
+        close();
+        goalsRerender();
+        goalsToast('✓ Recommended targets applied');
+      }
+    });
+    document.body.appendChild(overlay);
+    const focusBtn = overlay.querySelector('[data-act="apply"]') || overlay.querySelector('[data-act="cancel"]');
+    focusBtn.focus();
+  }
+  G('useRecommendedBtn').addEventListener('click', openRecommendedReview);
 
   document.getElementById('goalDietPreset').addEventListener('change', (e)=>{
     applyDietPreset(e.target.value);
