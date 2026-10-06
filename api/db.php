@@ -1,6 +1,9 @@
 <?php
 declare(strict_types=1);
 
+require_once __DIR__ . '/security.php';
+send_security_headers();
+
 function get_config(): array
 {
     static $config = null;
@@ -43,6 +46,7 @@ function json_respond(array $data, int $code = 200)
 {
     http_response_code($code);
     header('Content-Type: application/json');
+    header('Cache-Control: no-store');
     echo json_encode($data);
     exit;
 }

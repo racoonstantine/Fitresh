@@ -1,0 +1,14 @@
+# Safe response headers for the static app. Everything is wrapped in IfModule
+# so a server without mod_headers just ignores this file instead of failing.
+# (A Content-Security-Policy is deliberately not set: the app uses inline
+# scripts and styles.)
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+    # index.html carries the content-hashed asset URLs, so it must revalidate.
+    <FilesMatch "\.html$">
+        Header set Cache-Control "no-cache"
+    </FilesMatch>
+</IfModule>

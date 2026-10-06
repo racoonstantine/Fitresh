@@ -202,6 +202,63 @@ async function call(base, path, { method = 'GET', body, headers = {}, as } = {})
     assert.strictEqual((await call(b, '/api/data.php', { method: 'POST', as: cookies.other, body: { resource: 'sharing', value: JSON.stringify({ foods: false }) } })).status, 200);
   });
 
+  check('data writes are versioned: stale base gets 409 + current value, fresh base succeeds', async () => {
+    const read = async () => (await call(b, '/api/data.php?resource=sleep')).json;
+    const first = await read();
+    assert.ok(first.updated_at, 'GET returns the version stamp');
+    const ok = await call(b, '/api/data.php', { method: 'POST', body: { resource: 'sleep', value: '{"a":1}', base_updated_at: first.updated_at } });
+    assert.strictEqual(ok.status, 200, ok.text);
+    assert.ok(ok.json.updated_at, 'POST returns the new stamp');
+    // pretend another device wrote in between by sending the OLD stamp again once the stamp has moved on
+    await new Promise(r => setTimeout(r, 1100));
+    const other = await call(b, '/api/data.php', { method: 'POST', body: { resource: 'sleep', value: '{"a":2}', base_updated_at: ok.json.updated_at } });
+    assert.strictEqual(other.status, 200, other.text);
+    const stale = await call(b, '/api/data.php', { method: 'POST', body: { resource: 'sleep', value: '{"a":3}', base_updated_at: ok.json.updated_at } });
+    assert.strictEqual(stale.status, 409, stale.text);
+    assert.strictEqual(stale.json.value, '{"a":2}', '409 carries the value that is actually stored');
+    assert.strictEqual(JSON.parse((await read()).value).a, 2, 'the stale write changed nothing');
+    const forced = await call(b, '/api/data.php', { method: 'POST', body: { resource: 'sleep', value: '{"a":4}' } });
+    assert.strictEqual(forced.status, 200, 'omitting base is a deliberate overwrite');
+    const none = await call(b, '/api/data.php', { method: 'POST', body: { resource: 'favoriteFoods', value: '[]', base_updated_at: 'none' } });
+    assert.ok([200, 409].includes(none.status));
+  });
+  check('responses carry security headers; API is not cacheable', async () => {
+    const res = await fetch(b + '/api/data.php?resource=water', { headers: { Cookie: cookie } });
+    assert.strictEqual(res.headers.get('x-content-type-options'), 'nosniff');
+    assert.strictEqual(res.headers.get('x-frame-options'), 'SAMEORIGIN');
+    assert.ok(res.headers.get('referrer-policy'));
+    assert.strictEqual(res.headers.get('cache-control'), 'no-store');
+  });
+  check('login is rate limited per account after repeated failures', async () => {
+    let last;
+    for (let i = 0; i < 9; i++) last = await call(b, '/api/auth.php?action=login', { method: 'POST', body: { email: 'guessme@example.com', password: 'wrong-' + i }, as: '' });
+    assert.strictEqual(last.status, 429, 'status ' + last.status);
+    assert.ok(/wait/i.test(last.json.error));
+    // a different account is unaffected
+    const fine = await call(b, '/api/auth.php?action=login', { method: 'POST', body: { email: 'tester@example.com', password: h.password }, as: '' });
+    assert.strictEqual(fine.status, 200, fine.text);
+  });
+  check('password reset answers identically for unknown and known emails', async () => {
+    const unknown = await call(b, '/api/auth.php?action=request_password_reset', { method: 'POST', body: { email: 'nobody-here@example.com' }, as: '' });
+    const known = await call(b, '/api/auth.php?action=request_password_reset', { method: 'POST', body: { email: 'tester@example.com' }, as: '' });
+    assert.strictEqual(unknown.status, 200);
+    assert.strictEqual(known.status, 200);
+    assert.strictEqual(unknown.json.message, known.json.message);
+  });
+  check('signup input limits; manual meal items must be sane numbers', async () => {
+    const long = await call(b, '/api/auth.php?action=register', { method: 'POST', body: { email: 'long@example.com', password: 'longenough1', display_name: 'x'.repeat(101) }, as: '' });
+    assert.strictEqual(long.status, 400);
+    const bad = await call(b, '/api/meals.php?action=log', { method: 'POST', body: { date: today, meal_type: 'snack', component: { custom_name: 'Bad', amount: 1, unit: 'serving', manual_calories: -50 } } });
+    assert.strictEqual(bad.status, 400, bad.text);
+    const good = await call(b, '/api/meals.php?action=log', { method: 'POST', body: { date: today, meal_type: 'snack', component: { custom_name: 'Fine', amount: 1, unit: 'serving', manual_calories: 120, manual_protein: 5, manual_fat: 3, manual_carbs: 20 } } });
+    assert.strictEqual(good.status, 200, good.text);
+  });
+  check('approval links only confirm on GET and change nothing', async () => {
+    const probe = await call(b, '/api/approve.php?token=' + 'a'.repeat(64) + '&action=approve', { as: '' });
+    assert.strictEqual(probe.status, 200);
+    assert.ok(!/has been approved/.test(probe.text), 'an unknown token never approves anything');
+  });
+
   let failed = 0;
   try {
     for (const [name, fn] of step) {
@@ -210,6 +267,6 @@ async function call(base, path, { method = 'GET', body, headers = {}, as } = {})
     }
   } finally { h.stop(); }
   if (failed) { console.log(`\n${failed} of ${step.length} smoke checks failed`); process.exit(1); }
-  console.log(`\nPASS: ${step.length} harness smoke checks (auth, data store, catalog, meals, workouts, personal foods, ownership, admin).`);
+  console.log(`\nPASS: ${step.length} harness smoke checks (auth, data store + versioning, catalog, meals, workouts, personal foods, ownership, admin, hardening).`);
   setTimeout(() => process.exit(0), 500);
 })().catch(e => { console.error(e); process.exit(1); });

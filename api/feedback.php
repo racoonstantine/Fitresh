@@ -13,6 +13,8 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     json_respond(['error' => 'Method not allowed'], 405);
 }
 
+rate_limit_or_429('feedback_user', (string)$_SESSION['user_id'], 6, 3600);
+
 $pdo = get_db();
 $stmt = $pdo->prepare('SELECT email, display_name FROM users WHERE id = ?');
 $stmt->execute([$_SESSION['user_id']]);

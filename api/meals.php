@@ -165,6 +165,26 @@ if ($method === 'POST' && $action === 'log') {
     // One meal entry per user/date/type/display_name group -- reuse an existing one so
     // logging several foods under "Lunch" today groups them together.
     $displayName = trim((string)($input['display_name'] ?? '')) ?: null;
+    if ($displayName !== null && mb_strlen($displayName) > 120) {
+        json_respond(['error' => 'Meal name is too long (120 characters at most).'], 400);
+    }
+    if (!$foodId) {
+        // Manual (no database food) components carry their own numbers: they
+        // must be real, non-negative and sane, or they would poison day totals.
+        $customName = trim((string)($component['custom_name'] ?? 'Item'));
+        if ($customName === '' || mb_strlen($customName) > 120) {
+            json_respond(['error' => 'Item name must be 1-120 characters.'], 400);
+        }
+        foreach (['manual_calories' => 20000, 'manual_protein' => 2000, 'manual_fat' => 2000, 'manual_carbs' => 5000] as $field => $cap) {
+            $v = $component[$field] ?? null;
+            if ($v === null || $v === '') {
+                continue;
+            }
+            if (!is_numeric($v) || (float)$v < 0 || (float)$v > $cap) {
+                json_respond(['error' => 'Calories and macros must be numbers within a realistic range.'], 400);
+            }
+        }
+    }
     $stmt = $pdo->prepare(
         'SELECT id FROM meal_entries WHERE user_id = ? AND entry_date = ? AND meal_type = ?
          AND display_name <=> ? LIMIT 1'

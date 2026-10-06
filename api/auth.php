@@ -73,14 +73,22 @@ $input = json_decode(file_get_contents('php://input'), true) ?? [];
 
 switch ($action) {
     case 'register': {
+        // Every signup emails the admin, so cap how many one address can trigger.
+        rate_limit_or_429('register_ip', client_ip(), 5, 3600);
         $email = trim(strtolower((string)($input['email'] ?? '')));
         $password = (string)($input['password'] ?? '');
         $displayName = trim((string)($input['display_name'] ?? ''));
         if ($displayName === '') {
             $displayName = explode('@', $email)[0] ?: 'friend';
         }
-        if (!filter_var($email, FILTER_VALIDATE_EMAIL) || strlen($password) < 8) {
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL) || strlen($email) > 190 || strlen($password) < 8) {
             json_respond(['error' => 'Enter a valid email and a password of at least 8 characters.'], 400);
+        }
+        if (strlen($password) > 200) {
+            json_respond(['error' => 'Password is too long (200 characters at most).'], 400);
+        }
+        if (mb_strlen($displayName) > 100) {
+            json_respond(['error' => 'Display name must be 100 characters or fewer.'], 400);
         }
 
         $stmt = $pdo->prepare('SELECT id FROM users WHERE email = ?');
@@ -95,7 +103,7 @@ switch ($action) {
             'INSERT INTO users (email, password_hash, display_name, status, approval_token, created_at)
              VALUES (?, ?, ?, ?, ?, NOW())'
         );
-        $stmt->execute([$email, $hash, $displayName, 'pending', $token]);
+        $stmt->execute([$email, $hash, $displayName, 'pending', token_hash($token)]);
 
         send_approval_request_email($email, $displayName, $token);
 
@@ -109,12 +117,29 @@ switch ($action) {
         $email = trim(strtolower((string)($input['email'] ?? '')));
         $password = (string)($input['password'] ?? '');
 
+        // Two limits: a generous per-address one (shared networks are real) and
+        // a tight per-account one on FAILED attempts, so one account can't be
+        // guessed at from many addresses either.
+        rate_limit_or_429('login_ip', client_ip(), 40, 900);
+        if ($email !== '' && rate_limit_blocked('login_fail_email', $email, 8, 900)) {
+            header('Retry-After: 900');
+            json_respond(['error' => 'Too many failed attempts for this account — wait 15 minutes and try again.'], 429);
+        }
+
         $stmt = $pdo->prepare('SELECT id, password_hash, display_name, status, username FROM users WHERE email = ?');
         $stmt->execute([$email]);
         $user = $stmt->fetch();
-        if (!$user || !password_verify($password, $user['password_hash'])) {
+        // An unknown email still pays for one password check, so the response
+        // time doesn't reveal which emails have accounts.
+        $hashToCheck = $user ? $user['password_hash'] : '$2y$10$f6d8vdDqRnTZ5oCmpW9sQePTnLGMI7O.lXtKA7MWosL2A8jBmTBqe';
+        $passwordOk = password_verify($password, $hashToCheck);
+        if (!$user || !$passwordOk) {
+            if ($email !== '') {
+                rate_limit_record('login_fail_email', $email, 900);
+            }
             json_respond(['error' => 'Incorrect email or password.'], 401);
         }
+        rate_limit_clear('login_fail_email', $email);
         if ($user['status'] === 'pending') {
             json_respond(['error' => 'Your account is still waiting on admin approval.'], 403);
         }
@@ -131,19 +156,22 @@ switch ($action) {
         if (!password_resets_available($pdo)) {
             json_respond(['error' => 'Password reset isn\'t set up on this server yet -- contact the admin directly.'], 503);
         }
+        rate_limit_or_429('reset_ip', client_ip(), 5, 3600);
         $email = trim(strtolower((string)($input['email'] ?? '')));
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             json_respond(['error' => 'Enter a valid email address.'], 400);
         }
 
+        // The answer is the same whether or not the account exists, is approved,
+        // or already has a request open -- so this form can't be used to find
+        // out which emails are registered.
+        $genericOk = ['ok' => true, 'message' => "If an approved account exists for that email, a password reset request has been sent for admin approval. You'll get an email with a link to set a new password once it's approved."];
+
         $stmt = $pdo->prepare('SELECT id, display_name, status FROM users WHERE email = ?');
         $stmt->execute([$email]);
         $user = $stmt->fetch();
-        if (!$user) {
-            json_respond(['error' => 'No account found with that email.'], 404);
-        }
-        if ($user['status'] !== 'approved') {
-            json_respond(['error' => 'This account isn\'t approved yet, so there\'s nothing to reset -- contact the admin.'], 403);
+        if (!$user || $user['status'] !== 'approved') {
+            json_respond($genericOk);
         }
 
         // One outstanding request at a time -- stops someone from spamming
@@ -153,7 +181,7 @@ switch ($action) {
         );
         $stmt->execute([$user['id']]);
         if ($stmt->fetch()) {
-            json_respond(['error' => 'A password reset request is already pending for this account. Wait for the admin to approve it, or contact them directly.'], 409);
+            json_respond($genericOk);
         }
 
         $adminToken = bin2hex(random_bytes(32));
@@ -161,15 +189,19 @@ switch ($action) {
             'INSERT INTO password_resets (user_id, admin_token, status, requested_at, expires_at)
              VALUES (?, ?, ?, NOW(), DATE_ADD(NOW(), INTERVAL 7 DAY))'
         );
-        $stmt->execute([$user['id'], $adminToken, 'pending']);
+        $stmt->execute([$user['id'], token_hash($adminToken), 'pending']);
 
         send_password_reset_request_email($email, $user['display_name'], $adminToken);
 
-        json_respond(['ok' => true, 'message' => "A password reset request has been sent for admin approval. You'll get an email with a link to set a new password once it's approved."]);
+        json_respond($genericOk);
     }
 
     case 'logout': {
         $_SESSION = [];
+        if (ini_get('session.use_cookies')) {
+            $p = session_get_cookie_params();
+            setcookie(session_name(), '', time() - 42000, $p['path'], $p['domain'], (bool)$p['secure'], (bool)$p['httponly']);
+        }
         session_destroy();
         json_respond(['ok' => true]);
     }

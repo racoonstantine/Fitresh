@@ -1,3 +1,12 @@
 <FilesMatch "^config\.(local\.php|php)$">
     Require all denied
 </FilesMatch>
+
+# Library files and data are only ever loaded by other PHP files, never by a
+# browser -- keep them from being requested directly.
+<FilesMatch "^(db|security|admin_guard|catalog|food_measurements|food_review_lib|food_review_digest|personal_foods_store|workout_validation|config\.example)\.php$">
+    Require all denied
+</FilesMatch>
+<FilesMatch "\.json$">
+    Require all denied
+</FilesMatch>

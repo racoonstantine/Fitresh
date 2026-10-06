@@ -35,9 +35,9 @@ if (!password_resets_available($pdo)) {
 $stmt = $pdo->prepare(
     "SELECT pr.id, pr.user_id, u.display_name FROM password_resets pr
      JOIN users u ON u.id = pr.user_id
-     WHERE pr.user_token = ? AND pr.status = 'approved' AND pr.expires_at > NOW()"
+     WHERE pr.user_token IN (?, ?) AND pr.status = 'approved' AND pr.expires_at > NOW()"
 );
-$stmt->execute([$token]);
+$stmt->execute([token_hash($token), $token]);
 $reset = $stmt->fetch();
 
 if (!$reset) {
@@ -46,6 +46,9 @@ if (!$reset) {
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = (string)($_POST['password'] ?? '');
+    if (strlen($password) > 200) {
+        render_page('Password too long', '<p>Choose a password of 200 characters or fewer.</p>');
+    }
     $confirm = (string)($_POST['password_confirm'] ?? '');
     $error = null;
     if (strlen($password) < 8) {

@@ -20,7 +20,7 @@ async function start({ port = 8124 } = {}) {
   }
   const info = JSON.parse(setup.stdout.trim().split('\n').pop());
   const php = spawn('php', ['-S', `127.0.0.1:${port}`, '-t', path.join(repo, 'public'), path.join(__dirname, 'router.php')], {
-    env: { ...process.env, HARNESS_API_DIR: path.join(tmp, 'api') },
+    env: { ...process.env, HARNESS_API_DIR: path.join(tmp, 'api'), FITRESH_RL_DIR: path.join(tmp, 'rate-limit') },
     stdio: 'ignore',
   });
   const url = `http://127.0.0.1:${port}`;
