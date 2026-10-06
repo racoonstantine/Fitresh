@@ -1,12 +1,58 @@
-name: Deploy to Namecheap
+name: Test and deploy to Namecheap
 
 on:
   push:
-    branches: [main]
+    branches: ['**']
   workflow_dispatch: {}
 
 jobs:
+  # Runs on every push to any branch. Only main goes on to deploy, and only if
+  # all of this passes -- a broken change can no longer reach the live site.
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          extensions: pdo_sqlite, sqlite3, mbstring
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: JavaScript tests
+        run: |
+          for t in ai_assist food_icons nutrition_notes workout_catalog workout_preparation bilingual_foods \
+                   food_measurements_ui food_search_ui food_macro_preview cardio_activity train_panel \
+                   food_search_outcome progress food_favorites storage_sync; do
+            echo "== test_$t"; node "tools/test_$t.cjs"
+          done
+
+      - name: PHP tests
+        run: |
+          for t in workouts personal_foods food_review; do
+            echo "== test_$t"; php "tools/test_$t.php"
+          done
+
+      - name: Deploy script tests
+        run: python tools/test_cache_bust.py
+
+      - name: API smoke test (real PHP on SQLite)
+        run: node tools/dev_harness/smoke.cjs
+
   deploy:
+    needs: test
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout

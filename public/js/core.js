@@ -1,7 +1,5 @@
 const STORAGE_PREFIX = 'log:';
 
-// Drop-in replacement for the Claude-artifact window.storage API, backed by
-// the /api/data.php endpoint so each logged-in user gets their own data.
 function handleUnauthorized(){
   showLoginScreen('Your session expired — log in again.');
 }
@@ -25,31 +23,7 @@ async function safeFetchJson(url, options){
   }
   return { ok: res.ok, status: res.status, data };
 }
-window.storage = {
-  async get(key){
-    try{
-      const resource = key.replace(/^log:/, '');
-      const res = await fetch(`api/data.php?resource=${encodeURIComponent(resource)}`, { credentials: 'same-origin' });
-      if(res.status === 401){ handleUnauthorized(); return null; }
-      if(!res.ok) return null;
-      const data = await res.json();
-      return (data.value === null || data.value === undefined) ? null : { value: data.value };
-    }catch(e){ return null; }
-  },
-  async set(key, value){
-    try{
-      const resource = key.replace(/^log:/, '');
-      const res = await fetch('api/data.php', {
-        method: 'POST',
-        credentials: 'same-origin',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({ resource, value })
-      });
-      if(res.status === 401){ handleUnauthorized(); return false; }
-      return res.ok;
-    }catch(e){ return false; }
-  }
-};
+// window.storage (reads, versioned/queued writes, retry) lives in storage.js, loaded first.
 
 const dayData = {
   A: {

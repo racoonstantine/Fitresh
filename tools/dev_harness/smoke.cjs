@@ -259,6 +259,14 @@ async function call(base, path, { method = 'GET', body, headers = {}, as } = {})
     assert.ok(!/has been approved/.test(probe.text), 'an unknown token never approves anything');
   });
 
+  check('logout really ends the server session (and needs the JSON content type)', async () => {
+    const l = await call(b, '/api/auth.php?action=login', { method: 'POST', body: { email: 'other@example.com', password: h.password }, as: '' });
+    assert.strictEqual((await call(b, '/api/auth.php?action=me', { as: l.cookie })).status, 200);
+    const out = await call(b, '/api/auth.php?action=logout', { method: 'POST', body: {}, as: l.cookie });
+    assert.strictEqual(out.status, 200, out.text);
+    assert.strictEqual((await call(b, '/api/auth.php?action=me', { as: l.cookie })).status, 401, 'the old session cookie no longer works');
+  });
+
   let failed = 0;
   try {
     for (const [name, fn] of step) {

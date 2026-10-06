@@ -201,6 +201,7 @@ async function showAppFor(user){
   // on every request, so hiding/showing this tab is purely cosmetic.
   const adminBtn = document.getElementById('adminSubnavBtn');
   if(adminBtn) adminBtn.style.display = (user.email || '').toLowerCase() === 'sherwinllona@gmail.com' ? '' : 'none';
+  await window.storage.restorePending();
   await startApp();
   if(!userProfile){
     showOnboarding();
@@ -283,7 +284,10 @@ async function checkAuthAndStart(){
 
   document.getElementById('logoutLink').addEventListener('click', async (e)=>{
     e.preventDefault();
-    try{ await fetch('api/auth.php?action=logout', { method: 'POST', credentials: 'same-origin' }); }catch(err){}
+    // Send anything still unsaved first. The JSON content type matters: the API rejects
+    // POSTs without it (415), which used to leave the server session alive after "Log out".
+    try{ await window.storage.flushAll(); }catch(err){}
+    try{ await fetch('api/auth.php?action=logout', { method: 'POST', credentials: 'same-origin', headers: {'Content-Type': 'application/json'}, body: '{}' }); }catch(err){}
     currentUser = null;
     location.reload();
   });
