@@ -17,8 +17,8 @@ you rarely need it.
 - `public/index.html` — markup only (~1,300 lines). `public/app.css` — all styles (CSS variables at
   the top; the app reads colours through `--forest`, `--ochre`, `--ink`, `--paper`, `--line`, so a
   re-theme is mostly changing those). `public/personal-foods.js/.css` — custom-food dialog.
-- `public/js/*.js` — **25 classic (non-module) scripts sharing globals**, loaded in this order:
-  `numbers, edit-lock, core, progress, today, food-icons, food-search, nutrition, trends,
+- `public/js/*.js` — **26 classic (non-module) scripts sharing globals**, loaded in this order:
+  `numbers, edit-lock, storage, core, progress, today, food-icons, food-search, nutrition, trends,
   body-account, insights, weight-dashboard, plan-history, cardio-activity, log-session-panel,
   extra-exercises, logged-training, todays-session, stats-form, app-start, account, foodlog, pages,
   plan, boot`. Top-level `function`s are global; functions inside the `(function(){…})()` blocks
@@ -33,7 +33,7 @@ you rarely need it.
 ## Run and test
 ```
 node tools/dev_harness/start.cjs --port 8124   # real API on SQLite + fixture data; live public/
-node tools/dev_harness/smoke.cjs               # 16 API checks (own port)
+node tools/dev_harness/smoke.cjs               # 23 API checks (own port)
 ```
 Accounts (password `testpass123`): `tester@example.com` (data), `other@example.com` (empty),
 `admin@example.com` (admin). Kill php + delete `%TEMP%\fc-harness-*` afterwards.
@@ -43,7 +43,7 @@ All tests (run before every push):
 node tools/test_<name>.cjs      # ai_assist food_icons nutrition_notes workout_catalog
                                 # workout_preparation bilingual_foods food_measurements_ui
                                 # food_search_ui food_macro_preview cardio_activity train_panel
-                                # food_search_outcome progress food_favorites
+                                # food_search_outcome progress food_favorites storage_sync
 php tools/test_workouts.php  tools/test_personal_foods.php  tools/test_food_review.php
 python tools/test_cache_bust.py
 ```
@@ -51,9 +51,21 @@ python tools/test_cache_bust.py
 marker strings — if you move or rename a function, update the tests that slice on it.
 
 ## Deploy
+The workflow runs every test above (plus the smoke test) on every push to any branch; only `main` deploys, and only if they pass.
 `.github/scripts/sftp_deploy.py` uploads `public/` and `api/` (never `config.local.php`). It stamps
 `?v=<hash>` on every local css/js in the uploaded `index.html` (`cache_bust.py`), so browsers never
 run new HTML with old assets. New files under `public/` deploy automatically.
+
+## Saving data and security (read before touching storage or `api/`)
+- `public/js/storage.js` owns `window.storage`. Each resource is one JSON blob; writes are serialized per
+  resource, carry the server's `updated_at` stamp (`base_updated_at`; 409 = changed elsewhere -> the person
+  picks a version), failed writes are kept in memory + localStorage, retried, and replayed after reload/login.
+  Don't call `fetch('api/data.php')` directly. POSTs to any API must send `Content-Type: application/json`.
+- `api/security.php`: security headers, file-based rate limits (login/register/reset/feedback; `FITRESH_RL_DIR`
+  overrides the temp dir), token hashing (approval/reset tokens are stored as SHA-256; raw still accepted for
+  old rows). Approval/reset links confirm on GET and act on POST. `.htaccess` in `api/` and `public/` denies
+  library files and sets headers (all inside IfModule/FilesMatch; if the live site ever 500s, suspect these first).
+- Not done: Content-Security-Policy (app uses inline scripts/styles), HSTS, host-key pinning in the SFTP deploy.
 
 ## Conventions worth knowing
 - Numbers: inputs are `type="text" inputmode="decimal" data-num`; commas are stripped as you type
