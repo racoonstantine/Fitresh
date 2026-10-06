@@ -152,7 +152,7 @@ function renderHistory(){
           <div data-hist-edit-form="${idx}" style="display:none;margin-top:10px;padding-top:10px;border-top:1px solid var(--line);">
             ${editExRows}
             <label style="font-size:11px;color:var(--ink-soft);display:block;margin-top:8px;">Notes</label>
-            <textarea data-hist-notes="${idx}" rows="2" style="width:100%;padding:6px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:12.5px;font-family:var(--font-body);margin-top:2px;">${entry.notes || ''}</textarea>
+            <textarea data-hist-notes="${idx}" rows="2" style="width:100%;padding:6px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:12.5px;font-family:var(--font-body);margin-top:2px;">${foodSearchEscape(entry.notes || '')}</textarea>
             <div style="display:flex;gap:8px;margin-top:8px;">
               <button class="timer-btn start" data-hist-save="${idx}" type="button" style="flex:1;">Save changes</button>
               <button class="timer-btn reset" data-hist-edit-stats="${idx}" type="button" style="flex:1;">Edit watch stats</button>

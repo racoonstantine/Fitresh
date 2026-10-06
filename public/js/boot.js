@@ -296,3 +296,13 @@ checkAuthAndStart();
 
   updateDisplay();
 })();
+
+/* ---------- Block pinch-zoom (iOS Safari ignores user-scalable=no) ---------- */
+(function(){
+  ["gesturestart","gesturechange","gestureend"].forEach(function(t){
+    document.addEventListener(t, function(e){ e.preventDefault(); });
+  });
+  document.addEventListener("touchmove", function(e){
+    if(e.touches && e.touches.length > 1) e.preventDefault();
+  }, {passive:false});
+})();

@@ -869,3 +869,6 @@
   .goal-modal-row s{color:var(--ink-soft);}
   .goal-modal-actions{display:flex;gap:8px;margin-top:14px;}
   .goal-modal-actions .timer-btn{flex:1;}
+
+  /* No pinch / double-tap page zoom -- the app should behave like an app, not a web page. */
+  html{touch-action:manipulation;-webkit-text-size-adjust:100%;}

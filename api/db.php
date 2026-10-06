@@ -128,7 +128,7 @@ function http_get_with_fallback(string $url, int $timeoutSeconds = 8)
         curl_setopt_array($ch, [
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_TIMEOUT => $timeoutSeconds,
-            CURLOPT_USERAGENT => 'FullCircleHealth/1.0 (contact via app)',
+            CURLOPT_USERAGENT => 'Fitresh/1.0 (contact via app)',
             CURLOPT_FOLLOWLOCATION => true,
             // Some providers gzip-compress the response even without an explicit
             // Accept-Encoding request; empty string = "advertise and auto-decode
@@ -145,7 +145,7 @@ function http_get_with_fallback(string $url, int $timeoutSeconds = 8)
 
     $context = stream_context_create(['http' => [
         'timeout' => $timeoutSeconds,
-        'header' => "User-Agent: FullCircleHealth/1.0 (contact via app)\r\n",
+        'header' => "User-Agent: Fitresh/1.0 (contact via app)\r\n",
     ]]);
     return @file_get_contents($url, false, $context);
 }
