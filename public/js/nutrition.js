@@ -16,12 +16,12 @@ async function renderTodayMeals(){
     </div>
   ` : '';
   try{
-    const res = await fetch(`api/meals.php?action=day&date=${date}`, {credentials: 'same-origin'});
-    const data = await res.json();
+    const data = await window.outbox.mealsDay(date);   // last synced copy + meals still waiting to sync when offline
     if(!stillCurrent()) return;
+    const offlineNote = data.offline ? `<div style="font-size:11.5px;color:var(--ink-soft);margin:0 0 8px;">Offline — showing the last synced copy.</div>` : '';
     const nonEmptyEntries = (data.entries || []).filter(entry => entry.components.length);
     if(!nonEmptyEntries.length){
-      card.innerHTML = `<div class="block-title" style="margin:0 0 8px;">Logged via search</div><div class="dash-empty">Nothing logged this way yet for ${formatDateLabel(date)}.</div>${diaryHtml}`;
+      card.innerHTML = `<div class="block-title" style="margin:0 0 8px;">Logged via search</div>${offlineNote}<div class="dash-empty">Nothing logged this way yet for ${formatDateLabel(date)}.</div>${diaryHtml}`;
       return;
     }
     const typeLabels = {breakfast: 'Breakfast', lunch: 'Lunch', dinner: 'Dinner', snack: 'Snack', custom: 'Misc'};
@@ -39,11 +39,13 @@ async function renderTodayMeals(){
               </div>
               <div style="display:flex;align-items:center;gap:8px;flex-shrink:0;">
                 <span style="font-size:12.5px;color:var(--ink-soft);">${fmtNum(c.nutrients.ENERC_KCAL || 0)} kcal</span>
-                <button class="edit-lock-btn meal-edit-toggle" data-id="${c.id}" type="button" title="Edit this food" aria-label="Edit ${foodSearchEscape(c.name)}">✎</button>
+                ${c.queued
+                  ? `<span style="font-size:11px;color:var(--ink-soft);">⏳ waiting to sync</span><button class="wi-del meal-unqueue" data-key="${foodSearchEscape(c.key)}" type="button" title="Cancel this entry" aria-label="Cancel ${foodSearchEscape(c.name)}">✕</button>`
+                  : `<button class="edit-lock-btn meal-edit-toggle" data-id="${c.id}" type="button" title="Edit this food" aria-label="Edit ${foodSearchEscape(c.name)}">✎</button>`}
               </div>
             </div>
             <div style="font-size:10.5px;color:var(--ink-soft);margin-top:2px;">${Math.round((c.nutrients.PROCNT || 0) * 10) / 10}g protein · ${Math.round((c.nutrients.FAT || 0) * 10) / 10}g fat · ${Math.round((c.nutrients.CHOCDF || 0) * 10) / 10}g carbs</div>
-            <div class="meal-component-edit" data-edit-id="${c.id}" style="display:none;margin-top:6px;gap:8px;align-items:center;flex-wrap:wrap;">
+            ${c.queued ? '' : `<div class="meal-component-edit" data-edit-id="${c.id}" style="display:none;margin-top:6px;gap:8px;align-items:center;flex-wrap:wrap;">
               <input type="text" inputmode="decimal" data-num class="meal-edit-amount" data-edit-id="${c.id}" value="${c.amount}" style="width:80px;padding:6px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:12.5px;">
               <span style="font-size:11.5px;color:var(--ink-soft);">${c.unit}</span>
               <select class="meal-edit-type" data-edit-id="${c.id}" style="padding:6px 8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:12.5px;">
@@ -51,7 +53,7 @@ async function renderTodayMeals(){
               </select>
               <button class="timer-btn start meal-save-amount" data-id="${c.id}" data-unit="${c.unit}" type="button" style="flex:1;padding:6px 0;font-size:12px;">Save</button>
               <button class="wi-del meal-delete" data-id="${c.id}" type="button" title="Remove this food">✕ Remove</button>
-            </div>
+            </div>`}
           </div>
         `).join('')}
       </div>
@@ -59,16 +61,26 @@ async function renderTodayMeals(){
     const t = data.totals || {};
     card.innerHTML = `
       <div class="block-title" style="margin:0 0 10px;">Logged via search</div>
-      ${rows}
+      ${offlineNote}${rows}
       <div style="display:flex;justify-content:space-between;font-weight:700;padding-top:8px;font-size:13.5px;">
         <span>Total</span>
         <span>${fmtNum(t.ENERC_KCAL || 0)} kcal · ${fmtNum(t.PROCNT || 0)}g protein</span>
       </div>
       ${diaryHtml}
     `;
+    card.querySelectorAll('.meal-unqueue').forEach(btn=>{
+      btn.addEventListener('click', (e)=>{
+        e.stopPropagation();
+        window.outbox.cancel(btn.dataset.key);
+        renderTodayMeals();
+        renderNutrition();
+        renderTodayGlance();
+      });
+    });
     card.querySelectorAll('.meal-delete').forEach(btn=>{
       btn.addEventListener('click', async (e)=>{
         e.stopPropagation();
+        if(window.storage.isOffline()){ alert('You’re offline — foods that are already synced can only be removed when you’re back online.'); return; }
         await fetch('api/meals.php?action=delete_component', {
           method: 'POST', credentials: 'same-origin', headers: {'Content-Type': 'application/json'},
           body: JSON.stringify({id: parseInt(btn.dataset.id, 10)})
@@ -95,6 +107,7 @@ async function renderTodayMeals(){
         const typeSelect = card.querySelector(`.meal-edit-type[data-edit-id="${id}"]`);
         const amount = parseNum(input.value);
         if(!amount || amount <= 0) return;
+        if(window.storage.isOffline()){ alert('You’re offline — foods that are already synced can only be edited when you’re back online.'); return; }
         btn.disabled = true;
         btn.textContent = 'Saving…';
         await fetch('api/meals.php?action=update_component', {
@@ -352,3 +365,6 @@ async function renderNutrition(){
   renderTodayGlance();
 }
 
+
+// A queued meal reached the server: show the real rows instead of the "waiting to sync" ones.
+window.outbox.onSynced(()=>{ renderTodayMeals(); renderNutrition(); renderTodayGlance(); });

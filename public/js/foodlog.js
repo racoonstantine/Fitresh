@@ -65,6 +65,9 @@
       confirmBtn.textContent = 'Saving…';
       try{
         let foodId = row.id;
+        if((row._origin === 'off' || row._origin === 'catalog') && window.storage.isOffline()){
+          throw new Error('You’re offline. Pick a recent or favorite food, or use Manual entry — new foods need a connection to look up.');
+        }
         if(row._origin === 'off' || row._origin === 'catalog'){
           const {ok, data} = await safeFetchJson('api/foods.php?action=save_external', {
             method: 'POST', credentials: 'same-origin', headers: {'Content-Type': 'application/json'},
@@ -73,11 +76,14 @@
           if(!ok || data.error || !data.id) throw new Error(data.error || 'Food could not be saved');
           foodId = data.id;
         }
-        const {ok: logOk, data: logged} = await safeFetchJson('api/meals.php?action=log', {
-          method: 'POST', credentials: 'same-origin', headers: {'Content-Type': 'application/json'},
-          body: JSON.stringify({date: nutriSelectedDate || dateStrForOffset(0), meal_type: document.getElementById('mealLogType').value, component: {food_id: foodId, ...measurement.request}})
-        });
-        if(!logOk || logged.error) throw new Error(logged.error || 'Meal could not be logged');
+        // Sent now when there is a connection, otherwise kept in the outbox and synced later (offline.js).
+        const logDate = nutriSelectedDate || dateStrForOffset(0);
+        const macros = scaledFoodMacros(row, measurement.amount);
+        const logRes = await window.outbox.logMeal(
+          {date: logDate, meal_type: document.getElementById('mealLogType').value, component: {food_id: foodId, ...measurement.request}},
+          {name: row.name, amount: measurement.request.amount, unit: measurement.request.unit, kcal: macros.kcal, protein: macros.protein, fat: macros.fat, carbs: macros.carbs}
+        );
+        if(!logRes.ok) throw new Error((logRes.data && logRes.data.error) || 'Meal could not be logged');
         recordRecentFood(row, foodId);
         ++foodSearchGeneration;
         document.getElementById('foodSearchInput').value = '';
@@ -86,7 +92,7 @@
         renderTodayMeals();
         renderNutrition();
       }catch(err){
-        alert(err.message || 'Could not save this food — try again.');
+        alert(window.storage.isOffline() && err.name === 'TypeError' ? 'You’re offline. Pick a recent or favorite food, or use Manual entry.' : (err.message || 'Could not save this food — try again.'));
         confirmBtn.textContent = 'Failed — try again';
         confirmBtn.disabled = false;
       }
@@ -559,16 +565,25 @@
     try{
       for(const it of [...lmItems]){
         let foodId = null;
+        let offlineComponent = null;
+        // Foods that need a lookup/creation on the server can't be saved without a connection;
+        // they are logged as a manual item (name + the numbers on screen) so the meal isn't lost.
+        const asManual = () => ({custom_name: it.name, amount: it.amount, unit: it.unit, manual_calories: it.kcal, manual_protein: it.protein, manual_fat: it.fat, manual_carbs: it.carbs});
         if(it.source === 'library'){
           foodId = it.payload.id;
+        } else if(window.storage.isOffline()){
+          offlineComponent = asManual();
         } else if(it.source === 'catalog' || it.source === 'off'){
+          try{
           const {ok, data: food} = await safeFetchJson('api/foods.php?action=save_external', {
             method: 'POST', credentials: 'same-origin', headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({source: it.source, external_id: it.payload.external_id, name: it.payload.name, brand: it.payload.brand, canonical_unit: it.payload.canonical_unit, nutrients: it.payload.nutrients})
           });
           if(!ok || food.error || !food.id) throw new Error(food.error || `Could not save "${it.name}" — try again.`);
           foodId = food.id;
+          }catch(err){ if(err.name !== 'TypeError') throw err; offlineComponent = asManual(); }
         } else {
+          try{
           const {ok, data: food} = await safeFetchJson('api/foods.php?action=create_custom', {
             method: 'POST', credentials: 'same-origin', headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
@@ -581,13 +596,14 @@
           });
           if(!ok || food.error || !food.id) throw new Error(food.error || `Could not save "${it.name}" — try again.`);
           foodId = food.id;
+          }catch(err){ if(err.name !== 'TypeError') throw err; offlineComponent = asManual(); }
         }
-        const {ok: logOk, data: logged} = await safeFetchJson('api/meals.php?action=log', {
-          method: 'POST', credentials: 'same-origin', headers: {'Content-Type': 'application/json'},
-          body: JSON.stringify({date, meal_type: mealType, component: {food_id: foodId, ...(it.measurement || {amount: it.amount, unit: it.unit})}})
-        });
-        if(!logOk || logged.error) throw new Error(logged.error || `"${it.name}" could not be logged — try again.`);
-        recordRecentFood({name: it.name, canonical_unit: it.unit, canonical_amount: it.amount, source: it.origin || (it.payload && it.payload.source) || null, nutrients: {ENERC_KCAL: it.kcal, PROCNT: it.protein, FAT: it.fat, CHOCDF: it.carbs}}, foodId);
+        const logRes = await window.outbox.logMeal(
+          {date, meal_type: mealType, component: offlineComponent || {food_id: foodId, ...(it.measurement || {amount: it.amount, unit: it.unit})}},
+          {name: it.name, amount: it.amount, unit: it.unit, kcal: it.kcal, protein: it.protein, fat: it.fat, carbs: it.carbs}
+        );
+        if(!logRes.ok) throw new Error((logRes.data && logRes.data.error) || `"${it.name}" could not be logged — try again.`);
+        if(foodId) recordRecentFood({name: it.name, canonical_unit: it.unit, canonical_amount: it.amount, source: it.origin || (it.payload && it.payload.source) || null, nutrients: {ENERC_KCAL: it.kcal, PROCNT: it.protein, FAT: it.fat, CHOCDF: it.carbs}}, foodId);
         lmItems.splice(lmItems.indexOf(it), 1);
       }
       const notes = document.getElementById('lmNotes').value.trim();

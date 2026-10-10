@@ -259,6 +259,34 @@ async function call(base, path, { method = 'GET', body, headers = {}, as } = {})
     assert.ok(!/has been approved/.test(probe.text), 'an unknown token never approves anything');
   });
 
+  check('offline replay: a meal log sent twice with the same client_key is stored once', async () => {
+    const body = { date: today, meal_type: 'dinner', client_key: 'offline-replay-key-0001', component: { custom_name: 'Replay soup', amount: 1, unit: 'serving', manual_calories: 210, manual_protein: 9, manual_fat: 4, manual_carbs: 30 } };
+    const first = await call(b, '/api/meals.php?action=log', { method: 'POST', body });
+    assert.strictEqual(first.status, 200, first.text);
+    assert.ok(!first.json.duplicate);
+    const again = await call(b, '/api/meals.php?action=log', { method: 'POST', body });
+    assert.strictEqual(again.status, 200, again.text);
+    assert.strictEqual(again.json.duplicate, true, 'second send is recognised');
+    assert.strictEqual(again.json.meal_entry_id, first.json.meal_entry_id);
+    const day = await call(b, `/api/meals.php?action=day&date=${today}`);
+    const rows = day.json.entries.flatMap(e => e.components).filter(c => c.name === 'Replay soup');
+    assert.strictEqual(rows.length, 1, 'no duplicate meal after replay');
+    const other = await call(b, '/api/meals.php?action=log', { method: 'POST', body: { ...body, client_key: 'offline-replay-key-0002' } });
+    assert.ok(!other.json.duplicate, 'a different key is a different meal');
+    const bad = await call(b, '/api/meals.php?action=log', { method: 'POST', body: { ...body, client_key: 'x y' } });
+    assert.strictEqual(bad.status, 400, 'malformed keys are refused');
+  });
+  check('stale write after offline edits gets 409 with the server copy (client merges it)', async () => {
+    const read = (await call(b, '/api/data.php?resource=steps')).json;
+    const base = read.updated_at;
+    const moved = await call(b, '/api/data.php', { method: 'POST', body: { resource: 'steps', value: JSON.stringify({ '2026-01-01': 1, '2026-01-02': 2 }) } });
+    assert.strictEqual(moved.status, 200, moved.text);
+    const stale = await call(b, '/api/data.php', { method: 'POST', body: { resource: 'steps', value: JSON.stringify({ '2026-01-03': 3 }), base_updated_at: base } });
+    assert.strictEqual(stale.status, 409, stale.text);
+    assert.deepStrictEqual(JSON.parse(stale.json.value), { '2026-01-01': 1, '2026-01-02': 2 }, '409 carries the current server value');
+    assert.ok(stale.json.updated_at && stale.json.updated_at !== base);
+  });
+
   check('logout really ends the server session (and needs the JSON content type)', async () => {
     const l = await call(b, '/api/auth.php?action=login', { method: 'POST', body: { email: 'other@example.com', password: h.password }, as: '' });
     assert.strictEqual((await call(b, '/api/auth.php?action=me', { as: l.cookie })).status, 200);

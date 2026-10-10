@@ -119,8 +119,7 @@ async function renderTodayGlance(){
   const nutriEntry = nutritionLog.find(e => e.date === today);
   let dayRes = {entries: [], totals: {}};
   try{
-    const res = await fetch(`api/meals.php?action=day&date=${today}`, {credentials: 'same-origin'});
-    dayRes = await res.json();
+    dayRes = await window.outbox.mealsDay(today);
   }catch(e){}
   const mealTotals = dayRes.totals || {};
   const combined = {

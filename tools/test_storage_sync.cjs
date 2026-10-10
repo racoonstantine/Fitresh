@@ -83,6 +83,9 @@ function makeLocalStorage() {
   };
 }
 
+function window_merge(...a){ return makePage(makeServer(), makeLocalStorage()).storage._merge(...a); }
+const pendingKeys = ls => [...ls._data.keys()].filter(k => k.indexOf('fitresh.pending') === 0);
+
 (async () => {
   // 1) reads remember the stamp, writes send it back and pick up the new one
   {
@@ -125,7 +128,7 @@ function makeLocalStorage() {
     await storage.flushAll(true);
     assert.strictEqual(server.rows.nutrition.value, '[{"d":1}]');
     assert.strictEqual(storage.hasUnsaved(), false);
-    assert.strictEqual(ls._data.size, 0, 'persisted copy cleared after a successful save');
+    assert.strictEqual(pendingKeys(ls).length, 0, 'persisted copy cleared after a successful save');
   }
 
   // 4) closing the tab with an unsent value, then opening the app again, replays it
@@ -179,7 +182,7 @@ function makeLocalStorage() {
     page.overlays.find(o => o.className === 'goal-modal-overlay').handlers.click({ target: { closest: () => ({ dataset: { act: 'theirs' } }) } });
     assert.strictEqual(page.ctx.reloaded, true);
     assert.strictEqual(page.storage.hasUnsaved(), false);
-    assert.strictEqual(ls._data.size, 0);
+    assert.strictEqual(pendingKeys(ls).length, 0);
     assert.strictEqual(server.rows.sleep.value, '{"s":2}');
   }
 
@@ -218,6 +221,86 @@ function makeLocalStorage() {
     b.ctx.currentUser = { id: 8 };
     await b.storage.restorePending();
     assert.ok(!server.rows.water, 'user 8 session did not send user 7 data');
+  }
+
+  // 10) offline reads come from the local copy of the last server version
+  {
+    const server = makeServer(); const ls = makeLocalStorage();
+    server.rows.weighins = { value: '[{"date":"2026-10-01","kg":80}]', updated_at: 'T1' };
+    const online = makePage(server, ls);
+    await online.storage.get('log:weighins');
+    const offline = makePage(server, ls);             // new launch, no network
+    server.mode = 'offline';
+    const got = await offline.storage.get('log:weighins');
+    assert.strictEqual(got.value, '[{"date":"2026-10-01","kg":80}]', 'every tab renders from the cached copy');
+    assert.strictEqual(await offline.storage.get('log:sleep'), null, 'a resource never seen has nothing to show');
+    server.mode = '500';
+    assert.strictEqual((await offline.storage.get('log:weighins')).value, '[{"date":"2026-10-01","kg":80}]', 'a server outage reads the same way');
+    // the cache belongs to the user and is wiped on logout
+    const other = makePage(server, ls); other.ctx.currentUser = { id: 8 };
+    server.mode = 'offline';
+    assert.strictEqual(await other.storage.get('log:weighins'), null, 'user 8 cannot read user 7 cached data');
+    offline.storage.clearCache();
+    assert.strictEqual([...ls._data.keys()].filter(k => k.indexOf('fitresh.cache') === 0).length, 0);
+  }
+
+  // 11) a phone offline for a day: its edits are merged onto what another device saved, no picker
+  {
+    const server = makeServer(); const ls = makeLocalStorage();
+    server.rows.weighins = { value: '[{"date":"2026-10-01","kg":80},{"date":"2026-10-02","kg":79}]', updated_at: 'T1' };
+    const phone = makePage(server, ls);
+    await phone.storage.get('log:weighins');
+    server.mode = 'offline';
+    // offline: add 10-05, delete 10-02
+    assert.strictEqual(await phone.storage.set('log:weighins', '[{"date":"2026-10-01","kg":80},{"date":"2026-10-05","kg":78}]'), false);
+    // meanwhile another device added 10-03
+    server.rows.weighins = { value: '[{"date":"2026-10-01","kg":80},{"date":"2026-10-02","kg":79},{"date":"2026-10-03","kg":78.5}]', updated_at: 'T9' };
+    server.mode = 'ok';
+    await phone.storage.flushAll(true);
+    const merged = JSON.parse(server.rows.weighins.value);
+    assert.deepStrictEqual(merged.map(w => w.date), ['2026-10-01', '2026-10-03', '2026-10-05'], 'union of both devices, and the offline delete is kept');
+    assert.strictEqual(phone.storage.hasUnsaved(), false);
+    assert.ok(!phone.overlays.some(o => /changed on another device/.test(o.innerHTML)), 'no picker dialog');
+    assert.ok(phone.timers.some(t => t.ms === 1800), 'app data reloads after a merge so memory matches the server');
+    phone.timers.filter(t => t.ms === 1800).forEach(t => t.fn());
+    assert.strictEqual(phone.ctx.reloaded, true);
+  }
+
+  // 12) objects keyed by date merge; a same-key clash still asks
+  {
+    const server = makeServer(); const ls = makeLocalStorage();
+    server.rows.water = { value: '{"2026-10-01":1000}', updated_at: 'T1' };
+    const phone = makePage(server, ls);
+    await phone.storage.get('log:water');
+    server.mode = 'offline';
+    await phone.storage.set('log:water', '{"2026-10-01":1000,"2026-10-04":500}');
+    server.rows.water = { value: '{"2026-10-01":1000,"2026-10-03":750}', updated_at: 'T5' };
+    server.mode = 'ok';
+    await phone.storage.flushAll(true);
+    assert.deepStrictEqual(JSON.parse(server.rows.water.value), { '2026-10-01': 1000, '2026-10-03': 750, '2026-10-04': 500 });
+
+    const s2 = makeServer(); const ls2 = makeLocalStorage();
+    s2.rows.steps = { value: '{"2026-10-01":4000}', updated_at: 'T1' };
+    const p2 = makePage(s2, ls2);
+    await p2.storage.get('log:steps');
+    s2.mode = 'offline';
+    await p2.storage.set('log:steps', '{"2026-10-01":6000}');
+    s2.rows.steps = { value: '{"2026-10-01":9000}', updated_at: 'T5' };
+    s2.mode = 'ok';
+    await p2.storage.flushAll(true);
+    assert.strictEqual(s2.rows.steps.value, '{"2026-10-01":9000}', 'true clash: nothing overwritten silently');
+    assert.ok(p2.overlays.some(o => /changed on another device/.test(o.innerHTML)), 'picker shown only for a real same-key clash');
+  }
+
+  // 13) workout history: same session logged on both sides -> newest loggedAt wins; no cache -> picker
+  {
+    const mk = (kg, at) => ({ date: '2026-10-01', day: 'A', kg, loggedAt: at });
+    const out = JSON.parse(window_merge('history', '[]', JSON.stringify([mk(1, '2026-10-01T10:00:00Z')]), JSON.stringify([mk(2, '2026-10-01T12:00:00Z')])));
+    assert.strictEqual(out[0].kg, 2);
+    const out2 = JSON.parse(window_merge('history', '[]', JSON.stringify([mk(1, '2026-10-01T13:00:00Z')]), JSON.stringify([mk(2, '2026-10-01T12:00:00Z')])));
+    assert.strictEqual(out2[0].kg, 1);
+    assert.strictEqual(window_merge('profile', '{}', '{"a":1}', '{"b":2}'), null, 'unkeyed resources always use the picker');
+    assert.strictEqual(window_merge("nutrition", "[]", "[{\"date\":\"d\",\"x\":1}]", "[{\"date\":\"d\",\"x\":2}]"), null, "same-key clash on a dated list");
   }
 
   console.log('PASS: reliable saving (version stamps, serialized writes, failed-save retention and replay, 409 conflicts, rejections, 401, per-user isolation).');

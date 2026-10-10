@@ -195,6 +195,8 @@ function setUserBadge(name){
 
 async function showAppFor(user){
   currentUser = user;
+  // Remembered so the app can open without a connection (see checkAuthAndStart).
+  try{ localStorage.setItem('fitresh.user.v1', JSON.stringify(user)); }catch(e){}
   document.getElementById('loginScreen').style.display = 'none';
   setUserBadge(user.display_name || user.email);
   // Client-side visibility only -- api/admin.php re-checks this server-side
@@ -202,6 +204,7 @@ async function showAppFor(user){
   const adminBtn = document.getElementById('adminSubnavBtn');
   if(adminBtn) adminBtn.style.display = (user.email || '').toLowerCase() === 'sherwinllona@gmail.com' ? '' : 'none';
   await window.storage.restorePending();
+  window.outbox.flush();
   await startApp();
   if(!userProfile){
     showOnboarding();
@@ -218,7 +221,14 @@ async function checkAuthAndStart(){
       await showAppFor(user);
       return;
     }
-  }catch(e){}
+    if(res.status >= 500) throw new Error('server down');
+  }catch(e){
+    // No connection (or the server is down): open from the signed-in user remembered on this device.
+    // The data shown comes from the local copies in storage.js; writes queue until we are back online.
+    let cached = null;
+    try{ cached = JSON.parse(localStorage.getItem('fitresh.user.v1')); }catch(err){}
+    if(cached && cached.id){ await showAppFor(cached); return; }
+  }
   showLoginScreen();
 }
 
@@ -287,6 +297,8 @@ async function checkAuthAndStart(){
     // Send anything still unsaved first. The JSON content type matters: the API rejects
     // POSTs without it (415), which used to leave the server session alive after "Log out".
     try{ await window.storage.flushAll(); }catch(err){}
+    try{ await window.outbox.flush(); }catch(err){}
+    window.storage.clearCache();
     try{ await fetch('api/auth.php?action=logout', { method: 'POST', credentials: 'same-origin', headers: {'Content-Type': 'application/json'}, body: '{}' }); }catch(err){}
     currentUser = null;
     location.reload();
