@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Fitresh</string>
+    <string name="title_activity_main">Fitresh</string>
+    <string name="package_name">com.fitresh.app</string>
+    <string name="custom_url_scheme">com.fitresh.app</string>
+</resources>

@@ -1,0 +1,14 @@
+{
+  "appId": "com.fitresh.app",
+  "appName": "Fitresh",
+  "webDir": "www",
+  "server": {
+    "url": "https://fitresh.com/index.html",
+    "cleartext": false,
+    "allowNavigation": ["fitresh.com", "www.fitresh.com"]
+  },
+  "android": {
+    "allowMixedContent": false,
+    "backgroundColor": "#0E1A16"
+  }
+}
