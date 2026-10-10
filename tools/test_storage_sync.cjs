@@ -25,6 +25,7 @@ function makeServer() {
     const body = opts.body ? JSON.parse(opts.body) : null;
     server.calls.push({ url, body });
     if (server.mode === 'offline') throw new TypeError('network down');
+    if (server.mode === 'hang') return new Promise((_, rej) => { if (opts.signal) opts.signal.addEventListener('abort', () => rej(new TypeError('aborted'))); });
     if (server.mode === '500') return { ok: false, status: 500, json: async () => ({}) };
     if (server.mode === '401') return { ok: false, status: 401, json: async () => ({}) };
     if (server.mode === '413') return { ok: false, status: 413, json: async () => ({ error: 'Storage limit reached for this account.' }) };
@@ -64,7 +65,7 @@ function makePage(server, ls) {
     setTimeout: (fn, ms) => { timers.push({ fn, ms }); return timers.length; },
     clearTimeout: () => {},
     location: { reload() { ctx.reloaded = true; } },
-    currentUser: { id: 7 },
+    currentUser: { id: 7 }, AbortController,
     handleUnauthorized() { ctx.unauthorized = (ctx.unauthorized || 0) + 1; },
     URL
   };
@@ -195,7 +196,7 @@ const pendingKeys = ls => [...ls._data.keys()].filter(k => k.indexOf('fitresh.pe
     assert.strictEqual(await storage.set('log:weights', 'x'), false);
     assert.strictEqual(storage.hasUnsaved(), false);
     assert.ok(/Storage limit/.test(storage._state.weights.rejected));
-    assert.strictEqual(timers.length, 0, 'no retry for a request the server refused');
+    assert.strictEqual(timers.filter(t => t.ms !== 15000).length, 0, 'no retry for a request the server refused');
   }
 
   // 8) an expired session keeps the value for after the next login
@@ -301,6 +302,21 @@ const pendingKeys = ls => [...ls._data.keys()].filter(k => k.indexOf('fitresh.pe
     assert.strictEqual(out2[0].kg, 1);
     assert.strictEqual(window_merge('profile', '{}', '{"a":1}', '{"b":2}'), null, 'unkeyed resources always use the picker');
     assert.strictEqual(window_merge("nutrition", "[]", "[{\"date\":\"d\",\"x\":1}]", "[{\"date\":\"d\",\"x\":2}]"), null, "same-key clash on a dated list");
+  }
+
+  // 14) a request left hanging when the connection flips back must not block retries
+  {
+    const server = makeServer(); const ls = makeLocalStorage();
+    const page = makePage(server, ls);
+    await page.storage.get('log:water');
+    server.mode = 'hang';
+    const pending = page.storage.set('log:water', '{"x":1}');      // never answers
+    server.mode = 'ok';
+    page.listeners['win:online']();                                  // network is back: in-flight call is cancelled, resent
+    assert.strictEqual(await pending, false, 'the cancelled attempt reports not-saved');
+    await new Promise(r => setImmediate(r)); await new Promise(r => setImmediate(r));
+    assert.strictEqual(server.rows.water.value, '{"x":1}', 'resent immediately after the online event');
+    assert.strictEqual(page.storage.hasUnsaved(), false);
   }
 
   console.log('PASS: reliable saving (version stamps, serialized writes, failed-save retention and replay, 409 conflicts, rejections, 401, per-user isolation).');
