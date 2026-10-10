@@ -65,6 +65,10 @@ run new HTML with old assets. New files under `public/` deploy automatically.
   overrides the temp dir), token hashing (approval/reset tokens are stored as SHA-256; raw still accepted for
   old rows). Approval/reset links confirm on GET and act on POST. `.htaccess` in `api/` and `public/` denies
   library files and sets headers (all inside IfModule/FilesMatch; if the live site ever 500s, suspect these first).
+- Sessions: login lasts 90 days and renews on every visit (`api/db.php`: `SESSION_LIFETIME`, cookie re-sent each request,
+  `session.gc_maxlifetime` raised). Session files live in a private `fitresh_sessions` folder above the web root
+  (`/home/shergtjz/fitresh_sessions` on the host; override with `session_path` in `config.local.php`), falling back to the temp dir.
+  The old default folder + ~24 min server lifetime was what logged phones out early.
 - Not done: Content-Security-Policy (app uses inline scripts/styles), HSTS, host-key pinning in the SFTP deploy.
 
 ## Conventions worth knowing
