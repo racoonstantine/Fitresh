@@ -287,6 +287,17 @@ async function call(base, path, { method = 'GET', body, headers = {}, as } = {})
     assert.ok(stale.json.updated_at && stale.json.updated_at !== base);
   });
 
+  check('login lasts ~90 days and every visit renews it (rolling session)', async () => {
+    const res = await fetch(b + '/api/auth.php?action=login', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email: 'tester@example.com', password: h.password }) });
+    const sid = res.headers.get('set-cookie').split(';')[0];
+    const renew = await fetch(b + '/api/auth.php?action=me', { headers: { Cookie: sid } });
+    assert.strictEqual(renew.status, 200);
+    const cookies = (renew.headers.getSetCookie ? renew.headers.getSetCookie() : [renew.headers.get('set-cookie')]).join(' | ');
+    const m = /expires=([^;]+)/i.exec(cookies);
+    assert.ok(m, 'session cookie is re-sent with an expiry on a normal request: ' + cookies);
+    const days = (new Date(m[1]).getTime() - Date.now()) / 86400000;
+    assert.ok(days > 85 && days < 91, 'expires in about 90 days, got ' + days.toFixed(1));
+  });
   check('logout really ends the server session (and needs the JSON content type)', async () => {
     const l = await call(b, '/api/auth.php?action=login', { method: 'POST', body: { email: 'other@example.com', password: h.password }, as: '' });
     assert.strictEqual((await call(b, '/api/auth.php?action=me', { as: l.cookie })).status, 200);

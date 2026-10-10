@@ -18,4 +18,6 @@ return [
     // would let a forged Host header redirect your approval token to an
     // attacker's domain instead of this one.
     'app_host' => 'fitresh.com',
+    // Optional: folder for login session files (default: a fitresh_sessions folder above the web root).
+    // 'session_path' => '/home/cpanelusername/fitresh_sessions',
 ];

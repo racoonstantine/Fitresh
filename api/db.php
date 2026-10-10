@@ -32,14 +32,54 @@ function start_app_session(): void
     if (session_status() === PHP_SESSION_ACTIVE) {
         return;
     }
-    session_set_cookie_params([
-        'lifetime' => 60 * 60 * 24 * 30,
+    $dir = session_dir();
+    if ($dir !== null) {
+        session_save_path($dir);
+    }
+    ini_set('session.gc_maxlifetime', (string)SESSION_LIFETIME);
+    ini_set('session.gc_probability', '1');
+    ini_set('session.gc_divisor', '200');
+    $cookie = [
         'path' => '/',
         'secure' => !empty($_SERVER['HTTPS']),
         'httponly' => true,
         'samesite' => 'Lax',
-    ]);
+    ];
+    session_set_cookie_params(['lifetime' => SESSION_LIFETIME] + $cookie);
     session_start();
+    // Rolling login: every visit pushes the expiry out again (the file's mtime moves with it),
+    // so someone who opens the app now and then is never asked to log in.
+    if (!headers_sent() && session_id() !== '') {
+        setcookie(session_name(), session_id(), ['expires' => time() + SESSION_LIFETIME] + $cookie);
+    }
+}
+
+// How long a login lasts. The cookie AND the server-side session file must both outlive it:
+// PHP deletes session files after session.gc_maxlifetime (often only ~24 minutes by default),
+// which used to log phones out long before the 30-day cookie expired.
+const SESSION_LIFETIME = 60 * 60 * 24 * 90;
+
+// A private folder for session files. Shared hosts run one clean-up for every site using the
+// default folder and apply their own short lifetime, so use one of our own when we can create it.
+function session_dir(): ?string
+{
+    $candidates = [];
+    try {
+        $configured = get_config()['session_path'] ?? null;
+        if (is_string($configured) && $configured !== '') {
+            $candidates[] = $configured;
+        }
+    } catch (Throwable $e) {
+        // no config available: fall through to the defaults
+    }
+    $candidates[] = dirname(__DIR__, 2) . DIRECTORY_SEPARATOR . 'fitresh_sessions'; // above the web root
+    $candidates[] = sys_get_temp_dir() . DIRECTORY_SEPARATOR . 'fitresh_sessions';
+    foreach ($candidates as $dir) {
+        if ((is_dir($dir) || @mkdir($dir, 0700, true)) && is_writable($dir)) {
+            return $dir;
+        }
+    }
+    return null;
 }
 
 function json_respond(array $data, int $code = 200)
