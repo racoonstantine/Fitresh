@@ -16,3 +16,14 @@
         Header set Cache-Control "no-cache"
     </FilesMatch>
 </IfModule>
+
+# Beta Android build served from /download/: correct type, forced download, always re-checked.
+<IfModule mod_mime.c>
+    AddType application/vnd.android.package-archive .apk
+</IfModule>
+<IfModule mod_headers.c>
+    <FilesMatch "\.apk$">
+        Header set Content-Disposition "attachment"
+        Header set Cache-Control "no-cache"
+    </FilesMatch>
+</IfModule>

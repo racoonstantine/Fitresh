@@ -54,6 +54,19 @@
         </div>
       </div>
     </div>
+    <!-- Only for people in a normal browser: hidden in the Android app and the installed web app. -->
+    <div id="getAppLink" hidden style="text-align:center;margin-top:14px;font-size:12px;">
+      <a href="download/" style="color:var(--ink-soft);text-decoration:underline;">Get the Android app (beta)</a>
+    </div>
+    <script>
+      (function () {
+        var installed = !!window.Capacitor
+          || (window.matchMedia && matchMedia('(display-mode: standalone)').matches)
+          || navigator.standalone === true
+          || /; wv\)/.test(navigator.userAgent);
+        if (!installed) document.getElementById('getAppLink').hidden = false;
+      })();
+    </script>
   </div>
 </div>
 
