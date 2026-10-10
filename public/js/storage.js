@@ -240,9 +240,15 @@
       if(!s.force && s.stamp !== undefined) body.base_updated_at = s.stamp === null ? 'none' : s.stamp;
       const requeue = ()=>{ if(!s.hasPending){ s.pending = value; s.hasPending = true; } };
       let res = null;
+      // A request left hanging (connection dropped and came back mid-flight) would block every
+      // later retry for this resource, so it gets a deadline and then counts as a network failure.
+      const ctl = typeof AbortController !== 'undefined' ? new AbortController() : null;
+      const deadline = ctl ? setTimeout(()=>{ ctl.abort(); }, 15000) : null;
+      s.ctl = ctl;
       try{
-        res = await fetch(API, {method: 'POST', credentials: 'same-origin', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(body)});
+        res = await fetch(API, {method: 'POST', credentials: 'same-origin', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(body), signal: ctl ? ctl.signal : undefined});
       }catch(e){ res = null; }
+      if(deadline) clearTimeout(deadline);
 
       if(res && res.ok){
         let data = {};
@@ -390,7 +396,12 @@
 
   // ---- housekeeping ----
   if(typeof window !== 'undefined' && window.addEventListener){
-    window.addEventListener('online', ()=>{ flushAll(); });
+    window.addEventListener('online', ()=>{
+      // Anything still in flight started on the dead connection: cancel it, then send again right away.
+      const busy = names().map(n => resources[n].flushing).filter(Boolean);
+      names().forEach(n => { const c = resources[n].ctl; if(c && resources[n].flushing){ try{ c.abort(); }catch(e){} } });
+      if(busy.length) Promise.all(busy).then(()=>{ flushAll(); }); else flushAll();
+    });
     window.addEventListener('beforeunload', (e)=>{
       if(window.storage.hasUnsaved()){ e.preventDefault(); e.returnValue = ''; }
     });
