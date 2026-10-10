@@ -146,6 +146,25 @@ if ($method === 'POST' && $action === 'log') {
     if (!preg_match('/^\d{4}-\d{2}-\d{2}$/', $date) || !in_array($mealType, MEAL_TYPES, true)) {
         json_respond(['error' => 'Invalid date or meal type.'], 400);
     }
+    // A phone that was offline replays queued logs with a client_key; one already applied is answered, not repeated.
+    $clientKey = (string)($input['client_key'] ?? '');
+    $keyed = false;
+    if ($clientKey !== '') {
+        if (!preg_match('/^[A-Za-z0-9_-]{8,64}$/', $clientKey)) {
+            json_respond(['error' => 'Invalid client key.'], 400);
+        }
+        try {
+            $seen = $pdo->prepare('SELECT meal_entry_id FROM meal_log_keys WHERE user_id = ? AND client_key = ?');
+            $seen->execute([$userId, $clientKey]);
+            $row = $seen->fetch();
+            if ($row) {
+                json_respond(['ok' => true, 'meal_entry_id' => $row['meal_entry_id'] === null ? null : (int)$row['meal_entry_id'], 'duplicate' => true]);
+            }
+            $keyed = true;
+        } catch (PDOException $e) {
+            $keyed = false; // migration 008 not applied yet: log normally, without de-duplication
+        }
+    }
     $component = $input['component'] ?? [];
     $foodId = isset($component['food_id']) ? (int)$component['food_id'] : null;
     $amount = (float)($component['amount'] ?? 100);
@@ -218,6 +237,18 @@ if ($method === 'POST' && $action === 'log') {
         $foodId ? null : ($component['manual_carbs'] ?? null),
         $foodId ? 'database' : 'manual',
     ]);
+    $componentId = (int)$pdo->lastInsertId();
+
+    if ($keyed) {
+        try {
+            $pdo->prepare('INSERT INTO meal_log_keys (user_id, client_key, meal_entry_id, created_at) VALUES (?, ?, ?, NOW())')
+                ->execute([$userId, $clientKey, $entryId]);
+        } catch (PDOException $e) {
+            // A concurrent replay of the same log won the race: undo this copy.
+            $pdo->prepare('DELETE FROM meal_components WHERE id = ?')->execute([$componentId]);
+            json_respond(['ok' => true, 'meal_entry_id' => $entryId, 'duplicate' => true]);
+        }
+    }
 
     json_respond(['ok' => true, 'meal_entry_id' => $entryId]);
 }

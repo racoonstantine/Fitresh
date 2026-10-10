@@ -17,8 +17,8 @@ you rarely need it.
 - `public/index.html` — markup only (~1,300 lines). `public/app.css` — all styles (CSS variables at
   the top; the app reads colours through `--forest`, `--ochre`, `--ink`, `--paper`, `--line`, so a
   re-theme is mostly changing those). `public/personal-foods.js/.css` — custom-food dialog.
-- `public/js/*.js` — **26 classic (non-module) scripts sharing globals**, loaded in this order:
-  `numbers, edit-lock, storage, core, progress, today, food-icons, food-search, nutrition, trends,
+- `public/js/*.js` — **27 classic (non-module) scripts sharing globals**, loaded in this order:
+  `numbers, edit-lock, storage, offline, core, progress, today, food-icons, food-search, nutrition, trends,
   body-account, insights, weight-dashboard, plan-history, cardio-activity, log-session-panel,
   extra-exercises, logged-training, todays-session, stats-form, app-start, account, foodlog, pages,
   plan, boot`. Top-level `function`s are global; functions inside the `(function(){…})()` blocks
@@ -43,7 +43,7 @@ All tests (run before every push):
 node tools/test_<name>.cjs      # ai_assist food_icons nutrition_notes workout_catalog
                                 # workout_preparation bilingual_foods food_measurements_ui
                                 # food_search_ui food_macro_preview cardio_activity train_panel
-                                # food_search_outcome progress food_favorites storage_sync
+                                # food_search_outcome progress food_favorites storage_sync offline
 php tools/test_workouts.php  tools/test_personal_foods.php  tools/test_food_review.php
 python tools/test_cache_bust.py
 ```
@@ -80,7 +80,8 @@ run new HTML with old assets. New files under `public/` deploy automatically.
   escapes unless raw; `assert.deepEqual` on arrays from `vm` contexts fails — compare via JSON.
 
 ## Live-server to-do (only the owner can do these)
-1. Run `db/migrations/007_food_review.sql` in phpMyAdmin (005/006 were reported done).
+1. Run `db/migrations/007_food_review.sql` in phpMyAdmin (005/006 were reported done), then
+   `008_meal_log_keys.sql` (offline meal replay de-duplication; meals still log without it, just not de-duplicated).
 2. cPanel cron `0 8 1,16 * *` → `/usr/local/bin/php /home/shergtjz/fitresh.com/api/food_review_digest.php`
    (details in `docs/food-review.md`; test first with `--dry-run`).
 3. Done: fitresh.com is the primary domain (`'app_host' => 'fitresh.com'` set), gedli.com redirects.
@@ -108,24 +109,32 @@ run new HTML with old assets. New files under `public/` deploy automatically.
   (only "today" ticks; other dates log via "Select Workout Routine" in the panel).
 - `food_search.php` depends on Open Food Facts (offline is handled with a note + Manual/AI fallbacks).
 
-## Android APK + offline (planned, not started)
-Wrap https://fitresh.com in a WebView shell (Capacitor or TWA); sideload the APK for now. No rewrite needed.
-Test first: session cookie survives app restarts, back button, `manifest.json`/icons, and clipboard
-("Copy prompt" in AI Assist needs clipboard permission).
-
-Offline design, building on what exists (`storage.js` already queues/retries/replays failed writes):
-1. **App shell**: add a service worker (cache-first for `public/` css/js/icons; the `?v=<hash>` stamp from
-   `cache_bust.py` makes versioning safe; network-first for `index.html`).
-2. **Reads**: have `window.storage.get` fall back to a local copy (IndexedDB/localStorage) of each resource's
-   last server blob + its `updated_at`, so every tab renders offline. Cache the signed-in user so the app
-   opens without calling `auth.php?action=me`.
-3. **Writes**: keep using the existing queue; mark it as "offline, will sync" instead of an error banner.
-4. **Reconcile on reconnect**: current 409 = "pick a version" is too blunt for a phone offline for a day.
-   Merge instead where blobs are lists keyed by date/id (history, weighins, sleep, steps, water): union by key,
-   newest `loggedAt` wins per key; only fall back to the picker for true same-key conflicts.
-5. **Relational APIs** (`meals.php`, `personal_foods.php`, `workouts.php`): queue the POSTs with a client-generated
-   idempotency key (personal_foods already has `request_key`) and replay in order.
-6. **Stays online-only**: food search (Open Food Facts proxy), admin, password reset. Cache recent/favorite
-   foods so logging a repeat meal works offline; otherwise show the existing Manual/AI fallback note.
-7. Add a harness test: go offline -> log weight/meal/session -> reload -> go online -> verify server state and no
-   duplicates (extend `tools/dev_harness/smoke.cjs` and `test_storage_sync.cjs`).
+## Offline support (built on branch `android-offline`) and Android APK (not started)
+Offline is plain web code, so it works in any browser/PWA and will work unchanged inside the APK shell.
+- **App shell**: `public/sw.js` (registered by `offline.js`; https or localhost only). index.html network-first with a cached
+  fallback; `?v=<hash>` assets cache-first (older hashes of the same file are dropped); unstamped assets stale-while-revalidate;
+  `/api/` is never intercepted. `.htaccess` keeps `sw.js` `no-cache`.
+- **Reads**: `storage.js` keeps the server's last blob + `updated_at` per resource in localStorage
+  (`fitresh.cache.v1.<user>.<resource>`); `get` serves it when the network fails or the server 5xx's. The signed-in user is cached
+  (`fitresh.user.v1`) so `checkAuthAndStart` opens the app offline. Logout wipes the caches (`storage.clearCache()`).
+- **Writes**: unchanged queue; the banner says "Offline — saved on this device" when `navigator.onLine` is false.
+- **Reconcile**: on 409, `storage.js` does a three-way merge (cached base / this device / server) for `weighins`, `nutrition`,
+  `history` (newest `loggedAt` wins), and the maps `water sleep steps checked weights`: offline adds, edits and deletes are laid
+  over the server copy; only a same-key clash on both sides (or any other resource) opens the "pick a version" dialog.
+  After a merge the page reloads once so memory matches the server. Adding a resource to `MERGE` in storage.js is all it takes.
+- **Meals**: `offline.js` outbox (`window.outbox`). Logs carry a `client_key`; `api/meals.php` + `meal_log_keys` (migration 008)
+  de-duplicate replays. Queued meals show on the Food tab/Today/totals as "waiting to sync" (`outbox.mealsDay/mealsRange`, which also
+  keep the last server answer per day). Offline, foods that need a server lookup (Open Food Facts/catalog, new custom food) are
+  logged as manual items with the numbers on screen. Recent/favorite foods work as normal (their blobs are cached).
+- **Online-only on purpose**: food search, creating personal foods (`personal_foods.php`, needs the new id), editing/removing meals
+  already on the server (shows a message), workouts catalog, admin, password reset.
+- **Tests**: `tools/test_offline.cjs` (outbox, offline meal views, service-worker routing), extra cases in `test_storage_sync.cjs`
+  (offline reads, merges, clashes), 2 smoke checks (replayed `client_key` stored once; stale write gets 409 + server value).
+  Verified in the dev harness by faking a dead connection in-page: cached reads, queued steps/meal, merge with a change from
+  "another device", replay without duplicates. **Not verified in a real browser:** service worker registration (the Claude
+  desktop browser pane refuses to register one) — check on fitresh.com (DevTools → Application → Service Workers, then
+  Network → Offline → reload) before relying on offline cold start.
+- **Not done**: the Android shell itself (no Android SDK/Java on this machine). Plan: Capacitor or TWA wrapping https://fitresh.com,
+  sideload the APK. Test first: session cookie survives app restarts, back button, `manifest.json`/icons (icon-512 is still the old
+  one), clipboard permission for "Copy prompt" in AI Assist. Also open: queue personal-food creation and meal edits/removals
+  offline; periodic background sync.

@@ -34,7 +34,7 @@ jobs:
         run: |
           for t in ai_assist food_icons nutrition_notes workout_catalog workout_preparation bilingual_foods \
                    food_measurements_ui food_search_ui food_macro_preview cardio_activity train_panel \
-                   food_search_outcome progress food_favorites storage_sync; do
+                   food_search_outcome progress food_favorites storage_sync offline; do
             echo "== test_$t"; node "tools/test_$t.cjs"
           done
 

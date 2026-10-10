@@ -412,10 +412,9 @@ async function fetchMealTotals(dateList){
   const start = uniq.reduce((a,b)=> a < b ? a : b);
   const end = uniq.reduce((a,b)=> a > b ? a : b);
   try{
-    const res = await fetch(`api/meals.php?action=range_totals&start=${start}&end=${end}`, {credentials:'same-origin'});
-    const data = await res.json();
+    const totals = await window.outbox.mealsRange(start, end);   // offline: last synced copy + queued meals
     if(generation !== mealTotalsGeneration) return;
-    mealTotalsByDate = data.totals || {};
+    mealTotalsByDate = totals || {};
   }catch(e){
     if(generation !== mealTotalsGeneration) return;
     mealTotalsByDate = {};

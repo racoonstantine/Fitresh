@@ -11,4 +11,8 @@
     <FilesMatch "\.html$">
         Header set Cache-Control "no-cache"
     </FilesMatch>
+    # The service worker script must always be re-checked so shell fixes reach phones.
+    <FilesMatch "^sw\.js$">
+        Header set Cache-Control "no-cache"
+    </FilesMatch>
 </IfModule>
