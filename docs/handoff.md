@@ -107,3 +107,25 @@ run new HTML with old assets. New files under `public/` deploy automatically.
   activities / 12 templates in `data/workouts`); per-date tick-to-complete checklist on Train
   (only "today" ticks; other dates log via "Select Workout Routine" in the panel).
 - `food_search.php` depends on Open Food Facts (offline is handled with a note + Manual/AI fallbacks).
+
+## Android APK + offline (planned, not started)
+Wrap https://fitresh.com in a WebView shell (Capacitor or TWA); sideload the APK for now. No rewrite needed.
+Test first: session cookie survives app restarts, back button, `manifest.json`/icons, and clipboard
+("Copy prompt" in AI Assist needs clipboard permission).
+
+Offline design, building on what exists (`storage.js` already queues/retries/replays failed writes):
+1. **App shell**: add a service worker (cache-first for `public/` css/js/icons; the `?v=<hash>` stamp from
+   `cache_bust.py` makes versioning safe; network-first for `index.html`).
+2. **Reads**: have `window.storage.get` fall back to a local copy (IndexedDB/localStorage) of each resource's
+   last server blob + its `updated_at`, so every tab renders offline. Cache the signed-in user so the app
+   opens without calling `auth.php?action=me`.
+3. **Writes**: keep using the existing queue; mark it as "offline, will sync" instead of an error banner.
+4. **Reconcile on reconnect**: current 409 = "pick a version" is too blunt for a phone offline for a day.
+   Merge instead where blobs are lists keyed by date/id (history, weighins, sleep, steps, water): union by key,
+   newest `loggedAt` wins per key; only fall back to the picker for true same-key conflicts.
+5. **Relational APIs** (`meals.php`, `personal_foods.php`, `workouts.php`): queue the POSTs with a client-generated
+   idempotency key (personal_foods already has `request_key`) and replay in order.
+6. **Stays online-only**: food search (Open Food Facts proxy), admin, password reset. Cache recent/favorite
+   foods so logging a repeat meal works offline; otherwise show the existing Manual/AI fallback note.
+7. Add a harness test: go offline -> log weight/meal/session -> reload -> go online -> verify server state and no
+   duplicates (extend `tools/dev_harness/smoke.cjs` and `test_storage_sync.cjs`).
