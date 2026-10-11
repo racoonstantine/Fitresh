@@ -163,6 +163,22 @@ async function call(base, path, { method = 'GET', body, headers = {}, as } = {})
     assert.ok(denied.status === 403 || denied.status === 401, 'status ' + denied.status);
   });
 
+  check('admin can approve a pending signup (once); regular user cannot', async () => {
+    const a = await call(b, '/api/auth.php?action=login', { method: 'POST', body: { email: 'admin@example.com', password: h.password }, as: '' });
+    const list = await call(b, '/api/admin.php?action=overview', { as: a.cookie });
+    const pending = list.json.users.find(u => u.email === 'new@example.com');
+    assert.ok(pending && pending.status === 'pending', 'new signup should be pending');
+    const t = await call(b, '/api/auth.php?action=login', { method: 'POST', body: { email: 'tester@example.com', password: h.password }, as: '' });
+    const denied = await call(b, '/api/admin.php?action=approve_signup', { method: 'POST', body: { action: 'approve_signup', user_id: pending.id }, as: t.cookie });
+    assert.ok(denied.status === 403, 'status ' + denied.status);
+    const ok = await call(b, '/api/admin.php?action=approve_signup', { method: 'POST', body: { action: 'approve_signup', user_id: pending.id }, as: a.cookie });
+    assert.strictEqual(ok.status, 200, ok.text.slice(0, 200));
+    const again = await call(b, '/api/admin.php?action=approve_signup', { method: 'POST', body: { action: 'approve_signup', user_id: pending.id }, as: a.cookie });
+    assert.strictEqual(again.status, 409);
+    const l = await call(b, '/api/auth.php?action=login', { method: 'POST', body: { email: 'new@example.com', password: 'longenough1' }, as: '' });
+    assert.strictEqual(l.status, 200, l.text.slice(0, 200));
+  });
+
   check('food review: opt-in sharing, candidates for the admin, cron digest, decisions', async () => {
     const { spawnSync } = require('child_process');
     const login = async email => (await call(b, '/api/auth.php?action=login', { method: 'POST', body: { email, password: h.password }, as: '' })).cookie;

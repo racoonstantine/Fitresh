@@ -297,7 +297,7 @@ async function renderAdminPanel(){
               <td><span class="ad-status ad-status-${foodSearchEscape(u.status)}">${statusLabel[u.status] || foodSearchEscape(u.status)}</span></td>
               <td class="nowrap">${shortDate(u.created_at)}</td>
               <td class="num">${u.days_logged}</td>
-              <td class="act"><button type="button" class="ad-btn" data-admin-reset="${u.id}" data-admin-email="${foodSearchEscape(u.email)}" title="Reset password for ${foodSearchEscape(u.email)}">Reset</button></td>
+              <td class="act">${u.status === 'pending' ? `<button type="button" class="ad-btn" data-admin-signup="approve_signup" data-admin-id="${u.id}" data-admin-email="${foodSearchEscape(u.email)}">Approve</button> <button type="button" class="ad-btn" data-admin-signup="reject_signup" data-admin-id="${u.id}" data-admin-email="${foodSearchEscape(u.email)}">Reject</button> ` : ''}<button type="button" class="ad-btn" data-admin-reset="${u.id}" data-admin-email="${foodSearchEscape(u.email)}" title="Reset password for ${foodSearchEscape(u.email)}">Reset</button></td>
             </tr>`).join('')}
           </tbody>
         </table>
@@ -308,6 +308,25 @@ async function renderAdminPanel(){
     statusEl.textContent = err.message || 'Could not load the user list.';
   }
 }
+document.getElementById('adminUserList').addEventListener('click', async (e)=>{
+  const sb = e.target.closest('[data-admin-signup]');
+  if(!sb) return;
+  const action = sb.dataset.adminSignup;
+  const email = sb.dataset.adminEmail;
+  if(!confirm(`${action === 'approve_signup' ? 'Approve' : 'Reject'} the signup for ${email}?`)) return;
+  sb.disabled = true;
+  try{
+    const {ok, data} = await safeFetchJson('api/admin.php?action=' + action, {
+      method: 'POST', credentials: 'same-origin', headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({action, user_id: parseInt(sb.dataset.adminId, 10)})
+    });
+    if(!ok || data.error) throw new Error(data.error || 'Could not update this signup.');
+    renderAdminPanel();
+  }catch(err){
+    alert(err.message || 'Could not update this signup.');
+    sb.disabled = false;
+  }
+});
 document.getElementById('adminUserList').addEventListener('click', async (e)=>{
   const btn = e.target.closest('[data-admin-reset]');
   if(!btn) return;

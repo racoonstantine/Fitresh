@@ -67,4 +67,20 @@ if ($method === 'POST' && $action === 'reset_password') {
     json_respond(['ok' => true, 'email' => $target['email'], 'temp_password' => $tempPassword]);
 }
 
+if ($method === 'POST' && in_array($action, ['approve_signup', 'reject_signup'], true)) {
+    $targetId = (int)($input['user_id'] ?? 0);
+    if ($targetId <= 0) {
+        json_respond(['error' => 'Invalid user'], 400);
+    }
+    // Only a still-pending signup can be decided here; same effect as the
+    // approve/reject links in the signup email, which stay valid until used.
+    $newStatus = $action === 'approve_signup' ? 'approved' : 'rejected';
+    $stmt = $pdo->prepare("UPDATE users SET status = ?, approval_token = NULL WHERE id = ? AND status = 'pending'");
+    $stmt->execute([$newStatus, $targetId]);
+    if ($stmt->rowCount() === 0) {
+        json_respond(['error' => 'That signup was already handled.'], 409);
+    }
+    json_respond(['ok' => true, 'status' => $newStatus]);
+}
+
 json_respond(['error' => 'Unknown action'], 400);
