@@ -56,7 +56,7 @@ reply; `public/js/ai-native.js` shows an "Ask AI now" block in the food, watch-s
 `GET api/ai_assist.php` says `enabled`. Needs `openai_api_key` in the server's `config.local.php` (options in
 `config.example.php`: model, per-user and site-wide daily caps). Photos are shrunk in the browser, forwarded in memory
 and never stored. Test: `node tools/test_ai_assist_api.cjs` (fake OpenAI via the harness).
-- Photos: one "Use photo" control (`aiNativePhotoHtml`) offers Take a photo (file input with `capture`) or Choose from gallery. The Android
+- Photos: one "Use photo" control (`aiNativePhotoHtml`, up to 5 photos per request, `AI_MAX_PHOTOS`) offers Take a photo (file input with `capture`) or Choose from gallery (multi-select). The Android
   shell needs the CAMERA permission in `mobile/android/.../AndroidManifest.xml` (declared; needs a rebuilt APK to take effect).
 - Train "Log stats from watch" (`stats-form.js`, `setStatsMode`): with AI on, new entries first ask screenshot / manual / estimate; editing
   saved stats and AI-off keep the classic form. Prompt modes: `buildStatsAiPrompt(desc, summary, 'screenshot'|'estimate')`.

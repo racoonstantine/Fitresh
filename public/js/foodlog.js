@@ -405,7 +405,8 @@
     if(desc) lines.push('Description: ' + desc);
     lines.push('');
     if(hasPhoto){
-      lines.push("A photo of this meal is attached. Treat the description above as the user's own account of what is in the photo: match each described item to what you can see, use the photo to judge portion sizes and to spot items the description left out, and where the description states an explicit quantity, trust it over your visual guess. If the photo clearly does not match the description, go with the description.");
+      const n = Number(hasPhoto) > 1 ? Number(hasPhoto) : 1;
+      lines.push(n > 1 ? n + " photos of this meal are attached. They may show different items, different angles of the same food, or a nutrition label. Treat the description above as the user's own account of what is in the photos: match each described item to what you can see across all of them, list each distinct item only once, use the photos to judge portion sizes and to spot items the description left out, and where the description states an explicit quantity, trust it over your visual guess. If the photos clearly do not match the description, go with the description." : "A photo of this meal is attached. Treat the description above as the user's own account of what is in the photo: match each described item to what you can see, use the photo to judge portion sizes and to spot items the description left out, and where the description states an explicit quantity, trust it over your visual guess. If the photo clearly does not match the description, go with the description.");
       lines.push('');
     } else if(!name || !amount){
       lines.push("If you have a photo of this food, please attach it to this chat -- it helps a lot, especially since the food name and/or weight weren't given.");

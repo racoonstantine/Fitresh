@@ -372,9 +372,9 @@ const AI_REVIEW_FIELDS = [
   ['pace', 'Avg pace (per km)', false, null, null],
   ['elevation', 'Elevation gain (m)', true, 0, 20000]
 ];
-function buildSessionAiPrompt(desc, exerciseSummary){
+function buildSessionAiPrompt(desc, exerciseSummary, mode, photoCount){
   // Same stats prompt the watch-stats form uses, plus a short workout name.
-  return buildStatsAiPrompt(desc, exerciseSummary).replace(
+  return buildStatsAiPrompt(desc, exerciseSummary, mode, photoCount).replace(
     'Distance: <km, e.g. 5.2>', 'Workout: <short name, e.g. Evening jog>\nDistance: <km, e.g. 5.2>');
 }
 function resetAiSessionFlow(){
@@ -398,11 +398,12 @@ function generateAiSessionPrompt(){
   document.getElementById('aiSessReplyIn').focus();
 }
 aiNativeRegister('session', {
+  photoNote: '',
   buildPrompt(hasPhoto){
     const desc = document.getElementById('aiSessDesc').value.trim();
     const pending = manualExPending.map(ex => exerciseSummaryText(ex)).join(', ');
     if(!desc && !pending && !hasPhoto) return null;
-    return buildSessionAiPrompt(desc, pending);
+    return buildSessionAiPrompt(desc, pending, hasPhoto ? 'screenshot' : 'estimate', hasPhoto);
   },
   onReply(prompt, reply){
     document.getElementById('aiSessPromptOut').value = prompt;

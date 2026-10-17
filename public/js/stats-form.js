@@ -209,12 +209,12 @@ document.querySelector('[data-ai-toggle="stats"]').addEventListener('click', fun
   detail.style.display = open ? 'block' : 'none';
   this.classList.toggle('expanded', open);
 });
-function buildStatsAiPrompt(desc, workoutSummary, mode){
+function buildStatsAiPrompt(desc, workoutSummary, mode, photoCount){
   const lines = [];
   lines.push('You are a workout stats estimation assistant. Estimate the stats for the activity described below.');
   lines.push('');
   if(mode === 'screenshot'){
-    lines.push('The attached image is a screenshot or photo from a sports watch or fitness app showing the summary of this workout. Read the values it displays exactly as shown (converting to the units requested below) instead of estimating them. Leave a line blank if the image does not show that value, and do not guess it. If the image is not a workout summary at all, leave every line blank.');
+    lines.push(photoCount > 1 ? 'The attached images are screenshots or photos from a sports watch or fitness app, all showing different screens of this SAME workout (for example the summary, heart-rate and zone screens). Combine them into one set of values. Read the values they display exactly as shown (converting to the units requested below) instead of estimating them. Leave a line blank if none of the images shows that value, and do not guess it. If the images are not a workout summary at all, leave every line blank.' : 'The attached image is a screenshot or photo from a sports watch or fitness app showing the summary of this workout. Read the values it displays exactly as shown (converting to the units requested below) instead of estimating them. Leave a line blank if the image does not show that value, and do not guess it. If the image is not a workout summary at all, leave every line blank.');
     lines.push('');
   }
   if(workoutSummary) lines.push('Workout logged in the app: ' + workoutSummary);
@@ -259,14 +259,14 @@ aiNativeRegister('stats', {
     const summary = currentWorkoutSummaryForStats();
     if(statsAiMode === 'screenshot'){
       if(!hasPhoto){ say('Add your watch screenshot first.'); return null; }
-      return buildStatsAiPrompt(desc, summary, 'screenshot');
+      return buildStatsAiPrompt(desc, summary, 'screenshot', hasPhoto);
     }
     if(statsAiMode === 'estimate'){
       if(!desc && !summary){ say('Describe your workout first.'); return null; }
       return buildStatsAiPrompt(desc, summary, 'estimate');
     }
     if(!desc && !summary && !hasPhoto) return null;
-    return buildStatsAiPrompt(desc, summary, hasPhoto ? 'screenshot' : 'estimate');
+    return buildStatsAiPrompt(desc, summary, hasPhoto ? 'screenshot' : 'estimate', hasPhoto);
   },
   onReply(prompt, reply){
     document.getElementById('aiStatsPromptOut').value = prompt;

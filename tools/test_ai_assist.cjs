@@ -44,6 +44,8 @@ assert.ok(!p1.toUpperCase().includes('JSON'), 'prompt must not mention JSON per 
 
 const p2 = buildFoodAiPrompt('', '', '');
 assert.ok(p2.includes('attach it to this chat'), 'SHOULD ask for a photo when name+amount missing');
+const p4 = buildFoodAiPrompt('', '', 'rice and egg', 3);
+assert.ok(p4.includes('3 photos of this meal are attached') && p4.includes('each distinct item only once') && !p4.includes('attach it to this chat'), 'several photos: one meal across all of them');
 const p3 = buildFoodAiPrompt('', '', '1 cup rice and a fried egg', true);
 assert.ok(p3.includes('photo of this meal is attached') && p3.includes('trust it over your visual guess'), 'with a photo the prompt ties the description to it');
 assert.ok(!p3.includes('attach it to this chat'), 'with a photo it does not ask the user to attach one');
@@ -129,6 +131,9 @@ assert.ok(sp3.includes('Workout logged in the app: Strength A: Goblet Squat, Pus
 const shot = buildStatsAiPrompt('', '', 'screenshot');
 assert.ok(shot.includes('Read the values it displays exactly') && shot.includes('Training stress:') && shot.includes('Zone anaerobic:'), 'screenshot prompt reads values and asks for the extra watch fields');
 assert.ok(!shot.includes('please attach it to this chat') && !shot.includes('ASK ME'), 'screenshot prompt does not ask the user to attach or answer anything');
+const shots = buildStatsAiPrompt('', '', 'screenshot', 3);
+assert.ok(shots.includes('SAME workout') && shots.includes('Combine them'), 'several screenshots are one workout');
+assert.ok(!shot.includes('SAME workout'), 'a single screenshot keeps the single wording');
 const est = buildStatsAiPrompt('30 min jog', '', 'estimate');
 assert.ok(est.includes('cannot ask follow-up questions') && !est.includes('ASK ME') && !est.includes('Training stress:'), 'estimate mode: no questions, no watch-only fields');
 assert.ok(!sp1.includes('Training stress:'), 'copy/paste prompt is unchanged');

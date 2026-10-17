@@ -6,9 +6,11 @@ declare(strict_types=1);
 // Photos only ever exist in memory for the length of one request; nothing here writes them anywhere.
 
 const AI_MAX_PROMPT_CHARS = 8000;
-const AI_MAX_IMAGE_BYTES = 2500000; // decoded; the app sends a ~1024px JPEG (about 100-250 KB)
+const AI_MAX_IMAGES = 5;
+const AI_MAX_IMAGE_BYTES = 2500000; // each, decoded; the app sends ~1024px JPEGs (about 100-250 KB)
 
-// Returns [prompt, imageDataUrl|null] or throws InvalidArgumentException with a user-safe message.
+// Returns [prompt, list of image data URLs (0 to 5)] or throws InvalidArgumentException with a user-safe message.
+// Accepts 'images' (array) or the older single 'image'.
 function ai_validate_request(array $input): array
 {
     $prompt = trim((string)($input['prompt'] ?? ''));
@@ -18,10 +20,26 @@ function ai_validate_request(array $input): array
     if (strlen($prompt) > AI_MAX_PROMPT_CHARS) {
         throw new InvalidArgumentException('That description is too long.');
     }
-    $image = $input['image'] ?? null;
-    if ($image === null || $image === '') {
-        return [$prompt, null];
+    $raw = $input['images'] ?? [];
+    if (!is_array($raw)) {
+        throw new InvalidArgumentException('Those photos could not be read. Try different ones.');
     }
+    if (!empty($input['image'])) {
+        $raw[] = $input['image'];
+    }
+    $raw = array_values(array_filter($raw, fn($v) => $v !== null && $v !== ''));
+    if (count($raw) > AI_MAX_IMAGES) {
+        throw new InvalidArgumentException('Up to ' . AI_MAX_IMAGES . ' photos at a time.');
+    }
+    $images = [];
+    foreach ($raw as $image) {
+        $images[] = ai_validate_image($image);
+    }
+    return [$prompt, $images];
+}
+
+function ai_validate_image($image): string
+{
     if (!is_string($image) || !preg_match('#^data:(image/(?:jpeg|png|webp));base64,([A-Za-z0-9+/=]+)$#', $image, $m)) {
         throw new InvalidArgumentException('That photo could not be read. Try a different one.');
     }
@@ -38,16 +56,16 @@ function ai_validate_request(array $input): array
     if (strncmp($bytes, $magic[$m[1]], strlen($magic[$m[1]])) !== 0) {
         throw new InvalidArgumentException('That photo could not be read. Try a different one.');
     }
-    return [$prompt, $image];
+    return $image;
 }
 
 // $kind 'review' is Resh's progress review: text only, warmer voice, a little more room to write.
-function ai_build_openai_body(string $prompt, ?string $imageDataUrl, string $model, string $kind = 'estimate'): array
+function ai_build_openai_body(string $prompt, array $imageDataUrls, string $model, string $kind = 'estimate'): array
 {
     $review = $kind === 'review';
     $content = [['type' => 'text', 'text' => $prompt]];
-    if ($imageDataUrl !== null) {
-        $content[] = ['type' => 'image_url', 'image_url' => ['url' => $imageDataUrl, 'detail' => 'auto']];
+    foreach ($imageDataUrls as $url) {
+        $content[] = ['type' => 'image_url', 'image_url' => ['url' => $url, 'detail' => 'auto']];
     }
     return [
         'model' => $model,

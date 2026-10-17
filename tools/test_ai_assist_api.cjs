@@ -52,9 +52,9 @@ async function login(base, password) {
     assert.strictEqual(r.status, 503);
   } finally { h.stop(); }
 
-  // 2) Configured with a fake OpenAI and a daily limit of 3.
+  // 2) Configured with a fake OpenAI and a daily limit of 4.
   process.env.HARNESS_OPENAI_BASE_URL = fakeBase;
-  process.env.HARNESS_AI_DAILY_LIMIT = '3';
+  process.env.HARNESS_AI_DAILY_LIMIT = '4';
   h = await start({ port: 8230 + Math.floor(Math.random() * 40) });
   try {
     const cookie = await login(h.url, h.password);
@@ -84,6 +84,18 @@ async function login(base, password) {
     const second = await ask({ prompt: 'text only' });
     assert.strictEqual(second.status, 200, 'a failed call did not use up the allowance');
     assert.strictEqual(seen[seen.length - 1].body.messages[1].content.length, 1, 'no image part without a photo');
+
+    // Several photos in one request (up to 5), each checked on its own.
+    const jpegs = n => Array.from({length: n}, (_, i) => 'data:image/jpeg;base64,' + Buffer.concat([Buffer.from([0xff, 0xd8, 0xff, 0xe0]), Buffer.alloc(8 + i)]).toString('base64'));
+    assert.strictEqual((await ask({ prompt: 'six', images: jpegs(6) })).status, 400, 'more than 5 photos is refused');
+    assert.strictEqual((await ask({ prompt: 'mixed', images: [...jpegs(2), FAKE_PNG_AS_JPEG] })).status, 400, 'one bad photo refuses the request');
+    const before = seen.length;
+    const multi = await ask({ prompt: 'three meals', images: jpegs(3) });
+    assert.strictEqual(multi.status, 200);
+    assert.strictEqual(seen.length, before + 1);
+    const mparts = seen[seen.length - 1].body.messages[1].content;
+    assert.strictEqual(mparts.length, 4, 'text plus three images');
+    assert.strictEqual(JSON.stringify(mparts.slice(1).map(p => p.image_url.url)), JSON.stringify(jpegs(3)), 'all photos forwarded in order');
 
     // Resh's progress review: its own persona, warmer settings, text only (a photo is ignored).
     const review = await ask({ prompt: 'Review my week', kind: 'review', image: JPEG });

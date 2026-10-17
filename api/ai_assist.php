@@ -34,10 +34,10 @@ if ($apiKey === '') {
 $input = json_decode(file_get_contents('php://input'), true) ?? [];
 $kind = ($input['kind'] ?? '') === 'review' ? 'review' : 'estimate';
 if ($kind === 'review') {
-    unset($input['image']); // the progress review is text only
+    unset($input['image'], $input['images']); // the progress review is text only
 }
 try {
-    [$prompt, $image] = ai_validate_request($input);
+    [$prompt, $images] = ai_validate_request($input);
 } catch (InvalidArgumentException $e) {
     json_respond(['error' => $e->getMessage()], 400);
 }
@@ -53,9 +53,9 @@ if (rate_limit_blocked('ai_global', 'all', $global, 86400)) {
 }
 rate_limit_or_429('ai_burst', $userId, 6, 60);
 
-$body = ai_build_openai_body($prompt, $image, (string)($config['openai_model'] ?? 'gpt-4o-mini'), $kind);
+$body = ai_build_openai_body($prompt, $images, (string)($config['openai_model'] ?? 'gpt-4o-mini'), $kind);
 [$status, $response] = ai_openai_transport($apiKey, $body, (string)($config['openai_base_url'] ?? 'https://api.openai.com/v1'));
-unset($image, $body);
+unset($images, $body);
 
 if ($status !== 200 || !is_array($response)) {
     error_log('ai_assist: OpenAI status ' . $status);

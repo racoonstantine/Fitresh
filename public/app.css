@@ -936,3 +936,12 @@
   .resh-cheer{margin-top:12px;font-weight:600;color:var(--forest-dark);}
   .resh-when{font-size:11px;color:var(--ink-soft);margin:6px 2px 0;}
   .resh-privacy{font-size:11px;color:var(--ink-soft);margin-top:10px;}
+
+  /* Up to 5 photos: thumbnails with a small remove button */
+  .ai-photo-chosen{flex-wrap:wrap;gap:10px;}
+  .ai-photo-thumb{position:relative;display:inline-block;}
+  .ai-photo-thumb img{width:52px;height:52px;object-fit:cover;border-radius:8px;border:1px solid var(--line);display:block;}
+  .ai-photo-thumb button{position:absolute;top:-7px;right:-7px;margin:0;width:20px;height:20px;padding:0;border:none;border-radius:50%;background:var(--ink);color:var(--paper);font-size:10px;line-height:20px;cursor:pointer;}
+  .ai-photo-msg{font-size:12px;color:var(--ochre);margin-top:6px;}
+  .ai-photo-msg[hidden]{display:none;}
+  .ai-photo-open:disabled{opacity:.6;cursor:default;}
