@@ -500,6 +500,13 @@
             <div class="note" style="margin-bottom:8px;">Describe the workout you did — even just "30 min easy jog" is fine. We'll build a prompt you can paste into ChatGPT, Gemini, or any AI chat to get stat estimates back.</div>
             <label style="font-size:11px;color:var(--ink-soft);">Activity description</label>
             <textarea id="aiStatsDesc" rows="2" placeholder="e.g. 30 minute easy jog outdoors, felt moderate effort" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;margin-bottom:8px;resize:vertical;"></textarea>
+            <div data-ai-native class="ai-native">
+        <label class="ai-native-label">📷 Photo (optional) — a meal, a nutrition label or a watch screenshot</label>
+        <input type="file" accept="image/*" data-ai-photo class="ai-native-file">
+        <button type="button" class="timer-btn start" data-ai-ask="stats" style="width:100%;margin-top:8px;">✨ Ask AI now</button>
+        <div class="note" data-ai-status style="display:none;color:#B4472A;margin-top:6px;"></div>
+        <div class="note" style="margin-top:6px;">The photo goes to OpenAI for this one estimate and is not stored by Fitresh. Or use the copy and paste steps below.</div>
+      </div>
             <button type="button" id="aiStatsGenerateBtn" class="timer-btn start" style="width:100%;">Generate prompt</button>
 
             <div id="aiStatsPromptWrap" style="display:none;margin-top:10px;">
@@ -932,6 +939,13 @@
       <input type="text" id="aiFoodAmount" placeholder="e.g. 250g, 1 cup, 2 pieces" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;margin-bottom:10px;">
       <label style="font-size:11px;color:var(--ink-soft);">Description — list multiple items if you had more than one (optional)</label>
       <textarea id="aiFoodDesc" rows="2" placeholder="e.g. 1 cup rice, chicken adobo (~200g), and a fried egg" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;margin-bottom:10px;resize:vertical;"></textarea>
+      <div data-ai-native class="ai-native">
+        <label class="ai-native-label">📷 Photo (optional) — a meal, a nutrition label or a watch screenshot</label>
+        <input type="file" accept="image/*" data-ai-photo class="ai-native-file">
+        <button type="button" class="timer-btn start" data-ai-ask="food" style="width:100%;margin-top:8px;">✨ Ask AI now</button>
+        <div class="note" data-ai-status style="display:none;color:#B4472A;margin-top:6px;"></div>
+        <div class="note" style="margin-top:6px;">The photo goes to OpenAI for this one estimate and is not stored by Fitresh. Or use the copy and paste steps below.</div>
+      </div>
       <button type="button" id="aiFoodGenerateBtn" class="timer-btn start" style="width:100%;">Generate prompt</button>
 
       <div id="aiFoodPromptWrap" style="display:none;margin-top:12px;">
@@ -1250,6 +1264,7 @@
 <script src="js/core.js"></script>
 <script src="js/progress.js"></script>
 <script src="js/today.js"></script>
+<script src="js/ai-native.js"></script>
 <script src="js/food-icons.js"></script>
 <script src="js/food-search.js"></script>
 <script src="js/nutrition.js"></script>

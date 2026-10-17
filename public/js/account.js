@@ -205,6 +205,7 @@ async function showAppFor(user){
   if(adminBtn) adminBtn.style.display = (user.email || '').toLowerCase() === 'sherwinllona@gmail.com' ? '' : 'none';
   await window.storage.restorePending();
   window.outbox.flush();
+  refreshAiNative();
   await startApp();
   if(!userProfile){
     showOnboarding();

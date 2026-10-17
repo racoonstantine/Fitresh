@@ -451,6 +451,22 @@
   document.getElementById('aiFoodCopyBtn').addEventListener('click', (e)=>{
     copyTextToClipboard(document.getElementById('aiFoodPromptOut').value, e.currentTarget);
   });
+  aiNativeRegister('food', {
+    buildPrompt(hasPhoto){
+      const name = document.getElementById('aiFoodName').value.trim();
+      const amount = document.getElementById('aiFoodAmount').value.trim();
+      const desc = document.getElementById('aiFoodDesc').value.trim();
+      if(!name && !amount && !desc && !hasPhoto) return null;
+      const prompt = buildFoodAiPrompt(name, amount, desc);
+      return hasPhoto ? prompt.replace(/If you have a photo[^\n]*/, 'A photo of this food is attached; use it.') : prompt;
+    },
+    onReply(prompt, reply){
+      document.getElementById('aiFoodPromptOut').value = prompt;
+      document.getElementById('aiFoodReplyIn').value = reply;
+      document.getElementById('aiFoodPromptWrap').style.display = 'block';
+      document.getElementById('aiFoodParseBtn').click();
+    }
+  });
   function amountRawToAmountUnit(amountRaw){
     const m = (amountRaw || '').match(/^(\d[\d,]*(?:\.\d+)?|\.\d+)\s*(g|gram|grams|gm|ml|millilit(?:er|re)s?)?/i);
     if(!m) return { amount: 100, unit: 'serving' };

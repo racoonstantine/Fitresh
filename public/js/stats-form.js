@@ -208,6 +208,20 @@ document.getElementById('aiStatsGenerateBtn').addEventListener('click', ()=>{
   document.getElementById('aiStatsPromptOut').value = buildStatsAiPrompt(desc, currentWorkoutSummaryForStats());
   document.getElementById('aiStatsPromptWrap').style.display = 'block';
 });
+aiNativeRegister('stats', {
+  buildPrompt(hasPhoto){
+    const desc = document.getElementById('aiStatsDesc').value.trim();
+    const summary = currentWorkoutSummaryForStats();
+    if(!desc && !summary && !hasPhoto) return null;
+    return buildStatsAiPrompt(desc, summary);
+  },
+  onReply(prompt, reply){
+    document.getElementById('aiStatsPromptOut').value = prompt;
+    document.getElementById('aiStatsReplyIn').value = reply;
+    document.getElementById('aiStatsPromptWrap').style.display = 'block';
+    document.getElementById('aiStatsParseBtn').click();
+  }
+});
 document.getElementById('aiStatsCopyBtn').addEventListener('click', (e)=>{
   copyTextToClipboard(document.getElementById('aiStatsPromptOut').value, e.currentTarget);
 });

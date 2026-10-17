@@ -120,6 +120,13 @@ function logSessionPanelHtml(){
         <label class="lsp-label" for="aiSessDesc">What did you do?</label>
         <textarea id="aiSessDesc" rows="3" placeholder="e.g. Strength: squats 3×10 @ 20 kg, rows 3×12 @ 15 kg. 45 min total. Felt strong, knees a bit tight." style="width:100%;${LSP_AREA_STYLE}margin-top:2px;resize:vertical;"></textarea>
         <div class="ai-tips">💡 Include the type of workout, sets · reps · weight, duration, and how it felt. For a better estimate, attach a screenshot of your sports-watch summary to your AI chat.</div>
+        <div data-ai-native class="ai-native">
+        <label class="ai-native-label">📷 Photo (optional) — a meal, a nutrition label or a watch screenshot</label>
+        <input type="file" accept="image/*" data-ai-photo class="ai-native-file">
+        <button type="button" class="timer-btn start" data-ai-ask="session" style="width:100%;margin-top:8px;">✨ Ask AI now</button>
+        <div class="note" data-ai-status style="display:none;color:#B4472A;margin-top:6px;"></div>
+        <div class="note" style="margin-top:6px;">The photo goes to OpenAI for this one estimate and is not stored by Fitresh. Or use the copy and paste steps below.</div>
+      </div>
         <button class="timer-btn start" id="aiSessGenerateBtn" type="button" style="width:100%;">✨ Generate prompt</button>
 
         <div id="aiSessPromptWrap" style="display:none;margin-top:12px;">
@@ -385,6 +392,20 @@ function generateAiSessionPrompt(){
   document.getElementById('aiSessCopied').textContent = '📋 Prompt copied — paste it into your AI chat, then paste its reply below.';
   document.getElementById('aiSessReplyIn').focus();
 }
+aiNativeRegister('session', {
+  buildPrompt(hasPhoto){
+    const desc = document.getElementById('aiSessDesc').value.trim();
+    const pending = manualExPending.map(ex => exerciseSummaryText(ex)).join(', ');
+    if(!desc && !pending && !hasPhoto) return null;
+    return buildSessionAiPrompt(desc, pending);
+  },
+  onReply(prompt, reply){
+    document.getElementById('aiSessPromptOut').value = prompt;
+    document.getElementById('aiSessReplyIn').value = reply;
+    document.getElementById('aiSessPromptWrap').style.display = 'block';
+    parseAiSessionReply();
+  }
+});
 function parseAiSessionReply(){
   const errEl = document.getElementById('aiSessParseError');
   errEl.style.display = 'none';

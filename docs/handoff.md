@@ -50,6 +50,13 @@ python tools/test_cache_bust.py
 `tools/app_source.cjs` rebuilds the app as one script so tests can slice functions out of it by
 marker strings — if you move or rename a function, update the tests that slice on it.
 
+## Native AI Assist (optional, off until a key is set)
+`api/ai_assist.php` sends the same prompts the copy/paste flow builds (plus an optional photo) to OpenAI and returns the
+reply; `public/js/ai-native.js` shows an "Ask AI now" block in the food, watch-stats and Log-a-Session panels only when
+`GET api/ai_assist.php` says `enabled`. Needs `openai_api_key` in the server's `config.local.php` (options in
+`config.example.php`: model, per-user and site-wide daily caps). Photos are shrunk in the browser, forwarded in memory
+and never stored. Test: `node tools/test_ai_assist_api.cjs` (fake OpenAI via the harness).
+
 ## Deploy
 The workflow runs every test above (plus the smoke test) on every push to any branch; only `main` deploys, and only if they pass.
 `.github/scripts/sftp_deploy.py` uploads `public/` and `api/` (never `config.local.php`). It stamps

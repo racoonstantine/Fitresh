@@ -58,6 +58,12 @@ $config = [
     'admin_email' => 'admin@example.com',
     'app_host' => '127.0.0.1',
 ];
+// Optional fake OpenAI for testing AI Assist (see tools/test_ai_assist_api.cjs).
+if (getenv('HARNESS_OPENAI_BASE_URL')) {
+    $config['openai_api_key'] = 'sk-test-harness';
+    $config['openai_base_url'] = getenv('HARNESS_OPENAI_BASE_URL');
+    $config['ai_daily_limit'] = (int)(getenv('HARNESS_AI_DAILY_LIMIT') ?: 40);
+}
 file_put_contents("$tmp/api/config.php", '<?php return ' . var_export($config, true) . ";\n");
 
 // ---- schema ---------------------------------------------------------------

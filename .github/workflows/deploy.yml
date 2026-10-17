@@ -50,6 +50,9 @@ jobs:
       - name: API smoke test (real PHP on SQLite)
         run: node tools/dev_harness/smoke.cjs
 
+      - name: AI Assist API test (fake OpenAI)
+        run: node tools/test_ai_assist_api.cjs
+
   deploy:
     needs: test
     if: github.ref == 'refs/heads/main'

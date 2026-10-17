@@ -879,3 +879,9 @@
   #syncBanner.sync-ok{background:#0D3B2E;color:#A7F3D0;padding-right:16px;}
   #syncBanner.sync-offline{background:#3A3F47;color:#E8ECF1;padding-right:16px;}
   #syncBanner .sync-retry{border:none;border-radius:999px;padding:6px 12px;background:#FFE9E2;color:#7A2E1B;font-weight:700;font-size:12px;cursor:pointer;flex-shrink:0;}
+
+  /* Native AI Assist: only shown once the server reports AI is switched on (js/ai-native.js). */
+  .ai-native{display:none;margin-bottom:12px;padding:12px;border:1px dashed var(--line);border-radius:10px;}
+  html[data-ai-native] .ai-native{display:block;}
+  .ai-native-label{display:block;font-size:11px;color:var(--ink-soft);margin-bottom:4px;}
+  .ai-native-file{width:100%;font-size:12.5px;}
