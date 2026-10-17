@@ -54,6 +54,12 @@ async function aiNativeAsk(prompt, file){
 
 // (guarded: tools/test_*.cjs run slices of the app source under a stub document)
 if(typeof document !== 'undefined' && typeof document.addEventListener === 'function') document.addEventListener('click', async (e) => {
+  const toggle = e.target.closest('[data-ai-backup-toggle]');
+  if(toggle){
+    const open = toggle.closest('.ai-backup').classList.toggle('open');
+    toggle.textContent = open ? 'Hide copy & paste' : 'Use copy & paste instead';
+    return;
+  }
   const btn = e.target.closest('[data-ai-ask]');
   if(!btn) return;
   const block = btn.closest('[data-ai-native]');

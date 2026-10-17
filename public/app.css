@@ -885,3 +885,12 @@
   html[data-ai-native] .ai-native{display:block;}
   .ai-native-label{display:block;font-size:11px;color:var(--ink-soft);margin-bottom:4px;}
   .ai-native-file{width:100%;font-size:12.5px;}
+
+  /* Copy/paste backup under Ask AI: tucked away when AI is on, shown as normal when it is off. */
+  .ai-backup-toggle{display:none;margin:8px auto 0;padding:4px;background:none;border:none;color:var(--ink-soft);font-size:12px;text-decoration:underline;cursor:pointer;}
+  html[data-ai-native] .ai-backup-toggle{display:block;}
+  html[data-ai-native] .ai-backup:not(.open) .ai-backup-body{display:none;}
+  .ai-backup.open .ai-backup-body{margin-top:8px;}
+  .lm-item-adjust{display:flex;align-items:center;gap:6px;margin:4px 0;}
+  .lm-adjust-amount{width:84px;padding:5px 7px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:13px;color:var(--ink);}
+  .lm-adjust-unit{padding:5px 4px;border:1px solid var(--line);border-radius:5px;background:var(--paper);font-size:13px;color:var(--ink);}

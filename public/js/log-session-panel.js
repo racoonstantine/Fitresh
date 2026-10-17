@@ -127,6 +127,10 @@ function logSessionPanelHtml(){
         <div class="note" data-ai-status style="display:none;color:#B4472A;margin-top:6px;"></div>
         <div class="note" style="margin-top:6px;">The photo goes to OpenAI for this one estimate and is not stored by Fitresh. Or use the copy and paste steps below.</div>
       </div>
+        <div id="aiSessParseError" class="note" style="display:none;color:#B4472A;margin-top:6px;"></div>
+<div class="ai-backup">
+<button type="button" class="ai-backup-toggle" data-ai-backup-toggle>Use copy &amp; paste instead</button>
+<div class="ai-backup-body">
         <button class="timer-btn start" id="aiSessGenerateBtn" type="button" style="width:100%;">✨ Generate prompt</button>
 
         <div id="aiSessPromptWrap" style="display:none;margin-top:12px;">
@@ -137,9 +141,10 @@ function logSessionPanelHtml(){
 
           <label class="lsp-label" for="aiSessReplyIn" style="margin-top:12px;display:block;">Paste the AI's reply here</label>
           <textarea id="aiSessReplyIn" rows="6" placeholder="Paste the reply from ChatGPT / Gemini / etc. here" style="width:100%;${LSP_AREA_STYLE}margin-top:2px;resize:vertical;"></textarea>
-          <div id="aiSessParseError" class="note" style="display:none;color:#B4472A;margin-top:6px;"></div>
           <button type="button" id="aiSessParseBtn" class="timer-btn start" style="width:100%;margin-top:8px;">Parse &amp; review</button>
         </div>
+</div>
+</div>
 
         <div id="aiSessReview" style="display:none;margin-top:14px;">
           <div class="lsp-title" style="margin-bottom:6px;">Review before saving</div>

@@ -165,7 +165,7 @@
     // AI Assist tab: clear the whole round trip (inputs, generated prompt,
     // pasted reply, any error/success note) so a previous session's prompt
     // or parsed reply never lingers into a fresh "Log a meal" open.
-    ['aiFoodName','aiFoodAmount','aiFoodDesc','aiFoodPromptOut','aiFoodReplyIn'].forEach(id => document.getElementById(id).value = '');
+    ['aiFoodDesc','aiFoodPromptOut','aiFoodReplyIn'].forEach(id => document.getElementById(id).value = '');
     document.getElementById('aiFoodPromptWrap').style.display = 'none';
     document.getElementById('aiFoodParseError').style.display = 'none';
     document.getElementById('aiFoodParseSuccess').style.display = 'none';
@@ -396,7 +396,7 @@
   // pastes into their own AI chat (ChatGPT/Gemini/etc.), then parse the AI's
   // plain-text reply back out and autofill the existing Manual Log fields
   // above for the user to review before saving through the normal pipeline.
-  function buildFoodAiPrompt(name, amount, desc){
+  function buildFoodAiPrompt(name, amount, desc, hasPhoto){
     const lines = [];
     lines.push('You are a nutrition estimation assistant. Estimate the nutrition facts for the meal described below.');
     lines.push('');
@@ -404,7 +404,10 @@
     lines.push('Weight/quantity: ' + (amount || '(not specified -- estimate a reasonable serving size)'));
     if(desc) lines.push('Description: ' + desc);
     lines.push('');
-    if(!name || !amount){
+    if(hasPhoto){
+      lines.push("A photo of this meal is attached. Treat the description above as the user's own account of what is in the photo: match each described item to what you can see, use the photo to judge portion sizes and to spot items the description left out, and where the description states an explicit quantity, trust it over your visual guess. If the photo clearly does not match the description, go with the description.");
+      lines.push('');
+    } else if(!name || !amount){
       lines.push("If you have a photo of this food, please attach it to this chat -- it helps a lot, especially since the food name and/or weight weren't given.");
       lines.push('');
     }
@@ -442,10 +445,8 @@
     return blocks.map(block => parseLabeledReply(block, ['Food','Amount','Calories','Protein','Fat','Carbs','Sodium','Fiber','Sugar']));
   }
   document.getElementById('aiFoodGenerateBtn').addEventListener('click', ()=>{
-    const name = document.getElementById('aiFoodName').value.trim();
-    const amount = document.getElementById('aiFoodAmount').value.trim();
     const desc = document.getElementById('aiFoodDesc').value.trim();
-    document.getElementById('aiFoodPromptOut').value = buildFoodAiPrompt(name, amount, desc);
+    document.getElementById('aiFoodPromptOut').value = buildFoodAiPrompt('', '', desc);
     document.getElementById('aiFoodPromptWrap').style.display = 'block';
   });
   document.getElementById('aiFoodCopyBtn').addEventListener('click', (e)=>{
@@ -453,12 +454,9 @@
   });
   aiNativeRegister('food', {
     buildPrompt(hasPhoto){
-      const name = document.getElementById('aiFoodName').value.trim();
-      const amount = document.getElementById('aiFoodAmount').value.trim();
       const desc = document.getElementById('aiFoodDesc').value.trim();
-      if(!name && !amount && !desc && !hasPhoto) return null;
-      const prompt = buildFoodAiPrompt(name, amount, desc);
-      return hasPhoto ? prompt.replace(/If you have a photo[^\n]*/, 'A photo of this food is attached; use it.') : prompt;
+      if(!desc && !hasPhoto) return null;
+      return buildFoodAiPrompt('', '', desc, hasPhoto);
     },
     onReply(prompt, reply){
       document.getElementById('aiFoodPromptOut').value = prompt;
@@ -493,7 +491,6 @@
       errEl.style.display = 'block';
       return;
     }
-    const typedName = document.getElementById('aiFoodName').value.trim();
     let added = 0, skipped = 0;
     items.forEach((fields, idx) => {
       const calories = firstNumber(fields.Calories);
@@ -506,11 +503,7 @@
       const fiber = firstNumber(fields.Fiber);
       const sugar = firstNumber(fields.Sugar);
       lmItems.push({
-        // Only the first item falls back to the user's own typed name --
-        // later items always use the AI's own name for that block, since
-        // reusing the typed name for every item would mislabel a multi-item
-        // reply (e.g. rice + adobo would both end up called "adobo").
-        name: (idx === 0 && typedName) || fields.Food || 'AI-estimated food',
+        name: fields.Food || 'AI-estimated food',
         amount, unit,
         kcal: calories,
         protein: isNaN(protein) ? 0 : protein,
@@ -535,6 +528,45 @@
     lmSetMode('manual');
   });
 
+  // AI Assist / My Entry items carry their own numbers, so their amount can be changed here and the
+  // macros follow in proportion. Scaling always starts from the numbers as first entered (it.base),
+  // so editing back and forth never drifts. Amounts are stored in the item's own unit; grams can be
+  // typed as ounces (display only).
+  const OZ_IN_G = 28.349523125;
+  const LM_SCALED = [['kcal', 0], ['protein', 1], ['fat', 1], ['carbs', 1], ['sodium', 0], ['fiber', 1], ['sugar', 1]];
+  function lmRound(n, places){ const f = Math.pow(10, places); return Math.round(n * f) / f; }
+  function lmAdjustHtml(it, i){
+    const inOz = it.unit === 'g' && it.showUnit === 'oz';
+    const shown = inOz ? lmRound(it.amount / OZ_IN_G, 2) : lmRound(it.amount, 1);
+    const unitEl = it.unit === 'g'
+      ? `<select class="lm-adjust-unit" data-adjust-unit-idx="${i}" aria-label="Unit"><option value="g"${inOz ? '' : ' selected'}>g</option><option value="oz"${inOz ? ' selected' : ''}>oz</option></select>`
+      : `<span class="lm-item-sub">${foodSearchEscape(it.unit)}</span>`;
+    return `<div class="lm-item-adjust"><input type="text" inputmode="decimal" class="lm-adjust-amount" data-adjust-idx="${i}" value="${shown}" aria-label="Amount of ${foodSearchEscape(it.name)}">${unitEl}</div>`;
+  }
+  function lmSetItemAmount(it, newAmount){
+    if(!it.base) it.base = {amount: it.amount, kcal: it.kcal, protein: it.protein, fat: it.fat, carbs: it.carbs, sodium: it.sodium, fiber: it.fiber, sugar: it.sugar};
+    const f = newAmount / it.base.amount;
+    LM_SCALED.forEach(([key, places]) => {
+      const v = it.base[key];
+      it[key] = (v === null || v === undefined) ? v : lmRound(v * f, places);
+    });
+    it.amount = lmRound(newAmount, 1);
+  }
+  document.getElementById('lmMealItems').addEventListener('change', (e)=>{
+    const amountInput = e.target.closest('.lm-adjust-amount');
+    const unitSelect = e.target.closest('.lm-adjust-unit');
+    if(unitSelect){
+      lmItems[parseInt(unitSelect.dataset.adjustUnitIdx, 10)].showUnit = unitSelect.value;
+      renderLmMealItems();
+      return;
+    }
+    if(!amountInput) return;
+    const it = lmItems[parseInt(amountInput.dataset.adjustIdx, 10)];
+    const typed = parseNum(amountInput.value);
+    const grams = it.unit === 'g' && it.showUnit === 'oz' ? typed * OZ_IN_G : typed;
+    if(it && typed > 0 && grams <= 20000) lmSetItemAmount(it, grams);
+    renderLmMealItems();
+  });
   function renderLmMealItems(){
     const el = document.getElementById('lmMealItems');
     const totalEl = document.getElementById('lmMealTotal');
@@ -549,6 +581,7 @@
       <div class="lm-item-row">
         <div>
           <div class="lm-item-name">${foodSearchEscape(it.name)}${foodOriginTagHtml(it.origin || (it.payload && it.payload.source))}</div>
+          ${it.source === 'manual' ? lmAdjustHtml(it, i) : ''}
           <div class="lm-item-sub">${it.amount}${it.unit} · ${fmtNum(it.kcal)} kcal · ${it.protein}g P / ${it.fat}g F / ${it.carbs}g C</div>
           ${(it.sodium || it.fiber || it.sugar) ? `<div class="lm-item-sub">${it.sodium ? Math.round(it.sodium) + 'mg sodium' : ''}${(it.sodium && (it.fiber || it.sugar)) ? ' · ' : ''}${it.fiber ? it.fiber.toFixed(1) + 'g fiber' : ''}${(it.fiber && it.sugar) ? ' · ' : ''}${it.sugar ? it.sugar.toFixed(1) + 'g sugar' : ''}</div>` : ''}
         </div>

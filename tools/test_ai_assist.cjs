@@ -44,6 +44,10 @@ assert.ok(!p1.toUpperCase().includes('JSON'), 'prompt must not mention JSON per 
 
 const p2 = buildFoodAiPrompt('', '', '');
 assert.ok(p2.includes('attach it to this chat'), 'SHOULD ask for a photo when name+amount missing');
+const p3 = buildFoodAiPrompt('', '', '1 cup rice and a fried egg', true);
+assert.ok(p3.includes('photo of this meal is attached') && p3.includes('trust it over your visual guess'), 'with a photo the prompt ties the description to it');
+assert.ok(!p3.includes('attach it to this chat'), 'with a photo it does not ask the user to attach one');
+assert.ok(p3.includes('1 cup rice and a fried egg'), 'description is included');
 
 // --- Reply parsing (food), tolerant of extra AI chatter ---
 const reply1 = `Sure, here's my estimate!\n\nFood: Chicken Adobo\nAmount: 250g\nCalories: 410 kcal\nProtein: 32 g\nFat: 22 g\nCarbs: 8 g\nSodium: 780 mg\nFiber: 2 g\nSugar: 3 g\n\nLet me know if you need anything else!`;
