@@ -93,7 +93,8 @@ async function startApp(){
     }
     // Leaving the Food tab drops any half-finished search so it isn't still
     // open (with stale results) when the user comes back.
-    if(view !== 'food') clearFoodSearch(true);
+    if(view !== 'food'){ clearFoodSearch(true); collapseNutritionGuidance(); }
+    if(view !== 'insights') reshSetOpen(false);
     if(view === 'body'){ renderBodyPlaceholders(); renderBodySleepCard(); renderWeightSection(); }
     if(view === 'train'){ renderDashboard(); renderTodaysSession(); }
     if(view === 'insights'){ renderInsights(); renderSummary(); renderResh(); }

@@ -62,7 +62,8 @@ and never stored. Test: `node tools/test_ai_assist_api.cjs` (fake OpenAI via the
   saved stats and AI-off keep the classic form. Prompt modes: `buildStatsAiPrompt(desc, summary, 'screenshot'|'estimate')`.
 - **Resh** (`resh.js`, Insights tab, only when AI is on): manual "Ask Resh" review of the last 14 days via `kind: 'review'` on the same
   endpoint. Saved in the `resh` resource with a rounded-data fingerprint; it will not re-run when the fingerprint is unchanged or
-  more than once per calendar day. Test: `node tools/test_resh.cjs`.
+  more than once per calendar day. Weight-vs-goal and training-vs-plan chips are computed locally (`reshWeightProgress`, `reshTrainingProgress`) and
+  given to the AI as facts. The assessment folds shut when you leave Insights; Food guidance (`collapseNutritionGuidance`) likewise. Test: `node tools/test_resh.cjs`.
 - Exercise ticks on Train are per day (`ensureFreshExerciseChecks`, `checkedState.__exDay`); they used to carry over between days.
 
 ## Deploy

@@ -269,15 +269,25 @@ async function renderNutrition(){
               {cal: eatenCal, protein: eatenProtein, fat: eatenFat, carbs: eatenCarbs, sodium: eatenSodium, fiber: eatenFiber, sugar: eatenSugar},
               t, !!(eatenSodium || eatenFiber || eatenSugar)
             );
+            const row = n => `<div style="display:flex;gap:6px;font-size:12px;color:var(--ink);line-height:1.4;margin-bottom:5px;"><span>${n.icon}</span><span>${n.text}</span></div>`;
+            // Only the first note shows by default; the rest sit behind "See more guidance" to save screen space.
+            const rest = notes.slice(1);
             return `
               <div style="margin-top:12px;padding-top:12px;border-top:1px solid var(--line);">
                 <div style="font-size:10.5px;font-weight:600;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px;">Guidance for ${dayWord}</div>
-                ${notes.map(n => `<div style="display:flex;gap:6px;font-size:12px;color:var(--ink);line-height:1.4;margin-bottom:5px;"><span>${n.icon}</span><span>${n.text}</span></div>`).join('')}
+                ${row(notes[0])}
+                ${rest.length ? `<div data-guidance-more hidden>${rest.map(row).join('')}</div><button type="button" class="guidance-toggle" data-guidance-toggle data-more-label="See more guidance (${rest.length})">See more guidance (${rest.length})</button>` : ''}
               </div>
             `;
           })()}
         </div>
       `;
+      const guidanceBtn = bannerEl.querySelector('[data-guidance-toggle]');
+      if(guidanceBtn) guidanceBtn.addEventListener('click', ()=>{
+        const more = bannerEl.querySelector('[data-guidance-more]');
+        more.hidden = !more.hidden;
+        guidanceBtn.textContent = more.hidden ? guidanceBtn.dataset.moreLabel : 'Show less';
+      });
       const macroHead = bannerEl.querySelector('[data-macro-toggle="1"]');
       macroHead.addEventListener('click', ()=>{
         const detail = bannerEl.querySelector('[data-macro-detail="1"]');
@@ -368,3 +378,9 @@ async function renderNutrition(){
 
 // A queued meal reached the server: show the real rows instead of the "waiting to sync" ones.
 window.outbox.onSynced(()=>{ renderTodayMeals(); renderNutrition(); renderTodayGlance(); });
+
+// Folds the extra guidance notes away again (called when you leave the Food tab).
+function collapseNutritionGuidance(){
+  document.querySelectorAll('[data-guidance-more]').forEach(el => { el.hidden = true; });
+  document.querySelectorAll('[data-guidance-toggle]').forEach(btn => { btn.textContent = btn.dataset.moreLabel; });
+}
