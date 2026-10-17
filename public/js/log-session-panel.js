@@ -121,8 +121,8 @@ function logSessionPanelHtml(){
         <textarea id="aiSessDesc" rows="3" placeholder="e.g. Strength: squats 3×10 @ 20 kg, rows 3×12 @ 15 kg. 45 min total. Felt strong, knees a bit tight." style="width:100%;${LSP_AREA_STYLE}margin-top:2px;resize:vertical;"></textarea>
         <div class="ai-tips">💡 Include the type of workout, sets · reps · weight, duration, and how it felt. For a better estimate, attach a screenshot of your sports-watch summary to your AI chat.</div>
         <div data-ai-native class="ai-native">
-        <label class="ai-native-label">📷 Photo (optional) — a meal, a nutrition label or a watch screenshot</label>
-        <input type="file" accept="image/*" data-ai-photo class="ai-native-file">
+        <label class="ai-native-label">⌚ Watch screenshot (optional): a photo or screenshot of your watch or fitness-app workout summary. The AI reads the numbers off it. For workouts only, not meals or nutrition labels.</label>
+        ${aiNativePhotoHtml()}
         <button type="button" class="timer-btn start" data-ai-ask="session" style="width:100%;margin-top:8px;">✨ Ask AI now</button>
         <div class="note" data-ai-status style="display:none;color:#B4472A;margin-top:6px;"></div>
         <div class="note" style="margin-top:6px;">The photo goes to OpenAI for this one estimate and is not stored by Fitresh. Or use the copy and paste steps below.</div>

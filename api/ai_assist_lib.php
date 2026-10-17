@@ -41,20 +41,25 @@ function ai_validate_request(array $input): array
     return [$prompt, $image];
 }
 
-function ai_build_openai_body(string $prompt, ?string $imageDataUrl, string $model): array
+// $kind 'review' is Resh's progress review: text only, warmer voice, a little more room to write.
+function ai_build_openai_body(string $prompt, ?string $imageDataUrl, string $model, string $kind = 'estimate'): array
 {
+    $review = $kind === 'review';
     $content = [['type' => 'text', 'text' => $prompt]];
     if ($imageDataUrl !== null) {
         $content[] = ['type' => 'image_url', 'image_url' => ['url' => $imageDataUrl, 'detail' => 'auto']];
     }
     return [
         'model' => $model,
-        'temperature' => 0.2,
-        'max_tokens' => 900,
+        'temperature' => $review ? 0.6 : 0.2,
+        'max_tokens' => $review ? 1100 : 900,
         'store' => false,
         'messages' => [
-            ['role' => 'system', 'content' => 'You are the estimation engine inside a personal fitness tracker. '
-                . 'Follow the requested reply format exactly and add no commentary. Give your best numeric estimates.'],
+            ['role' => 'system', 'content' => $review
+                ? 'You are Resh, a warm, upbeat but honest companion inside a personal fitness tracker. Use only the data you are given, '
+                    . 'never invent numbers, and never diagnose or give medical advice. Follow the requested reply format exactly.'
+                : 'You are the estimation engine inside a personal fitness tracker. '
+                    . 'Follow the requested reply format exactly and add no commentary. Give your best numeric estimates.'],
             ['role' => 'user', 'content' => $content],
         ],
     ];

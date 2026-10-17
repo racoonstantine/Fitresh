@@ -52,9 +52,9 @@ async function login(base, password) {
     assert.strictEqual(r.status, 503);
   } finally { h.stop(); }
 
-  // 2) Configured with a fake OpenAI and a daily limit of 2.
+  // 2) Configured with a fake OpenAI and a daily limit of 3.
   process.env.HARNESS_OPENAI_BASE_URL = fakeBase;
-  process.env.HARNESS_AI_DAILY_LIMIT = '2';
+  process.env.HARNESS_AI_DAILY_LIMIT = '3';
   h = await start({ port: 8230 + Math.floor(Math.random() * 40) });
   try {
     const cookie = await login(h.url, h.password);
@@ -84,6 +84,14 @@ async function login(base, password) {
     const second = await ask({ prompt: 'text only' });
     assert.strictEqual(second.status, 200, 'a failed call did not use up the allowance');
     assert.strictEqual(seen[seen.length - 1].body.messages[1].content.length, 1, 'no image part without a photo');
+
+    // Resh's progress review: its own persona, warmer settings, text only (a photo is ignored).
+    const review = await ask({ prompt: 'Review my week', kind: 'review', image: JPEG });
+    assert.strictEqual(review.status, 200);
+    const rsent = seen[seen.length - 1].body;
+    assert.ok(rsent.messages[0].content.startsWith('You are Resh'), 'review uses the Resh system prompt');
+    assert.strictEqual(rsent.temperature, 0.6);
+    assert.strictEqual(rsent.messages[1].content.length, 1, 'review never carries an image');
 
     const third = await ask({ prompt: 'one too many' });
     assert.strictEqual(third.status, 429);

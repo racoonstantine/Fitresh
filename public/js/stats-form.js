@@ -52,6 +52,34 @@ function currentWorkoutSummaryForStats(){
   }
   return '';
 }
+let statsAiMode = null; // null = classic layout (AI off, or editing saved stats) | 'choose' | 'screenshot' | 'manual' | 'estimate'
+function setStatsMode(mode){
+  statsAiMode = mode;
+  const show = (id, on) => { const el = document.getElementById(id); if(el) el.style.display = on ? 'block' : 'none'; };
+  const ai = mode === 'screenshot' || mode === 'estimate';
+  const classic = mode === null;
+  show('statsModeChooser', mode === 'choose');
+  show('statsAiSection', ai || classic);
+  show('statsFieldsWrap', mode !== 'choose');
+  show('saveStatsBtn', mode !== 'choose');
+  show('statsChangeMode', mode === 'screenshot' || mode === 'estimate' || mode === 'manual');
+  document.querySelector('[data-ai-toggle="stats"]').style.display = classic ? '' : 'none';
+  document.querySelector('[data-ai-detail="stats"]').style.display = ai ? 'block' : 'none';
+  show('aiStatsIntro', classic);
+  const note = document.getElementById('aiStatsModeNote');
+  note.style.display = ai ? 'block' : 'none';
+  note.textContent = mode === 'screenshot'
+    ? "Add a screenshot of your watch or fitness-app summary and tap the button. The numbers are filled in below for you to check before saving."
+    : "No watch data? Describe the workout and the AI will estimate the numbers. These are rough guesses, so a screenshot or manual entry is more accurate.";
+  show('aiStatsPhotoWrap', mode !== 'estimate');
+  document.getElementById('aiStatsDescLabel').textContent = mode === 'screenshot' ? 'Anything to add? (optional)' : (mode === 'estimate' ? 'Describe your workout' : 'Activity description');
+  document.getElementById('aiStatsAskBtn').textContent = mode === 'screenshot' ? '📷 Read my screenshot' : (mode === 'estimate' ? '✨ Estimate with AI' : '✨ Ask AI now');
+}
+document.getElementById('statsModeChooser').addEventListener('click', (e)=>{
+  const btn = e.target.closest('[data-stats-mode]');
+  if(btn) setStatsMode(btn.dataset.statsMode);
+});
+document.getElementById('statsChangeMode').addEventListener('click', ()=> setStatsMode('choose'));
 function openStatsForm(contextId, dateOverride){
   activeStatsContext = contextId;
   activeStatsDate = dateOverride || dateStrForOffset(0);
@@ -80,7 +108,9 @@ function openStatsForm(contextId, dateOverride){
   document.getElementById('aiStatsPromptWrap').style.display = 'none';
   document.getElementById('aiStatsParseError').style.display = 'none';
   document.getElementById('statsError').style.display = 'none';
-  document.querySelector('[data-ai-detail="stats"]').style.display = 'none';
+  document.getElementById('aiStatsAskBtn').closest('[data-ai-native]').querySelector('[data-ai-status]').style.display = 'none';
+  aiNativePhotoReset(document.querySelector('#aiStatsNative [data-ai-photo-ui]'));
+  setStatsMode(document.documentElement.hasAttribute('data-ai-native') && !existing ? 'choose' : null);
   const statsForm = document.getElementById('cardioStatsForm');
   statsForm.style.display = statsForm.style.display === 'none' ? 'block' : 'none';
   if(statsForm.style.display === 'block' && statsForm.scrollIntoView) statsForm.scrollIntoView({behavior:'smooth', block:'center'});
@@ -179,18 +209,24 @@ document.querySelector('[data-ai-toggle="stats"]').addEventListener('click', fun
   detail.style.display = open ? 'block' : 'none';
   this.classList.toggle('expanded', open);
 });
-function buildStatsAiPrompt(desc, workoutSummary){
+function buildStatsAiPrompt(desc, workoutSummary, mode){
   const lines = [];
   lines.push('You are a workout stats estimation assistant. Estimate the stats for the activity described below.');
   lines.push('');
+  if(mode === 'screenshot'){
+    lines.push('The attached image is a screenshot or photo from a sports watch or fitness app showing the summary of this workout. Read the values it displays exactly as shown (converting to the units requested below) instead of estimating them. Leave a line blank if the image does not show that value, and do not guess it. If the image is not a workout summary at all, leave every line blank.');
+    lines.push('');
+  }
   if(workoutSummary) lines.push('Workout logged in the app: ' + workoutSummary);
   lines.push('Additional details from the user: ' + (desc || '(none given)'));
   lines.push('');
-  if(!desc && !workoutSummary){
+  if(!desc && !workoutSummary && !mode){
     lines.push('If you have a photo or screenshot of this workout (e.g. from a watch app), please attach it to this chat to improve the estimate.');
     lines.push('');
   }
-  lines.push("If a duration/time for this workout was not given above (and isn't visible in an attached photo), ASK ME for it before estimating anything else -- it materially changes the calorie/HR estimate. Otherwise, go ahead and estimate everything below from the details given, marking clearly which values are estimated vs. read directly from a photo.");
+  if(mode === 'screenshot') lines.push('Fill in everything the image shows; the details above are only extra context.');
+  else if(mode === 'estimate') lines.push('You cannot ask follow-up questions here, so estimate from what is given. If no duration was given, leave Duration blank and estimate the remaining lines cautiously.');
+  else lines.push("If a duration/time for this workout was not given above (and isn't visible in an attached photo), ASK ME for it before estimating anything else -- it materially changes the calorie/HR estimate. Otherwise, go ahead and estimate everything below from the details given, marking clearly which values are estimated vs. read directly from a photo.");
   lines.push('');
   lines.push('Reply with ONLY the following lines, filled in with your best estimate. No extra commentary. Leave a line blank after the colon if you truly cannot estimate it.');
   lines.push('Distance: <km, e.g. 5.2>');
@@ -201,6 +237,14 @@ function buildStatsAiPrompt(desc, workoutSummary){
   lines.push('Steps: <number>');
   lines.push('Max HR: <number> bpm');
   lines.push('Elevation gain: <number> m');
+  if(mode === 'screenshot'){
+    lines.push('Training stress: <0-10 number, only if shown>');
+    lines.push('HR recovery drop: <number> bpm, only if shown');
+    lines.push('Zone warm-up: <minutes, only if shown>');
+    lines.push('Zone fat-burn: <minutes, only if shown>');
+    lines.push('Zone aerobic: <minutes, only if shown>');
+    lines.push('Zone anaerobic: <minutes, only if shown>');
+  }
   return lines.join('\n');
 }
 document.getElementById('aiStatsGenerateBtn').addEventListener('click', ()=>{
@@ -209,11 +253,20 @@ document.getElementById('aiStatsGenerateBtn').addEventListener('click', ()=>{
   document.getElementById('aiStatsPromptWrap').style.display = 'block';
 });
 aiNativeRegister('stats', {
-  buildPrompt(hasPhoto){
+  photoNote: '',
+  buildPrompt(hasPhoto, say){
     const desc = document.getElementById('aiStatsDesc').value.trim();
     const summary = currentWorkoutSummaryForStats();
+    if(statsAiMode === 'screenshot'){
+      if(!hasPhoto){ say('Add your watch screenshot first.'); return null; }
+      return buildStatsAiPrompt(desc, summary, 'screenshot');
+    }
+    if(statsAiMode === 'estimate'){
+      if(!desc && !summary){ say('Describe your workout first.'); return null; }
+      return buildStatsAiPrompt(desc, summary, 'estimate');
+    }
     if(!desc && !summary && !hasPhoto) return null;
-    return buildStatsAiPrompt(desc, summary);
+    return buildStatsAiPrompt(desc, summary, hasPhoto ? 'screenshot' : 'estimate');
   },
   onReply(prompt, reply){
     document.getElementById('aiStatsPromptOut').value = prompt;
@@ -234,7 +287,7 @@ document.getElementById('aiStatsParseBtn').addEventListener('click', ()=>{
     errEl.style.display = 'block';
     return;
   }
-  const fields = parseLabeledReply(reply, ['Distance','Duration','Calories','Avg HR','Avg Pace','Steps','Max HR','Elevation gain']);
+  const fields = parseLabeledReply(reply, ['Distance','Duration','Calories','Avg HR','Avg Pace','Steps','Max HR','Elevation gain','Training stress','HR recovery drop','Zone warm-up','Zone fat-burn','Zone aerobic','Zone anaerobic']);
   const hasAny = Object.values(fields).some(v => v);
   if(!reply.trim() || !hasAny){
     errEl.textContent = "Couldn't find any recognizable stats in that reply -- make sure the AI replied using the format from the generated prompt, then try again.";
@@ -249,5 +302,14 @@ document.getElementById('aiStatsParseBtn').addEventListener('click', ()=>{
   if(fields.Steps) document.getElementById('statSteps').value = firstNumber(fields.Steps);
   if(fields['Max HR']) document.getElementById('statMaxHR').value = firstNumber(fields['Max HR']);
   if(fields['Elevation gain']) document.getElementById('statElevation').value = firstNumber(fields['Elevation gain']);
+  const setNum = (id, v) => { const n = firstNumber(v); if(v && !isNaN(n)) document.getElementById(id).value = n; };
+  setNum('statTrainingStress', fields['Training stress']);
+  setNum('statRecoveryHr', fields['HR recovery drop']);
+  setNum('statHrZoneWarmup', fields['Zone warm-up']);
+  setNum('statHrZoneFatBurn', fields['Zone fat-burn']);
+  setNum('statHrZoneAerobic', fields['Zone aerobic']);
+  setNum('statHrZoneAnaerobic', fields['Zone anaerobic']);
+  const fieldsWrap = document.getElementById('statsFieldsWrap');
+  if(statsAiMode && fieldsWrap.scrollIntoView) fieldsWrap.scrollIntoView({behavior: 'smooth', block: 'start'});
 });
 

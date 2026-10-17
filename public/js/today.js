@@ -493,6 +493,16 @@ async function loadState(){
   }catch(e){ window.savedWeights = {}; }
 }
 
+// Exercise ticks are stored by exercise id only, so without this yesterday's ticks showed as done
+// today. Ticks now belong to one day (the '__exDay' marker); on a new day they are cleared, and the
+// dated '..._done' session records are left alone.
+function ensureFreshExerciseChecks(){
+  const today = dateStrForOffset(0);
+  if(checkedState.__exDay === today) return;
+  Object.keys(checkedState).forEach(k => { if(k !== '__exDay' && !k.endsWith('_done')) delete checkedState[k]; });
+  checkedState.__exDay = today;
+  saveChecked();
+}
 async function saveChecked(){
   try{ await window.storage.set(STORAGE_PREFIX + 'checked', JSON.stringify(checkedState), false); }catch(e){}
 }

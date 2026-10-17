@@ -56,6 +56,14 @@ reply; `public/js/ai-native.js` shows an "Ask AI now" block in the food, watch-s
 `GET api/ai_assist.php` says `enabled`. Needs `openai_api_key` in the server's `config.local.php` (options in
 `config.example.php`: model, per-user and site-wide daily caps). Photos are shrunk in the browser, forwarded in memory
 and never stored. Test: `node tools/test_ai_assist_api.cjs` (fake OpenAI via the harness).
+- Photos: one "Use photo" control (`aiNativePhotoHtml`) offers Take a photo (file input with `capture`) or Choose from gallery. The Android
+  shell needs the CAMERA permission in `mobile/android/.../AndroidManifest.xml` (declared; needs a rebuilt APK to take effect).
+- Train "Log stats from watch" (`stats-form.js`, `setStatsMode`): with AI on, new entries first ask screenshot / manual / estimate; editing
+  saved stats and AI-off keep the classic form. Prompt modes: `buildStatsAiPrompt(desc, summary, 'screenshot'|'estimate')`.
+- **Resh** (`resh.js`, Insights tab, only when AI is on): manual "Ask Resh" review of the last 14 days via `kind: 'review'` on the same
+  endpoint. Saved in the `resh` resource with a rounded-data fingerprint; it will not re-run when the fingerprint is unchanged or
+  more than once per calendar day. Test: `node tools/test_resh.cjs`.
+- Exercise ticks on Train are per day (`ensureFreshExerciseChecks`, `checkedState.__exDay`); they used to carry over between days.
 
 ## Deploy
 The workflow runs every test above (plus the smoke test) on every push to any branch; only `main` deploys, and only if they pass.

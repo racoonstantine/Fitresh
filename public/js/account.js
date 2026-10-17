@@ -206,6 +206,7 @@ async function showAppFor(user){
   await window.storage.restorePending();
   window.outbox.flush();
   refreshAiNative();
+  reshLoaded = false; reshState = null; reshError = '';
   await startApp();
   if(!userProfile){
     showOnboarding();

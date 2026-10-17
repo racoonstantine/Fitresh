@@ -148,6 +148,7 @@ const GENERIC_EXERCISE_ICON = `<svg viewBox="0 0 24 24" fill="none" stroke="curr
 function customItemId(plan, idx){ return 'custom_' + plan.id + '_' + idx; }
 let activeCustomPlan = null;
 function renderCustomPlanSession(plan){
+  ensureFreshExerciseChecks();
   activeCustomPlan = plan;
   document.getElementById('customPlanTitle').textContent = plan.name + ' · custom routine';
   const list = document.getElementById('customPlanList');

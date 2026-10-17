@@ -96,7 +96,7 @@ async function startApp(){
     if(view !== 'food') clearFoodSearch(true);
     if(view === 'body'){ renderBodyPlaceholders(); renderBodySleepCard(); renderWeightSection(); }
     if(view === 'train'){ renderDashboard(); renderTodaysSession(); }
-    if(view === 'insights'){ renderInsights(); renderSummary(); }
+    if(view === 'insights'){ renderInsights(); renderSummary(); renderResh(); }
     if(view === 'account') showAccountView(currentAccountView);
   }
   window.showView = showView;

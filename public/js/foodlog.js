@@ -453,6 +453,7 @@
     copyTextToClipboard(document.getElementById('aiFoodPromptOut').value, e.currentTarget);
   });
   aiNativeRegister('food', {
+    photoNote: '',
     buildPrompt(hasPhoto){
       const desc = document.getElementById('aiFoodDesc').value.trim();
       if(!desc && !hasPhoto) return null;

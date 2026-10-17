@@ -262,6 +262,7 @@ function renderTally(){
 }
 
 function renderStrength(day){
+  ensureFreshExerciseChecks();
   const data = dayData[day];
   document.getElementById('strengthTitle').textContent = data.title;
   const list = document.getElementById('exerciseList');

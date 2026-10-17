@@ -125,6 +125,14 @@ assert.ok(sp2.includes('ASK ME for it before estimating'), 'prompt must tell the
 const sp3 = buildStatsAiPrompt('', 'Strength A: Goblet Squat, Push-up');
 assert.ok(sp3.includes('Workout logged in the app: Strength A: Goblet Squat, Push-up'));
 
+// Native modes: a watch screenshot is read, not estimated; an estimate cannot ask follow-up questions.
+const shot = buildStatsAiPrompt('', '', 'screenshot');
+assert.ok(shot.includes('Read the values it displays exactly') && shot.includes('Training stress:') && shot.includes('Zone anaerobic:'), 'screenshot prompt reads values and asks for the extra watch fields');
+assert.ok(!shot.includes('please attach it to this chat') && !shot.includes('ASK ME'), 'screenshot prompt does not ask the user to attach or answer anything');
+const est = buildStatsAiPrompt('30 min jog', '', 'estimate');
+assert.ok(est.includes('cannot ask follow-up questions') && !est.includes('ASK ME') && !est.includes('Training stress:'), 'estimate mode: no questions, no watch-only fields');
+assert.ok(!sp1.includes('Training stress:'), 'copy/paste prompt is unchanged');
+
 const statsReply = `Here's my best guess based on that description:\nDistance: 5.0\nDuration: 30:00\nCalories: 300 kcal\nAvg HR: 140 bpm\nAvg Pace: 6'00"\nSteps: 4500\nMax HR: 155 bpm\nElevation gain: 20 m`;
 const sf = parseLabeledReply(statsReply, ['Distance','Duration','Calories','Avg HR','Avg Pace','Steps','Max HR','Elevation gain']);
 assert.equal(firstNumber(sf.Distance), 5.0);

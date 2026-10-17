@@ -431,6 +431,60 @@
 
     <section class="block">
       <div id="cardioStatsForm" style="display:none;margin-top:10px;background:var(--paper-raised);border:1px solid var(--line);border-radius:8px;padding:12px;">
+        <div id="statsModeChooser" style="display:none;">
+          <div class="stats-chooser-title">How do you want to add these stats?</div>
+          <button type="button" class="stats-choice" data-stats-mode="screenshot">
+            <span class="stats-choice-main">📷 Upload a watch screenshot <em>Recommended</em></span>
+            <span class="stats-choice-sub">The AI reads the numbers off your watch or fitness app and fills them in. You check them before saving.</span>
+          </button>
+          <button type="button" class="stats-choice" data-stats-mode="manual">
+            <span class="stats-choice-main">✍️ Enter them manually</span>
+            <span class="stats-choice-sub">Type in the numbers yourself, if you have them but no screenshot.</span>
+          </button>
+          <button type="button" class="stats-choice" data-stats-mode="estimate">
+            <span class="stats-choice-main">✨ Estimate with AI</span>
+            <span class="stats-choice-sub">No watch data? Describe the workout and the AI estimates the numbers. These are rough guesses, so a screenshot or manual entry is more accurate.</span>
+          </button>
+        </div>
+        <button type="button" id="statsChangeMode" class="stats-change-mode" style="display:none;">&larr; Change how I add stats</button>
+        <div id="statsAiSection" style="margin-bottom:12px;">
+          <div class="log-head" data-ai-toggle="stats" style="padding:0;font-size:12px;color:var(--forest-dark);font-weight:600;">
+            <span style="flex:1;">AI prompt assist — describe your workout, get an estimate</span>
+            <svg class="log-caret" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+          <div data-ai-detail="stats" style="display:none;margin-top:8px;">
+            <div class="note" id="aiStatsIntro" style="margin-bottom:8px;">Describe the workout you did — even just "30 min easy jog" is fine. We'll build a prompt you can paste into ChatGPT, Gemini, or any AI chat to get stat estimates back.</div>
+            <div class="note" id="aiStatsModeNote" style="display:none;margin-bottom:8px;"></div>
+            <div id="aiStatsDescWrap"><label id="aiStatsDescLabel" style="font-size:11px;color:var(--ink-soft);">Activity description</label>
+            <textarea id="aiStatsDesc" rows="2" placeholder="e.g. 30 minute easy jog outdoors, felt moderate effort" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;margin-bottom:8px;resize:vertical;"></textarea></div>
+            <div data-ai-native class="ai-native" id="aiStatsNative">
+        <div id="aiStatsPhotoWrap"><label class="ai-native-label" id="aiStatsPhotoLabel">⌚ Watch screenshot: a photo or screenshot of your watch or fitness-app workout summary. The AI reads the numbers off it. For workout stats only, not meals or nutrition labels.</label>
+        <div data-ai-photo-slot></div></div>
+        <button type="button" class="timer-btn start" data-ai-ask="stats" id="aiStatsAskBtn" style="width:100%;margin-top:8px;">✨ Ask AI now</button>
+        <div class="note" data-ai-status style="display:none;color:#B4472A;margin-top:6px;"></div>
+        <div class="note" style="margin-top:6px;">The photo goes to OpenAI for this one estimate and is not stored by Fitresh. Or use the copy and paste steps below.</div>
+      </div>
+<div id="aiStatsParseError" style="display:none;font-size:11.5px;color:#B4472A;margin-top:6px;"></div>
+<div class="ai-backup">
+<button type="button" class="ai-backup-toggle" data-ai-backup-toggle>Use copy &amp; paste instead</button>
+<div class="ai-backup-body">
+            <button type="button" id="aiStatsGenerateBtn" class="timer-btn start" style="width:100%;">Generate prompt</button>
+
+            <div id="aiStatsPromptWrap" style="display:none;margin-top:10px;">
+              <label style="font-size:11px;color:var(--ink-soft);">Copy this into your AI chat</label>
+              <textarea id="aiStatsPromptOut" rows="8" readonly style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper-raised);margin-top:2px;font-size:12px;font-family:monospace;resize:vertical;"></textarea>
+              <button type="button" id="aiStatsCopyBtn" class="timer-btn" style="width:100%;margin-top:6px;">📋 Copy prompt</button>
+
+              <label style="font-size:11px;color:var(--ink-soft);display:block;margin-top:12px;">Paste the AI's reply here</label>
+              <textarea id="aiStatsReplyIn" rows="6" placeholder="Paste the reply from ChatGPT / Gemini / etc. here" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;font-size:12.5px;resize:vertical;"></textarea>
+              <button type="button" id="aiStatsParseBtn" class="timer-btn start" style="width:100%;margin-top:8px;">Parse &amp; fill in fields above</button>
+            </div>
+</div>
+</div>
+          </div>
+        </div>
+
+        <div id="statsFieldsWrap">
         <div style="font-size:12px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.06em;font-weight:600;margin-bottom:10px;">From your watch / fitness app</div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
           <div>
@@ -491,42 +545,7 @@
           </div>
         </div>
 
-        <div style="margin-top:14px;border-top:1px dashed var(--line);padding-top:10px;">
-          <div class="log-head" data-ai-toggle="stats" style="padding:0;font-size:12px;color:var(--forest-dark);font-weight:600;">
-            <span style="flex:1;">AI prompt assist — describe your workout, get an estimate</span>
-            <svg class="log-caret" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
-          </div>
-          <div data-ai-detail="stats" style="display:none;margin-top:8px;">
-            <div class="note" style="margin-bottom:8px;">Describe the workout you did — even just "30 min easy jog" is fine. We'll build a prompt you can paste into ChatGPT, Gemini, or any AI chat to get stat estimates back.</div>
-            <label style="font-size:11px;color:var(--ink-soft);">Activity description</label>
-            <textarea id="aiStatsDesc" rows="2" placeholder="e.g. 30 minute easy jog outdoors, felt moderate effort" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;margin-bottom:8px;resize:vertical;"></textarea>
-            <div data-ai-native class="ai-native">
-        <label class="ai-native-label">📷 Photo (optional) — a meal, a nutrition label or a watch screenshot</label>
-        <input type="file" accept="image/*" data-ai-photo class="ai-native-file">
-        <button type="button" class="timer-btn start" data-ai-ask="stats" style="width:100%;margin-top:8px;">✨ Ask AI now</button>
-        <div class="note" data-ai-status style="display:none;color:#B4472A;margin-top:6px;"></div>
-        <div class="note" style="margin-top:6px;">The photo goes to OpenAI for this one estimate and is not stored by Fitresh. Or use the copy and paste steps below.</div>
-      </div>
-<div id="aiStatsParseError" style="display:none;font-size:11.5px;color:#B4472A;margin-top:6px;"></div>
-<div class="ai-backup">
-<button type="button" class="ai-backup-toggle" data-ai-backup-toggle>Use copy &amp; paste instead</button>
-<div class="ai-backup-body">
-            <button type="button" id="aiStatsGenerateBtn" class="timer-btn start" style="width:100%;">Generate prompt</button>
-
-            <div id="aiStatsPromptWrap" style="display:none;margin-top:10px;">
-              <label style="font-size:11px;color:var(--ink-soft);">Copy this into your AI chat</label>
-              <textarea id="aiStatsPromptOut" rows="8" readonly style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper-raised);margin-top:2px;font-size:12px;font-family:monospace;resize:vertical;"></textarea>
-              <button type="button" id="aiStatsCopyBtn" class="timer-btn" style="width:100%;margin-top:6px;">📋 Copy prompt</button>
-
-              <label style="font-size:11px;color:var(--ink-soft);display:block;margin-top:12px;">Paste the AI's reply here</label>
-              <textarea id="aiStatsReplyIn" rows="6" placeholder="Paste the reply from ChatGPT / Gemini / etc. here" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;font-size:12.5px;resize:vertical;"></textarea>
-              <button type="button" id="aiStatsParseBtn" class="timer-btn start" style="width:100%;margin-top:8px;">Parse &amp; fill in fields above</button>
-            </div>
-</div>
-</div>
-          </div>
         </div>
-
         <div id="statsError" style="display:none;font-size:11.5px;color:#B4472A;margin-top:8px;"></div>
         <button class="timer-btn start" id="saveStatsBtn" style="width:100%;margin-top:10px;">Save stats</button>
       </div>
@@ -560,6 +579,7 @@
   </div><!-- /panelTrain -->
 
   <div id="panelInsights" style="display:none;">
+    <div id="reshCard" class="ai-only"></div>
     <div id="insightsContent"></div>
     <div class="placeholder-card" style="margin-top:16px;">Readiness score and recommendation cards are being built. Check back in a future update.</div>
 
@@ -942,7 +962,7 @@
       <textarea id="aiFoodDesc" rows="4" placeholder="e.g. 1 cup rice, chicken adobo (~200g), and a fried egg" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;margin-bottom:10px;resize:vertical;"></textarea>
       <div data-ai-native class="ai-native">
         <label class="ai-native-label">📷 Photo (optional). The AI matches it with your description and uses it to judge portions and spot anything you left out.</label>
-        <input type="file" accept="image/*" data-ai-photo class="ai-native-file">
+        <div data-ai-photo-slot></div>
         <button type="button" class="timer-btn start" data-ai-ask="food" style="width:100%;margin-top:8px;">✨ Ask AI now</button>
         <div class="note" data-ai-status style="display:none;color:#B4472A;margin-top:6px;"></div>
         <div class="note" style="margin-top:6px;">The photo goes to OpenAI for this one estimate and is not stored by Fitresh.</div>
@@ -1278,6 +1298,7 @@
 <script src="js/trends.js"></script>
 <script src="js/body-account.js"></script>
 <script src="js/insights.js"></script>
+<script src="js/resh.js"></script>
 <script src="js/weight-dashboard.js"></script>
 <script src="js/plan-history.js"></script>
 <script src="js/cardio-activity.js"></script>
