@@ -198,6 +198,19 @@ function renderLoggedToday(){
     });
   });
   if(loggedTodayEdit) wireLoggedTodayEdit(el);
+  // Swipe a logged workout left for Edit / Delete.
+  attachSwipe(el, '.log-row', row => {
+    const entry = entryAt(row.querySelector('[data-loggedtoday-toggle]').dataset.loggedtodayToggle);
+    if(!entry) return null;
+    return {
+      edit: () => {
+        loggedTodayEdit = {key: loggedEntryKey(entry), exercises: (entry.exercises || []).map(x => ({...x})), notes: entry.notes || ''};
+        loggedTodayOpen.add(loggedTodayEdit.key);
+        renderLoggedToday();
+      },
+      del: () => deleteLoggedEntry(entry)
+    };
+  });
 }
 
 // Reads the edit form's current values back into the draft (before a re-render
@@ -215,6 +228,22 @@ function syncLoggedTodayDraft(scope){
   });
   const notesEl = scope.querySelector('[data-lt-notes]');
   if(notesEl) draft.notes = notesEl.value;
+}
+
+// Removes a logged workout (used by the Delete button in edit mode and by swipe-to-delete).
+function deleteLoggedEntry(entry){
+  delete checkedState[entry.date + '_' + entry.day + '_done'];
+  const at = historyLog.indexOf(entry);
+  if(at >= 0) historyLog.splice(at, 1);
+  loggedTodayEdit = null;
+  saveChecked();
+  saveHistory();
+  renderLoggedToday();
+  renderHistory();
+  renderDashboard();
+  renderTally();
+  renderWeekPlan();
+  renderTodayGlance();
 }
 
 function wireLoggedTodayEdit(el){
@@ -291,16 +320,6 @@ function wireLoggedTodayEdit(el){
   });
   scope.querySelector('[data-lt-delete]').addEventListener('click', ()=>{
     if(!confirm('Delete this logged entry?')) return;
-    delete checkedState[entry.date + '_' + entry.day + '_done'];
-    historyLog.splice(historyLog.indexOf(entry), 1);
-    loggedTodayEdit = null;
-    saveChecked();
-    saveHistory();
-    renderLoggedToday();
-    renderHistory();
-    renderDashboard();
-    renderTally();
-    renderWeekPlan();
-    renderTodayGlance();
+    deleteLoggedEntry(entry);
   });
 }

@@ -596,6 +596,11 @@
         renderLmMealItems();
       });
     });
+    // Swipe an item in this meal left for Edit (focus its amount) / Delete.
+    attachSwipe(el, '.lm-item-row', row => {
+      const amount = row.querySelector('.lm-adjust-amount');
+      return {edit: amount ? () => { amount.focus(); amount.select(); } : null, del: () => row.querySelector('[data-remove-idx]').click()};
+    });
     const totals = lmItems.reduce((acc, it)=>({
       kcal: acc.kcal + it.kcal, protein: acc.protein + it.protein, fat: acc.fat + it.fat, carbs: acc.carbs + it.carbs
     }), {kcal:0, protein:0, fat:0, carbs:0});

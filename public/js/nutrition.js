@@ -68,6 +68,15 @@ async function renderTodayMeals(){
       </div>
       ${diaryHtml}
     `;
+    // Swipe a logged food left for Edit / Delete: they press the row's own pencil and Remove controls.
+    attachSwipe(card, '.meal-component-row', row => {
+      const del = row.querySelector('.meal-delete') || row.querySelector('.meal-unqueue');
+      const edit = row.querySelector('.meal-edit-toggle');
+      return {
+        edit: edit ? () => { if(row.querySelector('.meal-component-edit').style.display !== 'flex') edit.click(); } : null,
+        del: del ? () => del.click() : null
+      };
+    });
     card.querySelectorAll('.meal-unqueue').forEach(btn=>{
       btn.addEventListener('click', (e)=>{
         e.stopPropagation();

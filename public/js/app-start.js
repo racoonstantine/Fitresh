@@ -95,6 +95,7 @@ async function startApp(){
     // open (with stale results) when the user comes back.
     if(view !== 'food'){ clearFoodSearch(true); collapseNutritionGuidance(); }
     if(view !== 'insights') reshSetOpen(false);
+    swipeCloseAll();
     if(view === 'body'){ renderBodyPlaceholders(); renderBodySleepCard(); renderWeightSection(); }
     if(view === 'train'){ renderDashboard(); renderTodaysSession(); }
     if(view === 'insights'){ renderInsights(); renderSummary(); renderResh(); }

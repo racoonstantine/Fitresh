@@ -107,6 +107,17 @@ function renderPlanTiles(){
   nameEl.textContent = window.planDayLabel(entry);
 }
 
+// Removes a History log entry (used by the Delete button and by swipe-to-delete).
+function deleteHistoryEntry(entry){
+  removeSessionLog(entry.date, entry.day);
+  delete checkedState[entry.date + '_' + entry.day + '_done'];
+  saveChecked();
+  renderTally();
+  renderDashboard();
+  renderHistory();
+  renderWeekPlan();
+}
+
 function renderHistory(){
   const el = document.getElementById('historyList');
   if(historyLog.length === 0){
@@ -203,13 +214,7 @@ function renderHistory(){
         return;
       }
       clearTimeout(btn._confirmTimeout);
-      removeSessionLog(entry.date, entry.day);
-      delete checkedState[entry.date + '_' + entry.day + '_done'];
-      saveChecked();
-      renderTally();
-      renderDashboard();
-      renderHistory();
-      renderWeekPlan();
+      deleteHistoryEntry(entry);
     });
   });
   el.querySelectorAll('[data-hist-save]').forEach(btn=>{
@@ -228,6 +233,19 @@ function renderHistory(){
       renderHistory();
       renderDashboard();
     });
+  });
+  // Swipe a past session left for Edit / Delete. Edit opens the row and its edit form.
+  attachSwipe(el, '.log-row', row => {
+    const entry = shown[parseInt(row.querySelector('[data-hist-toggle]').dataset.histToggle, 10)];
+    if(!entry) return null;
+    return {
+      edit: () => {
+        if(!row.querySelector('.log-detail').classList.contains('open')) row.querySelector('[data-hist-toggle]').click();
+        const form = row.querySelector('[data-hist-edit-form]');
+        if(form.style.display === 'none') row.querySelector('[data-hist-edit-toggle]').click();
+      },
+      del: () => deleteHistoryEntry(entry)
+    };
   });
   el.querySelectorAll('[data-hist-edit-stats]').forEach(btn=>{
     btn.addEventListener('click', (e)=>{

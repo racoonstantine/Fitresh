@@ -64,6 +64,8 @@ and never stored. Test: `node tools/test_ai_assist_api.cjs` (fake OpenAI via the
   endpoint. Saved in the `resh` resource with a rounded-data fingerprint; it will not re-run when the fingerprint is unchanged or
   more than once per calendar day. Weight-vs-goal and training-vs-plan chips are computed locally (`reshWeightProgress`, `reshTrainingProgress`) and
   given to the AI as facts. The assessment folds shut when you leave Insights; Food guidance (`collapseNutritionGuidance`) likewise. Test: `node tools/test_resh.cjs`.
+- Swipe-left Edit/Delete on rows (`swipe-actions.js`, `attachSwipe(container, selector, row => ({edit, del}))`): logged foods, Logged Training,
+  History log, and the Log Meal "This meal" list. It reuses each list's own edit/delete logic; Delete needs a second tap.
 - Exercise ticks on Train are per day (`ensureFreshExerciseChecks`, `checkedState.__exDay`); they used to carry over between days.
 
 ## Deploy
