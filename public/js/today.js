@@ -715,7 +715,8 @@ function buildNutritionNotes(vals, t, hasItemized){
 let foodSearchResultsCache = [];
 let foodSearchGeneration = 0;
 function foodDisplayName(row){
-  const name=String(row.name || ''), local=String(row.local_name || '').trim();
+  // "cnd" is the source databases' shorthand for canned.
+  const name=String(row.name || '').replace(/\bcnd\b/gi, 'canned'), local=String(row.local_name || '').trim();
   return local && local.toLocaleLowerCase()!==name.trim().toLocaleLowerCase() ? `${local} · ${name}` : name;
 }
 function foodSearchEscape(value){

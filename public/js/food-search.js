@@ -110,7 +110,7 @@ const FOOD_COPY_ICON = '<svg viewBox="0 0 24 24" width="15" height="15" fill="no
 // amount panel (Save/Cancel on the Food tab, "+ Add to meal" on Log Meal).
 function foodResultRowHtml(r, i, {surface, heading, subHtml, actionsHtml}){
   const canonicalAmount = r.canonical_amount || 100;
-  const name = foodSearchEscape(foodDisplayName(r).replace(/\bcnd\b/gi, 'canned'));
+  const name = foodSearchEscape(foodDisplayName(r));
   const estimateChip = r.estimate ? ' <span class="food-tag food-tag-mine" title="' + foodSearchEscape(r.confidence ? r.confidence.reason : 'Estimated from a typical recipe') + '">Estimate</span>' : '';
   return `
     ${heading || ''}<div class="food-result-row" data-idx="${i}">
