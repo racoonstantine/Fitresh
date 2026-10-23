@@ -176,7 +176,7 @@ function showOnboarding(){
   }
 
   const curKg = p.currentWeightKg || currentWeightKg() || null;
-  const goalKg = p.goalWeightKg || GOAL_WEIGHT || null;
+  const goalKg = p.goalWeightKg || null;
   document.getElementById('obCurrentWeight').value = curKg
     ? (obWeightUnitPrev === 'lbs' ? (Math.round(kgToLbs(curKg) * 10) / 10) : curKg) : '';
   document.getElementById('obGoalWeight').value = goalKg
@@ -236,6 +236,13 @@ async function checkAuthAndStart(){
 
 (function(){
   let mode = 'login';
+  document.getElementById('signupDoneBack').addEventListener('click', ()=>{
+    document.getElementById('signupDone').style.display = 'none';
+    document.getElementById('authForm').style.display = '';
+    document.getElementById('authTabs').style.display = '';
+    const loginTab = document.querySelector('#authTabs .main-tab[data-auth="login"]');
+    if(loginTab) loginTab.click();
+  });
   const tabs = document.getElementById('authTabs');
   const nameRow = document.getElementById('authNameRow');
   const submitBtn = document.getElementById('authSubmit');
@@ -277,10 +284,12 @@ async function checkAuthAndStart(){
         return;
       }
       if(data.pending){
-        errBox.style.color = 'var(--forest-dark)';
-        errBox.textContent = data.message || 'Your account needs admin approval before you can log in.';
-        errBox.style.display = 'block';
+        errBox.style.display = 'none';
         form.reset();
+        form.style.display = 'none';
+        document.getElementById('authTabs').style.display = 'none';
+        document.getElementById('signupDoneText').textContent = data.message || 'Fitresh is invite-only for now. We’ll approve your account soon and you can log in then.';
+        document.getElementById('signupDone').style.display = 'block';
         return;
       }
       await showAppFor(data);

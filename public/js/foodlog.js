@@ -85,6 +85,7 @@
         );
         if(!logRes.ok) throw new Error((logRes.data && logRes.data.error) || 'Meal could not be logged');
         recordRecentFood(row, foodId);
+        showToast('Added to ' + document.getElementById('mealLogType').selectedOptions[0].text + ' · ' + Math.round(macros.kcal) + ' kcal');
         ++foodSearchGeneration;
         document.getElementById('foodSearchInput').value = '';
         foodSearchResultsCache = [];

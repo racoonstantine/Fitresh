@@ -29,6 +29,12 @@
         <button class="main-tab active" data-auth="login" type="button">Log In</button>
         <button class="main-tab" data-auth="register" type="button">Sign Up</button>
       </div>
+      <div id="signupDone" role="status" style="display:none;text-align:center;padding:6px 2px 2px;">
+        <div style="font-size:30px;line-height:1;">&#10003;</div>
+        <div style="font-family:var(--font-heading);font-weight:700;font-size:18px;margin:8px 0 6px;">You&rsquo;re on the list</div>
+        <div id="signupDoneText" style="font-size:13.5px;color:var(--ink-soft);margin-bottom:14px;">Fitresh is invite-only for now. We&rsquo;ll approve your account soon and you can log in then.</div>
+        <button class="timer-btn reset" id="signupDoneBack" type="button" style="width:100%;">Back to log in</button>
+      </div>
       <form id="authForm">
         <div id="authNameRow" style="display:none;">
           <label style="font-size:11px;color:var(--ink-soft);">Name</label>
@@ -77,9 +83,6 @@
     <div class="sub" style="text-align:center;margin-bottom:20px;">Used to calculate your BMI and personal calorie/protein targets — not shared with anyone. Skip any of this and fill it in later.</div>
     <div style="background:var(--paper-raised);border:1px solid var(--line);border-radius:8px;padding:16px;">
       <form id="onboardingForm">
-        <label style="font-size:11px;color:var(--ink-soft);">Username (optional, 6+ characters, must be unique)</label>
-        <input type="text" id="obUsername" autocomplete="username" maxlength="30" placeholder="e.g. winresh_fit" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;margin-bottom:10px;">
-
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px;">
           <div>
             <label style="font-size:11px;color:var(--ink-soft);">Gender</label>
@@ -121,18 +124,6 @@
           </div>
         </div>
 
-        <label style="font-size:11px;color:var(--ink-soft);">Diet style (optional — sets a starting macro split, editable later on Goals)</label>
-        <select id="obDietPreset" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;margin-bottom:10px;">
-          <option value="open" selected>No specific diet</option>
-          <option value="balanced">Balanced</option>
-          <option value="lowcarb">Low-Carb</option>
-          <option value="keto">Keto</option>
-          <option value="highprotein">High-Protein</option>
-          <option value="mediterranean">Mediterranean</option>
-          <option value="vegetarian">Vegetarian</option>
-          <option value="vegan">Vegan</option>
-          <option value="custom">Custom split</option>
-        </select>
 
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:6px;">
           <div>
@@ -151,8 +142,27 @@
           </div>
         </div>
 
+
+        <details style="margin:4px 0 10px;">
+          <summary style="cursor:pointer;font-size:12.5px;color:var(--ink-soft);margin-bottom:8px;">More options (username, diet style, notes)</summary>
+        <label style="font-size:11px;color:var(--ink-soft);">Username (optional, 6+ characters, must be unique)</label>
+        <input type="text" id="obUsername" autocomplete="username" maxlength="30" placeholder="e.g. winresh_fit" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;margin-bottom:10px;">
+
+        <label style="font-size:11px;color:var(--ink-soft);">Diet style (optional — sets a starting macro split, editable later on Goals)</label>
+        <select id="obDietPreset" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;margin-bottom:10px;">
+          <option value="open" selected>No specific diet</option>
+          <option value="balanced">Balanced</option>
+          <option value="lowcarb">Low-Carb</option>
+          <option value="keto">Keto</option>
+          <option value="highprotein">High-Protein</option>
+          <option value="mediterranean">Mediterranean</option>
+          <option value="vegetarian">Vegetarian</option>
+          <option value="vegan">Vegan</option>
+          <option value="custom">Custom split</option>
+        </select>
         <label style="font-size:11px;color:var(--ink-soft);">Notes for context (optional)</label>
         <textarea id="obNotes" rows="2" placeholder="e.g. mild asthma, knee rehab finished Apr 2026" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;margin-bottom:6px;resize:vertical;"></textarea>
+        </details>
 
         <div id="onboardingError" style="display:none;font-size:12px;color:#B4472A;margin-bottom:8px;"></div>
         <button class="timer-btn start" id="onboardingSubmit" type="submit" style="width:100%;margin-top:6px;">Save &amp; continue</button>
@@ -201,7 +211,14 @@
 
     <div class="glance-quote" id="glanceQuote"></div>
 
-    <section class="block" style="margin-top:16px;margin-bottom:18px;">
+    <section class="hub-card" id="firstRunCard" style="display:none;margin-top:16px;text-align:center;">
+      <div class="block-title" style="margin:0 0 6px;">Start with your first meal</div>
+      <div style="font-size:13.5px;color:var(--ink-soft);margin-bottom:14px;">Search a food, pick a serving and add it. Your calories, macros and trends fill in from there.</div>
+      <button class="timer-btn start" id="firstRunLogBtn" type="button" style="width:100%;">Log your first meal</button>
+      <button type="button" id="firstRunShowTiles" style="background:none;border:none;color:var(--ink-soft);font-size:12.5px;margin-top:10px;cursor:pointer;text-decoration:underline;">Show all my tiles</button>
+    </section>
+
+    <section class="block" style="margin-top:16px;margin-bottom:18px;" id="glanceSection">
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
         <div class="block-title" style="margin:0;flex:1;">Today at a Glance</div>
         <a href="#" id="glanceViewDetails" style="font-size:12.5px;font-weight:600;color:var(--ochre);text-decoration:none;">View Details →</a>
@@ -255,11 +272,6 @@
       </div>
     </section>
 
-    <section class="block" style="margin-bottom:18px;">
-      <div class="block-title">More of your body, coming soon</div>
-      <div class="hub-grid" id="bodyPlaceholderGrid"></div>
-      <div class="note" style="margin-top:4px;">No devices connected yet — everything here is entered by hand for now. Automatic watch sync is a possible future update.</div>
-    </section>
   </div><!-- /panelBody -->
 
   <div id="panelNutrition" style="display:none;">
@@ -345,11 +357,6 @@
             <div style="font-size:10px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.04em;">Training Plan</div>
             <div style="font-weight:700;font-family:var(--font-heading);margin-top:2px;font-size:14px;" id="trainingPlanTileName">—</div>
             <div style="font-size:11px;color:var(--forest-dark);margin-top:4px;">Edit ›</div>
-          </div>
-          <div class="hub-card" id="trainingProgramBtn" type="button" title="Coming soon" style="flex:1;min-width:130px;padding:14px;margin-bottom:0;cursor:not-allowed;background:rgba(107,91,149,0.1);border-color:rgba(107,91,149,0.3);">
-            <div style="font-size:10px;color:#6B5B95;text-transform:uppercase;letter-spacing:.04em;">Training Program</div>
-            <div style="font-weight:700;font-family:var(--font-heading);margin-top:2px;font-size:14px;color:#6B5B95;opacity:0.7;">Coming soon</div>
-            <div style="font-size:11px;color:#6B5B95;opacity:0.7;margin-top:4px;">Locked</div>
           </div>
         </div>
       </div>
@@ -581,7 +588,6 @@
   <div id="panelInsights" style="display:none;">
     <div id="reshCard" class="ai-only"></div>
     <div id="insightsContent"></div>
-    <div class="placeholder-card" style="margin-top:16px;">Readiness score and recommendation cards are being built. Check back in a future update.</div>
 
     <section class="block" style="margin-top:24px;margin-bottom:18px;">
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
@@ -860,7 +866,7 @@
     </div>
   </div><!-- /panelAccount -->
 
-  <footer>Tap a checkmark to log the exercise. Tap the card to see form cues. Your data is saved to your account.</footer>
+  <footer>Your data is saved to your account.</footer>
   </div>
   </div>
 
@@ -1170,6 +1176,24 @@
         </div>
       </div>
     </section>
+  </div>
+</div>
+
+<div id="workoutSessionScreen" class="fullscreen-modal" style="display:none;">
+  <div class="fullscreen-modal-header">
+    <button type="button" id="wsClose" class="modal-close-btn" aria-label="Close workout">&#10005;</button>
+    <div class="fullscreen-modal-title" id="wsTitle">Workout</div>
+    <div style="width:32px;"></div>
+  </div>
+  <div class="fullscreen-modal-body" id="wsBody"></div>
+  <div id="wsFooter" class="ws-footer">
+    <div class="ws-rest" id="wsRest">
+      <span id="wsRestLabel">Rest timer</span>
+      <button type="button" class="ws-rest-btn" data-rest="45">45s</button>
+      <button type="button" class="ws-rest-btn" data-rest="60">60s</button>
+      <button type="button" class="ws-rest-btn" data-rest="90">90s</button>
+    </div>
+    <button type="button" class="timer-btn start" id="wsFinish" style="width:100%;">Finish &amp; log</button>
   </div>
 </div>
 

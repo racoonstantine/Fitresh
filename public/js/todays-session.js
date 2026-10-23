@@ -116,7 +116,7 @@ function renderTodaysSession(){
   }
 
   if(!entry || entry.type !== 'workoutPlan'){
-    if(heading) heading.textContent = entry && entry.type === 'rest' ? "Today: Rest day" : (hasSchedule ? "No workout scheduled today" : "Pick a workout routine above to get started");
+    if(heading) heading.textContent = entry && entry.type === 'rest' ? "Today: Rest day" : (hasSchedule ? "No workout scheduled today" : "Nothing planned today — tap Log a Session to add one");
     hideAllExerciseBlocks();
     renderLoggedToday();
     return;

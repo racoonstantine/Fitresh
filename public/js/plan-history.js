@@ -48,7 +48,7 @@ function renderWeekPlan(){
         status = hasOverride ? 'blue' : 'green';
       } else if(!isOpen && entry && entry.type === 'rest'){
         status = 'purple';
-      } else if(!isOpen && plan && dStr < todayStr){
+      } else if(!isOpen && plan && dStr < todayStr && !(userTrainingPlan && userTrainingPlan.startedOn && dStr < userTrainingPlan.startedOn)){
         status = 'red';
       }
     }
@@ -76,8 +76,8 @@ function renderWeekPlan(){
   const btn = document.getElementById('todayBtn');
   if(window.planDayHasAction(todayEntry)){
     btn.style.display = 'inline-block';
-    btn.textContent = 'Go';
-    btn.onclick = ()=> window.goToPlanDay(todayEntry);
+    btn.textContent = 'Start';
+    btn.onclick = ()=> window.startWorkoutSession(todayEntry);
   } else {
     btn.style.display = 'none';
   }

@@ -135,7 +135,6 @@
   document.getElementById('workoutPlanScreenClose').addEventListener('click', closeWorkoutPlanScreen);
   document.getElementById('createTrainingPlanBtn').addEventListener('click', window.openWorkoutPlanScreen);
   document.getElementById('trainingPlanTile').addEventListener('click', window.openWorkoutPlanScreen);
-  document.getElementById('trainingProgramBtn').addEventListener('click', (e)=>{ e.preventDefault(); });
 
   function wpSetMode(mode){
     document.querySelectorAll('#wpModeTabs .main-tab').forEach(btn=>{
@@ -151,6 +150,124 @@
     wpSetMode(btn.dataset.wpMode);
   });
 
+  // What a routine contains, as plain lines, for the preset previews and the Start screen.
+  function routineRows(plan){
+    if(!plan) return {kind: 'none', rows: []};
+    if(plan.kind === 'legacy'){
+      const k = plan.legacyKey;
+      if(dayData[k]) return {kind: 'strength', finishBtn: 'strengthCompleteLogBtn',
+        rows: dayData[k].exercises.map(ex => ({id: ex.id, name: ex.name, detail: ex.scheme, icon: 'icons/' + ex.icon + '.png'}))};
+      if(cardioData[k]) return {kind: 'cardio', finishBtn: 'cardioDoneBtn',
+        rows: cardioData[k].phases.map(p => ({name: p.phase, detail: p.detail, time: p.time}))};
+    }
+    return {kind: 'strength', finishBtn: 'customPlanCompleteLogBtn',
+      rows: (plan.items || []).map((item, idx) => ({
+        id: customItemId(plan, idx),
+        name: item.name || (window.workoutActivityName ? window.workoutActivityName(item.activityId) : item.activityId) || 'Exercise',
+        detail: item.target || ''
+      }))};
+  }
+  function presetRoutineDetails(days){
+    const seen = [];
+    days.forEach(d => { if(d && d.type === 'workoutPlan' && seen.indexOf(d.planId) < 0) seen.push(d.planId); });
+    return seen.map(id => {
+      const plan = getWorkoutPlan(id);
+      const r = routineRows(plan);
+      if(!plan) return '';
+      const lines = r.rows.map(x => `<li>${foodSearchEscape(x.name)}${x.detail ? ' <span style="color:var(--ink-soft);">· ' + foodSearchEscape(x.detail) + '</span>' : ''}${x.time ? ' <span style="color:var(--ink-soft);">· ' + foodSearchEscape(x.time) + '</span>' : ''}</li>`).join('');
+      return `<div style="margin-top:8px;"><strong>${foodSearchEscape(plan.name)}</strong><ul style="margin:4px 0 0;padding-left:18px;font-size:12.5px;line-height:1.5;">${lines}</ul></div>`;
+    }).join('');
+  }
+
+  // ---- Start workout screen: a focused checklist for today's routine ----
+  let wsPlan = null, wsRoutine = null, wsRestTimer = null;
+  function wsRender(){
+    const body = document.getElementById('wsBody');
+    ensureFreshExerciseChecks();
+    const r = wsRoutine;
+    const total = r.rows.length;
+    const done = r.kind === 'strength' ? r.rows.filter(x => checkedState[x.id]).length : 0;
+    const pct = total && r.kind === 'strength' ? Math.round(done / total * 100) : 0;
+    const head = r.kind === 'strength'
+      ? `<div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:6px;"><strong>${done} of ${total} done</strong><span style="color:var(--ink-soft);">Tick each exercise as you finish it</span></div>
+         <div class="ws-progress"><div style="width:${pct}%;"></div></div>`
+      : `<div style="font-size:13px;color:var(--ink-soft);margin-bottom:10px;">Follow the steps in order, then finish to log it.</div>`;
+    const rows = r.rows.map((x, i) => r.kind === 'strength' ? `
+      <button type="button" class="ws-row ${checkedState[x.id] ? 'done' : ''}" data-ws-check="${foodSearchEscape(x.id)}">
+        <span class="ws-num">${checkedState[x.id] ? '&#10003;' : i + 1}</span>
+        <span class="ws-main"><span class="ws-name">${foodSearchEscape(x.name)}</span><span class="ws-detail">${foodSearchEscape(x.detail || '')}</span></span>
+      </button>` : `
+      <div class="ws-row static">
+        <span class="ws-num">${i + 1}</span>
+        <span class="ws-main"><span class="ws-name">${foodSearchEscape(x.name)}</span><span class="ws-detail">${foodSearchEscape(x.detail || '')}</span></span>
+        <span class="ws-time">${foodSearchEscape(x.time || '')}</span>
+      </div>`).join('');
+    body.innerHTML = head + `<div class="ws-list">${rows}</div>
+      <div class="note" style="margin-top:12px;">Warm up for 5–7 minutes first. Open the routine on the Train tab for form cues and to record weights.</div>`;
+    const fin = document.getElementById('wsFinish');
+    fin.textContent = r.kind === 'strength' ? (done ? `Finish & log (${done} done)` : 'Finish & log') : 'Finish & log';
+    document.getElementById('wsRest').style.display = r.kind === 'strength' ? 'flex' : 'none';
+  }
+  function wsStopRest(){
+    clearInterval(wsRestTimer); wsRestTimer = null;
+    const l = document.getElementById('wsRestLabel'); if(l) l.textContent = 'Rest timer';
+  }
+  function wsStartRest(sec){
+    wsStopRest();
+    let left = sec;
+    const label = document.getElementById('wsRestLabel');
+    label.textContent = 'Rest ' + left + 's';
+    wsRestTimer = setInterval(()=>{
+      left--;
+      if(left <= 0){
+        wsStopRest();
+        label.textContent = 'Go!';
+        try{ if(navigator.vibrate) navigator.vibrate(200); }catch(e){}
+        setTimeout(()=>{ if(!wsRestTimer) label.textContent = 'Rest timer'; }, 2500);
+      } else label.textContent = 'Rest ' + left + 's';
+    }, 1000);
+  }
+  function wsClose(){
+    wsStopRest();
+    document.getElementById('workoutSessionScreen').style.display = 'none';
+    renderTodaysSession();
+  }
+  window.startWorkoutSession = function(entry){
+    if(!entry || entry.type !== 'workoutPlan') return;
+    const plan = getWorkoutPlan(entry.planId);
+    if(!plan) return;
+    renderTodaysSession(); // sets up the real routine so Finish & log can reuse its saving
+    wsPlan = plan; wsRoutine = routineRows(plan);
+    document.getElementById('wsTitle').textContent = plan.name;
+    wsRender();
+    document.getElementById('workoutSessionScreen').style.display = 'flex';
+  };
+  document.getElementById('wsClose').addEventListener('click', wsClose);
+  document.getElementById('wsBody').addEventListener('click', (e)=>{
+    const btn = e.target.closest('[data-ws-check]');
+    if(!btn) return;
+    const id = btn.dataset.wsCheck;
+    checkedState[id] = !checkedState[id];
+    saveChecked();
+    wsRender();
+  });
+  document.getElementById('wsRest').addEventListener('click', (e)=>{
+    const b = e.target.closest('[data-rest]');
+    if(b) wsStartRest(Number(b.dataset.rest));
+  });
+  document.getElementById('wsFinish').addEventListener('click', ()=>{
+    if(!wsRoutine) return;
+    if(wsRoutine.kind === 'strength' && !wsRoutine.rows.some(x => checkedState[x.id])){
+      showToast('Tick at least one exercise first');
+      return;
+    }
+    const real = document.getElementById(wsRoutine.finishBtn);
+    wsStopRest();
+    document.getElementById('workoutSessionScreen').style.display = 'none';
+    if(real) real.click();
+    showToast('Workout logged · ' + wsPlan.name);
+  });
+
   function miniWeekPreview(days){
     return weekPlan.map((base, i) => `<span style="font-size:9.5px;color:var(--ink-soft);">${base.name} <b style="color:var(--ink);">${planDayLabel(days[i])}</b></span>`).join(' · ');
   }
@@ -160,13 +277,14 @@
       <div class="hub-card" style="margin-bottom:10px;">
         <div style="font-weight:700;font-family:var(--font-heading);margin-bottom:4px;">${preset.label}</div>
         <div style="line-height:1.8;">${miniWeekPreview(preset.days)}</div>
+        <details style="margin-top:8px;font-size:13px;"><summary style="cursor:pointer;color:var(--ink-soft);">See what&rsquo;s in each workout</summary>${presetRoutineDetails(preset.days)}</details>
         <button type="button" class="timer-btn start" data-use-preset="${key}" style="width:100%;margin-top:10px;padding:8px 0;">Use this preset</button>
       </div>
     `).join('');
     el.querySelectorAll('[data-use-preset]').forEach(btn=>{
       btn.addEventListener('click', async ()=>{
         const preset = TRAINING_PLAN_PRESETS[btn.dataset.usePreset];
-        userTrainingPlan = {presetKey: btn.dataset.usePreset, name: preset.name, days: preset.days.slice(), overrides: (userTrainingPlan && userTrainingPlan.overrides) || {}};
+        userTrainingPlan = {presetKey: btn.dataset.usePreset, name: preset.name, days: preset.days.slice(), overrides: (userTrainingPlan && userTrainingPlan.overrides) || {}, startedOn: userTrainingPlan ? userTrainingPlan.startedOn : dateStrForOffset(0)};
         await saveTrainingPlan();
         renderWeekPlan();
         renderDashboard();
@@ -216,7 +334,7 @@
       errEl.style.display = 'block';
       return;
     }
-    userTrainingPlan = {presetKey: 'custom', name, days: wpCustomDays.slice(), overrides: (userTrainingPlan && userTrainingPlan.overrides) || {}};
+    userTrainingPlan = {presetKey: 'custom', name, days: wpCustomDays.slice(), overrides: (userTrainingPlan && userTrainingPlan.overrides) || {}, startedOn: userTrainingPlan ? userTrainingPlan.startedOn : dateStrForOffset(0)};
     await saveTrainingPlan();
     renderWeekPlan();
     renderDashboard();

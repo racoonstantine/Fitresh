@@ -106,6 +106,7 @@ function glanceRing(pct, colorVar, size, centerHtml, overKind){
 let glanceFastTickInterval = null;
 let nutriFastTickInterval = null;
 
+let glanceTilesForced = false;
 async function renderTodayGlance(){
   const grid = document.getElementById('glanceGridTop');
   if(!grid) return;
@@ -129,6 +130,20 @@ async function renderTodayGlance(){
     carbs: (nutriEntry ? parseNum(nutriEntry.carbs) || 0 : 0) + (mealTotals.CHOCDF || 0)
   };
   const hasFoodToday = !!nutriEntry || (dayRes.entries || []).some(e => e.components.length);
+  // Brand-new account: one clear next step instead of a grid of zeros. "Show all my tiles" opens them.
+  const freshAccount = !nutritionLog.length && !weighIns.length && !historyLog.length && !hasFoodToday;
+  const firstRun = document.getElementById('firstRunCard');
+  const glanceSection = document.getElementById('glanceSection');
+  if(firstRun && glanceSection){
+    const showFirstRun = freshAccount && !glanceTilesForced;
+    firstRun.style.display = showFirstRun ? '' : 'none';
+    glanceSection.style.display = showFirstRun ? 'none' : '';
+    if(!firstRun.dataset.wired){
+      firstRun.dataset.wired = '1';
+      document.getElementById('firstRunLogBtn').addEventListener('click', ()=> window.openLogMealScreen());
+      document.getElementById('firstRunShowTiles').addEventListener('click', ()=>{ glanceTilesForced = true; renderTodayGlance(); });
+    }
+  }
 
   const t = getTargets(today);
   const calTarget = (userHealthTargets && userHealthTargets.calorieTarget) || t.calMax;
@@ -700,7 +715,8 @@ function buildNutritionNotes(vals, t, hasItemized){
 let foodSearchResultsCache = [];
 let foodSearchGeneration = 0;
 function foodDisplayName(row){
-  const name=String(row.name || ''), local=String(row.local_name || '').trim();
+  // "cnd" is the source databases' shorthand for canned.
+  const name=String(row.name || '').replace(/\bcnd\b/gi, 'canned'), local=String(row.local_name || '').trim();
   return local && local.toLocaleLowerCase()!==name.trim().toLocaleLowerCase() ? `${local} · ${name}` : name;
 }
 function foodSearchEscape(value){
