@@ -48,7 +48,7 @@ function renderWeekPlan(){
         status = hasOverride ? 'blue' : 'green';
       } else if(!isOpen && entry && entry.type === 'rest'){
         status = 'purple';
-      } else if(!isOpen && plan && dStr < todayStr){
+      } else if(!isOpen && plan && dStr < todayStr && !(userTrainingPlan && userTrainingPlan.startedOn && dStr < userTrainingPlan.startedOn)){
         status = 'red';
       }
     }

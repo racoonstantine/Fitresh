@@ -377,6 +377,20 @@ function fastingSummaryText(lastLoggedHours){
   }
   return {active: false, value: 'Not started', sub: `Goal: ${goalHrs} hours`, pct: 0};
 }
+// Brief confirmation near the bottom of the screen (above the tab bar).
+function showToast(msg){
+  let el = document.getElementById('appToast');
+  if(!el){
+    el = document.createElement('div');
+    el.id = 'appToast';
+    el.setAttribute('role', 'status');
+    document.body.appendChild(el);
+  }
+  el.textContent = msg;
+  el.classList.add('show');
+  clearTimeout(showToast._t);
+  showToast._t = setTimeout(()=> el.classList.remove('show'), 2600);
+}
 function saveNutritionDay(entry){
   nutritionLog = nutritionLog.filter(e => e.date !== entry.date);
   nutritionLog.push(entry);

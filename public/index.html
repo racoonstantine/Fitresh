@@ -29,6 +29,12 @@
         <button class="main-tab active" data-auth="login" type="button">Log In</button>
         <button class="main-tab" data-auth="register" type="button">Sign Up</button>
       </div>
+      <div id="signupDone" role="status" style="display:none;text-align:center;padding:6px 2px 2px;">
+        <div style="font-size:30px;line-height:1;">&#10003;</div>
+        <div style="font-family:var(--font-heading);font-weight:700;font-size:18px;margin:8px 0 6px;">You&rsquo;re on the list</div>
+        <div id="signupDoneText" style="font-size:13.5px;color:var(--ink-soft);margin-bottom:14px;">Fitresh is invite-only for now. We&rsquo;ll approve your account soon and you can log in then.</div>
+        <button class="timer-btn reset" id="signupDoneBack" type="button" style="width:100%;">Back to log in</button>
+      </div>
       <form id="authForm">
         <div id="authNameRow" style="display:none;">
           <label style="font-size:11px;color:var(--ink-soft);">Name</label>
@@ -255,11 +261,6 @@
       </div>
     </section>
 
-    <section class="block" style="margin-bottom:18px;">
-      <div class="block-title">More of your body, coming soon</div>
-      <div class="hub-grid" id="bodyPlaceholderGrid"></div>
-      <div class="note" style="margin-top:4px;">No devices connected yet — everything here is entered by hand for now. Automatic watch sync is a possible future update.</div>
-    </section>
   </div><!-- /panelBody -->
 
   <div id="panelNutrition" style="display:none;">
@@ -345,11 +346,6 @@
             <div style="font-size:10px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.04em;">Training Plan</div>
             <div style="font-weight:700;font-family:var(--font-heading);margin-top:2px;font-size:14px;" id="trainingPlanTileName">—</div>
             <div style="font-size:11px;color:var(--forest-dark);margin-top:4px;">Edit ›</div>
-          </div>
-          <div class="hub-card" id="trainingProgramBtn" type="button" title="Coming soon" style="flex:1;min-width:130px;padding:14px;margin-bottom:0;cursor:not-allowed;background:rgba(107,91,149,0.1);border-color:rgba(107,91,149,0.3);">
-            <div style="font-size:10px;color:#6B5B95;text-transform:uppercase;letter-spacing:.04em;">Training Program</div>
-            <div style="font-weight:700;font-family:var(--font-heading);margin-top:2px;font-size:14px;color:#6B5B95;opacity:0.7;">Coming soon</div>
-            <div style="font-size:11px;color:#6B5B95;opacity:0.7;margin-top:4px;">Locked</div>
           </div>
         </div>
       </div>
@@ -581,7 +577,6 @@
   <div id="panelInsights" style="display:none;">
     <div id="reshCard" class="ai-only"></div>
     <div id="insightsContent"></div>
-    <div class="placeholder-card" style="margin-top:16px;">Readiness score and recommendation cards are being built. Check back in a future update.</div>
 
     <section class="block" style="margin-top:24px;margin-bottom:18px;">
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
@@ -860,7 +855,7 @@
     </div>
   </div><!-- /panelAccount -->
 
-  <footer>Tap a checkmark to log the exercise. Tap the card to see form cues. Your data is saved to your account.</footer>
+  <footer>Your data is saved to your account.</footer>
   </div>
   </div>
 

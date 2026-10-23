@@ -135,7 +135,6 @@
   document.getElementById('workoutPlanScreenClose').addEventListener('click', closeWorkoutPlanScreen);
   document.getElementById('createTrainingPlanBtn').addEventListener('click', window.openWorkoutPlanScreen);
   document.getElementById('trainingPlanTile').addEventListener('click', window.openWorkoutPlanScreen);
-  document.getElementById('trainingProgramBtn').addEventListener('click', (e)=>{ e.preventDefault(); });
 
   function wpSetMode(mode){
     document.querySelectorAll('#wpModeTabs .main-tab').forEach(btn=>{
@@ -166,7 +165,7 @@
     el.querySelectorAll('[data-use-preset]').forEach(btn=>{
       btn.addEventListener('click', async ()=>{
         const preset = TRAINING_PLAN_PRESETS[btn.dataset.usePreset];
-        userTrainingPlan = {presetKey: btn.dataset.usePreset, name: preset.name, days: preset.days.slice(), overrides: (userTrainingPlan && userTrainingPlan.overrides) || {}};
+        userTrainingPlan = {presetKey: btn.dataset.usePreset, name: preset.name, days: preset.days.slice(), overrides: (userTrainingPlan && userTrainingPlan.overrides) || {}, startedOn: userTrainingPlan ? userTrainingPlan.startedOn : dateStrForOffset(0)};
         await saveTrainingPlan();
         renderWeekPlan();
         renderDashboard();
@@ -216,7 +215,7 @@
       errEl.style.display = 'block';
       return;
     }
-    userTrainingPlan = {presetKey: 'custom', name, days: wpCustomDays.slice(), overrides: (userTrainingPlan && userTrainingPlan.overrides) || {}};
+    userTrainingPlan = {presetKey: 'custom', name, days: wpCustomDays.slice(), overrides: (userTrainingPlan && userTrainingPlan.overrides) || {}, startedOn: userTrainingPlan ? userTrainingPlan.startedOn : dateStrForOffset(0)};
     await saveTrainingPlan();
     renderWeekPlan();
     renderDashboard();
