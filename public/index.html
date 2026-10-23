@@ -1179,6 +1179,24 @@
   </div>
 </div>
 
+<div id="workoutSessionScreen" class="fullscreen-modal" style="display:none;">
+  <div class="fullscreen-modal-header">
+    <button type="button" id="wsClose" class="modal-close-btn" aria-label="Close workout">&#10005;</button>
+    <div class="fullscreen-modal-title" id="wsTitle">Workout</div>
+    <div style="width:32px;"></div>
+  </div>
+  <div class="fullscreen-modal-body" id="wsBody"></div>
+  <div id="wsFooter" class="ws-footer">
+    <div class="ws-rest" id="wsRest">
+      <span id="wsRestLabel">Rest timer</span>
+      <button type="button" class="ws-rest-btn" data-rest="45">45s</button>
+      <button type="button" class="ws-rest-btn" data-rest="60">60s</button>
+      <button type="button" class="ws-rest-btn" data-rest="90">90s</button>
+    </div>
+    <button type="button" class="timer-btn start" id="wsFinish" style="width:100%;">Finish &amp; log</button>
+  </div>
+</div>
+
 <div id="workoutPlanScreen" class="fullscreen-modal" style="display:none;">
   <div class="fullscreen-modal-header">
     <button type="button" id="workoutPlanScreenClose" class="modal-close-btn">✕</button>

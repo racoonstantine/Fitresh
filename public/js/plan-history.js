@@ -76,8 +76,8 @@ function renderWeekPlan(){
   const btn = document.getElementById('todayBtn');
   if(window.planDayHasAction(todayEntry)){
     btn.style.display = 'inline-block';
-    btn.textContent = 'Go';
-    btn.onclick = ()=> window.goToPlanDay(todayEntry);
+    btn.textContent = 'Start';
+    btn.onclick = ()=> window.startWorkoutSession(todayEntry);
   } else {
     btn.style.display = 'none';
   }
