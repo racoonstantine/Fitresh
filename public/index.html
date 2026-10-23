@@ -83,9 +83,6 @@
     <div class="sub" style="text-align:center;margin-bottom:20px;">Used to calculate your BMI and personal calorie/protein targets — not shared with anyone. Skip any of this and fill it in later.</div>
     <div style="background:var(--paper-raised);border:1px solid var(--line);border-radius:8px;padding:16px;">
       <form id="onboardingForm">
-        <label style="font-size:11px;color:var(--ink-soft);">Username (optional, 6+ characters, must be unique)</label>
-        <input type="text" id="obUsername" autocomplete="username" maxlength="30" placeholder="e.g. winresh_fit" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;margin-bottom:10px;">
-
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px;">
           <div>
             <label style="font-size:11px;color:var(--ink-soft);">Gender</label>
@@ -127,18 +124,6 @@
           </div>
         </div>
 
-        <label style="font-size:11px;color:var(--ink-soft);">Diet style (optional — sets a starting macro split, editable later on Goals)</label>
-        <select id="obDietPreset" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;margin-bottom:10px;">
-          <option value="open" selected>No specific diet</option>
-          <option value="balanced">Balanced</option>
-          <option value="lowcarb">Low-Carb</option>
-          <option value="keto">Keto</option>
-          <option value="highprotein">High-Protein</option>
-          <option value="mediterranean">Mediterranean</option>
-          <option value="vegetarian">Vegetarian</option>
-          <option value="vegan">Vegan</option>
-          <option value="custom">Custom split</option>
-        </select>
 
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:6px;">
           <div>
@@ -157,8 +142,27 @@
           </div>
         </div>
 
+
+        <details style="margin:4px 0 10px;">
+          <summary style="cursor:pointer;font-size:12.5px;color:var(--ink-soft);margin-bottom:8px;">More options (username, diet style, notes)</summary>
+        <label style="font-size:11px;color:var(--ink-soft);">Username (optional, 6+ characters, must be unique)</label>
+        <input type="text" id="obUsername" autocomplete="username" maxlength="30" placeholder="e.g. winresh_fit" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;margin-bottom:10px;">
+
+        <label style="font-size:11px;color:var(--ink-soft);">Diet style (optional — sets a starting macro split, editable later on Goals)</label>
+        <select id="obDietPreset" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;margin-bottom:10px;">
+          <option value="open" selected>No specific diet</option>
+          <option value="balanced">Balanced</option>
+          <option value="lowcarb">Low-Carb</option>
+          <option value="keto">Keto</option>
+          <option value="highprotein">High-Protein</option>
+          <option value="mediterranean">Mediterranean</option>
+          <option value="vegetarian">Vegetarian</option>
+          <option value="vegan">Vegan</option>
+          <option value="custom">Custom split</option>
+        </select>
         <label style="font-size:11px;color:var(--ink-soft);">Notes for context (optional)</label>
         <textarea id="obNotes" rows="2" placeholder="e.g. mild asthma, knee rehab finished Apr 2026" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;margin-bottom:6px;resize:vertical;"></textarea>
+        </details>
 
         <div id="onboardingError" style="display:none;font-size:12px;color:#B4472A;margin-bottom:8px;"></div>
         <button class="timer-btn start" id="onboardingSubmit" type="submit" style="width:100%;margin-top:6px;">Save &amp; continue</button>
@@ -207,7 +211,14 @@
 
     <div class="glance-quote" id="glanceQuote"></div>
 
-    <section class="block" style="margin-top:16px;margin-bottom:18px;">
+    <section class="hub-card" id="firstRunCard" style="display:none;margin-top:16px;text-align:center;">
+      <div class="block-title" style="margin:0 0 6px;">Start with your first meal</div>
+      <div style="font-size:13.5px;color:var(--ink-soft);margin-bottom:14px;">Search a food, pick a serving and add it. Your calories, macros and trends fill in from there.</div>
+      <button class="timer-btn start" id="firstRunLogBtn" type="button" style="width:100%;">Log your first meal</button>
+      <button type="button" id="firstRunShowTiles" style="background:none;border:none;color:var(--ink-soft);font-size:12.5px;margin-top:10px;cursor:pointer;text-decoration:underline;">Show all my tiles</button>
+    </section>
+
+    <section class="block" style="margin-top:16px;margin-bottom:18px;" id="glanceSection">
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
         <div class="block-title" style="margin:0;flex:1;">Today at a Glance</div>
         <a href="#" id="glanceViewDetails" style="font-size:12.5px;font-weight:600;color:var(--ochre);text-decoration:none;">View Details →</a>

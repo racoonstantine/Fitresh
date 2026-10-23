@@ -110,23 +110,23 @@ const FOOD_COPY_ICON = '<svg viewBox="0 0 24 24" width="15" height="15" fill="no
 // amount panel (Save/Cancel on the Food tab, "+ Add to meal" on Log Meal).
 function foodResultRowHtml(r, i, {surface, heading, subHtml, actionsHtml}){
   const canonicalAmount = r.canonical_amount || 100;
-  const name = foodSearchEscape(foodDisplayName(r));
+  const name = foodSearchEscape(foodDisplayName(r).replace(/\bcnd\b/gi, 'canned'));
+  const estimateChip = r.estimate ? ' <span class="food-tag food-tag-mine" title="' + foodSearchEscape(r.confidence ? r.confidence.reason : 'Estimated from a typical recipe') + '">Estimate</span>' : '';
   return `
     ${heading || ''}<div class="food-result-row" data-idx="${i}">
       <div class="frr-main">
         <span class="frr-icon">${renderFoodIconSvg(getFoodIcon(r), 20)}</span>
         <div class="frr-text">
-          <div class="frr-name">${name}${foodOriginTagHtml(r.source)}</div>
+          <div class="frr-name">${name}${foodOriginTagHtml(r.source)}${estimateChip}</div>
           ${subHtml}
-          ${r.confidence ? `<div class="frr-sub" title="${foodSearchEscape(r.confidence.reason)}">${foodSearchEscape(r.confidence.level)} confidence</div>` : ''}
-          ${r.estimate ? `<details onclick="event.stopPropagation()"><summary>Estimate assumptions and limitations</summary><p style="font-size:12px;">${foodSearchEscape(r.estimate.assumptions)}</p><p style="font-size:12px;">${foodSearchEscape(r.estimate.limitations)}</p></details>` : ''}
+          ${r.estimate ? `<details onclick="event.stopPropagation()"><summary>How this was estimated</summary><p style="font-size:12px;">${foodSearchEscape(r.estimate.assumptions)}</p><p style="font-size:12px;">${foodSearchEscape(r.estimate.limitations)}</p></details>` : ''}
         </div>
         <button type="button" class="food-copy-btn" data-personal-copy="${i}" data-personal-surface="${surface}" title="Save a personal copy" aria-label="Save a personal copy of ${name}">${FOOD_COPY_ICON}</button>
         <svg class="frr-chevron" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg>
       </div>
       <div class="food-result-amount" data-idx="${i}" style="display:none;margin-top:10px;">
         ${foodAmountRowHtml(r, i, canonicalAmount)}
-        <div class="food-macro-preview" data-idx="${i}">${macroPreviewText(r, canonicalAmount)}</div>
+        <div class="food-macro-preview" data-idx="${i}">${macroPreviewText(r, foodDefaultMeasure(r, canonicalAmount).grams)}</div>
         ${actionsHtml}
       </div>
     </div>`;
@@ -340,10 +340,16 @@ function foodMeasureOptions(r){
 }
 // Amount and Measure sit side by side as two equal-height, labelled fields;
 // the personal-weight field and the "saved in" note run full width beneath.
+// A food with a real serving (e.g. "1 bowl") opens on 1 serving, not 100 g.
+function foodDefaultMeasure(r, canonicalAmount){
+  const p = (r.canonical_unit || 'g') === 'g' && (r.portions || []).find(x => Number(x.edible_weight_g) > 0);
+  return p ? {amount: 1, value: 'portion:' + p.portion_id, grams: Number(p.edible_weight_g)} : {amount: canonicalAmount, value: null, grams: canonicalAmount};
+}
 function foodAmountRowHtml(r, i, amount){
+  const def = foodDefaultMeasure(r, amount);
   return `<div class="food-amount-row">
-    <label class="fc-field fc-amount"><span>Amount</span><input type="text" inputmode="decimal" data-num min="0.000001" step="any" aria-label="Food amount" class="food-amount-input fc-input" data-idx="${i}" value="${foodSearchEscape(String(amount))}"></label>
-    <label class="fc-field fc-grow"><span>Measure</span><select class="food-unit-input fc-input" data-idx="${i}" aria-label="Food measure">${foodMeasureOptions(r).map(o=>`<option value="${foodSearchEscape(o.value)}">${foodSearchEscape(o.label)}</option>`).join('')}</select></label>
+    <label class="fc-field fc-amount"><span>Amount</span><input type="text" inputmode="decimal" data-num min="0.000001" step="any" aria-label="Food amount" class="food-amount-input fc-input" data-idx="${i}" value="${foodSearchEscape(String(def.amount))}"></label>
+    <label class="fc-field fc-grow"><span>Measure</span><select class="food-unit-input fc-input" data-idx="${i}" aria-label="Food measure">${foodMeasureOptions(r).map(o=>`<option value="${foodSearchEscape(o.value)}"${o.value === def.value ? ' selected' : ''}>${foodSearchEscape(o.label)}</option>`).join('')}</select></label>
   </div>
   <label class="food-personal-weight fc-field" style="display:none;margin-top:8px;"><span>My measured edible grams per piece / ml</span><input type="text" inputmode="decimal" data-num class="food-weight-input fc-input" min="0.000001" step="any" aria-label="Measured grams per piece or ml"></label>
   <div class="food-measure-note">Saved in ${foodSearchEscape(r.canonical_unit || 'g')}. Use edible weight.</div>`;
@@ -437,7 +443,7 @@ function renderFoodSearchResults(){
       : (r.brand || (r._origin === 'library' ? 'Your library' : 'No calorie data'));
     return foodResultRowHtml(r, i, {
       surface: 'food', heading,
-      subHtml: `<div class="frr-sub">${foodSearchEscape(sub)}</div>${r.label ? `<div class="frr-sub">${foodSearchEscape(r.label)}${r.complete === false ? ' · Some nutrients unavailable' : ''}</div>` : ''}`,
+      subHtml: `<div class="frr-sub">${foodSearchEscape(sub)}</div>${r.label && !r.estimate ? `<div class="frr-sub">${foodSearchEscape(r.label)}</div>` : ''}`,
       actionsHtml: `<div class="food-action-row">
           <button class="timer-btn start food-log-confirm" data-idx="${i}" type="button">Save</button>
           <button class="timer-btn reset food-log-cancel" data-idx="${i}" type="button">Cancel</button>
