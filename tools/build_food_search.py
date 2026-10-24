@@ -104,7 +104,8 @@ def main(review_date=None):
             nutrient_provenance={code:resolved['nutrients'][field] for field,code in codes.items()})
         if target is estimate_foods:
             target[fid]['estimate']=resolved['estimate']
-            target[fid]['portions']=[]
+            # Only the labelled ESTIMATED_SERVING assumption (tools/add_estimated_servings.py); never a sourced portion.
+            target[fid]['portions']=[p for p in catalog.portions if p['food_id']==fid and p['data_status']=='ESTIMATED_SERVING' and float(p['edible_weight_g'] or 0)>0]
     payload=dict(schema_version=2,foods=foods,estimate_foods=estimate_foods)
     encoded=json.dumps(payload,ensure_ascii=False,sort_keys=True,separators=(',',':')).encode('utf-8')
     version=hashlib.sha256(encoded).hexdigest()[:24]
