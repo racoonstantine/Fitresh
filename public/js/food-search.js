@@ -340,6 +340,17 @@ function foodMeasureOptions(r){
 }
 // Amount and Measure sit side by side as two equal-height, labelled fields;
 // the personal-weight field and the "saved in" note run full width beneath.
+// Totals for the photo meal card: one line of name, summed macros and a portion label.
+function mealCardSummary(items){
+  const sum = k => items.reduce((a, it) => a + (Number(it[k]) || 0), 0);
+  const grams = items.every(it => it.unit === 'g') ? Math.round(items.reduce((a, it) => a + (Number(it.amount) || 0), 0)) : null;
+  return {
+    title: items.length ? items[0].name + (items.length > 1 ? ' + ' + (items.length - 1) + ' more' : '') : '',
+    kcal: Math.round(sum('kcal')), protein: Math.round(sum('protein')), fat: Math.round(sum('fat')),
+    carbs: Math.round(sum('carbs')), fiber: Math.round(sum('fiber')),
+    portion: grams !== null ? 'Portion · ' + grams + ' g' : items.length + (items.length === 1 ? ' item' : ' items')
+  };
+}
 // A food with a real serving (e.g. "1 bowl") opens on 1 serving, not 100 g.
 function foodDefaultMeasure(r, canonicalAmount){
   const p = (r.canonical_unit || 'g') === 'g' && (r.portions || []).find(x => Number(x.edible_weight_g) > 0);
