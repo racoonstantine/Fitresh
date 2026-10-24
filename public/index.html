@@ -5,6 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta name="color-scheme" content="light dark">
 <meta name="description" content="Fitresh — a personal workout, nutrition, fasting, and weight tracker.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Fitresh">
+<meta property="og:title" content="Fitresh — log a Filipino meal in seconds">
+<meta property="og:description" content="Snap a photo or search 2,500+ foods, over a thousand of them Filipino. Workouts, weight and progress in one place. Invite-only beta.">
+<meta property="og:image" content="https://fitresh.com/img/demo-meal.webp">
+<meta property="og:url" content="https://fitresh.com/">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
 <!-- iOS ignores SVG icons and would show a plain letter tile without this. -->
@@ -68,21 +75,21 @@
       </div>
       <form id="authForm">
         <div id="authNameRow" style="display:none;">
-          <label style="font-size:11px;color:var(--ink-soft);">Name</label>
+          <label style="font-size:12.5px;color:var(--ink-soft);">Name</label>
           <input type="text" id="authName" autocomplete="name" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;margin-bottom:10px;">
         </div>
-        <label style="font-size:11px;color:var(--ink-soft);">Email</label>
+        <label style="font-size:12.5px;color:var(--ink-soft);">Email</label>
         <input type="email" id="authEmail" required autocomplete="email" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;margin-bottom:10px;">
-        <label style="font-size:11px;color:var(--ink-soft);">Password</label>
+        <label style="font-size:12.5px;color:var(--ink-soft);">Password</label>
         <input type="password" id="authPassword" required autocomplete="current-password" minlength="8" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;margin-bottom:6px;">
         <div id="authError" style="display:none;font-size:12px;color:#B4472A;margin-bottom:8px;"></div>
         <button class="timer-btn start" id="authSubmit" type="submit" style="width:100%;margin-top:6px;">Log In</button>
-        <button type="button" id="forgotPasswordLink" style="background:none;border:none;color:var(--ochre);font-size:12px;margin-top:10px;cursor:pointer;text-decoration:underline;display:block;width:100%;">Forgot password?</button>
+        <button type="button" id="forgotPasswordLink" style="background:none;border:none;color:var(--ochre);font-size:13px;margin-top:10px;cursor:pointer;text-decoration:underline;display:block;width:100%;">Forgot password?</button>
       </form>
 
       <div id="forgotPasswordForm" style="display:none;margin-top:14px;padding-top:14px;border-top:1px solid var(--line);">
         <div style="font-size:12.5px;color:var(--ink-soft);margin-bottom:8px;">Enter your account email — we'll send the admin a request to approve resetting your password, then email you a link to set a new one.</div>
-        <label style="font-size:11px;color:var(--ink-soft);">Email</label>
+        <label style="font-size:12.5px;color:var(--ink-soft);">Email</label>
         <input type="email" id="forgotPasswordEmail" autocomplete="email" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;margin-bottom:10px;">
         <div id="forgotPasswordStatus" style="display:none;font-size:12px;margin-bottom:8px;"></div>
         <div style="display:flex;gap:8px;">
@@ -127,7 +134,7 @@
       <form id="onboardingForm">
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px;">
           <div>
-            <label style="font-size:11px;color:var(--ink-soft);">Gender</label>
+            <label style="font-size:12.5px;color:var(--ink-soft);">Gender</label>
             <select id="obGender" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;">
               <option value="">Prefer not to say</option>
               <option value="male">Male</option>
@@ -135,7 +142,7 @@
             </select>
           </div>
           <div>
-            <label style="font-size:11px;color:var(--ink-soft);">Age</label>
+            <label style="font-size:12.5px;color:var(--ink-soft);">Age</label>
             <input type="text" inputmode="decimal" data-num id="obAge" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;">
           </div>
         </div>
@@ -143,7 +150,7 @@
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px;">
           <div>
             <div style="display:flex;align-items:center;justify-content:space-between;gap:6px;">
-              <label style="font-size:11px;color:var(--ink-soft);" id="obHeightLabel">Height (cm)</label>
+              <label style="font-size:12.5px;color:var(--ink-soft);" id="obHeightLabel">Height (cm)</label>
               <select id="obHeightUnit" style="padding:2px 4px;border:1px solid var(--line);border-radius:4px;background:var(--paper);font-size:10.5px;">
                 <option value="cm" selected>cm</option>
                 <option value="ft">ft/in</option>
@@ -156,7 +163,7 @@
             </div>
           </div>
           <div>
-            <label style="font-size:11px;color:var(--ink-soft);">Activity level</label>
+            <label style="font-size:12.5px;color:var(--ink-soft);">Activity level</label>
             <select id="obActivity" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;">
               <option value="sedentary">Sedentary</option>
               <option value="light" selected>Light</option>
@@ -170,7 +177,7 @@
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:6px;">
           <div>
             <div style="display:flex;align-items:center;justify-content:space-between;gap:6px;">
-              <label style="font-size:11px;color:var(--ink-soft);" id="obCurrentWeightLabel">Current weight (kg)</label>
+              <label style="font-size:12.5px;color:var(--ink-soft);" id="obCurrentWeightLabel">Current weight (kg)</label>
               <select id="obWeightUnit" style="padding:2px 4px;border:1px solid var(--line);border-radius:4px;background:var(--paper);font-size:10.5px;">
                 <option value="kg" selected>kg</option>
                 <option value="lbs">lb</option>
@@ -179,7 +186,7 @@
             <input type="text" inputmode="decimal" data-num step="0.1" id="obCurrentWeight" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;">
           </div>
           <div>
-            <label style="font-size:11px;color:var(--ink-soft);" id="obGoalWeightLabel">Goal weight (kg)</label>
+            <label style="font-size:12.5px;color:var(--ink-soft);" id="obGoalWeightLabel">Goal weight (kg)</label>
             <input type="text" inputmode="decimal" data-num step="0.1" id="obGoalWeight" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;">
           </div>
         </div>
@@ -187,10 +194,10 @@
 
         <details style="margin:4px 0 10px;">
           <summary style="cursor:pointer;font-size:12.5px;color:var(--ink-soft);margin-bottom:8px;">More options (username, diet style, notes)</summary>
-        <label style="font-size:11px;color:var(--ink-soft);">Username (optional, 6+ characters, must be unique)</label>
+        <label style="font-size:12.5px;color:var(--ink-soft);">Username (optional, 6+ characters, must be unique)</label>
         <input type="text" id="obUsername" autocomplete="username" maxlength="30" placeholder="e.g. winresh_fit" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;margin-bottom:10px;">
 
-        <label style="font-size:11px;color:var(--ink-soft);">Diet style (optional — sets a starting macro split, editable later on Goals)</label>
+        <label style="font-size:12.5px;color:var(--ink-soft);">Diet style (optional — sets a starting macro split, editable later on Goals)</label>
         <select id="obDietPreset" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;margin-bottom:10px;">
           <option value="open" selected>No specific diet</option>
           <option value="balanced">Balanced</option>
@@ -202,7 +209,7 @@
           <option value="vegan">Vegan</option>
           <option value="custom">Custom split</option>
         </select>
-        <label style="font-size:11px;color:var(--ink-soft);">Notes for context (optional)</label>
+        <label style="font-size:12.5px;color:var(--ink-soft);">Notes for context (optional)</label>
         <textarea id="obNotes" rows="2" placeholder="e.g. mild asthma, knee rehab finished Apr 2026" style="width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;background:var(--paper);margin-top:2px;margin-bottom:6px;resize:vertical;"></textarea>
         </details>
 

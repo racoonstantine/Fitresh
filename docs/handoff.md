@@ -131,6 +131,22 @@ run new HTML with old assets. New files under `public/` deploy automatically.
   (only "today" ticks; other dates log via "Select Workout Routine" in the panel).
 - `food_search.php` depends on Open Food Facts (offline is handled with a note + Manual/AI fallbacks).
 
+## First-time-user review (Oct 2026): what shipped and what is left
+A review of the app as a brand-new user drove this work. Findings were ranked critical / high / nice-to-have.
+
+**Decisions to keep (do not "fix" these):**
+- Signup is approval-gated **on purpose** (the owner chooses who gets in). The signup form now ends on an "You're on the list" panel instead of a faint green line.
+- The AI photo meal card keeps the photo **in the browser tab only** (object URL, revoked on close). Nothing about it is stored. Do not add storage without a plan: each user is capped at 32 MB in one JSON blob (`api/data.php`) and the app mirrors data into `localStorage` (~5 MB), so base64 photos in the food log would break both. If photos are ever kept: separate files plus a table, ~400 px WebP (~20 KB), capped by age.
+- Estimated servings (`ESTIMATED_SERVING`) exist only for the 50 home-style Filipino recipe dishes (`FC001260`-`FC001309`), defined as modeled batch mass / an assumed servings count (`tools/add_estimated_servings.py`). They are labelled "(estimated)" and never mixed with sourced `OTHER_SOURCE_PORTION`. Restaurant/branded estimates deliberately get **no** inferred serving mass.
+- Pinch-zoom is still blocked (`user-scalable=no`): allowing it makes iOS zoom into inputs under 16 px. Needs a font-size pass and an iPhone test first.
+
+**Shipped on `main`:** PR 1 (signup confirmation, first-meal card on a new account's Today, no false red "missed" days via `userTrainingPlan.startedOn`, no prefilled goal weight, save toast, cleaner food result labels, shorter onboarding, preset previews, Start workout screen with rest timer, placeholders removed) and PR 2 (landing page for browser visitors, hidden in the Android app / installed web app; photo meal card after an AI photo estimate).
+**Open PRs at the time of writing:** #3 estimated servings, #4 Undo on the save toast (log API now returns `component_id`), readable auth labels, Open Graph tags. Both touch the test list in `.github/workflows/deploy.yml`; keep every test name if they conflict. Merging to `main` deploys.
+
+**Still open (best next first):** landing page and card checked on a real phone and on desktop; a real camera photo through the live AI request; serving sizes for more foods, which needs sourced data; the Today screen still shows a built-in 1,900 kcal target before a profile exists; emailed self-serve password reset (today it routes through the admin); moving inline styles out of the login/onboarding markup; the "Set up profile" nag on Insights returns after Skip; Undo for a whole multi-item meal is unit-tested but not clicked through.
+
+**Working notes:** judge test runs by **exit code** (`for f in tools/test_*.cjs; do node "$f" >/dev/null 2>&1 || echo FAIL $f; done`, same for `.php` and `.py`), not by scanning output. New tests must be added to the list in `deploy.yml` or CI will not run them. The harness caches files in a service worker, so unregister it and clear caches when checking a change in the browser.
+
 ## Offline support (built on branch `android-offline`) and Android APK (not started)
 Offline is plain web code, so it works in any browser/PWA and will work unchanged inside the APK shell.
 - **App shell**: `public/sw.js` (registered by `offline.js`; https or localhost only). index.html network-first with a cached
