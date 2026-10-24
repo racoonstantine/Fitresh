@@ -377,8 +377,9 @@ function fastingSummaryText(lastLoggedHours){
   }
   return {active: false, value: 'Not started', sub: `Goal: ${goalHrs} hours`, pct: 0};
 }
-// Brief confirmation near the bottom of the screen (above the tab bar).
-function showToast(msg){
+// Brief confirmation near the bottom of the screen (above the tab bar). Pass undo (a function) to add an
+// Undo button; the toast then stays a little longer.
+function showToast(msg, undo){
   let el = document.getElementById('appToast');
   if(!el){
     el = document.createElement('div');
@@ -386,10 +387,36 @@ function showToast(msg){
     el.setAttribute('role', 'status');
     document.body.appendChild(el);
   }
-  el.textContent = msg;
+  el.textContent = '';
+  const text = document.createElement('span');
+  text.textContent = msg;
+  el.appendChild(text);
+  if(typeof undo === 'function'){
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.textContent = 'Undo';
+    btn.addEventListener('click', ()=>{ el.classList.remove('show'); undo(); });
+    el.appendChild(btn);
+  }
+  el.classList.toggle('has-undo', typeof undo === 'function');
   el.classList.add('show');
   clearTimeout(showToast._t);
-  showToast._t = setTimeout(()=> el.classList.remove('show'), 2600);
+  showToast._t = setTimeout(()=> el.classList.remove('show'), typeof undo === 'function' ? 6000 : 2600);
+}
+// Undo for a just-logged food or meal: removes the saved components and refreshes the day.
+async function undoLoggedMeals(componentIds){
+  try{
+    for(const id of componentIds){
+      await fetch('api/meals.php?action=delete_component', {
+        method: 'POST', credentials: 'same-origin', headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({id})
+      });
+    }
+    renderTodayMeals();
+    renderNutrition();
+    renderTodayGlance();
+    showToast('Removed');
+  }catch(e){ showToast('Could not undo — remove it from the meal list'); }
 }
 function saveNutritionDay(entry){
   nutritionLog = nutritionLog.filter(e => e.date !== entry.date);
