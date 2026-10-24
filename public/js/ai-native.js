@@ -180,7 +180,7 @@ if(typeof document !== 'undefined' && typeof document.addEventListener === 'func
     btn.disabled = true; btn.textContent = 'Asking AI…';
     try{
       const reply = await aiNativeAsk(prompt, files, handler.photoNote);
-      handler.onReply(prompt, reply);
+      handler.onReply(prompt, reply, files);
       aiNativePhotoReset(block.querySelector('[data-ai-photo-ui]'));
     }catch(err){
       say(err.message);

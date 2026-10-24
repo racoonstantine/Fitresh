@@ -461,12 +461,57 @@
       if(!desc && !hasPhoto) return null;
       return buildFoodAiPrompt('', '', desc, hasPhoto);
     },
-    onReply(prompt, reply){
+    onReply(prompt, reply, files){
+      const before = lmItems.length;
       document.getElementById('aiFoodPromptOut').value = prompt;
       document.getElementById('aiFoodReplyIn').value = reply;
       document.getElementById('aiFoodPromptWrap').style.display = 'block';
       document.getElementById('aiFoodParseBtn').click();
+      if(files && files.length && lmItems.length > before) showMealPhotoCard(files[0], lmItems.slice(before));
     }
+  });
+
+  // Photo meal card: a read-only presentation of what the AI just added to the meal below. The photo stays
+  // in this browser tab only (an object URL, revoked on close); nothing about it is uploaded or stored.
+  let mpcUrl = null, mpcItems = [];
+  function closeMealPhotoCard(){
+    document.getElementById('mealPhotoCard').style.display = 'none';
+    if(mpcUrl){ URL.revokeObjectURL(mpcUrl); mpcUrl = null; }
+    document.getElementById('mpcPhoto').removeAttribute('src');
+  }
+  function showMealPhotoCard(file, items){
+    mpcItems = items;
+    if(mpcUrl) URL.revokeObjectURL(mpcUrl);
+    mpcUrl = URL.createObjectURL(file);
+    document.getElementById('mpcPhoto').src = mpcUrl;
+    const s = mealCardSummary(items);
+    document.getElementById('mpcTitle').textContent = s.title;
+    document.getElementById('mpcKcal').textContent = s.kcal;
+    document.getElementById('mpcP').textContent = s.protein + ' g';
+    document.getElementById('mpcF').textContent = s.fat + ' g';
+    document.getElementById('mpcC').textContent = s.carbs + ' g';
+    document.getElementById('mpcFi').textContent = s.fiber + ' g';
+    document.getElementById('mpcPortion').textContent = s.portion;
+    document.getElementById('mpcCount').textContent = items.length + (items.length === 1 ? ' item' : ' items');
+    document.getElementById('mpcList').innerHTML = items.map(it =>
+      `<li><span>${foodSearchEscape(it.name)}</span><span>${foodSearchEscape(String(it.amount))}${foodSearchEscape(it.unit)} · ${Math.round(it.kcal)} kcal</span></li>`).join('');
+    const sel = document.getElementById('mpcMeal');
+    sel.innerHTML = document.getElementById('lmMealType').innerHTML;
+    sel.value = document.getElementById('lmMealType').value;
+    document.getElementById('mealPhotoCard').style.display = 'flex';
+  }
+  document.getElementById('mpcClose').addEventListener('click', closeMealPhotoCard);
+  document.getElementById('mpcAdjust').addEventListener('click', closeMealPhotoCard); // per-item amounts are on the meal list underneath
+  document.getElementById('mpcMeal').addEventListener('change', (e)=>{ document.getElementById('lmMealType').value = e.target.value; });
+  document.getElementById('mpcRetake').addEventListener('click', ()=>{
+    mpcItems.forEach(it => { const i = lmItems.indexOf(it); if(i >= 0) lmItems.splice(i, 1); });
+    renderLmMealItems();
+    closeMealPhotoCard();
+  });
+  document.getElementById('mpcAdd').addEventListener('click', ()=>{
+    document.getElementById('lmMealType').value = document.getElementById('mpcMeal').value;
+    closeMealPhotoCard();
+    document.getElementById('lmSaveBtn').click();
   });
   function amountRawToAmountUnit(amountRaw){
     const m = (amountRaw || '').match(/^(\d[\d,]*(?:\.\d+)?|\.\d+)\s*(g|gram|grams|gm|ml|millilit(?:er|re)s?)?/i);
@@ -616,6 +661,7 @@
     const statusEl = document.getElementById('lmSaveStatus');
     const date = document.getElementById('lmDate').value || dateStrForOffset(0);
     const mealType = document.getElementById('lmMealType').value;
+    const savedKcal = Math.round(lmItems.reduce((a, it) => a + (Number(it.kcal) || 0), 0));
     btn.disabled = true;
     btn.textContent = 'Saving…';
     statusEl.style.display = 'none';
@@ -666,6 +712,7 @@
       const notes = document.getElementById('lmNotes').value.trim();
       if(notes) upsertNutritionFields(date, {notes});
       closeLogMealScreen();
+      showToast('Meal added · ' + savedKcal + ' kcal');
       nutriSelectedDate = date;
       renderTodayMeals();
       renderNutrition();

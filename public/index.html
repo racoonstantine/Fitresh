@@ -19,12 +19,43 @@
 <body>
 
 <div id="loginScreen" style="display:flex;min-height:100%;align-items:center;justify-content:center;padding:24px 16px;">
-  <div style="max-width:340px;width:100%;">
+  <div style="max-width:400px;width:100%;">
     <img src="mark.png" alt="" width="56" height="56" style="display:block;margin:0 auto 6px;">
     <div class="eyebrow" style="text-align:center;">Personal Health Program</div>
     <h1 style="text-align:center;">Fitresh</h1>
-    <div class="sub" style="text-align:center;margin-bottom:20px;">Sign in to see your own workouts, nutrition, and weight history.</div>
-    <div style="background:var(--paper-raised);border:1px solid var(--line);border-radius:8px;padding:16px;">
+    <div class="sub" id="loginSub" style="text-align:center;margin-bottom:20px;">Sign in to see your own workouts, nutrition, and weight history.</div>
+
+    <!-- Only for people in a normal browser: hidden in the Android app and the installed web app (script below). -->
+    <section id="landing" class="lp" hidden>
+      <div class="lp-pill">Invite-only beta</div>
+      <h2 class="lp-h">Log a Filipino meal in seconds.</h2>
+      <p class="lp-sub">Snap a photo or search 2,500+ foods, over a thousand of them Filipino. Fitresh works out the calories and macros, then keeps your training and weight in one place.</p>
+      <div class="lp-cta">
+        <button type="button" class="timer-btn start" id="lpRequest">Request access</button>
+        <button type="button" class="lp-link" id="lpLogin">I already have an account</button>
+      </div>
+      <figure class="lp-card">
+        <div class="lp-photo">
+          <img src="img/demo-meal.webp" width="720" height="430" alt="Example: a bowl of pork soup with pechay that Fitresh estimated at 203 kcal" loading="lazy">
+          <div class="lp-photo-text"><span class="lp-dish">Pork soup with pechay</span><span class="lp-kcal">203<small>KCAL</small></span></div>
+        </div>
+        <div class="lp-macros">
+          <div><b style="color:#7FB0E8;">21 g</b><span>Protein</span></div>
+          <div><b style="color:#E89A5C;">11 g</b><span>Fats</span></div>
+          <div><b style="color:#8CC46A;">5 g</b><span>Carbs</span></div>
+          <div><b style="color:#C9D36A;">1 g</b><span>Fiber</span></div>
+        </div>
+        <figcaption>Photo in, estimated macros out. You review and adjust before it is logged.</figcaption>
+      </figure>
+      <ul class="lp-points">
+        <li><b>Filipino-first food database.</b> Adobo, sinigang, pandesal and more, with local names.</li>
+        <li><b>Train your way.</b> Pick a weekly plan, tick off each exercise and time your rests.</li>
+        <li><b>See what is working.</b> Weight, intake and sessions side by side, with Resh, your progress coach.</li>
+      </ul>
+      <p class="lp-note">Fitresh is invite-only while it is in beta. Request access below and your account is approved by hand.</p>
+    </section>
+
+    <div id="authCard" style="background:var(--paper-raised);border:1px solid var(--line);border-radius:8px;padding:16px;">
       <div class="main-nav" id="authTabs" style="margin:0 0 14px;">
         <button class="main-tab active" data-auth="login" type="button">Log In</button>
         <button class="main-tab" data-auth="register" type="button">Sign Up</button>
@@ -70,7 +101,18 @@
           || (window.matchMedia && matchMedia('(display-mode: standalone)').matches)
           || navigator.standalone === true
           || /; wv\)/.test(navigator.userAgent);
-        if (!installed) document.getElementById('getAppLink').hidden = false;
+        if (!installed) {
+          document.getElementById('getAppLink').hidden = false;
+          document.getElementById('landing').hidden = false;
+          document.getElementById('loginSub').hidden = true;
+        }
+        function toAuth(mode) {
+          var tab = document.querySelector('#authTabs [data-auth="' + mode + '"]');
+          if (tab) tab.click();
+          document.getElementById('authCard').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        document.getElementById('lpRequest').addEventListener('click', function () { toAuth('register'); });
+        document.getElementById('lpLogin').addEventListener('click', function () { toAuth('login'); });
       })();
     </script>
   </div>
@@ -1176,6 +1218,33 @@
         </div>
       </div>
     </section>
+  </div>
+</div>
+
+<div id="mealPhotoCard" class="mpc" style="display:none;" role="dialog" aria-modal="true" aria-label="Meal estimate">
+  <div class="mpc-sheet">
+    <div class="mpc-hero">
+      <img id="mpcPhoto" alt="Your meal photo">
+      <button type="button" class="mpc-x" id="mpcClose" aria-label="Close">&#10005;</button>
+      <div class="mpc-hero-text"><span class="mpc-title" id="mpcTitle"></span><span class="mpc-kcal"><b id="mpcKcal">0</b><small>KCAL</small></span></div>
+    </div>
+    <div class="mpc-body">
+      <div class="mpc-label">Estimated macros</div>
+      <div class="mpc-macros">
+        <div><b id="mpcP" style="color:#7FB0E8;"></b><span>Protein</span></div>
+        <div><b id="mpcF" style="color:#E89A5C;"></b><span>Fats</span></div>
+        <div><b id="mpcC" style="color:#8CC46A;"></b><span>Carbs</span></div>
+        <div><b id="mpcFi" style="color:#C9D36A;"></b><span>Fiber</span></div>
+      </div>
+      <div class="mpc-row"><div><strong id="mpcPortion"></strong><small>Review or adjust before logging</small></div><button type="button" class="mpc-link" id="mpcAdjust">Adjust amount</button></div>
+      <details class="mpc-row mpc-items"><summary><div><strong>Ingredients detected</strong><small>Tap to see each item</small></div><span id="mpcCount"></span></summary><ul id="mpcList"></ul></details>
+      <label class="mpc-label" for="mpcMeal">Meal</label>
+      <select id="mpcMeal" class="mpc-select"></select>
+      <div class="mpc-actions">
+        <button type="button" class="mpc-btn ghost" id="mpcRetake">Retake</button>
+        <button type="button" class="mpc-btn" id="mpcAdd">Add to today</button>
+      </div>
+    </div>
   </div>
 </div>
 
