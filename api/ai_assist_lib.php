@@ -93,15 +93,22 @@ function ai_extract_reply(array $response): ?string
     return trim($text);
 }
 
+// Seconds to wait for OpenAI: 45 for text, 10 more per photo, never over 75. Photos take the model longer,
+// and the browser gives up at 90 s, so the server should answer (even with an error) before that.
+function ai_openai_timeout(int $imageCount): int
+{
+    return min(75, 45 + 10 * max(0, $imageCount));
+}
+
 // Real transport: one HTTPS call to OpenAI. Returns [httpStatus, decodedJson|null]. Never echoes the key.
-function ai_openai_transport(string $apiKey, array $body, string $baseUrl = 'https://api.openai.com/v1'): array
+function ai_openai_transport(string $apiKey, array $body, string $baseUrl = 'https://api.openai.com/v1', int $timeout = 45): array
 {
     $ch = curl_init(rtrim($baseUrl, '/') . '/chat/completions');
     curl_setopt_array($ch, [
         CURLOPT_POST => true,
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_CONNECTTIMEOUT => 10,
-        CURLOPT_TIMEOUT => 45,
+        CURLOPT_TIMEOUT => $timeout,
         CURLOPT_HTTPHEADER => ['Content-Type: application/json', 'Authorization: Bearer ' . $apiKey],
         CURLOPT_POSTFIELDS => json_encode($body),
     ]);
