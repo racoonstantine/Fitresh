@@ -85,7 +85,8 @@
         );
         if(!logRes.ok) throw new Error((logRes.data && logRes.data.error) || 'Meal could not be logged');
         recordRecentFood(row, foodId);
-        showToast('Added to ' + document.getElementById('mealLogType').selectedOptions[0].text + ' · ' + Math.round(macros.kcal) + ' kcal');
+        const savedId = logRes.data && logRes.data.component_id;
+        showToast('Added to ' + document.getElementById('mealLogType').selectedOptions[0].text + ' · ' + Math.round(macros.kcal) + ' kcal', savedId ? () => undoLoggedMeals([savedId]) : undefined);
         ++foodSearchGeneration;
         document.getElementById('foodSearchInput').value = '';
         foodSearchResultsCache = [];
@@ -662,6 +663,7 @@
     const date = document.getElementById('lmDate').value || dateStrForOffset(0);
     const mealType = document.getElementById('lmMealType').value;
     const savedKcal = Math.round(lmItems.reduce((a, it) => a + (Number(it.kcal) || 0), 0));
+    const savedIds = [];
     btn.disabled = true;
     btn.textContent = 'Saving…';
     statusEl.style.display = 'none';
@@ -706,13 +708,14 @@
           {name: it.name, amount: it.amount, unit: it.unit, kcal: it.kcal, protein: it.protein, fat: it.fat, carbs: it.carbs}
         );
         if(!logRes.ok) throw new Error((logRes.data && logRes.data.error) || `"${it.name}" could not be logged — try again.`);
+        if(logRes.data && logRes.data.component_id) savedIds.push(logRes.data.component_id);
         if(foodId) recordRecentFood({name: it.name, canonical_unit: it.unit, canonical_amount: it.amount, source: it.origin || (it.payload && it.payload.source) || null, nutrients: {ENERC_KCAL: it.kcal, PROCNT: it.protein, FAT: it.fat, CHOCDF: it.carbs}}, foodId);
         lmItems.splice(lmItems.indexOf(it), 1);
       }
       const notes = document.getElementById('lmNotes').value.trim();
       if(notes) upsertNutritionFields(date, {notes});
       closeLogMealScreen();
-      showToast('Meal added · ' + savedKcal + ' kcal');
+      showToast('Meal added · ' + savedKcal + ' kcal', savedIds.length ? () => undoLoggedMeals(savedIds) : undefined);
       nutriSelectedDate = date;
       renderTodayMeals();
       renderNutrition();

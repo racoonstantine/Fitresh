@@ -250,7 +250,7 @@ if ($method === 'POST' && $action === 'log') {
         }
     }
 
-    json_respond(['ok' => true, 'meal_entry_id' => $entryId]);
+    json_respond(['ok' => true, 'meal_entry_id' => $entryId, 'component_id' => $componentId]);
 }
 
 if ($method === 'POST' && $action === 'delete_component') {

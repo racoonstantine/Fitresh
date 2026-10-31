@@ -1077,3 +1077,5 @@
   .mpc-actions{display:flex;gap:12px;margin-top:18px;}
   .mpc-btn{flex:1.4;padding:16px 0;border-radius:99px;border:none;background:#fff;color:#0E1A16;font-weight:700;font-size:16px;cursor:pointer;}
   .mpc-btn.ghost{flex:1;background:transparent;color:#E8F1ED;border:1px solid #3a4a42;}
+  #appToast.has-undo{pointer-events:auto;display:flex;align-items:center;gap:14px;}
+  #appToast button{background:none;border:none;color:#fff;font:inherit;font-weight:700;text-decoration:underline;cursor:pointer;padding:0 2px;}
