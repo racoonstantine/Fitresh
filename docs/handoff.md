@@ -147,9 +147,9 @@ A review of the app as a brand-new user drove this work. Findings were ranked cr
 
 **Working notes:** judge test runs by **exit code** (`for f in tools/test_*.cjs; do node "$f" >/dev/null 2>&1 || echo FAIL $f; done`, same for `.php` and `.py`), not by scanning output. New tests must be added to the list in `deploy.yml` or CI will not run them. The harness caches files in a service worker, so unregister it and clear caches when checking a change in the browser.
 
-## Behind Cloudflare (planned; code ready, DNS not moved)
+## Behind Cloudflare (live since 2026-10-31)
 `client_ip()` in `api/security.php` now returns the `CF-Connecting-IP` header **only when `REMOTE_ADDR` is inside Cloudflare's published ranges** (IPv4 + IPv6 CIDR, list in `CLOUDFLARE_RANGES`, fetched 2026-10-31 from cloudflare.com/ips-v4 and /ips-v6; re-fetch occasionally). Otherwise, or if the header is not a valid IP, it returns `REMOTE_ADDR` as before, so it is harmless without Cloudflare. It keeps `register_ip`, `login_ip` and `reset_ip` per real visitor instead of per shared edge IP. Test: `php tools/test_client_ip.php` (in `deploy.yml`).
-- Plan: deploy this first and check login, then move the `fitresh.com` zone to Cloudflare with SSL mode **Full (strict)**; Cache Rule bypasses cache for `/api/*`, `/download/*` and `/sw.js`. Full steps, rollback and acceptance checks: `H:\Site_Projects\syst-im\docs\handoffs\fitresh-cloudflare.md`.
+- Live setup: zone on Cloudflare Free, SSL/TLS **Full (strict)** (origin cert SSL.com, valid to 2027-04-10; renew it on the host or Full (strict) will return 526), Cache Rule bypasses `/api/*`, `/download/*` and `/sw.js`, one rate-limit rule on POST `/api/auth.php` (10 requests per 10 s per IP, block 10 s), Bot Fight Mode on. Email forwarding (5 MX + SPF) is DNS only. Full steps, rollback and acceptance checks: `H:\Site_Projects\syst-im\docs\handoffs\fitresh-cloudflare.md`.
 - Do not add a CSP or trust `X-Forwarded-For` as part of this.
 
 ## Offline support (built on branch `android-offline`) and Android APK (not started)
