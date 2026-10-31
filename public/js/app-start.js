@@ -41,6 +41,13 @@ wireGlanceCardNav(document.getElementById('glanceGridTop'));
 wireGlanceCardNav(document.getElementById('glanceGridMid'));
 
 async function startApp(){
+  // Ask for everything the first screen needs at once; the loaders below then find their answers
+  // already on the way (see prefetch in storage.js) and still run in the same order.
+  if(window.storage && window.storage.prefetch){
+    window.storage.prefetch(['theme', 'checked', 'weights', 'history', 'weighins', 'nutrition', 'profile', 'fasting', 'water',
+      'sleep', 'steps', 'recentFoods', 'favoriteFoods', 'sharing', 'customWorkoutPlans', 'trainingPlan'].map(r => STORAGE_PREFIX + r));
+  }
+  const catalogReady = window.loadWorkoutCatalog ? window.loadWorkoutCatalog() : null;
   // Theme: load saved preference (defaults to dark if none saved yet)
   try{
     const res = await window.storage.get(STORAGE_PREFIX + 'theme', false);
@@ -154,7 +161,7 @@ async function startApp(){
   await loadSharing();
   await loadCustomWorkoutPlans();
   await loadTrainingPlan();
-  if(window.loadWorkoutCatalog) await window.loadWorkoutCatalog();
+  if(catalogReady) await catalogReady;
 
 
   renderDashboard();

@@ -6,6 +6,7 @@ start_app_session();
 if (empty($_SESSION['user_id'])) json_respond(['error'=>'Not logged in'], 401);
 $userId = (int)$_SESSION['user_id'];
 $method = $_SERVER['REQUEST_METHOD'];
+if ($method === 'GET') session_write_close(); // reads don't touch the session; don't make parallel reads queue on its lock
 if (!in_array($method, ['GET','POST'], true)) json_respond(['error'=>'Method not allowed'],405);
 require_json_request();
 try {

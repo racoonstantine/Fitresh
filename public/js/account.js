@@ -198,6 +198,7 @@ async function showAppFor(user){
   // Remembered so the app can open without a connection (see checkAuthAndStart).
   try{ localStorage.setItem('fitresh.user.v1', JSON.stringify(user)); }catch(e){}
   document.getElementById('loginScreen').style.display = 'none';
+  document.getElementById('appLoading').style.display = 'flex'; // instead of a blank page while the first data loads
   setUserBadge(user.display_name || user.email);
   // Client-side visibility only -- api/admin.php re-checks this server-side
   // on every request, so hiding/showing this tab is purely cosmetic.
@@ -207,7 +208,8 @@ async function showAppFor(user){
   window.outbox.flush();
   refreshAiNative();
   reshLoaded = false; reshState = null; reshError = '';
-  await startApp();
+  try{ await startApp(); }
+  finally{ document.getElementById('appLoading').style.display = 'none'; }
   if(!userProfile){
     showOnboarding();
   } else {

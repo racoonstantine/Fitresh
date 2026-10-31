@@ -1079,3 +1079,9 @@
   .mpc-btn.ghost{flex:1;background:transparent;color:#E8F1ED;border:1px solid #3a4a42;}
   #appToast.has-undo{pointer-events:auto;display:flex;align-items:center;gap:14px;}
   #appToast button{background:none;border:none;color:#fff;font:inherit;font-weight:700;text-decoration:underline;cursor:pointer;padding:0 2px;}
+
+/* Shown between login and the first screen while the first data loads. */
+.app-loading{min-height:100%;flex-direction:column;align-items:center;justify-content:center;gap:14px;color:var(--ink);font-size:15px;}
+.app-loading-spin{width:30px;height:30px;border-radius:50%;border:3px solid currentColor;border-right-color:transparent;opacity:.55;animation:app-loading-turn .8s linear infinite;}
+@keyframes app-loading-turn{to{transform:rotate(360deg);}}
+@media (prefers-reduced-motion:reduce){.app-loading-spin{animation-duration:2.4s;}}
