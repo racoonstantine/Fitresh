@@ -24,11 +24,67 @@ function send_security_headers(): void
 // events for one (bucket, key) pair. If the temp directory can't be used the
 // functions fail open -- a broken limiter must never lock real users out.
 
+// Cloudflare's published proxy ranges, fetched 2026-10-31 from
+// https://www.cloudflare.com/ips-v4 and /ips-v6. They change rarely; re-fetch
+// from those URLs occasionally and update this list.
+const CLOUDFLARE_RANGES = [
+    '173.245.48.0/20', '103.21.244.0/22', '103.22.200.0/22', '103.31.4.0/22',
+    '141.101.64.0/18', '108.162.192.0/18', '190.93.240.0/20', '188.114.96.0/20',
+    '197.234.240.0/22', '198.41.128.0/17', '162.158.0.0/15', '104.16.0.0/13',
+    '104.24.0.0/14', '172.64.0.0/13', '131.0.72.0/22',
+    '2400:cb00::/32', '2606:4700::/32', '2803:f800::/32', '2405:b500::/32',
+    '2405:8100::/32', '2a06:98c0::/29', '2c0f:f248::/32',
+];
+
+// True if $ip (IPv4 or IPv6) falls inside $cidr. Mixed families never match.
+function ip_in_cidr(string $ip, string $cidr): bool
+{
+    $parts = explode('/', $cidr, 2);
+    $addr = @inet_pton($ip);
+    $net = @inet_pton($parts[0]);
+    if ($addr === false || $net === false || strlen($addr) !== strlen($net) || !isset($parts[1])) {
+        return false;
+    }
+    $bits = (int)$parts[1];
+    $bytes = intdiv($bits, 8);
+    if ($bytes > 0 && substr($addr, 0, $bytes) !== substr($net, 0, $bytes)) {
+        return false;
+    }
+    $rest = $bits % 8;
+    if ($rest === 0) {
+        return true;
+    }
+    $mask = (0xFF << (8 - $rest)) & 0xFF;
+    return (ord($addr[$bytes]) & $mask) === (ord($net[$bytes]) & $mask);
+}
+
+function is_cloudflare_ip(string $ip): bool
+{
+    foreach (CLOUDFLARE_RANGES as $cidr) {
+        if (ip_in_cidr($ip, $cidr)) {
+            return true;
+        }
+    }
+    return false;
+}
+
 function client_ip(): string
 {
-    // REMOTE_ADDR only: X-Forwarded-For is client-supplied and would let an
-    // attacker pick a fresh "identity" on every request.
-    return (string)($_SERVER['REMOTE_ADDR'] ?? 'unknown');
+    $remote = (string)($_SERVER['REMOTE_ADDR'] ?? 'unknown');
+    // Behind Cloudflare, REMOTE_ADDR is a shared edge IP, so the real visitor
+    // is in CF-Connecting-IP. That header is client-supplied, so it is trusted
+    // only when the connection really comes from a Cloudflare range; anything
+    // else (or a value that isn't an IP) falls back to REMOTE_ADDR.
+    // X-Forwarded-For is never used: it would let an attacker pick a fresh
+    // "identity" on every request.
+    $header = $_SERVER['HTTP_CF_CONNECTING_IP'] ?? null;
+    if (is_string($header) && is_cloudflare_ip($remote)) {
+        $header = trim($header);
+        if (filter_var($header, FILTER_VALIDATE_IP) !== false) {
+            return $header;
+        }
+    }
+    return $remote;
 }
 
 function rate_limit_path(string $bucket, string $key): ?string
