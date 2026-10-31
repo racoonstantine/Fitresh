@@ -54,7 +54,7 @@ if (rate_limit_blocked('ai_global', 'all', $global, 86400)) {
 rate_limit_or_429('ai_burst', $userId, 6, 60);
 
 $body = ai_build_openai_body($prompt, $images, (string)($config['openai_model'] ?? 'gpt-4o-mini'), $kind);
-[$status, $response] = ai_openai_transport($apiKey, $body, (string)($config['openai_base_url'] ?? 'https://api.openai.com/v1'));
+[$status, $response] = ai_openai_transport($apiKey, $body, (string)($config['openai_base_url'] ?? 'https://api.openai.com/v1'), ai_openai_timeout(count($images)));
 unset($images, $body);
 
 if ($status !== 200 || !is_array($response)) {

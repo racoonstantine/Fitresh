@@ -27,7 +27,19 @@ async function refreshAiNative(){
 }
 
 // File -> small JPEG data URL (long side <= 1024 px). Throws if the browser cannot decode it.
-async function aiNativePhotoDataUrl(file){
+// Cached per File: shrinking starts when the photo is picked (aiNativePhotoAdd), so by the time
+// "Ask AI now" is tapped the upload is usually ready and nothing is decoded while the person waits.
+const aiNativePhotoCache = new WeakMap();
+function aiNativePhotoDataUrl(file){
+  let ready = aiNativePhotoCache.get(file);
+  if(!ready){
+    ready = aiNativePhotoShrink(file);
+    aiNativePhotoCache.set(file, ready);
+    ready.catch(() => aiNativePhotoCache.delete(file)); // a failed decode is retried on send
+  }
+  return ready;
+}
+async function aiNativePhotoShrink(file){
   const bitmap = await createImageBitmap(file);
   const scale = Math.min(1, AI_PHOTO_MAX_SIDE / Math.max(bitmap.width, bitmap.height));
   const canvas = document.createElement('canvas');
@@ -40,11 +52,14 @@ async function aiNativePhotoDataUrl(file){
 
 // files: array of File (may be empty). kind 'review' is the Resh progress review (text only, a different system
 // prompt on the server). note: text appended when photos are sent (string, function(count), or undefined for the default).
-async function aiNativeAsk(prompt, files, note, kind){
+// onStage (optional) hears 'photos' (shrinking), 'ask' (waiting for the AI) and 'slow' (still waiting after 20 s).
+async function aiNativeAsk(prompt, files, note, kind, onStage){
+  const stage = typeof onStage === 'function' ? onStage : () => {};
   const body = { prompt };
   if(kind) body.kind = kind;
   const list = (files || []).slice(0, AI_MAX_PHOTOS);
   if(list.length){
+    stage('photos');
     try{ body.images = await Promise.all(list.map(aiNativePhotoDataUrl)); }
     catch(e){ throw new Error("Couldn't read one of those photos — try another, or ask without it."); }
     const extra = note === undefined ? aiPhotoDefaultNote(list.length) : (typeof note === 'function' ? note(list.length) : note);
@@ -52,6 +67,8 @@ async function aiNativeAsk(prompt, files, note, kind){
   }
   const ctl = new AbortController();
   const timer = setTimeout(() => ctl.abort(), 90000);
+  stage('ask');
+  const slow = setTimeout(() => stage('slow'), 20000);
   let r;
   try{
     r = await safeFetchJson('api/ai_assist.php', {
@@ -60,7 +77,7 @@ async function aiNativeAsk(prompt, files, note, kind){
     });
   }catch(e){
     throw new Error(e.name === 'AbortError' ? 'The AI took too long. Try again.' : (navigator.onLine === false ? "You're offline — AI needs a connection." : (e.message || 'Could not reach the AI. Try again.')));
-  }finally{ clearTimeout(timer); }
+  }finally{ clearTimeout(timer); clearTimeout(slow); }
   if(r.status === 401){ handleUnauthorized(); throw new Error('Your session expired — log in again.'); }
   if(!r.ok || !r.data.reply) throw new Error(r.data.error || 'The AI did not answer. Try again.');
   return r.data.reply;
@@ -108,6 +125,7 @@ function aiNativePhotoAdd(ui, fileList){
   Array.from(fileList).forEach(file => {
     if(ui._aiFiles.length >= AI_MAX_PHOTOS){ skipped++; return; }
     ui._aiFiles.push({file, url: URL.createObjectURL(file)});
+    aiNativePhotoDataUrl(file).catch(() => {}); // start shrinking now; send time reuses the result
   });
   aiNativePhotoMessage(ui, skipped ? 'Up to ' + AI_MAX_PHOTOS + ' photos at a time, so ' + skipped + ' ' + (skipped === 1 ? 'was' : 'were') + ' left out.' : '');
   aiNativePhotoRender(ui);
@@ -178,8 +196,14 @@ if(typeof document !== 'undefined' && typeof document.addEventListener === 'func
     if(!prompt){ if(!status.textContent) say('Describe it first, or add a photo.'); return; }
     const label = btn.textContent;
     btn.disabled = true; btn.textContent = 'Asking AI…';
+    const onStage = (s) => {
+      if(s === 'photos') btn.textContent = 'Preparing photos…';
+      else if(s === 'ask') btn.textContent = 'Asking AI…';
+      else if(s === 'slow') say('Still working — photos can take up to a minute.');
+    };
     try{
-      const reply = await aiNativeAsk(prompt, files, handler.photoNote);
+      const reply = await aiNativeAsk(prompt, files, handler.photoNote, undefined, onStage);
+      say('');
       handler.onReply(prompt, reply, files);
       aiNativePhotoReset(block.querySelector('[data-ai-photo-ui]'));
     }catch(err){
