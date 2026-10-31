@@ -333,7 +333,7 @@ function foodMeasureOptions(r){
   if(r.personal_food?.definition && base !== 'serving') options.push({value:'serving',label:'Serving: '+r.personal_food.definition.serving_label+' (user entered)',factor:Number(r.personal_food.definition.serving_size)});
   if(base === 'g'){
     options.push({value:'oz', label:'oz (weight)', factor:28.349523125});
-    (r.portions || []).forEach(p => options.push({value:'portion:' + p.portion_id, label:'Serving: ' + p.description, factor:Number(p.edible_weight_g), portion:p}));
+    (r.portions || []).forEach(p => options.push({value:'portion:' + p.portion_id, label:'Serving: ' + p.description + (p.data_status === 'ESTIMATED_SERVING' ? ' (estimated)' : ''), factor:Number(p.edible_weight_g), portion:p}));
     options.push({value:'personal_piece',label:'Pieces — my measured weight',factor:null}, {value:'personal_ml',label:'ml — my measured weight',factor:null});
   } else if(base === 'oz') options.push({value:'g',label:'g',factor:1/28.349523125});
   return options;
@@ -382,8 +382,9 @@ function updateFoodMeasurement(r, panel){
   const option = foodMeasureOptions(r).find(o=>o.value === panel.querySelector('.food-unit-input').value);
   panel.querySelector('.food-personal-weight').style.display = option?.factor === null ? 'block' : 'none';
   const note = panel.querySelector('.food-measure-note');
-  note.textContent = option?.portion ? `${option.portion.description} = ${option.portion.edible_weight_g} g edible · ${option.portion.data_status}. Saved in grams.` : option?.factor === null ? 'Personal measurement, not a verified database portion. Saved in grams.' : `Saved in ${r.canonical_unit || 'g'}. Use edible weight.`;
-  if(option?.portion){
+  const estimatedServing = option?.portion?.data_status === 'ESTIMATED_SERVING';
+  note.textContent = estimatedServing ? `${option.portion.description} = ${option.portion.edible_weight_g} g. ${option.portion.notes} Saved in grams.` : option?.portion ? `${option.portion.description} = ${option.portion.edible_weight_g} g edible · ${option.portion.data_status}. Saved in grams.` : option?.factor === null ? 'Personal measurement, not a verified database portion. Saved in grams.' : `Saved in ${r.canonical_unit || 'g'}. Use edible weight.`;
+  if(option?.portion && !estimatedServing){
     const link = document.createElement('a'); link.textContent = ' Source'; link.href = option.portion.source_url; link.target = '_blank'; link.rel = 'noopener noreferrer'; note.appendChild(link);
   }
   try{
