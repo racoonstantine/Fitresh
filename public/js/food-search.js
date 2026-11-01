@@ -351,6 +351,37 @@ function mealCardSummary(items){
     portion: grams !== null ? 'Portion · ' + grams + ' g' : items.length + (items.length === 1 ? ' item' : ' items')
   };
 }
+// Names of the first few items, for the line under the card title.
+function mealCardSubtitle(items){
+  return items.slice(0, 4).map(it => it.name).join(', ') + (items.length > 4 ? ' and more' : '');
+}
+// Share of the meal's energy from each macro (4/9/4 kcal per gram) as whole percents that add up to 100.
+function mealCardEnergyShare(items){
+  const sum = k => items.reduce((a, it) => a + (Number(it[k]) || 0), 0);
+  const raw = {protein: sum('protein') * 4, fat: sum('fat') * 9, carbs: sum('carbs') * 4};
+  const total = raw.protein + raw.fat + raw.carbs;
+  if(total <= 0) return {protein: 0, fat: 0, carbs: 0};
+  const protein = Math.round(raw.protein / total * 100), fat = Math.round(raw.fat / total * 100);
+  return {protein, fat, carbs: Math.max(0, 100 - protein - fat)};
+}
+// Up to three plain labels about the meal, worked out from its totals (no health claims).
+function mealCardHighlights(items){
+  const s = mealCardSummary(items), share = mealCardEnergyShare(items), out = [];
+  if(s.kcal <= 0) return out;
+  if(s.protein >= 25 || share.protein >= 30) out.push({tone: 'protein', title: 'High protein', text: 'Supports muscle and fullness'});
+  if(share.carbs <= 25) out.push({tone: 'carbs', title: 'Lower carb', text: 'Few of the calories come from carbs'});
+  else if(share.carbs >= 60) out.push({tone: 'carbs', title: 'Carb-heavy', text: 'Most of the calories come from carbs'});
+  if(share.fat >= 45) out.push({tone: 'fat', title: 'Higher fat', text: 'Nearly half the calories come from fat'});
+  if(s.fiber >= 5) out.push({tone: 'fiber', title: 'Good fibre', text: '5 g or more of fibre'});
+  return out.slice(0, 3);
+}
+// "High" / "Medium" / "Low" from whatever the AI wrote after "Confidence:"; '' when it said nothing usable.
+function mealCardConfidence(text){
+  const m = /\b(high|medium|moderate|low)\b/i.exec(String(text || ''));
+  if(!m) return '';
+  const w = m[1].toLowerCase();
+  return w === 'moderate' ? 'Medium' : w.charAt(0).toUpperCase() + w.slice(1);
+}
 // A food with a real serving (e.g. "1 bowl") opens on 1 serving, not 100 g.
 function foodDefaultMeasure(r, canonicalAmount){
   const p = (r.canonical_unit || 'g') === 'g' && (r.portions || []).find(x => Number(x.edible_weight_g) > 0);

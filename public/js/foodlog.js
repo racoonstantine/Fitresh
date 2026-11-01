@@ -417,6 +417,11 @@
     lines.push('If this meal has MORE THAN ONE distinct food item (e.g. rice + a main dish + a drink), give each item its OWN separate block in the exact format below, one after another, in the same order they were mentioned. Do not merge multiple items into a single block.');
     lines.push('');
     lines.push('Reply with ONLY block(s) in this exact format, filled in with your best estimate. Leave a line blank after the colon if you truly cannot estimate it. No extra commentary.');
+    lines.push('Dish: <short name for the whole meal>');
+    lines.push('Summary: <one sentence on what the meal is and how it looks prepared>');
+    lines.push('Confidence: <High, Medium or Low>');
+    lines.push('');
+    lines.push('The Dish, Summary and Confidence lines appear once at the top, then one block per food item:');
     lines.push('Food: <food name>');
     lines.push('Amount: <estimated weight or quantity, e.g. 250g or 1 cup>');
     lines.push('Calories: <number> kcal');
@@ -447,6 +452,12 @@
     if(current) blocks.push(current.join('\n'));
     return blocks.map(block => parseLabeledReply(block, ['Food','Amount','Calories','Protein','Fat','Carbs','Sodium','Fiber','Sugar']));
   }
+  // The whole-meal lines the prompt asks for (Dish / Summary / Confidence) sit above the first "Food:" line.
+  function parseFoodReplyMeta(text){
+    const i = text.search(/^\s*Food\s*:/im);
+    const m = parseLabeledReply(i < 0 ? text : text.slice(0, i), ['Dish', 'Summary', 'Confidence']);
+    return {dish: m.Dish, summary: m.Summary, confidence: mealCardConfidence(m.Confidence)};
+  }
   document.getElementById('aiFoodGenerateBtn').addEventListener('click', ()=>{
     const desc = document.getElementById('aiFoodDesc').value.trim();
     document.getElementById('aiFoodPromptOut').value = buildFoodAiPrompt('', '', desc);
@@ -468,41 +479,103 @@
       document.getElementById('aiFoodReplyIn').value = reply;
       document.getElementById('aiFoodPromptWrap').style.display = 'block';
       document.getElementById('aiFoodParseBtn').click();
-      if(files && files.length && lmItems.length > before) showMealPhotoCard(files[0], lmItems.slice(before));
+      if(files && files.length && lmItems.length > before) showMealPhotoCard(files[0], lmItems.slice(before), parseFoodReplyMeta(reply));
     }
   });
 
-  // Photo meal card: a read-only presentation of what the AI just added to the meal below. The photo stays
-  // in this browser tab only (an object URL, revoked on close); nothing about it is uploaded or stored.
+  // Photo meal card: the AI's estimate laid out as a card. Everything on it can be corrected (meal name,
+  // analysis text, each ingredient's name / amount / calories); ingredient edits go straight to the same meal
+  // items the list underneath shows, so the totals and what gets saved always agree. The photo stays in this
+  // browser tab only (an object URL, revoked on close).
   let mpcUrl = null, mpcItems = [];
+  const MPC_RINGS = [['protein', 'Protein', '#3B82F6'], ['fat', 'Fats', '#F59E0B'], ['carbs', 'Carbs', '#22C55E'], ['fiber', 'Fiber', '#8B5CF6']];
+  const MPC_FIBER_REF_G = 30; // the fibre ring fills toward a typical daily amount; it has no energy share
+  function mpcRingHtml(key, label, color, grams, pct){
+    const c = 2 * Math.PI * 26;
+    const frac = key === 'fiber' ? Math.min(grams / MPC_FIBER_REF_G, 1) : pct / 100;
+    return `<div class="mpc-macro"><svg viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="${label} ${grams} g">`
+      + `<circle class="mpc-ring-bg" cx="32" cy="32" r="26"/>`
+      + `<circle class="mpc-ring" cx="32" cy="32" r="26" style="stroke:${color};stroke-dasharray:${(frac * c).toFixed(1)} ${c.toFixed(1)}" transform="rotate(-90 32 32)"/>`
+      + `<text class="mpc-macro-g" x="32" y="31" text-anchor="middle">${grams} g</text>`
+      + `<text class="mpc-macro-n" x="32" y="43" text-anchor="middle">${label}</text></svg>`
+      + `<i style="color:${color}">${key === 'fiber' ? '' : pct + '%'}</i></div>`;
+  }
+  function mpcIngredientsHtml(){
+    return mpcItems.map((it, i) => {
+      const n = foodSearchEscape(it.name);
+      return `<li class="mpc-ing" data-i="${i}">`
+        + `<input class="mpc-ing-name" type="text" maxlength="80" value="${n}" aria-label="Ingredient name">`
+        + `<div class="mpc-ing-nums">`
+        + `<label><input class="mpc-ing-amt" type="text" inputmode="decimal" data-num value="${lmRound(it.amount, 1)}" aria-label="Amount of ${n}"><span>${foodSearchEscape(it.unit)}</span></label>`
+        + `<label><input class="mpc-ing-kcal" type="text" inputmode="decimal" data-num value="${Math.round(it.kcal)}" aria-label="Calories of ${n}"><span>kcal</span></label>`
+        + `</div><button type="button" class="mpc-ing-x" aria-label="Remove ${n}">&#10005;</button></li>`;
+    }).join('');
+  }
+  // Redraws everything that depends on the items. The ingredient rows are rebuilt only when asked,
+  // so typing in the title or analysis never loses focus.
+  function mpcRender(rebuildRows){
+    const s = mealCardSummary(mpcItems), share = mealCardEnergyShare(mpcItems);
+    document.getElementById('mpcKcal').textContent = s.kcal;
+    document.getElementById('mpcSub').textContent = mealCardSubtitle(mpcItems);
+    document.getElementById('mpcMacros').innerHTML = MPC_RINGS.map(([key, label, color]) => mpcRingHtml(key, label, color, s[key], share[key] || 0)).join('');
+    document.getElementById('mpcChips').innerHTML = mealCardHighlights(mpcItems)
+      .map(h => `<div class="mpc-hl" data-tone="${h.tone}"><b>${foodSearchEscape(h.title)}</b><span>${foodSearchEscape(h.text)}</span></div>`).join('');
+    document.getElementById('mpcCount').textContent = mpcItems.length + (mpcItems.length === 1 ? ' item' : ' items');
+    if(rebuildRows) document.getElementById('mpcList').innerHTML = mpcIngredientsHtml();
+  }
+  // The analysis box grows with its text instead of scrolling inside a small box.
+  function mpcGrowSummary(){
+    const el = document.getElementById('mpcSummary');
+    el.style.height = 'auto';
+    el.style.height = el.scrollHeight + 'px';
+  }
   function closeMealPhotoCard(){
     document.getElementById('mealPhotoCard').style.display = 'none';
     if(mpcUrl){ URL.revokeObjectURL(mpcUrl); mpcUrl = null; }
     document.getElementById('mpcPhoto').removeAttribute('src');
   }
-  function showMealPhotoCard(file, items){
+  function showMealPhotoCard(file, items, meta){
+    meta = meta || {};
     mpcItems = items;
     if(mpcUrl) URL.revokeObjectURL(mpcUrl);
     mpcUrl = URL.createObjectURL(file);
     document.getElementById('mpcPhoto').src = mpcUrl;
-    const s = mealCardSummary(items);
-    document.getElementById('mpcTitle').textContent = s.title;
-    document.getElementById('mpcKcal').textContent = s.kcal;
-    document.getElementById('mpcP').textContent = s.protein + ' g';
-    document.getElementById('mpcF').textContent = s.fat + ' g';
-    document.getElementById('mpcC').textContent = s.carbs + ' g';
-    document.getElementById('mpcFi').textContent = s.fiber + ' g';
-    document.getElementById('mpcPortion').textContent = s.portion;
-    document.getElementById('mpcCount').textContent = items.length + (items.length === 1 ? ' item' : ' items');
-    document.getElementById('mpcList').innerHTML = items.map(it =>
-      `<li><span>${foodSearchEscape(it.name)}</span><span>${foodSearchEscape(String(it.amount))}${foodSearchEscape(it.unit)} · ${Math.round(it.kcal)} kcal</span></li>`).join('');
+    document.getElementById('mpcTitle').value = meta.dish || mealCardSummary(items).title;
+    document.getElementById('mpcSummary').value = meta.summary || '';
+    const conf = document.getElementById('mpcConf');
+    conf.hidden = !meta.confidence;
+    conf.textContent = meta.confidence ? meta.confidence + ' confidence' : '';
+    conf.dataset.level = meta.confidence || '';
+    mpcRender(true);
     const sel = document.getElementById('mpcMeal');
     sel.innerHTML = document.getElementById('lmMealType').innerHTML;
     sel.value = document.getElementById('lmMealType').value;
     document.getElementById('mealPhotoCard').style.display = 'flex';
+    mpcGrowSummary();
   }
   document.getElementById('mpcClose').addEventListener('click', closeMealPhotoCard);
-  document.getElementById('mpcAdjust').addEventListener('click', closeMealPhotoCard); // per-item amounts are on the meal list underneath
+  document.getElementById('mpcSummary').addEventListener('input', mpcGrowSummary);
+  document.getElementById('mpcList').addEventListener('change', (e)=>{
+    const row = e.target.closest('.mpc-ing');
+    const it = row && mpcItems[Number(row.dataset.i)];
+    if(!it) return;
+    const typed = parseNum(e.target.value);
+    if(e.target.classList.contains('mpc-ing-name')){ const name = e.target.value.trim(); if(name) it.name = name; }
+    else if(e.target.classList.contains('mpc-ing-amt')){ if(typed > 0 && typed <= 20000) lmSetItemAmount(it, typed); }
+    else if(e.target.classList.contains('mpc-ing-kcal')){ if(typed > 0 && typed <= 20000) lmSetItemKcal(it, typed); }
+    renderLmMealItems();
+    mpcRender(true);
+  });
+  document.getElementById('mpcList').addEventListener('click', (e)=>{
+    const x = e.target.closest('.mpc-ing-x');
+    if(!x) return;
+    const gone = mpcItems.splice(Number(x.closest('.mpc-ing').dataset.i), 1)[0];
+    const at = lmItems.indexOf(gone);
+    if(at >= 0) lmItems.splice(at, 1);
+    renderLmMealItems();
+    if(!mpcItems.length){ closeMealPhotoCard(); return; }
+    mpcRender(true);
+  });
   document.getElementById('mpcMeal').addEventListener('change', (e)=>{ document.getElementById('lmMealType').value = e.target.value; });
   document.getElementById('mpcRetake').addEventListener('click', ()=>{
     mpcItems.forEach(it => { const i = lmItems.indexOf(it); if(i >= 0) lmItems.splice(i, 1); });
@@ -600,6 +673,17 @@
       it[key] = (v === null || v === undefined) ? v : lmRound(v * f, places);
     });
     it.amount = lmRound(newAmount, 1);
+  }
+  // Corrects an item's calories: every number scales by the same factor, and the item forgets its old
+  // starting numbers so a later amount edit scales from these corrected ones.
+  function lmSetItemKcal(it, kcal){
+    const f = it.kcal > 0 ? kcal / it.kcal : null;
+    LM_SCALED.forEach(([key, places]) => {
+      const v = it[key];
+      if(f !== null && v !== null && v !== undefined) it[key] = lmRound(v * f, places);
+    });
+    it.kcal = Math.round(kcal);
+    it.base = null;
   }
   document.getElementById('lmMealItems').addEventListener('change', (e)=>{
     const amountInput = e.target.closest('.lm-adjust-amount');

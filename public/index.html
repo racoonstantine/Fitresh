@@ -1233,19 +1233,31 @@
   <div class="mpc-sheet">
     <div class="mpc-hero">
       <img id="mpcPhoto" alt="Your meal photo">
-      <button type="button" class="mpc-x" id="mpcClose" aria-label="Close">&#10005;</button>
-      <div class="mpc-hero-text"><span class="mpc-title" id="mpcTitle"></span><span class="mpc-kcal"><b id="mpcKcal">0</b><small>KCAL</small></span></div>
+      <button type="button" class="mpc-round" id="mpcClose" aria-label="Back to the meal"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>
+      <span class="mpc-tag">AI estimate</span>
+      <div class="mpc-hero-text">
+        <div class="mpc-hero-name">
+          <input type="text" id="mpcTitle" class="mpc-title-input" maxlength="80" aria-label="Meal name">
+          <span class="mpc-sub" id="mpcSub"></span>
+        </div>
+        <div class="mpc-kcal"><small>Estimated</small><b id="mpcKcal">0</b><small>kcal</small></div>
+      </div>
     </div>
     <div class="mpc-body">
-      <div class="mpc-label">Estimated macros</div>
-      <div class="mpc-macros">
-        <div><b id="mpcP" style="color:#7FB0E8;"></b><span>Protein</span></div>
-        <div><b id="mpcF" style="color:#E89A5C;"></b><span>Fats</span></div>
-        <div><b id="mpcC" style="color:#8CC46A;"></b><span>Carbs</span></div>
-        <div><b id="mpcFi" style="color:#C9D36A;"></b><span>Fiber</span></div>
-      </div>
-      <div class="mpc-row"><div><strong id="mpcPortion"></strong><small>Review or adjust before logging</small></div><button type="button" class="mpc-link" id="mpcAdjust">Adjust amount</button></div>
-      <details class="mpc-row mpc-items"><summary><div><strong>Ingredients detected</strong><small>Tap to see each item</small></div><span id="mpcCount"></span></summary><ul id="mpcList"></ul></details>
+      <div class="mpc-macros" id="mpcMacros"></div>
+      <section class="mpc-card">
+        <div class="mpc-card-head">
+          <h3><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M12 2l1.9 5.6L19.5 9.5l-5.6 1.9L12 17l-1.9-5.6L4.5 9.5l5.6-1.9z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg>AI analysis</h3>
+          <span class="mpc-conf" id="mpcConf" hidden title="How sure the AI says it is"></span>
+        </div>
+        <textarea id="mpcSummary" class="mpc-summary" rows="2" maxlength="300" aria-label="AI analysis" placeholder="Describe the meal in a sentence"></textarea>
+      </section>
+      <section class="mpc-card">
+        <div class="mpc-card-head"><h3>Estimated ingredients</h3><span id="mpcCount" class="mpc-count"></span></div>
+        <p class="mpc-hint">Tap any name, amount or calories to correct it. The totals follow.</p>
+        <ul id="mpcList" class="mpc-list"></ul>
+      </section>
+      <div class="mpc-chips" id="mpcChips"></div>
       <label class="mpc-label" for="mpcMeal">Meal</label>
       <select id="mpcMeal" class="mpc-select"></select>
       <div class="mpc-actions">
