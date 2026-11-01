@@ -1,4 +1,21 @@
 let todayMealsGeneration = 0;
+// A meal logged from a photo keeps a small copy of it for 7 days (api/meal_photo.php); the day view says
+// whether one is still there. If the picture cannot be loaded (offline, expired) the button hides itself.
+function mealThumbHtml(entry){
+  if(!(entry.photo && entry.photo.has_photo)) return '';
+  const label = foodSearchEscape(entry.display_name || 'this meal');
+  return `<button type="button" class="meal-thumb-btn" data-entry="${entry.id}" aria-label="Show photo of ${label}"><img class="meal-thumb" src="api/meal_photo.php?id=${entry.id}" alt="" width="48" height="48" loading="lazy" onerror="this.closest('.meal-thumb-btn').hidden=true"></button>`;
+}
+function mealPhotoPanelHtml(entry){
+  if(!(entry.photo && entry.photo.has_photo)) return '';
+  const label = foodSearchEscape(entry.display_name || 'this meal');
+  const conf = entry.photo.confidence ? ` <span class="meal-photo-conf">${foodSearchEscape(entry.photo.confidence)} confidence</span>` : '';
+  return `<div class="meal-photo-panel" data-entry="${entry.id}" hidden>
+    <img src="api/meal_photo.php?id=${entry.id}" alt="Photo of ${label}">
+    ${entry.photo.summary ? `<p>${foodSearchEscape(entry.photo.summary)}${conf}</p>` : ''}
+    <small>Photos are kept for 7 days.</small>
+  </div>`;
+}
 async function renderTodayMeals(){
   const card = document.getElementById('todayMealsCard');
   if(!card) return;
@@ -29,7 +46,11 @@ async function renderTodayMeals(){
     const sortedEntries = [...nonEmptyEntries].sort((a, b) => MEAL_TYPE_ORDER.indexOf(a.meal_type) - MEAL_TYPE_ORDER.indexOf(b.meal_type));
     const rows = sortedEntries.map(entry => `
       <div style="margin-bottom:10px;">
-        <div style="font-size:11px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.06em;font-weight:700;margin-bottom:4px;">${typeLabels[entry.meal_type] || entry.meal_type}</div>
+        <div class="meal-entry-head">
+          ${mealThumbHtml(entry)}
+          <div style="font-size:11px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.06em;font-weight:700;">${typeLabels[entry.meal_type] || entry.meal_type}${entry.display_name ? ` <span class="meal-entry-name">· ${foodSearchEscape(entry.display_name)}</span>` : ''}</div>
+        </div>
+        ${mealPhotoPanelHtml(entry)}
         ${entry.components.map(c => `
           <div class="meal-component-row" data-id="${c.id}" style="padding:6px 0;border-bottom:1px dashed var(--line);">
             <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;">
@@ -125,6 +146,14 @@ async function renderTodayMeals(){
         });
         renderTodayMeals();
         renderNutrition();
+      });
+    });
+    // Tap a meal's thumbnail to open its photo and the AI's note; photos are kept for 7 days.
+    card.querySelectorAll('.meal-thumb-btn').forEach(btn=>{
+      btn.addEventListener('click', (e)=>{
+        e.stopPropagation();
+        const panel = card.querySelector(`.meal-photo-panel[data-entry="${btn.dataset.entry}"]`);
+        if(panel) panel.hidden = !panel.hidden;
       });
     });
   }catch(e){

@@ -25,8 +25,8 @@ s = ctx.mealCardSummary([{name: 'Halo-halo', unit: 'serving', amount: 1, kcal: 3
 assert.equal(s.portion, '1 item');
 assert.equal(ctx.mealCardSummary([]).title, '');
 
-// The photo stays in the browser: the card must never post it anywhere.
+// The card itself never uploads or stores anything: the photo is only kept (api/meal_photo.php) when the meal is saved.
 const foodlog = require('node:fs').readFileSync('public/js/foodlog.js', 'utf8');
 const card = foodlog.slice(foodlog.indexOf('function showMealPhotoCard('), foodlog.indexOf("document.getElementById('mpcClose')"));
-assert.ok(card.includes('createObjectURL') && !/fetch\(|FormData|readAsDataURL|localStorage|toDataURL/.test(card), 'photo card must keep the photo in memory only');
-console.log('PASS: meal photo card summary (totals, portion label, item counts) and no photo storage.');
+assert.ok(card.includes('createObjectURL') && !/fetch\(|FormData|readAsDataURL|localStorage|toDataURL/.test(card), 'the card only shows the photo from memory; saving it is a separate step after the meal is logged');
+console.log('PASS: meal photo card summary (totals, portion label, item counts) and the card never uploads.');

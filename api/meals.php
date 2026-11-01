@@ -2,6 +2,7 @@
 declare(strict_types=1);
 require __DIR__ . '/db.php';
 require_once __DIR__ . '/food_measurements.php';
+require_once __DIR__ . '/meal_photo_lib.php';
 
 header('Content-Type: application/json');
 start_app_session();
@@ -85,6 +86,11 @@ if ($method === 'GET' && $action === 'day') {
     $entries = $stmt->fetchAll();
 
     $compStmt = $pdo->prepare('SELECT * FROM meal_components WHERE meal_entry_id = ? ORDER BY sort_order, id');
+    try {
+        $photos = meal_photo_info($pdo, $userId, array_map(fn($e) => (int)$e['id'], $entries));
+    } catch (PDOException $e) {
+        $photos = []; // migration 009 not applied yet: no thumbnails, everything else unchanged
+    }
     $dayTotals = [];
     $result = [];
     foreach ($entries as $entry) {
@@ -101,6 +107,7 @@ if ($method === 'GET' && $action === 'day') {
             'id' => (int)$entry['id'],
             'meal_type' => $entry['meal_type'],
             'display_name' => $entry['display_name'],
+            'photo' => $photos[(int)$entry['id']] ?? null,
             'components' => $components,
         ];
     }
@@ -255,12 +262,30 @@ if ($method === 'POST' && $action === 'log') {
 
 if ($method === 'POST' && $action === 'delete_component') {
     $componentId = (int)($input['id'] ?? 0);
+    $stmt = $pdo->prepare(
+        'SELECT mc.meal_entry_id FROM meal_components mc JOIN meal_entries me ON me.id = mc.meal_entry_id
+         WHERE mc.id = ? AND me.user_id = ?'
+    );
+    $stmt->execute([$componentId, $userId]);
+    $entryOfComponent = $stmt->fetchColumn();
     // Ownership check via subquery, so a user can't delete another user's component by guessing an id.
     $stmt = $pdo->prepare(
         'DELETE FROM meal_components
          WHERE id = ? AND meal_entry_id IN (SELECT id FROM meal_entries WHERE user_id = ?)'
     );
     $stmt->execute([$componentId, $userId]);
+    // A meal with nothing left in it keeps no photo.
+    if ($entryOfComponent !== false) {
+        $left = $pdo->prepare('SELECT COUNT(*) FROM meal_components WHERE meal_entry_id = ?');
+        $left->execute([(int)$entryOfComponent]);
+        if ((int)$left->fetchColumn() === 0) {
+            try {
+                meal_photo_delete($pdo, $userId, (int)$entryOfComponent);
+            } catch (PDOException $e) {
+                // migration 009 not applied yet
+            }
+        }
+    }
     json_respond(['ok' => true]);
 }
 

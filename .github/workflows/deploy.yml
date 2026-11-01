@@ -40,7 +40,7 @@ jobs:
 
       - name: PHP tests
         run: |
-          for t in workouts personal_foods food_review client_ip ai_assist_lib; do
+          for t in workouts personal_foods food_review client_ip ai_assist_lib meal_photo; do
             echo "== test_$t"; php "tools/test_$t.php"
           done
 

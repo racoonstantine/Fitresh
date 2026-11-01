@@ -50,6 +50,34 @@ async function aiNativePhotoShrink(file){
   return canvas.toDataURL('image/jpeg', 0.82);
 }
 
+// A small picture to keep with a logged meal for 7 days (see api/meal_photo.php): about 400 px, WebP where the
+// browser can encode it, JPEG otherwise, re-tried at lower quality until it is small. Returns a data URL.
+const MEAL_THUMB_SIDE = 400;
+const MEAL_THUMB_MAX_BYTES = 120000;
+function aiNativeBlobToDataUrl(blob){
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(String(reader.result));
+    reader.onerror = () => reject(reader.error || new Error('Could not read the photo.'));
+    reader.readAsDataURL(blob);
+  });
+}
+async function mealPhotoThumbDataUrl(file){
+  const bitmap = await createImageBitmap(file);
+  const scale = Math.min(1, MEAL_THUMB_SIDE / Math.max(bitmap.width, bitmap.height));
+  const canvas = document.createElement('canvas');
+  canvas.width = Math.max(1, Math.round(bitmap.width * scale));
+  canvas.height = Math.max(1, Math.round(bitmap.height * scale));
+  canvas.getContext('2d').drawImage(bitmap, 0, 0, canvas.width, canvas.height);
+  if(bitmap.close) bitmap.close();
+  // A browser that cannot encode the asked-for type quietly returns PNG; that is skipped, not sent.
+  for(const [type, quality] of [['image/webp', 0.78], ['image/webp', 0.6], ['image/jpeg', 0.72], ['image/jpeg', 0.5]]){
+    const blob = await new Promise(resolve => canvas.toBlob(resolve, type, quality));
+    if(blob && blob.type === type && blob.size <= MEAL_THUMB_MAX_BYTES) return aiNativeBlobToDataUrl(blob);
+  }
+  throw new Error('The photo could not be made small enough.');
+}
+
 // files: array of File (may be empty). kind 'review' is the Resh progress review (text only, a different system
 // prompt on the server). note: text appended when photos are sent (string, function(count), or undefined for the default).
 // onStage (optional) hears 'photos' (shrinking), 'ask' (waiting for the AI) and 'slow' (still waiting after 20 s).
