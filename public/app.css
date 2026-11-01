@@ -1028,18 +1028,9 @@
   .lp-cta{display:flex;flex-direction:column;align-items:center;gap:8px;margin-bottom:22px;}
   .lp-cta .timer-btn{width:100%;max-width:300px;padding:14px 0;font-size:15px;}
   .lp-link{background:none;border:none;color:var(--ink-soft);font-size:13px;text-decoration:underline;cursor:pointer;padding:4px;}
-  .lp-card{margin:0 0 20px;border-radius:22px;overflow:hidden;background:#0E1A16;color:#E8F1ED;text-align:left;box-shadow:0 18px 40px -18px rgba(13,59,46,.6);}
-  .lp-photo{position:relative;}
-  .lp-photo img{display:block;width:100%;height:auto;}
-  .lp-photo::after{content:"";position:absolute;inset:auto 0 0 0;height:60%;background:linear-gradient(to top,rgba(14,26,22,.95),rgba(14,26,22,0));}
-  .lp-photo-text{position:absolute;left:16px;right:16px;bottom:12px;z-index:1;display:flex;align-items:flex-end;justify-content:space-between;gap:10px;}
-  .lp-dish{font-family:var(--font-heading);font-weight:600;font-size:20px;line-height:1.15;}
-  .lp-kcal{display:flex;flex-direction:column;align-items:flex-end;font-family:var(--font-heading);font-weight:600;font-size:32px;color:#E89A5C;line-height:1;}
-  .lp-kcal small{font-size:10px;letter-spacing:.2em;color:#A9B8B1;margin-top:3px;}
-  .lp-macros{display:grid;grid-template-columns:repeat(4,1fr);padding:14px 8px 4px;text-align:center;}
-  .lp-macros b{display:block;font-family:var(--font-heading);font-size:20px;}
-  .lp-macros span{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#A9B8B1;}
-  .lp-card figcaption{padding:8px 16px 16px;font-size:12.5px;color:#A9B8B1;text-align:center;}
+  .lp-card{margin:0 0 20px;text-align:left;}
+  .lp-card img{display:block;width:100%;height:auto;border-radius:22px;box-shadow:0 18px 40px -18px rgba(13,59,46,.55);}
+  .lp-card figcaption{padding:10px 8px 0;font-size:12.5px;color:var(--ink-soft);text-align:center;}
   .lp-points{list-style:none;margin:0 0 14px;padding:0;text-align:left;display:flex;flex-direction:column;gap:10px;}
   .lp-points li{font-size:13.5px;line-height:1.45;color:var(--ink-soft);padding-left:26px;position:relative;}
   .lp-points li::before{content:"\2713";position:absolute;left:0;top:0;width:18px;height:18px;border-radius:50%;background:var(--forest);color:#A7F3D0;font-size:11px;display:grid;place-items:center;}
