@@ -55,7 +55,7 @@ marker strings — if you move or rename a function, update the tests that slice
 reply; `public/js/ai-native.js` shows an "Ask AI now" block in the food, watch-stats and Log-a-Session panels only when
 `GET api/ai_assist.php` says `enabled`. Needs `openai_api_key` in the server's `config.local.php` (options in
 `config.example.php`: model, per-user and site-wide daily caps). Photos are shrunk in the browser, forwarded in memory
-and never stored. Test: `node tools/test_ai_assist_api.cjs` (fake OpenAI via the harness).
+and not stored by that request (a small separate copy is kept 7 days with a logged photo meal, see Meal photos below). Test: `node tools/test_ai_assist_api.cjs` (fake OpenAI via the harness).
 - Photos: one "Use photo" control (`aiNativePhotoHtml`, up to 5 photos per request, `AI_MAX_PHOTOS`) offers Take a photo (file input with `capture`) or Choose from gallery (multi-select). The Android
   shell needs the CAMERA permission in `mobile/android/.../AndroidManifest.xml` (declared; needs a rebuilt APK to take effect).
 - Train "Log stats from watch" (`stats-form.js`, `setStatsMode`): with AI on, new entries first ask screenshot / manual / estimate; editing
@@ -104,6 +104,7 @@ run new HTML with old assets. New files under `public/` deploy automatically.
 ## Live-server to-do (only the owner can do these)
 1. Run `db/migrations/007_food_review.sql` in phpMyAdmin (005/006 were reported done), then
    `008_meal_log_keys.sql` (offline meal replay de-duplication; meals still log without it, just not de-duplicated).
+   Then `009_meal_photos.sql` (7-day meal photo thumbnails; without it meals log as normal, just with no thumbnail).
 2. cPanel cron `0 8 1,16 * *` → `/usr/local/bin/php /home/shergtjz/fitresh.com/api/food_review_digest.php`
    (details in `docs/food-review.md`; test first with `--dry-run`).
 3. Done: fitresh.com is the primary domain (`'app_host' => 'fitresh.com'` set), gedli.com redirects.
@@ -136,7 +137,7 @@ A review of the app as a brand-new user drove this work. Findings were ranked cr
 
 **Decisions to keep (do not "fix" these):**
 - Signup is approval-gated **on purpose** (the owner chooses who gets in). The signup form now ends on an "You're on the list" panel instead of a faint green line.
-- The AI photo meal card keeps the photo **in the browser tab only** (object URL, revoked on close). Nothing about it is stored. Do not add storage without a plan: each user is capped at 32 MB in one JSON blob (`api/data.php`) and the app mirrors data into `localStorage` (~5 MB), so base64 photos in the food log would break both. If photos are ever kept: separate files plus a table, ~400 px WebP (~20 KB), capped by age.
+- **Meal photos (changed Nov 2026, was browser-only):** a meal logged from an AI photo keeps a small copy for **7 days** (`api/meal_photo.php`, table `meal_photos`, migration 009). Never the original: the app shrinks it to ~400 px WebP (JPEG where the browser cannot encode WebP), capped at 150 KB; one photo per meal entry (items from a photo group under the meal's own name via `display_name`); stored as a blob in its own table, never in the 32 MB JSON blob or `localStorage`. Served only to the owner, `Cache-Control: private`. After 7 days the image is cleared (on the next save, or when someone requests it) and the one-line AI analysis and confidence stay. At most 60 active photos per person (oldest dropped first). Removing a meal's last food removes its photo. The photo sent to OpenAI for the estimate is still forwarded in memory only. Offline: the meal syncs later, the photo is skipped. Tests: `php tools/test_meal_photo.php` and the `meal photo` smoke check.
 - Estimated servings (`ESTIMATED_SERVING`) exist only for the 50 home-style Filipino recipe dishes (`FC001260`-`FC001309`), defined as modeled batch mass / an assumed servings count (`tools/add_estimated_servings.py`). They are labelled "(estimated)" and never mixed with sourced `OTHER_SOURCE_PORTION`. Restaurant/branded estimates deliberately get **no** inferred serving mass.
 - Pinch-zoom is still blocked (`user-scalable=no`): allowing it makes iOS zoom into inputs under 16 px. Needs a font-size pass and an iPhone test first.
 

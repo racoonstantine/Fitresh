@@ -292,6 +292,34 @@ async function call(base, path, { method = 'GET', body, headers = {}, as } = {})
     const bad = await call(b, '/api/meals.php?action=log', { method: 'POST', body: { ...body, client_key: 'x y' } });
     assert.strictEqual(bad.status, 400, 'malformed keys are refused');
   });
+  check('meal photo: kept with its meal, served to the owner only, removed with the meal', async () => {
+    const tiny = Buffer.concat([Buffer.from('RIFF'), Buffer.from([20, 0, 0, 0]), Buffer.from('WEBP'), Buffer.alloc(20, 7)]);
+    const image = 'data:image/webp;base64,' + tiny.toString('base64');
+    const log = await call(b, '/api/meals.php?action=log', { method: 'POST', body: { date: today, meal_type: 'lunch', display_name: 'Photo seafood', component: { custom_name: 'Prawns', amount: 100, unit: 'g', manual_calories: 99, manual_protein: 24, manual_fat: 0.3, manual_carbs: 0.2 } } });
+    assert.strictEqual(log.status, 200, log.text);
+    const entryId = log.json.meal_entry_id;
+    assert.strictEqual((await call(b, '/api/meal_photo.php', { method: 'POST', as: '', body: { meal_entry_id: entryId, image } })).status, 401, 'needs a login');
+    const put = await call(b, '/api/meal_photo.php', { method: 'POST', body: { meal_entry_id: entryId, image, summary: 'Prawns on a plate', confidence: 'High' } });
+    assert.strictEqual(put.status, 200, put.text);
+    const raw = await fetch(b + '/api/meal_photo.php?id=' + entryId, { headers: { Cookie: cookie } });
+    assert.strictEqual(raw.status, 200);
+    assert.strictEqual(raw.headers.get('content-type'), 'image/webp');
+    assert.ok(/private/.test(raw.headers.get('cache-control')), 'never cached by shared caches');
+    assert.ok(Buffer.from(await raw.arrayBuffer()).equals(tiny), 'bytes come back unchanged');
+    const day = await call(b, `/api/meals.php?action=day&date=${today}`);
+    const entry = day.json.entries.find(e => e.id === entryId);
+    assert.strictEqual(entry.display_name, 'Photo seafood');
+    assert.deepStrictEqual(entry.photo, { has_photo: true, summary: 'Prawns on a plate', confidence: 'High' });
+    const theirs = await fetch(b + '/api/meal_photo.php?id=' + entryId, { headers: { Cookie: other } });
+    assert.strictEqual(theirs.status, 404, 'another account cannot read it');
+    const steal = await call(b, '/api/meal_photo.php', { method: 'POST', as: other, body: { meal_entry_id: entryId, image } });
+    assert.strictEqual(steal.status, 404, 'another account cannot replace it');
+    const png = await call(b, '/api/meal_photo.php', { method: 'POST', body: { meal_entry_id: entryId, image: 'data:image/png;base64,' + tiny.toString('base64') } });
+    assert.strictEqual(png.status, 400, 'only WebP or JPEG');
+    await call(b, '/api/meals.php?action=delete_component', { method: 'POST', body: { id: log.json.component_id } });
+    const gone = await fetch(b + '/api/meal_photo.php?id=' + entryId, { headers: { Cookie: cookie } });
+    assert.strictEqual(gone.status, 404, 'removing the last food removes the photo');
+  });
   check('stale write after offline edits gets 409 with the server copy (client merges it)', async () => {
     const read = (await call(b, '/api/data.php?resource=steps')).json;
     const base = read.updated_at;

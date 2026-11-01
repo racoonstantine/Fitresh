@@ -154,6 +154,7 @@
 
   window.openLogMealScreen = function(mealType, mode){
     lmItems = [];
+    lmPhoto = null;
     document.getElementById('lmDate').value = nutriSelectedDate || dateStrForOffset(0);
     document.getElementById('lmMealType').value = mealType || document.getElementById('mealLogType').value || 'breakfast';
     document.getElementById('lmSearchInput').value = '';
@@ -487,7 +488,8 @@
   // analysis text, each ingredient's name / amount / calories); ingredient edits go straight to the same meal
   // items the list underneath shows, so the totals and what gets saved always agree. The photo stays in this
   // browser tab only (an object URL, revoked on close).
-  let mpcUrl = null, mpcItems = [];
+  let mpcUrl = null, mpcItems = [], mpcFile = null;
+  let lmPhoto = null; // the photo (and what the card says about it) to keep with the meal once it is saved
   const MPC_RINGS = [['protein', 'Protein', '#3B82F6'], ['fat', 'Fats', '#F59E0B'], ['carbs', 'Carbs', '#22C55E'], ['fiber', 'Fiber', '#8B5CF6']];
   const MPC_FIBER_REF_G = 30; // the fibre ring fills toward a typical daily amount; it has no energy share
   function mpcRingHtml(key, label, color, grams, pct){
@@ -537,6 +539,7 @@
   function showMealPhotoCard(file, items, meta){
     meta = meta || {};
     mpcItems = items;
+    mpcFile = file;
     if(mpcUrl) URL.revokeObjectURL(mpcUrl);
     mpcUrl = URL.createObjectURL(file);
     document.getElementById('mpcPhoto').src = mpcUrl;
@@ -579,11 +582,20 @@
   document.getElementById('mpcMeal').addEventListener('change', (e)=>{ document.getElementById('lmMealType').value = e.target.value; });
   document.getElementById('mpcRetake').addEventListener('click', ()=>{
     mpcItems.forEach(it => { const i = lmItems.indexOf(it); if(i >= 0) lmItems.splice(i, 1); });
+    lmPhoto = null;
     renderLmMealItems();
     closeMealPhotoCard();
   });
   document.getElementById('mpcAdd').addEventListener('click', ()=>{
     document.getElementById('lmMealType').value = document.getElementById('mpcMeal').value;
+    // The photo, meal name and analysis are kept with the meal when it saves (saveMealPhoto below).
+    lmPhoto = {
+      file: mpcFile,
+      dish: document.getElementById('mpcTitle').value.trim().slice(0, 120),
+      summary: document.getElementById('mpcSummary').value.trim(),
+      confidence: document.getElementById('mpcConf').dataset.level || ''
+    };
+    mpcItems.forEach(it => { it.photoMeal = true; });
     closeMealPhotoCard();
     document.getElementById('lmSaveBtn').click();
   });
@@ -740,6 +752,16 @@
     saveBtn.disabled = false;
   }
 
+  // Keeps the photo with the saved meal (api/meal_photo.php): a ~400 px copy, readable for 7 days.
+  async function saveMealPhoto(entryId, photo){
+    const image = await mealPhotoThumbDataUrl(photo.file);
+    const {ok, data} = await safeFetchJson('api/meal_photo.php', {
+      method: 'POST', credentials: 'same-origin', headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({meal_entry_id: entryId, image, summary: photo.summary, confidence: photo.confidence})
+    });
+    if(!ok) throw new Error((data && data.error) || 'photo not saved');
+  }
+
   document.getElementById('lmSaveBtn').addEventListener('click', async ()=>{
     if(!lmItems.length) return;
     const btn = document.getElementById('lmSaveBtn');
@@ -748,6 +770,7 @@
     const mealType = document.getElementById('lmMealType').value;
     const savedKcal = Math.round(lmItems.reduce((a, it) => a + (Number(it.kcal) || 0), 0));
     const savedIds = [];
+    let photoEntryId = null;
     btn.disabled = true;
     btn.textContent = 'Saving…';
     statusEl.style.display = 'none';
@@ -788,18 +811,26 @@
           }catch(err){ if(err.name !== 'TypeError') throw err; offlineComponent = asManual(); }
         }
         const logRes = await window.outbox.logMeal(
-          {date, meal_type: mealType, component: offlineComponent || {food_id: foodId, ...(it.measurement || {amount: it.amount, unit: it.unit})}},
+          {date, meal_type: mealType, component: offlineComponent || {food_id: foodId, ...(it.measurement || {amount: it.amount, unit: it.unit})},
+            // Items from a photo estimate group under the meal's own name, so the photo belongs to just them.
+            ...(it.photoMeal && lmPhoto && lmPhoto.dish ? {display_name: lmPhoto.dish} : {})},
           {name: it.name, amount: it.amount, unit: it.unit, kcal: it.kcal, protein: it.protein, fat: it.fat, carbs: it.carbs}
         );
         if(!logRes.ok) throw new Error((logRes.data && logRes.data.error) || `"${it.name}" could not be logged — try again.`);
         if(logRes.data && logRes.data.component_id) savedIds.push(logRes.data.component_id);
+        if(it.photoMeal && !photoEntryId && logRes.data && logRes.data.meal_entry_id) photoEntryId = logRes.data.meal_entry_id;
         if(foodId) recordRecentFood({name: it.name, canonical_unit: it.unit, canonical_amount: it.amount, source: it.origin || (it.payload && it.payload.source) || null, nutrients: {ENERC_KCAL: it.kcal, PROCNT: it.protein, FAT: it.fat, CHOCDF: it.carbs}}, foodId);
         lmItems.splice(lmItems.indexOf(it), 1);
       }
       const notes = document.getElementById('lmNotes').value.trim();
       if(notes) upsertNutritionFields(date, {notes});
+      let photoNote = '';
+      if(lmPhoto && photoEntryId){
+        try{ await saveMealPhoto(photoEntryId, lmPhoto); }catch(e){ photoNote = ' · photo not saved'; }
+      }
+      lmPhoto = null;
       closeLogMealScreen();
-      showToast('Meal added · ' + savedKcal + ' kcal', savedIds.length ? () => undoLoggedMeals(savedIds) : undefined);
+      showToast('Meal added · ' + savedKcal + ' kcal' + photoNote, savedIds.length ? () => undoLoggedMeals(savedIds) : undefined);
       nutriSelectedDate = date;
       renderTodayMeals();
       renderNutrition();
