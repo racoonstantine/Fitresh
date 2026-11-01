@@ -330,16 +330,40 @@
     return Promise.all(names().filter(n => resources[n].hasPending && !resources[n].conflict).map(flush));
   }
 
+  // ---- startup prefetch ----
+  // prefetch() starts the reads for several resources at once; the next get() of each takes the
+  // answer already on its way instead of asking again, so startup waits for the slowest read
+  // rather than the sum of all of them. Entries are used once and expire, so a later get()
+  // (after a save, say) always asks the server afresh.
+  const prefetched = new Map();
+  const PREFETCH_TTL_MS = 15000;
+  function prefetch(keys){
+    keys.forEach(key => {
+      const resource = key.replace(/^log:/, '');
+      prefetched.set(resource, {
+        at: Date.now(),
+        res: fetch(`${API}?resource=${encodeURIComponent(resource)}`, { credentials: 'same-origin' }).catch(() => null)
+      });
+    });
+  }
+  function takePrefetched(resource){
+    const p = prefetched.get(resource);
+    prefetched.delete(resource);
+    return p && Date.now() - p.at < PREFETCH_TTL_MS ? p.res : null;
+  }
+
   // ---- public API (same shape the app always used) ----
   window.storage = {
+    prefetch,
     async get(key){
       try{
         const resource = key.replace(/^log:/, '');
+        const early = takePrefetched(resource);
         const s = st(resource);
         // An unsent local value is newer than anything the server could return.
         if(s.hasPending) return {value: s.pending};
         let res = null;
-        try{ res = await fetch(`${API}?resource=${encodeURIComponent(resource)}`, { credentials: 'same-origin' }); }catch(e){ res = null; }
+        try{ res = await (early || fetch(`${API}?resource=${encodeURIComponent(resource)}`, { credentials: 'same-origin' })); }catch(e){ res = null; }
         if(res && res.status === 401){ if(typeof handleUnauthorized === 'function') handleUnauthorized(); return null; }
         if(!res || res.status >= 500){
           // Offline or the server is down: serve the last copy this device saw, and remember its
@@ -359,6 +383,7 @@
     },
     set(key, value){
       const resource = key.replace(/^log:/, '');
+      prefetched.delete(resource);
       const s = st(resource);
       s.pending = value; s.hasPending = true; s.rejected = null;
       persist(resource);

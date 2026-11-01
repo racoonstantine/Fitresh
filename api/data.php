@@ -10,6 +10,11 @@ if (empty($_SESSION['user_id'])) {
     json_respond(['error' => 'Not logged in'], 401);
 }
 $userId = (int)$_SESSION['user_id'];
+// Reads don't change the session, so let go of its lock now. Otherwise PHP makes the app's
+// parallel startup reads wait for each other, one after another.
+if (($_SERVER['REQUEST_METHOD'] ?? '') === 'GET') {
+    session_write_close();
+}
 
 $ALLOWED_RESOURCES = ['nutrition', 'weighins', 'history', 'checked', 'weights', 'theme', 'profile', 'fasting', 'water', 'sleep', 'steps', 'recentFoods', 'favoriteFoods', 'workoutPlan', 'trainingPlan', 'customWorkoutPlans', 'sharing', 'resh'];
 
